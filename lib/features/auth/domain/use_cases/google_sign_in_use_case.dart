@@ -1,0 +1,50 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:tamrini/core/services/services.dart';
+import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
+import 'package:tamrini/features/auth/domain/entities/user_entity.dart';
+import 'package:tamrini/features/auth/domain/repo/login_repo.dart';
+
+abstract class UseCase {
+  Future<Either<String, UserEntity>> googleSignIn();
+}
+
+class GoogleSignInUseCase extends UseCase {
+  final LoginRepo loginRepo;
+
+  GoogleSignInUseCase(this.loginRepo);
+  @override
+  Future<Either<String, UserEntity>> googleSignIn() async {
+    try {
+      UserCredential user = await loginRepo.loginWithGoogle();
+      var result = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.user!.uid)
+          .get();
+      if (result.data() != null) {
+        UserModel model = UserModel.fromMap(result.data()!);
+        getUserType(model);
+        return right(
+          UserEntity(
+            email: user.user!.email!,
+            name: user.user!.displayName!,
+            uid: user.user!.uid,
+            isCreated: true,
+          ),
+        );
+      } else {
+        return right(
+          UserEntity(
+            email: user.user!.email!,
+            name: user.user!.displayName!,
+            uid: user.user!.uid,
+            isCreated: false,
+          ),
+        );
+      }
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+}

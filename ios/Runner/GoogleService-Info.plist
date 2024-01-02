@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>540039956772-cco4naqje3ea6m7r383cls5je25qn43g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.540039956772-cco4naqje3ea6m7r383cls5je25qn43g</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>540039956772-98kgj9s3pnrvdn92ia3ren42nd7k949v.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCbp0oAJoXzputASM3X5tdtPekpua20D48</string>
+	<key>GCM_SENDER_ID</key>
+	<string>540039956772</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tamrini.app</string>
+	<key>PROJECT_ID</key>
+	<string>tamrini-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tamrini-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:540039956772:ios:8da67bc4b72c455f500bb1</string>
+	<key>DATABASE_URL</key>
+	<string>https://tamrini-app-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
