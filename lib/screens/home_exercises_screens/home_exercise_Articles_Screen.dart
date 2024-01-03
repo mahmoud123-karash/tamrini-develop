@@ -7,7 +7,7 @@ import 'package:tamrini/provider/user_provider.dart';
 import 'package:tamrini/screens/home_exercises_screens/Add_home_exercise_screen.dart';
 import 'package:tamrini/screens/home_exercises_screens/home_exercise_Article_details_Screen.dart';
 import 'package:tamrini/utils/constants.dart';
-import 'package:tamrini/utils/distripute_assets.dart';
+import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 import '../../utils/widgets/custom_image_slide_show.dart';
@@ -203,7 +203,7 @@ class _HomeExerciseArticlesScreenState
                                                     ),
                                                     Padding(
                                                       padding: const EdgeInsets
-                                                              .symmetric(
+                                                          .symmetric(
                                                           vertical: 10.0,
                                                           horizontal: 10),
                                                       child: SizedBox(

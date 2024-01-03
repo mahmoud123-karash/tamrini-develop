@@ -10,15 +10,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:provider/provider.dart';
 import 'package:tamrini/core/cache/shared_preference.dart' as helper;
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/shared/bloc_observer.dart';
 import 'package:tamrini/data/location.dart';
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/presentation/manager/complete_cubit/complete_cubit.dart';
+import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
+import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
+import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
+import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
+import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_cubit.dart';
+import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
 import 'package:tamrini/firebase_options.dart';
@@ -387,6 +396,10 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setLocator();
+  await Hive.initFlutter();
+  Hive.registerAdapter(DataModelAdapter());
+  await Hive.openBox<DataModel>(exerciseBox);
+
   FirebaseMessaging messaging = FirebaseMessaging.instance..requestPermission();
 
   AwesomeNotifications().requestPermissionToSendNotifications();
@@ -584,6 +597,20 @@ void main() async {
             create: (context) => UpdateCubit(
               NavBarRepo(),
             ),
+          ),
+          BlocProvider(
+            create: (context) => ExerciseCubit(
+              getIt.get<HomeRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => ManageCubit()
+              ..changeAppTheme(
+                fromSP: helper.CacheHelper.getData(key: 'isdark') ?? false,
+              )
+              ..changeLanguage(
+                language: helper.CacheHelper.getData(key: 'lang') ?? 'def',
+              ),
           )
         ],
         child: MyApp(
@@ -629,21 +656,27 @@ class _MyAppState extends State<MyApp> {
                 Provider.of<ThemeProvider>(context, listen: false)
                     .addTabCalculator();
               },
-              child: GetMaterialApp(
-                locale: const Locale('ar'),
-                localizationsDelegates: const [
-                  S.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: S.delegate.supportedLocales,
+              child: BlocBuilder<ManageCubit, ManageStates>(
+                builder: (context, state) {
+                  bool isDark = ManageCubit.get(context).isDark;
+                  String lang = ManageCubit.get(context).lang;
+                  return GetMaterialApp(
+                    locale: const Locale('ar'),
+                    localizationsDelegates: const [
+                      S.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: S.delegate.supportedLocales,
 
-                debugShowCheckedModeBanner: false,
-                theme: lightTheme,
-                home: widget.startWidget,
-                // widget.isLogged ? const HomeScreen() : const LoginScreen(),
-                navigatorKey: navigationKey,
+                    debugShowCheckedModeBanner: false,
+                    theme: isDark ? darkTheme : lightTheme,
+                    home: widget.startWidget,
+                    // widget.isLogged ? const HomeScreen() : const LoginScreen(),
+                    navigatorKey: navigationKey,
+                  );
+                },
               ),
             );
           },

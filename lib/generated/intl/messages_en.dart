@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
+        "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
+        "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
@@ -35,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
+        "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
+        "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
+        "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
         "exercises":
             MessageLookupByLibrary.simpleMessage("Exercises and Fitness"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
@@ -48,7 +53,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "male": MessageLookupByLibrary.simpleMessage("Make"),
+        "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "noExer":
+            MessageLookupByLibrary.simpleMessage("لا يوجد تمرين بهذا الاسم"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "passConfirm":
@@ -63,8 +71,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("Type Email Address"),
+        "search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "searchHint":
+            MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),
+        "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required")
       };

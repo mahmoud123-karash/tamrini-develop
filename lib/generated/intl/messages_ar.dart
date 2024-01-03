@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "age": MessageLookupByLibrary.simpleMessage("العمر"),
         "agree": MessageLookupByLibrary.simpleMessage("أوافق على"),
+        "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
+        "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("من فضلك أكمل التسجيل"),
         "complete": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
@@ -35,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بتفعيل الايميل الخاص"),
+        "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
+        "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
+        "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
         "exercises": MessageLookupByLibrary.simpleMessage("التمارين واللياقة"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
@@ -46,7 +51,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
+        "noExer":
+            MessageLookupByLibrary.simpleMessage("لا يوجد تمرين بهذا الاسم"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passConfirm": MessageLookupByLibrary.simpleMessage(
@@ -61,8 +69,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
+        "search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "searchHint":
+            MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
         "self": MessageLookupByLibrary.simpleMessage("ثقف نفسك"),
         "store": MessageLookupByLibrary.simpleMessage("المتجر"),
+        "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب")
       };
 }

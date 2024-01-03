@@ -10,3 +10,6 @@ Color greyColor = Colors.grey;
 
 String privacyUri =
     'https://www.privacypolicygenerator.info/live.php?token=MsmKdi4pne1dYTITIsaOPEXQh0zwVN1t';
+
+
+String exerciseBox = 'exerciseBox';

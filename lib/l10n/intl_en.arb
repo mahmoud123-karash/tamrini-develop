@@ -32,5 +32,21 @@
     "store":"Store",
     "health":"Health and Nutrition",
     "exercises":"Exercises and Fitness",
-    "self":"Self-Development"
+    "self":"Self-Development",
+    "exercise":"تمارين متنوعة",
+    "more":"المزيد",
+    "exDetails":"تفاصيل التمرين",
+    "categoryEx":"التمارين",
+    "allEx": "جميع التمارين",
+    "emptyList":"لا يوجد تمارين",
+    "search":"بحث",
+    "suggest":"قم بقتراح تمرين",
+    "noExer":"لا يوجد تمرين بهذا الاسم",
+    "searchHint":"قم بالبحث عن تمرين"
+
+
+
+
+
+
 }

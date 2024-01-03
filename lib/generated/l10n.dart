@@ -389,6 +389,106 @@ class S {
       args: [],
     );
   }
+
+  /// `تمارين متنوعة`
+  String get exercise {
+    return Intl.message(
+      'تمارين متنوعة',
+      name: 'exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المزيد`
+  String get more {
+    return Intl.message(
+      'المزيد',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل التمرين`
+  String get exDetails {
+    return Intl.message(
+      'تفاصيل التمرين',
+      name: 'exDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التمارين`
+  String get categoryEx {
+    return Intl.message(
+      'التمارين',
+      name: 'categoryEx',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `جميع التمارين`
+  String get allEx {
+    return Intl.message(
+      'جميع التمارين',
+      name: 'allEx',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد تمارين`
+  String get emptyList {
+    return Intl.message(
+      'لا يوجد تمارين',
+      name: 'emptyList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `بحث`
+  String get search {
+    return Intl.message(
+      'بحث',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قم بقتراح تمرين`
+  String get suggest {
+    return Intl.message(
+      'قم بقتراح تمرين',
+      name: 'suggest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد تمرين بهذا الاسم`
+  String get noExer {
+    return Intl.message(
+      'لا يوجد تمرين بهذا الاسم',
+      name: 'noExer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قم بالبحث عن تمرين`
+  String get searchHint {
+    return Intl.message(
+      'قم بالبحث عن تمرين',
+      name: 'searchHint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

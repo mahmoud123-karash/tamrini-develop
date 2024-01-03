@@ -10,7 +10,7 @@ import 'package:tamrini/screens/Articles_screens/Add_article_screen.dart';
 import 'package:tamrini/screens/Articles_screens/Article_details_screen.dart';
 import 'package:tamrini/screens/Articles_screens/pending_articles_screen.dart';
 import 'package:tamrini/utils/constants.dart';
-import 'package:tamrini/utils/distripute_assets.dart';
+import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 class ArticlesScreen extends StatefulWidget {
@@ -183,7 +183,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                                         assets = distributeAssets(
                                             articleProvider
                                                 .filteredArticles[index]
-                                                .image! as List<String>);
+                                                .image!);
                                       }
                                       return Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -236,7 +236,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                    .only(
+                                                                .only(
                                                                 top: 10.0,
                                                                 right: 10),
                                                         child: SizedBox(
@@ -270,7 +270,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                                                                 child: Padding(
                                                                   padding:
                                                                       const EdgeInsets
-                                                                              .all(
+                                                                          .all(
                                                                           8.0),
                                                                   child:
                                                                       AutoSizeText(
@@ -281,7 +281,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                                                                         .toDate()
                                                                         .toString())),
                                                                     style:
-                                                                        TextStyle(
+                                                                        const TextStyle(
                                                                       fontSize:
                                                                           12,
                                                                       fontWeight:
@@ -298,7 +298,7 @@ class _ArticlesScreenState extends State<ArticlesScreen> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                    .symmetric(
+                                                                .symmetric(
                                                                 vertical: 10.0,
                                                                 horizontal: 10),
                                                         child: SizedBox(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/model/exercise.dart';
 import 'package:tamrini/provider/exercise_provider.dart';
 import 'package:tamrini/provider/user_provider.dart';
@@ -10,7 +11,6 @@ import 'package:tamrini/screens/exercises_screens/exercise_Article_details_scree
 import 'package:tamrini/utils/constants.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
-import '../../utils/distripute_assets.dart';
 import '../../utils/widgets/custom_image_slide_show.dart';
 
 class ExerciseArticlesScreen extends StatefulWidget {
@@ -203,7 +203,7 @@ class _ExerciseArticlesScreen extends State<ExerciseArticlesScreen> {
                                                     ),
                                                     Padding(
                                                       padding: const EdgeInsets
-                                                              .symmetric(
+                                                          .symmetric(
                                                           vertical: 10.0,
                                                           horizontal: 10),
                                                       child: SizedBox(

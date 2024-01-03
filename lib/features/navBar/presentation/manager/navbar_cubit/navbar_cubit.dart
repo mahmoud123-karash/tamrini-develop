@@ -6,7 +6,6 @@ import 'package:tamrini/generated/l10n.dart';
 import 'package:tamrini/screens/articles_category_screen.dart';
 import 'package:tamrini/screens/exercise_category_screen.dart';
 import 'package:tamrini/screens/food_category_screen.dart';
-import 'package:tamrini/screens/home_screen_body.dart';
 import 'package:tamrini/screens/products_screens/store_home_screen.dart';
 
 class NavBarCubit extends Cubit<NavBarStates> {

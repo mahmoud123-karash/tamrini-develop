@@ -10,7 +10,7 @@ import 'package:tamrini/screens/diet_food_screens/Add_diet_food_screen.dart';
 import 'package:tamrini/screens/diet_food_screens/diet_food_details_screen.dart';
 import 'package:tamrini/screens/diet_food_screens/pending_diet_food_screen.dart';
 import 'package:tamrini/utils/constants.dart';
-import 'package:tamrini/utils/distripute_assets.dart';
+import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 class DietFoodScreen extends StatefulWidget {
@@ -211,7 +211,7 @@ class _DietFoodScreenState extends State<DietFoodScreen> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                    .only(
+                                                                .only(
                                                                 top: 10.0,
                                                                 right: 10),
                                                         child: SizedBox(
@@ -230,7 +230,7 @@ class _DietFoodScreenState extends State<DietFoodScreen> {
                                                                 child: Padding(
                                                                   padding:
                                                                       const EdgeInsets
-                                                                              .all(
+                                                                          .all(
                                                                           8.0),
                                                                   child:
                                                                       AutoSizeText(
@@ -257,8 +257,9 @@ class _DietFoodScreenState extends State<DietFoodScreen> {
                                                                   ? Expanded(
                                                                       child:
                                                                           Padding(
-                                                                        padding:
-                                                                            const EdgeInsets.all(8.0),
+                                                                        padding: const EdgeInsets
+                                                                            .all(
+                                                                            8.0),
                                                                         child:
                                                                             AutoSizeText(
                                                                           intl.DateFormat('yyyy-MM-dd').format(DateTime.parse(_
@@ -284,7 +285,7 @@ class _DietFoodScreenState extends State<DietFoodScreen> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                    .symmetric(
+                                                                .symmetric(
                                                                 vertical: 10.0,
                                                                 horizontal: 10),
                                                         child: SizedBox(

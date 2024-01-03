@@ -8,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/home_exercise_widget_builder.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/title_and_more_button_row_widget.dart';
 import 'package:tamrini/model/exercise.dart';
 import 'package:tamrini/model/product.dart';
 import 'package:tamrini/provider/home_provider.dart';
@@ -19,6 +21,8 @@ import 'package:tamrini/screens/gym_screens/gym_details_screen.dart';
 import 'package:tamrini/screens/gym_screens/gyms_screen.dart';
 import 'package:tamrini/screens/products_screens/product_details_screen.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
+
+import 'widgets/home_loading_widget.dart';
 
 int bannerIndex = 0;
 
@@ -44,226 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
       return SingleChildScrollView(
         child: Column(
           children: [
-            _.banners.isEmpty
-                ? const SizedBox()
-                : Padding(
-                    padding: const EdgeInsets.only(top: 15.0, bottom: 5),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: ImageSlideshow(
-                        autoPlayInterval: 7000,
-                        isLoop: true,
-                        children: [
-                          for (var i = 0; i < _.banners.length; i++)
-                            GestureDetector(
-                                onTap: () {
-                                  _.onClickBanner(index: i);
-                                },
-                                child: Image(
-                                  image: FirebaseImageProvider(
-                                    FirebaseUrl(
-                                      _.banners[i]["image"]!,
-                                    ),
-                                  ),
-                                  fit: BoxFit.fitWidth,
-                                )),
-                        ],
-                        onPageChanged: (value) {
-                          setState(() {
-                            bannerIndex = value;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _.banners.isNotEmpty
-                    ? Text(
-                        "عدد الزيارات: ${_.banners[(bannerIndex > _.banners.length ? 0 : bannerIndex)]['counter'] ?? 0}")
-                    : Container(),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            //exercises
-            _.exercises.isEmpty
-                ? Container()
-                : Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          "تمارين متنوعة",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 20,
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            // _.exercise.fetchExercises();
-                            To(const ExercisesHomeScreen());
-                          },
-                          child: const Text(
-                            "المزيد",
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-            _.exercises.isEmpty
-                ? Container()
-                : const SizedBox(
-                    height: 20,
-                  ),
-            _.exercises.isEmpty
-                ? Container()
-                : SizedBox(
-                    height: getHeight * 0.3,
-                    width: getWidht,
-                    child: ScrollSnapList(
-                      itemCount: _.exercises.length,
-                      itemSize: getWidht * 0.7,
-                      // reverse: true,
-                      dynamicItemSize: true,
-                      dynamicSizeEquation: (double distance) {
-                        return 1 - min(distance.abs() / 500, 0.2);
-                        // return 1 - (distance / 1000);
-                      },
-                      // dynamicSizeEquation: (index) {
-                      //   return 1.0;
-                      // },
-                      shrinkWrap: true,
-                      onItemFocus: (index) {
-                        print("focused item $index");
-                      },
-                      itemBuilder: (__, index) {
-                        return InkWell(
-                          borderRadius: BorderRadius.circular(15),
-                          onTap: () {
-                            To(ExerciseArticlesDetailsScreen(
-                                exercise: _.exercises[index],
-                                category: Exercise(id: "0"),
-                                isAll: true));
-                          },
-                          child: Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(30),
-                                child: Image(
-                                  image: FirebaseImageProvider(FirebaseUrl(
-                                      _.exercises[index].assets!.first)),
-                                  fit: BoxFit.cover,
-                                  width: getWidht * 0.7,
-                                  height: getHeight * 0.3,
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                left: 0,
-                                child: Container(
-                                  height: getHeight * 0.18,
-                                  // width: getWidht * 0.7,
-                                  constraints: const BoxConstraints(
-                                    maxWidth: double.infinity,
-                                    maxHeight: double.infinity,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.blueGrey[500],
-                                    borderRadius: BorderRadius.circular(30),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Colors.blueGrey[900]!.withOpacity(0.0),
-                                        Colors.blueGrey[500]!.withOpacity(0.5),
-                                        Colors.blueGrey[500]!.withOpacity(0.8),
-                                        Colors.blueGrey[500]!.withOpacity(1.0),
-                                      ],
-                                    ),
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        color: Colors.black12,
-                                        spreadRadius: 5,
-                                        blurRadius: 10,
-                                      ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Flexible(
-                                          flex: 1,
-                                          child: Text(
-                                            _.exercises[index].title ?? '',
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 5.0,
-                                        ),
-                                        Text(
-                                          _.exercises[index].description!,
-                                          maxLines: 1,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 15,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-
-                      // dynamicItemSize: true,
-                    ),
-                  ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            _.exercises.isEmpty
-                ? Container()
-                : const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Divider(
-                      color: Colors.grey,
-                      thickness: 1,
-                    ),
-                  ),
-            const SizedBox(
-              height: 20.0,
-            ),
-
-            // //articles
+            const HomeExerciseWidgetBuilder(),
 
             _.articles.isEmpty
                 ? Container()
@@ -317,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: _.articles.length,
                       itemSize: getWidht * 0.7,
                       // reverse: true,
-                      dynamicItemSize: true,
+                      dynamicItemSize: false,
                       shrinkWrap: true,
                       updateOnScroll: true,
                       focusOnItemTap: true,
@@ -336,89 +121,97 @@ class _HomeScreenState extends State<HomeScreen> {
                               isAll: true,
                             ));
                           },
-                          child: Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(30),
-                                child: Image(
-                                  image: FirebaseImageProvider(FirebaseUrl(
-                                      _.articles[index].image!.first)),
-                                  fit: BoxFit.fill,
-                                  width: getWidht * 0.7,
-                                  height: getHeight * 0.3,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Image(
+                                    image: FirebaseImageProvider(FirebaseUrl(
+                                        _.articles[index].image!.first)),
+                                    fit: BoxFit.fill,
+                                    width: getWidht * 0.7,
+                                    height: getHeight * 0.3,
+                                  ),
                                 ),
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                left: 0,
-                                child: Container(
-                                  // constraints: const BoxConstraints(
-                                  //   maxWidth: double.infinity,
-                                  //   maxHeight: double.infinity,
-                                  //
-                                  // ),
-                                  height: getHeight * 0.18,
-                                  decoration: BoxDecoration(
-                                    color: Colors.blueGrey[500],
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Colors.blueGrey[500]!.withOpacity(0.0),
-                                        Colors.blueGrey[500]!.withOpacity(0.5),
-                                        Colors.blueGrey[500]!.withOpacity(0.8),
-                                        Colors.blueGrey[500]!.withOpacity(1.0),
+                                Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  left: 0,
+                                  child: Container(
+                                    // constraints: const BoxConstraints(
+                                    //   maxWidth: double.infinity,
+                                    //   maxHeight: double.infinity,
+                                    //
+                                    // ),
+                                    height: getHeight * 0.18,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blueGrey[500],
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Colors.blueGrey[500]!
+                                              .withOpacity(0.0),
+                                          Colors.blueGrey[500]!
+                                              .withOpacity(0.5),
+                                          Colors.blueGrey[500]!
+                                              .withOpacity(0.8),
+                                          Colors.blueGrey[500]!
+                                              .withOpacity(1.0),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(30),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          color: Colors.black12,
+                                          spreadRadius: 5,
+                                          blurRadius: 10,
+                                        ),
                                       ],
                                     ),
-                                    borderRadius: BorderRadius.circular(30),
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        color: Colors.black12,
-                                        spreadRadius: 5,
-                                        blurRadius: 10,
-                                      ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Flexible(
-                                          flex: 1,
-                                          child: Text(
-                                            _.articles[index].title ?? '',
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(20),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Flexible(
+                                            flex: 1,
+                                            child: Text(
+                                              _.articles[index].title ?? '',
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        const SizedBox(
-                                          height: 5.0,
-                                        ),
-                                        Text(
-                                          _.articles[index].body!,
-                                          maxLines: 1,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 15,
-                                            overflow: TextOverflow.ellipsis,
+                                          const SizedBox(
+                                            height: 5.0,
                                           ),
-                                        ),
-                                      ],
+                                          Text(
+                                            _.articles[index].body!,
+                                            maxLines: 1,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 15,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         );
                       },

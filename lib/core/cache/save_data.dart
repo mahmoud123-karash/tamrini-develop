@@ -24,3 +24,18 @@ void saveDeviceToken(value) => CacheHelper.saveData(
       key: 'deviceToken',
       value: value,
     );
+
+void saveSwiperIndex(value) => CacheHelper.saveData(
+      key: 'index',
+      value: value,
+    );
+
+void saveTheme(value) => CacheHelper.saveData(
+      key: 'isdark',
+      value: value,
+    );
+
+void saveLanguage(value) => CacheHelper.saveData(
+      key: 'lang',
+      value: value,
+    );

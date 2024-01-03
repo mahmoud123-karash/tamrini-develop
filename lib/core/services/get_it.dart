@@ -3,6 +3,8 @@ import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_r
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
+import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
+import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 
 import '../../features/auth/data/repo/login_repo_impl.dart';
 
@@ -24,6 +26,11 @@ void setLocator() {
   getIt.registerSingleton<GoogleSignInUseCase>(
     GoogleSignInUseCase(
       getIt.get<LoginRepoImpl>(),
+    ),
+  );
+  getIt.registerSingleton<HomeRepoImpl>(
+    HomeRepoImpl(
+      HomeRemoteDataSourceImpl(),
     ),
   );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/model/exercise.dart';
 import 'package:tamrini/provider/user_provider.dart';
 import 'package:tamrini/screens/exercises_screens/edit_exercise_screen.dart';
@@ -9,7 +10,6 @@ import 'package:tamrini/utils/constants.dart';
 import 'package:tamrini/utils/video_manager.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
-import '../../utils/distripute_assets.dart';
 import '../../utils/regex.dart';
 import '../../utils/widgets/custom_image_slide_show.dart';
 
@@ -43,10 +43,10 @@ class _ExerciseArticlesDetailsScreenState
 
   @override
   Widget build(BuildContext context) {
-    int _imgIndex = 0;
+    int imgIndex = 0;
     List<Widget> assets = [];
     if (widget.exercise.assets != null) {
-      assets = distributeAssets(widget.exercise.assets! as List<String>);
+      assets = distributeAssets(widget.exercise.assets!);
     }
 
     return Scaffold(
@@ -78,7 +78,9 @@ class _ExerciseArticlesDetailsScreenState
                 children: [
                   ArticleView(exercise: widget.exercise),
                   if (widget.superSetExercise != null) ...[
-                    const Divider(color: Colors.white,),
+                    const Divider(
+                      color: Colors.white,
+                    ),
                     Text(
                       'التمرين الثاني',
                       style: TextStyle(
@@ -137,7 +139,7 @@ class ArticleView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> assets = [];
     if (exercise.assets != null) {
-      assets = distributeAssets(exercise.assets! as List<String>);
+      assets = distributeAssets(exercise.assets!);
     }
     return Column(
       children: [
@@ -174,7 +176,8 @@ class ArticleView extends StatelessWidget {
                                           builder: (context, setState) {
                                         return Scaffold(
                                           appBar: AppBar(
-                                            backgroundColor: Color(0xFFEFF2F7),
+                                            backgroundColor:
+                                                const Color(0xFFEFF2F7),
                                             elevation: 0,
                                             iconTheme: const IconThemeData(
                                                 color: Color(0xFF003E4F)),

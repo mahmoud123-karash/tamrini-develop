@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:tamrini/model/trainee.dart';
 import 'package:tamrini/provider/trainee_provider.dart';
-import 'package:tamrini/utils/distripute_assets.dart';
+import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/utils/video_manager.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
@@ -46,7 +46,7 @@ class _FollowUpDetailsScreenState extends State<FollowUpDetailsScreen> {
                 boxShadow: [
                   BoxShadow(
                       color: Colors.grey.shade300,
-                      offset: Offset(0, 2),
+                      offset: const Offset(0, 2),
                       blurRadius: 5)
                 ]),
             child: SingleChildScrollView(
@@ -85,7 +85,7 @@ class _FollowUpDetailsScreenState extends State<FollowUpDetailsScreen> {
                       },
                     ),
                     const SizedBox(height: 30),
-                    Divider(),
+                    const Divider(),
                     const SizedBox(
                       height: 30,
                     ),
