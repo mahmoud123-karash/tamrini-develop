@@ -31,8 +31,10 @@ class HomeExerciseWidget extends StatelessWidget {
         ExercisesListViewWidget(
           exercises: exercises,
         ),
-        const SizedBox(
-          height: 20,
+        const Divider(
+          height: 50,
+          indent: 20,
+          endIndent: 20,
         ),
       ],
     );

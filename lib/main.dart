@@ -24,6 +24,7 @@ import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
+import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
 import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_cubit.dart';
@@ -397,8 +398,6 @@ void main() async {
   );
   setLocator();
   await Hive.initFlutter();
-  Hive.registerAdapter(DataModelAdapter());
-  await Hive.openBox<DataModel>(exerciseBox);
 
   FirebaseMessaging messaging = FirebaseMessaging.instance..requestPermission();
 
@@ -600,6 +599,11 @@ void main() async {
           ),
           BlocProvider(
             create: (context) => ExerciseCubit(
+              getIt.get<HomeRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => ArticlesCubit(
               getIt.get<HomeRepoImpl>(),
             )..getData(),
           ),

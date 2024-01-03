@@ -11,7 +11,7 @@ class ExercisesListViewWidget extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
     return SizedBox(
-      height: getHeight * 0.3,
+      height: getHeight * 0.25,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: exercises.length,

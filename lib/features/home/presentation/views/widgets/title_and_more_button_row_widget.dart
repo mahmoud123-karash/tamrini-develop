@@ -12,7 +12,6 @@ class TitleAndMoreButtonRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: 20,
         left: Intl.getCurrentLocale() == 'en' ? 20 : 5,
         right: Intl.getCurrentLocale() == 'ar' ? 20 : 5,
       ),

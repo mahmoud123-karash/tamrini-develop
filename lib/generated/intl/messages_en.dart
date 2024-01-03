@@ -25,6 +25,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
+        "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
+        "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
+        "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
@@ -34,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "create":
             MessageLookupByLibrary.simpleMessage("Don/\'t have an acount?"),
         "create1": MessageLookupByLibrary.simpleMessage("Create acount"),
+        "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
@@ -55,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "male": MessageLookupByLibrary.simpleMessage("Make"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "noArticles":
+            MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
         "noExer":
             MessageLookupByLibrary.simpleMessage("لا يوجد تمرين بهذا الاسم"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),

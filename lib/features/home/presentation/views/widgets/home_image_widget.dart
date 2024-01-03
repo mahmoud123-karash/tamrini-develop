@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/assets.dart';
 
 class HomeImageWidget extends StatelessWidget {
-  const HomeImageWidget({super.key, required this.image});
+  const HomeImageWidget({super.key, required this.image, required this.width});
   final String image;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class HomeImageWidget extends StatelessWidget {
                 ),
               ),
               fit: BoxFit.cover,
-              width: getWidht - 70,
+              width: width,
               height: getHeight * 0.3,
             ),
           )

@@ -1,56 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/utils/check_assets_format.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/home/presentation/views/exercise_details_screen.dart';
-import 'package:tamrini/features/home/presentation/views/exercise_details_without_vedio_screen.dart';
+import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 
-class HomeExerciseItemWidget extends StatelessWidget {
-  const HomeExerciseItemWidget({super.key, required this.model});
-  final DataModel model;
+import '../articles_details_screen.dart';
+
+class AtricleItemWidget extends StatelessWidget {
+  const AtricleItemWidget(
+      {super.key, required this.model, required this.width});
+  final ArticleModel model;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
-    final getWidht = mediaQuery.size.width;
 
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15),
+      padding: const EdgeInsets.only(
+        left: 15,
+        right: 15,
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(30),
-        onTap: () async {
-          if (model.assets != null || model.assets!.isNotEmpty) {
-            if (model.assets!.length == 2) {
-              navigateTo(context,
-                  DetailsScreen(model: model, vedio: model.assets![1]));
-            }
-            if (model.assets!.length == 1 &&
-                checkVedioformat(model.assets!) != '') {
-              navigateTo(context,
-                  DetailsScreen(model: model, vedio: model.assets!.first));
-            }
-            if (model.assets!.length == 1 &&
-                checkVedioformat(model.assets!) == '') {
-              navigateTo(context, DetailsWithoutVedioScreen(model: model));
-            }
-          } else {
-            navigateTo(context, DetailsWithoutVedioScreen(model: model));
-          }
+        onTap: () {
+          navigateTo(context, ArticlesDetailsScreen(model: model));
         },
         child: Stack(
           children: [
-            if (model.assets != null || model.assets!.isNotEmpty)
-              model.assets!.length == 2
-                  ? HomeImageWidget(
-                      width: getWidht - 70, image: model.assets!.first)
-                  : HomeImageWidget(
-                      width: getWidht - 70,
-                      image: checkVedioformat(model.assets!) == ''
-                          ? model.assets!.first
-                          : '',
-                    ),
+            HomeImageWidget(
+              width: width,
+              image: model.image == null || model.image!.isEmpty
+                  ? ''
+                  : model.image!.first,
+            ),
             Positioned(
               bottom: 0,
               right: 0,
@@ -105,7 +88,7 @@ class HomeExerciseItemWidget extends StatelessWidget {
                         height: 5.0,
                       ),
                       Text(
-                        model.description!,
+                        model.body!,
                         maxLines: 1,
                         style: const TextStyle(
                           color: Colors.white,

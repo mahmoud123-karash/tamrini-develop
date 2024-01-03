@@ -489,6 +489,56 @@ class S {
       args: [],
     );
   }
+
+  /// `آخر المقالات`
+  String get articles {
+    return Intl.message(
+      'آخر المقالات',
+      name: 'articles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد مقالات بهذا الإسم`
+  String get noArticles {
+    return Intl.message(
+      'لا يوجد مقالات بهذا الإسم',
+      name: 'noArticles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المقالات`
+  String get articlesT {
+    return Intl.message(
+      'المقالات',
+      name: 'articlesT',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التاريخ`
+  String get date {
+    return Intl.message(
+      'التاريخ',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `بواسطة`
+  String get by {
+    return Intl.message(
+      'بواسطة',
+      name: 'by',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
