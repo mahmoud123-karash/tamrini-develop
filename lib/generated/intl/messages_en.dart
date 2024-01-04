@@ -25,19 +25,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
+        "allPriducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
+        "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
         "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
+        "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
+        "buyNow": MessageLookupByLibrary.simpleMessage("شراء الآن"),
         "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
         "confirmpass": MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
         "create":
             MessageLookupByLibrary.simpleMessage("Don/\'t have an acount?"),
         "create1": MessageLookupByLibrary.simpleMessage("Create acount"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+        "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
@@ -64,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noExer":
             MessageLookupByLibrary.simpleMessage("لا يوجد تمرين بهذا الاسم"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
+        "ourProducts": MessageLookupByLibrary.simpleMessage("منتجاتنا"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "passConfirm":
             MessageLookupByLibrary.simpleMessage("please confirm the Password"),
@@ -73,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
         "privacyConfirm":
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
+        "proDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
+        "products": MessageLookupByLibrary.simpleMessage("منتجات متنوعة"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
@@ -82,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),
+        "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required")

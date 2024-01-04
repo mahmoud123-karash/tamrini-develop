@@ -4,14 +4,14 @@ class Product {
   String? title;
   String? id;
 
-  Product({this.image, this.data, this.title , required this.id});
+  Product({this.image, this.data, this.title, required this.id});
 
   Product.fromJson(Map<String, dynamic> json, String id) {
     image = json['image'];
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
 
@@ -20,12 +20,12 @@ class Product {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['image'] = this.image;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['image'] = image;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
-    data['title'] = this.title;
+    data['title'] = title;
     return data;
   }
 }
@@ -38,7 +38,13 @@ class Data {
   String? id;
   bool? available;
 
-  Data({this.assets, this.price, this.description, this.title, this.available , required this.id});
+  Data(
+      {this.assets,
+      this.price,
+      this.description,
+      this.title,
+      this.available,
+      required this.id});
 
   Data.fromJson(Map<String, dynamic> json) {
     if (json['image'] != null) {
@@ -55,13 +61,13 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['image'] = this.assets;
-    data['price'] = this.price;
-    data['description'] = this.description;
-    data['title'] = this.title;
-    data['avilable'] = this.available;
-    data['id'] = this.id;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['image'] = assets;
+    data['price'] = price;
+    data['description'] = description;
+    data['title'] = title;
+    data['avilable'] = available;
+    data['id'] = id;
     return data;
   }
 }

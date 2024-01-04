@@ -539,6 +539,116 @@ class S {
       args: [],
     );
   }
+
+  /// `تفاصيل المقال`
+  String get arDetails {
+    return Intl.message(
+      'تفاصيل المقال',
+      name: 'arDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منتجات متنوعة`
+  String get products {
+    return Intl.message(
+      'منتجات متنوعة',
+      name: 'products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المتاجر`
+  String get stores {
+    return Intl.message(
+      'المتاجر',
+      name: 'stores',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عدد المنتجات`
+  String get allPriducts {
+    return Intl.message(
+      'عدد المنتجات',
+      name: 'allPriducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منتجاتنا`
+  String get ourProducts {
+    return Intl.message(
+      'منتجاتنا',
+      name: 'ourProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأفضل مبيعا`
+  String get bestSeller {
+    return Intl.message(
+      'الأفضل مبيعا',
+      name: 'bestSeller',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل المنتج`
+  String get proDetails {
+    return Intl.message(
+      'تفاصيل المنتج',
+      name: 'proDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الوصف`
+  String get description {
+    return Intl.message(
+      'الوصف',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `دينار`
+  String get dinar {
+    return Intl.message(
+      'دينار',
+      name: 'dinar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `شراء الآن`
+  String get buyNow {
+    return Intl.message(
+      'شراء الآن',
+      name: 'buyNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تواصل معنا`
+  String get contactUs {
+    return Intl.message(
+      'تواصل معنا',
+      name: 'contactUs',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,6 +1,6 @@
 class Assets {
   Assets._();
-
+  
   /// Assets for imagesAllExer
   /// assets/images/allExer.jpg
   static const String imagesAllExer = "assets/images/allExer.jpg";
@@ -10,21 +10,20 @@ class Assets {
   static const String imagesAllProduct = "assets/images/allProduct.jpg";
 
   /// Assets for imagesAppleLogo
-  /// assets/images/Apple-Logo.png
-  static const String imagesAppleLogo = "assets/images/Apple-Logo.png";
-
-  /// Assets for imagesAppleLogo
-  /// assets/images/apple-logo.jpg
-  static const String imagesAppleLogoJpg = "assets/images/apple-logo.jpg";
-
-  /// Assets for imagesAppleLogo
   /// assets/images/Apple_logo.png
-  static const String imagesAppleLogopng = "assets/images/Apple_logo.png";
+  static const String imagesAppleLogo = "assets/images/Apple_logo.png";
+
+  /// Assets for imagesAppleLogoS
+  /// assets/images/Apple-Logo_s.png
+  static const String imagesAppleLogoS = "assets/images/Apple-Logo_s.png";
+
+  /// Assets for imagesAppleLogojpg
+  /// assets/images/apple-logojpg.jpg
+  static const String imagesAppleLogojpg = "assets/images/apple-logojpg.jpg";
 
   /// Assets for imagesArticalesBanner
   /// assets/images/articalesBanner.jpg
-  static const String imagesArticalesBanner =
-      "assets/images/articalesBanner.jpg";
+  static const String imagesArticalesBanner = "assets/images/articalesBanner.jpg";
 
   /// Assets for imagesCoursesIcon
   /// assets/images/coursesIcon.png
@@ -78,9 +77,9 @@ class Assets {
   /// assets/images/login1.png
   static const String imagesLogin1 = "assets/images/login1.png";
 
-  /// Assets for imagesLogin1
-  /// assets/images/login1.jpg
-  static const String imagesLogin1Jpg = "assets/images/login1.jpg";
+  /// Assets for imagesLogin1jpg
+  /// assets/images/login1jpg.jpg
+  static const String imagesLogin1jpg = "assets/images/login1jpg.jpg";
 
   /// Assets for imagesLogo
   /// assets/images/logo.png
@@ -94,6 +93,10 @@ class Assets {
   /// assets/images/nutiritious.jpg
   static const String imagesNutiritious = "assets/images/nutiritious.jpg";
 
+  /// Assets for imagesProfile
+  /// assets/images/profile.png
+  static const String imagesProfile = "assets/images/profile.png";
+
   /// Assets for imagesProtien
   /// assets/images/protien.jpg
   static const String imagesProtien = "assets/images/protien.jpg";
@@ -101,6 +104,10 @@ class Assets {
   /// Assets for imagesQuestion
   /// assets/images/question.jpg
   static const String imagesQuestion = "assets/images/question.jpg";
+
+  /// Assets for imagesRectangle
+  /// assets/images/Rectangle.png
+  static const String imagesRectangle = "assets/images/Rectangle.png";
 
   /// Assets for imagesTrainer
   /// assets/images/trainer.jpg

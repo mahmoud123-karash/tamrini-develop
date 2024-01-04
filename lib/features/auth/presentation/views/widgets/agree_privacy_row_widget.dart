@@ -58,7 +58,7 @@ class _AgreePrivacyRowWidgetState extends State<AgreePrivacyRowWidget> {
           GestureDetector(
             onTap: () {
               openUri(
-                uri: Uri.parse(privacyUri),
+                url: Uri.parse(privacyUri),
               );
             },
             child: Text(

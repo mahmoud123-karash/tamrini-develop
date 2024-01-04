@@ -20,7 +20,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(),
         title: Text(
-          S.of(context).exDetails,
+          S.of(context).arDetails,
         ),
         centerTitle: true,
       ),
@@ -80,10 +80,12 @@ class ArticlesDetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const Divider(),
                   const SizedBox(
-                    height: 15,
+                    height: 5,
                   ),
                   ArticleWriterAndDate(
+                    writerUid: model.writerUid ?? '',
                     writer: model.writer ?? '',
                     date: DateFormat('yyyy-MM-dd').format(
                       model.date!.toDate(),

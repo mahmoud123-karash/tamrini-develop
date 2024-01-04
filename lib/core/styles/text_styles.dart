@@ -12,12 +12,31 @@ abstract class TextStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
-    color: Colors.black,
+  );
+  static const TextStyle style13 = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'cairo',
+  );
+  static const TextStyle style17 = TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'cairo',
+  );
+  static const TextStyle style16Bold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'cairo',
+  );
+
+  static const TextStyle style19 = TextStyle(
+    fontSize: 19,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'cairo',
   );
 
   static const TextStyle style20Bold = TextStyle(
     fontFamily: "cairo",
-    color: Colors.black87,
     fontSize: 20.0,
     fontWeight: FontWeight.bold,
   );

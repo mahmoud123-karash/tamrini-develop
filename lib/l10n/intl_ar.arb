@@ -47,5 +47,17 @@
     "noArticles":"لا يوجد مقالات بهذا الإسم",
     "articlesT":"المقالات",
     "date":"التاريخ",
-    "by":"بواسطة"
+    "by":"بواسطة",
+    "arDetails":"تفاصيل المقال",
+    "products":"منتجات متنوعة",
+    "stores":"المتاجر",
+    "allPriducts":"عدد المنتجات",
+    "ourProducts":"منتجاتنا",
+    "bestSeller":"الأفضل مبيعا",
+    "proDetails": "تفاصيل المنتج",
+    "description":"الوصف",
+    "dinar":"دينار",
+    "buyNow":"شراء الآن",
+    "contactUs":"تواصل معنا"
+
 }

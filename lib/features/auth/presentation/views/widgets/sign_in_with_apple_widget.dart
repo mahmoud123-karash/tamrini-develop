@@ -23,7 +23,7 @@ class SignInWithAppleIconWidget extends StatelessWidget {
                 width: 40,
                 height: 30,
                 child: Image.asset(
-                  Assets.imagesAppleLogopng,
+                  Assets.imagesAppleLogo,
                   fit: BoxFit.contain,
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -8,6 +9,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
+import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/home/data/models/store_model/rating_model.dart';
+import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_articles_widget_builder.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_exercise_widget_builder.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/title_and_more_button_row_widget.dart';
@@ -24,6 +28,7 @@ import 'package:tamrini/screens/products_screens/product_details_screen.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 import 'widgets/home_loading_widget.dart';
+import 'widgets/home_product_widget_builder.dart';
 
 int bannerIndex = 0;
 
@@ -51,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const HomeExerciseWidgetBuilder(),
             const HomeArticlesWidgetBuilder(),
+            const HomeProductWidgetBuilder(),
 
             _.products.isEmpty
                 ? Container()

@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
+import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<ExerciseModel>> getExercises();
   Future<List<ArticleModel>> getArticles();
+  Future<List<StoreModel>> getStores();
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -37,6 +39,17 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     for (var element in result.docs) {
       ArticleModel model = ArticleModel.fromJson(element.data(), element.id);
+      list.add(model);
+    }
+    return list;
+  }
+
+  @override
+  Future<List<StoreModel>> getStores() async {
+    List<StoreModel> list = [];
+    var result = await FirebaseFirestore.instance.collection('stores').get();
+    for (var element in result.docs) {
+      StoreModel model = StoreModel.fromMap(element.data());
       list.add(model);
     }
     return list;

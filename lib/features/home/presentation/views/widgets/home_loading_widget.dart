@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tamrini/core/contants/constants.dart';
 
@@ -30,28 +27,31 @@ class HomeLoadingWidget extends StatelessWidget {
             onPressed: () {},
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           SizedBox(
-            height: getHeight * 0.3,
-            child: ScrollSnapList(
+            height: getHeight * 0.25,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
               itemCount: 5,
-              itemSize: getWidht - 25,
-              dynamicItemSize: true,
-              dynamicSizeEquation: (double distance) {
-                return 1 - min(distance.abs() / 500, 0.2);
-              },
               shrinkWrap: true,
-              onItemFocus: (index) {},
-              itemBuilder: (context, index) => ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  color: appColor,
-                  width: getWidht - 70,
-                  height: getHeight * 0.3,
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    color: appColor,
+                    width: getWidht - 70,
+                    height: getHeight * 0.18,
+                  ),
                 ),
               ),
             ),
+          ),
+          const Divider(
+            height: 50,
+            indent: 20,
+            endIndent: 20,
           ),
         ],
       ),

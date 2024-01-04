@@ -17,7 +17,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   void didChangeDependencies() {
-    precacheImage(const AssetImage(Assets.imagesLogin1Jpg), context);
+    precacheImage(const AssetImage(Assets.imagesLogin1jpg), context);
     super.didChangeDependencies();
   }
 
