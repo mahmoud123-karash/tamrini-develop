@@ -4,6 +4,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_product_price_widget.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
 import 'package:tamrini/features/store/presenrtation/views/product_details.dart';
 
 import 'home_product_rating_widget.dart';
@@ -31,21 +32,24 @@ class HomeProductItemWidget extends StatelessWidget {
               image: model.image,
               width: getWidht - 70,
             ),
-            if (model.bestSeller)
-              const Padding(
-                padding: EdgeInsets.only(
-                  left: 10,
-                  right: 10,
-                  top: 5,
-                ),
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Icon(
-                    Icons.stars_rounded,
-                    color: Colors.amber,
-                  ),
-                ),
-              ),
+            calculateAverageRating(model.rating) == 0
+                ? const NewBadgeWidget()
+                : model.bestSeller
+                    ? const Padding(
+                        padding: EdgeInsets.only(
+                          left: 10,
+                          right: 10,
+                          top: 5,
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Icon(
+                            Icons.stars_rounded,
+                            color: Colors.amber,
+                          ),
+                        ),
+                      )
+                    : Container(),
             Positioned(
               bottom: 0,
               right: 0,
@@ -99,12 +103,13 @@ class HomeProductItemWidget extends StatelessWidget {
                       const SizedBox(
                         height: 5.0,
                       ),
-                      HomeProductRatingWidget(
-                        rating: calculateAverageRating(model.rating),
-                      ),
+                      if (calculateAverageRating(model.rating) != 0)
+                        HomeProductRatingWidget(
+                          rating: calculateAverageRating(model.rating),
+                        ),
                       HomeProductPriceWidget(
                         price: model.price.toStringAsFixed(1),
-                        oldPrice: model.oldPrice!.toStringAsFixed(1),
+                        oldPrice: model.oldPrice.toStringAsFixed(1),
                         spacer: 10,
                         mainAxisAlignment: MainAxisAlignment.start,
                       )

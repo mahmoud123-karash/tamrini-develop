@@ -5,7 +5,7 @@ class ProductModel {
   final String description;
   final String id;
   final num price;
-  final num? oldPrice;
+  final num oldPrice;
   final String image;
   final String type;
   final String ownerUid;

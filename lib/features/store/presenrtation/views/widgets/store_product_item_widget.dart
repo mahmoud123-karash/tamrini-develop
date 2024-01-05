@@ -24,8 +24,7 @@ class StoreProductItemWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-                  navigateTo(context, ProductDetailsScreen(model: model));
-
+          navigateTo(context, ProductDetailsScreen(model: model));
         },
         child: Container(
           decoration: BoxDecoration(
@@ -83,8 +82,8 @@ class StoreProductItemWidget extends StatelessWidget {
               ),
               ProductPriceWidget(
                 mainAxisAlignment: MainAxisAlignment.center,
-                price: model.price.toString(),
-                oldPrice: model.oldPrice.toString(),
+                price: model.price.toStringAsFixed(1),
+                oldPrice: model.oldPrice.toStringAsFixed(1),
                 spacer: 2,
               )
             ],

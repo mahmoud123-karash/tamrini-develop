@@ -4,6 +4,7 @@ import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
 import 'package:tamrini/features/store/presenrtation/views/widgets/product_price_widget.dart';
 import 'package:tamrini/features/store/presenrtation/views/widgets/product_rating_widget.dart';
 
@@ -72,15 +73,17 @@ class StoreBestSellerProductItemWidget extends StatelessWidget {
                         maxLines: 2,
                       ),
                     ),
-                    ProductRatingWidget(
-                      rating: calculateAverageRating(model.rating),
-                    ),
+                    calculateAverageRating(model.rating) != 0
+                        ? ProductRatingWidget(
+                            rating: calculateAverageRating(model.rating),
+                          )
+                        : const NewBadgeWidget(),
                     ProductPriceWidget(
                       mainAxisAlignment: MainAxisAlignment.start,
                       price: model.price.toStringAsFixed(1),
                       spacer: 25,
-                      oldPrice: model.oldPrice!.toStringAsFixed(1),
-                    )
+                      oldPrice: model.oldPrice.toStringAsFixed(1),
+                    ),
                   ],
                 )
               ],

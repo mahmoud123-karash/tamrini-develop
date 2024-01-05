@@ -47,7 +47,7 @@ class ProductDetailsContentWidget extends StatelessWidget {
           ),
           ProductDetailsPriceWidget(
             price: model.price.toDouble(),
-            oldPrice: model.oldPrice!.toDouble(),
+            oldPrice: model.oldPrice.toDouble(),
           ),
           const SizedBox(
             height: 25,
