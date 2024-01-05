@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/services/services.dart';
@@ -24,9 +22,40 @@ class AllExercisesCategoryScreen extends StatefulWidget {
 
 class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
   final TextEditingController searchController = TextEditingController();
+  ScrollController scrollController = ScrollController();
   List<DataModel> searchList = [];
+
+  int length = 10;
+  int sLength = 10;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(_loadMoreData);
+  }
+
+  void _loadMoreData() {
+    if (scrollController.position.pixels ==
+        scrollController.position.maxScrollExtent) {
+      if (widget.model.data!.length > length) {
+        length += 10;
+
+        setState(() {});
+      }
+      if (searchList.length > sLength) {
+        sLength += 10;
+        setState(() {});
+      }
+      if (searchController.text == '') {
+        sLength = 10;
+        setState(() {});
+      }
+    }
+  }
+
   @override
   void dispose() {
+    scrollController.dispose();
     searchController.dispose();
     super.dispose();
   }
@@ -39,6 +68,7 @@ class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           children: [
             SearchTextFieldWidget(
@@ -53,17 +83,28 @@ class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
-                      return ExerciseCardWidget(
-                        exercise: searchController.text != ''
-                            ? searchList[index]
-                            : widget.model.data![index],
-                      );
+                      if (index < length) {
+                        return ExerciseCardWidget(
+                          exercise: searchController.text != ''
+                              ? searchList[index]
+                              : widget.model.data![index],
+                        );
+                      } else {
+                        return const Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      }
                     },
                     itemCount: searchController.text != ''
-                        ? searchList.length > 10
-                            ? 10
-                            : searchList.length
-                        : widget.model.data!.length,
+                        ? searchList.length < sLength
+                            ? searchList.length
+                            : sLength + 1
+                        : widget.model.data!.length < length
+                            ? widget.model.data!.length
+                            : length + 1,
                     separatorBuilder: (BuildContext context, int index) {
                       return SizedBox(
                         height: 5.h,
