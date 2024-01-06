@@ -58,6 +58,23 @@
     "description":"الوصف",
     "dinar":"دينار",
     "buyNow":"شراء الآن",
-    "contactUs":"تواصل معنا"
+    "contactUs":"تواصل معنا",
+    "locationService":"خدمة الموقع معطلة",
+    "internet":"لا يوجد اتصال",
+    "permission":"الوصول للموقع غير مفعل",
+    "gym":"أقرب جيم",
+    "currency": "د.ع/شهر",
+    "update":"تحديث الموقع",
+    "tryAgain":"إعادة ألمحاولة",
+    "sub":"اشتراك",
+    "show":"عرض على الخريطة",
+    "noGyms":"لا يوجد جيم بهذا الإسم",
+    "lowPrice":"الأقل سعرا",
+    "highPrice":"الأعلى سعرا",
+    "maxDistance":"الأبعد",
+    "minDistance":"الأقرب",
+    "slatGym":"صالات الجيم"
+
+
 
 }

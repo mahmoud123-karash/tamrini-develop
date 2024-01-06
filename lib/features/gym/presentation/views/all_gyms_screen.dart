@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/services.dart';
+import 'package:tamrini/core/services/sort_gyms.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/aricles_item_widget.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/drop_menu_sort_gyms_widget.dart';
+import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/gym_item_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AllArticlesScreen extends StatefulWidget {
   const AllArticlesScreen({super.key, required this.models});
-  final List<ArticleModel> models;
+  final List<GymModel> models;
 
   @override
   State<AllArticlesScreen> createState() => _AllArticlesScreenState();
@@ -17,33 +19,33 @@ class AllArticlesScreen extends StatefulWidget {
 class _AllArticlesScreenState extends State<AllArticlesScreen> {
   final TextEditingController searchController = TextEditingController();
   ScrollController scrollController = ScrollController();
-  List<ArticleModel> searchList = [];
+  List<GymModel> searchList = [];
+
+  List sortBy(context) => [
+        S.of(context).lowPrice,
+        S.of(context).highPrice,
+        S.of(context).minDistance,
+        S.of(context).maxDistance,
+      ];
+
+  late String selectedSortBy;
 
   int length = 10;
   int sLength = 10;
 
+  late List<GymModel> sortedList;
+
   @override
   void initState() {
+    sortedList = widget.models;
     super.initState();
     scrollController.addListener(_loadMoreData);
   }
 
-  void _loadMoreData() {
-    if (scrollController.position.pixels ==
-        scrollController.position.maxScrollExtent) {
-      if (widget.models.length > length) {
-        length += 10;
-        setState(() {});
-      }
-      if (searchList.length > sLength) {
-        sLength += 10;
-        setState(() {});
-      }
-      if (searchController.text == '') {
-        sLength = 10;
-        setState(() {});
-      }
-    }
+  @override
+  void didChangeDependencies() {
+    selectedSortBy = S.of(context).minDistance;
+    super.didChangeDependencies();
   }
 
   @override
@@ -59,7 +61,7 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
     final getWidht = mediaQuery.size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).articlesT),
+        title: Text(S.of(context).slatGym),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -69,31 +71,50 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
             SearchTextFieldWidget(
               controller: searchController,
               onChanged: (value) {
-                searchList = searchArticles(value, widget.models);
+                searchList = searchGym(value, sortedList);
+                setState(() {});
+              },
+            ),
+            DropMenuSortGymsWidget(
+              items: sortBy(context).map<DropdownMenuItem<String>>(
+                (value) {
+                  return DropdownMenuItem<String>(
+                    onTap: () {
+                      sortGyms(value);
+                      setState(() {});
+                    },
+                    value: value,
+                    child: Text(value),
+                  );
+                },
+              ).toList(),
+              selectedSortBy: selectedSortBy,
+              onChanged: (String? value) {
+                selectedSortBy = value ?? '';
                 setState(() {});
               },
             ),
             const SizedBox(
               height: 15,
             ),
-            widget.models.isNotEmpty
+            sortedList.isNotEmpty
                 ? ListView.separated(
                     itemCount: searchController.text != ''
                         ? searchList.length < sLength
                             ? searchList.length
                             : sLength + 1
-                        : widget.models.length < length
-                            ? widget.models.length
+                        : sortedList.length < length
+                            ? sortedList.length
                             : length + 1,
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       if (index < length) {
-                        return AtricleItemWidget(
+                        return GymItemWidget(
                           width: getWidht,
                           model: searchController.text != ''
                               ? searchList[index]
-                              : widget.models[index],
+                              : sortedList[index],
                         );
                       } else {
                         return const Center(
@@ -117,7 +138,7 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
                   ),
             if (searchList.isEmpty && searchController.text != '')
               Text(
-                S.of(context).noArticles,
+                S.of(context).noGyms,
                 style: TextStyles.style20,
                 textAlign: TextAlign.center,
               ),
@@ -125,5 +146,38 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
         ),
       ),
     );
+  }
+
+  void sortGyms(value) {
+    if (value == sortBy(context)[0]) {
+      sortedList = sortByPrice(true, sortedList);
+    }
+    if (value == sortBy(context)[1]) {
+      sortedList = sortByPrice(false, sortedList);
+    }
+    if (value == sortBy(context)[2]) {
+      sortedList = sortByDistance(true, sortedList);
+    }
+    if (value == sortBy(context)[3]) {
+      sortedList = sortByDistance(false, sortedList);
+    }
+  }
+
+  void _loadMoreData() {
+    if (scrollController.position.pixels ==
+        scrollController.position.maxScrollExtent) {
+      if (sortedList.length > length) {
+        length += 10;
+        setState(() {});
+      }
+      if (searchList.length > sLength) {
+        sLength += 10;
+        setState(() {});
+      }
+      if (searchController.text == '') {
+        sLength = 10;
+        setState(() {});
+      }
+    }
   }
 }

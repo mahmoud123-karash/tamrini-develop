@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/exercise_assets_view_widget.dart';
+import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_assets_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

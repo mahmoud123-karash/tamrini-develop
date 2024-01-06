@@ -5,7 +5,7 @@ import 'package:tamrini/features/home/presentation/views/widgets/articles_list_v
 import 'package:tamrini/features/home/presentation/views/widgets/title_and_more_button_row_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../all_articles_screen.dart';
+import '../../../../atricle/presentation/views/all_articles_screen.dart';
 
 class HomeProductsWidget extends StatelessWidget {
   const HomeProductsWidget({super.key, required this.list});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/publisher_name_and_role_widget.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/publisher_name_and_role_widget.dart';
 
 import '../../../../profile/presentation/views/profile_screen.dart';
 

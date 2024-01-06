@@ -1,38 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/exercise_assets_view_widget.dart';
+import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_and_date_widget.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class DetailsWithoutVedioScreen extends StatefulWidget {
-  const DetailsWithoutVedioScreen({Key? key, required this.model})
+class ArticlesDetailsScreen extends StatelessWidget {
+  const ArticlesDetailsScreen({Key? key, required this.model})
       : super(key: key);
-  final DataModel model;
-
-  @override
-  State<DetailsWithoutVedioScreen> createState() =>
-      _DetailsWithoutVedioScreenState();
-}
-
-class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
-  @override
-  void initState() {
-    CacheHelper.removeData(key: 'index');
-    super.initState();
-  }
+  final ArticleModel model;
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final getWidht = mediaQuery.size.width;
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(),
         title: Text(
-          S.of(context).exDetails,
+          S.of(context).arDetails,
         ),
         centerTitle: true,
       ),
@@ -61,7 +49,7 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      widget.model.title ?? '',
+                      model.title ?? '',
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
@@ -74,20 +62,17 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  if (widget.model.assets != null ||
-                      widget.model.assets!.isNotEmpty)
-                    BlocProvider(
-                      create: (context) => SwiperCubit(),
-                      child: ExerciseAssetsViewWidget(
-                        images: widget.model.assets!,
-                      ),
+                  if (model.image != null || model.image!.isNotEmpty)
+                    HomeImageWidget(
+                      image: model.image!.first,
+                      width: getWidht,
                     ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       width: double.infinity,
                       child: Text(
-                        """${(widget.model.description)}""",
+                        """${(model.body)}""",
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w600,
@@ -95,6 +80,17 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                       ),
                     ),
                   ),
+                  const Divider(),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  ArticleWriterAndDate(
+                    writerUid: model.writerUid ?? '',
+                    writer: model.writer ?? '',
+                    date: DateFormat('yyyy-MM-dd').format(
+                      model.date!.toDate(),
+                    ),
+                  )
                 ],
               ),
             ),

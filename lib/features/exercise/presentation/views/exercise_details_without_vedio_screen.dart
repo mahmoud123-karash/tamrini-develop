@@ -1,26 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/article_writer_and_date_widget.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
+import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_assets_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class ArticlesDetailsScreen extends StatelessWidget {
-  const ArticlesDetailsScreen({Key? key, required this.model})
+class DetailsWithoutVedioScreen extends StatefulWidget {
+  const DetailsWithoutVedioScreen({Key? key, required this.model})
       : super(key: key);
-  final ArticleModel model;
+  final DataModel model;
+
+  @override
+  State<DetailsWithoutVedioScreen> createState() =>
+      _DetailsWithoutVedioScreenState();
+}
+
+class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
+  @override
+  void initState() {
+    CacheHelper.removeData(key: 'index');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final getWidht = mediaQuery.size.width;
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(),
         title: Text(
-          S.of(context).arDetails,
+          S.of(context).exDetails,
         ),
         centerTitle: true,
       ),
@@ -49,7 +61,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      model.title ?? '',
+                      widget.model.title ?? '',
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
@@ -62,17 +74,20 @@ class ArticlesDetailsScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  if (model.image != null || model.image!.isNotEmpty)
-                    HomeImageWidget(
-                      image: model.image!.first,
-                      width: getWidht,
+                  if (widget.model.assets != null ||
+                      widget.model.assets!.isNotEmpty)
+                    BlocProvider(
+                      create: (context) => SwiperCubit(),
+                      child: ExerciseAssetsViewWidget(
+                        images: widget.model.assets!,
+                      ),
                     ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
                       width: double.infinity,
                       child: Text(
-                        """${(model.body)}""",
+                        """${(widget.model.description)}""",
                         style: TextStyle(
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w600,
@@ -80,17 +95,6 @@ class ArticlesDetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Divider(),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  ArticleWriterAndDate(
-                    writerUid: model.writerUid ?? '',
-                    writer: model.writer ?? '',
-                    date: DateFormat('yyyy-MM-dd').format(
-                      model.date!.toDate(),
-                    ),
-                  )
                 ],
               ),
             ),

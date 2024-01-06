@@ -4,7 +4,7 @@ import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/suggest_exercise_widget.dart';
+import 'package:tamrini/features/exercise/presentation/views/widgets/suggest_exercise_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'widgets/exercise_card_widget.dart';
 

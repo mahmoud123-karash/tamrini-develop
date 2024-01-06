@@ -39,3 +39,13 @@ void saveLanguage(value) => CacheHelper.saveData(
       key: 'lang',
       value: value,
     );
+
+void saveLat(value) => CacheHelper.saveData(
+      key: 'lat',
+      value: value,
+    );
+
+void saveLong(value) => CacheHelper.saveData(
+      key: 'long',
+      value: value,
+    );

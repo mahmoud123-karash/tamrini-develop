@@ -649,6 +649,156 @@ class S {
       args: [],
     );
   }
+
+  /// `خدمة الموقع معطلة`
+  String get locationService {
+    return Intl.message(
+      'خدمة الموقع معطلة',
+      name: 'locationService',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد اتصال`
+  String get internet {
+    return Intl.message(
+      'لا يوجد اتصال',
+      name: 'internet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الوصول للموقع غير مفعل`
+  String get permission {
+    return Intl.message(
+      'الوصول للموقع غير مفعل',
+      name: 'permission',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أقرب جيم`
+  String get gym {
+    return Intl.message(
+      'أقرب جيم',
+      name: 'gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `د.ع/شهر`
+  String get currency {
+    return Intl.message(
+      'د.ع/شهر',
+      name: 'currency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تحديث الموقع`
+  String get update {
+    return Intl.message(
+      'تحديث الموقع',
+      name: 'update',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إعادة ألمحاولة`
+  String get tryAgain {
+    return Intl.message(
+      'إعادة ألمحاولة',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اشتراك`
+  String get sub {
+    return Intl.message(
+      'اشتراك',
+      name: 'sub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عرض على الخريطة`
+  String get show {
+    return Intl.message(
+      'عرض على الخريطة',
+      name: 'show',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد جيم بهذا الإسم`
+  String get noGyms {
+    return Intl.message(
+      'لا يوجد جيم بهذا الإسم',
+      name: 'noGyms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأقل سعرا`
+  String get lowPrice {
+    return Intl.message(
+      'الأقل سعرا',
+      name: 'lowPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأعلى سعرا`
+  String get highPrice {
+    return Intl.message(
+      'الأعلى سعرا',
+      name: 'highPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأبعد`
+  String get maxDistance {
+    return Intl.message(
+      'الأبعد',
+      name: 'maxDistance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأقرب`
+  String get minDistance {
+    return Intl.message(
+      'الأقرب',
+      name: 'minDistance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `صالات الجيم`
+  String get slatGym {
+    return Intl.message(
+      'صالات الجيم',
+      name: 'slatGym',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

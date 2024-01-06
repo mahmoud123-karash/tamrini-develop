@@ -5,7 +5,7 @@ import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.
 import 'package:tamrini/features/home/presentation/views/widgets/title_and_more_button_row_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../category_exercices_screen.dart';
+import '../../../../exercise/presentation/views/category_exercices_screen.dart';
 import 'home_exercises_list_view_widget.dart';
 
 class HomeExerciseWidget extends StatelessWidget {

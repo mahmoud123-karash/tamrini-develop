@@ -8,7 +8,7 @@ import 'package:tamrini/core/utils/check_assets_format.dart';
 import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_states.dart';
 
-import 'image_view_widget.dart';
+import '../../../../home/presentation/views/widgets/image_view_widget.dart';
 import 'swiper_show_buttons_widget.dart';
 
 class ExerciseAssetsViewWidget extends StatefulWidget {

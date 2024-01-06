@@ -26,6 +26,7 @@ import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
+import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
 import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_cubit.dart';
@@ -607,6 +608,11 @@ void main() async {
             create: (context) => ArticlesCubit(
               getIt.get<HomeRepoImpl>(),
             )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => GymCubit(
+              getIt.get<HomeRepoImpl>(),
+            )..getData(update: false),
           ),
           BlocProvider(
             create: (context) => StoreCubit(

@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "country": MessageLookupByLibrary.simpleMessage("البلد"),
         "create": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
@@ -57,22 +58,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("الرجاء إختيار الجنس"),
+        "gym": MessageLookupByLibrary.simpleMessage("أقرب جيم"),
         "haveacount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "health": MessageLookupByLibrary.simpleMessage("الصحة والتغذية"),
+        "highPrice": MessageLookupByLibrary.simpleMessage("الأعلى سعرا"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
+        "locationService":
+            MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "lowPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرا"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+        "maxDistance": MessageLookupByLibrary.simpleMessage("الأبعد"),
+        "minDistance": MessageLookupByLibrary.simpleMessage("الأقرب"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
         "noArticles":
             MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
         "noExer":
             MessageLookupByLibrary.simpleMessage("لا يوجد تمرين بهذا الاسم"),
+        "noGyms":
+            MessageLookupByLibrary.simpleMessage("لا يوجد جيم بهذا الإسم"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("منتجاتنا"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passConfirm": MessageLookupByLibrary.simpleMessage(
             "الرجاء التأكد من كلمة المرور "),
+        "permission":
+            MessageLookupByLibrary.simpleMessage("الوصول للموقع غير مفعل"),
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "phoneLenght":
             MessageLookupByLibrary.simpleMessage("الرجاء التأكد من رقم الهاتف"),
@@ -89,9 +102,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchHint":
             MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
         "self": MessageLookupByLibrary.simpleMessage("ثقف نفسك"),
+        "show": MessageLookupByLibrary.simpleMessage("عرض على الخريطة"),
+        "slatGym": MessageLookupByLibrary.simpleMessage("صالات الجيم"),
         "store": MessageLookupByLibrary.simpleMessage("المتجر"),
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
+        "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
+        "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب")
       };
 }
