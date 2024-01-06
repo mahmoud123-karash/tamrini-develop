@@ -33,6 +33,10 @@ import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage
 import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
+import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
+import 'package:tamrini/features/store/data/models/category_model.dart';
+import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
+import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_cubit.dart';
 import 'package:tamrini/firebase_options.dart';
 import 'package:tamrini/model/home_exercise.dart' as homeExercises;
 import 'package:tamrini/model/product.dart';
@@ -400,7 +404,8 @@ void main() async {
   );
   setLocator();
   await Hive.initFlutter();
-
+  await Hive.openBox<CategoryModel>(storeBox);
+  Hive.registerAdapter(CategoryModelAdapter());
   FirebaseMessaging messaging = FirebaseMessaging.instance..requestPermission();
 
   AwesomeNotifications().requestPermissionToSendNotifications();
@@ -617,6 +622,11 @@ void main() async {
           BlocProvider(
             create: (context) => StoreCubit(
               getIt.get<HomeRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => CategoryCubit(
+              getIt.get<StoreRepoImpl>(),
             )..getData(),
           ),
           BlocProvider(

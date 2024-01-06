@@ -2,11 +2,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/home/presentation/views/home_screen.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
+import 'package:tamrini/features/store/presenrtation/views/stores_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:tamrini/screens/articles_category_screen.dart';
 import 'package:tamrini/screens/exercise_category_screen.dart';
 import 'package:tamrini/screens/food_category_screen.dart';
-import 'package:tamrini/screens/products_screens/store_home_screen.dart';
 
 class NavBarCubit extends Cubit<NavBarStates> {
   NavBarCubit() : super(InitailNavBarState());
@@ -22,7 +22,7 @@ class NavBarCubit extends Cubit<NavBarStates> {
     const FoodCategoryScreen(),
     const ExerciseCategoryScreen(),
     const HomeScreen(),
-    const ProductsHomeScreen(),
+    const StoresScreen(),
     const ArticlesCategoryScreen(),
   ];
 

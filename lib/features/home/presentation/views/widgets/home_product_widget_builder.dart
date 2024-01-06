@@ -22,8 +22,9 @@ class HomeProductWidgetBuilder extends StatelessWidget {
             return Container();
           } else {
             List<ProductModel> list = genrateHomeList(state);
+            List<ProductModel> allProducys = genratProductsList(state);
             return HomeProductWidget(
-              stores: state.list,
+              allProducts: allProducys,
               products: list.where((element) => element.available).toList(),
             );
           }
@@ -48,6 +49,15 @@ List<ProductModel> genrateHomeList(SucessGetStoresState state) {
     if (list.length < 5) {
       list.add(model);
     }
+  }
+  return list;
+}
+
+List<ProductModel> genratProductsList(SucessGetStoresState state) {
+  List<ProductModel> list = [];
+  for (var element in state.list) {
+    List<ProductModel> model = element.products!;
+    list.addAll(model);
   }
   return list;
 }

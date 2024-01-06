@@ -13,7 +13,7 @@ class StoreNumberProductsWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
-          "${S.of(context).allPriducts}: ",
+          "${S.of(context).NumProducts}: ",
           style: TextStyles.style17.copyWith(
             color: whiteColor,
             fontWeight: FontWeight.bold,

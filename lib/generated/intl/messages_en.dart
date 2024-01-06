@@ -22,16 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "NumProducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
-        "allPriducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
+        "allProducts": MessageLookupByLibrary.simpleMessage("جميع المنتجات"),
         "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
         "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "buyNow": MessageLookupByLibrary.simpleMessage("شراء الآن"),
         "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
+        "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
@@ -83,7 +85,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد جيم بهذا الإسم"),
         "noProduct":
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات بهذا الإسم"),
+        "nocProducts":
+            MessageLookupByLibrary.simpleMessage("لا يوجد منتجات في هذه الفئة"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
+        "other": MessageLookupByLibrary.simpleMessage("أخري"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("منتجاتنا"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "passConfirm":

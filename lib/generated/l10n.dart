@@ -571,10 +571,10 @@ class S {
   }
 
   /// `عدد المنتجات`
-  String get allPriducts {
+  String get NumProducts {
     return Intl.message(
       'عدد المنتجات',
-      name: 'allPriducts',
+      name: 'NumProducts',
       desc: '',
       args: [],
     );
@@ -805,6 +805,46 @@ class S {
     return Intl.message(
       'لا يوجد منتجات بهذا الإسم',
       name: 'noProduct',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `جميع المنتجات`
+  String get allProducts {
+    return Intl.message(
+      'جميع المنتجات',
+      name: 'allProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الفئات`
+  String get category {
+    return Intl.message(
+      'الفئات',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أخري`
+  String get other {
+    return Intl.message(
+      'أخري',
+      name: 'other',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد منتجات في هذه الفئة`
+  String get nocProducts {
+    return Intl.message(
+      'لا يوجد منتجات في هذه الفئة',
+      name: 'nocProducts',
       desc: '',
       args: [],
     );

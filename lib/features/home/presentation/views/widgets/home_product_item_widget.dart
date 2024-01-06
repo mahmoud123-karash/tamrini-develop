@@ -11,11 +11,12 @@ import 'package:tamrini/features/store/presenrtation/views/product_details.dart'
 import 'home_product_rating_widget.dart';
 
 class HomeProductItemWidget extends StatelessWidget {
-  const HomeProductItemWidget(
-      {super.key,
-      required this.model,
-      required this.width,
-      required this.smodel});
+  const HomeProductItemWidget({
+    super.key,
+    required this.model,
+    required this.width,
+    required this.smodel,
+  });
   final ProductModel model;
   final double width;
   final StoreModel smodel;

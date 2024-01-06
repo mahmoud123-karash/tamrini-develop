@@ -51,7 +51,7 @@
     "arDetails":"تفاصيل المقال",
     "products":"منتجات متنوعة",
     "stores":"المتاجر",
-    "allPriducts":"عدد المنتجات",
+    "NumProducts":"عدد المنتجات",
     "ourProducts":"منتجاتنا",
     "bestSeller":"الأفضل مبيعا",
     "proDetails": "تفاصيل المنتج",
@@ -74,7 +74,12 @@
     "maxDistance":"الأبعد",
     "minDistance":"الأقرب",
     "slatGym":"صالات الجيم",
-    "noProduct":"لا يوجد منتجات بهذا الإسم"
+    "noProduct":"لا يوجد منتجات بهذا الإسم",
+    "allProducts":"جميع المنتجات",
+    "category":"الفئات",
+    "other":"أخري",
+    "nocProducts":"لا يوجد منتجات في هذه الفئة"
+
 
 
 
