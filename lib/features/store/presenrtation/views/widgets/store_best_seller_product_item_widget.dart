@@ -21,7 +21,11 @@ class StoreBestSellerProductItemWidget extends StatelessWidget {
     final getWidht = mediaQuery.size.width;
     return GestureDetector(
       onTap: () {
-        navigateTo(context, ProductDetailsScreen(model: model));
+        navigateTo(
+            context,
+            ProductDetailsScreen(
+              model: model,
+            ));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),

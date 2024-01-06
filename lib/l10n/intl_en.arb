@@ -73,7 +73,9 @@
     "highPrice":"الأعلى سعرا",
     "maxDistance":"الأبعد",
     "minDistance":"الأقرب",
-    "slatGym":"صالات الجيم"
+    "slatGym":"صالات الجيم",
+    "noProduct":"لا يوجد منتجات بهذا الإسم"
+
 
 
 

@@ -1,15 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:fuzzy/fuzzy.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/data/models/store_model/rating_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_share/flutter_share.dart';
-
-import '../../features/home/data/models/gym_model/gym_model.dart';
 
 void getUserType(UserModel model) {
   if (model.isSubscribedToTrainer) {
@@ -23,27 +18,6 @@ void getUserType(UserModel model) {
   } else {
     saveUserType('User');
   }
-}
-
-List<DataModel> searchExercise(value, List<DataModel> data) {
-  final options = [for (var element in data) element.title!];
-  final fuse = Fuzzy(options);
-  final results = fuse.search(value).map((result) => result.item).toList();
-  return data.where((element) => results.contains(element.title)).toList();
-}
-
-List<ArticleModel> searchArticles(value, List<ArticleModel> data) {
-  final options = [for (var element in data) element.title!];
-  final fuse = Fuzzy(options);
-  final results = fuse.search(value).map((result) => result.item).toList();
-  return data.where((element) => results.contains(element.title)).toList();
-}
-
-List<GymModel> searchGym(value, List<GymModel> data) {
-  final options = [for (var element in data) element.name];
-  final fuse = Fuzzy(options);
-  final results = fuse.search(value).map((result) => result.item).toList();
-  return data.where((element) => results.contains(element.name)).toList();
 }
 
 void openUri({required Uri url}) async {

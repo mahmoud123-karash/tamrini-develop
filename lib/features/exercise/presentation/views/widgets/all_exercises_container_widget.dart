@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
-import 'package:tamrini/features/exercise/presentation/views/search_screen.dart';
+import 'package:tamrini/features/exercise/presentation/views/search_exercise_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AllExercisesContainerWidget extends StatelessWidget {

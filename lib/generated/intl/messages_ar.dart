@@ -79,6 +79,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد تمرين بهذا الاسم"),
         "noGyms":
             MessageLookupByLibrary.simpleMessage("لا يوجد جيم بهذا الإسم"),
+        "noProduct":
+            MessageLookupByLibrary.simpleMessage("لا يوجد منتجات بهذا الإسم"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("منتجاتنا"),
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),

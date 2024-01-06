@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tamrini/core/services/services.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_card_widget.dart';
+import 'package:tamrini/core/services/serach.dart';
+import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/home_product_item_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/search_hint_colum_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'widgets/suggest_exercise_widget.dart';
-
-class SearchScreen extends StatefulWidget {
-  const SearchScreen({super.key, required this.exercises});
-  final List<DataModel> exercises;
+class SearchProductScreen extends StatefulWidget {
+  const SearchProductScreen({super.key, required this.list});
+  final List<ProductModel> list;
 
   @override
-  State<SearchScreen> createState() => _SearchScreenState();
+  State<SearchProductScreen> createState() => _SearchProductScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _SearchProductScreenState extends State<SearchProductScreen> {
   final TextEditingController searchController = TextEditingController();
   ScrollController scrollController = ScrollController();
-  List<DataModel> searchList = [];
+  List<ProductModel> searchList = [];
 
   int length = 10;
 
@@ -33,7 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (widget.exercises.length > length) {
+      if (widget.list.length > length) {
         length += 10;
         setState(() {});
       }
@@ -54,6 +52,8 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final getWidth = mediaQuery.size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).search),
@@ -67,7 +67,7 @@ class _SearchScreenState extends State<SearchScreen> {
             SearchTextFieldWidget(
               controller: searchController,
               onChanged: (value) {
-                searchList = searchExercise(value, widget.exercises);
+                searchList = searchProduct(value, widget.list);
                 setState(() {});
               },
             ),
@@ -77,7 +77,13 @@ class _SearchScreenState extends State<SearchScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   if (index < length) {
-                    return ExerciseCardWidget(exercise: searchList[index]);
+                    return HomeProductItemWidget(
+                      model: searchList[index],
+                      width: getWidth,
+                      smodel: StoreCubit.get(context).getStore(
+                        searchList[index].ownerUid,
+                      ),
+                    );
                   } else {
                     return const Center(
                       child: Padding(
@@ -95,9 +101,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   );
                 },
               ),
-            if (searchList.isEmpty && searchController.text != '')
-              const SuggestExerciseWidget(),
-            if (searchController.text == '') const SearchHintColumWidget(),
+            if (searchController.text != '' && searchList.isEmpty)
+              Text(S.of(context).noProduct),
           ],
         ),
       ),

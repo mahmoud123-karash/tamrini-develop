@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/services/services.dart';
+import 'package:tamrini/core/services/serach.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/aricles_item_widget.dart';

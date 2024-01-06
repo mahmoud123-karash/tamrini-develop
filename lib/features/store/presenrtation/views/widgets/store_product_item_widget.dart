@@ -24,7 +24,11 @@ class StoreProductItemWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-          navigateTo(context, ProductDetailsScreen(model: model));
+          navigateTo(
+              context,
+              ProductDetailsScreen(
+                model: model,
+              ));
         },
         child: Container(
           decoration: BoxDecoration(

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presenrtation/views/store_screen.dart';
 import 'package:tamrini/features/store/presenrtation/views/widgets/store_name_num_widget.dart';
@@ -78,14 +76,11 @@ class StoreItemWidget extends StatelessWidget {
                       StoreChatIconWidget(
                         icon: Icons.chat,
                         onPressed: () {
-                          navigateTo(
-                            context,
-                            ChatScreen(
-                              name: model.name,
-                              recieverUid: model.storeOwnerUid,
-                              uid: CacheHelper.getData(key: 'uid'),
-                            ),
+                          Uri smsUri = Uri(
+                            scheme: 'sms',
+                            path: model.contact,
                           );
+                          openUri(url: smsUri);
                         },
                         color: appColor,
                       ),

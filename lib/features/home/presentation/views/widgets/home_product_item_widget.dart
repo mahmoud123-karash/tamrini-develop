@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_product_price_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
@@ -10,27 +11,36 @@ import 'package:tamrini/features/store/presenrtation/views/product_details.dart'
 import 'home_product_rating_widget.dart';
 
 class HomeProductItemWidget extends StatelessWidget {
-  const HomeProductItemWidget({super.key, required this.model});
+  const HomeProductItemWidget(
+      {super.key,
+      required this.model,
+      required this.width,
+      required this.smodel});
   final ProductModel model;
+  final double width;
+  final StoreModel smodel;
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
-    final getWidht = mediaQuery.size.width;
-
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15),
       child: InkWell(
         borderRadius: BorderRadius.circular(30),
         onTap: () {
-          navigateTo(context, ProductDetailsScreen(model: model));
+          navigateTo(
+              context,
+              ProductDetailsScreen(
+                model: model,
+                sModel: smodel,
+              ));
         },
         child: Stack(
           children: [
             HomeImageWidget(
               image: model.image,
-              width: getWidht - 70,
+              width: width,
             ),
             calculateAverageRating(model.rating) == 0
                 ? const NewBadgeWidget()

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -17,7 +18,7 @@ class SearchTextFieldWidget extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           prefixIcon: Icon(
-            Icons.search,
+            Ionicons.search_outline,
             color: blackColor,
           ),
           hintText: S.of(context).search,

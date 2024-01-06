@@ -799,6 +799,16 @@ class S {
       args: [],
     );
   }
+
+  /// `لا يوجد منتجات بهذا الإسم`
+  String get noProduct {
+    return Intl.message(
+      'لا يوجد منتجات بهذا الإسم',
+      name: 'noProduct',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
