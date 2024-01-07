@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/store/presenrtation/views/product_details.dart';
+import 'package:tamrini/features/store/presenrtation/views/product_details_screen.dart';
 import 'package:tamrini/features/store/presenrtation/views/widgets/product_price_widget.dart';
 
 import '../../../../home/data/models/store_model/product_model.dart';

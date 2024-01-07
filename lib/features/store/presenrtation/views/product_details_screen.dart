@@ -24,18 +24,19 @@ class ProductDetailsScreen extends StatelessWidget {
         title: Text(S.of(context).proDetails),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {
-              if (sModel == null) {
-                Navigator.pop(context);
-              } else {
-                navigateTo(context, StoreScreen(model: sModel!));
-              }
-            },
-            icon: const Icon(
-              Ionicons.storefront,
-            ),
-          )
+          if (sModel != null)
+            IconButton(
+              onPressed: () {
+                if (sModel == null) {
+                  Navigator.pop(context);
+                } else {
+                  navigateTo(context, StoreScreen(model: sModel!));
+                }
+              },
+              icon: const Icon(
+                Ionicons.storefront,
+              ),
+            )
         ],
       ),
       body: Padding(

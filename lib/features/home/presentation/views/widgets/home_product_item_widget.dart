@@ -6,7 +6,7 @@ import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_product_price_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/product_details.dart';
+import 'package:tamrini/features/store/presenrtation/views/product_details_screen.dart';
 
 import 'home_product_rating_widget.dart';
 

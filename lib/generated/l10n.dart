@@ -390,460 +390,460 @@ class S {
     );
   }
 
-  /// `تمارين متنوعة`
+  /// `Various Exercises`
   String get exercise {
     return Intl.message(
-      'تمارين متنوعة',
+      'Various Exercises',
       name: 'exercise',
       desc: '',
       args: [],
     );
   }
 
-  /// `المزيد`
+  /// `More`
   String get more {
     return Intl.message(
-      'المزيد',
+      'More',
       name: 'more',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل التمرين`
+  /// `Exercise Details`
   String get exDetails {
     return Intl.message(
-      'تفاصيل التمرين',
+      'Exercise Details',
       name: 'exDetails',
       desc: '',
       args: [],
     );
   }
 
-  /// `التمارين`
+  /// `Exercises`
   String get categoryEx {
     return Intl.message(
-      'التمارين',
+      'Exercises',
       name: 'categoryEx',
       desc: '',
       args: [],
     );
   }
 
-  /// `جميع التمارين`
+  /// `All Exercises`
   String get allEx {
     return Intl.message(
-      'جميع التمارين',
+      'All Exercises',
       name: 'allEx',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد تمارين`
+  /// `No Exercises`
   String get emptyList {
     return Intl.message(
-      'لا يوجد تمارين',
+      'No Exercises',
       name: 'emptyList',
       desc: '',
       args: [],
     );
   }
 
-  /// `بحث`
+  /// `Search`
   String get search {
     return Intl.message(
-      'بحث',
+      'Search',
       name: 'search',
       desc: '',
       args: [],
     );
   }
 
-  /// `قم بقتراح تمرين`
+  /// `Suggest an Exercise`
   String get suggest {
     return Intl.message(
-      'قم بقتراح تمرين',
+      'Suggest an Exercise',
       name: 'suggest',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد تمرين بهذا الاسم`
+  /// `No exercise found with this name`
   String get noExer {
     return Intl.message(
-      'لا يوجد تمرين بهذا الاسم',
+      'No exercise found with this name',
       name: 'noExer',
       desc: '',
       args: [],
     );
   }
 
-  /// `قم بالبحث عن تمرين`
+  /// `Search for an Exercise`
   String get searchHint {
     return Intl.message(
-      'قم بالبحث عن تمرين',
+      'Search for an Exercise',
       name: 'searchHint',
       desc: '',
       args: [],
     );
   }
 
-  /// `آخر المقالات`
+  /// `Latest Articles`
   String get articles {
     return Intl.message(
-      'آخر المقالات',
+      'Latest Articles',
       name: 'articles',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد مقالات بهذا الإسم`
+  /// `No articles found with this name`
   String get noArticles {
     return Intl.message(
-      'لا يوجد مقالات بهذا الإسم',
+      'No articles found with this name',
       name: 'noArticles',
       desc: '',
       args: [],
     );
   }
 
-  /// `المقالات`
+  /// `Articles`
   String get articlesT {
     return Intl.message(
-      'المقالات',
+      'Articles',
       name: 'articlesT',
       desc: '',
       args: [],
     );
   }
 
-  /// `التاريخ`
+  /// `Date`
   String get date {
     return Intl.message(
-      'التاريخ',
+      'Date',
       name: 'date',
       desc: '',
       args: [],
     );
   }
 
-  /// `بواسطة`
+  /// `By`
   String get by {
     return Intl.message(
-      'بواسطة',
+      'By',
       name: 'by',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل المقال`
+  /// `Article Details`
   String get arDetails {
     return Intl.message(
-      'تفاصيل المقال',
+      'Article Details',
       name: 'arDetails',
       desc: '',
       args: [],
     );
   }
 
-  /// `منتجات متنوعة`
+  /// `Various Products`
   String get products {
     return Intl.message(
-      'منتجات متنوعة',
+      'Various Products',
       name: 'products',
       desc: '',
       args: [],
     );
   }
 
-  /// `المتاجر`
+  /// `Stores`
   String get stores {
     return Intl.message(
-      'المتاجر',
+      'Stores',
       name: 'stores',
       desc: '',
       args: [],
     );
   }
 
-  /// `عدد المنتجات`
+  /// `Number of Products`
   String get NumProducts {
     return Intl.message(
-      'عدد المنتجات',
+      'Number of Products',
       name: 'NumProducts',
       desc: '',
       args: [],
     );
   }
 
-  /// `منتجاتنا`
+  /// `Our Products`
   String get ourProducts {
     return Intl.message(
-      'منتجاتنا',
+      'Our Products',
       name: 'ourProducts',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأفضل مبيعا`
+  /// `Best Seller`
   String get bestSeller {
     return Intl.message(
-      'الأفضل مبيعا',
+      'Best Seller',
       name: 'bestSeller',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل المنتج`
+  /// `Product Details`
   String get proDetails {
     return Intl.message(
-      'تفاصيل المنتج',
+      'Product Details',
       name: 'proDetails',
       desc: '',
       args: [],
     );
   }
 
-  /// `الوصف`
+  /// `Description`
   String get description {
     return Intl.message(
-      'الوصف',
+      'Description',
       name: 'description',
       desc: '',
       args: [],
     );
   }
 
-  /// `دينار`
+  /// `Dinar`
   String get dinar {
     return Intl.message(
-      'دينار',
+      'Dinar',
       name: 'dinar',
       desc: '',
       args: [],
     );
   }
 
-  /// `شراء الآن`
+  /// `Buy Now`
   String get buyNow {
     return Intl.message(
-      'شراء الآن',
+      'Buy Now',
       name: 'buyNow',
       desc: '',
       args: [],
     );
   }
 
-  /// `تواصل معنا`
+  /// `Contact Us`
   String get contactUs {
     return Intl.message(
-      'تواصل معنا',
+      'Contact Us',
       name: 'contactUs',
       desc: '',
       args: [],
     );
   }
 
-  /// `خدمة الموقع معطلة`
+  /// `Location Service Disabled`
   String get locationService {
     return Intl.message(
-      'خدمة الموقع معطلة',
+      'Location Service Disabled',
       name: 'locationService',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد اتصال`
+  /// `No Connection`
   String get internet {
     return Intl.message(
-      'لا يوجد اتصال',
+      'No Connection',
       name: 'internet',
       desc: '',
       args: [],
     );
   }
 
-  /// `الوصول للموقع غير مفعل`
+  /// `Location Access Disabled`
   String get permission {
     return Intl.message(
-      'الوصول للموقع غير مفعل',
+      'Location Access Disabled',
       name: 'permission',
       desc: '',
       args: [],
     );
   }
 
-  /// `أقرب جيم`
+  /// `Nearest Gym`
   String get gym {
     return Intl.message(
-      'أقرب جيم',
+      'Nearest Gym',
       name: 'gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `د.ع/شهر`
+  /// `IQD/Month`
   String get currency {
     return Intl.message(
-      'د.ع/شهر',
+      'IQD/Month',
       name: 'currency',
       desc: '',
       args: [],
     );
   }
 
-  /// `تحديث الموقع`
+  /// `Update Location`
   String get update {
     return Intl.message(
-      'تحديث الموقع',
+      'Update Location',
       name: 'update',
       desc: '',
       args: [],
     );
   }
 
-  /// `إعادة ألمحاولة`
+  /// `Try Again`
   String get tryAgain {
     return Intl.message(
-      'إعادة ألمحاولة',
+      'Try Again',
       name: 'tryAgain',
       desc: '',
       args: [],
     );
   }
 
-  /// `اشتراك`
+  /// `Subscribe`
   String get sub {
     return Intl.message(
-      'اشتراك',
+      'Subscribe',
       name: 'sub',
       desc: '',
       args: [],
     );
   }
 
-  /// `عرض على الخريطة`
+  /// `Show on Map`
   String get show {
     return Intl.message(
-      'عرض على الخريطة',
+      'Show on Map',
       name: 'show',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد جيم بهذا الإسم`
+  /// `No gym found with this name`
   String get noGyms {
     return Intl.message(
-      'لا يوجد جيم بهذا الإسم',
+      'No gym found with this name',
       name: 'noGyms',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأقل سعرا`
+  /// `Lowest Price`
   String get lowPrice {
     return Intl.message(
-      'الأقل سعرا',
+      'Lowest Price',
       name: 'lowPrice',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأعلى سعرا`
+  /// `Highest Price`
   String get highPrice {
     return Intl.message(
-      'الأعلى سعرا',
+      'Highest Price',
       name: 'highPrice',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأبعد`
+  /// `Farthest`
   String get maxDistance {
     return Intl.message(
-      'الأبعد',
+      'Farthest',
       name: 'maxDistance',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأقرب`
+  /// `Nearest`
   String get minDistance {
     return Intl.message(
-      'الأقرب',
+      'Nearest',
       name: 'minDistance',
       desc: '',
       args: [],
     );
   }
 
-  /// `صالات الجيم`
+  /// `Gyms`
   String get slatGym {
     return Intl.message(
-      'صالات الجيم',
+      'Gyms',
       name: 'slatGym',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد منتجات بهذا الإسم`
+  /// `No products found with this name`
   String get noProduct {
     return Intl.message(
-      'لا يوجد منتجات بهذا الإسم',
+      'No products found with this name',
       name: 'noProduct',
       desc: '',
       args: [],
     );
   }
 
-  /// `جميع المنتجات`
+  /// `All Products`
   String get allProducts {
     return Intl.message(
-      'جميع المنتجات',
+      'All Products',
       name: 'allProducts',
       desc: '',
       args: [],
     );
   }
 
-  /// `الفئات`
+  /// `Categories`
   String get category {
     return Intl.message(
-      'الفئات',
+      'Categories',
       name: 'category',
       desc: '',
       args: [],
     );
   }
 
-  /// `أخري`
+  /// `Other`
   String get other {
     return Intl.message(
-      'أخري',
+      'Other',
       name: 'other',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد منتجات في هذه الفئة`
+  /// `No products in this category`
   String get nocProducts {
     return Intl.message(
-      'لا يوجد منتجات في هذه الفئة',
+      'No products in this category',
       name: 'nocProducts',
       desc: '',
       args: [],

@@ -8,16 +8,16 @@ import 'package:tamrini/features/store/presenrtation/views/products_category_scr
 
 class CategoryProductItemWidget extends StatelessWidget {
   const CategoryProductItemWidget(
-      {super.key, required this.model, required this.list});
+      {super.key, required this.model, required this.list, required this.name});
   final CategoryModel model;
   final List<ProductModel> list;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateTo(
-            context, ProductsCategoryScreen(list: list, title: model.title));
+        navigateTo(context, ProductsCategoryScreen(list: list, title: name));
       },
       child: Container(
         alignment: Alignment.topRight,
@@ -44,7 +44,7 @@ class CategoryProductItemWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: AutoSizeText(
-              model.title,
+              name,
               maxLines: 2,
               style: const TextStyle(
                 color: Colors.white,

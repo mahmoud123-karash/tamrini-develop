@@ -8,7 +8,7 @@ import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widge
 import 'package:tamrini/features/store/presenrtation/views/widgets/product_price_widget.dart';
 import 'package:tamrini/features/store/presenrtation/views/widgets/product_rating_widget.dart';
 
-import '../product_details.dart';
+import '../product_details_screen.dart';
 import 'product_image_widget.dart';
 
 class StoreBestSellerProductItemWidget extends StatelessWidget {

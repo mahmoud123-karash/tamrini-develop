@@ -38,7 +38,7 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
   @override
   void initState() {
     sortedList = widget.models;
-    selectedSortBy = Intl.getCurrentLocale() == 'en' ? 'The closest' : 'الأقرب';
+    selectedSortBy = Intl.getCurrentLocale() == 'en' ? 'Nearest' : 'الأقرب';
     super.initState();
     scrollController.addListener(_loadMoreData);
   }

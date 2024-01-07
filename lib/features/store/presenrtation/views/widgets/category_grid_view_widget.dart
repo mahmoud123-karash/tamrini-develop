@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/data/models/category_model.dart';
 import 'package:tamrini/features/store/presenrtation/views/widgets/category_product_item_widget.dart';
 import 'package:tamrini/features/store/presenrtation/views/widgets/other_category_item_widget.dart';
 
 class GategoryGridViewWidget extends StatelessWidget {
-  const GategoryGridViewWidget(
-      {super.key, required this.list, required this.products});
+  const GategoryGridViewWidget({
+    super.key,
+    required this.list,
+    required this.products,
+  });
   final List<CategoryModel> list;
   final List<ProductModel> products;
 
@@ -28,16 +33,23 @@ class GategoryGridViewWidget extends StatelessWidget {
             List<ProductModel> categoryList = products
                 .where((element) => element.type == list[index].title)
                 .toList();
-            return CategoryProductItemWidget(
-              model: list[index],
-              list: categoryList,
-            );
+            return categoryList.isNotEmpty
+                ? CategoryProductItemWidget(
+                    model: list[index],
+                    list: categoryList,
+                    name: Intl.getCurrentLocale() == 'en'
+                        ? catgoryName[index]
+                        : list[index].title,
+                  )
+                : Container();
           } else {
             List<ProductModel> list =
                 products.where((element) => element.type == 'أخري').toList();
-            return OtherCategoryItemWidget(
-              list: list,
-            );
+            return list.isNotEmpty
+                ? OtherCategoryItemWidget(
+                    list: list,
+                  )
+                : Container();
           }
         },
       ),
