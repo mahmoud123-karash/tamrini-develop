@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 class ProductPriceWidget extends StatelessWidget {
   const ProductPriceWidget(
@@ -38,7 +39,18 @@ class ProductPriceWidget extends StatelessWidget {
               ),
               maxLines: 1,
             ),
-          )
+          ),
+        const SizedBox(
+          width: 10,
+        ),
+        Container(
+          constraints: const BoxConstraints(maxWidth: 20),
+          child: Text(
+            S.of(context).currency,
+            style: TextStyles.style13,
+            maxLines: 1,
+          ),
+        )
       ],
     );
   }

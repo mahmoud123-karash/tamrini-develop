@@ -33,15 +33,8 @@ class _SearchScreenState extends State<SearchScreen> {
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (widget.exercises.length > length) {
-        length += 10;
-        setState(() {});
-      }
-
-      if (searchController.text == '') {
-        length = 10;
-        setState(() {});
-      }
+      length += 10;
+      WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
     }
   }
 
@@ -68,6 +61,9 @@ class _SearchScreenState extends State<SearchScreen> {
               controller: searchController,
               onChanged: (value) {
                 searchList = searchExercise(value, widget.exercises);
+                if (value == '') {
+                  length = 10;
+                }
                 setState(() {});
               },
             ),

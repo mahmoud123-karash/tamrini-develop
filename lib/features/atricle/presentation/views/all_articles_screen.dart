@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/serach.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/aricles_item_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
+
+import 'widgets/article_list_view_widget.dart';
 
 class AllArticlesScreen extends StatefulWidget {
   const AllArticlesScreen({super.key, required this.models});
@@ -20,7 +21,6 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
   List<ArticleModel> searchList = [];
 
   int length = 10;
-  int sLength = 10;
 
   @override
   void initState() {
@@ -33,15 +33,7 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
         scrollController.position.maxScrollExtent) {
       if (widget.models.length > length) {
         length += 10;
-        setState(() {});
-      }
-      if (searchList.length > sLength) {
-        sLength += 10;
-        setState(() {});
-      }
-      if (searchController.text == '') {
-        sLength = 10;
-        setState(() {});
+        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
       }
     }
   }
@@ -55,8 +47,6 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final getWidht = mediaQuery.size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).articlesT),
@@ -70,6 +60,9 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
               controller: searchController,
               onChanged: (value) {
                 searchList = searchArticles(value, widget.models);
+                if (value == '') {
+                  length = 10;
+                }
                 setState(() {});
               },
             ),
@@ -77,38 +70,11 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
               height: 15,
             ),
             widget.models.isNotEmpty
-                ? ListView.separated(
-                    itemCount: searchController.text != ''
-                        ? searchList.length < sLength
-                            ? searchList.length
-                            : sLength + 1
-                        : widget.models.length < length
-                            ? widget.models.length
-                            : length + 1,
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      if (index < length) {
-                        return AtricleItemWidget(
-                          width: getWidht,
-                          model: searchController.text != ''
-                              ? searchList[index]
-                              : widget.models[index],
-                        );
-                      } else {
-                        return const Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            child: CircularProgressIndicator(),
-                          ),
-                        );
-                      }
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const SizedBox(
-                        height: 20,
-                      );
-                    },
+                ? ArticleListViewWidget(
+                    list: searchController.text == ''
+                        ? widget.models
+                        : searchList,
+                    length: length,
                   )
                 : Center(
                     child: Text(

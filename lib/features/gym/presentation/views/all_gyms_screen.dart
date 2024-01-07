@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/services/serach.dart';
 import 'package:tamrini/core/services/sort_gyms.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/drop_menu_sort_gyms_widget.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/gym_list_view_widge.dart';
 import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/gym_item_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -31,21 +32,15 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
   late String selectedSortBy;
 
   int length = 10;
-  int sLength = 10;
 
   late List<GymModel> sortedList;
 
   @override
   void initState() {
     sortedList = widget.models;
+    selectedSortBy = Intl.getCurrentLocale() == 'en' ? 'The closest' : 'الأقرب';
     super.initState();
     scrollController.addListener(_loadMoreData);
-  }
-
-  @override
-  void didChangeDependencies() {
-    selectedSortBy = S.of(context).minDistance;
-    super.didChangeDependencies();
   }
 
   @override
@@ -57,8 +52,6 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final getWidht = mediaQuery.size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).slatGym),
@@ -71,7 +64,10 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
             SearchTextFieldWidget(
               controller: searchController,
               onChanged: (value) {
-                searchList = searchGym(value, sortedList);
+                searchList = searchGym(value, widget.models);
+                if (value == '') {
+                  length = 10;
+                }
                 setState(() {});
               },
             ),
@@ -98,42 +94,13 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
               height: 15,
             ),
             sortedList.isNotEmpty
-                ? ListView.separated(
-                    itemCount: searchController.text != ''
-                        ? searchList.length < sLength
-                            ? searchList.length
-                            : sLength + 1
-                        : sortedList.length < length
-                            ? sortedList.length
-                            : length + 1,
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      if (index < length) {
-                        return GymItemWidget(
-                          width: getWidht,
-                          model: searchController.text != ''
-                              ? searchList[index]
-                              : sortedList[index],
-                        );
-                      } else {
-                        return const Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            child: CircularProgressIndicator(),
-                          ),
-                        );
-                      }
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const SizedBox(
-                        height: 20,
-                      );
-                    },
+                ? GymListViewWidget(
+                    list: searchController.text == '' ? sortedList : searchList,
+                    length: length,
                   )
                 : Center(
                     child: Text(
-                      S.of(context).emptyList,
+                      S.of(context).noGyms,
                     ),
                   ),
             if (searchList.isEmpty && searchController.text != '')
@@ -149,35 +116,31 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
   }
 
   void sortGyms(value) {
+    List<GymModel> list = [];
+    if (searchController.text != '') {
+      list = searchList;
+    } else {
+      list = sortedList;
+    }
     if (value == sortBy(context)[0]) {
-      sortedList = sortByPrice(true, sortedList);
+      list = sortByPrice(true, list);
     }
     if (value == sortBy(context)[1]) {
-      sortedList = sortByPrice(false, sortedList);
+      list = sortByPrice(false, list);
     }
     if (value == sortBy(context)[2]) {
-      sortedList = sortByDistance(true, sortedList);
+      list = sortByDistance(true, list);
     }
     if (value == sortBy(context)[3]) {
-      sortedList = sortByDistance(false, sortedList);
+      list = sortByDistance(false, list);
     }
   }
 
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (sortedList.length > length) {
-        length += 10;
-        setState(() {});
-      }
-      if (searchList.length > sLength) {
-        sLength += 10;
-        setState(() {});
-      }
-      if (searchController.text == '') {
-        sLength = 10;
-        setState(() {});
-      }
+      length += 10;
+      WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
     }
   }
 }

@@ -404,8 +404,8 @@ void main() async {
   );
   setLocator();
   await Hive.initFlutter();
-  await Hive.openBox<CategoryModel>(storeBox);
   Hive.registerAdapter(CategoryModelAdapter());
+  await Hive.openBox<CategoryModel>(storeBox);
   FirebaseMessaging messaging = FirebaseMessaging.instance..requestPermission();
 
   AwesomeNotifications().requestPermissionToSendNotifications();
