@@ -21,7 +21,7 @@ class HomeGymWidget extends StatelessWidget {
         TitleAndMoreButtonRowWidget(
           lable: S.of(context).gym,
           onPressed: () {
-            navigateTo(context, AllArticlesScreen(models: list));
+            navigateTo(context, AllGymsScreen(models: list));
           },
         ),
         const SizedBox(

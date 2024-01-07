@@ -68,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "highPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "home_exercises":
+            MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
@@ -111,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "searchHint":
             MessageLookupByLibrary.simpleMessage("Search for an Exercise"),
+        "search_yourself":
+            MessageLookupByLibrary.simpleMessage("ابحث عن تمرينك"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
@@ -118,6 +122,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
+        "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "update": MessageLookupByLibrary.simpleMessage("Update Location"),
         "validate":

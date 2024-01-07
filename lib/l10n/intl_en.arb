@@ -78,5 +78,8 @@
     "allProducts": "All Products",
     "category": "Categories",
     "other": "Other",
-    "nocProducts": "No products in this category"
+    "nocProducts": "No products in this category",
+    "trainer":"المدربين",
+    "home_exercises":"التمارين المنزلية",
+    "search_yourself":"ابحث عن تمرينك"
 }

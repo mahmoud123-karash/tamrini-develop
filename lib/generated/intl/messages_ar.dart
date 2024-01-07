@@ -65,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "health": MessageLookupByLibrary.simpleMessage("الصحة والتغذية"),
         "highPrice": MessageLookupByLibrary.simpleMessage("الأعلى سعرا"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "home_exercises":
+            MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
@@ -108,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
         "searchHint":
             MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
+        "search_yourself":
+            MessageLookupByLibrary.simpleMessage("ابحث عن تمرينك"),
         "self": MessageLookupByLibrary.simpleMessage("ثقف نفسك"),
         "show": MessageLookupByLibrary.simpleMessage("عرض على الخريطة"),
         "slatGym": MessageLookupByLibrary.simpleMessage("صالات الجيم"),
@@ -115,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
+        "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب")

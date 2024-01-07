@@ -849,6 +849,36 @@ class S {
       args: [],
     );
   }
+
+  /// `المدربين`
+  String get trainer {
+    return Intl.message(
+      'المدربين',
+      name: 'trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التمارين المنزلية`
+  String get home_exercises {
+    return Intl.message(
+      'التمارين المنزلية',
+      name: 'home_exercises',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ابحث عن تمرينك`
+  String get search_yourself {
+    return Intl.message(
+      'ابحث عن تمرينك',
+      name: 'search_yourself',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

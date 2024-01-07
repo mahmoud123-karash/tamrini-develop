@@ -9,15 +9,15 @@ import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class AllArticlesScreen extends StatefulWidget {
-  const AllArticlesScreen({super.key, required this.models});
+class AllGymsScreen extends StatefulWidget {
+  const AllGymsScreen({super.key, required this.models});
   final List<GymModel> models;
 
   @override
-  State<AllArticlesScreen> createState() => _AllArticlesScreenState();
+  State<AllGymsScreen> createState() => _AllGymsScreenState();
 }
 
-class _AllArticlesScreenState extends State<AllArticlesScreen> {
+class _AllGymsScreenState extends State<AllGymsScreen> {
   final TextEditingController searchController = TextEditingController();
   ScrollController scrollController = ScrollController();
   List<GymModel> searchList = [];

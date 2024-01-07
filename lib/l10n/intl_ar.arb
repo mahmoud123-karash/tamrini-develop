@@ -78,6 +78,9 @@
     "allProducts":"جميع المنتجات",
     "category":"الفئات",
     "other":"أخري",
-    "nocProducts":"لا يوجد منتجات في هذه الفئة"
+    "nocProducts":"لا يوجد منتجات في هذه الفئة",
+    "trainer":"المدربين",
+    "home_exercises":"التمارين المنزلية",
+    "search_yourself":"ابحث عن تمرينك"
 
 }
