@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:io';
 
 import 'package:chewie/chewie.dart';
@@ -29,54 +31,30 @@ class _VideoManagerState extends State<VideoManager> {
   void initializePlayer(String url) async {
     final fileInfo = await checkCacheFor(url);
     if (fileInfo == null) {
-      _controller = VideoPlayerController.network(url);
+      _controller = VideoPlayerController.networkUrl(Uri.parse(url));
 
       _controller!.initialize().then((value) {
         setState(() {
           cachedForUrl(url);
-
-          // _controller!.play();
         });
       });
     } else {
       final file = fileInfo.file;
       _controller = VideoPlayerController.file(file);
       _controller!.initialize().then((value) {
-        setState(() {
-          // _controller!.play();
-        });
+        setState(() {});
       });
     }
   }
 
-//: check for cache
   Future<FileInfo?> checkCacheFor(String url) async {
     final FileInfo? value = await DefaultCacheManager().getFileFromCache(url);
     return value;
   }
 
-//:cached Url Data
-
   @override
   void initState() {
     initializePlayer(widget.remote_url);
-    // DefaultCacheManager()
-    //     .getSingleFile(widget.remote_url, key: widget.remote_url)
-    //     .then((value) {
-    //   file = value;
-    // });
-    //
-    // final url = widget.remote_url;
-    // final file = await DefaultCacheManager().getSingleFile(url, key: url);
-    // controller = VideoPlayerController.file(file)
-    //   ..initialize().then(
-    //     (_) => initialize(),
-    //   );
-    // controller = VideoPlayerController.network(
-    //   widget.remote_url,
-    //   videoPlayerOptions: VideoPlayerOptions(
-    //       mixWithOthers: false, allowBackgroundPlayback: false),
-    // );
 
     super.initState();
   }
@@ -93,23 +71,21 @@ class _VideoManagerState extends State<VideoManager> {
 
   Widget video() {
     return (_controller == null)
-        ? const Center(child: Text('جاري التحميل'))
+        ? const Center(child: Text('Loading...'))
         : ((_controller!.value.isInitialized)
-            ?
-            //       ? VideoPlayer(_controller!)
-            //
-            Chewie(
+            ? Chewie(
                 controller: ChewieController(
                   placeholder: const Center(child: CircularProgressIndicator()),
                   videoPlayerController: _controller!,
                   showControlsOnInitialize: false,
-                  // aspectRatio: 16 / 9,
                   autoPlay: false,
                   looping: false,
                   autoInitialize: false,
                 ),
               )
-            : const Center(child: CircularProgressIndicator()));
+            : const Center(
+                child: CircularProgressIndicator(),
+              ));
   }
 
   @override
@@ -118,40 +94,6 @@ class _VideoManagerState extends State<VideoManager> {
   }
 }
 
-// class dd extends ChangeNotifier {
-//   late String remote_url;
-//   late VideoPlayerController controller;
-//   ChewieController? chewieController;
-//
-//   VideoManager(url) {
-//     remote_url = url;
-//     controller = VideoPlayerController.network(
-//       remote_url,
-//       videoPlayerOptions: VideoPlayerOptions(
-//           mixWithOthers: false, allowBackgroundPlayback: false),
-//     );
-//
-//     init();
-//   }
-//
-//   void disposee() {
-//     controller.dispose();
-//     if (chewieController != null) {
-//       chewieController!.dispose();
-//     }
-//     notifyListeners();
-//
-//     super.dispose();
-//   }
-//   // Widget thumbnail() {
-//   //   return CachedNetworkImage(
-//   //
-//   //   );
-//   // }
-// }
-
 void cachedForUrl(String url) async {
-  await DefaultCacheManager().getSingleFile(url).then((value) {
-    print('downloaded successfully done for $url');
-  });
+  await DefaultCacheManager().getSingleFile(url).then((value) {});
 }

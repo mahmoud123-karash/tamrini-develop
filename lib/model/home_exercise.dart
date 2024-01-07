@@ -5,7 +5,8 @@ class HomeExercise {
   String? id;
   int? order;
 
-  HomeExercise({this.image, this.data, this.title, required this.id, this.order});
+  HomeExercise(
+      {this.image, this.data, this.title, required this.id, this.order});
 
   HomeExercise.fromJson(Map<String, dynamic> json, String id) {
     image = json['image'];
@@ -21,7 +22,7 @@ class HomeExercise {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['image'] = image;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
@@ -38,7 +39,12 @@ class Data {
   String? title;
   String? id;
 
-  Data({this.assets, this.description, this.title, required this.id,});
+  Data({
+    this.assets,
+    this.description,
+    this.title,
+    required this.id,
+  });
 
   Data.fromJson(Map<String, dynamic> json) {
     assets = json['image'].cast<String>();

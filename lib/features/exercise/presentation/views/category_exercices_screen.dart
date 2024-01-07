@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/exercise/presentation/views/search_exercise_screen.dart';
+import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
 
 import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_container_widget.dart';
@@ -22,7 +25,15 @@ class CategoryExercisesScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              AllExercisesContainerWidget(models: models),
+              AllExercisesContainerWidget(onPressed: () {
+                List<DataModel> exercises = [];
+                for (var element in models) {
+                  exercises.addAll(element.data!);
+                }
+                if (exercises.isNotEmpty) {
+                  navigateTo(context, SearchScreen(exercises: exercises));
+                }
+              }),
               const SizedBox(
                 height: 30,
               ),

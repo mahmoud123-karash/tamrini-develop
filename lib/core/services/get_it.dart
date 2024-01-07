@@ -3,6 +3,8 @@ import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_r
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
+import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
+import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
 import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
@@ -40,6 +42,12 @@ void setLocator() {
     StoreRepoImpl(
       StoreRemoteDataSourceImpl(),
       StoreLocalDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<ExerciseRepoImpl>(
+    ExerciseRepoImpl(
+      ExerciseRemoteDataSourceImpl(),
     ),
   );
 }

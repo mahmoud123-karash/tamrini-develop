@@ -20,6 +20,9 @@ import 'package:tamrini/core/shared/bloc_observer.dart';
 import 'package:tamrini/data/location.dart';
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/presentation/manager/complete_cubit/complete_cubit.dart';
+import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
+import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
+import 'package:tamrini/features/exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
@@ -627,6 +630,11 @@ void main() async {
           BlocProvider(
             create: (context) => CategoryCubit(
               getIt.get<StoreRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => HomeExerciseCubit(
+              getIt.get<ExerciseRepoImpl>(),
             )..getData(),
           ),
           BlocProvider(
