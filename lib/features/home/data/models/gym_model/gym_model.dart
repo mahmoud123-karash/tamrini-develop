@@ -9,6 +9,7 @@ class GymModel {
   final String description;
   final double distance;
   final String ownerUid;
+  final bool isBanned;
 
   GymModel({
     required this.assets,
@@ -19,6 +20,7 @@ class GymModel {
     required this.description,
     required this.distance,
     required this.ownerUid,
+    required this.isBanned,
   });
 
   factory GymModel.fromJson(
@@ -31,6 +33,7 @@ class GymModel {
         id: id,
         description: json['description'] ?? '',
         ownerUid: json['ownerUid'] ?? '',
+        isBanned: json['isBanned'] ?? false,
         distance: distance,
       );
 
@@ -40,6 +43,7 @@ class GymModel {
         'location': location,
         'price': price,
         'ownerUid': ownerUid,
+        'isBanned': isBanned,
         'description': description,
       };
 }

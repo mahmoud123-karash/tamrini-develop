@@ -4,6 +4,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/home_category_exercises_screen.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_type_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/gym_type_builder_widget.dart';
+import 'package:tamrini/features/trainer/presentation/views/trainers_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/search_exercise_builder_widget.dart';
@@ -42,7 +43,12 @@ class _ExercisesTypesScreenState extends State<ExercisesTypesScreen> {
           ExerciseTypeWidget(
             image: Assets.imagesTrainer,
             lable: S.of(context).trainer,
-            onPressed: () {},
+            onPressed: () {
+              navigateTo(
+                context,
+                const TrainersScreen(),
+              );
+            },
           ),
         ],
       ),

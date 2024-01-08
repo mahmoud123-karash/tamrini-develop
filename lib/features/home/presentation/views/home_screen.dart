@@ -4,6 +4,7 @@ import 'package:tamrini/features/home/presentation/views/widgets/home_exercise_w
 import 'package:tamrini/features/home/presentation/views/widgets/home_gym_builder_widget.dart';
 
 import 'widgets/home_product_widget_builder.dart';
+import 'widgets/trainer_home_widget_builder.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return const SingleChildScrollView(
       child: Column(
         children: [
+          TrainerHomeWidgetBuilder(),
           HomeExerciseWidgetBuilder(),
           HomeArticlesWidgetBuilder(),
           HomeProductWidgetBuilder(),

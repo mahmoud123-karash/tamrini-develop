@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/utils/navidation_route.dart';
+import 'package:tamrini/core/utils/navigation_route.dart';
 
 void navigateTo(context, route) => Navigator.push(
       context,

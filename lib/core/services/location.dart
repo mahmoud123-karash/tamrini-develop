@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:intl/intl.dart';
@@ -65,4 +67,21 @@ Future<double> getDistance({
         1000;
   }
   return distance;
+}
+
+Future<String> getAddress({required GeoPoint location}) async {
+  var result = await placemarkFromCoordinates(
+    location.latitude,
+    location.longitude,
+    localeIdentifier: Intl.getCurrentLocale() == 'ar' ? 'ar' : 'en',
+  );
+  if (result.isNotEmpty) {
+    String country = result.first.country ?? '';
+    String city = result.first.locality ?? '';
+    String subAdministrativeArea = result.first.subAdministrativeArea ?? '';
+
+    return '$country $city $subAdministrativeArea';
+  } else {
+    return '';
+  }
 }

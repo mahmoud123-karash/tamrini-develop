@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts":
             MessageLookupByLibrary.simpleMessage("Number of Products"),
+        "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
+        "after": MessageLookupByLibrary.simpleMessage("بعد"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("All Exercises"),
@@ -31,11 +33,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
+        "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
+        "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
@@ -61,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "follow":
             MessageLookupByLibrary.simpleMessage("Continue without login"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
+        "from": MessageLookupByLibrary.simpleMessage("من"),
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
@@ -77,7 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "lowPrice": MessageLookupByLibrary.simpleMessage("Lowest Price"),
         "male": MessageLookupByLibrary.simpleMessage("Make"),
         "maxDistance": MessageLookupByLibrary.simpleMessage("Farthest"),
+        "media": MessageLookupByLibrary.simpleMessage("مواقع التواصل"),
         "minDistance": MessageLookupByLibrary.simpleMessage("Nearest"),
+        "money": MessageLookupByLibrary.simpleMessage("السعر"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
@@ -88,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No gym found with this name"),
         "noProduct": MessageLookupByLibrary.simpleMessage(
             "No products found with this name"),
+        "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
@@ -106,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
         "proDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
+        "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
@@ -122,10 +131,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
+        "to": MessageLookupByLibrary.simpleMessage("إلي"),
+        "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
+        "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
         "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
+        "trainer_gallery": MessageLookupByLibrary.simpleMessage("معرض الأعمال"),
+        "trainer_profile":
+            MessageLookupByLibrary.simpleMessage("ملف المدرب الشخصي"),
+        "trainersPage": MessageLookupByLibrary.simpleMessage("صفحة المدربين"),
+        "tranier_hint_social": MessageLookupByLibrary.simpleMessage(
+            "هذا المدرب ليس لديه حساب في هذا الموقع"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "update": MessageLookupByLibrary.simpleMessage("Update Location"),
         "validate":
-            MessageLookupByLibrary.simpleMessage("This field is required")
+            MessageLookupByLibrary.simpleMessage("This field is required"),
+        "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل")
       };
 }

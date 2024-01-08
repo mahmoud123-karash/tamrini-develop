@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/aricles_item_widget.dart';
@@ -21,11 +19,9 @@ class ArticlesListViewWidget extends StatelessWidget {
         itemCount: models.length > 5 ? 5 : models.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          Random random = Random();
-
           return AtricleItemWidget(
             width: getWidht - 70,
-            model: models[random.nextInt(models.length)],
+            model: models[index],
           );
         },
       ),

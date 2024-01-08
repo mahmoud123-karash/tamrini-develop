@@ -879,6 +879,176 @@ class S {
       args: [],
     );
   }
+
+  /// `صفحة المدربين`
+  String get trainersPage {
+    return Intl.message(
+      'صفحة المدربين',
+      name: 'trainersPage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد مدربين`
+  String get no_trainers {
+    return Intl.message(
+      'لا يوجد مدربين',
+      name: 'no_trainers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `متدرب`
+  String get trainee {
+    return Intl.message(
+      'متدرب',
+      name: 'trainee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ملف المدرب الشخصي`
+  String get trainer_profile {
+    return Intl.message(
+      'ملف المدرب الشخصي',
+      name: 'trainer_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المدرب`
+  String get coach {
+    return Intl.message(
+      'المدرب',
+      name: 'coach',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `السعر`
+  String get money {
+    return Intl.message(
+      'السعر',
+      name: 'money',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التقييم`
+  String get rating {
+    return Intl.message(
+      'التقييم',
+      name: 'rating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مواقع التواصل`
+  String get media {
+    return Intl.message(
+      'مواقع التواصل',
+      name: 'media',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الإنجازات`
+  String get achevement {
+    return Intl.message(
+      'الإنجازات',
+      name: 'achevement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ساعات العمل`
+  String get work_hour {
+    return Intl.message(
+      'ساعات العمل',
+      name: 'work_hour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إلي`
+  String get to {
+    return Intl.message(
+      'إلي',
+      name: 'to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `من`
+  String get from {
+    return Intl.message(
+      'من',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هذا المدرب ليس لديه حساب في هذا الموقع`
+  String get tranier_hint_social {
+    return Intl.message(
+      'هذا المدرب ليس لديه حساب في هذا الموقع',
+      name: 'tranier_hint_social',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `معرض الأعمال`
+  String get trainer_gallery {
+    return Intl.message(
+      'معرض الأعمال',
+      name: 'trainer_gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قبل`
+  String get before {
+    return Intl.message(
+      'قبل',
+      name: 'before',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `بعد`
+  String get after {
+    return Intl.message(
+      'بعد',
+      name: 'after',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أشهر المدربين`
+  String get top_trainers {
+    return Intl.message(
+      'أشهر المدربين',
+      name: 'top_trainers',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

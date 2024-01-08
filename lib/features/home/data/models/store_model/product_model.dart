@@ -1,4 +1,4 @@
-import 'package:tamrini/features/home/data/models/store_model/rating_model.dart';
+import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
 
 class ProductModel {
   final String title;

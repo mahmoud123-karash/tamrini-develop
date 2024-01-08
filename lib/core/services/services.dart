@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
-import 'package:tamrini/features/home/data/models/store_model/rating_model.dart';
+import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_share/flutter_share.dart';
 

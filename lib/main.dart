@@ -40,6 +40,8 @@ import 'package:tamrini/features/store/data/data_sources/remote_data_source/stor
 import 'package:tamrini/features/store/data/models/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_cubit.dart';
+import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
+import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/firebase_options.dart';
 import 'package:tamrini/model/home_exercise.dart' as homeExercises;
 import 'package:tamrini/model/product.dart';
@@ -625,6 +627,11 @@ void main() async {
           BlocProvider(
             create: (context) => StoreCubit(
               getIt.get<HomeRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => TrainersCubit(
+              getIt.get<TrainerRepoImpl>(),
             )..getData(),
           ),
           BlocProvider(

@@ -8,6 +8,7 @@ class ArticleModel {
   late String? body;
   late String? title;
   late String? id;
+  late bool? isBanned;
 
   ArticleModel(
       {required this.date,
@@ -16,7 +17,8 @@ class ArticleModel {
       required this.writerUid,
       required this.body,
       required this.id,
-      required this.title});
+      required this.title,
+      required this.isBanned});
 
   factory ArticleModel.fromJson(Map<String, dynamic> data, String id) {
     return ArticleModel(
@@ -25,6 +27,7 @@ class ArticleModel {
       image: data['image'].cast<String>(),
       writer: data['writer'],
       writerUid: data['writerUid'] ?? "",
+      isBanned: data['isBanned'] ?? false,
       body: data['body'],
       title: data['title'],
     );

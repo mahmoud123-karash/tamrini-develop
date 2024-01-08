@@ -81,6 +81,23 @@
     "nocProducts":"لا يوجد منتجات في هذه الفئة",
     "trainer":"المدربين",
     "home_exercises":"التمارين المنزلية",
-    "search_yourself":"ابحث عن تمرينك"
+    "search_yourself":"ابحث عن تمرينك",
+    "trainersPage":"صفحة المدربين",
+    "no_trainers":"لا يوجد مدربين",
+    "trainee":"متدرب",
+    "trainer_profile":"ملف المدرب الشخصي",
+    "coach":"المدرب",
+    "money":"السعر",
+    "rating":"التقييم",
+    "media":"مواقع التواصل",
+    "achevement":"الإنجازات",
+    "work_hour":"ساعات العمل",
+    "to":"إلي",
+    "from":"من",
+    "tranier_hint_social":"هذا المدرب ليس لديه حساب في هذا الموقع",
+    "trainer_gallery":"معرض الأعمال",
+    "before":"قبل",
+    "after":"بعد",
+    "top_trainers":"أشهر المدربين"
 
 }

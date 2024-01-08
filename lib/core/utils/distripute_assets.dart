@@ -2,7 +2,7 @@ import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tamrini/core/utils/regex.dart';
 import 'package:tamrini/core/utils/video_manager.dart';
-import 'package:tamrini/utils/youtube_manager.dart';
+import 'package:tamrini/core/utils/youtube_manager.dart';
 
 List<Widget> distributeAssets(List<String> assets) {
   List<Widget> distributedAssets = [];

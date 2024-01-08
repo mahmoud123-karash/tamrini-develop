@@ -47,7 +47,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     for (var element in result.docs) {
       ArticleModel model = ArticleModel.fromJson(element.data(), element.id);
-      list.add(model);
+      if (!model.isBanned!) {
+        list.add(model);
+      }
     }
     return list;
   }
@@ -55,7 +57,10 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   @override
   Future<List<StoreModel>> getStores() async {
     List<StoreModel> list = [];
-    var result = await FirebaseFirestore.instance.collection('stores').get();
+    var result = await FirebaseFirestore.instance
+        .collection('stores')
+        .where('isBanned', isEqualTo: false)
+        .get();
     for (var element in result.docs) {
       StoreModel model = StoreModel.fromMap(element.data());
       list.add(model);
@@ -88,7 +93,9 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
           );
           GymModel model =
               GymModel.fromJson(element.data(), element.id, distance);
-          list.add(model);
+          if (!model.isBanned) {
+            list.add(model);
+          }
         }
         list.sort((a, b) => a.distance.compareTo(b.distance));
         return right(list);

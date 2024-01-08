@@ -9,21 +9,21 @@ class GymListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final getHeight = mediaQuery.size.height;
     final getWidht = mediaQuery.size.width;
 
-    return SizedBox(
-      height: getHeight * 0.25,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: models.length > 5 ? 5 : models.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return GymItemWidget(
-            width: getWidht - 70,
-            model: models[index],
-          );
-        },
+    return ListView.separated(
+      physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
+      itemCount: models.length > 5 ? 5 : models.length,
+      shrinkWrap: true,
+      itemBuilder: (context, index) {
+        return GymItemWidget(
+          width: getWidht,
+          model: models[index],
+        );
+      },
+      separatorBuilder: (context, index) => const SizedBox(
+        height: 15,
       ),
     );
   }

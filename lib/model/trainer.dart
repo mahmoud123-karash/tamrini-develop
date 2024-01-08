@@ -52,17 +52,17 @@ class Trainer {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['image'] = this.image;
-    data['achievements'] = this.description;
-    data['contacts'] = this.contacts;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['image'] = image;
+    data['achievements'] = description;
+    data['contacts'] = contacts;
 
-    data['uid'] = this.uid;
-    data['price'] = this.price;
-    data['gender'] = this.gender;
-    data['traineesCount'] = this.traineesCount;
-    data['questions'] = this.questions;
+    data['uid'] = uid;
+    data['price'] = price;
+    data['gender'] = gender;
+    data['traineesCount'] = traineesCount;
+    data['questions'] = questions;
     data['gallery'] = gallery;
     return data;
   }
