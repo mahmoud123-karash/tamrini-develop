@@ -78,7 +78,7 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
                   )
                 : Center(
                     child: Text(
-                      S.of(context).emptyList,
+                      S.of(context).no_results,
                     ),
                   ),
             if (searchList.isEmpty && searchController.text != '')

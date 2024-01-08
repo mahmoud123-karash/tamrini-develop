@@ -36,6 +36,8 @@ import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage
 import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
+import 'package:tamrini/features/questions/data/repo/diet_food_repo_impl.dart';
+import 'package:tamrini/features/questions/presentation/manager/article_cubit/diet_foood_cubit.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/models/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
@@ -637,6 +639,11 @@ void main() async {
           BlocProvider(
             create: (context) => CategoryCubit(
               getIt.get<StoreRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => DietFoodCubit(
+              getIt.get<DietFoodRepoImpl>(),
             )..getData(),
           ),
           BlocProvider(

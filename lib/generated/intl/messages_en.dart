@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
@@ -95,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No gym found with this name"),
         "noProduct": MessageLookupByLibrary.simpleMessage(
             "No products found with this name"),
+        "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
@@ -114,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
         "proDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
+        "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),

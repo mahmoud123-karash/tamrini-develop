@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_and_date_widget.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -84,12 +84,9 @@ class ArticlesDetailsScreen extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  ArticleWriterAndDate(
+                  ArticleWriterWidget(
                     writerUid: model.writerUid ?? '',
                     writer: model.writer ?? '',
-                    date: DateFormat('yyyy-MM-dd').format(
-                      model.date!.toDate(),
-                    ),
                   )
                 ],
               ),

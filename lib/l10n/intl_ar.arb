@@ -98,6 +98,9 @@
     "trainer_gallery":"معرض الأعمال",
     "before":"قبل",
     "after":"بعد",
-    "top_trainers":"أشهر المدربين"
+    "top_trainers":"أشهر المدربين",
+    "diet_food": "أكــلات دايــت",
+    "questtion":"الأسئلة",
+    "no_results":"لا يوجد نتائج"
 
 }

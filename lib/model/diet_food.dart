@@ -28,7 +28,7 @@ class DietFood {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['assets'] = assets;
     data['description'] = description;
     data['title'] = title;

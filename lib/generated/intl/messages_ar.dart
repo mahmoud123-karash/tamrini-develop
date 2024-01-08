@@ -51,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
@@ -92,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد جيم بهذا الإسم"),
         "noProduct":
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات بهذا الإسم"),
+        "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts":
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات في هذه الفئة"),
@@ -111,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء الموافقة على الشروط"),
         "proDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
         "products": MessageLookupByLibrary.simpleMessage("منتجات متنوعة"),
+        "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),

@@ -1049,6 +1049,36 @@ class S {
       args: [],
     );
   }
+
+  /// `أكــلات دايــت`
+  String get diet_food {
+    return Intl.message(
+      'أكــلات دايــت',
+      name: 'diet_food',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأسئلة`
+  String get questtion {
+    return Intl.message(
+      'الأسئلة',
+      name: 'questtion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد نتائج`
+  String get no_results {
+    return Intl.message(
+      'لا يوجد نتائج',
+      name: 'no_results',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

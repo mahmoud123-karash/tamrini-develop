@@ -5,14 +5,13 @@ import 'package:tamrini/features/atricle/presentation/views/widgets/publisher_na
 
 import '../../../../profile/presentation/views/profile_screen.dart';
 
-class ArticleWriterAndDate extends StatelessWidget {
-  const ArticleWriterAndDate({
+class ArticleWriterWidget extends StatelessWidget {
+  const ArticleWriterWidget({
     super.key,
     required this.writer,
-    required this.date,
     required this.writerUid,
   });
-  final String writer, date, writerUid;
+  final String writer, writerUid;
 
   @override
   Widget build(BuildContext context) {
