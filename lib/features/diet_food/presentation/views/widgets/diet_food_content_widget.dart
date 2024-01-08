@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/serach.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
-import 'package:tamrini/features/questions/data/models/diet_food_model.dart/diet_food_model.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/diet_food_list_view_widget.dart';
+import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
+import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class DietFoodContentWidget extends StatefulWidget {

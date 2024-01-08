@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/questions/presentation/views/diet_food_screen.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/article_widget_builder_widget.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/artilcle_container_widget.dart';
+import 'package:tamrini/features/diet_food/presentation/views/diet_food_screen.dart';
+import 'package:tamrini/features/diet_food/presentation/views/widgets/article_widget_builder_widget.dart';
+import 'package:tamrini/features/diet_food/presentation/views/widgets/artilcle_container_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class EducateYourSelfScreen extends StatefulWidget {

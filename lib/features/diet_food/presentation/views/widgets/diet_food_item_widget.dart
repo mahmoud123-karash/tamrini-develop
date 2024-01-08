@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/questions/data/models/diet_food_model.dart/diet_food_model.dart';
-import 'package:tamrini/features/questions/presentation/views/diet_food_details_screen.dart';
+import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
+import 'package:tamrini/features/diet_food/presentation/views/diet_food_details_screen.dart';
 
 import 'diet_food_slide_image_widget.dart';
 

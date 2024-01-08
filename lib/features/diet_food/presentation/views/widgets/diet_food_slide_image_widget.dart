@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/diet_food_image_widget.dart';
+import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_image_widget.dart';
 
 class DietFoodSlideImageWidget extends StatelessWidget {
   const DietFoodSlideImageWidget(

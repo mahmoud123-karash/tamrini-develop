@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/questions/data/models/diet_food_model.dart/diet_food_model.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/diet_food_item_widget.dart';
+import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
+import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_item_widget.dart';
 
 class DietFoodListViewWidget extends StatelessWidget {
   const DietFoodListViewWidget(

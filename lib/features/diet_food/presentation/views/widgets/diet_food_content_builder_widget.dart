@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/questions/presentation/manager/article_cubit/diet_food_states.dart';
-import 'package:tamrini/features/questions/presentation/manager/article_cubit/diet_foood_cubit.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/diet_food_content_widget.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/message_diet_food_list_widget.dart';
+import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_states.dart';
+import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
+import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_content_widget.dart';
+import 'package:tamrini/features/diet_food/presentation/views/widgets/message_diet_food_list_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class DietFoodContentBuilderWidget extends StatelessWidget {

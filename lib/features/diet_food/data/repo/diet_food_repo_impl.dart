@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:tamrini/features/questions/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
-import 'package:tamrini/features/questions/data/models/diet_food_model.dart/diet_food_model.dart';
-import 'package:tamrini/features/questions/domain/repo/diet_food_repo.dart';
+import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
+import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
+import 'package:tamrini/features/diet_food/domain/repo/diet_food_repo.dart';
 
 class DietFoodRepoImpl extends DietFoodRepo {
   final DietFoodRemoteDataSource dietFoodRemoteDataSource;

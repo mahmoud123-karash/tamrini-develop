@@ -7,9 +7,8 @@ import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/e
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
 import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
-import 'package:tamrini/features/questions/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
-import 'package:tamrini/features/questions/data/repo/diet_food_repo_impl.dart';
-import 'package:tamrini/features/questions/domain/repo/diet_food_repo.dart';
+import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
+import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';

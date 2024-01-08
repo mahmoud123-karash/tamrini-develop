@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercises_types_screen.dart';
 import 'package:tamrini/features/home/presentation/views/home_screen.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
-import 'package:tamrini/features/questions/presentation/views/educate_your_self_screen.dart';
+import 'package:tamrini/features/diet_food/presentation/views/educate_your_self_screen.dart';
 import 'package:tamrini/features/store/presenrtation/views/stores_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:tamrini/screens/food_category_screen.dart';
