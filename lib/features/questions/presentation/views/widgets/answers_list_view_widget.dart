@@ -13,6 +13,7 @@ class AnswerslistViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    list.sort((a, b) => b.date.compareTo(a.date));
     return list.isEmpty
         ? Center(
             child: SizedBox(

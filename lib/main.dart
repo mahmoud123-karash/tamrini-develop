@@ -38,6 +38,8 @@ import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
+import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
+import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/models/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
@@ -652,6 +654,11 @@ void main() async {
             )..getData(),
           ),
           BlocProvider(
+            create: (context) => QuestionCubit(
+              getIt.get<QuestionRepoImpl>(),
+            ),
+          ),
+          BlocProvider(
             create: (context) => ManageCubit()
               ..changeAppTheme(
                 fromSP: helper.CacheHelper.getData(key: 'isdark') ?? false,
@@ -709,7 +716,7 @@ class _MyAppState extends State<MyApp> {
                   bool isDark = ManageCubit.get(context).isDark;
                   String lang = ManageCubit.get(context).lang;
                   return GetMaterialApp(
-                    locale: const Locale('ar'),
+                    locale: const Locale('en'),
                     localizationsDelegates: const [
                       S.delegate,
                       GlobalMaterialLocalizations.delegate,

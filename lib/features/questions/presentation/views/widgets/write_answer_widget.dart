@@ -1,10 +1,22 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:intl/intl.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
+import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
+import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
+import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class WriteAnswerWidget extends StatefulWidget {
-  const WriteAnswerWidget({super.key});
+  const WriteAnswerWidget({super.key, required this.model});
+  final QuestionModel model;
 
   @override
   State<WriteAnswerWidget> createState() => _WriteAnswerWidgetState();
@@ -27,23 +39,66 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Row(
           children: [
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                decoration: ShapeDecoration(
-                  shape: const CircleBorder(),
-                  color: appColor,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Icon(
-                    Ionicons.send,
-                    color: whiteColor,
-                    size: 15,
+            if (controller.text != '')
+              BlocListener<QuestionCubit, QuestionStates>(
+                listener: (context, state) {
+                  if (state is SucessUpdateQuestionState) {
+                    controller.clear();
+                  }
+                  if (state is ErrorUpdateQuestionState) {
+                    showSnackBar(context, state.message);
+                  }
+                },
+                child: GestureDetector(
+                  onTap: () async {
+                    if (await InternetConnectionChecker().hasConnection) {
+                      List<AnswerModel> list = widget.model.answers;
+                      list.add(
+                        AnswerModel(
+                          date: Timestamp.now(),
+                          answer: controller.text,
+                          userUid: CacheHelper.getData(key: 'uid'),
+                        ),
+                      );
+                      QuestionCubit.get(context).updateQuestion(
+                        model: QuestionModel(
+                          date: widget.model.date,
+                          body: widget.model.body,
+                          askerUid: widget.model.askerUid,
+                          answersCount: widget.model.answersCount + 1,
+                          answers: list,
+                          isBanned: widget.model.isBanned,
+                        ),
+                        context: context,
+                        id: widget.model.id!,
+                        message: '',
+                      );
+                    } else {
+                      showSnackBar(context, S.of(context).comment_error);
+                    }
+                  },
+                  child: Container(
+                    decoration: ShapeDecoration(
+                      shape: const CircleBorder(),
+                      color: appColor,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Transform(
+                        alignment: Alignment.center,
+                        transform: Intl.getCurrentLocale() == 'en'
+                            ? Matrix4.rotationY(180 * 3.1415927 / 180)
+                            : Matrix4.rotationX(180 * 3.1415927 / 180),
+                        child: Icon(
+                          Icons.send,
+                          color: whiteColor,
+                          size: 16,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
             const SizedBox(
               width: 5,
             ),
@@ -53,6 +108,9 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
                 controller: controller,
                 minLines: 1,
                 maxLines: 15,
+                onChanged: (value) {
+                  setState(() {});
+                },
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(
                     vertical: 0,

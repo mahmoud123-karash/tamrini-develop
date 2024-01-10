@@ -47,9 +47,6 @@ class AnswerItemWidgt extends StatelessWidget {
             date: DateFormat('MM/dd/yy', 'en').format(model.date.toDate()),
             time: DateFormat('h:mm a', 'en').format(model.date.toDate()),
           ),
-          const SizedBox(
-            height: 20,
-          ),
         ],
       ),
     );

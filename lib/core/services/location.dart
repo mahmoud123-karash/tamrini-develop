@@ -71,7 +71,7 @@ Future<double> getDistance({
 
 Future<String> getAddress({required GeoPoint location}) async {
   if (!await InternetConnectionChecker().hasConnection) {
-    return Intl.getCurrentLocale() == 'en' ? 'Bagdad ElErak' : 'بغداد العراق';
+    return Intl.getCurrentLocale() == 'en' ? 'Iraq Baghdad' : 'بغداد العراق';
   } else {
     var result = await placemarkFromCoordinates(
       location.latitude,

@@ -40,35 +40,38 @@ class AnswersScreen extends StatelessWidget {
             return const MessageQuestionBuilderWidget(message: 'Loading...');
           }
           if (snapshot.data != null) {
-            Map<String, dynamic> map =
-                snapshot.data!.data() as Map<String, dynamic>;
+            Map<String, dynamic> map = {};
+            if (snapshot.data!.data() != null) {
+              map = snapshot.data!.data() as Map<String, dynamic>;
+            }
             QuestionModel question = QuestionModel.fromJson(
               map,
               uid,
             );
             log(question.answers.length.toString());
-            return Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: AnswersDetailsContentWidget(
-                    list: question.answers,
-                    body: question.body,
-                    answersCount: question.answersCount.toString(),
-                    name: model.name,
-                    image: model.image,
-                    type: getQuestionUserType(model),
-                    uid: model.uid,
-                    date: question.date,
-                  ),
-                ),
-                const Align(
-                  alignment: Alignment.bottomCenter,
-                  child: WriteAnswerWidget(),
-                ),
-              ],
-            );
+            return snapshot.data!.data() == null
+                ? MessageQuestionBuilderWidget(
+                    message: S.of(context).question_error,
+                  )
+                : Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: AnswersDetailsContentWidget(
+                          name: model.name,
+                          image: model.image,
+                          type: getQuestionUserType(model),
+                          uid: model.uid,
+                          model: question,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: WriteAnswerWidget(model: question),
+                      ),
+                    ],
+                  );
           } else {
             return MessageQuestionBuilderWidget(
               message: S.of(context).question_error,

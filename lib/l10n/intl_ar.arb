@@ -107,6 +107,17 @@
     "no_answers":"لا إجابات حتى الآن",
     "share":"مشاركة",
     "answer":"إجابة",
-    "question_error": "تم حذف هذا السؤال"
+    "question_error": "تم حذف هذا السؤال",
+    "write_question":"كتابة سؤال جديد...",
+    "add":"إضافة",
+    "success_add":"تم إضافة السؤال",
+    "success_remove":"تم حذف السؤال",
+    "success_update":"تم تعديل السؤال",
+    "success_ban":"تم تقييد السؤال",
+    "remove_question":"حذف",
+    "edit_question":"تعديل",
+    "ban_question":"تقييد",
+    "comment_error":"حدث خطأ"
+
 
 }

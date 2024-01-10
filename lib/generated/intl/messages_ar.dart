@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
+        "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
         "age": MessageLookupByLibrary.simpleMessage("العمر"),
@@ -35,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
         "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
+        "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "buyNow": MessageLookupByLibrary.simpleMessage("شراء الآن"),
@@ -42,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
+        "comment_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("من فضلك أكمل التسجيل"),
         "complete": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
@@ -56,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
+        "edit_question": MessageLookupByLibrary.simpleMessage("تعديل"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بتفعيل الايميل الخاص"),
@@ -123,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
+        "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
@@ -138,6 +143,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "store": MessageLookupByLibrary.simpleMessage("المتجر"),
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
+        "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),
+        "success_remove": MessageLookupByLibrary.simpleMessage("تم حذف السؤال"),
+        "success_update":
+            MessageLookupByLibrary.simpleMessage("تم تعديل السؤال"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
@@ -152,6 +162,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
-        "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل")
+        "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
+        "write_question":
+            MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد...")
       };
 }

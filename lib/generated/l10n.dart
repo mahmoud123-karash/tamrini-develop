@@ -850,291 +850,391 @@ class S {
     );
   }
 
-  /// `المدربين`
+  /// `Trainers`
   String get trainer {
     return Intl.message(
-      'المدربين',
+      'Trainers',
       name: 'trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `التمارين المنزلية`
+  /// `Home Exercises`
   String get home_exercises {
     return Intl.message(
-      'التمارين المنزلية',
+      'Home Exercises',
       name: 'home_exercises',
       desc: '',
       args: [],
     );
   }
 
-  /// `ابحث عن تمرينك`
+  /// `Search for Your Exercise`
   String get search_yourself {
     return Intl.message(
-      'ابحث عن تمرينك',
+      'Search for Your Exercise',
       name: 'search_yourself',
       desc: '',
       args: [],
     );
   }
 
-  /// `صفحة المدربين`
+  /// `Trainers Page`
   String get trainersPage {
     return Intl.message(
-      'صفحة المدربين',
+      'Trainers Page',
       name: 'trainersPage',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد مدربين`
+  /// `No Trainers`
   String get no_trainers {
     return Intl.message(
-      'لا يوجد مدربين',
+      'No Trainers',
       name: 'no_trainers',
       desc: '',
       args: [],
     );
   }
 
-  /// `متدرب`
+  /// `Trainee`
   String get trainee {
     return Intl.message(
-      'متدرب',
+      'Trainee',
       name: 'trainee',
       desc: '',
       args: [],
     );
   }
 
-  /// `ملف المدرب الشخصي`
+  /// `Trainer Profile`
   String get trainer_profile {
     return Intl.message(
-      'ملف المدرب الشخصي',
+      'Trainer Profile',
       name: 'trainer_profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `المدرب`
+  /// `Coach`
   String get coach {
     return Intl.message(
-      'المدرب',
+      'Coach',
       name: 'coach',
       desc: '',
       args: [],
     );
   }
 
-  /// `السعر`
+  /// `Price`
   String get money {
     return Intl.message(
-      'السعر',
+      'Price',
       name: 'money',
       desc: '',
       args: [],
     );
   }
 
-  /// `التقييم`
+  /// `Rating`
   String get rating {
     return Intl.message(
-      'التقييم',
+      'Rating',
       name: 'rating',
       desc: '',
       args: [],
     );
   }
 
-  /// `مواقع التواصل`
+  /// `Social Media`
   String get media {
     return Intl.message(
-      'مواقع التواصل',
+      'Social Media',
       name: 'media',
       desc: '',
       args: [],
     );
   }
 
-  /// `الإنجازات`
+  /// `Achievements`
   String get achevement {
     return Intl.message(
-      'الإنجازات',
+      'Achievements',
       name: 'achevement',
       desc: '',
       args: [],
     );
   }
 
-  /// `ساعات العمل`
+  /// `Working Hours`
   String get work_hour {
     return Intl.message(
-      'ساعات العمل',
+      'Working Hours',
       name: 'work_hour',
       desc: '',
       args: [],
     );
   }
 
-  /// `إلي`
+  /// `To`
   String get to {
     return Intl.message(
-      'إلي',
+      'To',
       name: 'to',
       desc: '',
       args: [],
     );
   }
 
-  /// `من`
+  /// `From`
   String get from {
     return Intl.message(
-      'من',
+      'From',
       name: 'from',
       desc: '',
       args: [],
     );
   }
 
-  /// `هذا المدرب ليس لديه حساب في هذا الموقع`
+  /// `This trainer does not have an account on this platform`
   String get tranier_hint_social {
     return Intl.message(
-      'هذا المدرب ليس لديه حساب في هذا الموقع',
+      'This trainer does not have an account on this platform',
       name: 'tranier_hint_social',
       desc: '',
       args: [],
     );
   }
 
-  /// `معرض الأعمال`
+  /// `Gallery`
   String get trainer_gallery {
     return Intl.message(
-      'معرض الأعمال',
+      'Gallery',
       name: 'trainer_gallery',
       desc: '',
       args: [],
     );
   }
 
-  /// `قبل`
+  /// `Before`
   String get before {
     return Intl.message(
-      'قبل',
+      'Before',
       name: 'before',
       desc: '',
       args: [],
     );
   }
 
-  /// `بعد`
+  /// `After`
   String get after {
     return Intl.message(
-      'بعد',
+      'After',
       name: 'after',
       desc: '',
       args: [],
     );
   }
 
-  /// `أشهر المدربين`
+  /// `Top Trainers`
   String get top_trainers {
     return Intl.message(
-      'أشهر المدربين',
+      'Top Trainers',
       name: 'top_trainers',
       desc: '',
       args: [],
     );
   }
 
-  /// `أكــلات دايــت`
+  /// `Diet Food`
   String get diet_food {
     return Intl.message(
-      'أكــلات دايــت',
+      'Diet Food',
       name: 'diet_food',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأسئلة`
+  /// `Questions`
   String get questtion {
     return Intl.message(
-      'الأسئلة',
+      'Questions',
       name: 'questtion',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد نتائج`
+  /// `No Results`
   String get no_results {
     return Intl.message(
-      'لا يوجد نتائج',
+      'No Results',
       name: 'no_results',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأجوبة`
+  /// `Answers`
   String get answers {
     return Intl.message(
-      'الأجوبة',
+      'Answers',
       name: 'answers',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة إجابة`
+  /// `Add Answer`
   String get add_answer {
     return Intl.message(
-      'إضافة إجابة',
+      'Add Answer',
       name: 'add_answer',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا إجابات حتى الآن`
+  /// `No answers yet`
   String get no_answers {
     return Intl.message(
-      'لا إجابات حتى الآن',
+      'No answers yet',
       name: 'no_answers',
       desc: '',
       args: [],
     );
   }
 
-  /// `مشاركة`
+  /// `Share`
   String get share {
     return Intl.message(
-      'مشاركة',
+      'Share',
       name: 'share',
       desc: '',
       args: [],
     );
   }
 
-  /// `إجابة`
+  /// `Answer`
   String get answer {
     return Intl.message(
-      'إجابة',
+      'Answer',
       name: 'answer',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حذف هذا السؤال`
+  /// `This question has been deleted`
   String get question_error {
     return Intl.message(
-      'تم حذف هذا السؤال',
+      'This question has been deleted',
       name: 'question_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write a new question...`
+  String get write_question {
+    return Intl.message(
+      'Write a new question...',
+      name: 'write_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Question added successfully`
+  String get success_add {
+    return Intl.message(
+      'Question added successfully',
+      name: 'success_add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Question deleted successfully`
+  String get success_remove {
+    return Intl.message(
+      'Question deleted successfully',
+      name: 'success_remove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Question updated successfully`
+  String get success_update {
+    return Intl.message(
+      'Question updated successfully',
+      name: 'success_update',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Question restricted successfully`
+  String get success_ban {
+    return Intl.message(
+      'Question restricted successfully',
+      name: 'success_ban',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get remove_question {
+    return Intl.message(
+      'Delete',
+      name: 'remove_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit_question {
+    return Intl.message(
+      'Edit',
+      name: 'edit_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Restrict`
+  String get ban_question {
+    return Intl.message(
+      'Restrict',
+      name: 'ban_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred`
+  String get comment_error {
+    return Intl.message(
+      'An error occurred',
+      name: 'comment_error',
       desc: '',
       args: [],
     );

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/question_name_Image_type_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/question_time_and_date_widget.dart';
 
@@ -13,12 +14,13 @@ class QuestionDetailsItemWidget extends StatelessWidget {
     required this.image,
     required this.type,
     required this.uid,
-    required this.body,
     required this.answersCount,
     required this.date,
+    required this.model,
   });
-  final String name, image, type, uid, body, answersCount;
+  final String name, image, type, uid, answersCount;
   final Timestamp date;
+  final QuestionModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,8 @@ class QuestionDetailsItemWidget extends StatelessWidget {
             name: name,
             type: type,
             uid: uid,
+            model: model,
+            isDetails: true,
           ),
           const SizedBox(
             height: 15,
@@ -39,7 +43,7 @@ class QuestionDetailsItemWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Text(
-              body,
+              model.body,
               style: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'SF Pro Text',
@@ -61,7 +65,7 @@ class QuestionDetailsItemWidget extends StatelessWidget {
           ),
           const Divider(),
           QuestionDetailsShareAndCommentWidget(
-              body: body, answersCount: answersCount),
+              body: model.body, answersCount: answersCount),
           const Divider(),
         ],
       ),

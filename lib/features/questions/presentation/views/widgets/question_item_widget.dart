@@ -30,6 +30,8 @@ class QuestionItemWidget extends StatelessWidget {
             name: user.name,
             type: getQuestionUserType(user),
             uid: user.uid,
+            model: model,
+            isDetails: false,
           ),
           const SizedBox(
             height: 15,

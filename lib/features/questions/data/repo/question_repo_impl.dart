@@ -53,7 +53,7 @@ class QuestionRepoImpl extends QuestionRepo {
           .collection('questions')
           .doc(id)
           .delete();
-      return right('updated');
+      return right('removed');
     } catch (e) {
       return left(e.toString());
     }

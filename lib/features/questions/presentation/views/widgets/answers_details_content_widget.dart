@@ -1,24 +1,19 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
+import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/question_details_item_widget.dart';
 import 'answers_list_view_widget.dart';
 
 class AnswersDetailsContentWidget extends StatefulWidget {
   const AnswersDetailsContentWidget({
     super.key,
-    required this.list,
-    required this.body,
-    required this.answersCount,
+    required this.model,
     required this.name,
     required this.image,
     required this.type,
     required this.uid,
-    required this.date,
   });
-  final List<AnswerModel> list;
-  final String name, image, type, uid, body, answersCount;
-  final Timestamp date;
+  final String name, image, type, uid;
+  final QuestionModel model;
 
   @override
   State<AnswersDetailsContentWidget> createState() =>
@@ -40,7 +35,7 @@ class _AnswersDetailsContentWidgetState
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (widget.list.length > length) {
+      if (widget.model.answers.length > length) {
         length += 10;
         WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
       }
@@ -64,11 +59,11 @@ class _AnswersDetailsContentWidgetState
             image: widget.image,
             type: widget.type,
             uid: widget.uid,
-            body: widget.body,
-            answersCount: widget.answersCount,
-            date: widget.date,
+            answersCount: widget.model.answersCount.toString(),
+            date: widget.model.date,
+            model: widget.model,
           ),
-          AnswerslistViewWidget(list: widget.list, length: length),
+          AnswerslistViewWidget(list: widget.model.answers, length: length),
         ],
       ),
     );

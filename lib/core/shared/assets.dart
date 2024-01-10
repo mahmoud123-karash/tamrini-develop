@@ -113,10 +113,6 @@ class Assets {
   /// assets/images/Rectangle.png
   static const String imagesRectangle = "assets/images/Rectangle.png";
 
-  /// Assets for imagesShare
-  /// assets/images/Share.png
-  static const String imagesShare = "assets/images/Share.png";
-
   /// Assets for imagesTrainer
   /// assets/images/trainer.jpg
   static const String imagesTrainer = "assets/images/trainer.jpg";

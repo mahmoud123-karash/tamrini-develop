@@ -24,25 +24,29 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts":
             MessageLookupByLibrary.simpleMessage("Number of Products"),
-        "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
-        "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
-        "after": MessageLookupByLibrary.simpleMessage("بعد"),
+        "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
+        "after": MessageLookupByLibrary.simpleMessage("After"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("All Exercises"),
         "allProducts": MessageLookupByLibrary.simpleMessage("All Products"),
-        "answer": MessageLookupByLibrary.simpleMessage("إجابة"),
-        "answers": MessageLookupByLibrary.simpleMessage("الأجوبة"),
+        "answer": MessageLookupByLibrary.simpleMessage("Answer"),
+        "answers": MessageLookupByLibrary.simpleMessage("Answers"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
-        "before": MessageLookupByLibrary.simpleMessage("قبل"),
+        "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
+        "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
-        "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
+        "coach": MessageLookupByLibrary.simpleMessage("Coach"),
+        "comment_error":
+            MessageLookupByLibrary.simpleMessage("An error occurred"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
@@ -55,8 +59,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
-        "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
+        "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
+        "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
@@ -69,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "follow":
             MessageLookupByLibrary.simpleMessage("Continue without login"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
-        "from": MessageLookupByLibrary.simpleMessage("من"),
+        "from": MessageLookupByLibrary.simpleMessage("From"),
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
@@ -78,7 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "highPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "home_exercises":
-            MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
+            MessageLookupByLibrary.simpleMessage("Home Exercises"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
@@ -86,9 +91,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "lowPrice": MessageLookupByLibrary.simpleMessage("Lowest Price"),
         "male": MessageLookupByLibrary.simpleMessage("Make"),
         "maxDistance": MessageLookupByLibrary.simpleMessage("Farthest"),
-        "media": MessageLookupByLibrary.simpleMessage("مواقع التواصل"),
+        "media": MessageLookupByLibrary.simpleMessage("Social Media"),
         "minDistance": MessageLookupByLibrary.simpleMessage("Nearest"),
-        "money": MessageLookupByLibrary.simpleMessage("السعر"),
+        "money": MessageLookupByLibrary.simpleMessage("Price"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
@@ -99,10 +104,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No gym found with this name"),
         "noProduct": MessageLookupByLibrary.simpleMessage(
             "No products found with this name"),
-        "no_answers":
-            MessageLookupByLibrary.simpleMessage("لا إجابات حتى الآن"),
-        "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
-        "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
+        "no_answers": MessageLookupByLibrary.simpleMessage("No answers yet"),
+        "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
+        "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
@@ -121,11 +125,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
         "proDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
-        "question_error":
-            MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
-        "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
-        "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
+        "question_error": MessageLookupByLibrary.simpleMessage(
+            "This question has been deleted"),
+        "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
+        "rating": MessageLookupByLibrary.simpleMessage("Rating"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("Type Email Address"),
@@ -133,29 +138,39 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchHint":
             MessageLookupByLibrary.simpleMessage("Search for an Exercise"),
         "search_yourself":
-            MessageLookupByLibrary.simpleMessage("ابحث عن تمرينك"),
+            MessageLookupByLibrary.simpleMessage("Search for Your Exercise"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
-        "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+        "share": MessageLookupByLibrary.simpleMessage("Share"),
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
+        "success_add":
+            MessageLookupByLibrary.simpleMessage("Question added successfully"),
+        "success_ban": MessageLookupByLibrary.simpleMessage(
+            "Question restricted successfully"),
+        "success_remove": MessageLookupByLibrary.simpleMessage(
+            "Question deleted successfully"),
+        "success_update": MessageLookupByLibrary.simpleMessage(
+            "Question updated successfully"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
-        "to": MessageLookupByLibrary.simpleMessage("إلي"),
-        "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
-        "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
-        "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
-        "trainer_gallery": MessageLookupByLibrary.simpleMessage("معرض الأعمال"),
+        "to": MessageLookupByLibrary.simpleMessage("To"),
+        "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
+        "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
+        "trainer": MessageLookupByLibrary.simpleMessage("Trainers"),
+        "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
-            MessageLookupByLibrary.simpleMessage("ملف المدرب الشخصي"),
-        "trainersPage": MessageLookupByLibrary.simpleMessage("صفحة المدربين"),
+            MessageLookupByLibrary.simpleMessage("Trainer Profile"),
+        "trainersPage": MessageLookupByLibrary.simpleMessage("Trainers Page"),
         "tranier_hint_social": MessageLookupByLibrary.simpleMessage(
-            "هذا المدرب ليس لديه حساب في هذا الموقع"),
+            "This trainer does not have an account on this platform"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "update": MessageLookupByLibrary.simpleMessage("Update Location"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required"),
-        "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل")
+        "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
+        "write_question":
+            MessageLookupByLibrary.simpleMessage("Write a new question...")
       };
 }
