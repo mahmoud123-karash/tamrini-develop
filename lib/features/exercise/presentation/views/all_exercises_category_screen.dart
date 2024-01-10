@@ -28,17 +28,19 @@ class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
 
   @override
   void initState() {
-    super.initState();
     scrollController.addListener(_loadMoreData);
+    super.initState();
   }
 
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (widget.model.data!.length > length) {
-        length += 10;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-      }
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (widget.model.data!.length > length) {
+          length += 10;
+          setState(() {});
+        }
+      });
     }
   }
 

@@ -6,7 +6,6 @@ import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model
 
 abstract class TrainerRemoteDataSource {
   Future<List<TrainerModel>> get();
-  Future<double> getRating({required String uid});
 }
 
 class TrainerRemoteDataSourceImpl extends TrainerRemoteDataSource {
@@ -23,6 +22,7 @@ class TrainerRemoteDataSourceImpl extends TrainerRemoteDataSource {
     for (var element in result.docs) {
       GeoPoint location =
           element.data()['location'] ?? const GeoPoint(33.312805, 44.361488);
+
       String address = await getAddress(location: location);
       double rating = await getRating(uid: element.id);
       TrainerModel model =
@@ -35,7 +35,6 @@ class TrainerRemoteDataSourceImpl extends TrainerRemoteDataSource {
     return list;
   }
 
-  @override
   Future<double> getRating({required String uid}) async {
     List<Rating> rating = [];
     var result = await FirebaseFirestore.instance

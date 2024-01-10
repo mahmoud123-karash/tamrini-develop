@@ -16,7 +16,7 @@ class HomeTrainerLoadingWidget extends StatelessWidget {
           height: 7,
         ),
         Container(
-          color: appColor,
+          color: appColor.withOpacity(0.2),
           width: 40,
           height: 8,
         )

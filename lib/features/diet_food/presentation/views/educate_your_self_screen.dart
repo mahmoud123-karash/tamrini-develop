@@ -4,6 +4,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/diet_food/presentation/views/diet_food_screen.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/article_widget_builder_widget.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/artilcle_container_widget.dart';
+import 'package:tamrini/features/questions/presentation/views/questions_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class EducateYourSelfScreen extends StatefulWidget {
@@ -37,7 +38,9 @@ class _EducateYourSelfScreenState extends State<EducateYourSelfScreen> {
         ArticleContainerWidget(
           image: Assets.imagesQuestion,
           lable: S.of(context).questtion,
-          onPressed: () {},
+          onPressed: () {
+            navigateTo(context, const QuestionsScreen());
+          },
         )
       ],
     );

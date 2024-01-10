@@ -9,11 +9,14 @@ import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
+import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/trainer/data/data_sources/remote_data_source/trainer_remote_data_source.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
+import 'package:tamrini/features/questions/data/data_sources/remote_data_source/user_remote_data_source.dart'
+    as user;
 
 import '../../features/auth/data/repo/login_repo_impl.dart';
 
@@ -64,6 +67,12 @@ void setLocator() {
   getIt.registerSingleton<DietFoodRepoImpl>(
     DietFoodRepoImpl(
       DietFoodRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<QuestionRepoImpl>(
+    QuestionRepoImpl(
+      user.UserRemoteDataSourceImpl(),
     ),
   );
 }

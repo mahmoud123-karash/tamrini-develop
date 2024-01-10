@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
@@ -34,8 +36,13 @@ class ProductDetailsContentWidget extends StatelessWidget {
               ),
             ),
           Center(
-            child: ProductDetailsImageWidget(
-              image: model.image,
+            child: GestureDetector(
+              onTap: () {
+                log(model.rating.length.toString());
+              },
+              child: ProductDetailsImageWidget(
+                image: model.image,
+              ),
             ),
           ),
           ProductDetailsNameRatingWidget(

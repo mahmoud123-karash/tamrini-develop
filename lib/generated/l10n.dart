@@ -1079,6 +1079,66 @@ class S {
       args: [],
     );
   }
+
+  /// `الأجوبة`
+  String get answers {
+    return Intl.message(
+      'الأجوبة',
+      name: 'answers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة إجابة`
+  String get add_answer {
+    return Intl.message(
+      'إضافة إجابة',
+      name: 'add_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا إجابات حتى الآن`
+  String get no_answers {
+    return Intl.message(
+      'لا إجابات حتى الآن',
+      name: 'no_answers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مشاركة`
+  String get share {
+    return Intl.message(
+      'مشاركة',
+      name: 'share',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إجابة`
+  String get answer {
+    return Intl.message(
+      'إجابة',
+      name: 'answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم حذف هذا السؤال`
+  String get question_error {
+    return Intl.message(
+      'تم حذف هذا السؤال',
+      name: 'question_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

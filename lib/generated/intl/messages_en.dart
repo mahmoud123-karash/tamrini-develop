@@ -25,11 +25,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "NumProducts":
             MessageLookupByLibrary.simpleMessage("Number of Products"),
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
+        "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("All Exercises"),
         "allProducts": MessageLookupByLibrary.simpleMessage("All Products"),
+        "answer": MessageLookupByLibrary.simpleMessage("إجابة"),
+        "answers": MessageLookupByLibrary.simpleMessage("الأجوبة"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
@@ -96,6 +99,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No gym found with this name"),
         "noProduct": MessageLookupByLibrary.simpleMessage(
             "No products found with this name"),
+        "no_answers":
+            MessageLookupByLibrary.simpleMessage("لا إجابات حتى الآن"),
         "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
@@ -116,6 +121,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
         "proDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
+        "question_error":
+            MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
@@ -128,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "search_yourself":
             MessageLookupByLibrary.simpleMessage("ابحث عن تمرينك"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
+        "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),

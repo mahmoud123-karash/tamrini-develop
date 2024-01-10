@@ -32,6 +32,7 @@ class RegisterRepoImpl extends RegisterRepo {
       gender: gender,
       age: age,
       isSubscribedToTrainer: false,
+      isSubscribedToPublisher: false,
       isBanned: false,
       isSubscribedToStoreOwner: false,
       admin: false,

@@ -19,6 +19,21 @@ class ImageViewWidget extends StatelessWidget {
                 ),
               ),
               fit: BoxFit.cover,
+              loadingBuilder:
+                  (_, Widget child, ImageChunkEvent? loadingProgress) {
+                if (loadingProgress == null) {
+                  return child;
+                } else {
+                  return const SizedBox(
+                    height: 120,
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        strokeWidth: 3,
+                      ),
+                    ),
+                  );
+                }
+              },
             ),
           )
         : ClipRRect(

@@ -7,6 +7,7 @@ class UserModel {
   final String token;
   final String uid;
   final bool isSubscribedToTrainer;
+  final bool isSubscribedToPublisher;
   final bool isSubscribedToGymOwner;
   final bool isSubscribedToStoreOwner;
   final bool admin;
@@ -22,6 +23,7 @@ class UserModel {
     required this.gender,
     required this.age,
     required this.isSubscribedToTrainer,
+    required this.isSubscribedToPublisher,
     required this.isBanned,
     required this.isSubscribedToGymOwner,
     required this.isSubscribedToStoreOwner,
@@ -33,6 +35,7 @@ class UserModel {
       'name': name,
       'phone': phone,
       'token': token,
+      'isSubscribedToPublisher': isSubscribedToPublisher,
       'gender': gender,
       'age': age,
       'uid': uid,
@@ -51,6 +54,7 @@ class UserModel {
       phone: map['phone'] ?? '',
       isSubscribedToGymOwner: map['isSubscribedToGymOwner'] ?? false,
       isSubscribedToStoreOwner: map['isSubscribedToStoreOwner'] ?? false,
+      isSubscribedToPublisher: map['isSubscribedToPublisher'] ?? false,
       token: map['token'] ?? '',
       gender: map['gender'] ?? '',
       uid: map['uid'] ?? '',

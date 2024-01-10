@@ -101,7 +101,17 @@
     "top_trainers":"أشهر المدربين",
     "diet_food": "أكــلات دايــت",
     "questtion":"الأسئلة",
-    "no_results":"لا يوجد نتائج"
+    "no_results":"لا يوجد نتائج",
+    "answers":"الأجوبة",
+    "add_answer": "إضافة إجابة",
+    "no_answers":"لا إجابات حتى الآن",
+    "share":"مشاركة",
+    "answer":"إجابة",
+    "question_error": "تم حذف هذا السؤال"
+
+
+
+
 
 
 

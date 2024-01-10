@@ -25,6 +25,10 @@ class Assets {
   /// assets/images/articalesBanner.jpg
   static const String imagesArticalesBanner = "assets/images/articalesBanner.jpg";
 
+  /// Assets for imagesComment
+  /// assets/images/Comment.png
+  static const String imagesComment = "assets/images/Comment.png";
+
   /// Assets for imagesCoursesIcon
   /// assets/images/coursesIcon.png
   static const String imagesCoursesIcon = "assets/images/coursesIcon.png";
@@ -108,6 +112,10 @@ class Assets {
   /// Assets for imagesRectangle
   /// assets/images/Rectangle.png
   static const String imagesRectangle = "assets/images/Rectangle.png";
+
+  /// Assets for imagesShare
+  /// assets/images/Share.png
+  static const String imagesShare = "assets/images/Share.png";
 
   /// Assets for imagesTrainer
   /// assets/images/trainer.jpg

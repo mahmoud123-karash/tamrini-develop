@@ -70,18 +70,22 @@ Future<double> getDistance({
 }
 
 Future<String> getAddress({required GeoPoint location}) async {
-  var result = await placemarkFromCoordinates(
-    location.latitude,
-    location.longitude,
-    localeIdentifier: Intl.getCurrentLocale() == 'ar' ? 'ar' : 'en',
-  );
-  if (result.isNotEmpty) {
-    String country = result.first.country ?? '';
-    String city = result.first.locality ?? '';
-    String subAdministrativeArea = result.first.subAdministrativeArea ?? '';
-
-    return '$country $city $subAdministrativeArea';
+  if (!await InternetConnectionChecker().hasConnection) {
+    return Intl.getCurrentLocale() == 'en' ? 'Bagdad ElErak' : 'بغداد العراق';
   } else {
-    return '';
+    var result = await placemarkFromCoordinates(
+      location.latitude,
+      location.longitude,
+      localeIdentifier: Intl.getCurrentLocale() == 'ar' ? 'ar' : 'en',
+    );
+    if (result.isNotEmpty) {
+      String country = result.first.country ?? '';
+      String city = result.first.locality ?? '';
+      String subAdministrativeArea = result.first.subAdministrativeArea ?? '';
+
+      return '$country $city $subAdministrativeArea';
+    } else {
+      return '';
+    }
   }
 }
