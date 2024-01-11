@@ -1269,6 +1269,26 @@ class S {
       args: [],
     );
   }
+
+  /// `لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل`
+  String get no_internet {
+    return Intl.message(
+      'لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل',
+      name: 'no_internet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم الإتصال بالإنترنت`
+  String get internet_connection {
+    return Intl.message(
+      'تم الإتصال بالإنترنت',
+      name: 'internet_connection',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

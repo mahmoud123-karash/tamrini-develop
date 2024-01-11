@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/services/serach.dart';
 import 'package:tamrini/core/services/sort_gyms.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/drop_menu_sort_gyms_widget.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/gym_list_view_widge.dart';
 import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AllGymsScreen extends StatefulWidget {
@@ -61,7 +61,7 @@ class _AllGymsScreenState extends State<AllGymsScreen> {
         controller: scrollController,
         child: Column(
           children: [
-            SearchTextFieldWidget(
+            searchField(
               controller: searchController,
               onChanged: (value) {
                 searchList = searchGym(value, widget.models);

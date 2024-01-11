@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/serach.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/product_list_view_widget.dart';
@@ -59,7 +59,7 @@ class _ProductsCategoryScreenState extends State<ProductsCategoryScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SearchTextFieldWidget(
+                  searchField(
                     controller: searchController,
                     onChanged: (value) {
                       searchList = searchProduct(value, widget.list);

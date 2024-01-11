@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/serach.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_list_view_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_message_widget.dart';
@@ -53,7 +53,7 @@ class _TrainersContentWidget extends State<TrainersContentWidget> {
       controller: scrollController,
       child: Column(
         children: [
-          SearchTextFieldWidget(
+          searchField(
             controller: searchController,
             onChanged: (value) {
               searchList = searchTariner(value, widget.list);

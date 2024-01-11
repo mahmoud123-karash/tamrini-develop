@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/serach.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/suggest_exercise_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import '../../data/models/home_exercise/exercise_model.dart';
@@ -62,7 +62,7 @@ class _AllHomeExercisesCategoryScreen
         controller: scrollController,
         child: Column(
           children: [
-            SearchTextFieldWidget(
+            searchField(
               controller: searchController,
               onChanged: (value) {
                 searchList = searchHomeExercise(value, widget.model!);

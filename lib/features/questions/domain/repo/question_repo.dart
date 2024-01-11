@@ -8,4 +8,9 @@ abstract class QuestionRepo {
   Future<Either<String, String>> updateQuestion(
       {required String id, required QuestionModel model});
   Future<Either<String, String>> removeQuestion({required String id});
+  void setNotification({
+    required String id,
+    required String questionUid,
+    required String body,
+  });
 }

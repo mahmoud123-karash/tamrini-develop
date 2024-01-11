@@ -1,21 +1,20 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
-import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
-import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_states.dart';
+import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
+import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class WriteAnswerWidget extends StatefulWidget {
-  const WriteAnswerWidget({super.key, required this.model});
+  const WriteAnswerWidget(
+      {super.key, required this.model, required this.token});
   final QuestionModel model;
+  final String token;
 
   @override
   State<WriteAnswerWidget> createState() => _WriteAnswerWidgetState();
@@ -39,38 +38,23 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
         child: Row(
           children: [
             if (controller.text != '')
-              BlocListener<QuestionCubit, QuestionStates>(
+              BlocListener<AnswerCubit, AnswerStates>(
                 listener: (context, state) {
-                  if (state is SucessUpdateQuestionState) {
+                  if (state is SucessAddAnswerState) {
                     controller.clear();
                   }
-                  if (state is ErrorUpdateQuestionState) {
+                  if (state is ErrorAddAnswerState) {
                     showSnackBar(context, state.message);
                   }
                 },
                 child: GestureDetector(
                   onTap: () async {
                     if (await InternetConnectionChecker().hasConnection) {
-                      List<AnswerModel> list = widget.model.answers;
-                      list.add(
-                        AnswerModel(
-                          date: Timestamp.now(),
-                          answer: controller.text,
-                          userUid: CacheHelper.getData(key: 'uid'),
-                        ),
-                      );
-                      QuestionCubit.get(context).updateQuestion(
-                        model: QuestionModel(
-                          date: widget.model.date,
-                          body: widget.model.body,
-                          askerUid: widget.model.askerUid,
-                          answersCount: widget.model.answersCount + 1,
-                          answers: list,
-                          isBanned: widget.model.isBanned,
-                        ),
-                        context: context,
+                      AnswerCubit.get(context).addNewAnswer(
+                        answer: controller.text,
+                        model: widget.model,
                         id: widget.model.id!,
-                        message: '',
+                        token: widget.token,
                       );
                     } else {
                       showSnackBar(context, S.of(context).comment_error);

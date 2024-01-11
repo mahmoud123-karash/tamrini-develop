@@ -6,6 +6,8 @@ import 'package:tamrini/features/questions/data/models/question_model/question_m
 import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
 
+import '../models/notification_model/notification_model.dart';
+
 class QuestionRepoImpl extends QuestionRepo {
   final UserRemoteDataSource userRemoteDataSource;
 
@@ -75,5 +77,30 @@ class QuestionRepoImpl extends QuestionRepo {
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  @override
+  void setNotification({
+    required String id,
+    required String questionUid,
+    required String body,
+  }) async {
+    String uid = CacheHelper.getData(key: 'uid');
+    NotificationModel model = NotificationModel(
+      senderUid: uid,
+      title: 'تعليق جديد على سؤالك',
+      body: body,
+      isReaden: false,
+      type: 'notification',
+      uid: questionUid,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(id)
+        .collection('data')
+        .add(
+          model.toJson(),
+        );
   }
 }

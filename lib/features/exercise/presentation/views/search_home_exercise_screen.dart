@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/services/serach.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/home_exercise_item_widget.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/search_hint_colum_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -58,7 +58,7 @@ class _SearchHomeExerciseScreenState extends State<SearchHomeExerciseScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SearchTextFieldWidget(
+            searchField(
               controller: searchController,
               onChanged: (value) {
                 searchList = searchHomeExercise(value, widget.exercises);

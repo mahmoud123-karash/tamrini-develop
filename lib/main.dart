@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -11,21 +12,18 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:provider/provider.dart';
+import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart' as helper;
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/get_it.dart';
+import 'package:tamrini/core/services/internet_connection.dart';
+import 'package:tamrini/core/services/request_premission.dart';
 import 'package:tamrini/core/shared/bloc_observer.dart';
 import 'package:tamrini/data/location.dart';
-import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
-import 'package:tamrini/features/auth/presentation/manager/complete_cubit/complete_cubit.dart';
-import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
+
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
 import 'package:tamrini/features/exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
-import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
@@ -38,9 +36,10 @@ import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
+import 'package:tamrini/features/questions/data/data_sources/remote_data_source/user_remote_data_source.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
+import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
-import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/models/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_cubit.dart';
@@ -88,7 +87,6 @@ import 'package:tamrini/screens/trainer_screens/trainer_profile_screen.dart';
 import 'package:tamrini/core/styles/themes.dart';
 import 'package:tamrini/utils/cache_helper.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
-
 import 'features/auth/presentation/views/login_screen.dart';
 import 'features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'model/exercise.dart';
@@ -413,40 +411,17 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setLocator();
+  checkInternet();
   await Hive.initFlutter();
   Hive.registerAdapter(CategoryModelAdapter());
   await Hive.openBox<CategoryModel>(storeBox);
-  FirebaseMessaging messaging = FirebaseMessaging.instance..requestPermission();
+  checkInternet();
+  requestAppPermissions();
 
-  AwesomeNotifications().requestPermissionToSendNotifications();
-  AppleNotificationSetting.enabled;
-  AppleNotificationSetting.values;
-
-  await messaging.setForegroundNotificationPresentationOptions(
-    alert: true, // Required to display a heads up notification
-    badge: true,
-    sound: true,
-  );
-  await messaging.requestPermission(
-    alert: true,
-    announcement: false,
-    badge: true,
-    carPlay: false,
-    provisional: true,
-    criticalAlert: true,
-    sound: true,
-  );
   FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
     print(" is CONTENT AVILABLE ${message.contentAvailable}");
     print('Got a message whilst in the foreground!');
     print('Message data: ${message.data}');
-
-    // check if token is the same
-    String? token = await messaging.getToken();
-    log('current token is $token');
-
-    log('token is the same');
-    log('delivered token is ${message.data['token']}');
 
     AwesomeDialog(
       context: navigationKey.currentContext!,
@@ -460,7 +435,6 @@ void main() async {
       },
     ).show();
 
-    AppleNotificationSetting.enabled;
     if (message.notification != null) {
       print('Message also contained a notification: ${message.notification}');
     } else {
@@ -470,60 +444,12 @@ void main() async {
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  await messaging.setForegroundNotificationPresentationOptions(
-      alert: true, // Required to display a heads up notification
-      badge: true,
-      sound: true);
-  NotificationSettings settings = await messaging.getNotificationSettings();
-  await messaging.requestPermission(
-    alert: true,
-    announcement: false,
-    badge: true,
-    carPlay: false,
-    criticalAlert: false,
-    provisional: true,
-    sound: true,
-  );
-
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   await CacheHelper.init();
   bool isDark = CacheHelper.getBoolean(key: 'isDark');
   bool isLoggedIn = CacheHelper.getBoolean(key: 'isLogin');
-
-  bool internetdisconnected = false;
-  Future.delayed(const Duration(seconds: 7)).then((value) =>
-      InternetConnectionChecker().onStatusChange.listen((status) {
-        switch (status) {
-          case InternetConnectionStatus.connected:
-            // show snackbar with internet connection message
-            if (internetdisconnected) {
-              ScaffoldMessenger.of(navigationKey.currentContext!).showSnackBar(
-                const SnackBar(
-                  content: Text('تم الاتصال بالانترنت'),
-                  duration: Duration(seconds: 5),
-                  backgroundColor: Colors.green,
-                ),
-              );
-              internetdisconnected = false;
-            }
-
-            break;
-          case InternetConnectionStatus.disconnected:
-            // show snackbar with no internet connection message
-            ScaffoldMessenger.of(navigationKey.currentContext!).showSnackBar(
-              const SnackBar(
-                content:
-                    Text('لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل'),
-                duration: Duration(seconds: 7),
-                backgroundColor: Colors.red,
-              ),
-            );
-            internetdisconnected = true;
-            break;
-        }
-      }));
 
   String uid = helper.CacheHelper.getData(key: 'uid') ?? '';
   Widget? startWidget;
@@ -600,11 +526,12 @@ void main() async {
                   gymProvider, productProvider, homeProvider) =>
               homeProvider!
                 ..init(
-                    userProvider: userProvider,
-                    exerciseProvider: exerciseProvider,
-                    articleProvider: articleProvider,
-                    gymProvider: gymProvider,
-                    productProvider: productProvider),
+                  userProvider: userProvider,
+                  exerciseProvider: exerciseProvider,
+                  articleProvider: articleProvider,
+                  gymProvider: gymProvider,
+                  productProvider: productProvider,
+                ),
         ),
       ],
       child: MultiBlocProvider(
@@ -662,6 +589,7 @@ void main() async {
           BlocProvider(
             create: (context) => AnswerCubit(
               getIt.get<QuestionRepoImpl>(),
+              getIt.get<WriteAnswerUseCase>(),
             ),
           ),
           BlocProvider(
@@ -730,11 +658,9 @@ class _MyAppState extends State<MyApp> {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     supportedLocales: S.delegate.supportedLocales,
-
                     debugShowCheckedModeBanner: false,
                     theme: isDark ? darkTheme : lightTheme,
                     home: widget.startWidget,
-                    // widget.isLogged ? const HomeScreen() : const LoginScreen(),
                     navigatorKey: navigationKey,
                   );
                 },

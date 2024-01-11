@@ -120,7 +120,9 @@
     "comment_error":"حدث خطأ",
     "edit_answer":"تعديل الإجابة",
     "success_remove_answer":"تم حذف الإجابة",
-    "success_update_answer":"تم تعديل الإجابة"
+    "success_update_answer":"تم تعديل الإجابة",
+    "no_internet":"لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل",
+    "internet_connection":"تم الإتصال بالإنترنت"
 
 
 }

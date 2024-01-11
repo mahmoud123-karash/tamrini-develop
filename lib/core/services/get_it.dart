@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_remote_data_source.dart';
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
@@ -10,6 +12,7 @@ import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
+import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
@@ -73,6 +76,18 @@ void setLocator() {
   getIt.registerSingleton<QuestionRepoImpl>(
     QuestionRepoImpl(
       user.UserRemoteDataSourceImpl(),
+    ),
+  );
+  getIt.registerSingleton<DioHelper>(
+    DioHelper(
+      Dio(),
+    ),
+  );
+
+  getIt.registerSingleton<WriteAnswerUseCase>(
+    WriteAnswerUseCase(
+      getIt.get<QuestionRepoImpl>(),
+      getIt.get<DioHelper>(),
     ),
   );
 }

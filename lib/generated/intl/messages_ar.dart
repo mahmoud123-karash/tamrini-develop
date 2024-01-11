@@ -82,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
+        "internet_connection":
+            MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -103,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات بهذا الإسم"),
         "no_answers":
             MessageLookupByLibrary.simpleMessage("لا إجابات حتى الآن"),
+        "no_internet": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل"),
         "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts":

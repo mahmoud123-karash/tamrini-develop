@@ -22,6 +22,9 @@ class AnswersScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(S.of(context).answers),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notification_add))
+        ],
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
@@ -68,7 +71,10 @@ class AnswersScreen extends StatelessWidget {
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
-                        child: WriteAnswerWidget(model: question),
+                        child: WriteAnswerWidget(
+                          model: question,
+                          token: model.token,
+                        ),
                       ),
                     ],
                   );

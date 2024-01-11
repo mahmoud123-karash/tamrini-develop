@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/serach.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/search_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/article_list_view_widget.dart';
@@ -56,7 +56,7 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
         controller: scrollController,
         child: Column(
           children: [
-            SearchTextFieldWidget(
+            searchField(
               controller: searchController,
               onChanged: (value) {
                 searchList = searchArticles(value, widget.models);
