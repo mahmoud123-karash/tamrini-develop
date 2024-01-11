@@ -117,7 +117,10 @@
     "remove_question":"حذف",
     "edit_question":"تعديل",
     "ban_question":"تقييد",
-    "comment_error":"حدث خطأ"
+    "comment_error":"حدث خطأ",
+    "edit_answer":"تعديل الإجابة",
+    "success_remove_answer":"تم حذف الإجابة",
+    "success_update_answer":"تم تعديل الإجابة"
 
 
 }

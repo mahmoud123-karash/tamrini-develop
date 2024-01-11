@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -86,9 +85,7 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
                       padding: const EdgeInsets.all(10.0),
                       child: Transform(
                         alignment: Alignment.center,
-                        transform: Intl.getCurrentLocale() == 'en'
-                            ? Matrix4.rotationY(180 * 3.1415927 / 180)
-                            : Matrix4.rotationX(180 * 3.1415927 / 180),
+                        transform: Matrix4.rotationY(180 * 3.1415927 / 180),
                         child: Icon(
                           Icons.send,
                           color: whiteColor,

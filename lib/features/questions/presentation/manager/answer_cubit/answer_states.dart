@@ -19,12 +19,3 @@ class ErrorUpdateAnswerState extends AnswerStates {
   final String message;
   ErrorUpdateAnswerState(this.message);
 }
-
-class LoadingRemoveAnswerState extends AnswerStates {}
-
-class SucessRemoveAnswerState extends AnswerStates {}
-
-class ErrorRemoveAnswerState extends AnswerStates {
-  final String message;
-  ErrorRemoveAnswerState(this.message);
-}

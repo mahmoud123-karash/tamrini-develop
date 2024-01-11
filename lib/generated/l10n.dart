@@ -1239,6 +1239,36 @@ class S {
       args: [],
     );
   }
+
+  /// `تعديل الإجابة`
+  String get edit_answer {
+    return Intl.message(
+      'تعديل الإجابة',
+      name: 'edit_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم حذف الإجابة`
+  String get success_remove_answer {
+    return Intl.message(
+      'تم حذف الإجابة',
+      name: 'success_remove_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تعديل الإجابة`
+  String get success_update_answer {
+    return Intl.message(
+      'تم تعديل الإجابة',
+      name: 'success_update_answer',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

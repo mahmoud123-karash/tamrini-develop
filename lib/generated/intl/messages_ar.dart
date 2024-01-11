@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
+        "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
         "edit_question": MessageLookupByLibrary.simpleMessage("تعديل"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
@@ -146,8 +147,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
         "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),
         "success_remove": MessageLookupByLibrary.simpleMessage("تم حذف السؤال"),
+        "success_remove_answer":
+            MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),
         "success_update":
             MessageLookupByLibrary.simpleMessage("تم تعديل السؤال"),
+        "success_update_answer":
+            MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),

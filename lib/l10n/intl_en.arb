@@ -117,7 +117,11 @@
     "remove_question": "Delete",
     "edit_question": "Edit",
     "ban_question": "Restrict",
-    "comment_error": "An error occurred"
+    "comment_error": "An error occurred",
+    "edit_answer":"تعديل الإجابة",
+    "success_remove_answer":"تم حذف الإجابة",
+    "success_update_answer":"تم تعديل الإجابة"
+
 
 
 

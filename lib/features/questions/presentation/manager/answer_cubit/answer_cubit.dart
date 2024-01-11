@@ -3,75 +3,87 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
-import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_states.dart';
+import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class AnswerCubit extends Cubit<QuestionStates> {
-  AnswerCubit(this.questionRepo) : super(InitialQuestionState());
+class AnswerCubit extends Cubit<AnswerStates> {
+  AnswerCubit(this.questionRepo) : super(InitialAnswerState());
 
   static AnswerCubit get(context) => BlocProvider.of(context);
 
   final QuestionRepo questionRepo;
 
-  void addNewQuestion(
-      {required String body, required BuildContext context}) async {
-    emit(LoadingAddQuestionState());
-    var result = await questionRepo.addNewQuestion(body: body);
-    result.fold(
-      (message) {
-        log(message);
-        emit(ErrorAddQuestionState(message));
-      },
-      (success) {
-        Navigator.pop(context);
-        showSnackBar(context, S.of(context).success_add);
-        emit(SucessAddQuestionState());
-      },
-    );
-  }
+  void addNewAnswer(
+      {required String body, required BuildContext context}) async {}
 
-  void updateQuestion({
+  void updateAnswer({
+    required AnswerModel aModel,
     required QuestionModel model,
     required BuildContext context,
     required String id,
-    required String message,
+    required String newAnswer,
   }) async {
-    emit(LoadingUpdateQuestionState());
-
-    var result = await questionRepo.updateQuestion(id: id, model: model);
+    emit(LoadingUpdateAnswerState());
+    AnswerModel answer = AnswerModel(
+      date: aModel.date,
+      answer: newAnswer,
+      userUid: aModel.userUid,
+    );
+    List<AnswerModel> list = model.answers;
+    list.remove(aModel);
+    list.add(answer);
+    QuestionModel question = QuestionModel(
+      date: model.date,
+      body: model.body,
+      askerUid: model.askerUid,
+      answersCount: model.answersCount,
+      answers: list,
+      isBanned: model.isBanned,
+    );
+    var result = await questionRepo.updateQuestion(id: id, model: question);
     result.fold(
       (message) {
         log(message);
-        emit(ErrorUpdateQuestionState(message));
+        emit(ErrorUpdateAnswerState(message));
       },
       (success) {
-        if (message != '') {
-          showSnackBar(context, message);
-          Navigator.pop(context);
-        }
-        emit(SucessUpdateQuestionState());
+        showSnackBar(context, S.of(context).success_update_answer);
+        Navigator.pop(context);
+        emit(SucessUpdateAnswerState());
       },
     );
   }
 
-  void removeQuestion({
+  void removeAnswer({
+    required AnswerModel aModel,
+    required QuestionModel model,
     required BuildContext context,
     required String id,
   }) async {
-    emit(LoadingRemoveQuestionState());
-
-    var result = await questionRepo.removeQuestion(id: id);
+    emit(LoadingUpdateAnswerState());
+    List<AnswerModel> list = model.answers;
+    list.remove(aModel);
+    QuestionModel question = QuestionModel(
+      date: model.date,
+      body: model.body,
+      askerUid: model.askerUid,
+      answersCount: model.answersCount,
+      answers: list,
+      isBanned: model.isBanned,
+    );
+    var result = await questionRepo.updateQuestion(id: id, model: question);
     result.fold(
       (message) {
         log(message);
-        emit(ErrorRemoveQuestionState(message));
+        emit(ErrorUpdateAnswerState(message));
       },
       (success) {
+        showSnackBar(context, S.of(context).success_remove_answer);
         Navigator.pop(context);
-        showSnackBar(context, S.of(context).success_remove);
-        emit(SucessRemoveQuestionState());
+        emit(SucessUpdateAnswerState());
       },
     );
   }

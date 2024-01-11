@@ -23,7 +23,7 @@ class NameAswertypeUserWidget extends StatelessWidget {
           height: 5,
         ),
         Container(
-          constraints: BoxConstraints(maxWidth: width - (60 + 40 + 20)),
+          constraints: BoxConstraints(maxWidth: width - (60 + 40 + 20 + 15)),
           child: Text(
             answer,
             style: const TextStyle(

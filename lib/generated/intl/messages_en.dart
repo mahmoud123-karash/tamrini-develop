@@ -61,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
+        "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
         "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
@@ -152,8 +153,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Question restricted successfully"),
         "success_remove": MessageLookupByLibrary.simpleMessage(
             "Question deleted successfully"),
+        "success_remove_answer":
+            MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),
         "success_update": MessageLookupByLibrary.simpleMessage(
             "Question updated successfully"),
+        "success_update_answer":
+            MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/generated/l10n.dart';
 
 class AddQuestionTextFieldWidget extends StatelessWidget {
   const AddQuestionTextFieldWidget(
-      {super.key, required this.controller, required this.onChanged});
+      {super.key,
+      required this.controller,
+      required this.onChanged,
+      required this.hint});
   final TextEditingController controller;
   final Function(String) onChanged;
+  final String hint;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class AddQuestionTextFieldWidget extends StatelessWidget {
         maxLines: 100,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-          hintText: S.of(context).write_question,
+          hintText: hint,
           hintStyle: TextStyles.style16Bold,
           border: InputBorder.none,
           focusedBorder: InputBorder.none,

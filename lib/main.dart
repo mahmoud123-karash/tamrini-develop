@@ -90,6 +90,7 @@ import 'package:tamrini/utils/cache_helper.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 import 'features/auth/presentation/views/login_screen.dart';
+import 'features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'model/exercise.dart';
 import 'model/supplement.dart';
 import 'generated/l10n.dart';
@@ -655,6 +656,11 @@ void main() async {
           ),
           BlocProvider(
             create: (context) => QuestionCubit(
+              getIt.get<QuestionRepoImpl>(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => AnswerCubit(
               getIt.get<QuestionRepoImpl>(),
             ),
           ),

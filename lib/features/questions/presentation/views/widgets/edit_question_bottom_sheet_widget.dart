@@ -44,6 +44,7 @@ class _EditQuestionBottomSheetWidgetState
                 height: 20,
               ),
               AddQuestionTextFieldWidget(
+                hint: S.of(context).write_question,
                 controller: controller,
                 onChanged: (value) {
                   setState(() {});
@@ -52,7 +53,7 @@ class _EditQuestionBottomSheetWidgetState
               const SizedBox(
                 height: 20,
               ),
-              if (controller.text != '')
+              if (controller.text != '' && controller.text != widget.model.body)
                 AddQuestionCustomButtonBuilderWidget(
                   controller: controller,
                   lable: S.of(context).edit_question,

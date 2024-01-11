@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
+import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'answer_item_builder_widget.dart';
 
 class AnswerslistViewWidget extends StatelessWidget {
   const AnswerslistViewWidget(
-      {super.key, required this.list, required this.length});
-  final List<AnswerModel> list;
+      {super.key, required this.length, required this.question});
   final int length;
+  final QuestionModel question;
 
   @override
   Widget build(BuildContext context) {
-    list.sort((a, b) => b.date.compareTo(a.date));
-    return list.isEmpty
+    question.answers.sort((a, b) => b.date.compareTo(a.date));
+    return question.answers.isEmpty
         ? Center(
             child: SizedBox(
               height: 50,
@@ -28,7 +28,10 @@ class AnswerslistViewWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 if (index < length) {
-                  return AnswerItemBuilderWidget(model: list[index]);
+                  return AnswerItemBuilderWidget(
+                    model: question.answers[index],
+                    question: question,
+                  );
                 } else {
                   return const Center(
                     child: Padding(
@@ -48,7 +51,9 @@ class AnswerslistViewWidget extends StatelessWidget {
                   color: blackColor,
                 ),
               ),
-              itemCount: list.length < length ? list.length : length + 1,
+              itemCount: question.answers.length < length
+                  ? question.answers.length
+                  : length + 1,
             ),
           );
   }

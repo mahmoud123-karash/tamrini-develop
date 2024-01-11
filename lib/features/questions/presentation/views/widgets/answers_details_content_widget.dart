@@ -63,7 +63,7 @@ class _AnswersDetailsContentWidgetState
             date: widget.model.date,
             model: widget.model,
           ),
-          AnswerslistViewWidget(list: widget.model.answers, length: length),
+          AnswerslistViewWidget(question: widget.model, length: length),
         ],
       ),
     );
