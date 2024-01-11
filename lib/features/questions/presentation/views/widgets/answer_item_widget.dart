@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -25,12 +27,14 @@ class AnswerItemWidgt extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              log(image);
+            },
             child: CircleAvatar(
               radius: 25,
               backgroundImage: image != ''
                   ? FirebaseImageProvider(
-                      FirebaseUrl(''),
+                      FirebaseUrl(image),
                     ) as ImageProvider
                   : const AssetImage(
                       Assets.imagesProfile,

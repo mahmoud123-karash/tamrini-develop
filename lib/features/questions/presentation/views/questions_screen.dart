@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/add_question_bottom_sheet_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/questions_stream_builder_widget.dart';
-import 'search_question_screen.dart';
 
 class QuestionsScreen extends StatelessWidget {
   const QuestionsScreen({super.key});
@@ -17,14 +15,6 @@ class QuestionsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(S.of(context).questtion),
         centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {
-              navigateTo(context, const SearchQuestionScreen());
-            },
-            icon: const Icon(Ionicons.search),
-          )
-        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: appColor,

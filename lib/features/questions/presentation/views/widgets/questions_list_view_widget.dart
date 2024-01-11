@@ -13,6 +13,7 @@ class QuestionsListViewWidget extends StatefulWidget {
 
 class _QuestionsListViewWidgetState extends State<QuestionsListViewWidget> {
   ScrollController scrollController = ScrollController();
+  var pageBuket = PageStorageBucket();
 
   int length = 10;
 
@@ -40,30 +41,34 @@ class _QuestionsListViewWidgetState extends State<QuestionsListViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 40, top: 10),
-      child: ListView.separated(
-        controller: scrollController,
-        physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) {
-          if (index < length) {
-            return QuestionItemStreamBuilderWidget(
-              model: widget.list[index],
-            );
-          } else {
-            return const Center(
-              child: Padding(
-                padding: EdgeInsets.all(15.0),
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
-        },
-        separatorBuilder: (context, index) => const SizedBox(
-          height: 10,
+    return PageStorage(
+      bucket: pageBuket,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 40, top: 10),
+        child: ListView.separated(
+          key: const PageStorageKey<String>('questions_page'),
+          controller: scrollController,
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            if (index < length) {
+              return QuestionItemStreamBuilderWidget(
+                model: widget.list[index],
+              );
+            } else {
+              return const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+          },
+          separatorBuilder: (context, index) => const SizedBox(
+            height: 10,
+          ),
+          itemCount:
+              widget.list.length < length ? widget.list.length : length + 1,
         ),
-        itemCount:
-            widget.list.length < length ? widget.list.length : length + 1,
       ),
     );
   }

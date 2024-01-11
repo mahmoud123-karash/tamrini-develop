@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/loading_question_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/message_question_builder_widget.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/questions_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
+
+import 'questions_content_widget.dart';
 
 class QuestionsStreamBuilderWidget extends StatelessWidget {
   const QuestionsStreamBuilderWidget({super.key});
@@ -40,7 +41,7 @@ class QuestionsStreamBuilderWidget extends StatelessWidget {
           }
           List<QuestionModel> finalList =
               list.where((element) => element.isBanned == false).toList();
-          return QuestionsListViewWidget(list: finalList);
+          return QuestionContentWidget(list: finalList);
         }
       },
     );

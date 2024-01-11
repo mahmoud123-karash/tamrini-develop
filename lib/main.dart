@@ -716,7 +716,7 @@ class _MyAppState extends State<MyApp> {
                   bool isDark = ManageCubit.get(context).isDark;
                   String lang = ManageCubit.get(context).lang;
                   return GetMaterialApp(
-                    locale: const Locale('en'),
+                    locale: const Locale('ar'),
                     localizationsDelegates: const [
                       S.delegate,
                       GlobalMaterialLocalizations.delegate,
