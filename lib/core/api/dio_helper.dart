@@ -18,7 +18,7 @@ class DioHelper {
     required String token,
     required String title,
     required String body,
-    String? data,
+    Map<String, dynamic>? data,
   }) async {
     var notificationBody = {
       "to": token,

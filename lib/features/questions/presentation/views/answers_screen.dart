@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/services.dart';
@@ -7,7 +6,6 @@ import 'package:tamrini/features/questions/data/models/user_model/user_model.dar
 import 'package:tamrini/features/questions/presentation/views/widgets/answers_details_content_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/write_answer_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-
 import '../../data/models/question_model/question_model.dart';
 import 'widgets/message_question_builder_widget.dart';
 
@@ -22,9 +20,6 @@ class AnswersScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(S.of(context).answers),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notification_add))
-        ],
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance

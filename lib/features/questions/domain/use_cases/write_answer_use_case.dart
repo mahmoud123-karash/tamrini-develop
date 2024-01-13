@@ -49,7 +49,13 @@ class WriteAnswerUseCase extends UseCase {
         questionRepo.setNotification(
             id: model.askerUid, questionUid: id, body: answer);
         dioHelper.sendNotification(
-            token: token, title: 'إجابة جديدة على سؤالك', body: answer);
+          token: token,
+          title: 'إجابة جديدة على سؤالك',
+          body: answer,
+          data: {
+            "type": "notification",
+          },
+        );
       }
       return right('');
     } catch (e) {

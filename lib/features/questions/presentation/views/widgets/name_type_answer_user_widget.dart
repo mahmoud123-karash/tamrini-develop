@@ -23,17 +23,24 @@ class NameAswertypeUserWidget extends StatelessWidget {
           height: 5,
         ),
         Container(
-          constraints: BoxConstraints(maxWidth: width - (60 + 40 + 20 + 15)),
-          child: Text(
-            answer,
-            style: const TextStyle(
-              fontSize: 15,
-              fontFamily: 'SF Pro Text',
-              fontWeight: FontWeight.w300,
-              letterSpacing: -0.90,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.grey.withOpacity(0.2),
+          ),
+          constraints: BoxConstraints(maxWidth: width - (60 + 40 + 20 + 20)),
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text(
+              answer,
+              style: const TextStyle(
+                fontSize: 15,
+                fontFamily: 'SF Pro Text',
+                fontWeight: FontWeight.w300,
+                letterSpacing: -0.90,
+              ),
+              textAlign: TextAlign.start,
+              maxLines: 5,
             ),
-            textAlign: TextAlign.start,
-            maxLines: 5,
           ),
         ),
         const SizedBox(

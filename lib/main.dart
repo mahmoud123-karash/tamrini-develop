@@ -1,8 +1,6 @@
 import 'dart:developer';
 
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart' as helper;
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/get_it.dart';
@@ -36,7 +33,6 @@ import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
-import 'package:tamrini/features/questions/data/data_sources/remote_data_source/user_remote_data_source.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
@@ -417,30 +413,20 @@ void main() async {
   await Hive.openBox<CategoryModel>(storeBox);
   checkInternet();
   requestAppPermissions();
-
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-    print(" is CONTENT AVILABLE ${message.contentAvailable}");
-    print('Got a message whilst in the foreground!');
-    print('Message data: ${message.data}');
-
-    AwesomeDialog(
-      context: navigationKey.currentContext!,
-      dialogType: DialogType.info,
-      animType: AnimType.bottomSlide,
-      title: message.notification?.title,
-      desc: message.notification?.body,
-      btnCancelOnPress: () {},
-      btnOkOnPress: () {
-        _handleMessage(message);
-      },
-    ).show();
-
-    if (message.notification != null) {
-      print('Message also contained a notification: ${message.notification}');
-    } else {
-      print('null');
-    }
-  });
+  AwesomeNotifications().initialize(
+    '',
+    [
+      NotificationChannel(
+        channelGroupKey: 'basic_channel_group',
+        channelKey: 'basic_channel',
+        channelName: 'Basic notifications',
+        channelDescription: 'Notification channel for basic tests',
+        defaultColor: appColor,
+        ledColor: Colors.white,
+      )
+    ],
+    debug: true,
+  );
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 

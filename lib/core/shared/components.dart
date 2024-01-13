@@ -40,7 +40,11 @@ void showSnackBar(context, message) =>
       ),
     );
 
-AppBar myAppBar(title) => AppBar(
+AppBar myAppBar(
+  title, {
+  List<Widget>? actions,
+}) =>
+    AppBar(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(30),
@@ -50,6 +54,7 @@ AppBar myAppBar(title) => AppBar(
       title: Text(
         title,
       ),
+      actions: actions,
     );
 
 Widget searchField({

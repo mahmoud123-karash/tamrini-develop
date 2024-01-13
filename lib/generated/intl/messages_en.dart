@@ -114,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
+        "notification": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("Our Products"),
