@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
@@ -57,25 +58,26 @@ class AnswerItemWidgt extends StatelessWidget {
             time: DateFormat('h:mm a', 'en').format(model.date.toDate()),
           ),
           const Spacer(),
-          InkWell(
-            borderRadius: BorderRadius.circular(5),
-            onTap: () {
-              showModalBottomSheet(
-                isScrollControlled: true,
-                context: context,
-                builder: (context) {
-                  return AnswerOptionsBottomSheetWidget(
-                    model: model,
-                    question: question,
-                  );
-                },
-              );
-            },
-            child: const Icon(
-              Icons.more_vert_sharp,
-              size: 18,
-            ),
-          )
+          if (model.userUid == CacheHelper.getData(key: 'uid'))
+            InkWell(
+              borderRadius: BorderRadius.circular(5),
+              onTap: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) {
+                    return AnswerOptionsBottomSheetWidget(
+                      model: model,
+                      question: question,
+                    );
+                  },
+                );
+              },
+              child: const Icon(
+                Icons.more_vert_sharp,
+                size: 18,
+              ),
+            )
         ],
       ),
     );

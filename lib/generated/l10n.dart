@@ -1330,81 +1330,71 @@ class S {
     );
   }
 
-  /// `ثانية`
-  String get second {
+  /// `ملفك الشخصي`
+  String get profile {
     return Intl.message(
-      'ثانية',
-      name: 'second',
+      'ملفك الشخصي',
+      name: 'profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `دقيقة`
-  String get minute {
+  /// `الإعدادات`
+  String get settings {
     return Intl.message(
-      'دقيقة',
-      name: 'minute',
+      'الإعدادات',
+      name: 'settings',
       desc: '',
       args: [],
     );
   }
 
-  /// `ساعة`
-  String get hour {
+  /// `تسجيل الخروج`
+  String get log_out {
     return Intl.message(
-      'ساعة',
-      name: 'hour',
+      'تسجيل الخروج',
+      name: 'log_out',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم`
-  String get day {
+  /// `عن التطبيق`
+  String get about_app {
     return Intl.message(
-      'يوم',
-      name: 'day',
+      'عن التطبيق',
+      name: 'about_app',
       desc: '',
       args: [],
     );
   }
 
-  /// `أسبوع`
-  String get weak {
+  /// `تواصل معانا`
+  String get contact_u {
     return Intl.message(
-      'أسبوع',
-      name: 'weak',
+      'تواصل معانا',
+      name: 'contact_u',
       desc: '',
       args: [],
     );
   }
 
-  /// `شهر`
-  String get month {
+  /// `تقييم التطبيق`
+  String get rate_app {
     return Intl.message(
-      'شهر',
-      name: 'month',
+      'تقييم التطبيق',
+      name: 'rate_app',
       desc: '',
       args: [],
     );
   }
 
-  /// `سنة`
-  String get year {
+  /// `كيفية إستخدام التطبيق`
+  String get how_to_use_app {
     return Intl.message(
-      'سنة',
-      name: 'year',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `الآن`
-  String get just_now {
-    return Intl.message(
-      'الآن',
-      name: 'just_now',
+      'كيفية إستخدام التطبيق',
+      name: 'how_to_use_app',
       desc: '',
       args: [],
     );

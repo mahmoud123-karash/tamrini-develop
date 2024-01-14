@@ -35,6 +35,10 @@ import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
 import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
+import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
+import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
+import 'package:tamrini/features/profile/domain/repo/profile_repo.dart';
+import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
@@ -413,6 +417,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(CategoryModelAdapter());
   await Hive.openBox<CategoryModel>(storeBox);
+  Hive.registerAdapter(ProfileModelAdapter());
+  await Hive.openBox<ProfileModel>(profileBox);
   checkInternet();
   requestAppPermissions();
   AwesomeNotifications().initialize(
@@ -524,6 +530,11 @@ void main() async {
       ],
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(
+            create: (context) => ProfileCubit(
+              getIt.get<ProfileRepoImpl>(),
+            )..getProfile(),
+          ),
           BlocProvider(
             create: (context) => UpdateCubit(
               NavBarRepo(),

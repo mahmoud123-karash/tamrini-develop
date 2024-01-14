@@ -14,9 +14,10 @@ String privacyUri =
     'https://www.privacypolicygenerator.info/live.php?token=MsmKdi4pne1dYTITIsaOPEXQh0zwVN1t';
 
 String appLink = Platform.isIOS
-    ? 'https://apps.apple.com/app/id6466894818'
+    ? 'https://apps.apple.com/us/app/id1571336937'
     : 'https://play.google.com/store/apps/details?id=com.tamrini1.com';
 
 String storeBox = 'storeBox';
+String profileBox = 'profileBox';
 
 String adminUid = '7JGTeYMv6yfQrUwABPHibDJrot82';

@@ -7,13 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/send_message_widget.dart';
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({
-    super.key,
-    required this.name,
-    required this.recieverUid,
-    required this.uid,
-  });
-  final String name, recieverUid, uid;
+  const ChatScreen({super.key});
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -32,11 +26,11 @@ class _ChatScreenState extends State<ChatScreen> {
     return BlocProvider(
       create: (context) => ChatCubit(
         getIt.get<ChatRepoImpl>(),
-      )..getMessages(uid: widget.uid),
+      ),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            widget.name,
+          title: const Text(
+            ' widget.name',
             maxLines: 1,
           ),
           actions: const [],
@@ -45,8 +39,8 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             // ChatListViewBuilderWidget(scrollController: scrollController),
             SendMessageWidget(
-              uid: widget.uid,
-              recieverUid: widget.recieverUid,
+              uid: 'widget.uid',
+              recieverUid: ' widget.recieverUid',
               scrollController: scrollController,
             ),
           ],

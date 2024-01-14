@@ -1,9 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
+import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
+import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:tamrini/features/questions/data/models/user_model/user_model.dart'
     as user;
 
@@ -147,5 +150,12 @@ String formatTimeDifferenceInArabic(DateTime dateTime) {
     final years = (difference.inDays / 365).floor();
     final format = DateFormat('منذ $years سنوات');
     return format.format(dateTime);
+  }
+}
+
+void initiGetprofile(context) {
+  var box = Hive.box<ProfileModel>(profileBox);
+  if (box.values.isEmpty) {
+    ProfileCubit.get(context).getProfile();
   }
 }

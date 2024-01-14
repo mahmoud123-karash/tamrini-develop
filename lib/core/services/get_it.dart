@@ -13,6 +13,9 @@ import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/notification/data/data_sources/remote_data_source/notification_remote_data_source.dart';
 import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
+import 'package:tamrini/features/profile/data/data_sources/local_data_source/profile_local_data_source.dart';
+import 'package:tamrini/features/profile/data/data_sources/remote_data_source/profile_remote_data_source.dart';
+import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
@@ -96,6 +99,13 @@ void setLocator() {
   getIt.registerSingleton<NotificationRepoImpl>(
     NotificationRepoImpl(
       NotificationRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<ProfileRepoImpl>(
+    ProfileRepoImpl(
+      ProfileRemotedataSourceImpl(),
+      ProfileLocalDataSourceImpl(),
     ),
   );
 }

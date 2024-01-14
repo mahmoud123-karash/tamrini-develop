@@ -6,16 +6,18 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/notifocation_custom_radio_grouped_button.dart';
 
 class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({super.key});
+  const NotificationScreen({super.key, this.value = "notification"});
+  final String? value;
 
   @override
   State<NotificationScreen> createState() => _NotificationScreenState();
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-  String lable = 'notification';
+  late String lable;
   @override
   void initState() {
+    lable = widget.value ?? '';
     super.initState();
   }
 

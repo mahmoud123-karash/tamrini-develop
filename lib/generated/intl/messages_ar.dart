@@ -23,12 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
+        "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
         "age": MessageLookupByLibrary.simpleMessage("العمر"),
-        "ago": MessageLookupByLibrary.simpleMessage("منذ"),
         "agree": MessageLookupByLibrary.simpleMessage("أوافق على"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
         "allProducts": MessageLookupByLibrary.simpleMessage("جميع المنتجات"),
@@ -52,12 +52,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmpass":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "contact_u": MessageLookupByLibrary.simpleMessage("تواصل معانا"),
         "country": MessageLookupByLibrary.simpleMessage("البلد"),
         "create": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
-        "day": MessageLookupByLibrary.simpleMessage("يوم"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
@@ -83,13 +83,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
-        "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
+        "how_to_use_app":
+            MessageLookupByLibrary.simpleMessage("كيفية إستخدام التطبيق"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
-        "just_now": MessageLookupByLibrary.simpleMessage("الآن"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
+        "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "lowPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرا"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
@@ -97,9 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "media": MessageLookupByLibrary.simpleMessage("مواقع التواصل"),
         "messages": MessageLookupByLibrary.simpleMessage("الرسائل"),
         "minDistance": MessageLookupByLibrary.simpleMessage("الأقرب"),
-        "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
         "money": MessageLookupByLibrary.simpleMessage("السعر"),
-        "month": MessageLookupByLibrary.simpleMessage("شهر"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
         "noArticles":
@@ -135,9 +134,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء الموافقة على الشروط"),
         "proDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
         "products": MessageLookupByLibrary.simpleMessage("منتجات متنوعة"),
+        "profile": MessageLookupByLibrary.simpleMessage("ملفك الشخصي"),
         "question_error":
             MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
+        "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
@@ -149,8 +150,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
         "search_yourself":
             MessageLookupByLibrary.simpleMessage("ابحث عن تمرينك"),
-        "second": MessageLookupByLibrary.simpleMessage("ثانية"),
         "self": MessageLookupByLibrary.simpleMessage("ثقف نفسك"),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
         "show": MessageLookupByLibrary.simpleMessage("عرض على الخريطة"),
         "slatGym": MessageLookupByLibrary.simpleMessage("صالات الجيم"),
@@ -181,10 +182,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
-        "weak": MessageLookupByLibrary.simpleMessage("أسبوع"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
-            MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),
-        "year": MessageLookupByLibrary.simpleMessage("سنة")
+            MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد...")
       };
 }
