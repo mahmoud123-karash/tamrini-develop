@@ -4,18 +4,21 @@ import 'package:tamrini/features/home/data/models/article_model/article_model.da
 
 class ArticleListViewWidget extends StatelessWidget {
   const ArticleListViewWidget(
-      {super.key, required this.list, required this.length});
+      {super.key,
+      required this.list,
+      required this.length,
+      required this.controller});
   final List<ArticleModel> list;
   final int length;
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
     return ListView.separated(
+      controller: controller,
       itemCount: list.length < length ? list.length : length + 1,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
       itemBuilder: (context, index) {
         if (index < length) {
           return AtricleItemWidget(

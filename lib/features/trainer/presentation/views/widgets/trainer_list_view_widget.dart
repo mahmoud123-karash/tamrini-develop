@@ -4,15 +4,18 @@ import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_item
 
 class TrainerListViewWidget extends StatelessWidget {
   const TrainerListViewWidget(
-      {super.key, required this.list, required this.length});
+      {super.key,
+      required this.list,
+      required this.length,
+      required this.controller});
   final List<TrainerModel> list;
   final int length;
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      controller: controller,
       itemBuilder: (context, index) {
         if (index < length) {
           return TrainerItemWidget(

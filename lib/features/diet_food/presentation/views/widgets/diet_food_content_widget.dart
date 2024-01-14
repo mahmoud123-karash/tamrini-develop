@@ -32,7 +32,12 @@ class _DietFoodContentWidgetState extends State<DietFoodContentWidget> {
         scrollController.position.maxScrollExtent) {
       if (widget.models.length > length) {
         length += 10;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        Future.delayed(const Duration(seconds: 1)).then((value) {
+          if (mounted) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => setState(() {}));
+          }
+        });
       }
     }
   }
@@ -46,35 +51,37 @@ class _DietFoodContentWidgetState extends State<DietFoodContentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      controller: scrollController,
-      child: Column(
-        children: [
-          searchField(
-            controller: searchController,
-            onChanged: (value) {
-              searchList = searchDietFood(value, widget.models);
-              if (value == '') {
-                length = 10;
-              }
-              setState(() {});
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          DietFoodListViewWidget(
+    return Column(
+      children: [
+        searchField(
+          controller: searchController,
+          onChanged: (value) {
+            searchList = searchDietFood(value, widget.models);
+            if (value == '') {
+              length = 10;
+            }
+            setState(() {});
+          },
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Expanded(
+          child: DietFoodListViewWidget(
+            controller: scrollController,
             list: searchController.text == '' ? widget.models : searchList,
             length: length,
           ),
-          if (searchList.isEmpty && searchController.text != '')
-            Text(
-              S.of(context).noArticles,
+        ),
+        if (searchList.isEmpty && searchController.text != '')
+          Expanded(
+            child: Text(
+              S.of(context).no_results,
               style: TextStyles.style20,
               textAlign: TextAlign.center,
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 }

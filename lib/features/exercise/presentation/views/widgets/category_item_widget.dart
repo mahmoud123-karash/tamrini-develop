@@ -16,7 +16,13 @@ class CategoryItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateTo(context, AllExercisesCategoryScreen(model: model));
+        navigateTo(
+          context,
+          AllExercisesCategoryScreen(
+            list: model.data ?? [],
+            title: model.title ?? '',
+          ),
+        );
       },
       child: Container(
         alignment: Alignment.topRight,

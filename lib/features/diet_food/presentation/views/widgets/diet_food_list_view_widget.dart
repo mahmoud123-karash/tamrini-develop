@@ -4,14 +4,17 @@ import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_
 
 class DietFoodListViewWidget extends StatelessWidget {
   const DietFoodListViewWidget(
-      {super.key, required this.list, required this.length});
+      {super.key,
+      required this.list,
+      required this.length,
+      required this.controller});
   final List<DietFoodModel> list;
   final int length;
+  final ScrollController controller;
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      controller: controller,
       itemBuilder: (context, index) {
         if (index < length) {
           return DietFoodItemWidget(

@@ -16,14 +16,17 @@ class TrainerGalleryWidget extends StatelessWidget {
       children: [
         TitleTextWidget(lable: S.of(context).trainer_gallery),
         const Spacer(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: TextButton(
-            onPressed: () {
-              navigateTo(context, TrainerGallerySreen(gallery: gallery));
-            },
-            child: Text(S.of(context).more),
-          ),
+        TextButton(
+          onPressed: () {
+            navigateTo(
+              context,
+              TrainerGallerySreen(gallery: gallery),
+            );
+          },
+          child: Text(S.of(context).more),
+        ),
+        const SizedBox(
+          width: 10,
         ),
       ],
     );

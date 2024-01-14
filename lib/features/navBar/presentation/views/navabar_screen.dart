@@ -11,6 +11,7 @@ import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/badge_notification_icon_widget.dart';
+import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'widgets/curved_nav_bar_widget.dart';
 import 'widgets/drawer_widget.dart';
 
@@ -26,6 +27,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   void initState() {
     onMessage(
       function: () {
+        NotificationCubit.get(context).getData();
         log('message');
       },
     );

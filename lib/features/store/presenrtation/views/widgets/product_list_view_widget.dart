@@ -5,15 +5,18 @@ import 'package:tamrini/features/store/presenrtation/views/widgets/product_item_
 
 class ProductListViewWidget extends StatelessWidget {
   const ProductListViewWidget(
-      {super.key, required this.list, required this.length});
+      {super.key,
+      required this.list,
+      required this.length,
+      required this.scrollController});
   final List<ProductModel> list;
   final int length;
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      controller: scrollController,
       itemBuilder: (context, index) {
         if (index < length) {
           return ProductItemWidget(

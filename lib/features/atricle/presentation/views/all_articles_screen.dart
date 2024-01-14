@@ -33,7 +33,12 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
         scrollController.position.maxScrollExtent) {
       if (widget.models.length > length) {
         length += 10;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        Future.delayed(const Duration(seconds: 1)).then((value) {
+          if (mounted) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => setState(() {}));
+          }
+        });
       }
     }
   }
@@ -52,43 +57,47 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
         title: Text(S.of(context).articlesT),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        controller: scrollController,
-        child: Column(
-          children: [
-            searchField(
-              controller: searchController,
-              onChanged: (value) {
-                searchList = searchArticles(value, widget.models);
-                if (value == '') {
-                  length = 10;
-                }
-                setState(() {});
-              },
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            widget.models.isNotEmpty
-                ? ArticleListViewWidget(
+      body: Column(
+        children: [
+          searchField(
+            controller: searchController,
+            onChanged: (value) {
+              searchList = searchArticles(value, widget.models);
+              if (value == '') {
+                length = 10;
+              }
+              setState(() {});
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          widget.models.isNotEmpty
+              ? Expanded(
+                  child: ArticleListViewWidget(
+                    controller: scrollController,
                     list: searchController.text == ''
                         ? widget.models
                         : searchList,
                     length: length,
-                  )
-                : Center(
+                  ),
+                )
+              : Expanded(
+                  child: Center(
                     child: Text(
                       S.of(context).no_results,
                     ),
                   ),
-            if (searchList.isEmpty && searchController.text != '')
-              Text(
+                ),
+          if (searchList.isEmpty && searchController.text != '')
+            Expanded(
+              child: Text(
                 S.of(context).noArticles,
                 style: TextStyles.style20,
                 textAlign: TextAlign.center,
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }

@@ -35,7 +35,12 @@ class _TrainersContentWidget extends State<TrainersContentWidget> {
         scrollController.position.maxScrollExtent) {
       if (widget.list.length > length) {
         length += 10;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        Future.delayed(const Duration(seconds: 1)).then((value) {
+          if (mounted) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => setState(() {}));
+          }
+        });
       }
     }
   }
@@ -49,34 +54,38 @@ class _TrainersContentWidget extends State<TrainersContentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      controller: scrollController,
-      child: Column(
-        children: [
-          searchField(
-            controller: searchController,
-            onChanged: (value) {
-              searchList = searchTariner(value, widget.list);
-              if (value == '') {
-                length = 10;
-              }
-              setState(() {});
-            },
-          ),
-          widget.list.isNotEmpty
-              ? TrainerListViewWidget(
+    return Column(
+      children: [
+        searchField(
+          controller: searchController,
+          onChanged: (value) {
+            searchList = searchTariner(value, widget.list);
+            if (value == '') {
+              length = 10;
+            }
+            setState(() {});
+          },
+        ),
+        widget.list.isNotEmpty
+            ? Expanded(
+                child: TrainerListViewWidget(
+                  controller: scrollController,
                   list: searchController.text == '' ? widget.list : searchList,
                   length: length,
-                )
-              : Center(
+                ),
+              )
+            : Expanded(
+                child: Center(
                   child: Text(
                     S.of(context).emptyList,
                   ),
                 ),
-          if (searchList.isEmpty && searchController.text != '')
-            TrainerMessageWidget(message: S.of(context).no_trainers),
-        ],
-      ),
+              ),
+        if (searchList.isEmpty && searchController.text != '')
+          Expanded(
+            child: TrainerMessageWidget(message: S.of(context).no_trainers),
+          ),
+      ],
     );
   }
 }

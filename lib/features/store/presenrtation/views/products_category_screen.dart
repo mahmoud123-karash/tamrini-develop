@@ -34,7 +34,9 @@ class _ProductsCategoryScreenState extends State<ProductsCategoryScreen> {
         scrollController.position.maxScrollExtent) {
       if (widget.list.length > length) {
         length += 10;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        Future.delayed(const Duration(seconds: 1)).then((value) {
+          WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        });
       }
     }
   }
@@ -54,33 +56,34 @@ class _ProductsCategoryScreenState extends State<ProductsCategoryScreen> {
         centerTitle: true,
       ),
       body: widget.list.isNotEmpty
-          ? SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  searchField(
-                    controller: searchController,
-                    onChanged: (value) {
-                      searchList = searchProduct(value, widget.list);
-                      if (value == '') {
-                        length = 10;
-                      }
-                      setState(() {});
-                    },
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  ProductListViewWidget(
+          ? Column(
+              children: [
+                searchField(
+                  controller: searchController,
+                  onChanged: (value) {
+                    searchList = searchProduct(value, widget.list);
+                    if (value == '') {
+                      length = 10;
+                    }
+                    setState(() {});
+                  },
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Expanded(
+                  child: ProductListViewWidget(
+                    scrollController: scrollController,
                     list:
                         searchController.text == '' ? widget.list : searchList,
                     length: length,
                   ),
-                  if (searchController.text != '' && searchList.isEmpty)
-                    Text(S.of(context).noProduct),
-                ],
-              ),
+                ),
+                if (searchController.text != '' && searchList.isEmpty)
+                  Expanded(
+                    child: Text(S.of(context).noProduct),
+                  ),
+              ],
             )
           : Center(
               child: Text(S.of(context).nocProducts),

@@ -60,6 +60,21 @@ class _GymSlideShowImagesWidgetState extends State<GymSlideShowImagesWidget> {
                   ),
                 ),
                 fit: BoxFit.cover,
+                loadingBuilder:
+                    (_, Widget child, ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  } else {
+                    return Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                (loadingProgress.expectedTotalBytes ?? 1)
+                            : null,
+                      ),
+                    );
+                  }
+                },
               ),
             )
         ],

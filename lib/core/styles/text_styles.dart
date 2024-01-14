@@ -40,4 +40,10 @@ abstract class TextStyles {
     fontSize: 20.0,
     fontWeight: FontWeight.bold,
   );
+
+  static TextStyle style12 = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'cairo',
+  );
 }

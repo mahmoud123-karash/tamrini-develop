@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
         "after": MessageLookupByLibrary.simpleMessage("After"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "ago": MessageLookupByLibrary.simpleMessage("منذ"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("All Exercises"),
         "allProducts": MessageLookupByLibrary.simpleMessage("All Products"),
@@ -58,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "create1": MessageLookupByLibrary.simpleMessage("Create acount"),
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "day": MessageLookupByLibrary.simpleMessage("يوم"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
@@ -85,9 +87,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("Home Exercises"),
+        "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
+        "just_now": MessageLookupByLibrary.simpleMessage("الآن"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -95,8 +99,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "male": MessageLookupByLibrary.simpleMessage("Make"),
         "maxDistance": MessageLookupByLibrary.simpleMessage("Farthest"),
         "media": MessageLookupByLibrary.simpleMessage("Social Media"),
+        "messages": MessageLookupByLibrary.simpleMessage("الرسائل"),
         "minDistance": MessageLookupByLibrary.simpleMessage("Nearest"),
+        "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
         "money": MessageLookupByLibrary.simpleMessage("Price"),
+        "month": MessageLookupByLibrary.simpleMessage("شهر"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
@@ -145,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Search for an Exercise"),
         "search_yourself":
             MessageLookupByLibrary.simpleMessage("Search for Your Exercise"),
+        "second": MessageLookupByLibrary.simpleMessage("ثانية"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
@@ -165,6 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_update_answer":
             MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
+        "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
@@ -179,8 +188,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "update": MessageLookupByLibrary.simpleMessage("Update Location"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required"),
+        "weak": MessageLookupByLibrary.simpleMessage("أسبوع"),
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
         "write_question":
-            MessageLookupByLibrary.simpleMessage("Write a new question...")
+            MessageLookupByLibrary.simpleMessage("Write a new question..."),
+        "year": MessageLookupByLibrary.simpleMessage("سنة")
       };
 }

@@ -9,22 +9,20 @@ class SuggestExerciseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const SizedBox(
-          height: 50,
-        ),
-        Text(
-          S.of(context).noExer,
-          style: TextStyles.style20,
-        ),
-        const SizedBox(
-          height: 50,
-        ),
-        const SuggestCustomButtonWidget(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            S.of(context).noExer,
+            style: TextStyles.style20,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const SuggestCustomButtonWidget(),
+        ],
+      ),
     );
   }
 }

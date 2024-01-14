@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
         "age": MessageLookupByLibrary.simpleMessage("العمر"),
+        "ago": MessageLookupByLibrary.simpleMessage("منذ"),
         "agree": MessageLookupByLibrary.simpleMessage("أوافق على"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
         "allProducts": MessageLookupByLibrary.simpleMessage("جميع المنتجات"),
@@ -56,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+        "day": MessageLookupByLibrary.simpleMessage("يوم"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
@@ -81,9 +83,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
+        "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
+        "just_now": MessageLookupByLibrary.simpleMessage("الآن"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -91,8 +95,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "maxDistance": MessageLookupByLibrary.simpleMessage("الأبعد"),
         "media": MessageLookupByLibrary.simpleMessage("مواقع التواصل"),
+        "messages": MessageLookupByLibrary.simpleMessage("الرسائل"),
         "minDistance": MessageLookupByLibrary.simpleMessage("الأقرب"),
+        "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
         "money": MessageLookupByLibrary.simpleMessage("السعر"),
+        "month": MessageLookupByLibrary.simpleMessage("شهر"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
         "noArticles":
@@ -142,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
         "search_yourself":
             MessageLookupByLibrary.simpleMessage("ابحث عن تمرينك"),
+        "second": MessageLookupByLibrary.simpleMessage("ثانية"),
         "self": MessageLookupByLibrary.simpleMessage("ثقف نفسك"),
         "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
         "show": MessageLookupByLibrary.simpleMessage("عرض على الخريطة"),
@@ -159,6 +167,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_update_answer":
             MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
+        "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
@@ -172,8 +181,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
+        "weak": MessageLookupByLibrary.simpleMessage("أسبوع"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
-            MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد...")
+            MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),
+        "year": MessageLookupByLibrary.simpleMessage("سنة")
       };
 }

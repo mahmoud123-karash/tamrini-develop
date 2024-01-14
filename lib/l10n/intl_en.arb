@@ -123,7 +123,19 @@
     "success_update_answer":"تم تعديل الإجابة",
     "no_internet":"لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل",
     "internet_connection":"تم الإتصال بالإنترنت",
-    "notification":"الإشعارات"
+    "notification":"الإشعارات",
+    "messages":"الرسائل",
+    "system":"النظام",
+    "ago":"منذ",
+     "second":"ثانية",
+     "minute":"دقيقة",
+     "hour":"ساعة",
+     "day":"يوم",
+     "weak":"أسبوع",
+     "month":"شهر",
+     "year":"سنة",
+     "just_now":"الآن"
+
 
 
 

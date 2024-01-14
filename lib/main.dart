@@ -33,6 +33,8 @@ import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
+import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
+import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
@@ -577,6 +579,11 @@ void main() async {
               getIt.get<QuestionRepoImpl>(),
               getIt.get<WriteAnswerUseCase>(),
             ),
+          ),
+          BlocProvider(
+            create: (context) => NotificationCubit(
+              getIt.get<NotificationRepoImpl>(),
+            )..getData(),
           ),
           BlocProvider(
             create: (context) => ManageCubit()

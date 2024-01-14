@@ -36,8 +36,9 @@ class HomeCategoryExerciseBuilderWidget extends StatelessWidget {
                           navigateTo(
                             context,
                             AllHomeExercisesCategoryScreen(
-                                model: list,
-                                title: S.of(context).home_exercises),
+                              model: list,
+                              title: S.of(context).home_exercises,
+                            ),
                           );
                         }
                       },

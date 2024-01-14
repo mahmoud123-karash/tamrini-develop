@@ -58,36 +58,40 @@ class _AllHomeExercisesCategoryScreen
         title: Text(widget.title),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        controller: scrollController,
-        child: Column(
-          children: [
-            searchField(
-              controller: searchController,
-              onChanged: (value) {
-                searchList = searchHomeExercise(value, widget.model!);
-                if (value == '') {
-                  length = 5;
-                }
-                setState(() {});
-              },
-            ),
-            widget.model != null || widget.model!.isNotEmpty
-                ? HomeExerciseListViewWidget(
+      body: Column(
+        children: [
+          searchField(
+            controller: searchController,
+            onChanged: (value) {
+              searchList = searchHomeExercise(value, widget.model!);
+              if (value == '') {
+                length = 5;
+              }
+              setState(() {});
+            },
+          ),
+          widget.model != null || widget.model!.isNotEmpty
+              ? Expanded(
+                  child: HomeExerciseListViewWidget(
+                    scrollController: scrollController,
                     list: searchController.text == ''
                         ? widget.model!
                         : searchList,
                     length: length,
-                  )
-                : Center(
+                  ),
+                )
+              : Expanded(
+                  child: Center(
                     child: Text(
                       S.of(context).emptyList,
                     ),
                   ),
-            if (searchList.isEmpty && searchController.text != '')
-              const SuggestExerciseWidget(),
-          ],
-        ),
+                ),
+          if (searchList.isEmpty && searchController.text != '')
+            const Expanded(
+              child: SuggestExerciseWidget(),
+            ),
+        ],
       ),
     );
   }

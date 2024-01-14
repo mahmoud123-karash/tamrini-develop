@@ -57,60 +57,64 @@ class _AllGymsScreenState extends State<AllGymsScreen> {
         title: Text(S.of(context).slatGym),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        controller: scrollController,
-        child: Column(
-          children: [
-            searchField(
-              controller: searchController,
-              onChanged: (value) {
-                searchList = searchGym(value, widget.models);
-                if (value == '') {
-                  length = 10;
-                }
-                setState(() {});
+      body: Column(
+        children: [
+          searchField(
+            controller: searchController,
+            onChanged: (value) {
+              searchList = searchGym(value, widget.models);
+              if (value == '') {
+                length = 10;
+              }
+              setState(() {});
+            },
+          ),
+          DropMenuSortGymsWidget(
+            items: sortBy(context).map<DropdownMenuItem<String>>(
+              (value) {
+                return DropdownMenuItem<String>(
+                  onTap: () {
+                    sortGyms(value);
+                    setState(() {});
+                  },
+                  value: value,
+                  child: Text(value),
+                );
               },
-            ),
-            DropMenuSortGymsWidget(
-              items: sortBy(context).map<DropdownMenuItem<String>>(
-                (value) {
-                  return DropdownMenuItem<String>(
-                    onTap: () {
-                      sortGyms(value);
-                      setState(() {});
-                    },
-                    value: value,
-                    child: Text(value),
-                  );
-                },
-              ).toList(),
-              selectedSortBy: selectedSortBy,
-              onChanged: (String? value) {
-                selectedSortBy = value ?? '';
-                setState(() {});
-              },
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            sortedList.isNotEmpty
-                ? GymListViewWidget(
+            ).toList(),
+            selectedSortBy: selectedSortBy,
+            onChanged: (String? value) {
+              selectedSortBy = value ?? '';
+              setState(() {});
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          sortedList.isNotEmpty
+              ? Expanded(
+                  child: GymListViewWidget(
+                    controller: scrollController,
                     list: searchController.text == '' ? sortedList : searchList,
                     length: length,
-                  )
-                : Center(
+                  ),
+                )
+              : Expanded(
+                  child: Center(
                     child: Text(
                       S.of(context).noGyms,
                     ),
                   ),
-            if (searchList.isEmpty && searchController.text != '')
-              Text(
+                ),
+          if (searchList.isEmpty && searchController.text != '')
+            Expanded(
+              child: Text(
                 S.of(context).noGyms,
                 style: TextStyles.style20,
                 textAlign: TextAlign.center,
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }
@@ -140,7 +144,14 @@ class _AllGymsScreenState extends State<AllGymsScreen> {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
       length += 10;
-      WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+      Future.delayed(const Duration(seconds: 1)).then(
+        (value) {
+          if (mounted) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => setState(() {}));
+          }
+        },
+      );
     }
   }
 }

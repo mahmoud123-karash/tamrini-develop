@@ -4,17 +4,20 @@ import 'package:tamrini/features/home/presentation/views/widgets/gym_item_widget
 
 class GymListViewWidget extends StatelessWidget {
   const GymListViewWidget(
-      {super.key, required this.list, required this.length});
+      {super.key,
+      required this.list,
+      required this.length,
+      required this.controller});
   final List<GymModel> list;
   final int length;
+  final ScrollController controller;
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
     return ListView.separated(
       itemCount: list.length > length ? length + 1 : list.length,
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
+      controller: controller,
       itemBuilder: (context, index) {
         if (index < length) {
           return GymItemWidget(

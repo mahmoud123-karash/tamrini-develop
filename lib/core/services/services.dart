@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
@@ -92,5 +93,59 @@ String getQuestionUserType(user.UserModel model) {
     return 'admin';
   } else {
     return 'user';
+  }
+}
+
+String formatTimeDifference(DateTime dateTime) {
+  final now = DateTime.now();
+  final difference = now.difference(dateTime);
+
+  if (difference.inSeconds < 60) {
+    return 'just now';
+  } else if (difference.inMinutes < 60) {
+    return '${difference.inMinutes} minutes ago';
+  } else if (difference.inHours < 24) {
+    return '${difference.inHours} hours ago';
+  } else if (difference.inDays < 7) {
+    return '${difference.inDays} days ago';
+  } else if (difference.inDays < 30) {
+    final weeks = (difference.inDays / 7).floor();
+    return '$weeks week${weeks > 1 ? 's' : ''} ago';
+  } else if (difference.inDays < 365) {
+    final months = (difference.inDays / 30).floor();
+    return '$months month${months > 1 ? 's' : ''} ago';
+  } else {
+    final years = (difference.inDays / 365).floor();
+    return '$years year${years > 1 ? 's' : ''} ago';
+  }
+}
+
+String formatTimeDifferenceInArabic(DateTime dateTime) {
+  final now = DateTime.now();
+  final difference = now.difference(dateTime);
+
+  if (difference.inSeconds < 60) {
+    return 'الآن';
+  } else if (difference.inMinutes < 60) {
+    final format = DateFormat('منذ mm دقائق');
+    return format.format(dateTime);
+  } else if (difference.inHours < 24) {
+    final format = DateFormat('منذ HH ساعات');
+    return format.format(dateTime);
+  } else if (difference.inDays < 7) {
+    final format = DateFormat('EEEE', 'ar');
+    return format.format(dateTime);
+  } else if (difference.inDays < 30) {
+    final weeks = (difference.inDays / 7).floor();
+    final format = DateFormat('منذ $weeks أسابيع');
+    return format.format(dateTime);
+  } else if (difference.inDays < 365) {
+    final months = (difference.inDays / 30).floor();
+    final format = DateFormat('منذ $months أشهر');
+    return format.format(dateTime);
+  } else {
+    final years = (difference.inDays / 365).floor();
+    final format = DateFormat('منذ $years سنوات');
+    return format.format(dateTime);
   }
 }

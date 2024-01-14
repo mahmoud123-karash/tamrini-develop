@@ -1299,6 +1299,116 @@ class S {
       args: [],
     );
   }
+
+  /// `الرسائل`
+  String get messages {
+    return Intl.message(
+      'الرسائل',
+      name: 'messages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `النظام`
+  String get system {
+    return Intl.message(
+      'النظام',
+      name: 'system',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منذ`
+  String get ago {
+    return Intl.message(
+      'منذ',
+      name: 'ago',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ثانية`
+  String get second {
+    return Intl.message(
+      'ثانية',
+      name: 'second',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `دقيقة`
+  String get minute {
+    return Intl.message(
+      'دقيقة',
+      name: 'minute',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ساعة`
+  String get hour {
+    return Intl.message(
+      'ساعة',
+      name: 'hour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم`
+  String get day {
+    return Intl.message(
+      'يوم',
+      name: 'day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أسبوع`
+  String get weak {
+    return Intl.message(
+      'أسبوع',
+      name: 'weak',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `شهر`
+  String get month {
+    return Intl.message(
+      'شهر',
+      name: 'month',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سنة`
+  String get year {
+    return Intl.message(
+      'سنة',
+      name: 'year',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الآن`
+  String get just_now {
+    return Intl.message(
+      'الآن',
+      name: 'just_now',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

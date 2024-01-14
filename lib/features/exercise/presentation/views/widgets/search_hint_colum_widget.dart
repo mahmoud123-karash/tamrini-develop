@@ -13,14 +13,7 @@ class SearchHintColumWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          S.of(context).searchHint,
-          style: TextStyles.style20,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Text(
-          S.of(context).or,
+          S.of(context).noExer,
           style: TextStyles.style20,
         ),
         const SizedBox(
