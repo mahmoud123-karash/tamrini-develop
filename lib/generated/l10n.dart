@@ -1399,6 +1399,86 @@ class S {
       args: [],
     );
   }
+
+  /// `تفاصيل الحساب`
+  String get account_details {
+    return Intl.message(
+      'تفاصيل الحساب',
+      name: 'account_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `years old`
+  String get years {
+    return Intl.message(
+      'years old',
+      name: 'years',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل الملف الشخصي`
+  String get edit_profile {
+    return Intl.message(
+      'تعديل الملف الشخصي',
+      name: 'edit_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تغيير كلمة المرور`
+  String get change_pass {
+    return Intl.message(
+      'تغيير كلمة المرور',
+      name: 'change_pass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ترقية الحساب`
+  String get update_your_account {
+    return Intl.message(
+      'ترقية الحساب',
+      name: 'update_your_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الجنس`
+  String get gender {
+    return Intl.message(
+      'الجنس',
+      name: 'gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تحديث`
+  String get update_profile {
+    return Intl.message(
+      'تحديث',
+      name: 'update_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تحديث الملف الشخصي`
+  String get success_update_profile {
+    return Intl.message(
+      'تم تحديث الملف الشخصي',
+      name: 'success_update_profile',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

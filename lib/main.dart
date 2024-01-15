@@ -38,6 +38,7 @@ import 'package:tamrini/features/notification/presentation/manager/notification_
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
 import 'package:tamrini/features/profile/domain/repo/profile_repo.dart';
+import 'package:tamrini/features/profile/domain/use_cases/update_profile_use_case.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
@@ -533,6 +534,7 @@ void main() async {
           BlocProvider(
             create: (context) => ProfileCubit(
               getIt.get<ProfileRepoImpl>(),
+              getIt.get<UpdateUseCase>(),
             )..getProfile(),
           ),
           BlocProvider(

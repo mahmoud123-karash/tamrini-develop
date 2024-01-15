@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_states.dart';
-import 'package:tamrini/features/profile/presentation/views/widgets/profile_context_widget.dart';
+import 'package:tamrini/features/profile/presentation/views/widgets/profile_content_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/profile_message_builder_widget.dart';
 
 class ProfileContentBuilderWidget extends StatelessWidget {

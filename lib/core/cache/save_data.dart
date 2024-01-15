@@ -50,22 +50,7 @@ void saveLong(value) => CacheHelper.saveData(
       value: value,
     );
 
-void saveUnReadList(value) => CacheHelper.saveData(
-      key: 'length',
-      value: value,
-    );
-
-void saveNotificationList(value) => CacheHelper.saveData(
-      key: 'lengthN',
-      value: value,
-    );
-
-void saveMessagesList(value) => CacheHelper.saveData(
-      key: 'lengthM',
-      value: value,
-    );
-
-void saveSystemList(value) => CacheHelper.saveData(
-      key: 'lengthS',
+void saveImagePath(value) => CacheHelper.saveData(
+      key: 'imagepath',
       value: value,
     );

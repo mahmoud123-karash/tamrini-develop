@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
+        "account_details":
+            MessageLookupByLibrary.simpleMessage("تفاصيل الحساب"),
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
@@ -44,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
         "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
+        "change_pass":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
         "comment_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
         "compelteHint":
@@ -62,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
+        "edit_profile":
+            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "edit_question": MessageLookupByLibrary.simpleMessage("تعديل"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
@@ -74,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "from": MessageLookupByLibrary.simpleMessage("من"),
+        "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("الرجاء إختيار الجنس"),
         "gym": MessageLookupByLibrary.simpleMessage("أقرب جيم"),
@@ -167,6 +174,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تعديل السؤال"),
         "success_update_answer":
             MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
+        "success_update_profile":
+            MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
@@ -181,9 +190,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "هذا المدرب ليس لديه حساب في هذا الموقع"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
+        "update_profile": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "update_your_account":
+            MessageLookupByLibrary.simpleMessage("ترقية الحساب"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
-            MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد...")
+            MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),
+        "years": MessageLookupByLibrary.simpleMessage("سنوات")
       };
 }

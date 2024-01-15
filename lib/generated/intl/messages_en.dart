@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "NumProducts":
             MessageLookupByLibrary.simpleMessage("Number of Products"),
         "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
+        "account_details":
+            MessageLookupByLibrary.simpleMessage("تفاصيل الحساب"),
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
@@ -46,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
+        "change_pass":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "coach": MessageLookupByLibrary.simpleMessage("Coach"),
         "comment_error":
             MessageLookupByLibrary.simpleMessage("An error occurred"),
@@ -65,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
+        "edit_profile":
+            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
@@ -79,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue without login"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
+        "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
@@ -174,6 +181,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Question updated successfully"),
         "success_update_answer":
             MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
+        "success_update_profile":
+            MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
@@ -188,10 +197,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "This trainer does not have an account on this platform"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "update": MessageLookupByLibrary.simpleMessage("Update Location"),
+        "update_profile": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "update_your_account":
+            MessageLookupByLibrary.simpleMessage("ترقية الحساب"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required"),
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
         "write_question":
-            MessageLookupByLibrary.simpleMessage("Write a new question...")
+            MessageLookupByLibrary.simpleMessage("Write a new question..."),
+        "years": MessageLookupByLibrary.simpleMessage("years old")
       };
 }

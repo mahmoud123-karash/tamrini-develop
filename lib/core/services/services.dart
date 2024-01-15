@@ -16,17 +16,33 @@ import 'package:flutter_share/flutter_share.dart';
 
 void getUserType(UserModel model) {
   if (model.isSubscribedToTrainer) {
-    saveUserType('Trainer');
+    saveUserType('trainer');
   } else if (model.isSubscribedToStoreOwner) {
-    saveUserType('StoreOwner');
+    saveUserType('storeOwner');
   } else if (model.isSubscribedToGymOwner) {
-    saveUserType('GymOwner');
+    saveUserType('gymOwner');
   } else if (model.isSubscribedToPublisher) {
-    saveUserType('Publisher');
+    saveUserType('publisher');
   } else if (model.admin) {
-    saveUserType('Admin');
+    saveUserType('admin');
   } else {
-    saveUserType('User');
+    saveUserType('user');
+  }
+}
+
+String getQuestionUserType(user.UserModel model) {
+  if (model.isSubscribedToTrainer) {
+    return 'trainer';
+  } else if (model.isSubscribedToStoreOwner) {
+    return 'storeOwner';
+  } else if (model.isSubscribedToGymOwner) {
+    return 'gymOwner';
+  } else if (model.isSubscribedToPiblisher) {
+    return 'publisher';
+  } else if (model.admin) {
+    return 'admin';
+  } else {
+    return 'user';
   }
 }
 
@@ -81,22 +97,6 @@ Future showAppBottomSheet(
     ),
     builder: (context) => widget,
   );
-}
-
-String getQuestionUserType(user.UserModel model) {
-  if (model.isSubscribedToTrainer) {
-    return 'trainer';
-  } else if (model.isSubscribedToStoreOwner) {
-    return 'storeOwner';
-  } else if (model.isSubscribedToGymOwner) {
-    return 'gymOwner';
-  } else if (model.isSubscribedToPiblisher) {
-    return 'publisher';
-  } else if (model.admin) {
-    return 'admin';
-  } else {
-    return 'user';
-  }
 }
 
 String formatTimeDifference(DateTime dateTime) {

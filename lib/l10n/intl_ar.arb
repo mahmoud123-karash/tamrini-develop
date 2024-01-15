@@ -132,5 +132,13 @@
     "about_app":"عن التطبيق",
     "contact_u":"تواصل معانا",
     "rate_app":"تقييم التطبيق",
-    "how_to_use_app":"كيفية إستخدام التطبيق"
+    "how_to_use_app":"كيفية إستخدام التطبيق",
+    "account_details":"تفاصيل الحساب",
+    "years":"سنوات",
+    "edit_profile":"تعديل الملف الشخصي",
+    "change_pass":"تغيير كلمة المرور",
+    "update_your_account":"ترقية الحساب",
+    "gender":"الجنس",
+    "update_profile":"تحديث",
+    "success_update_profile":"تم تحديث الملف الشخصي"
 }
