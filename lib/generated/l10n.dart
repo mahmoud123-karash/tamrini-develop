@@ -1479,6 +1479,26 @@ class S {
       args: [],
     );
   }
+
+  /// `تم تسجيل الخروج بنجاح`
+  String get success_log_out {
+    return Intl.message(
+      'تم تسجيل الخروج بنجاح',
+      name: 'success_log_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد تسجيل الخروج ؟`
+  String get log_out_question {
+    return Intl.message(
+      'هل تريد تسجيل الخروج ؟',
+      name: 'log_out_question',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

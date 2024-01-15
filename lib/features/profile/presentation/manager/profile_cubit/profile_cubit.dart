@@ -36,12 +36,16 @@ class ProfileCubit extends Cubit<ProfileStates> {
     required String phone,
     required String image,
     required bool isBanned,
+    required bool isSubscribedToGym,
+    required bool isSubscribedToTrainer,
   }) async {
     emit(LoadingGetProfileState());
     var result = await updateUseCase.update(
         name: name,
         email: email,
         gender: gender,
+        isSubscribedToGym: isSubscribedToGym,
+        isSubscribedToTrainer: isSubscribedToTrainer,
         age: age,
         phone: phone,
         image: image,

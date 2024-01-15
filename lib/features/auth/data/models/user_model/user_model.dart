@@ -6,27 +6,23 @@ class UserModel {
   final String gender;
   final String token;
   final String uid;
+  final String role;
   final bool isSubscribedToTrainer;
-  final bool isSubscribedToPublisher;
-  final bool isSubscribedToGymOwner;
-  final bool isSubscribedToStoreOwner;
-  final bool admin;
+  final bool isSubscribedToGym;
   final bool isBanned;
 
   UserModel({
     required this.name,
     required this.email,
     required this.phone,
-    required this.admin,
     required this.token,
     required this.uid,
     required this.gender,
     required this.age,
     required this.isSubscribedToTrainer,
-    required this.isSubscribedToPublisher,
+    required this.isSubscribedToGym,
     required this.isBanned,
-    required this.isSubscribedToGymOwner,
-    required this.isSubscribedToStoreOwner,
+    required this.role,
   });
 
   Map<String, dynamic> toMap() {
@@ -35,15 +31,13 @@ class UserModel {
       'name': name,
       'phone': phone,
       'token': token,
-      'isSubscribedToPublisher': isSubscribedToPublisher,
+      'isSubscribedToGym': isSubscribedToGym,
       'gender': gender,
       'age': age,
       'uid': uid,
       'isSubscribedToTrainer': isSubscribedToTrainer,
-      'admin': admin,
+      'role': role,
       'isBanned': isBanned,
-      'isSubscribedToStroreOwner': isSubscribedToStoreOwner,
-      'isSubscribedToGymOwner': isSubscribedToGymOwner,
     };
   }
 
@@ -52,15 +46,13 @@ class UserModel {
       name: map['name'] ?? '',
       email: map['email'] ?? '',
       phone: map['phone'] ?? '',
-      isSubscribedToGymOwner: map['isSubscribedToGymOwner'] ?? false,
-      isSubscribedToStoreOwner: map['isSubscribedToStoreOwner'] ?? false,
-      isSubscribedToPublisher: map['isSubscribedToPublisher'] ?? false,
+      role: map['role'] ?? 'user',
+      isSubscribedToGym: map['isSubscribedToGym'] ?? false,
       token: map['token'] ?? '',
       gender: map['gender'] ?? '',
       uid: map['uid'] ?? '',
       age: map['age'] ?? 0,
       isSubscribedToTrainer: map['isSubscribedToTrainer'] ?? false,
-      admin: map['admin'] ?? false,
       isBanned: map['isBanned'] ?? false,
     );
   }

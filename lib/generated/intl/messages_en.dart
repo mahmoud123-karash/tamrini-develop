@@ -103,6 +103,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
         "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "log_out_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد تسجيل الخروج ؟"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "lowPrice": MessageLookupByLibrary.simpleMessage("Lowest Price"),
         "male": MessageLookupByLibrary.simpleMessage("Make"),
@@ -173,6 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
         "success_ban": MessageLookupByLibrary.simpleMessage(
             "Question restricted successfully"),
+        "success_log_out":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "success_remove": MessageLookupByLibrary.simpleMessage(
             "Question deleted successfully"),
         "success_remove_answer":

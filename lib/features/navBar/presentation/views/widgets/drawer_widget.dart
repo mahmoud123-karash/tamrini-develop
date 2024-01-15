@@ -1,15 +1,12 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/dialog.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'drawer_list_tile_widget.dart';
 
@@ -55,79 +52,42 @@ class MyDrawer extends StatelessWidget {
                 height: 130.h,
               ),
               DrawerListTileWidget(
-                isSelected: false,
+                isSelected: true,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Ionicons.home_outline,
+                lable: S.of(context).home,
+              ),
+              DrawerListTileWidget(
                 onPressed: () {
                   navigateTo(context, const ProfileScreen());
                 },
-                icon: Ionicons.person,
+                icon: Ionicons.person_outline,
                 lable: S.of(context).profile,
               ),
-              myListTielStatic(
-                "الرئيسية",
-                Icon(
-                  Icons.home,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                () async {},
-                true,
+              DrawerListTileWidget(
+                onPressed: () {},
+                icon: Ionicons.settings_outline,
+                lable: S.of(context).settings,
               ),
-              myListTielStatic(
-                  "الإعدادات",
-                  Icon(
-                    Icons.settings,
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                  () async {},
-                  false),
-              myListTielStatic(
-                  "عن التطبيق",
-                  Icon(
-                    Icons.info_outline,
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                  () async {},
-                  false),
-              myListTielStatic(
-                  "تواصل معنا",
-                  Icon(
-                    Icons.call,
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                  () async {},
-                  false),
-              myListTielStatic(
-                  "تقييم التطبيق",
-                  Icon(
-                    Icons.star,
-                    color: Theme.of(context).iconTheme.color,
-                  ), () async {
-                Platform.isAndroid
-                    ? await canLaunchUrl(Uri.parse(
-                            "https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US"))
-                        ? await launchUrl(
-                            Uri.parse(
-                                "https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US"),
-                            mode: LaunchMode.externalApplication)
-                        : throw 'Could not launch https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US'
-                    : await canLaunchUrl(
-                        Uri.parse(
-                            "https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937"),
-                      )
-                        ? await launchUrl(
-                            Uri.parse(
-                                "https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937"),
-                            mode: LaunchMode.externalApplication)
-                        : throw 'Could not launch https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937';
-              }, false),
-              myListTielStatic(
-                  "تسجيل الخروج",
-                  Icon(
-                    Icons.logout,
-                    color: Theme.of(context).iconTheme.color,
-                  ), () async {
-                pop();
-                Fluttertoast.showToast(msg: "تم تسجيل الخروج بنجاح");
-              }, false)
+              DrawerListTileWidget(
+                onPressed: () {},
+                icon: Ionicons.information_circle_outline,
+                lable: S.of(context).about_app,
+              ),
+              DrawerListTileWidget(
+                onPressed: () {},
+                icon: Ionicons.phone_portrait_outline,
+                lable: S.of(context).contact_u,
+              ),
+              DrawerListTileWidget(
+                onPressed: () {
+                  logOutDialog(context).show();
+                },
+                icon: Ionicons.log_out_outline,
+                lable: S.of(context).log_out,
+              ),
             ],
           ),
         ),

@@ -7,7 +7,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-import 'package:tamrini/core/services/services.dart';
+import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_remote_data_source.dart';
 import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/auth/domain/repo/login_repo.dart';
@@ -28,7 +28,7 @@ class LoginRepoImpl extends LoginRepo {
       );
       if (user.user!.emailVerified) {
         UserModel model = await userRemoteDataSource.get(uid: user.user!.uid);
-        getUserType(model);
+        saveUserType(model.role);
         return right(user.user!.uid);
       } else {
         await FirebaseAuth.instance.currentUser!.sendEmailVerification();

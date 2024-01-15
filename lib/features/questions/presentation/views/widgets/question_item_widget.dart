@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 
@@ -28,7 +27,7 @@ class QuestionItemWidget extends StatelessWidget {
           QuestionOwnerNameImageTypeWidget(
             image: user.image,
             name: user.name,
-            type: getQuestionUserType(user),
+            type: user.role,
             uid: user.uid,
             model: model,
             isDetails: false,

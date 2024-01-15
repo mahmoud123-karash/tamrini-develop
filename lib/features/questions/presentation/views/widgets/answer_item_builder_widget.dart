@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/services/get_it.dart';
-import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
@@ -30,7 +29,7 @@ class AnswerItemBuilderWidget extends StatelessWidget {
               model: model,
               image: state.model.image,
               name: state.model.name,
-              type: getQuestionUserType(state.model),
+              type: state.model.role,
               question: question,
             );
           } else if (state is ErrorGetUserState) {

@@ -83,14 +83,12 @@ void openNotification(RemoteMessage event, BuildContext context) {
         model: UserModel(
           name: model.name,
           image: model.image,
-          admin: type == 'admin' ? true : false,
           token: token,
+          role: type,
           uid: uid,
-          isSubscribedToTrainer: type == 'trainer' ? true : false,
-          isSubscribedToPiblisher: type == 'publisher' ? true : false,
+          isSubscribedToTrainer: model.isSubscribedToTrainer,
           isBanned: model.isBanned,
-          isSubscribedToGymOwner: type == 'gymOwner' ? true : false,
-          isSubscribedToStoreOwner: type == 'storeOwner' ? true : false,
+          isSubscribedToGym: model.isSubscribedToGym,
         ),
       ),
     );

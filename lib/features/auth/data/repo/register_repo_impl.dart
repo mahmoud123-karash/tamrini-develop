@@ -32,11 +32,9 @@ class RegisterRepoImpl extends RegisterRepo {
       gender: gender,
       age: age,
       isSubscribedToTrainer: false,
-      isSubscribedToPublisher: false,
+      isSubscribedToGym: false,
       isBanned: false,
-      isSubscribedToStoreOwner: false,
-      admin: false,
-      isSubscribedToGymOwner: false,
+      role: 'user',
     );
     await FirebaseFirestore.instance.collection('users').doc(uid).set(
           model.toMap(),

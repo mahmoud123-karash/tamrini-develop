@@ -98,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
         "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "log_out_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد تسجيل الخروج ؟"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "lowPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرا"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
@@ -167,6 +169,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
         "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),
+        "success_log_out":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "success_remove": MessageLookupByLibrary.simpleMessage("تم حذف السؤال"),
         "success_remove_answer":
             MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),

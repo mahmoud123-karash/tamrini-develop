@@ -16,6 +16,8 @@ abstract class UseCase {
     required String phone,
     required String image,
     required bool isBanned,
+    required bool isSubscribedToGym,
+    required bool isSubscribedToTrainer,
   });
 }
 
@@ -32,6 +34,8 @@ class UpdateUseCase extends UseCase {
     required String phone,
     required String image,
     required bool isBanned,
+    required bool isSubscribedToGym,
+    required bool isSubscribedToTrainer,
   }) async {
     try {
       var box = Hive.box<ProfileModel>(profileBox);
@@ -39,9 +43,10 @@ class UpdateUseCase extends UseCase {
       String path = CacheHelper.getData(key: 'imagepath') ?? '';
       ProfileModel model(String img) => ProfileModel(
             name: name,
+            isSubscribedToGym: isSubscribedToGym,
+            isSubscribedToTrainer: isSubscribedToTrainer,
             email: email,
             phone: phone,
-            uid: CacheHelper.getData(key: 'uid'),
             gender: gender,
             image: img,
             age: age,

@@ -21,7 +21,7 @@ class CompleteCustomBuilderWidget extends StatelessWidget {
         }
         if (state is SuccessCompleteState) {
           saveUid(state.uid);
-          saveUserType('User');
+          saveUserType('user');
           navigateToAndFinish(context, const NavBarScreen());
         }
       },

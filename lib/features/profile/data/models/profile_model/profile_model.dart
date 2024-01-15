@@ -15,17 +15,20 @@ class ProfileModel {
   @HiveField(4)
   final String gender;
   @HiveField(5)
-  final String uid;
+  final bool isSubscribedToTrainer;
   @HiveField(6)
   final String image;
   @HiveField(7)
   final bool isBanned;
+  @HiveField(8)
+  final bool isSubscribedToGym;
 
   ProfileModel({
     required this.name,
     required this.email,
     required this.phone,
-    required this.uid,
+    required this.isSubscribedToTrainer,
+    required this.isSubscribedToGym,
     required this.gender,
     required this.image,
     required this.age,
@@ -37,9 +40,10 @@ class ProfileModel {
       name: map['name'] ?? '',
       email: map['email'] ?? '',
       image: map['image'] ?? '',
+      isSubscribedToGym: map['isSubscribedToGym'] ?? false,
       phone: map['phone'] ?? '',
       gender: map['gender'] ?? '',
-      uid: map['uid'] ?? '',
+      isSubscribedToTrainer: map['isSubscribedToTrainer'] ?? false,
       age: map['age'] ?? 0,
       isBanned: map['isBanned'] ?? false,
     );
@@ -49,11 +53,12 @@ class ProfileModel {
     return {
       'email': email,
       'name': name,
+      'isSubscribedToGym': isSubscribedToGym,
       'image': image,
       'phone': phone,
       'gender': gender,
       'age': age,
-      'uid': uid,
+      'isSubscribedToTrainer': isSubscribedToTrainer,
       'isBanned': isBanned,
     };
   }

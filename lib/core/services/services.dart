@@ -1,50 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/core/cache/save_data.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart'
-    as user;
-
 import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_share/flutter_share.dart';
 
-void getUserType(UserModel model) {
-  if (model.isSubscribedToTrainer) {
-    saveUserType('trainer');
-  } else if (model.isSubscribedToStoreOwner) {
-    saveUserType('storeOwner');
-  } else if (model.isSubscribedToGymOwner) {
-    saveUserType('gymOwner');
-  } else if (model.isSubscribedToPublisher) {
-    saveUserType('publisher');
-  } else if (model.admin) {
-    saveUserType('admin');
-  } else {
-    saveUserType('user');
-  }
-}
-
-String getQuestionUserType(user.UserModel model) {
-  if (model.isSubscribedToTrainer) {
-    return 'trainer';
-  } else if (model.isSubscribedToStoreOwner) {
-    return 'storeOwner';
-  } else if (model.isSubscribedToGymOwner) {
-    return 'gymOwner';
-  } else if (model.isSubscribedToPiblisher) {
-    return 'publisher';
-  } else if (model.admin) {
-    return 'admin';
-  } else {
-    return 'user';
-  }
-}
+import '../../features/auth/presentation/views/login_screen.dart';
 
 void openUri({required Uri url}) async {
   await launchUrl(url).then((value) {
@@ -158,4 +128,21 @@ void initiGetprofile(context) {
   if (box.values.isEmpty) {
     ProfileCubit.get(context).getProfile();
   }
+}
+
+void logOut(context) async {
+  String uid = CacheHelper.getData(key: 'uid');
+  await FirebaseFirestore.instance.collection('users').doc(uid).update(
+    {
+      'token': "",
+    },
+  );
+  var box = Hive.box<ProfileModel>(profileBox);
+  await box.clear();
+  GoogleSignIn googleSignIn = GoogleSignIn();
+  googleSignIn.disconnect();
+  await FirebaseAuth.instance.signOut();
+  CacheHelper.removeData(key: 'uid');
+  CacheHelper.removeData(key: 'deviceToken');
+  navigateToAndFinish(context, const LoginScreen());
 }

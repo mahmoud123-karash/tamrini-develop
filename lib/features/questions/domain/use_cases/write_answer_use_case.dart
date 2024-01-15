@@ -48,15 +48,17 @@ class WriteAnswerUseCase extends UseCase {
       if (model.askerUid != uid) {
         questionRepo.setNotification(
             id: model.askerUid, questionUid: id, body: answer);
-        dioHelper.sendNotification(
-          token: token,
-          title: 'إجابة جديدة على سؤالك',
-          body: answer,
-          data: {
-            "type": "notification",
-            "uid": id,
-          },
-        );
+        if (token != '') {
+          dioHelper.sendNotification(
+            token: token,
+            title: 'إجابة جديدة على سؤالك',
+            body: answer,
+            data: {
+              "type": "notification",
+              "uid": id,
+            },
+          );
+        }
       }
       return right('');
     } catch (e) {

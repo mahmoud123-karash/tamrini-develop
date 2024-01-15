@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:tamrini/core/services/services.dart';
+import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/auth/domain/entities/user_entity.dart';
 import 'package:tamrini/features/auth/domain/repo/login_repo.dart';
@@ -24,7 +24,7 @@ class GoogleSignInUseCase extends UseCase {
           .get();
       if (result.data() != null) {
         UserModel model = UserModel.fromMap(result.data()!);
-        getUserType(model);
+        saveUserType(model.role);
         return right(
           UserEntity(
             email: user.user!.email!,

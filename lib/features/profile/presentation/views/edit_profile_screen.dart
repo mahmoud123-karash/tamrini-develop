@@ -73,6 +73,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       phone: phoneController.text,
                       image: widget.model.image,
                       isBanned: widget.model.isBanned,
+                      isSubscribedToGym: widget.model.isSubscribedToGym,
+                      isSubscribedToTrainer: widget.model.isSubscribedToTrainer,
                     );
                   } else {
                     autovalidateMode = AutovalidateMode.always;

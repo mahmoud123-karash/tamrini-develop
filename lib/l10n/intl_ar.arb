@@ -140,5 +140,8 @@
     "update_your_account":"ترقية الحساب",
     "gender":"الجنس",
     "update_profile":"تحديث",
-    "success_update_profile":"تم تحديث الملف الشخصي"
+    "success_update_profile":"تم تحديث الملف الشخصي",
+    "success_log_out":"تم تسجيل الخروج بنجاح",
+    "log_out_question":"هل تريد تسجيل الخروج ؟"
+
 }

@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/answers_details_content_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/write_answer_widget.dart';
@@ -59,7 +58,7 @@ class AnswersScreen extends StatelessWidget {
                         child: AnswersDetailsContentWidget(
                           name: model.name,
                           image: model.image,
-                          type: getQuestionUserType(model),
+                          type: model.role,
                           uid: model.uid,
                           model: question,
                         ),
