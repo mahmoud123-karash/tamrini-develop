@@ -133,7 +133,7 @@
     "about_app": "About the App",
     "contact_u": "Contact Us",
     "rate_app": "Rate the App",
-    "how_to_use_app": "How to use the App",
+    "how_to_use_app": "App Instructions",
     "account_details": "Account Details",
     "years": "years old",
     "edit_profile": "Edit Profile",
@@ -149,7 +149,13 @@
     "arabic_language": "Arabic",
     "english_language": "English",
     "device_language": "Device Language",
-    "confirm_lang": "Confirm"
+    "confirm_lang": "Confirm",
+    "share_app":"مشاركة التطبيق",
+    "app":"التطبيق",
+    "all_privay_saved":"جميع الحقوق محفوظة"
+
+
+
     
 
 

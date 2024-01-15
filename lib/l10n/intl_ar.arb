@@ -132,7 +132,7 @@
     "about_app":"عن التطبيق",
     "contact_u":"تواصل معانا",
     "rate_app":"تقييم التطبيق",
-    "how_to_use_app":"كيفية إستخدام التطبيق",
+    "how_to_use_app":"تعليمات التطبيق",
     "account_details":"تفاصيل الحساب",
     "years":"سنوات",
     "edit_profile":"تعديل الملف الشخصي",
@@ -148,7 +148,11 @@
     "arabic_language":"اللغة العربية",
     "english_language":"اللغة الإنجليزية",
     "device_language":"لغة الجهاز",
-    "confirm_lang":"تطبيق"
+    "confirm_lang":"تطبيق",
+    "share_app":"مشاركة التطبيق",
+    "app":"التطبيق",
+    "all_privay_saved":"جميع الحقوق محفوظة"
+   
 
 
 }

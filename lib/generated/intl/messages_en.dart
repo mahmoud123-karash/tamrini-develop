@@ -36,8 +36,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("All Exercises"),
         "allProducts": MessageLookupByLibrary.simpleMessage("All Products"),
+        "all_privay_saved":
+            MessageLookupByLibrary.simpleMessage("جميع الحقوق محفوظة"),
         "answer": MessageLookupByLibrary.simpleMessage("Answer"),
         "answers": MessageLookupByLibrary.simpleMessage("Answers"),
+        "app": MessageLookupByLibrary.simpleMessage("التطبيق"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
         "arabic_language": MessageLookupByLibrary.simpleMessage("Arabic"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
@@ -99,7 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("Home Exercises"),
         "how_to_use_app":
-            MessageLookupByLibrary.simpleMessage("How to use the App"),
+            MessageLookupByLibrary.simpleMessage("App Instructions"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "internet_connection": MessageLookupByLibrary.simpleMessage(
             "Internet Connection Established"),
@@ -170,6 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
+        "share_app": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),

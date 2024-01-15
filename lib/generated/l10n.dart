@@ -1390,10 +1390,10 @@ class S {
     );
   }
 
-  /// `How to use the App`
+  /// `App Instructions`
   String get how_to_use_app {
     return Intl.message(
-      'How to use the App',
+      'App Instructions',
       name: 'how_to_use_app',
       desc: '',
       args: [],
@@ -1555,6 +1555,36 @@ class S {
     return Intl.message(
       'Confirm',
       name: 'confirm_lang',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مشاركة التطبيق`
+  String get share_app {
+    return Intl.message(
+      'مشاركة التطبيق',
+      name: 'share_app',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التطبيق`
+  String get app {
+    return Intl.message(
+      'التطبيق',
+      name: 'app',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `جميع الحقوق محفوظة`
+  String get all_privay_saved {
+    return Intl.message(
+      'جميع الحقوق محفوظة',
+      name: 'all_privay_saved',
       desc: '',
       args: [],
     );

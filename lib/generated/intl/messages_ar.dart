@@ -34,8 +34,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "agree": MessageLookupByLibrary.simpleMessage("أوافق على"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
         "allProducts": MessageLookupByLibrary.simpleMessage("جميع المنتجات"),
+        "all_privay_saved":
+            MessageLookupByLibrary.simpleMessage("جميع الحقوق محفوظة"),
         "answer": MessageLookupByLibrary.simpleMessage("إجابة"),
         "answers": MessageLookupByLibrary.simpleMessage("الأجوبة"),
+        "app": MessageLookupByLibrary.simpleMessage("التطبيق"),
         "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
         "arabic_language":
             MessageLookupByLibrary.simpleMessage("اللغة العربية"),
@@ -97,7 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
         "how_to_use_app":
-            MessageLookupByLibrary.simpleMessage("كيفية إستخدام التطبيق"),
+            MessageLookupByLibrary.simpleMessage("تعليمات التطبيق"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
@@ -169,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "self": MessageLookupByLibrary.simpleMessage("ثقف نفسك"),
         "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "share": MessageLookupByLibrary.simpleMessage("مشاركة"),
+        "share_app": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
         "show": MessageLookupByLibrary.simpleMessage("عرض على الخريطة"),
         "slatGym": MessageLookupByLibrary.simpleMessage("صالات الجيم"),
         "store": MessageLookupByLibrary.simpleMessage("المتجر"),
