@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 
@@ -38,10 +37,8 @@ class ProfileListTileWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        trailing: Icon(
-          Intl.getCurrentLocale() == 'en'
-              ? Icons.arrow_back_ios_rounded
-              : Icons.arrow_forward_ios_outlined,
+        trailing: const Icon(
+          Icons.arrow_forward_ios_outlined,
         ),
       ),
     );

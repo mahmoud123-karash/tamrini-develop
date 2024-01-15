@@ -27,8 +27,8 @@ import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exerci
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
-import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_cubit.dart';
-import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_states.dart';
+import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_cubit.dart';
+import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
@@ -604,7 +604,7 @@ void main() async {
                 fromSP: helper.CacheHelper.getData(key: 'isdark') ?? false,
               )
               ..changeLanguage(
-                language: helper.CacheHelper.getData(key: 'lang') ?? 'def',
+                language: helper.CacheHelper.getData(key: 'lang') ?? '',
               ),
           )
         ],
@@ -655,8 +655,8 @@ class _MyAppState extends State<MyApp> {
                 builder: (context, state) {
                   bool isDark = ManageCubit.get(context).isDark;
                   String lang = ManageCubit.get(context).lang;
-                  return GetMaterialApp(
-                    locale: const Locale('ar'),
+                  return MaterialApp(
+                    locale: Locale(lang),
                     localizationsDelegates: const [
                       S.delegate,
                       GlobalMaterialLocalizations.delegate,

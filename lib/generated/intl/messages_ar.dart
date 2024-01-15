@@ -37,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "answer": MessageLookupByLibrary.simpleMessage("إجابة"),
         "answers": MessageLookupByLibrary.simpleMessage("الأجوبة"),
         "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
+        "arabic_language":
+            MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
         "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
@@ -53,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("من فضلك أكمل التسجيل"),
         "complete": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
+        "confirm_lang": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "confirmpass":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
@@ -63,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "device_language": MessageLookupByLibrary.simpleMessage("لغة الجهاز"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
@@ -73,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailverify": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بتفعيل الايميل الخاص"),
         "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
+        "english_language":
+            MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
         "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
         "exercises": MessageLookupByLibrary.simpleMessage("التمارين واللياقة"),
@@ -95,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
         "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
@@ -182,6 +189,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
+        "theme": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),

@@ -6,6 +6,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/dialog.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
+import 'package:tamrini/features/settings/presentation/views/settings_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'drawer_list_tile_widget.dart';
@@ -67,7 +68,9 @@ class MyDrawer extends StatelessWidget {
                 lable: S.of(context).profile,
               ),
               DrawerListTileWidget(
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(context, const SettingsScreen());
+                },
                 icon: Ionicons.settings_outline,
                 lable: S.of(context).settings,
               ),

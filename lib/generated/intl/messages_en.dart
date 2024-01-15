@@ -24,21 +24,22 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts":
             MessageLookupByLibrary.simpleMessage("Number of Products"),
-        "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
+        "about_app": MessageLookupByLibrary.simpleMessage("About the App"),
         "account_details":
-            MessageLookupByLibrary.simpleMessage("تفاصيل الحساب"),
+            MessageLookupByLibrary.simpleMessage("Account Details"),
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
         "after": MessageLookupByLibrary.simpleMessage("After"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
-        "ago": MessageLookupByLibrary.simpleMessage("منذ"),
+        "ago": MessageLookupByLibrary.simpleMessage("Ago"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "allEx": MessageLookupByLibrary.simpleMessage("All Exercises"),
         "allProducts": MessageLookupByLibrary.simpleMessage("All Products"),
         "answer": MessageLookupByLibrary.simpleMessage("Answer"),
         "answers": MessageLookupByLibrary.simpleMessage("Answers"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
+        "arabic_language": MessageLookupByLibrary.simpleMessage("Arabic"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
@@ -48,17 +49,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
-        "change_pass":
-            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "coach": MessageLookupByLibrary.simpleMessage("Coach"),
         "comment_error":
             MessageLookupByLibrary.simpleMessage("An error occurred"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
+        "confirm_lang": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmpass": MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
-        "contact_u": MessageLookupByLibrary.simpleMessage("تواصل معانا"),
+        "contact_u": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
         "create":
             MessageLookupByLibrary.simpleMessage("Don/\'t have an acount?"),
@@ -66,16 +67,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "device_language":
+            MessageLookupByLibrary.simpleMessage("Device Language"),
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
-        "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
-        "edit_profile":
-            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
+        "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
         "emptyList": MessageLookupByLibrary.simpleMessage("No Exercises"),
+        "english_language": MessageLookupByLibrary.simpleMessage("English"),
         "exDetails": MessageLookupByLibrary.simpleMessage("Exercise Details"),
         "exercise": MessageLookupByLibrary.simpleMessage("Various Exercises"),
         "exercises":
@@ -85,7 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue without login"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
-        "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
+        "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
@@ -96,21 +99,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("Home Exercises"),
         "how_to_use_app":
-            MessageLookupByLibrary.simpleMessage("كيفية إستخدام التطبيق"),
+            MessageLookupByLibrary.simpleMessage("How to use the App"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
-        "internet_connection":
-            MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
+        "internet_connection": MessageLookupByLibrary.simpleMessage(
+            "Internet Connection Established"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
-        "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
         "log_out_question":
-            MessageLookupByLibrary.simpleMessage("هل تريد تسجيل الخروج ؟"),
+            MessageLookupByLibrary.simpleMessage("Do you want to log out?"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "lowPrice": MessageLookupByLibrary.simpleMessage("Lowest Price"),
         "male": MessageLookupByLibrary.simpleMessage("Make"),
         "maxDistance": MessageLookupByLibrary.simpleMessage("Farthest"),
         "media": MessageLookupByLibrary.simpleMessage("Social Media"),
-        "messages": MessageLookupByLibrary.simpleMessage("الرسائل"),
+        "messages": MessageLookupByLibrary.simpleMessage("Messages"),
         "minDistance": MessageLookupByLibrary.simpleMessage("Nearest"),
         "money": MessageLookupByLibrary.simpleMessage("Price"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
@@ -125,12 +129,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "No products found with this name"),
         "no_answers": MessageLookupByLibrary.simpleMessage("No answers yet"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
-            "لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل"),
+            "No Internet Connection. Some App Features May Not Work"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
-        "notification": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "notification": MessageLookupByLibrary.simpleMessage("Notifications"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("Our Products"),
@@ -147,11 +151,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
         "proDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
-        "profile": MessageLookupByLibrary.simpleMessage("ملفك الشخصي"),
+        "profile": MessageLookupByLibrary.simpleMessage("Your Profile"),
         "question_error": MessageLookupByLibrary.simpleMessage(
             "This question has been deleted"),
         "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
-        "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
+        "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),
         "rating": MessageLookupByLibrary.simpleMessage("Rating"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
@@ -164,7 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "search_yourself":
             MessageLookupByLibrary.simpleMessage("Search for Your Exercise"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
-        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
@@ -176,19 +180,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_ban": MessageLookupByLibrary.simpleMessage(
             "Question restricted successfully"),
         "success_log_out":
-            MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
+            MessageLookupByLibrary.simpleMessage("Logged Out Successfully"),
         "success_remove": MessageLookupByLibrary.simpleMessage(
             "Question deleted successfully"),
         "success_remove_answer":
-            MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),
+            MessageLookupByLibrary.simpleMessage("Answer Successfully Removed"),
         "success_update": MessageLookupByLibrary.simpleMessage(
             "Question updated successfully"),
         "success_update_answer":
-            MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
-        "success_update_profile":
-            MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي"),
+            MessageLookupByLibrary.simpleMessage("Answer Successfully Updated"),
+        "success_update_profile": MessageLookupByLibrary.simpleMessage(
+            "Profile Successfully Updated"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
-        "system": MessageLookupByLibrary.simpleMessage("النظام"),
+        "system": MessageLookupByLibrary.simpleMessage("System"),
+        "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
@@ -201,9 +206,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "This trainer does not have an account on this platform"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "update": MessageLookupByLibrary.simpleMessage("Update Location"),
-        "update_profile": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "update_profile":
+            MessageLookupByLibrary.simpleMessage("Update Profile"),
         "update_your_account":
-            MessageLookupByLibrary.simpleMessage("ترقية الحساب"),
+            MessageLookupByLibrary.simpleMessage("Update Your Account"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required"),
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),

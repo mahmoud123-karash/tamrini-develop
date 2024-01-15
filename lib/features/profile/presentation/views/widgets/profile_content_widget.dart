@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -7,6 +8,7 @@ import 'package:tamrini/core/utils/dialog.dart';
 import 'package:tamrini/features/auth/presentation/views/reset_password_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/edit_profile_screen.dart';
+import 'package:tamrini/features/settings/presentation/views/settings_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'profile_image_name_type_widget.dart';
@@ -84,9 +86,11 @@ class ProfileContentWidget extends StatelessWidget {
                 icon: Icons.lock_outline,
               ),
               ProfileListTileWidget(
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(context, const SettingsScreen());
+                },
                 lable: S.of(context).settings,
-                icon: Icons.settings_applications_outlined,
+                icon: Ionicons.settings_outline,
               ),
               if (CacheHelper.getData(key: 'usertype') == 'User')
                 ProfileListTileWidget(

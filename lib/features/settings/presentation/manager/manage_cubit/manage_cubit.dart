@@ -1,9 +1,9 @@
+import 'dart:developer';
 import 'dart:io';
 
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/save_data.dart';
-import 'package:tamrini/features/navBar/presentation/manager/manage_cubit/manage_states.dart';
+import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_states.dart';
 
 class ManageCubit extends Cubit<ManageStates> {
   ManageCubit() : super(InitailManageState());
@@ -23,14 +23,15 @@ class ManageCubit extends Cubit<ManageStates> {
 
   String lang = Platform.localeName;
   void changeLanguage({required String language}) async {
-    lang = language;
-    saveLanguage(lang);
-    emit(ChangeLanguageState());
-  }
-
-  Future<String> findSystemLocale() async {
-    const MethodChannel platform = MethodChannel('flutter/platform');
-    final String locale = await platform.invokeMethod('locale');
-    return locale;
+    if (language == '') {
+      lang = Platform.localeName;
+      saveLanguage('');
+      emit(ChangeLanguageState());
+    } else {
+      lang = language;
+      saveLanguage(language);
+      emit(ChangeLanguageState());
+    }
+    log(lang);
   }
 }

@@ -41,6 +41,10 @@ class Assets {
   /// assets/images/distance.png
   static const String imagesDistance = "assets/images/distance.png";
 
+  /// Assets for imagesEn
+  /// assets/images/en.png
+  static const String imagesEn = "assets/images/en.png";
+
   /// Assets for imagesExercise
   /// assets/images/exercise.jpg
   static const String imagesExercise = "assets/images/exercise.jpg";
@@ -72,6 +76,14 @@ class Assets {
   /// Assets for imagesHomeExer2
   /// assets/images/homeExer2.jpg
   static const String imagesHomeExer2 = "assets/images/homeExer2.jpg";
+
+  /// Assets for imagesLang
+  /// assets/images/lang.png
+  static const String imagesLang = "assets/images/lang.png";
+
+  /// Assets for imagesLanguage
+  /// assets/images/language.png
+  static const String imagesLanguage = "assets/images/language.png";
 
   /// Assets for imagesLoading
   /// assets/images/loading.gif

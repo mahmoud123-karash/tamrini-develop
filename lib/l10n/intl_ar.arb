@@ -142,6 +142,13 @@
     "update_profile":"تحديث",
     "success_update_profile":"تم تحديث الملف الشخصي",
     "success_log_out":"تم تسجيل الخروج بنجاح",
-    "log_out_question":"هل تريد تسجيل الخروج ؟"
+    "log_out_question":"هل تريد تسجيل الخروج ؟",
+    "theme":"الوضع الليلي",
+    "language":"اللغة",
+    "arabic_language":"اللغة العربية",
+    "english_language":"اللغة الإنجليزية",
+    "device_language":"لغة الجهاز",
+    "confirm_lang":"تطبيق"
+
 
 }

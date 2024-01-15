@@ -1240,170 +1240,170 @@ class S {
     );
   }
 
-  /// `تعديل الإجابة`
+  /// `Edit Answer`
   String get edit_answer {
     return Intl.message(
-      'تعديل الإجابة',
+      'Edit Answer',
       name: 'edit_answer',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حذف الإجابة`
+  /// `Answer Successfully Removed`
   String get success_remove_answer {
     return Intl.message(
-      'تم حذف الإجابة',
+      'Answer Successfully Removed',
       name: 'success_remove_answer',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تعديل الإجابة`
+  /// `Answer Successfully Updated`
   String get success_update_answer {
     return Intl.message(
-      'تم تعديل الإجابة',
+      'Answer Successfully Updated',
       name: 'success_update_answer',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل`
+  /// `No Internet Connection. Some App Features May Not Work`
   String get no_internet {
     return Intl.message(
-      'لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل',
+      'No Internet Connection. Some App Features May Not Work',
       name: 'no_internet',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم الإتصال بالإنترنت`
+  /// `Internet Connection Established`
   String get internet_connection {
     return Intl.message(
-      'تم الإتصال بالإنترنت',
+      'Internet Connection Established',
       name: 'internet_connection',
       desc: '',
       args: [],
     );
   }
 
-  /// `الإشعارات`
+  /// `Notifications`
   String get notification {
     return Intl.message(
-      'الإشعارات',
+      'Notifications',
       name: 'notification',
       desc: '',
       args: [],
     );
   }
 
-  /// `الرسائل`
+  /// `Messages`
   String get messages {
     return Intl.message(
-      'الرسائل',
+      'Messages',
       name: 'messages',
       desc: '',
       args: [],
     );
   }
 
-  /// `النظام`
+  /// `System`
   String get system {
     return Intl.message(
-      'النظام',
+      'System',
       name: 'system',
       desc: '',
       args: [],
     );
   }
 
-  /// `منذ`
+  /// `Ago`
   String get ago {
     return Intl.message(
-      'منذ',
+      'Ago',
       name: 'ago',
       desc: '',
       args: [],
     );
   }
 
-  /// `ملفك الشخصي`
+  /// `Your Profile`
   String get profile {
     return Intl.message(
-      'ملفك الشخصي',
+      'Your Profile',
       name: 'profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `الإعدادات`
+  /// `Settings`
   String get settings {
     return Intl.message(
-      'الإعدادات',
+      'Settings',
       name: 'settings',
       desc: '',
       args: [],
     );
   }
 
-  /// `تسجيل الخروج`
+  /// `Log Out`
   String get log_out {
     return Intl.message(
-      'تسجيل الخروج',
+      'Log Out',
       name: 'log_out',
       desc: '',
       args: [],
     );
   }
 
-  /// `عن التطبيق`
+  /// `About the App`
   String get about_app {
     return Intl.message(
-      'عن التطبيق',
+      'About the App',
       name: 'about_app',
       desc: '',
       args: [],
     );
   }
 
-  /// `تواصل معانا`
+  /// `Contact Us`
   String get contact_u {
     return Intl.message(
-      'تواصل معانا',
+      'Contact Us',
       name: 'contact_u',
       desc: '',
       args: [],
     );
   }
 
-  /// `تقييم التطبيق`
+  /// `Rate the App`
   String get rate_app {
     return Intl.message(
-      'تقييم التطبيق',
+      'Rate the App',
       name: 'rate_app',
       desc: '',
       args: [],
     );
   }
 
-  /// `كيفية إستخدام التطبيق`
+  /// `How to use the App`
   String get how_to_use_app {
     return Intl.message(
-      'كيفية إستخدام التطبيق',
+      'How to use the App',
       name: 'how_to_use_app',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل الحساب`
+  /// `Account Details`
   String get account_details {
     return Intl.message(
-      'تفاصيل الحساب',
+      'Account Details',
       name: 'account_details',
       desc: '',
       args: [],
@@ -1420,81 +1420,141 @@ class S {
     );
   }
 
-  /// `تعديل الملف الشخصي`
+  /// `Edit Profile`
   String get edit_profile {
     return Intl.message(
-      'تعديل الملف الشخصي',
+      'Edit Profile',
       name: 'edit_profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `تغيير كلمة المرور`
+  /// `Change Password`
   String get change_pass {
     return Intl.message(
-      'تغيير كلمة المرور',
+      'Change Password',
       name: 'change_pass',
       desc: '',
       args: [],
     );
   }
 
-  /// `ترقية الحساب`
+  /// `Update Your Account`
   String get update_your_account {
     return Intl.message(
-      'ترقية الحساب',
+      'Update Your Account',
       name: 'update_your_account',
       desc: '',
       args: [],
     );
   }
 
-  /// `الجنس`
+  /// `Gender`
   String get gender {
     return Intl.message(
-      'الجنس',
+      'Gender',
       name: 'gender',
       desc: '',
       args: [],
     );
   }
 
-  /// `تحديث`
+  /// `Update Profile`
   String get update_profile {
     return Intl.message(
-      'تحديث',
+      'Update Profile',
       name: 'update_profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تحديث الملف الشخصي`
+  /// `Profile Successfully Updated`
   String get success_update_profile {
     return Intl.message(
-      'تم تحديث الملف الشخصي',
+      'Profile Successfully Updated',
       name: 'success_update_profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تسجيل الخروج بنجاح`
+  /// `Logged Out Successfully`
   String get success_log_out {
     return Intl.message(
-      'تم تسجيل الخروج بنجاح',
+      'Logged Out Successfully',
       name: 'success_log_out',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد تسجيل الخروج ؟`
+  /// `Do you want to log out?`
   String get log_out_question {
     return Intl.message(
-      'هل تريد تسجيل الخروج ؟',
+      'Do you want to log out?',
       name: 'log_out_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark Mode`
+  String get theme {
+    return Intl.message(
+      'Dark Mode',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic_language {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english_language {
+    return Intl.message(
+      'English',
+      name: 'english_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Device Language`
+  String get device_language {
+    return Intl.message(
+      'Device Language',
+      name: 'device_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm_lang {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm_lang',
       desc: '',
       args: [],
     );
