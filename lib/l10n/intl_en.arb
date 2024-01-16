@@ -94,7 +94,7 @@
     "work_hour": "Working Hours",
     "to": "To",
     "from": "From",
-    "tranier_hint_social": "This trainer does not have an account on this platform",
+    "tranier_hint_social": "This User does not have an account on this platform",
     "trainer_gallery": "Gallery",
     "before": "Before",
     "after": "After",
@@ -152,7 +152,20 @@
     "confirm_lang": "Confirm",
     "share_app":"مشاركة التطبيق",
     "app":"التطبيق",
-    "all_privay_saved":"جميع الحقوق محفوظة"
+    "all_privay_saved":"جميع الحقوق محفوظة",
+    "admin_hint":"لا تستطيع الوصول لملف الأدمن",
+    "user_profile":"الملف الشخصي",
+    "success_update_location":"تم تحديث مواقعك",
+    "profile_hint_social": "لا يوجد",
+    "facebooh":"فيسبوك",
+    "instgram":"انستجرام",
+    "twiter":"تويتر",
+    "enter_uri":"أدخل الرابط"
+
+
+
+
+
 
 
 

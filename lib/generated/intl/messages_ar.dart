@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
+        "admin_hint": MessageLookupByLibrary.simpleMessage(
+            "لا تستطيع الوصول لملف الأدمن"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
         "age": MessageLookupByLibrary.simpleMessage("العمر"),
         "agree": MessageLookupByLibrary.simpleMessage("أوافق على"),
@@ -82,9 +84,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
         "english_language":
             MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
+        "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
         "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
         "exercises": MessageLookupByLibrary.simpleMessage("التمارين واللياقة"),
+        "facebooh": MessageLookupByLibrary.simpleMessage("فيسبوك"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
@@ -101,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("تعليمات التطبيق"),
+        "instgram": MessageLookupByLibrary.simpleMessage("انستجرام"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
@@ -154,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "proDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المنتج"),
         "products": MessageLookupByLibrary.simpleMessage("منتجات متنوعة"),
         "profile": MessageLookupByLibrary.simpleMessage("ملفك الشخصي"),
+        "profile_hint_social": MessageLookupByLibrary.simpleMessage("لا يوجد"),
         "question_error":
             MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
@@ -189,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تعديل السؤال"),
         "success_update_answer":
             MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
+        "success_update_location":
+            MessageLookupByLibrary.simpleMessage("تم تحديث مواقعك"),
         "success_update_profile":
             MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
@@ -203,12 +211,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ملف المدرب الشخصي"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("صفحة المدربين"),
         "tranier_hint_social": MessageLookupByLibrary.simpleMessage(
-            "هذا المدرب ليس لديه حساب في هذا الموقع"),
+            "هذا المستخدم ليس لديه حساب في هذا الموقع"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
+        "twiter": MessageLookupByLibrary.simpleMessage("تويتر"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "update_profile": MessageLookupByLibrary.simpleMessage("تحديث"),
         "update_your_account":
             MessageLookupByLibrary.simpleMessage("ترقية الحساب"),
+        "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":

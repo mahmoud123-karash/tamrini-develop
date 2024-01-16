@@ -81,14 +81,17 @@ void openNotification(RemoteMessage event, BuildContext context) {
       AnswersScreen(
         uid: event.data['uid'],
         model: UserModel(
+          role: type,
           name: model.name,
           image: model.image,
           token: token,
-          role: type,
+          facebookUri: model.facebookUri,
           uid: uid,
-          isSubscribedToTrainer: model.isSubscribedToTrainer,
+          instgramUri: model.instgramUri,
           isBanned: model.isBanned,
-          isSubscribedToGym: model.isSubscribedToGym,
+          address: model.address,
+          twiterUri: model.twiterUri,
+          phone: model.phone,
         ),
       ),
     );

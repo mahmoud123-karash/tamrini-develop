@@ -1000,10 +1000,10 @@ class S {
     );
   }
 
-  /// `This trainer does not have an account on this platform`
+  /// `This User does not have an account on this platform`
   String get tranier_hint_social {
     return Intl.message(
-      'This trainer does not have an account on this platform',
+      'This User does not have an account on this platform',
       name: 'tranier_hint_social',
       desc: '',
       args: [],
@@ -1585,6 +1585,86 @@ class S {
     return Intl.message(
       'جميع الحقوق محفوظة',
       name: 'all_privay_saved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا تستطيع الوصول لملف الأدمن`
+  String get admin_hint {
+    return Intl.message(
+      'لا تستطيع الوصول لملف الأدمن',
+      name: 'admin_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الملف الشخصي`
+  String get user_profile {
+    return Intl.message(
+      'الملف الشخصي',
+      name: 'user_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تحديث مواقعك`
+  String get success_update_location {
+    return Intl.message(
+      'تم تحديث مواقعك',
+      name: 'success_update_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد`
+  String get profile_hint_social {
+    return Intl.message(
+      'لا يوجد',
+      name: 'profile_hint_social',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فيسبوك`
+  String get facebooh {
+    return Intl.message(
+      'فيسبوك',
+      name: 'facebooh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انستجرام`
+  String get instgram {
+    return Intl.message(
+      'انستجرام',
+      name: 'instgram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تويتر`
+  String get twiter {
+    return Intl.message(
+      'تويتر',
+      name: 'twiter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أدخل الرابط`
+  String get enter_uri {
+    return Intl.message(
+      'أدخل الرابط',
+      name: 'enter_uri',
       desc: '',
       args: [],
     );

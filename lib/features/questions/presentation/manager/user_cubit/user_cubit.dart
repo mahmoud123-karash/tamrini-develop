@@ -20,7 +20,9 @@ class UserCubit extends Cubit<UserStates> {
         emit(ErrorGetUserState(message));
       },
       (model) {
-        emit(SucessGetUserState(model));
+        if (!isClosed) {
+          emit(SucessGetUserState(model));
+        }
       },
     );
   }

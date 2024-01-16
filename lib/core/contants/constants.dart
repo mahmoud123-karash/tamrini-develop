@@ -18,6 +18,6 @@ String appLink = Platform.isIOS
     : 'https://play.google.com/store/apps/details?id=com.tamrini1.com';
 
 String storeBox = 'storeBox';
-String profileBox = 'profileBox';
+String profileBox = 'profile_box';
 
 String adminUid = '7JGTeYMv6yfQrUwABPHibDJrot82';

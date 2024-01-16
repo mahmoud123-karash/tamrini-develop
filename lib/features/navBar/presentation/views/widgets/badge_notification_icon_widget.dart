@@ -25,7 +25,7 @@ class BadgeNotificationIconWidget extends StatelessWidget {
               navigateTo(context, const NotificationScreen());
             },
             icon: Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10),
               child: length == 0
                   ? const Icon(Ionicons.notifications_outline)
                   : badges.Badge(
@@ -43,11 +43,14 @@ class BadgeNotificationIconWidget extends StatelessWidget {
             ),
           );
         } else {
-          return IconButton(
-            onPressed: () {
-              navigateTo(context, const NotificationScreen());
-            },
-            icon: const Icon(Ionicons.notifications_outline),
+          return Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: IconButton(
+              onPressed: () {
+                navigateTo(context, const NotificationScreen());
+              },
+              icon: const Icon(Ionicons.notifications_outline),
+            ),
           );
         }
       },

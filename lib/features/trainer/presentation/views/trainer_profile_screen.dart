@@ -6,10 +6,9 @@ import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_cont
 import 'package:tamrini/generated/l10n.dart';
 
 class TrainerProfileScreen extends StatelessWidget {
-  final TrainerModel trainer;
-
   const TrainerProfileScreen({Key? key, required this.trainer})
       : super(key: key);
+  final TrainerModel trainer;
 
   @override
   Widget build(BuildContext context) {

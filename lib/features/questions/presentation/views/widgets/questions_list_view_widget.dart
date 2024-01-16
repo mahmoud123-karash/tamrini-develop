@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/question_item_stream_builder_widget.dart';
+import 'package:tamrini/features/questions/presentation/views/widgets/question_item_builder_widget.dart';
 
 class QuestionsListViewWidget extends StatefulWidget {
   const QuestionsListViewWidget({super.key, required this.list});
@@ -28,7 +28,11 @@ class _QuestionsListViewWidgetState extends State<QuestionsListViewWidget> {
         scrollController.position.maxScrollExtent) {
       if (widget.list.length > length) {
         length += 10;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        Future.delayed(const Duration(seconds: 1)).then((value) {
+          WidgetsBinding.instance.addPostFrameCallback(
+            (_) => setState(() {}),
+          );
+        });
       }
     }
   }
@@ -51,7 +55,7 @@ class _QuestionsListViewWidgetState extends State<QuestionsListViewWidget> {
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             if (index < length) {
-              return QuestionItemStreamBuilderWidget(
+              return QuestionItemBuilderWidget(
                 model: widget.list[index],
               );
             } else {

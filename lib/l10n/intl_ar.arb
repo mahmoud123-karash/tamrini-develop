@@ -94,7 +94,7 @@
     "work_hour":"ساعات العمل",
     "to":"إلي",
     "from":"من",
-    "tranier_hint_social":"هذا المدرب ليس لديه حساب في هذا الموقع",
+    "tranier_hint_social":"هذا المستخدم ليس لديه حساب في هذا الموقع",
     "trainer_gallery":"معرض الأعمال",
     "before":"قبل",
     "after":"بعد",
@@ -151,7 +151,16 @@
     "confirm_lang":"تطبيق",
     "share_app":"مشاركة التطبيق",
     "app":"التطبيق",
-    "all_privay_saved":"جميع الحقوق محفوظة"
+    "all_privay_saved":"جميع الحقوق محفوظة",
+    "admin_hint":"لا تستطيع الوصول لملف الأدمن",
+    "user_profile":"الملف الشخصي",
+    "success_update_location":"تم تحديث مواقعك",
+    "profile_hint_social": "لا يوجد",
+    "facebooh":"فيسبوك",
+    "instgram":"انستجرام",
+    "twiter":"تويتر",
+    "enter_uri":"أدخل الرابط"
+
    
 
 

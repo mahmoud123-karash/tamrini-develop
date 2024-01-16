@@ -27,6 +27,7 @@ import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exerci
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
+import 'package:tamrini/features/profile/presentation/manager/location_cubit/location_cubit.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_cubit.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
@@ -531,6 +532,9 @@ void main() async {
       ],
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(
+            create: (context) => LocationCubit()..getLocationAddress(),
+          ),
           BlocProvider(
             create: (context) => ProfileCubit(
               getIt.get<ProfileRepoImpl>(),

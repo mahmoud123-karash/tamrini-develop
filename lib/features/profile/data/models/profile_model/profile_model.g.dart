@@ -17,40 +17,46 @@ class ProfileModelAdapter extends TypeAdapter<ProfileModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return ProfileModel(
-      name: fields[0] as String,
-      email: fields[1] as String,
-      phone: fields[2] as String,
-      isSubscribedToTrainer: fields[5] as bool,
-      isSubscribedToGym: fields[8] as bool,
-      gender: fields[4] as String,
-      image: fields[6] as String,
-      age: fields[3] as int,
-      isBanned: fields[7] as bool,
+      name: fields[10] as String,
+      email: fields[11] as String,
+      phone: fields[12] as String,
+      facebookUri: fields[17] as String,
+      instgramUri: fields[18] as String,
+      twiterUri: fields[19] as String,
+      address: fields[20] as String,
+      gender: fields[14] as String,
+      image: fields[15] as String,
+      age: fields[13] as int,
+      isBanned: fields[16] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, ProfileModel obj) {
     writer
-      ..writeByte(9)
-      ..writeByte(0)
+      ..writeByte(11)
+      ..writeByte(10)
       ..write(obj.name)
-      ..writeByte(1)
+      ..writeByte(11)
       ..write(obj.email)
-      ..writeByte(2)
+      ..writeByte(12)
       ..write(obj.phone)
-      ..writeByte(3)
+      ..writeByte(13)
       ..write(obj.age)
-      ..writeByte(4)
+      ..writeByte(14)
       ..write(obj.gender)
-      ..writeByte(5)
-      ..write(obj.isSubscribedToTrainer)
-      ..writeByte(6)
+      ..writeByte(15)
       ..write(obj.image)
-      ..writeByte(7)
+      ..writeByte(16)
       ..write(obj.isBanned)
-      ..writeByte(8)
-      ..write(obj.isSubscribedToGym);
+      ..writeByte(17)
+      ..write(obj.facebookUri)
+      ..writeByte(18)
+      ..write(obj.instgramUri)
+      ..writeByte(19)
+      ..write(obj.twiterUri)
+      ..writeByte(20)
+      ..write(obj.address);
   }
 
   @override

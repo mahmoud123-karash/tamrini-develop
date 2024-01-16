@@ -19,6 +19,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController ageController = TextEditingController();
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -27,15 +28,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     nameController.dispose();
     phoneController.dispose();
     ageController.dispose();
+
     super.dispose();
   }
 
   @override
   void initState() {
     CacheHelper.removeData(key: 'imagepath');
+    CacheHelper.removeData(key: 'gender');
     nameController.text = widget.model.name;
     phoneController.text = widget.model.phone;
     ageController.text = widget.model.age.toString();
+
     super.initState();
   }
 
@@ -62,20 +66,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               alignment: Alignment.bottomCenter,
               child: EditProfileCustomButtonBuilderWidget(
                 onPressed: () {
-                  String gender = CacheHelper.getData(key: 'gender');
+                  String gender =
+                      CacheHelper.getData(key: 'gender') ?? widget.model.gender;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    ProfileCubit.get(context).updateProfile(
-                      name: nameController.text,
-                      email: widget.model.email,
-                      gender: gender,
-                      age: int.parse(ageController.text),
-                      phone: phoneController.text,
-                      image: widget.model.image,
-                      isBanned: widget.model.isBanned,
-                      isSubscribedToGym: widget.model.isSubscribedToGym,
-                      isSubscribedToTrainer: widget.model.isSubscribedToTrainer,
-                    );
+                    if (gender == '') {
+                      showSnackBar(context, S.of(context).genderConfirm);
+                    } else {
+                      ProfileCubit.get(context).updateProfile(
+                        name: nameController.text,
+                        email: widget.model.email,
+                        gender: gender,
+                        age: int.parse(ageController.text),
+                        phone: phoneController.text,
+                        image: widget.model.image,
+                        isBanned: widget.model.isBanned,
+                        facebookUri: widget.model.facebookUri,
+                        instgramUri: widget.model.image,
+                        twiterUri: widget.model.twiterUri,
+                        address: widget.model.address,
+                      );
+                    }
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});

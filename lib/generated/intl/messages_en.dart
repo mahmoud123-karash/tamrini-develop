@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
+        "admin_hint": MessageLookupByLibrary.simpleMessage(
+            "لا تستطيع الوصول لملف الأدمن"),
         "after": MessageLookupByLibrary.simpleMessage("After"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "ago": MessageLookupByLibrary.simpleMessage("Ago"),
@@ -82,10 +84,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
         "emptyList": MessageLookupByLibrary.simpleMessage("No Exercises"),
         "english_language": MessageLookupByLibrary.simpleMessage("English"),
+        "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
         "exDetails": MessageLookupByLibrary.simpleMessage("Exercise Details"),
         "exercise": MessageLookupByLibrary.simpleMessage("Various Exercises"),
         "exercises":
             MessageLookupByLibrary.simpleMessage("Exercises and Fitness"),
+        "facebooh": MessageLookupByLibrary.simpleMessage("فيسبوك"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "follow":
             MessageLookupByLibrary.simpleMessage("Continue without login"),
@@ -103,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Home Exercises"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("App Instructions"),
+        "instgram": MessageLookupByLibrary.simpleMessage("انستجرام"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "internet_connection": MessageLookupByLibrary.simpleMessage(
             "Internet Connection Established"),
@@ -155,6 +160,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "proDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
         "profile": MessageLookupByLibrary.simpleMessage("Your Profile"),
+        "profile_hint_social": MessageLookupByLibrary.simpleMessage("لا يوجد"),
         "question_error": MessageLookupByLibrary.simpleMessage(
             "This question has been deleted"),
         "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
@@ -193,6 +199,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Question updated successfully"),
         "success_update_answer":
             MessageLookupByLibrary.simpleMessage("Answer Successfully Updated"),
+        "success_update_location":
+            MessageLookupByLibrary.simpleMessage("تم تحديث مواقعك"),
         "success_update_profile": MessageLookupByLibrary.simpleMessage(
             "Profile Successfully Updated"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
@@ -207,13 +215,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("Trainers Page"),
         "tranier_hint_social": MessageLookupByLibrary.simpleMessage(
-            "This trainer does not have an account on this platform"),
+            "This User does not have an account on this platform"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+        "twiter": MessageLookupByLibrary.simpleMessage("تويتر"),
         "update": MessageLookupByLibrary.simpleMessage("Update Location"),
         "update_profile":
             MessageLookupByLibrary.simpleMessage("Update Profile"),
         "update_your_account":
             MessageLookupByLibrary.simpleMessage("Update Your Account"),
+        "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required"),
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
