@@ -15,7 +15,7 @@ class FoodCategoryItemWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: onPressed,
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(

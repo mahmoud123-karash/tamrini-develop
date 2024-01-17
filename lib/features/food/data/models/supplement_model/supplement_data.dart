@@ -13,7 +13,7 @@ class SupplementData {
 
   factory SupplementData.fromJson(Map<String, dynamic> json) {
     return SupplementData(
-      images: json['images'] ?? [],
+      images: List<String>.from(json['images']),
       description: json['description'] ?? '',
       title: json['title'] ?? '',
       id: json['id'] ?? '',
@@ -21,11 +21,11 @@ class SupplementData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> Supplementdata = <String, dynamic>{};
-    Supplementdata['images'] = images;
-    Supplementdata['description'] = description;
-    Supplementdata['title'] = title;
-    Supplementdata['id'] = id;
-    return Supplementdata;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['images'] = images;
+    data['description'] = description;
+    data['title'] = title;
+    data['id'] = id;
+    return data;
   }
 }

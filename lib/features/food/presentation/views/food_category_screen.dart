@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/shared/components.dart';
 
 import '../../../../generated/l10n.dart';
+import 'supplement_category_screen.dart';
 import 'widgets/food_category_item_widget.dart';
 
 class FoodCategoryScreen extends StatefulWidget {
@@ -35,7 +37,9 @@ class _FoodCategoryScreenState extends State<FoodCategoryScreen> {
           lable: S.of(context).protien_calculator,
         ),
         FoodCategoryItemWidget(
-          onPressed: () {},
+          onPressed: () {
+            navigateTo(context, const SupplementsCategoryScreen());
+          },
           image: Assets.imagesWhey,
           lable: S.of(context).nuttritions,
         ),
