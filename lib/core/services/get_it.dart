@@ -7,6 +7,7 @@ import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.d
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
+import 'package:tamrini/features/food/data/data_sources/remote_data_source/nutrition_remote_data_source.dart';
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
 import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
 import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
@@ -120,6 +121,7 @@ void setLocator() {
   getIt.registerSingleton(
     FoodRepoImpl(
       SupplementRemoteDataSourceImpl(),
+      NutritionRemoteDataSourceImpl(),
     ),
   );
 }

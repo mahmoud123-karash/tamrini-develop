@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/food/domain/repo/food_repo.dart';
-import 'package:tamrini/features/food/presentation/manager/article_cubit/supplement_states.dart';
+import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
 
 class SupplementCubit extends Cubit<SupplementStates> {
   SupplementCubit(this.foodRepo) : super(InitialSupplementState());

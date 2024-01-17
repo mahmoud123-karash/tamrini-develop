@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 
-class SupplementMessageBuilderWidget extends StatelessWidget {
-  const SupplementMessageBuilderWidget({super.key, required this.message});
+class MessageBuilderWidget extends StatelessWidget {
+  const MessageBuilderWidget({super.key, required this.message});
   final String message;
 
   @override

@@ -22,7 +22,8 @@ import 'package:tamrini/data/location.dart';
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
 import 'package:tamrini/features/exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
-import 'package:tamrini/features/food/presentation/manager/article_cubit/supplement_cubit.dart';
+import 'package:tamrini/features/food/presentation/manager/classification_cubit/classification_cubit.dart';
+import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
@@ -40,7 +41,6 @@ import 'package:tamrini/features/notification/data/repo/notification_repo_impl.d
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
-import 'package:tamrini/features/profile/domain/repo/profile_repo.dart';
 import 'package:tamrini/features/profile/domain/use_cases/update_profile_use_case.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
@@ -446,8 +446,6 @@ void main() async {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   await CacheHelper.init();
-  bool isDark = CacheHelper.getBoolean(key: 'isDark');
-  bool isLoggedIn = CacheHelper.getBoolean(key: 'isLogin');
 
   String uid = helper.CacheHelper.getData(key: 'uid') ?? '';
   Widget? startWidget;
@@ -610,6 +608,11 @@ void main() async {
             )..getData(),
           ),
           BlocProvider(
+            create: (context) => ClassificationCubit(
+              getIt.get<FoodRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
             create: (context) => ManageCubit()
               ..changeAppTheme(
                 fromSP: helper.CacheHelper.getData(key: 'isdark') ?? false,
@@ -620,8 +623,6 @@ void main() async {
           )
         ],
         child: MyApp(
-          isDark: isDark,
-          isLogged: isLoggedIn,
           startWidget: startWidget,
         ),
       ),
@@ -630,14 +631,10 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  final isDark;
-  final isLogged;
   final Widget startWidget;
 
   const MyApp({
     super.key,
-    this.isDark,
-    this.isLogged,
     required this.startWidget,
   });
 
@@ -652,9 +649,7 @@ class _MyAppState extends State<MyApp> {
     return ScreenUtilInit(
       builder: (_, __) {
         return ChangeNotifierProvider<ThemeProvider>(
-          create: (_) => ThemeProvider()
-            ..init()
-            ..changeAppMode(fromShared: widget.isDark),
+          create: (_) => ThemeProvider()..init(),
           builder: (context, obj) {
             return GestureDetector(
               behavior: HitTestBehavior.opaque,

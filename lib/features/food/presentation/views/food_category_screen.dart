@@ -3,6 +3,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 
 import '../../../../generated/l10n.dart';
+import 'nutrition_classification_screen.dart';
 import 'supplement_category_screen.dart';
 import 'widgets/food_category_item_widget.dart';
 
@@ -27,7 +28,9 @@ class _FoodCategoryScreenState extends State<FoodCategoryScreen> {
     return Column(
       children: [
         FoodCategoryItemWidget(
-          onPressed: () {},
+          onPressed: () {
+            navigateTo(context, const NutritionClassificationScreen());
+          },
           image: Assets.imagesNutiritious,
           lable: S.of(context).values_food,
         ),
