@@ -6,7 +6,7 @@ import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar
 import 'package:tamrini/features/diet_food/presentation/views/educate_your_self_screen.dart';
 import 'package:tamrini/features/store/presenrtation/views/stores_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:tamrini/screens/food_category_screen.dart';
+import 'package:tamrini/features/food/presentation/views/food_category_screen.dart';
 
 class NavBarCubit extends Cubit<NavBarStates> {
   NavBarCubit() : super(InitailNavBarState());

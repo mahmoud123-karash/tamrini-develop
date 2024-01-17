@@ -7,6 +7,8 @@ import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.d
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
+import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
+import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
 import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
 import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
@@ -113,6 +115,11 @@ void setLocator() {
   getIt.registerSingleton<UpdateUseCase>(
     UpdateUseCase(
       getIt.get<ProfileRepoImpl>(),
+    ),
+  );
+  getIt.registerSingleton(
+    FoodRepoImpl(
+      SupplementRemoteDataSourceImpl(),
     ),
   );
 }

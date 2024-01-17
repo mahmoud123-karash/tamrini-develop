@@ -1729,6 +1729,36 @@ class S {
       args: [],
     );
   }
+
+  /// `القيم الغذائية`
+  String get values_food {
+    return Intl.message(
+      'القيم الغذائية',
+      name: 'values_food',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حاسبة البروتينات`
+  String get protien_calculator {
+    return Intl.message(
+      'حاسبة البروتينات',
+      name: 'protien_calculator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المكملات الغذائية`
+  String get nuttritions {
+    return Intl.message(
+      'المكملات الغذائية',
+      name: 'nuttritions',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

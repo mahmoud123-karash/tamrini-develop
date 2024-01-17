@@ -165,7 +165,10 @@
     "my_day":"يومي",
     "water_alarm":"منبه المياه",
     "gym_owner":"الصالة الرياضية",
-    "whatsApp":"واتس اب"
+    "whatsApp":"واتس اب",
+    "values_food": "القيم الغذائية",
+    "protien_calculator": "حاسبة البروتينات",
+    "nuttritions": "المكملات الغذائية"
 
 
 

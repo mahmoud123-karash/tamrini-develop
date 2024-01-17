@@ -73,7 +73,7 @@ class MyDrawer extends StatelessWidget {
                 onPressed: () {
                   navigateTo(context, const MyDayScreen());
                 },
-                icon: Ionicons.archive_outline,
+                icon: Ionicons.calendar_outline,
                 lable: S.of(context).my_day,
               ),
               DrawerListTileWidget(

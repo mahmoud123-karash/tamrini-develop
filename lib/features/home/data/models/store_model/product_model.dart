@@ -48,7 +48,7 @@ class ProductModel {
   }
 
   factory ProductModel.fromMap(Map<String, dynamic> map) {
-    final List<dynamic> productsJson = map['rating'];
+    final List<dynamic> productsJson = map['rating'] ?? [];
     List<Rating> rate = productsJson.map((productJson) {
       return Rating.fromJson(productJson);
     }).toList();

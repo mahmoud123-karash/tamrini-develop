@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tamrini/provider/user_provider.dart';
 import 'package:tamrini/screens/articles_category_screen.dart';
 import 'package:tamrini/screens/exercise_category_screen.dart';
-import 'package:tamrini/screens/food_category_screen.dart';
+import 'package:tamrini/features/food/presentation/views/food_category_screen.dart';
 import 'package:tamrini/screens/home_screen_body.dart';
 import 'package:tamrini/screens/products_screens/store_home_screen.dart';
 import 'package:tamrini/utils/constants.dart';
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _screens = [
+    final List<Widget> screens = [
       const FoodCategoryScreen(),
       const ExerciseCategoryScreen(),
       const HomeScreenBody(),
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // setState(() {});
           },
         ),
-        body: _screens[selectedIndex],
+        body: screens[selectedIndex],
       ),
     );
   }

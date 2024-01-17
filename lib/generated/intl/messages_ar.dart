@@ -146,6 +146,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "nocProducts":
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات في هذه الفئة"),
         "notification": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "nuttritions":
+            MessageLookupByLibrary.simpleMessage("المكملات الغذائية"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "other": MessageLookupByLibrary.simpleMessage("أخري"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("منتجاتنا"),
@@ -164,6 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "products": MessageLookupByLibrary.simpleMessage("منتجات متنوعة"),
         "profile": MessageLookupByLibrary.simpleMessage("ملفك الشخصي"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("لا يوجد"),
+        "protien_calculator":
+            MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
         "question_error":
             MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
@@ -224,6 +228,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ترقية الحساب"),
         "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
+        "values_food": MessageLookupByLibrary.simpleMessage("القيم الغذائية"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
         "whatsApp": MessageLookupByLibrary.simpleMessage("واتس اب"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
