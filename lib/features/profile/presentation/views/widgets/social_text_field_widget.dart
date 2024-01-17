@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/auth/presentation/views/widgets/country_picker_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class SocialTextFiledWidget extends StatelessWidget {
@@ -43,11 +44,18 @@ class SocialTextFiledWidget extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 5),
-          hintText: S.of(context).enter_uri,
+          hintText: prefix == ''
+              ? S.of(context).enter_phone
+              : S.of(context).enter_uri,
           hintStyle: TextStyles.style14,
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
+          suffix: prefix == ''
+              ? CountryPickerWidget(
+                  color: blackColor,
+                )
+              : null,
         ),
       ),
     );

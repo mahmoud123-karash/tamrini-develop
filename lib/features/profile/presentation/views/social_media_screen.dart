@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
@@ -18,6 +19,8 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
   TextEditingController facbookController = TextEditingController();
   TextEditingController instgramController = TextEditingController();
   TextEditingController twiterController = TextEditingController();
+  TextEditingController whatsAppController = TextEditingController();
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -26,6 +29,7 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
     facbookController.dispose();
     instgramController.dispose();
     twiterController.dispose();
+    whatsAppController.dispose();
     super.dispose();
   }
 
@@ -34,6 +38,7 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
     facbookController.text = widget.model.facebookUri;
     instgramController.text = widget.model.instgramUri;
     twiterController.text = widget.model.twiterUri;
+    whatsAppController.text = widget.model.whatsApp ?? '';
 
     super.initState();
   }
@@ -48,6 +53,7 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
             child: SocialMediaContentWidget(
               autovalidateMode: autovalidateMode,
               formKey: formKey,
+              whatsAppController: whatsAppController,
               facbookController: facbookController,
               instgramController: instgramController,
               twiterController: twiterController,
@@ -61,6 +67,7 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
+                    String code = CacheHelper.getData(key: 'code') ?? '+964';
                     ProfileCubit.get(context).updateProfile(
                       name: widget.model.name,
                       email: widget.model.email,
@@ -68,6 +75,9 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
                       age: widget.model.age,
                       phone: widget.model.phone,
                       image: widget.model.image,
+                      whatsApp: whatsAppController.text.contains('+')
+                          ? whatsAppController.text
+                          : "$code${whatsAppController.text}",
                       isBanned: widget.model.isBanned,
                       facebookUri: facbookController.text,
                       instgramUri: instgramController.text,

@@ -1670,6 +1670,16 @@ class S {
     );
   }
 
+  /// `أدخل الرقم`
+  String get enter_phone {
+    return Intl.message(
+      'أدخل الرقم',
+      name: 'enter_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `الموقع الجغرافي`
   String get location {
     return Intl.message(
@@ -1705,6 +1715,16 @@ class S {
     return Intl.message(
       'الصالة الرياضية',
       name: 'gym_owner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `واتس اب`
+  String get whatsApp {
+    return Intl.message(
+      'واتس اب',
+      name: 'whatsApp',
       desc: '',
       args: [],
     );

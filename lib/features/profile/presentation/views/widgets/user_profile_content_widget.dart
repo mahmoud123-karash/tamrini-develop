@@ -54,7 +54,7 @@ class UserProfileContentWidget extends StatelessWidget {
           fUri: model.facebookUri,
           nUri: model.instgramUri,
           tUri: model.twiterUri,
-          phone: model.phone,
+          whatsApp: model.whatsApp,
           isProfile: false,
         ),
         const SizedBox(

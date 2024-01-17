@@ -5,6 +5,7 @@ class UserModel {
   final String uid;
   final String role;
   final String phone;
+  final String whatsApp;
   final String facebookUri;
   final String instgramUri;
   final String twiterUri;
@@ -18,6 +19,7 @@ class UserModel {
     required this.token,
     required this.uid,
     required this.facebookUri,
+    required this.whatsApp,
     required this.isBanned,
     required this.phone,
     required this.instgramUri,
@@ -33,6 +35,7 @@ class UserModel {
       facebookUri: map['facebookUri'] ?? '',
       token: map['token'] ?? '',
       phone: map['phone'] ?? '',
+      whatsApp: map['whatsApp'] ?? '',
       uid: uid,
       instgramUri: map['instgramUri'] ?? '',
       twiterUri: map['twiterUri'] ?? '',

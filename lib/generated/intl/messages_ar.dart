@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
         "english_language":
             MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
+        "enter_phone": MessageLookupByLibrary.simpleMessage("أدخل الرقم"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
         "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
@@ -224,6 +225,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
+        "whatsApp": MessageLookupByLibrary.simpleMessage("واتس اب"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),

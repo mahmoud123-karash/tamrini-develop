@@ -10,13 +10,13 @@ class ProfileSocialMediaWidget extends StatelessWidget {
     required this.fUri,
     required this.nUri,
     required this.tUri,
-    required this.phone,
+    required this.whatsApp,
     required this.isProfile,
   });
   final String fUri;
   final String nUri;
   final String tUri;
-  final String phone;
+  final String whatsApp;
   final bool isProfile;
 
   @override
@@ -29,11 +29,20 @@ class ProfileSocialMediaWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              Uri uri = Uri(
-                scheme: 'sms',
-                path: phone,
-              );
-              openUri(url: uri);
+              if (whatsApp != '') {
+                Uri uri = Uri(
+                  scheme: 'sms',
+                  path: whatsApp,
+                );
+                openUri(url: uri);
+              } else {
+                showSnackBar(
+                  context,
+                  isProfile
+                      ? S.of(context).profile_hint_social
+                      : S.of(context).tranier_hint_social,
+                );
+              }
             },
             child: const Icon(
               Ionicons.logo_whatsapp,

@@ -25,6 +25,8 @@ class ProfileModel {
   final String twiterUri;
   @HiveField(20)
   final String address;
+  @HiveField(21)
+  final String? whatsApp;
 
   ProfileModel({
     required this.name,
@@ -35,6 +37,7 @@ class ProfileModel {
     required this.twiterUri,
     required this.address,
     required this.gender,
+    required this.whatsApp,
     required this.image,
     required this.age,
     required this.isBanned,
@@ -47,6 +50,7 @@ class ProfileModel {
       image: map['image'] ?? '',
       facebookUri: map['facebookUri'] ?? '',
       phone: map['phone'] ?? '',
+      whatsApp: map['whatsApp'] ?? '',
       gender: map['gender'] ?? '',
       instgramUri: map['instgramUri'] ?? '',
       twiterUri: map['twiterUri'] ?? '',
@@ -64,6 +68,7 @@ class ProfileModel {
       'image': image,
       'phone': phone,
       'gender': gender,
+      'whatsApp': whatsApp,
       'age': age,
       'facebookUri': facebookUri,
       'twiterUri': twiterUri,

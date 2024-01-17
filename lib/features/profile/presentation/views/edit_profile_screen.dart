@@ -80,6 +80,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         age: int.parse(ageController.text),
                         phone: phoneController.text,
                         image: widget.model.image,
+                        whatsApp: widget.model.whatsApp ?? '',
                         isBanned: widget.model.isBanned,
                         facebookUri: widget.model.facebookUri,
                         instgramUri: widget.model.instgramUri,

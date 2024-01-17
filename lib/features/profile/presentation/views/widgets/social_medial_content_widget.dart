@@ -11,10 +11,13 @@ class SocialMediaContentWidget extends StatelessWidget {
     required this.twiterController,
     required this.formKey,
     required this.autovalidateMode,
+    required this.whatsAppController,
   });
   final TextEditingController facbookController;
   final TextEditingController instgramController;
   final TextEditingController twiterController;
+  final TextEditingController whatsAppController;
+
   final GlobalKey<FormState> formKey;
   final AutovalidateMode autovalidateMode;
 
@@ -30,6 +33,12 @@ class SocialMediaContentWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            NameTextWidget(text: S.of(context).whatsApp),
+            SocialTextFiledWidget(
+              prefix: '',
+              controller: whatsAppController,
+              autovalidateMode: autovalidateMode,
+            ),
             NameTextWidget(text: S.of(context).facebooh),
             SocialTextFiledWidget(
               prefix: 'facebook.com',

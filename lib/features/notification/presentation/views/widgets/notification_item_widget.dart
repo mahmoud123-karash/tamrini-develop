@@ -107,6 +107,7 @@ class NotificationItemWidget extends StatelessWidget {
           uid: model.uid,
           model: UserModel(
             role: type,
+            whatsApp: profile.whatsApp ?? '',
             name: profile.name,
             image: profile.image,
             token: token,

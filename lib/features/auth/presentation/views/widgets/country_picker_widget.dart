@@ -1,19 +1,29 @@
+import 'dart:developer';
+
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/cache/save_data.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class CountryPickerWidget extends StatefulWidget {
-  const CountryPickerWidget({super.key});
+  const CountryPickerWidget({super.key, this.color = Colors.white});
+  final Color? color;
 
   @override
   State<CountryPickerWidget> createState() => _CountryPickerWidgetState();
 }
 
 class _CountryPickerWidgetState extends State<CountryPickerWidget> {
-  String code = '964';
+  late String code;
+  @override
+  void initState() {
+    code = CacheHelper.getData(key: 'code') ?? '+964';
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return StatefulBuilder(
@@ -46,15 +56,17 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
               context: context,
               showPhoneCode: true,
               onSelect: (Country country) {
-                code = country.phoneCode;
+                code = "+${country.phoneCode}";
+                saveCode("+${country.phoneCode}");
+                log(country.phoneCode);
                 setState(() {});
               },
             );
           },
           child: Text(
-            '+$code',
+            code,
             style: TextStyles.style14.copyWith(
-              color: whiteColor,
+              color: widget.color,
             ),
           ),
         );

@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
         "emptyList": MessageLookupByLibrary.simpleMessage("No Exercises"),
         "english_language": MessageLookupByLibrary.simpleMessage("English"),
+        "enter_phone": MessageLookupByLibrary.simpleMessage("أدخل الرقم"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
         "exDetails": MessageLookupByLibrary.simpleMessage("Exercise Details"),
         "exercise": MessageLookupByLibrary.simpleMessage("Various Exercises"),
@@ -230,6 +231,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه لمياه"),
+        "whatsApp": MessageLookupByLibrary.simpleMessage("واتس اب"),
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("Write a new question..."),

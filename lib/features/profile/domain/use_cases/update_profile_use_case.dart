@@ -19,6 +19,7 @@ abstract class UseCase {
     required String facebookUri,
     required String instgramUri,
     required String twiterUri,
+    required String whatsApp,
     required String address,
   });
 }
@@ -39,6 +40,7 @@ class UpdateUseCase extends UseCase {
     required String facebookUri,
     required String instgramUri,
     required String twiterUri,
+    required String whatsApp,
     required String address,
   }) async {
     try {
@@ -48,6 +50,7 @@ class UpdateUseCase extends UseCase {
       ProfileModel model(String img) => ProfileModel(
             name: name,
             facebookUri: facebookUri,
+            whatsApp: whatsApp,
             instgramUri: instgramUri,
             twiterUri: twiterUri,
             email: email,

@@ -40,6 +40,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
     required String instgramUri,
     required String twiterUri,
     required String address,
+    required String whatsApp,
   }) async {
     emit(LoadingGetProfileState());
     var result = await updateUseCase.update(
@@ -47,6 +48,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
       email: email,
       gender: gender,
       age: age,
+      whatsApp: whatsApp,
       phone: phone,
       image: image,
       isBanned: isBanned,

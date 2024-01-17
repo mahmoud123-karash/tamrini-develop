@@ -160,10 +160,13 @@
     "instgram":"انستجرام",
     "twiter":"تويتر",
     "enter_uri":"أدخل الرابط",
+    "enter_phone":"أدخل الرقم",
     "location":"الموقع الجغرافي",
     "my_day":"يومي",
     "water_alarm":"منبه المياه",
-    "gym_owner":"الصالة الرياضية"
+    "gym_owner":"الصالة الرياضية",
+    "whatsApp":"واتس اب"
+
 
 
    

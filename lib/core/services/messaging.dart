@@ -82,6 +82,7 @@ void openNotification(RemoteMessage event, BuildContext context) {
         uid: event.data['uid'],
         model: UserModel(
           role: type,
+          whatsApp: model.whatsApp ?? '',
           name: model.name,
           image: model.image,
           token: token,

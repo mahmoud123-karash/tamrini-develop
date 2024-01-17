@@ -59,3 +59,8 @@ void saveAddress(value) => CacheHelper.saveData(
       key: 'address',
       value: value,
     );
+
+void saveCode(value) => CacheHelper.saveData(
+      key: 'code',
+      value: value,
+    );
