@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/core/services/serach.dart';
+import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/services/sort_gyms.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';

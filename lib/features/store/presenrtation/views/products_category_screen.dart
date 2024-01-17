@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/services/serach.dart';
+import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/generated/l10n.dart';

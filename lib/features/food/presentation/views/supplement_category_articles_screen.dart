@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/food/data/models/supplement_model/supplement_data.dart';
+import 'package:tamrini/features/food/presentation/views/widgets/supplement_articles_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'widgets/article_list_view_widget.dart';
-
-class AllArticlesScreen extends StatefulWidget {
-  const AllArticlesScreen({super.key, required this.models});
-  final List<ArticleModel> models;
-
+class SupplementArticlesScreen extends StatefulWidget {
+  const SupplementArticlesScreen(
+      {Key? key, required this.list, required this.title})
+      : super(key: key);
+  final List<SupplementData> list;
+  final String title;
   @override
-  State<AllArticlesScreen> createState() => _AllArticlesScreenState();
+  State<SupplementArticlesScreen> createState() =>
+      _SupplementArticlesScreenState();
 }
 
-class _AllArticlesScreenState extends State<AllArticlesScreen> {
+class _SupplementArticlesScreenState extends State<SupplementArticlesScreen> {
   final TextEditingController searchController = TextEditingController();
   ScrollController scrollController = ScrollController();
-  List<ArticleModel> searchList = [];
+  List<SupplementData> searchList = [];
 
   int length = 10;
 
@@ -31,7 +33,7 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (widget.models.length > length) {
+      if (widget.list.length > length) {
         length += 10;
         Future.delayed(const Duration(seconds: 1)).then((value) {
           if (mounted) {
@@ -53,46 +55,30 @@ class _AllArticlesScreenState extends State<AllArticlesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).articlesT),
-        centerTitle: true,
-      ),
+      appBar: myAppBar(widget.title),
       body: Column(
         children: [
           searchField(
             controller: searchController,
             onChanged: (value) {
-              searchList = searchArticles(value, widget.models);
+              searchList = searchSupplement(value, widget.list);
               if (value == '') {
                 length = 10;
               }
               setState(() {});
             },
           ),
-          const SizedBox(
-            height: 15,
+          Expanded(
+            child: SupplementAriclesListViewWidget(
+              scrollController: scrollController,
+              length: length,
+              list: searchController.text == '' ? widget.list : searchList,
+            ),
           ),
-          widget.models.isNotEmpty
-              ? Expanded(
-                  child: ArticleListViewWidget(
-                    controller: scrollController,
-                    list: searchController.text == ''
-                        ? widget.models
-                        : searchList,
-                    length: length,
-                  ),
-                )
-              : Expanded(
-                  child: Center(
-                    child: Text(
-                      S.of(context).no_results,
-                    ),
-                  ),
-                ),
           if (searchList.isEmpty && searchController.text != '')
             Expanded(
               child: Text(
-                S.of(context).noArticles,
+                S.of(context).no_results,
                 style: TextStyles.style20,
                 textAlign: TextAlign.center,
               ),

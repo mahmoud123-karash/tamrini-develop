@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/services/serach.dart';
+import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_list_view_widget.dart';

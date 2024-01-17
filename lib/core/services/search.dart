@@ -7,6 +7,7 @@ import 'package:tamrini/features/home/data/models/store_model/product_model.dart
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 
+import '../../features/food/data/models/supplement_model/supplement_data.dart';
 import '../../features/questions/data/models/question_model/question_model.dart';
 
 List<DataModel> searchExercise(value, List<DataModel> data) {
@@ -63,4 +64,11 @@ List<QuestionModel> searchQuestion(value, List<QuestionModel> data) {
   final fuse = Fuzzy(options);
   final results = fuse.search(value).map((result) => result.item).toList();
   return data.where((element) => results.contains(element.body)).toList();
+}
+
+List<SupplementData> searchSupplement(value, List<SupplementData> data) {
+  final options = [for (var element in data) element.title];
+  final fuse = Fuzzy(options);
+  final results = fuse.search(value).map((result) => result.item).toList();
+  return data.where((element) => results.contains(element.title)).toList();
 }

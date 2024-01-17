@@ -3,7 +3,9 @@ import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
+import 'package:tamrini/features/food/presentation/views/supplement_category_articles_screen.dart';
 
 class SupplementCategoryItemWidget extends StatelessWidget {
   const SupplementCategoryItemWidget({super.key, required this.model});
@@ -12,7 +14,10 @@ class SupplementCategoryItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        navigateTo(context,
+            SupplementArticlesScreen(list: model.data, title: model.title));
+      },
       child: Container(
         alignment: Alignment.topRight,
         constraints: BoxConstraints(

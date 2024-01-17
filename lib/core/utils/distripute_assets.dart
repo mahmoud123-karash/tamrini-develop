@@ -4,7 +4,10 @@ import 'package:tamrini/core/utils/regex.dart';
 import 'package:tamrini/core/utils/video_manager.dart';
 import 'package:tamrini/core/utils/youtube_manager.dart';
 
-List<Widget> distributeAssets(List<String> assets) {
+List<Widget> distributeAssets(
+  List<String> assets, {
+  BoxFit fit = BoxFit.cover,
+}) {
   List<Widget> distributedAssets = [];
   for (int i = 0; assets.length > i; i++) {
     if (RegExp(RegexPatterns.allowedYoutubeUrlFormat).hasMatch(assets[i]) ==
@@ -19,7 +22,7 @@ List<Widget> distributeAssets(List<String> assets) {
           image: FirebaseImageProvider(
             FirebaseUrl(assets[i]),
           ),
-          fit: BoxFit.cover,
+          fit: fit,
         ),
       );
     }
