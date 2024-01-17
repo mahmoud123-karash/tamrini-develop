@@ -47,16 +47,17 @@ class ProfileContentSliverBoxWidget extends StatelessWidget {
         const ProfileLocationBuilderWidget(),
         SocialMediaProfileRowWidget(model: model),
         const SizedBox(
-          height: 5,
+          height: 10,
         ),
         ProfileSocialMediaWidget(
           fUri: model.facebookUri,
           nUri: model.instgramUri,
           tUri: model.twiterUri,
           phone: model.phone,
+          isProfile: true,
         ),
         const SizedBox(
-          height: 15,
+          height: 30,
         ),
       ],
     );

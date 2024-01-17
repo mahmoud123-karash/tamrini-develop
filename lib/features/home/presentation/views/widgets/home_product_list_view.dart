@@ -23,9 +23,11 @@ class ProductsListViewWidget extends StatelessWidget {
           return HomeProductItemWidget(
             model: models[index],
             width: getWidth - 70,
-            smodel: StoreCubit.get(context).getStore(
-              models[index].ownerUid,
-            ),
+            smodel: StoreCubit.get(context)
+                .getStore(
+                  models[index].ownerUid,
+                )
+                .first,
           );
         },
       ),

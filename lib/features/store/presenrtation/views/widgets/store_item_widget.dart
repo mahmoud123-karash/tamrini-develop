@@ -20,9 +20,9 @@ class StoreItemWidget extends StatelessWidget {
     final getWidht = mediaQuery.size.width;
 
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15),
+      padding: const EdgeInsets.only(left: 10, right: 10),
       child: InkWell(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(15),
         onTap: () {
           navigateTo(context, StoreScreen(model: model));
         },
@@ -44,7 +44,7 @@ class StoreItemWidget extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blueGrey[500],
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(15),
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,

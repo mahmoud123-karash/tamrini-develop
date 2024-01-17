@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -7,8 +8,12 @@ class SocialTextFiledWidget extends StatelessWidget {
   const SocialTextFiledWidget({
     super.key,
     required this.controller,
+    required this.autovalidateMode,
+    required this.prefix,
   });
   final TextEditingController controller;
+  final AutovalidateMode autovalidateMode;
+  final String prefix;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +23,22 @@ class SocialTextFiledWidget extends StatelessWidget {
         color: greyColor.withOpacity(0.2),
       ),
       child: TextFormField(
+        minLines: 1,
+        maxLines: 2,
+        autovalidateMode: autovalidateMode,
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return null;
+          } else {
+            if (!value.contains(prefix)) {
+              return 'Invalid URI';
+            }
+            return null;
+          }
+        },
+        inputFormatters: [
+          FilteringTextInputFormatter.deny(RegExp(r'\s')),
+        ],
         keyboardType: TextInputType.url,
         controller: controller,
         decoration: InputDecoration(

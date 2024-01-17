@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
+import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/question_name_Image_type_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/question_time_and_date_widget.dart';
 
@@ -10,15 +11,13 @@ import 'share_and_answer_details_question.dart';
 class QuestionDetailsItemWidget extends StatelessWidget {
   const QuestionDetailsItemWidget({
     super.key,
-    required this.name,
-    required this.image,
-    required this.type,
-    required this.uid,
+    required this.user,
     required this.answersCount,
     required this.date,
     required this.model,
   });
-  final String name, image, type, uid, answersCount;
+  final String answersCount;
+  final UserModel user;
   final Timestamp date;
   final QuestionModel model;
 
@@ -30,10 +29,7 @@ class QuestionDetailsItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           QuestionOwnerNameImageTypeWidget(
-            image: image,
-            name: name,
-            type: type,
-            uid: uid,
+            user: user,
             model: model,
             isDetails: true,
           ),

@@ -8,6 +8,7 @@ import 'package:tamrini/features/profile/presentation/views/profile_screen.dart'
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
+import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/answer_options_bottom_sheet_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/name_type_answer_user_widget.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
@@ -19,16 +20,14 @@ class AnswerItemWidgt extends StatelessWidget {
   const AnswerItemWidgt({
     super.key,
     required this.model,
-    required this.name,
-    required this.image,
-    required this.type,
+    required this.user,
     required this.question,
   });
 
   final AnswerModel model;
   final QuestionModel question;
 
-  final String name, image, type;
+  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +42,10 @@ class AnswerItemWidgt extends StatelessWidget {
               if (model.userUid == uid) {
                 navigateTo(context, const ProfileScreen());
               } else {
-                if (type == 'admin') {
+                if (user.role == 'admin') {
                   showSnackBar(context, S.of(context).admin_hint);
                 } else {
-                  if (type == 'captain') {
+                  if (user.role == 'captain') {
                     navigateTo(
                       context,
                       TrainerProfileScreen(
@@ -55,16 +54,16 @@ class AnswerItemWidgt extends StatelessWidget {
                       ),
                     );
                   } else {
-                    navigateTo(context, const UserProfileScreen());
+                    navigateTo(context, UserProfileScreen(model: user));
                   }
                 }
               }
             },
             child: CircleAvatar(
               radius: 25,
-              backgroundImage: image != ''
+              backgroundImage: user.image != ''
                   ? FirebaseImageProvider(
-                      FirebaseUrl(image),
+                      FirebaseUrl(user.image),
                     ) as ImageProvider
                   : const AssetImage(
                       Assets.imagesProfile,
@@ -75,8 +74,8 @@ class AnswerItemWidgt extends StatelessWidget {
             width: 15,
           ),
           NameAswertypeUserWidget(
-            name: name,
-            type: type,
+            name: user.name,
+            type: user.role,
             answer: model.answer,
             date: DateFormat('MM/dd/yy', 'en').format(model.date.toDate()),
             time: DateFormat('h:mm a', 'en').format(model.date.toDate()),

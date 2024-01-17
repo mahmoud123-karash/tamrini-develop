@@ -97,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("الرجاء إختيار الجنس"),
         "gym": MessageLookupByLibrary.simpleMessage("أقرب جيم"),
+        "gym_owner": MessageLookupByLibrary.simpleMessage("الصالة الرياضية"),
         "haveacount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "health": MessageLookupByLibrary.simpleMessage("الصحة والتغذية"),
         "highPrice": MessageLookupByLibrary.simpleMessage("الأعلى سعرا"),
@@ -110,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "location": MessageLookupByLibrary.simpleMessage("الموقع الجغرافي"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
         "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
@@ -124,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "minDistance": MessageLookupByLibrary.simpleMessage("الأقرب"),
         "money": MessageLookupByLibrary.simpleMessage("السعر"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "my_day": MessageLookupByLibrary.simpleMessage("يومي"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
         "noArticles":
             MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
@@ -220,6 +223,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ترقية الحساب"),
         "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
+        "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),

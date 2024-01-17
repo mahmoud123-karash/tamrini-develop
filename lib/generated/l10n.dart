@@ -1669,6 +1669,46 @@ class S {
       args: [],
     );
   }
+
+  /// `الموقع الجغرافي`
+  String get location {
+    return Intl.message(
+      'الموقع الجغرافي',
+      name: 'location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يومي`
+  String get my_day {
+    return Intl.message(
+      'يومي',
+      name: 'my_day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منبه لمياه`
+  String get water_alarm {
+    return Intl.message(
+      'منبه لمياه',
+      name: 'water_alarm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الصالة الرياضية`
+  String get gym_owner {
+    return Intl.message(
+      'الصالة الرياضية',
+      name: 'gym_owner',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

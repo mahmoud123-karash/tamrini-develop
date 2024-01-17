@@ -18,6 +18,8 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
   TextEditingController facbookController = TextEditingController();
   TextEditingController instgramController = TextEditingController();
   TextEditingController twiterController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   void dispose() {
@@ -44,6 +46,8 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
         slivers: [
           SliverToBoxAdapter(
             child: SocialMediaContentWidget(
+              autovalidateMode: autovalidateMode,
+              formKey: formKey,
               facbookController: facbookController,
               instgramController: instgramController,
               twiterController: twiterController,
@@ -55,19 +59,24 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
               alignment: Alignment.bottomCenter,
               child: EditProfileCustomButtonBuilderWidget(
                 onPressed: () {
-                  ProfileCubit.get(context).updateProfile(
-                    name: widget.model.name,
-                    email: widget.model.email,
-                    gender: widget.model.gender,
-                    age: widget.model.age,
-                    phone: widget.model.phone,
-                    image: widget.model.image,
-                    isBanned: widget.model.isBanned,
-                    facebookUri: widget.model.facebookUri,
-                    instgramUri: widget.model.image,
-                    twiterUri: widget.model.twiterUri,
-                    address: widget.model.address,
-                  );
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    ProfileCubit.get(context).updateProfile(
+                      name: widget.model.name,
+                      email: widget.model.email,
+                      gender: widget.model.gender,
+                      age: widget.model.age,
+                      phone: widget.model.phone,
+                      image: widget.model.image,
+                      isBanned: widget.model.isBanned,
+                      facebookUri: facbookController.text,
+                      instgramUri: instgramController.text,
+                      twiterUri: twiterController.text,
+                      address: widget.model.address,
+                    );
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                  }
                 },
               ),
             ),

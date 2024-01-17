@@ -27,9 +27,7 @@ class AnswerItemBuilderWidget extends StatelessWidget {
           if (state is SucessGetUserState) {
             return AnswerItemWidgt(
               model: model,
-              image: state.model.image,
-              name: state.model.name,
-              type: state.model.role,
+              user: state.model,
               question: question,
             );
           } else if (state is ErrorGetUserState) {

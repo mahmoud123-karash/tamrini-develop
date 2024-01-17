@@ -8,6 +8,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
+import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/options_bottom_sheet_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/question_owner_name_type_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
@@ -19,14 +20,11 @@ import '../../../../trainer/presentation/manager/trainer_cubit/trainers_cubit.da
 class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
   const QuestionOwnerNameImageTypeWidget({
     super.key,
-    required this.image,
-    required this.name,
-    required this.type,
-    required this.uid,
+    required this.user,
     required this.model,
     required this.isDetails,
   });
-  final String image, name, type, uid;
+  final UserModel user;
   final QuestionModel model;
   final bool isDetails;
 
@@ -40,10 +38,10 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
             if (model.askerUid == uid) {
               navigateTo(context, const ProfileScreen());
             } else {
-              if (type == 'admin') {
+              if (user.role == 'admin') {
                 showSnackBar(context, S.of(context).admin_hint);
               } else {
-                if (type == 'captain') {
+                if (user.role == 'captain') {
                   navigateTo(
                     context,
                     TrainerProfileScreen(
@@ -52,16 +50,16 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
                     ),
                   );
                 } else {
-                  navigateTo(context, const UserProfileScreen());
+                  navigateTo(context, UserProfileScreen(model: user));
                 }
               }
             }
           },
           child: CircleAvatar(
             radius: 30,
-            backgroundImage: image != ''
+            backgroundImage: user.image != ''
                 ? FirebaseImageProvider(
-                    FirebaseUrl(image),
+                    FirebaseUrl(user.image),
                   ) as ImageProvider
                 : const AssetImage(
                     Assets.imagesProfile,
@@ -72,11 +70,11 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
           width: 8,
         ),
         QuestionOwnerNameTypeWidgt(
-          name: name,
-          role: type,
+          name: user.name,
+          role: user.role,
         ),
         const Spacer(),
-        if (uid == CacheHelper.getData(key: 'uid') || uid == adminUid)
+        if (user.uid == CacheHelper.getData(key: 'uid') || user.uid == adminUid)
           InkWell(
             borderRadius: BorderRadius.circular(5),
             onTap: () {
@@ -85,7 +83,7 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
                 context: context,
                 builder: (context) => OptionsBottomSheetWidget(
                   model: model,
-                  isAdmin: uid == adminUid,
+                  isAdmin: user.uid == adminUid,
                   isDetails: isDetails,
                 ),
               );

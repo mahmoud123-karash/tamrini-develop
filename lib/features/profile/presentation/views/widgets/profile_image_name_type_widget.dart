@@ -16,7 +16,7 @@ class ProfileImageNameTypeWidget extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 40,
+            radius: 50,
             backgroundImage: image == ''
                 ? const AssetImage(
                     Assets.imagesProfile,

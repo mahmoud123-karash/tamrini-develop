@@ -56,10 +56,7 @@ class AnswersScreen extends StatelessWidget {
                       Align(
                         alignment: Alignment.topCenter,
                         child: AnswersDetailsContentWidget(
-                          name: model.name,
-                          image: model.image,
-                          type: model.role,
-                          uid: model.uid,
+                          user: model,
                           model: question,
                         ),
                       ),

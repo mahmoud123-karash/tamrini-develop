@@ -99,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
+        "gym_owner": MessageLookupByLibrary.simpleMessage("الصالة الرياضية"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "highPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
@@ -112,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "internet_connection": MessageLookupByLibrary.simpleMessage(
             "Internet Connection Established"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "location": MessageLookupByLibrary.simpleMessage("الموقع الجغرافي"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
         "log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
@@ -126,6 +128,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "minDistance": MessageLookupByLibrary.simpleMessage("Nearest"),
         "money": MessageLookupByLibrary.simpleMessage("Price"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "my_day": MessageLookupByLibrary.simpleMessage("يومي"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
@@ -226,6 +229,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "validate":
             MessageLookupByLibrary.simpleMessage("This field is required"),
+        "water_alarm": MessageLookupByLibrary.simpleMessage("منبه لمياه"),
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("Write a new question..."),

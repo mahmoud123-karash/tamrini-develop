@@ -30,6 +30,12 @@ class SettingsScreen extends StatelessWidget {
             ),
             const Divider(),
             SettingsListTileWidget(
+              onPressed: () {},
+              iconData: Ionicons.alarm,
+              lable: S.of(context).water_alarm,
+            ),
+            const Divider(),
+            SettingsListTileWidget(
               onPressed: () {
                 navigateTo(context, const ResetPassScreen());
               },

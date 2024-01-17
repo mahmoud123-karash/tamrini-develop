@@ -9,34 +9,53 @@ class SocialMediaContentWidget extends StatelessWidget {
     required this.facbookController,
     required this.instgramController,
     required this.twiterController,
+    required this.formKey,
+    required this.autovalidateMode,
   });
   final TextEditingController facbookController;
   final TextEditingController instgramController;
   final TextEditingController twiterController;
+  final GlobalKey<FormState> formKey;
+  final AutovalidateMode autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          NameTextWidget(text: S.of(context).facebooh),
-          SocialTextFiledWidget(controller: facbookController),
-          const SizedBox(
-            height: 10,
-          ),
-          NameTextWidget(text: S.of(context).instgram),
-          SocialTextFiledWidget(controller: instgramController),
-          const SizedBox(
-            height: 10,
-          ),
-          NameTextWidget(text: S.of(context).twiter),
-          SocialTextFiledWidget(controller: twiterController),
-        ],
+    return Form(
+      key: formKey,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 10,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            NameTextWidget(text: S.of(context).facebooh),
+            SocialTextFiledWidget(
+              prefix: 'facebook.com',
+              controller: facbookController,
+              autovalidateMode: autovalidateMode,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            NameTextWidget(text: S.of(context).instgram),
+            SocialTextFiledWidget(
+              prefix: 'instagram.com',
+              controller: instgramController,
+              autovalidateMode: autovalidateMode,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            NameTextWidget(text: S.of(context).twiter),
+            SocialTextFiledWidget(
+              prefix: 'twitter.com',
+              controller: twiterController,
+              autovalidateMode: autovalidateMode,
+            ),
+          ],
+        ),
       ),
     );
   }

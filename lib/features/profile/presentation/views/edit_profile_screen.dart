@@ -82,7 +82,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         image: widget.model.image,
                         isBanned: widget.model.isBanned,
                         facebookUri: widget.model.facebookUri,
-                        instgramUri: widget.model.image,
+                        instgramUri: widget.model.instgramUri,
                         twiterUri: widget.model.twiterUri,
                         address: widget.model.address,
                       );

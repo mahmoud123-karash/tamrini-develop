@@ -13,10 +13,10 @@ class StoreCubit extends Cubit<StoreStates> {
 
   List<StoreModel> stores = [];
 
-  StoreModel getStore(uid) {
+  List<StoreModel> getStore(uid) {
     List<StoreModel> list =
         stores.where((element) => element.storeOwnerUid == uid).toList();
-    return list[0];
+    return list;
   }
 
   void getData() async {

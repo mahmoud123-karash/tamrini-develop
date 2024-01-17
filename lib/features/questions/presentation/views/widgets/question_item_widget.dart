@@ -25,10 +25,7 @@ class QuestionItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           QuestionOwnerNameImageTypeWidget(
-            image: user.image,
-            name: user.name,
-            type: user.role,
-            uid: user.uid,
+            user: user,
             model: model,
             isDetails: false,
           ),

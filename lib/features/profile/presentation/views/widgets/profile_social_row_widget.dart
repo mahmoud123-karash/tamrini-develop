@@ -11,16 +11,18 @@ class ProfileSocialMediaWidget extends StatelessWidget {
     required this.nUri,
     required this.tUri,
     required this.phone,
+    required this.isProfile,
   });
   final String fUri;
   final String nUri;
   final String tUri;
   final String phone;
+  final bool isProfile;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50),
+      padding: EdgeInsets.symmetric(horizontal: isProfile ? 30 : 20),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -43,7 +45,12 @@ class ProfileSocialMediaWidget extends StatelessWidget {
           InkWell(
             onTap: () {
               if (fUri == '') {
-                showSnackBar(context, S.of(context).profile_hint_social);
+                showSnackBar(
+                  context,
+                  isProfile
+                      ? S.of(context).profile_hint_social
+                      : S.of(context).tranier_hint_social,
+                );
               } else {
                 Uri uri = Uri.parse(fUri);
                 openUri(url: uri);
@@ -58,10 +65,15 @@ class ProfileSocialMediaWidget extends StatelessWidget {
           const Spacer(),
           InkWell(
             onTap: () {
-              if (nUri == '') {
-                showSnackBar(context, S.of(context).profile_hint_social);
+              if (tUri == '') {
+                showSnackBar(
+                  context,
+                  isProfile
+                      ? S.of(context).profile_hint_social
+                      : S.of(context).tranier_hint_social,
+                );
               } else {
-                Uri uri = Uri.parse(nUri);
+                Uri uri = Uri.parse(tUri);
                 openUri(url: uri);
               }
             },
@@ -74,10 +86,15 @@ class ProfileSocialMediaWidget extends StatelessWidget {
           const Spacer(),
           InkWell(
             onTap: () {
-              if (tUri == '') {
-                showSnackBar(context, S.of(context).profile_hint_social);
+              if (nUri == '') {
+                showSnackBar(
+                  context,
+                  isProfile
+                      ? S.of(context).profile_hint_social
+                      : S.of(context).tranier_hint_social,
+                );
               } else {
-                Uri uri = Uri.parse(tUri);
+                Uri uri = Uri.parse(nUri);
                 openUri(url: uri);
               }
             },

@@ -21,9 +21,11 @@ class ProductListViewWidget extends StatelessWidget {
         if (index < length) {
           return ProductItemWidget(
             model: list[index],
-            sModel: StoreCubit.get(context).getStore(
-              list[index].ownerUid,
-            ),
+            sModel: StoreCubit.get(context)
+                .getStore(
+                  list[index].ownerUid,
+                )
+                .first,
           );
         } else {
           return const Center(
