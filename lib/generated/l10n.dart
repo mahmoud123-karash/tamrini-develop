@@ -1849,6 +1849,146 @@ class S {
       args: [],
     );
   }
+
+  /// `حاسبة البروتينات`
+  String get protein_calculator {
+    return Intl.message(
+      'حاسبة البروتينات',
+      name: 'protein_calculator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الطول`
+  String get height {
+    return Intl.message(
+      'الطول',
+      name: 'height',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الوزن`
+  String get weight {
+    return Intl.message(
+      'الوزن',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سم`
+  String get cm {
+    return Intl.message(
+      'سم',
+      name: 'cm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المغذيات`
+  String get nutrients {
+    return Intl.message(
+      'المغذيات',
+      name: 'nutrients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الكمية`
+  String get quantity {
+    return Intl.message(
+      'الكمية',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercise Purpose`
+  String get exercise_purpose {
+    return Intl.message(
+      'Exercise Purpose',
+      name: 'exercise_purpose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight Gain`
+  String get weight_gain {
+    return Intl.message(
+      'Weight Gain',
+      name: 'weight_gain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight Loss`
+  String get weight_loss {
+    return Intl.message(
+      'Weight Loss',
+      name: 'weight_loss',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight Maintenance`
+  String get weight_maintenance {
+    return Intl.message(
+      'Weight Maintenance',
+      name: 'weight_maintenance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Low Activity in Work and Club`
+  String get low_activity {
+    return Intl.message(
+      'Low Activity in Work and Club',
+      name: 'low_activity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Moderate Activity in Work and Club`
+  String get moderate_activity {
+    return Intl.message(
+      'Moderate Activity in Work and Club',
+      name: 'moderate_activity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `High Activity in Work and Club`
+  String get high_activity {
+    return Intl.message(
+      'High Activity in Work and Club',
+      name: 'high_activity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Very Intense Activity in Work and Club`
+  String get very_intense_activity {
+    return Intl.message(
+      'Very Intense Activity in Work and Club',
+      name: 'very_intense_activity',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

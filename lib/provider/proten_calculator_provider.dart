@@ -2,13 +2,7 @@ import 'package:flutter/material.dart';
 
 enum Target { purpose, increaseWeight, loseWeight, maintainWeight }
 
-enum ActivityLevel {
-  // rate,
-  light,
-  moderate,
-  very,
-  extra
-}
+enum ActivityLevel { light, moderate, very, extra }
 
 enum Gender { Male, Female }
 

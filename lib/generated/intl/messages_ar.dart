@@ -60,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("إختر الوجبة"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("اختر الوزن"),
+        "cm": MessageLookupByLibrary.simpleMessage("سم"),
         "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
         "comment_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
         "compelteHint":
@@ -93,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
         "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
+        "exercise_purpose":
+            MessageLookupByLibrary.simpleMessage("الغرض من التمرين"),
         "exercises": MessageLookupByLibrary.simpleMessage("التمارين واللياقة"),
         "facebooh": MessageLookupByLibrary.simpleMessage("فيسبوك"),
         "fat": MessageLookupByLibrary.simpleMessage("دهون"),
@@ -108,7 +111,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_owner": MessageLookupByLibrary.simpleMessage("الصالة الرياضية"),
         "haveacount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "health": MessageLookupByLibrary.simpleMessage("الصحة والتغذية"),
+        "height": MessageLookupByLibrary.simpleMessage("الطول"),
         "highPrice": MessageLookupByLibrary.simpleMessage("الأعلى سعرا"),
+        "high_activity":
+            MessageLookupByLibrary.simpleMessage("نشاط عالي في العمل والنادي"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
@@ -127,11 +133,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هل تريد تسجيل الخروج ؟"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "lowPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرا"),
+        "low_activity":
+            MessageLookupByLibrary.simpleMessage("نشاط منخفض في العمل والنادي"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "maxDistance": MessageLookupByLibrary.simpleMessage("الأبعد"),
         "media": MessageLookupByLibrary.simpleMessage("مواقع التواصل"),
         "messages": MessageLookupByLibrary.simpleMessage("الرسائل"),
         "minDistance": MessageLookupByLibrary.simpleMessage("الأقرب"),
+        "moderate_activity":
+            MessageLookupByLibrary.simpleMessage("نشاط معتدل في العمل والنادي"),
         "money": MessageLookupByLibrary.simpleMessage("السعر"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "my_day": MessageLookupByLibrary.simpleMessage("يومي"),
@@ -153,6 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nocProducts":
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات في هذه الفئة"),
         "notification": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "nutrients": MessageLookupByLibrary.simpleMessage("المغذيات"),
         "nuttritions":
             MessageLookupByLibrary.simpleMessage("المكملات الغذائية"),
         "ok": MessageLookupByLibrary.simpleMessage("أوافق"),
@@ -174,9 +185,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "products": MessageLookupByLibrary.simpleMessage("منتجات متنوعة"),
         "profile": MessageLookupByLibrary.simpleMessage("ملفك الشخصي"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("لا يوجد"),
+        "protein_calculator":
+            MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
         "protien": MessageLookupByLibrary.simpleMessage("بروتين"),
         "protien_calculator":
             MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
+        "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "question_error":
             MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
@@ -238,7 +252,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "validate": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "values_food": MessageLookupByLibrary.simpleMessage("القيم الغذائية"),
+        "very_intense_activity": MessageLookupByLibrary.simpleMessage(
+            "نشاط مكثف جدا في العمل والنادي"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
+        "weight": MessageLookupByLibrary.simpleMessage("الوزن"),
+        "weight_gain": MessageLookupByLibrary.simpleMessage("زيادة في الوزن"),
+        "weight_loss": MessageLookupByLibrary.simpleMessage("خسارة الوزن"),
+        "weight_maintenance":
+            MessageLookupByLibrary.simpleMessage("الحفاظ على الوزن"),
         "whatsApp": MessageLookupByLibrary.simpleMessage("واتس اب"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":

@@ -100,3 +100,53 @@ void showWeightDialog({
     },
   );
 }
+
+void showCalculatorDialog({
+  required Widget child,
+  required FixedExtentScrollController controller,
+  required int selectedPurpose,
+  required BuildContext context,
+}) {
+  showCupertinoModalPopup<void>(
+    context: context,
+    builder: (BuildContext context) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (context) => controller.jumpToItem(
+          selectedPurpose,
+        ),
+      );
+
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Material(
+            child: Row(
+              children: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(
+                    S.of(context).ok,
+                  ),
+                ),
+                const Spacer(),
+              ],
+            ),
+          ),
+          Container(
+            height: 250.sp,
+            padding: const EdgeInsets.only(top: 6.0),
+            margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
+            color: CupertinoColors.systemBackground.resolveFrom(context),
+            child: SafeArea(
+              top: false,
+              child: child,
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}

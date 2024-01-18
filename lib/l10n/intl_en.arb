@@ -178,7 +178,23 @@
     "calories":"سعرات",
     "ok":"أوافق",
     "calory":"سعرة",
-    "choose_weight":"اختر الوزن"
+    "choose_weight":"اختر الوزن",
+    "protein_calculator":"حاسبة البروتينات",
+    "height":"الطول",
+    "weight":"الوزن",
+    "cm":"سم",
+    "nutrients": "المغذيات",
+    "quantity": "الكمية",
+    "exercise_purpose": "Exercise Purpose",
+    "weight_gain": "Weight Gain",
+    "weight_loss": "Weight Loss",
+    "weight_maintenance": "Weight Maintenance",
+    "low_activity": "Low Activity in Work and Club",
+    "moderate_activity": "Moderate Activity in Work and Club",
+    "high_activity": "High Activity in Work and Club",
+    "very_intense_activity": "Very Intense Activity in Work and Club"
+
+
 
 
 
