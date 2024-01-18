@@ -12,16 +12,22 @@ class CLassificationLoadingWidget extends StatelessWidget {
         colors: [appColor, greyColor],
       ),
       child: ListView.separated(
-        itemBuilder: (context, index) => Container(
-          width: double.infinity,
-          height: 50,
-          decoration: BoxDecoration(
-            color: appColor.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(15),
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+            vertical: 10,
+          ),
+          child: Container(
+            width: double.infinity,
+            height: 80,
+            decoration: BoxDecoration(
+              color: appColor.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(15),
+            ),
           ),
         ),
         separatorBuilder: (context, index) => const SizedBox(
-          height: 15,
+          height: 5,
         ),
         itemCount: 15,
       ),

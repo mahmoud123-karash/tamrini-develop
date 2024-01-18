@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/supplement_grid_view_widget.dart';
@@ -25,12 +24,7 @@ class SupplementGridViewBuilderWidget extends StatelessWidget {
         } else if (state is ErrorGetSupplementState) {
           return MessageBuilderWidget(message: state.message);
         } else {
-          return Center(
-            child: SizedBox(
-              height: 100.h,
-              child: Image.asset(Assets.imagesLoading),
-            ),
-          );
+          return loadingWidget();
         }
       },
     );

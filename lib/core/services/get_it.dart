@@ -118,7 +118,8 @@ void setLocator() {
       getIt.get<ProfileRepoImpl>(),
     ),
   );
-  getIt.registerSingleton(
+
+  getIt.registerSingleton<FoodRepoImpl>(
     FoodRepoImpl(
       SupplementRemoteDataSourceImpl(),
       NutritionRemoteDataSourceImpl(),

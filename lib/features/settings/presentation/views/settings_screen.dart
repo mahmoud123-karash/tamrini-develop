@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/utils/dialog.dart';
 import 'package:tamrini/features/auth/presentation/views/reset_password_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/language_screen.dart';

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model.dart/classification_model.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model.dart/nutrition_model.dart';
+import 'package:tamrini/features/food/data/models/nutrition_model/classification_model.dart';
+import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
 
 abstract class NutritionRemoteDataSource {
   Future<List<ClassificationModel>> getClassifications();

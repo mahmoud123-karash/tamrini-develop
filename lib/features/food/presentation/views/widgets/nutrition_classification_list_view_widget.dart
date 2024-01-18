@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model.dart/classification_model.dart';
+import 'package:tamrini/features/food/data/models/nutrition_model/classification_model.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/nutrition_classification_item_widget.dart';
 
 class NutritionClassificationListViewWidget extends StatelessWidget {

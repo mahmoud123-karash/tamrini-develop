@@ -35,13 +35,16 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
   FixedExtentScrollController? _weightController;
   FixedExtentScrollController? _mealController;
 
-  List<Widget> grams = List<Widget>.generate(1000, (int index) {
-    return Center(
-      child: Text(
-        index.toString(),
-      ),
-    );
-  });
+  List<Widget> grams = List<Widget>.generate(
+    1000,
+    (int index) {
+      return Center(
+        child: Text(
+          index.toString(),
+        ),
+      );
+    },
+  );
 
   @override
   void initState() {
@@ -97,7 +100,7 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
                             nameController = value;
                           });
                         }),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     SizedBox(
@@ -135,10 +138,10 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 200.w,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -174,10 +177,10 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 200.w,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -212,10 +215,10 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: 200.w,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -249,7 +252,7 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
           }),
           actions: [
             TextButton(
-              child: Text("إدخال"),
+              child: const Text("إدخال"),
               onPressed: () {
                 if (nameController.isEmpty) {
                   Fluttertoast.showToast(
@@ -397,48 +400,49 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
   void _showDialog(
       Widget child, FixedExtentScrollController controller, int index) {
     showCupertinoModalPopup<void>(
-        context: navigationKey.currentContext!,
-        builder: (BuildContext context) {
-          WidgetsBinding.instance.addPostFrameCallback(
-            /// [ScrollController] now refers to a
-            /// [ListWheelScrollView] that is already mounted on the screen
-            (context) => controller.jumpToItem(
-              _selectedWeight,
-            ),
-          );
+      context: navigationKey.currentContext!,
+      builder: (BuildContext context) {
+        WidgetsBinding.instance.addPostFrameCallback(
+          /// [ScrollController] now refers to a
+          /// [ListWheelScrollView] that is already mounted on the screen
+          (context) => controller.jumpToItem(
+            _selectedWeight,
+          ),
+        );
 
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Material(
-                child: Row(
-                  children: [
-                    TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('موافق')),
-                    const Spacer(),
-                  ],
-                ),
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Material(
+              child: Row(
+                children: [
+                  TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text('موافق')),
+                  const Spacer(),
+                ],
               ),
-              Container(
-                height: 300.sp,
-                padding: const EdgeInsets.only(top: 6.0),
-                // The Bottom margin is provided to align the popup above the system navigation bar.
-                margin: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom,
-                ),
-                // Provide a background color for the popup.
-                color: CupertinoColors.systemBackground.resolveFrom(context),
-                // Use a SafeArea widget to avoid system overlaps.
-                child: SafeArea(
-                  top: false,
-                  child: child,
-                ),
+            ),
+            Container(
+              height: 300.sp,
+              padding: const EdgeInsets.only(top: 6.0),
+              // The Bottom margin is provided to align the popup above the system navigation bar.
+              margin: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
-            ],
-          );
-        });
+              // Provide a background color for the popup.
+              color: CupertinoColors.systemBackground.resolveFrom(context),
+              // Use a SafeArea widget to avoid system overlaps.
+              child: SafeArea(
+                top: false,
+                child: child,
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -684,7 +688,7 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
                                 spreadRadius: 20,
                                 blurRadius: 10,
                                 color: Colors.black.withOpacity(0.01),
-                                offset: Offset(0, 1))
+                                offset: const Offset(0, 1))
                           ]),
                       child: Padding(
                         padding: const EdgeInsets.all(20),
@@ -809,7 +813,7 @@ class _NutritiousCalcScreenState extends State<NutritiousCalcScreen> {
                                       children: [
                                         SizedBox(
                                           width: 60.w,
-                                          child: AutoSizeText(
+                                          child: const AutoSizeText(
                                             "كربوهيدرات",
                                             maxLines: 1,
                                             style: TextStyle(fontSize: 13),

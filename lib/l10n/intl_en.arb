@@ -169,7 +169,18 @@
     "whatsApp":"واتس اب",
     "values_food": "القيم الغذائية",
     "protien_calculator": "حاسبة البروتينات",
-    "nuttritions": "المكملات الغذائية"
+    "nuttritions": "المكملات الغذائية",
+    "choose_meal":"إختر الوجبة",
+    "g":"جم",
+    "protien":"بروتين",
+    "fat":"دهون",
+    "carb":"كربوهيدرات",
+    "calories":"سعرات",
+    "ok":"أوافق",
+    "calory":"سعرة",
+    "choose_weight":"اختر الوزن"
+
+
 
 
 

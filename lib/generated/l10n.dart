@@ -1759,6 +1759,96 @@ class S {
       args: [],
     );
   }
+
+  /// `إختر الوجبة`
+  String get choose_meal {
+    return Intl.message(
+      'إختر الوجبة',
+      name: 'choose_meal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `جم`
+  String get g {
+    return Intl.message(
+      'جم',
+      name: 'g',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `بروتين`
+  String get protien {
+    return Intl.message(
+      'بروتين',
+      name: 'protien',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `دهون`
+  String get fat {
+    return Intl.message(
+      'دهون',
+      name: 'fat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `كربوهيدرات`
+  String get carb {
+    return Intl.message(
+      'كربوهيدرات',
+      name: 'carb',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سعرات`
+  String get calories {
+    return Intl.message(
+      'سعرات',
+      name: 'calories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أوافق`
+  String get ok {
+    return Intl.message(
+      'أوافق',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سعرة`
+  String get calory {
+    return Intl.message(
+      'سعرة',
+      name: 'calory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اختر الوزن`
+  String get choose_weight {
+    return Intl.message(
+      'اختر الوزن',
+      name: 'choose_weight',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

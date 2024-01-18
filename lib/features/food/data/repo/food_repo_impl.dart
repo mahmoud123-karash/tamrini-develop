@@ -3,10 +3,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/nutrition_remote_data_source.dart';
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model.dart/classification_model.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model.dart/nutrition_model.dart';
+import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
 import 'package:tamrini/features/food/domain/repo/food_repo.dart';
+
+import '../models/nutrition_model/classification_model.dart';
 
 class FoodRepoImpl extends FoodRepo {
   final SupplementRemoteDataSource supplementRemoteDataSource;

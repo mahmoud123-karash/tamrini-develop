@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/presentation/manager/google_cubit/google_states.dart';
 
-import '../../../../../core/services/loader_dialog.dart';
+import '../../../../../core/services/show_dialog.dart';
 
 class GoogleCubit extends Cubit<GoogleStates> {
   GoogleCubit(this.googleSignInUseCase) : super(InitialGoogleSignInState());

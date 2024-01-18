@@ -1,7 +1,11 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/services.dart';
+import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/utils/navigation_route.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
@@ -88,4 +92,27 @@ Widget searchField({
           ),
         ),
       ),
+    );
+
+Widget loadingWidget() => Center(
+      child: SizedBox(
+        height: 80.h,
+        child: Center(
+          child: Image.asset(
+            Assets.imagesLoading,
+          ),
+        ),
+      ),
+    );
+
+AwesomeDialog logOutDialog(context) => AwesomeDialog(
+      context: context,
+      dialogType: DialogType.question,
+      animType: AnimType.bottomSlide,
+      title: S.of(context).log_out,
+      desc: S.of(context).log_out_question,
+      btnCancelOnPress: () {},
+      btnOkOnPress: () {
+        logOut(context);
+      },
     );

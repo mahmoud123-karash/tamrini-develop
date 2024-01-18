@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model.dart/classification_model.dart';
+import 'package:tamrini/features/food/data/models/nutrition_model/classification_model.dart';
+
+import '../nutrition_calculator_screen.dart';
 
 class NutritionClassificationItemWidget extends StatelessWidget {
   const NutritionClassificationItemWidget({super.key, required this.model});
@@ -34,7 +37,9 @@ class NutritionClassificationItemWidget extends StatelessWidget {
         ),
         child: Center(
           child: ListTile(
-            onTap: () {},
+            onTap: () {
+              navigateTo(context, NutritionCalculatorScreen(model: model));
+            },
             title: Text(
               model.classification,
               style: TextStyles.style17.copyWith(

@@ -1,5 +1,6 @@
 import 'package:fuzzy/fuzzy.dart';
 import 'package:tamrini/features/exercise/data/models/home_exercise/exercise_model.dart';
+import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
@@ -67,6 +68,13 @@ List<QuestionModel> searchQuestion(value, List<QuestionModel> data) {
 }
 
 List<SupplementData> searchSupplement(value, List<SupplementData> data) {
+  final options = [for (var element in data) element.title];
+  final fuse = Fuzzy(options);
+  final results = fuse.search(value).map((result) => result.item).toList();
+  return data.where((element) => results.contains(element.title)).toList();
+}
+
+List<NutritionModel> searchNutrition(value, List<NutritionModel> data) {
   final options = [for (var element in data) element.title];
   final fuse = Fuzzy(options);
   final results = fuse.search(value).map((result) => result.item).toList();

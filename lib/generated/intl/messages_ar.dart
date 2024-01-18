@@ -51,10 +51,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "buyNow": MessageLookupByLibrary.simpleMessage("شراء الآن"),
         "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
+        "calories": MessageLookupByLibrary.simpleMessage("سعرات"),
+        "calory": MessageLookupByLibrary.simpleMessage("سعرة"),
+        "carb": MessageLookupByLibrary.simpleMessage("كربوهيدرات"),
         "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "change_pass":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "choose_meal": MessageLookupByLibrary.simpleMessage("إختر الوجبة"),
+        "choose_weight": MessageLookupByLibrary.simpleMessage("اختر الوزن"),
         "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
         "comment_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
         "compelteHint":
@@ -90,10 +95,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
         "exercises": MessageLookupByLibrary.simpleMessage("التمارين واللياقة"),
         "facebooh": MessageLookupByLibrary.simpleMessage("فيسبوك"),
+        "fat": MessageLookupByLibrary.simpleMessage("دهون"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "from": MessageLookupByLibrary.simpleMessage("من"),
+        "g": MessageLookupByLibrary.simpleMessage("جم"),
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("الرجاء إختيار الجنس"),
@@ -148,6 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "notification": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "nuttritions":
             MessageLookupByLibrary.simpleMessage("المكملات الغذائية"),
+        "ok": MessageLookupByLibrary.simpleMessage("أوافق"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "other": MessageLookupByLibrary.simpleMessage("أخري"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("منتجاتنا"),
@@ -166,6 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "products": MessageLookupByLibrary.simpleMessage("منتجات متنوعة"),
         "profile": MessageLookupByLibrary.simpleMessage("ملفك الشخصي"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("لا يوجد"),
+        "protien": MessageLookupByLibrary.simpleMessage("بروتين"),
         "protien_calculator":
             MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
         "question_error":
