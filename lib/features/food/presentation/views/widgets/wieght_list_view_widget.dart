@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 
 class WeightListViewWidget extends StatelessWidget {
   const WeightListViewWidget({
@@ -16,7 +17,7 @@ class WeightListViewWidget extends StatelessWidget {
       magnification: 1.22,
       squeeze: 2.2,
       useMagnifier: true,
-      itemExtent: 32.0,
+      itemExtent: 50.0,
       onSelectedItemChanged: onSelectedItemChanged,
       children: grams,
     );
@@ -29,6 +30,9 @@ List<Widget> grams = List<Widget>.generate(
     return Center(
       child: Text(
         index.toString(),
+        style: TextStyles.style14.copyWith(
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   },

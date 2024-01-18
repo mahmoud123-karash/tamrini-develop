@@ -18,7 +18,7 @@ class ArticleListViewWidget extends StatelessWidget {
     final getWidht = mediaQuery.size.width;
     return ListView.separated(
       controller: controller,
-      itemCount: list.length < length ? list.length : length + 1,
+      itemCount: list.length <= length ? list.length : length + 1,
       itemBuilder: (context, index) {
         if (index < length) {
           return AtricleItemWidget(

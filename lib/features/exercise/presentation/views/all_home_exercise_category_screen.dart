@@ -39,7 +39,9 @@ class _AllHomeExercisesCategoryScreen
         scrollController.position.maxScrollExtent) {
       if (widget.model!.length > length) {
         length += 5;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        Future.delayed(const Duration(seconds: 1)).then((value) {
+          WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        });
       }
     }
   }

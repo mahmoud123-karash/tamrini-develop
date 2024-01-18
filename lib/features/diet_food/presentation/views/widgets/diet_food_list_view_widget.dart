@@ -32,7 +32,7 @@ class DietFoodListViewWidget extends StatelessWidget {
       separatorBuilder: (context, index) => const SizedBox(
         height: 20,
       ),
-      itemCount: list.length < length ? list.length : length + 1,
+      itemCount: list.length <= length ? list.length : length + 1,
     );
   }
 }

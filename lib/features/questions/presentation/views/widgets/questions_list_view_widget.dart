@@ -71,7 +71,7 @@ class _QuestionsListViewWidgetState extends State<QuestionsListViewWidget> {
             height: 10,
           ),
           itemCount:
-              widget.list.length < length ? widget.list.length : length + 1,
+              widget.list.length <= length ? widget.list.length : length + 1,
         ),
       ),
     );

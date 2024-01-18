@@ -30,7 +30,7 @@ class SupplementAriclesListViewWidget extends StatelessWidget {
           ),
         );
       },
-      itemCount: list.length < length ? list.length : length + 1,
+      itemCount: list.length <= length ? list.length : length + 1,
       separatorBuilder: (BuildContext context, int index) {
         return SizedBox(
           height: 5.h,

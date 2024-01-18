@@ -23,7 +23,10 @@ class HomeExerciseListViewWidget extends StatelessWidget {
         } else {
           return const Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 10,
+              ),
               child: CircularProgressIndicator(),
             ),
           );
@@ -32,7 +35,7 @@ class HomeExerciseListViewWidget extends StatelessWidget {
       separatorBuilder: (context, index) => const SizedBox(
         height: 15,
       ),
-      itemCount: list.length < length ? list.length : length + 1,
+      itemCount: list.length <= length ? list.length : length + 1,
     );
   }
 }

@@ -30,7 +30,7 @@ class ExerciseListViewWidget extends StatelessWidget {
           );
         }
       },
-      itemCount: list.length < length ? list.length : length + 1,
+      itemCount: list.length <= length ? list.length : length + 1,
       separatorBuilder: (BuildContext context, int index) {
         return const SizedBox(
           height: 5,

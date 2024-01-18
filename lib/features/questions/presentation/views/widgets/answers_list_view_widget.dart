@@ -51,7 +51,7 @@ class AnswerslistViewWidget extends StatelessWidget {
                   color: blackColor,
                 ),
               ),
-              itemCount: question.answers.length < length
+              itemCount: question.answers.length <= length
                   ? question.answers.length
                   : length + 1,
             ),
