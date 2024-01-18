@@ -71,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "contact_u": MessageLookupByLibrary.simpleMessage("تواصل معانا"),
+        "contact_us_hint": MessageLookupByLibrary.simpleMessage(
+            "للإستفسار او اي تساؤل تواصل معنا على :"),
         "country": MessageLookupByLibrary.simpleMessage("البلد"),
         "create": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),

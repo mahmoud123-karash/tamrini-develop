@@ -53,7 +53,10 @@ class CalculatorTargetWidget extends StatelessWidget {
                   Expanded(
                     flex: 5,
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 10.0),
+                      padding: const EdgeInsets.only(
+                        right: 10.0,
+                        left: 10,
+                      ),
                       child: Text(
                         selectedItem,
                         style: const TextStyle(

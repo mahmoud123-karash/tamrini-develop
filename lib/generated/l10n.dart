@@ -700,10 +700,10 @@ class S {
     );
   }
 
-  /// `Update Location`
+  /// `Update`
   String get update {
     return Intl.message(
-      'Update Location',
+      'Update',
       name: 'update',
       desc: '',
       args: [],
@@ -1560,350 +1560,350 @@ class S {
     );
   }
 
-  /// `مشاركة التطبيق`
+  /// `Share the app`
   String get share_app {
     return Intl.message(
-      'مشاركة التطبيق',
+      'Share the app',
       name: 'share_app',
       desc: '',
       args: [],
     );
   }
 
-  /// `التطبيق`
+  /// `App`
   String get app {
     return Intl.message(
-      'التطبيق',
+      'App',
       name: 'app',
       desc: '',
       args: [],
     );
   }
 
-  /// `جميع الحقوق محفوظة`
+  /// `All rights reserved`
   String get all_privay_saved {
     return Intl.message(
-      'جميع الحقوق محفوظة',
+      'All rights reserved',
       name: 'all_privay_saved',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا تستطيع الوصول لملف الأدمن`
+  /// `You cannot access the admin file`
   String get admin_hint {
     return Intl.message(
-      'لا تستطيع الوصول لملف الأدمن',
+      'You cannot access the admin file',
       name: 'admin_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `الملف الشخصي`
+  /// `User profile`
   String get user_profile {
     return Intl.message(
-      'الملف الشخصي',
+      'User profile',
       name: 'user_profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تحديث مواقعك`
+  /// `Your location has been updated`
   String get success_update_location {
     return Intl.message(
-      'تم تحديث مواقعك',
+      'Your location has been updated',
       name: 'success_update_location',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد`
+  /// `None`
   String get profile_hint_social {
     return Intl.message(
-      'لا يوجد',
+      'None',
       name: 'profile_hint_social',
       desc: '',
       args: [],
     );
   }
 
-  /// `فيسبوك`
+  /// `Facebook`
   String get facebooh {
     return Intl.message(
-      'فيسبوك',
+      'Facebook',
       name: 'facebooh',
       desc: '',
       args: [],
     );
   }
 
-  /// `انستجرام`
+  /// `Instagram`
   String get instgram {
     return Intl.message(
-      'انستجرام',
+      'Instagram',
       name: 'instgram',
       desc: '',
       args: [],
     );
   }
 
-  /// `تويتر`
+  /// `Twitter`
   String get twiter {
     return Intl.message(
-      'تويتر',
+      'Twitter',
       name: 'twiter',
       desc: '',
       args: [],
     );
   }
 
-  /// `أدخل الرابط`
+  /// `Enter the link`
   String get enter_uri {
     return Intl.message(
-      'أدخل الرابط',
+      'Enter the link',
       name: 'enter_uri',
       desc: '',
       args: [],
     );
   }
 
-  /// `أدخل الرقم`
+  /// `Enter the number`
   String get enter_phone {
     return Intl.message(
-      'أدخل الرقم',
+      'Enter the number',
       name: 'enter_phone',
       desc: '',
       args: [],
     );
   }
 
-  /// `الموقع الجغرافي`
+  /// `Location`
   String get location {
     return Intl.message(
-      'الموقع الجغرافي',
+      'Location',
       name: 'location',
       desc: '',
       args: [],
     );
   }
 
-  /// `يومي`
+  /// `My day`
   String get my_day {
     return Intl.message(
-      'يومي',
+      'My day',
       name: 'my_day',
       desc: '',
       args: [],
     );
   }
 
-  /// `منبه لمياه`
+  /// `Water alarm`
   String get water_alarm {
     return Intl.message(
-      'منبه لمياه',
+      'Water alarm',
       name: 'water_alarm',
       desc: '',
       args: [],
     );
   }
 
-  /// `الصالة الرياضية`
+  /// `Gym owner`
   String get gym_owner {
     return Intl.message(
-      'الصالة الرياضية',
+      'Gym owner',
       name: 'gym_owner',
       desc: '',
       args: [],
     );
   }
 
-  /// `واتس اب`
+  /// `WhatsApp`
   String get whatsApp {
     return Intl.message(
-      'واتس اب',
+      'WhatsApp',
       name: 'whatsApp',
       desc: '',
       args: [],
     );
   }
 
-  /// `القيم الغذائية`
+  /// `Nutritional values`
   String get values_food {
     return Intl.message(
-      'القيم الغذائية',
+      'Nutritional values',
       name: 'values_food',
       desc: '',
       args: [],
     );
   }
 
-  /// `حاسبة البروتينات`
+  /// `Protein calculator`
   String get protien_calculator {
     return Intl.message(
-      'حاسبة البروتينات',
+      'Protein calculator',
       name: 'protien_calculator',
       desc: '',
       args: [],
     );
   }
 
-  /// `المكملات الغذائية`
+  /// `Nutritional supplements`
   String get nuttritions {
     return Intl.message(
-      'المكملات الغذائية',
+      'Nutritional supplements',
       name: 'nuttritions',
       desc: '',
       args: [],
     );
   }
 
-  /// `إختر الوجبة`
+  /// `Choose a meal`
   String get choose_meal {
     return Intl.message(
-      'إختر الوجبة',
+      'Choose a meal',
       name: 'choose_meal',
       desc: '',
       args: [],
     );
   }
 
-  /// `جم`
+  /// `g`
   String get g {
     return Intl.message(
-      'جم',
+      'g',
       name: 'g',
       desc: '',
       args: [],
     );
   }
 
-  /// `بروتين`
+  /// `Protein`
   String get protien {
     return Intl.message(
-      'بروتين',
+      'Protein',
       name: 'protien',
       desc: '',
       args: [],
     );
   }
 
-  /// `دهون`
+  /// `Fat`
   String get fat {
     return Intl.message(
-      'دهون',
+      'Fat',
       name: 'fat',
       desc: '',
       args: [],
     );
   }
 
-  /// `كربوهيدرات`
+  /// `Carbohydrates`
   String get carb {
     return Intl.message(
-      'كربوهيدرات',
+      'Carbohydrates',
       name: 'carb',
       desc: '',
       args: [],
     );
   }
 
-  /// `سعرات`
+  /// `Calories`
   String get calories {
     return Intl.message(
-      'سعرات',
+      'Calories',
       name: 'calories',
       desc: '',
       args: [],
     );
   }
 
-  /// `أوافق`
+  /// `OK`
   String get ok {
     return Intl.message(
-      'أوافق',
+      'OK',
       name: 'ok',
       desc: '',
       args: [],
     );
   }
 
-  /// `سعرة`
+  /// `Calorie`
   String get calory {
     return Intl.message(
-      'سعرة',
+      'Calorie',
       name: 'calory',
       desc: '',
       args: [],
     );
   }
 
-  /// `اختر الوزن`
+  /// `Choose weight`
   String get choose_weight {
     return Intl.message(
-      'اختر الوزن',
+      'Choose weight',
       name: 'choose_weight',
       desc: '',
       args: [],
     );
   }
 
-  /// `حاسبة البروتينات`
+  /// `Protein calculator`
   String get protein_calculator {
     return Intl.message(
-      'حاسبة البروتينات',
+      'Protein calculator',
       name: 'protein_calculator',
       desc: '',
       args: [],
     );
   }
 
-  /// `الطول`
+  /// `Height`
   String get height {
     return Intl.message(
-      'الطول',
+      'Height',
       name: 'height',
       desc: '',
       args: [],
     );
   }
 
-  /// `الوزن`
+  /// `Weight`
   String get weight {
     return Intl.message(
-      'الوزن',
+      'Weight',
       name: 'weight',
       desc: '',
       args: [],
     );
   }
 
-  /// `سم`
+  /// `cm`
   String get cm {
     return Intl.message(
-      'سم',
+      'cm',
       name: 'cm',
       desc: '',
       args: [],
     );
   }
 
-  /// `المغذيات`
+  /// `Nutrients`
   String get nutrients {
     return Intl.message(
-      'المغذيات',
+      'Nutrients',
       name: 'nutrients',
       desc: '',
       args: [],
     );
   }
 
-  /// `الكمية`
+  /// `Quantity`
   String get quantity {
     return Intl.message(
-      'الكمية',
+      'Quantity',
       name: 'quantity',
       desc: '',
       args: [],
@@ -1985,6 +1985,16 @@ class S {
     return Intl.message(
       'Very Intense Activity in Work and Club',
       name: 'very_intense_activity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To inquire or ask any question, please contact us:`
+  String get contact_us_hint {
+    return Intl.message(
+      'To inquire or ask any question, please contact us:',
+      name: 'contact_us_hint',
       desc: '',
       args: [],
     );

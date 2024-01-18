@@ -14,7 +14,7 @@ import 'package:tamrini/screens/courses_screen/diet_home_screen.dart';
 import 'package:tamrini/screens/courses_screen/followUp_screen.dart';
 import 'package:tamrini/screens/courses_screen/supplements_screen.dart';
 import 'package:tamrini/screens/setting_screens/about_app_screen.dart';
-import 'package:tamrini/screens/setting_screens/contact_us_screen.dart';
+import 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
 import 'package:tamrini/screens/setting_screens/control_screen.dart';
 import 'package:tamrini/screens/setting_screens/settings_screen.dart';
 import 'package:tamrini/screens/trainer_screens/pending_trainees_screen.dart';
@@ -29,6 +29,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../screens/login_screen/login_screen.dart';
 
 class MyDrawer extends StatefulWidget {
+  const MyDrawer({super.key});
+
   @override
   _MyDrawerState createState() => _MyDrawerState();
 }
@@ -171,55 +173,55 @@ class _MyDrawerState extends State<MyDrawer> {
                       __.isCaptain || __.isAdmin
                           ? Container()
                           : myListTielStatic(
-                          "المكملات الغذائية",
-                          Icon(
-                            Icons.local_drink_outlined,
-                            color: Theme.of(context).iconTheme.color,
-                          ), () async {
-                        __.isLogin
-                            ? {
-                          __.user.isSubscribedToTrainer
-                              ? {
-                            Provider.of<TraineeProvider>(
-                                context,
-                                listen: false)
-                                .fetchAndSetTraineeData(),
-                            To(const SupplementsScreen())
-                          }
-                              : AwesomeDialog(
-                            context: context,
-                            dialogType: DialogType.info,
-                            animType: AnimType.bottomSlide,
-                            title: 'تنبيه',
-                            desc:
-                            'يجب عليك الاشتراك عند مدرب اولا لمشاهدة الكورسات',
-                            btnCancelOnPress: () {
-                              // pop();
-                            },
-                            btnOkOnPress: () {
-                              Provider.of<TrainerProvider>(
-                                  context,
-                                  listen: false)
-                                  .fetchAndSetTrainers();
-                              To(const TrainerHomeScreen());
-                            },
-                          ).show()
-                        }
-                            : AwesomeDialog(
-                          context: context,
-                          dialogType: DialogType.info,
-                          animType: AnimType.bottomSlide,
-                          title: 'تنبيه',
-                          desc:
-                          'يجب عليك تسجيل الدخول اولا للمتابعة',
-                          btnCancelOnPress: () {
-                            // pop();
-                          },
-                          btnOkOnPress: () {
-                            To(const LoginScreen());
-                          },
-                        ).show();
-                      }, false),
+                              "المكملات الغذائية",
+                              Icon(
+                                Icons.local_drink_outlined,
+                                color: Theme.of(context).iconTheme.color,
+                              ), () async {
+                              __.isLogin
+                                  ? {
+                                      __.user.isSubscribedToTrainer
+                                          ? {
+                                              Provider.of<TraineeProvider>(
+                                                      context,
+                                                      listen: false)
+                                                  .fetchAndSetTraineeData(),
+                                              To(const SupplementsScreen())
+                                            }
+                                          : AwesomeDialog(
+                                              context: context,
+                                              dialogType: DialogType.info,
+                                              animType: AnimType.bottomSlide,
+                                              title: 'تنبيه',
+                                              desc:
+                                                  'يجب عليك الاشتراك عند مدرب اولا لمشاهدة الكورسات',
+                                              btnCancelOnPress: () {
+                                                // pop();
+                                              },
+                                              btnOkOnPress: () {
+                                                Provider.of<TrainerProvider>(
+                                                        context,
+                                                        listen: false)
+                                                    .fetchAndSetTrainers();
+                                                To(const TrainerHomeScreen());
+                                              },
+                                            ).show()
+                                    }
+                                  : AwesomeDialog(
+                                      context: context,
+                                      dialogType: DialogType.info,
+                                      animType: AnimType.bottomSlide,
+                                      title: 'تنبيه',
+                                      desc:
+                                          'يجب عليك تسجيل الدخول اولا للمتابعة',
+                                      btnCancelOnPress: () {
+                                        // pop();
+                                      },
+                                      btnOkOnPress: () {
+                                        To(const LoginScreen());
+                                      },
+                                    ).show();
+                            }, false),
                       __.isAdmin && __.isLogin
                           ? myListTielStatic(
                               "المدربين المعلقين",
@@ -393,29 +395,26 @@ class _MyDrawerState extends State<MyDrawer> {
                             Icons.star,
                             color: Theme.of(context).iconTheme.color,
                           ), () async {
+                        Platform.isAndroid
+                            ? await canLaunchUrl(Uri.parse(
+                                    "https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US"))
+                                ? await launchUrl(
+                                    Uri.parse(
+                                        "https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US"),
+                                    mode: LaunchMode.externalApplication)
+                                : throw 'Could not launch https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US'
+                            : await canLaunchUrl(
+                                Uri.parse(
+                                    "https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937"),
+                              )
+                                ? await launchUrl(
+                                    Uri.parse(
+                                        "https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937"),
+                                    mode: LaunchMode.externalApplication)
+                                : throw 'Could not launch https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937';
 
-                            Platform.isAndroid
-                                ? await canLaunchUrl( 
-                            Uri.parse(
-                                "https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US") 
-                            )
-                                    ? await launchUrl(
-                            Uri.parse(
-                                "https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US"),
-                            mode: LaunchMode.externalApplication)
-                                    : throw 'Could not launch https://play.google.com/store/apps/details?id=com.tamrini1.com&hl=ar&gl=US'
-                                : await canLaunchUrl(
-                            Uri.parse(
-                                "https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937"),
-                            )
-                                    ? await launchUrl( 
-                            Uri.parse(
-                                "https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937"),
-                            mode: LaunchMode.externalApplication)
-                                    : throw 'Could not launch https://apps.apple.com/us/app/%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D8%AA%D9%85%D8%B1%D9%8A%D9%86%D9%8A/id1571336937';
-                            
                         // To(const LoginScreen());
-                      }, false), 
+                      }, false),
                       __.isLogin
                           ? myListTielStatic(
                               "تسجيل الخروج",
