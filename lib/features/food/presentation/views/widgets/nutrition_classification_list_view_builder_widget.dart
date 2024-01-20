@@ -9,7 +9,9 @@ import 'classification_loading_widget.dart';
 import 'message_builder_widget.dart';
 
 class NutritionClassificationListViewBuilderWidget extends StatelessWidget {
-  const NutritionClassificationListViewBuilderWidget({super.key});
+  const NutritionClassificationListViewBuilderWidget(
+      {super.key, required this.isMyday});
+  final bool isMyday;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,10 @@ class NutritionClassificationListViewBuilderWidget extends StatelessWidget {
           if (state.list.isEmpty) {
             return MessageBuilderWidget(message: S.of(context).no_results);
           }
-          return NutritionClassificationListViewWidget(list: state.list);
+          return NutritionClassificationListViewWidget(
+            list: state.list,
+            isMyday: isMyday,
+          );
         } else if (state is ErrorGetClassificationState) {
           return MessageBuilderWidget(message: state.message);
         } else {

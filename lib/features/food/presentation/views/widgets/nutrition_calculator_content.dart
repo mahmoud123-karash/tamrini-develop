@@ -8,15 +8,20 @@ import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_mode
 import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_states.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/nutrition_buttons_row_widget.dart';
+import 'add_meal_to_myday_custom_button_widget.dart';
 import 'nutrition_list_view_widget.dart';
 import 'nutrition_values_colum_widget.dart';
 import 'wieght_list_view_widget.dart';
 
 class NutritionCalCulatorContentWidget extends StatefulWidget {
   const NutritionCalCulatorContentWidget(
-      {super.key, required this.model, required this.list});
+      {super.key,
+      required this.model,
+      required this.list,
+      required this.isMyday});
   final ClassificationModel model;
   final List<NutritionModel> list;
+  final bool isMyday;
 
   @override
   State<NutritionCalCulatorContentWidget> createState() =>
@@ -119,6 +124,7 @@ class _NutritionCalCulatorContentWidgetState
                   },
                 ),
                 const NutritionValuesColumWidget(),
+                if (widget.isMyday) const AddMealToMaydaycustomButtonWidget(),
               ],
             ),
           ),

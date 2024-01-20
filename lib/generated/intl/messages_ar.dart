@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
+        "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "لا تستطيع الوصول لملف الأدمن"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
@@ -198,11 +199,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
         "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
+        "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "scroll_verticle_to_remove":
+            MessageLookupByLibrary.simpleMessage("اسجب الوجبة أفقيا للحذف"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
         "searchHint":
             MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),
@@ -266,6 +271,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),
-        "years": MessageLookupByLibrary.simpleMessage("سنوات")
+        "years": MessageLookupByLibrary.simpleMessage("سنوات"),
+        "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
+        "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك")
       };
 }

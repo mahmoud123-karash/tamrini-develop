@@ -7,8 +7,10 @@ import 'package:tamrini/features/food/data/models/nutrition_model/classification
 import '../nutrition_calculator_screen.dart';
 
 class NutritionClassificationItemWidget extends StatelessWidget {
-  const NutritionClassificationItemWidget({super.key, required this.model});
+  const NutritionClassificationItemWidget(
+      {super.key, required this.model, required this.isMyday});
   final ClassificationModel model;
+  final bool isMyday;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,12 @@ class NutritionClassificationItemWidget extends StatelessWidget {
         child: Center(
           child: ListTile(
             onTap: () {
-              navigateTo(context, NutritionCalculatorScreen(model: model));
+              navigateTo(
+                  context,
+                  NutritionCalculatorScreen(
+                    model: model,
+                    isMyday: isMyday,
+                  ));
             },
             title: Text(
               model.classification,

@@ -192,7 +192,13 @@
     "moderate_activity": "نشاط معتدل في العمل والنادي",
     "high_activity": "نشاط عالي في العمل والنادي",
     "very_intense_activity": "نشاط مكثف جدا في العمل والنادي",
-    "contact_us_hint":"للإستفسار او اي تساؤل تواصل معنا على :"
+    "contact_us_hint":"للإستفسار او اي تساؤل تواصل معنا على :",
+    "recalculate":"إعادة الحساب",
+    "your_need":"باقي احتياجك",
+    "your_meals":"وجباتك",
+    "scroll_verticle_to_remove":"اسجب الوجبة أفقيا للحذف",
+    "add_meal":"اضافة وجبة",
+    "save":"حفظ"
 
 
 

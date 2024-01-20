@@ -1999,6 +1999,66 @@ class S {
       args: [],
     );
   }
+
+  /// `إعادة الحساب`
+  String get recalculate {
+    return Intl.message(
+      'إعادة الحساب',
+      name: 'recalculate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `باقي احتياجك`
+  String get your_need {
+    return Intl.message(
+      'باقي احتياجك',
+      name: 'your_need',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `وجباتك`
+  String get your_meals {
+    return Intl.message(
+      'وجباتك',
+      name: 'your_meals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسجب الوجبة أفقيا للحذف`
+  String get scroll_verticle_to_remove {
+    return Intl.message(
+      'اسجب الوجبة أفقيا للحذف',
+      name: 'scroll_verticle_to_remove',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اضافة وجبة`
+  String get add_meal {
+    return Intl.message(
+      'اضافة وجبة',
+      name: 'add_meal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حفظ`
+  String get save {
+    return Intl.message(
+      'حفظ',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

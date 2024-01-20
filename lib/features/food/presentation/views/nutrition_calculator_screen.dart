@@ -10,8 +10,10 @@ import '../manager/nutrition_cubit/nutrition_cubit.dart';
 import 'widgets/nutrition_calculator_content_builder_widget.dart';
 
 class NutritionCalculatorScreen extends StatelessWidget {
-  const NutritionCalculatorScreen({super.key, required this.model});
+  const NutritionCalculatorScreen(
+      {super.key, required this.model, required this.isMyday});
   final ClassificationModel model;
+  final bool isMyday;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,10 @@ class NutritionCalculatorScreen extends StatelessWidget {
         appBar: myAppBar(
           model.classification,
         ),
-        body: NutritionCalculatorContentBuilderWidget(model: model),
+        body: NutritionCalculatorContentBuilderWidget(
+          model: model,
+          isMyday: isMyday,
+        ),
       ),
     );
   }

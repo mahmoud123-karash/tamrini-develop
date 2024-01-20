@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
+        "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "You cannot access the admin file"),
         "after": MessageLookupByLibrary.simpleMessage("After"),
@@ -199,11 +200,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
         "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),
         "rating": MessageLookupByLibrary.simpleMessage("Rating"),
+        "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("Type Email Address"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "scroll_verticle_to_remove":
+            MessageLookupByLibrary.simpleMessage("اسجب الوجبة أفقيا للحذف"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "searchHint":
             MessageLookupByLibrary.simpleMessage("Search for an Exercise"),
@@ -273,6 +278,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("Write a new question..."),
-        "years": MessageLookupByLibrary.simpleMessage("years old")
+        "years": MessageLookupByLibrary.simpleMessage("years old"),
+        "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
+        "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك")
       };
 }

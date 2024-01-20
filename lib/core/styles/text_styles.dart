@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class TextStyles {
-  static const TextStyle style20 = TextStyle(
-    fontSize: 20,
+  static TextStyle style20 = TextStyle(
+    fontSize: 20.sp,
     fontWeight: FontWeight.w600,
     fontFamily: 'cairo',
   );
@@ -13,31 +13,31 @@ abstract class TextStyles {
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
   );
-  static const TextStyle style13 = TextStyle(
-    fontSize: 13,
+  static TextStyle style13 = TextStyle(
+    fontSize: 13.h,
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
   );
-  static const TextStyle style17 = TextStyle(
-    fontSize: 17,
+  static TextStyle style17 = TextStyle(
+    fontSize: 17.h,
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
   );
-  static const TextStyle style16Bold = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w500,
-    fontFamily: 'cairo',
-  );
-
-  static const TextStyle style19 = TextStyle(
-    fontSize: 19,
+  static TextStyle style16Bold = TextStyle(
+    fontSize: 16.h,
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
   );
 
-  static const TextStyle style20Bold = TextStyle(
+  static TextStyle style19 = TextStyle(
+    fontSize: 19.sp,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'cairo',
+  );
+
+  static  TextStyle style20Bold = TextStyle(
     fontFamily: "cairo",
-    fontSize: 20.0,
+    fontSize: 20.sp,
     fontWeight: FontWeight.bold,
   );
 

@@ -193,7 +193,19 @@
     "moderate_activity": "Moderate Activity in Work and Club",
     "high_activity": "High Activity in Work and Club",
     "very_intense_activity": "Very Intense Activity in Work and Club",
-    "contact_us_hint":"To inquire or ask any question, please contact us:"
+    "contact_us_hint":"To inquire or ask any question, please contact us:",
+    "recalculate":"إعادة الحساب",
+    "your_need":"باقي احتياجك",
+    "your_meals":"وجباتك",
+    "scroll_verticle_to_remove":"اسجب الوجبة أفقيا للحذف",
+    "add_meal":"اضافة وجبة",
+    "save":"حفظ"
+
+
+
+
+
+
 
 
 

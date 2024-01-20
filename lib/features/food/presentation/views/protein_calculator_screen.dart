@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart/calculator_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart/calculator_states.dart';
@@ -12,9 +11,12 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/calculator_gender_widget.dart';
 import 'widgets/calculator_target_widget.dart';
 import 'widgets/calculator_weight_and_age_widget.dart';
+import 'widgets/my_day_recalculator_widget.dart';
 
 class ProteinCalculatorScreen extends StatefulWidget {
-  const ProteinCalculatorScreen({Key? key}) : super(key: key);
+  const ProteinCalculatorScreen({Key? key, this.isMyday = false})
+      : super(key: key);
+  final bool isMyday;
 
   @override
   State<ProteinCalculatorScreen> createState() =>
@@ -49,62 +51,76 @@ class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
           builder: (context, state) {
             var cubit = CalculatorCubit.get(context);
             return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const CalCulatorGenderWidget(),
-                      const CalculatorHieghtWidget(),
-                      const CalculatorWieghtAndAgeWidget(),
-                      CalculatorTargetWidget(
-                        selctedItem: cubit.selectedPurpose,
-                        controller: purposeController!,
-                        selectedItem:
-                            cubit.names(context)[cubit.selectedPurpose],
-                        onSelectedItemChanged: (selectedItem) {
-                          cubit.selectedPurpose = selectedItem;
-                          cubit.target = Target.values[selectedItem];
-                          cubit.calculate();
-                        },
-                        list: cubit.names(context),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 15,
+                    ),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).cardColor,
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
                       ),
-                      CalculatorTargetWidget(
-                        selctedItem: cubit.selectedActivity,
-                        controller: activityController!,
-                        selectedItem:
-                            cubit.activities(context)[cubit.selectedActivity],
-                        onSelectedItemChanged: (selectedItem) {
-                          cubit.selectedActivity = selectedItem;
-                          cubit.activityLevel =
-                              ActivityLevel.values[selectedItem];
-                          cubit.calculate();
-                        },
-                        list: cubit.activities(context),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          const CalCulatorGenderWidget(),
+                          const CalculatorHieghtWidget(),
+                          const CalculatorWieghtAndAgeWidget(),
+                          CalculatorTargetWidget(
+                            selctedItem: cubit.selectedPurpose,
+                            controller: purposeController!,
+                            selectedItem:
+                                cubit.names(context)[cubit.selectedPurpose],
+                            onSelectedItemChanged: (selectedItem) {
+                              cubit.selectedPurpose = selectedItem;
+                              cubit.target = Target.values[selectedItem];
+                              cubit.calculate();
+                            },
+                            list: cubit.names(context),
+                          ),
+                          CalculatorTargetWidget(
+                            selctedItem: cubit.selectedActivity,
+                            controller: activityController!,
+                            selectedItem: cubit
+                                .activities(context)[cubit.selectedActivity],
+                            onSelectedItemChanged: (selectedItem) {
+                              cubit.selectedActivity = selectedItem;
+                              cubit.activityLevel =
+                                  ActivityLevel.values[selectedItem];
+                              cubit.calculate();
+                            },
+                            list: cubit.activities(context),
+                          ),
+                          const CalculatorNumberCaloriesWidget(),
+                          const Divider(
+                            endIndent: 20,
+                            indent: 20,
+                          ),
+                          CalculatorValuesColumWidget(cubit: cubit)
+                        ],
                       ),
-                      const CalculatorNumberCaloriesWidget(),
-                      const Divider(
-                        endIndent: 20,
-                        indent: 20,
-                      ),
-                      CalculatorValuesColumWidget(cubit: cubit)
-                    ],
+                    ),
                   ),
-                ),
+                  if (!widget.isMyday)
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  if (widget.isMyday) const MydayRecalculatorWidget(),
+                ],
               ),
             );
           },
