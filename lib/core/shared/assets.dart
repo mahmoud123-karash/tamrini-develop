@@ -33,6 +33,10 @@ class Assets {
   /// assets/images/coursesIcon.png
   static const String imagesCoursesIcon = "assets/images/coursesIcon.png";
 
+  /// Assets for imagesDay
+  /// assets/images/day.png
+  static const String imagesDay = "assets/images/day.png";
+
   /// Assets for imagesDiet
   /// assets/images/diet.jpg
   static const String imagesDiet = "assets/images/diet.jpg";
@@ -137,3 +141,4 @@ class Assets {
   /// assets/images/whey.jpg
   static const String imagesWhey = "assets/images/whey.jpg";
 }
+
