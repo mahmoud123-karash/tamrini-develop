@@ -70,7 +70,6 @@ class CourseDayExercisesCard extends StatelessWidget {
       {required this.exercises, required this.dayLabel, Key? key})
       : super(key: key);
 
-
   String _getCardTitle(TraineeExercise traineeExercise) {
     return '${traineeExercise.exercise!.title!} ${traineeExercise.superSetExercise != null ? (' +  ${traineeExercise.superSetExercise!.title!}') : ''}';
   }

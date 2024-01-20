@@ -35,16 +35,18 @@ class CourseDetailsScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             To(ExerciseArticlesDetailsScreen(
-                                exercise: course.dayWeekExercises!.sat![index].exercise!,
+                                exercise: course
+                                    .dayWeekExercises!.sat![index].exercise!,
                                 category: Exercise(id: "0"),
                                 isAll: true));
                           },
-                          title:
-                              Text(course.dayWeekExercises!.sat![index].exercise!.title!),
+                          title: Text(course
+                              .dayWeekExercises!.sat![index].exercise!.title!),
                           subtitle: Column(
                             children: [
                               Text(
-                                  course.dayWeekExercises!.sat![index].exercise!.description!,
+                                  course.dayWeekExercises!.sat![index].exercise!
+                                      .description!,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis),
                             ],
@@ -69,14 +71,16 @@ class CourseDetailsScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             To(ExerciseArticlesDetailsScreen(
-                                exercise: course.dayWeekExercises!.sun![index].exercise!,
+                                exercise: course
+                                    .dayWeekExercises!.sun![index].exercise!,
                                 category: Exercise(id: "0"),
                                 isAll: true));
                           },
-                          title:
-                              Text(course.dayWeekExercises!.sun![index].exercise!.title!),
+                          title: Text(course
+                              .dayWeekExercises!.sun![index].exercise!.title!),
                           subtitle: Text(
-                              course.dayWeekExercises!.sun![index].exercise!.description!,
+                              course.dayWeekExercises!.sun![index].exercise!
+                                  .description!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
                           isThreeLine: true,
@@ -99,14 +103,16 @@ class CourseDetailsScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             To(ExerciseArticlesDetailsScreen(
-                                exercise: course.dayWeekExercises!.mon![index].exercise!,
+                                exercise: course
+                                    .dayWeekExercises!.mon![index].exercise!,
                                 category: Exercise(id: "0"),
                                 isAll: true));
                           },
-                          title:
-                              Text(course.dayWeekExercises!.mon![index].exercise!.title!),
+                          title: Text(course
+                              .dayWeekExercises!.mon![index].exercise!.title!),
                           subtitle: Text(
-                              course.dayWeekExercises!.mon![index].exercise!.description!,
+                              course.dayWeekExercises!.mon![index].exercise!
+                                  .description!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
                           isThreeLine: true,
@@ -129,16 +135,16 @@ class CourseDetailsScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             To(ExerciseArticlesDetailsScreen(
-                                exercise:
-                                    course.dayWeekExercises!.thurs![index].exercise!,
+                                exercise: course
+                                    .dayWeekExercises!.thurs![index].exercise!,
                                 category: Exercise(id: "0"),
                                 isAll: true));
                           },
-                          title: Text(
-                              course.dayWeekExercises!.thurs![index].exercise!.title!),
+                          title: Text(course.dayWeekExercises!.thurs![index]
+                              .exercise!.title!),
                           subtitle: Text(
-                              course
-                                  .dayWeekExercises!.thurs![index].exercise!.description!,
+                              course.dayWeekExercises!.thurs![index].exercise!
+                                  .description!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
                           isThreeLine: true,
@@ -161,14 +167,16 @@ class CourseDetailsScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             To(ExerciseArticlesDetailsScreen(
-                                exercise: course.dayWeekExercises!.wed![index].exercise!,
+                                exercise: course
+                                    .dayWeekExercises!.wed![index].exercise!,
                                 category: Exercise(id: "0"),
                                 isAll: true));
                           },
-                          title:
-                              Text(course.dayWeekExercises!.wed![index].exercise!.title!),
+                          title: Text(course
+                              .dayWeekExercises!.wed![index].exercise!.title!),
                           subtitle: Text(
-                              course.dayWeekExercises!.wed![index].exercise!.description!,
+                              course.dayWeekExercises!.wed![index].exercise!
+                                  .description!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
                           isThreeLine: true,
@@ -191,14 +199,16 @@ class CourseDetailsScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             To(ExerciseArticlesDetailsScreen(
-                                exercise: course.dayWeekExercises!.tue![index].exercise!,
+                                exercise: course
+                                    .dayWeekExercises!.tue![index].exercise!,
                                 category: Exercise(id: "0"),
                                 isAll: true));
                           },
-                          title:
-                              Text(course.dayWeekExercises!.tue![index].exercise!.title!),
+                          title: Text(course
+                              .dayWeekExercises!.tue![index].exercise!.title!),
                           subtitle: Text(
-                              course.dayWeekExercises!.tue![index].exercise!.description!,
+                              course.dayWeekExercises!.tue![index].exercise!
+                                  .description!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
                           isThreeLine: true,
@@ -221,14 +231,16 @@ class CourseDetailsScreen extends StatelessWidget {
                         child: ListTile(
                           onTap: () {
                             To(ExerciseArticlesDetailsScreen(
-                                exercise: course.dayWeekExercises!.fri![index].exercise!,
+                                exercise: course
+                                    .dayWeekExercises!.fri![index].exercise!,
                                 category: Exercise(id: "0"),
                                 isAll: true));
                           },
-                          title:
-                              Text(course.dayWeekExercises!.fri![index].exercise!.title!),
+                          title: Text(course
+                              .dayWeekExercises!.fri![index].exercise!.title!),
                           subtitle: Text(
-                              course.dayWeekExercises!.fri![index].exercise!.description!,
+                              course.dayWeekExercises!.fri![index].exercise!
+                                  .description!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis),
                           isThreeLine: true,

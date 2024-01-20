@@ -39,9 +39,10 @@ class _CustomImageSlideShowState extends State<CustomImageSlideShow> {
       setState(() {
         showSlider = false;
         _currentIndex = index;
-        Future.delayed(const Duration(milliseconds: 50)).then((value) => setState(() {
-              showSlider = true;
-            }));
+        Future.delayed(const Duration(milliseconds: 50))
+            .then((value) => setState(() {
+                  showSlider = true;
+                }));
       });
     }
   }
@@ -50,30 +51,31 @@ class _CustomImageSlideShowState extends State<CustomImageSlideShow> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        if(showSlider == true)
-         ...[ImageSlideshow(
-          indicatorColor: Colors.transparent,
-          indicatorBackgroundColor: Colors.transparent,
-          initialPage: _currentIndex,
-          height: widget.height!,
-          onPageChanged: (value) {
-            if (widget.onPageChanged != null) {
-              widget.onPageChanged!(value);
-            }
-            setState(() {
-              _currentIndex = value;
-            });
-          },
-          children: widget.children,
-        ),
-        Positioned.fill(
-          bottom: 5,
-          child: ImageSlideShowNavigation(
-            assets: widget.assets,
-            currentIndex: _currentIndex,
-            onSliderChanged: onSliderIconClicked,
+        if (showSlider == true) ...[
+          ImageSlideshow(
+            indicatorColor: Colors.transparent,
+            indicatorBackgroundColor: Colors.transparent,
+            initialPage: _currentIndex,
+            height: widget.height!,
+            onPageChanged: (value) {
+              if (widget.onPageChanged != null) {
+                widget.onPageChanged!(value);
+              }
+              setState(() {
+                _currentIndex = value;
+              });
+            },
+            children: widget.children,
           ),
-        )]
+          Positioned.fill(
+            bottom: 5,
+            child: ImageSlideShowNavigation(
+              assets: widget.assets,
+              currentIndex: _currentIndex,
+              onSliderChanged: onSliderIconClicked,
+            ),
+          )
+        ]
       ],
     );
   }

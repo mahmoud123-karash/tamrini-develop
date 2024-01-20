@@ -111,7 +111,8 @@ class _AddHomeExerciseCategoryScreebState
                                     listen: false)
                                 .uploadFiles();
 
-                            if (titleController.text.isNotEmpty && orderController.text.isNotEmpty &&
+                            if (titleController.text.isNotEmpty &&
+                                orderController.text.isNotEmpty &&
                                 images.isNotEmpty) {
                               Provider.of<HomeExerciseProvider>(context,
                                       listen: false)

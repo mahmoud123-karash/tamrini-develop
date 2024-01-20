@@ -4,7 +4,7 @@ class Nutritious {
   final double proteins;
   final double fats;
   final double carbs;
-   String id;
+  String id;
 
   Nutritious(
       {required this.title,

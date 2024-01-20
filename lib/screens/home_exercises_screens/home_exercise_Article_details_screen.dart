@@ -139,7 +139,8 @@ class _HomeExerciseArticlesDetailsScreenState
                                                         child:
                                                             CustomImageSlideShow(
                                                           height: 1.sh,
-                                                          currentIndex: _current,
+                                                          currentIndex:
+                                                              _current,
                                                           assets: widget
                                                               .exercise.assets!,
                                                           children: assets,

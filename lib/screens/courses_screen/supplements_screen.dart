@@ -20,63 +20,65 @@ class SupplementsScreen extends StatelessWidget {
           builder: (context, _, child) {
             return _.isLoading
                 ? Center(
-              child: Image.asset('assets/images/loading.gif',
-                  height: 100.h, width: 100.w),
-            )
+                    child: Image.asset('assets/images/loading.gif',
+                        height: 100.h, width: 100.w),
+                  )
                 : SingleChildScrollView(
-              child: Column(
-                children: [ // const Spacer(),
-                  if (_.traineeData == null || _.traineeData!.supplements == null ||
-                      _.traineeData!.supplements!.isEmpty)
-                    const Center(
-                        child: Text('لا يوجد مكملات غذائية حاليا')),
-                  if (_.traineeData != null && _.traineeData!.supplements != null &&
-                      _.traineeData!.supplements!.isNotEmpty) ...[
-                    const SizedBox(height: 24),
-                    ListView.separated(
-                      reverse: true,
-                      separatorBuilder:
-                          (BuildContext context, int index) {
-                        return SizedBox(
-                          height: 15.h,
-                        );
-                      },
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: ListTile(
-                            onTap: () {
-                              To(
-                                SupplementArticlesDetailsScreen(
-                                  supplement:
-                                  _.traineeData!
-                                      .supplements![index],
+                    child: Column(
+                      children: [
+                        // const Spacer(),
+                        if (_.traineeData == null ||
+                            _.traineeData!.supplements == null ||
+                            _.traineeData!.supplements!.isEmpty)
+                          const Center(
+                              child: Text('لا يوجد مكملات غذائية حاليا')),
+                        if (_.traineeData != null &&
+                            _.traineeData!.supplements != null &&
+                            _.traineeData!.supplements!.isNotEmpty) ...[
+                          const SizedBox(height: 24),
+                          ListView.separated(
+                            reverse: true,
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return SizedBox(
+                                height: 15.h,
+                              );
+                            },
+                            itemBuilder: (context, index) {
+                              return Card(
+                                child: ListTile(
+                                  onTap: () {
+                                    To(
+                                      SupplementArticlesDetailsScreen(
+                                        supplement:
+                                            _.traineeData!.supplements![index],
+                                      ),
+                                    );
+                                  },
+                                  title: Text(_.traineeData!.supplements![index]
+                                          .title ??
+                                      ''),
+                                  subtitle: Text(
+                                    _.traineeData!.supplements![index]
+                                            .description ??
+                                        '',
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+
+                                  // subtitle: Text(_.selectedTrainee!.exercises![index].!),
+                                  // isThreeLine: true,
                                 ),
                               );
                             },
-                            title: Text(_.traineeData!
-                                .supplements![index].title ??
-                                ''),
-                            subtitle: Text(
-                              _.traineeData!.supplements![index]
-                                  .description ??
-                                  '',
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-
-                            // subtitle: Text(_.selectedTrainee!.exercises![index].!),
-                            // isThreeLine: true,
+                            itemCount: _.traineeData!.supplements!.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                           ),
-                        );
-                      },
-                      itemCount: _.traineeData!.supplements!.length,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
+                        ]
+                      ],
                     ),
-                  ]
-                ],
-              ),
-            );
+                  );
           },
         ));
   }

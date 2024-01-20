@@ -35,7 +35,7 @@ abstract class TextStyles {
     fontFamily: 'cairo',
   );
 
-  static  TextStyle style20Bold = TextStyle(
+  static TextStyle style20Bold = TextStyle(
     fontFamily: "cairo",
     fontSize: 20.sp,
     fontWeight: FontWeight.bold,

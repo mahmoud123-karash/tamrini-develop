@@ -12,7 +12,8 @@ import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 class SupplementsHomeScreen extends StatefulWidget {
   final bool? canAddSupplementToTrainee;
-  const SupplementsHomeScreen({this.canAddSupplementToTrainee, Key? key}) : super(key: key);
+  const SupplementsHomeScreen({this.canAddSupplementToTrainee, Key? key})
+      : super(key: key);
 
   @override
   State<SupplementsHomeScreen> createState() => _SupplementsHomeScreenState();
@@ -101,7 +102,8 @@ class _SupplementsHomeScreenState extends State<SupplementsHomeScreen> {
                                       Provider.of<SupplementProvider>(context,
                                               listen: false)
                                           .SelectSupplement(
-                                              _.supplements[index], widget.canAddSupplementToTrainee);
+                                              _.supplements[index],
+                                              widget.canAddSupplementToTrainee);
                                     },
                                     child: Container(
                                       alignment: Alignment.topRight,

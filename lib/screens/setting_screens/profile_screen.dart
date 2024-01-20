@@ -67,30 +67,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
               // Center(child: buildUpgradeButton()),
               // const SizedBox(height: 24),
               // NumbersWidget(trainer: widget.user),
-              if(widget.user.role == 'captain')
+              if (widget.user.role == 'captain')
                 InkWell(
-                onTap: () => To(const GalleryScreen()),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:  [
-                    Text(
-                      "معرض الأعمال",
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.bold,
+                  onTap: () => To(const GalleryScreen()),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "معرض الأعمال",
+                        style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(width: 10,),
-                    const Icon(
-                      Ionicons.arrow_back_circle_outline,
-                      color: Colors.blue,
-                      size: 25,
-                    ),
-                  ],
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Icon(
+                        Ionicons.arrow_back_circle_outline,
+                        color: Colors.blue,
+                        size: 25,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
 
               const SizedBox(height: 48),
               InkWell(

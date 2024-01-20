@@ -43,9 +43,10 @@ class _EditHomeExerciseScreebState extends State<EditHomeExerciseScreen> {
     descriptionController.text = widget.exercise.description!;
     super.initState();
     oldTitle = widget.exercise.title;
-    if(widget.exercise.assets?.isNotEmpty == true) {
+    if (widget.exercise.assets?.isNotEmpty == true) {
       for (var asset in widget.exercise.assets!) {
-        if(RegExp(RegexPatterns.allowedYoutubeUrlFormat).hasMatch(asset) == true) {
+        if (RegExp(RegexPatterns.allowedYoutubeUrlFormat).hasMatch(asset) ==
+            true) {
           youtubeUrlController.text = asset;
           break;
         }
@@ -147,10 +148,12 @@ class _EditHomeExerciseScreebState extends State<EditHomeExerciseScreen> {
 
                               if (titleController.text.isNotEmpty &&
                                   descriptionController.text.isNotEmpty) {
-
-                                if(youtubeUrlController.text.isNotEmpty && RegExp(
-                                    RegexPatterns
-                                        .allowedYoutubeUrlFormat).hasMatch(youtubeUrlController.text) == false) {
+                                if (youtubeUrlController.text.isNotEmpty &&
+                                    RegExp(RegexPatterns
+                                                .allowedYoutubeUrlFormat)
+                                            .hasMatch(
+                                                youtubeUrlController.text) ==
+                                        false) {
                                   Fluttertoast.showToast(
                                       msg: 'من فضلك ادخل رابط يوتيوب صحيح');
 
@@ -163,7 +166,13 @@ class _EditHomeExerciseScreebState extends State<EditHomeExerciseScreen> {
                                   title: titleController.text,
                                   catID: widget.category.id!,
                                   id: widget.exercise.id!,
-                                  images: youtubeUrlController.text.isEmpty == false ? [...images.cast<String>(), youtubeUrlController.text] : images.cast<String>(),
+                                  images:
+                                      youtubeUrlController.text.isEmpty == false
+                                          ? [
+                                              ...images.cast<String>(),
+                                              youtubeUrlController.text
+                                            ]
+                                          : images.cast<String>(),
                                   description: descriptionController.text,
                                 );
 

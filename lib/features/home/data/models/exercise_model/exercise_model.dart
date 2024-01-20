@@ -1,6 +1,5 @@
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 
-
 class ExerciseModel {
   String? image;
   List<DataModel>? data = [];

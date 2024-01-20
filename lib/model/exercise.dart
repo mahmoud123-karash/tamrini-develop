@@ -7,7 +7,13 @@ class Exercise {
   int? order;
   late String id;
 
-  Exercise({this.image, this.data, this.title, required this.id, this.order,});
+  Exercise({
+    this.image,
+    this.data,
+    this.title,
+    required this.id,
+    this.order,
+  });
 
   Exercise.fromJson(Map<String, dynamic> json, String id) {
     image = json['image'];

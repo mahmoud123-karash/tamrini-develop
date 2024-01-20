@@ -186,7 +186,6 @@ class _ExerciseCardState extends State<ExerciseCard> {
       widget.traineeProvider.exerciseProvider.selectedExercise[widget.index],
       widget.dayID,
     );
-
   }
 
   @override

@@ -132,7 +132,8 @@ class _HomeExercisesHomeScreenState extends State<HomeExercisesHomeScreen> {
                           dragStartBehavior: DragStartBehavior.start,
                           itemCount: _.exercises.length,
                           itemBuilder: (BuildContext context, int index) {
-                            _.exercises.sort((a, b) => a.order!.compareTo(b.order!));
+                            _.exercises
+                                .sort((a, b) => a.order!.compareTo(b.order!));
                             return GestureDetector(
                               onTap: () {
                                 _.moveToExercise(_.exercises[index],

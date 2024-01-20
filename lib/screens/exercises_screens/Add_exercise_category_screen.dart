@@ -111,7 +111,8 @@ class _AddExerciseCategoryScreebState extends State<AddExerciseCategoryScreen> {
 
                           CacheHelper.init();
 
-                          if (titleController.text.isNotEmpty && orderController.text.isNotEmpty &&
+                          if (titleController.text.isNotEmpty &&
+                              orderController.text.isNotEmpty &&
                               images.isNotEmpty) {
                             Provider.of<ExerciseProvider>(context,
                                     listen: false)

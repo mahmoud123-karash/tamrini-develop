@@ -124,10 +124,11 @@ class _AddExerciseScreebState extends State<AddExerciseScreen> {
 
                             if (titleController.text.isNotEmpty &&
                                 descriptionController.text.isNotEmpty) {
-
-                              if(youtubeUrlController.text.isNotEmpty && RegExp(
-                                  RegexPatterns
-                                      .allowedYoutubeUrlFormat).hasMatch(youtubeUrlController.text) == false) {
+                              if (youtubeUrlController.text.isNotEmpty &&
+                                  RegExp(RegexPatterns.allowedYoutubeUrlFormat)
+                                          .hasMatch(
+                                              youtubeUrlController.text) ==
+                                      false) {
                                 Fluttertoast.showToast(
                                     msg: 'من فضلك ادخل رابط يوتيوب صحيح');
 
@@ -138,7 +139,14 @@ class _AddExerciseScreebState extends State<AddExerciseScreen> {
                                       listen: false)
                                   .addExercise(
                                       title: titleController.text,
-                                      images: youtubeUrlController.text.isEmpty == false ? [...images.cast<String>(), youtubeUrlController.text] : images.cast<String>(),
+                                      images:
+                                          youtubeUrlController.text.isEmpty ==
+                                                  false
+                                              ? [
+                                                  ...images.cast<String>(),
+                                                  youtubeUrlController.text
+                                                ]
+                                              : images.cast<String>(),
                                       description: descriptionController.text,
                                       category: widget.category);
                             } else {

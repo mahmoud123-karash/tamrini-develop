@@ -44,12 +44,10 @@ class _AddTraineeSupplementScreenState
             icon: Icon(Icons.save),
             color: Colors.white,
             onPressed: () async {
-              await Provider.of<TraineeProvider>(context,
-                  listen: false)
+              await Provider.of<TraineeProvider>(context, listen: false)
                   .addSupplementsToTrainee();
 
-              await Provider.of<TraineeProvider>(context,
-                  listen: false)
+              await Provider.of<TraineeProvider>(context, listen: false)
                   .saveChangedSelectedTraineeData();
             },
           ),

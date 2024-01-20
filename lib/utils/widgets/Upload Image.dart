@@ -31,9 +31,9 @@ class _ImageUploadsState extends State<ImageUploads> {
     if (widget.photoUrl != null) {
       print("pre : " + widget.photoUrl.runtimeType.toString());
       allPhotos += widget.photoUrl!;
-      allPhotos.removeWhere((photo) => RegExp(
-          RegexPatterns
-              .allowedYoutubeUrlFormat).hasMatch(photo) == true);
+      allPhotos.removeWhere((photo) =>
+          RegExp(RegexPatterns.allowedYoutubeUrlFormat).hasMatch(photo) ==
+          true);
     }
 
     super.initState();

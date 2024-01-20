@@ -10,7 +10,10 @@ class ImageSlideShowNavigation extends StatelessWidget {
   final void Function(int) onSliderChanged;
 
   const ImageSlideShowNavigation(
-      {required this.assets, required this.currentIndex, required this.onSliderChanged, Key? key})
+      {required this.assets,
+      required this.currentIndex,
+      required this.onSliderChanged,
+      Key? key})
       : super(key: key);
 
   @override

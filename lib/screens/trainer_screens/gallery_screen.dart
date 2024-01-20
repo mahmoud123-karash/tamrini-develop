@@ -22,8 +22,9 @@ class GalleryScreen extends StatelessWidget {
           builder: (context, _, child) {
             Trainer? currentTrainer;
             if (_.trainers.isNotEmpty) {
-              currentTrainer = trainer ?? _.trainers
-                  .firstWhere((trainer) => trainer.uid == _.user!.user.uid);
+              currentTrainer = trainer ??
+                  _.trainers
+                      .firstWhere((trainer) => trainer.uid == _.user!.user.uid);
             }
             print('current trainer: ${currentTrainer?.name}');
             return _.isLoading
@@ -34,35 +35,35 @@ class GalleryScreen extends StatelessWidget {
                 : SingleChildScrollView(
                     child: Column(
                       children: [
-                        if(_.user!.isCaptain)
-                        Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: MaterialButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              color: kSecondaryColor!,
-                              onPressed: () {
-                                To(AddGalleryItemScreen(
-                                  trainer: currentTrainer!,
-                                ));
-                                // show modal or screen to add work
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.only(left: 8.0),
-                                    child: Icon(Icons.add_circle,
-                                        color: Colors.white),
-                                  ),
-                                  Text(
-                                    "اضافة عمل",
-                                    style: TextStyle(
-                                        fontSize: 18.sp, color: Colors.white),
-                                  ),
-                                ],
-                              )),
-                        ),
+                        if (_.user!.isCaptain)
+                          Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: MaterialButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0)),
+                                color: kSecondaryColor!,
+                                onPressed: () {
+                                  To(AddGalleryItemScreen(
+                                    trainer: currentTrainer!,
+                                  ));
+                                  // show modal or screen to add work
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Icon(Icons.add_circle,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      "اضافة عمل",
+                                      style: TextStyle(
+                                          fontSize: 18.sp, color: Colors.white),
+                                    ),
+                                  ],
+                                )),
+                          ),
                         // const Spacer(),
                         if (currentTrainer?.gallery == null ||
                             currentTrainer?.gallery?.isEmpty == true)
@@ -147,17 +148,23 @@ class GalleryScreen extends StatelessWidget {
                                                 top: -2,
                                                 right: 16,
                                                 child: Container(
-                                                  padding: const EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
                                                     horizontal: 8,
                                                     vertical: 4,
                                                   ),
-                                                  decoration: const BoxDecoration(
+                                                  decoration:
+                                                      const BoxDecoration(
                                                     color: Colors.red,
-                                                    borderRadius: BorderRadius.only(
-                                                        bottomRight: Radius.circular(8),
-                                                        bottomLeft: Radius.circular(8)),
-                                                    ),
-                                                  child:  Text(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                            bottomRight: Radius
+                                                                .circular(8),
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    8)),
+                                                  ),
+                                                  child: Text(
                                                     i == 0 ? 'قبل' : 'بعد',
                                                     style: TextStyle(
                                                       color: Colors.white,

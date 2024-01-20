@@ -16,15 +16,15 @@ class TraineeExercise {
   });
 
   TraineeExercise.fromJson(Map<String, dynamic> json, List<Data> allExercises) {
-    if(json['exercise'] != null) {
+    if (json['exercise'] != null) {
       exercise =
           allExercises.firstWhere((element) => element.id == json['exercise']);
     }
     setsNo = json['setsNo'];
     repeatNo = json['repeatNo'];
-    if(json['superSetExercise'] != null) {
-      superSetExercise =
-          allExercises.firstWhere((element) => element.id == json['superSetExercise']);
+    if (json['superSetExercise'] != null) {
+      superSetExercise = allExercises
+          .firstWhere((element) => element.id == json['superSetExercise']);
     }
   }
 

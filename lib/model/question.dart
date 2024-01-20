@@ -31,7 +31,6 @@ class Question {
     body = json['body'];
     title = json['title'];
     this.id = id;
-
   }
 
   Map<String, dynamic> toJson() {

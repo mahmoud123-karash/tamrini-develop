@@ -11,7 +11,8 @@ class NumbersWidget extends StatelessWidget {
         children: <Widget>[
           buildButton(context, trainer.price.toString() + "د.ع", 'السعر'),
           buildDivider(),
-          buildButton(context, (trainer.traineesCount ?? 0).toString(), 'المشتركين'),
+          buildButton(
+              context, (trainer.traineesCount ?? 0).toString(), 'المشتركين'),
           // buildDivider(),
           // buildButton(context, '50', 'Followers'),
         ],
@@ -32,13 +33,17 @@ class NumbersWidget extends StatelessWidget {
           children: <Widget>[
             Text(
               value,
-              style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 24,color: Theme.of(context).textTheme.bodyLarge!.color)  ,
-
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Theme.of(context).textTheme.bodyLarge!.color),
             ),
             const SizedBox(height: 2),
             Text(
               text,
-              style:  TextStyle(fontWeight: FontWeight.bold,color: Theme.of(context).textTheme.bodyLarge!.color),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).textTheme.bodyLarge!.color),
             ),
           ],
         ),

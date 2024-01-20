@@ -190,7 +190,7 @@ class _SupplementArticlesScreenState extends State<SupplementArticlesScreen> {
                                                     ),
                                                     Padding(
                                                       padding: const EdgeInsets
-                                                              .symmetric(
+                                                          .symmetric(
                                                           vertical: 10.0,
                                                           horizontal: 10),
                                                       child: SizedBox(

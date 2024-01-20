@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
@@ -27,23 +26,25 @@ class ProfileWidget extends StatelessWidget {
       child: Stack(
         children: [
           buildImage(),
-
-          isUser? Positioned(
-            bottom: 0,
-            right: 4,
-            child: buildEditIcon(color),
-          ):const Icon(Icons.person, size: 1, color:Colors.transparent,),
-
+          isUser
+              ? Positioned(
+                  bottom: 0,
+                  right: 4,
+                  child: buildEditIcon(color),
+                )
+              : const Icon(
+                  Icons.person,
+                  size: 1,
+                  color: Colors.transparent,
+                ),
         ],
       ),
     );
   }
 
   Widget buildImage() {
-
-    final image =   FirebaseImageProvider(
-                                  FirebaseUrl( imagePath),
-
+    final image = FirebaseImageProvider(
+      FirebaseUrl(imagePath),
     );
 
     return ClipOval(
@@ -81,7 +82,6 @@ class ProfileWidget extends StatelessWidget {
   }) =>
       ClipOval(
         child: Container(
-
           padding: EdgeInsets.all(all),
           color: color,
           child: child,

@@ -54,7 +54,8 @@ class DefaultFirebaseOptions {
     appId: '1:540039956772:android:eb0adb28ba5040bb500bb1',
     messagingSenderId: '540039956772',
     projectId: 'tamrini-app',
-    databaseURL: 'https://tamrini-app-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://tamrini-app-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'tamrini-app.appspot.com',
   );
 
@@ -63,10 +64,13 @@ class DefaultFirebaseOptions {
     appId: '1:540039956772:ios:8da67bc4b72c455f500bb1',
     messagingSenderId: '540039956772',
     projectId: 'tamrini-app',
-    databaseURL: 'https://tamrini-app-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://tamrini-app-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'tamrini-app.appspot.com',
-    androidClientId: '540039956772-98kgj9s3pnrvdn92ia3ren42nd7k949v.apps.googleusercontent.com',
-    iosClientId: '540039956772-i52ufmel7nko6k1ag829vkocu8sdodb3.apps.googleusercontent.com',
+    androidClientId:
+        '540039956772-98kgj9s3pnrvdn92ia3ren42nd7k949v.apps.googleusercontent.com',
+    iosClientId:
+        '540039956772-i52ufmel7nko6k1ag829vkocu8sdodb3.apps.googleusercontent.com',
     iosBundleId: 'com.tamrini.app',
   );
 }

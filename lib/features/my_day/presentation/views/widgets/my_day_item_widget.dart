@@ -12,7 +12,7 @@ class MyDayItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
         navigateTo(context, const DayScreen());
       },
       child: Padding(

@@ -295,10 +295,12 @@ class ProductProvider with ChangeNotifier {
       return;
     }
     selectedProductCat = _OriginalAllProducts.data!
-        .where((element) => HelperFunctions.matchesSearch(
-      searchController.text.toLowerCase().split(" "),
-      element.title!,
-    ),)
+        .where(
+          (element) => HelperFunctions.matchesSearch(
+            searchController.text.toLowerCase().split(" "),
+            element.title!,
+          ),
+        )
         .toList();
     notifyListeners();
   }

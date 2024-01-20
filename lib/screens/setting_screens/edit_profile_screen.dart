@@ -80,21 +80,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               onClicked: () async {
                 //TODO: save changes
                 print("newEmail: $newEmail");
-                print( Provider.of<UserProvider>(context, listen: false)
-                        .user
-                        .email); 
+                print(Provider.of<UserProvider>(context, listen: false)
+                    .user
+                    .email);
                 if (newEmail !=
                     Provider.of<UserProvider>(context, listen: false)
                         .user
                         .email) {
                   Provider.of<UserProvider>(context, listen: false)
-                      .changeEmail(newEmail!); 
+                      .changeEmail(newEmail!);
                 }
-                if(newName != Provider.of<UserProvider>(context, listen: false)
+                if (newName !=
+                    Provider.of<UserProvider>(context, listen: false)
                         .user
-                        .name){
+                        .name) {
                   Provider.of<UserProvider>(context, listen: false)
-                      .editUserData(newName!);  
+                      .editUserData(newName!);
                 }
               },
             ),

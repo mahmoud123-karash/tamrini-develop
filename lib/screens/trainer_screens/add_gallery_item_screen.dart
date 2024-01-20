@@ -13,7 +13,8 @@ import '../../utils/widgets/global Widgets.dart';
 
 class AddGalleryItemScreen extends StatefulWidget {
   final Trainer trainer;
-  const AddGalleryItemScreen({required this.trainer, Key? key}) : super(key: key);
+  const AddGalleryItemScreen({required this.trainer, Key? key})
+      : super(key: key);
 
   @override
   State<AddGalleryItemScreen> createState() => _AddGalleryItemScreenState();
@@ -175,13 +176,17 @@ class _AddGalleryItemScreenState extends State<AddGalleryItemScreen> {
                     }),
                 ElevatedButton(
                   onPressed: () async {
-                    if(beforeImg == null) {
-                      Fluttertoast.showToast(msg: 'يجب ادخال صوره قبل التمرين', toastLength: Toast.LENGTH_LONG);
+                    if (beforeImg == null) {
+                      Fluttertoast.showToast(
+                          msg: 'يجب ادخال صوره قبل التمرين',
+                          toastLength: Toast.LENGTH_LONG);
                       return;
                     }
 
-                    if(afterImg == null) {
-                      Fluttertoast.showToast(msg: 'يجب ادخال صوره بعد التمرين', toastLength: Toast.LENGTH_LONG);
+                    if (afterImg == null) {
+                      Fluttertoast.showToast(
+                          msg: 'يجب ادخال صوره بعد التمرين',
+                          toastLength: Toast.LENGTH_LONG);
                       return;
                     }
 
@@ -189,13 +194,12 @@ class _AddGalleryItemScreenState extends State<AddGalleryItemScreen> {
 
                     try {
                       showLoaderDialog(context);
-                      var images = await Provider.of<UploadProvider>(
-                          context,
-                          listen: false)
+                      var images = await Provider.of<UploadProvider>(context,
+                              listen: false)
                           .uploadImages([beforeImg!, afterImg!]);
 
-                      Provider.of<TrainerProvider>(context,
-                          listen: false).addToGallery(widget.trainer, images);
+                      Provider.of<TrainerProvider>(context, listen: false)
+                          .addToGallery(widget.trainer, images);
 
                       pop();
                     } on Exception catch (e) {
@@ -243,6 +247,3 @@ class _AddGalleryItemScreenState extends State<AddGalleryItemScreen> {
         });
   }
 }
-
-
-

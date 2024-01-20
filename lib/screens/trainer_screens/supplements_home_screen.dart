@@ -26,34 +26,34 @@ class SupplementsHomeScreen extends StatelessWidget {
                 : SingleChildScrollView(
                     child: Column(
                       children: [
-                        if(_.userProvider.user.role == 'captain')
-                        Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: MaterialButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              color: kSecondaryColor!,
-                              onPressed: () {
-                                To(const SupScreen.SupplementsHomeScreen(
-                                  canAddSupplementToTrainee: true,
-                                ));
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.only(left: 8.0),
-                                    child: Icon(Icons.add_circle,
-                                        color: Colors.white),
-                                  ),
-                                  Text(
-                                    "اضافة مكمل غذائي",
-                                    style: TextStyle(
-                                        fontSize: 18.sp, color: Colors.white),
-                                  ),
-                                ],
-                              )),
-                        ),
+                        if (_.userProvider.user.role == 'captain')
+                          Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: MaterialButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0)),
+                                color: kSecondaryColor!,
+                                onPressed: () {
+                                  To(const SupScreen.SupplementsHomeScreen(
+                                    canAddSupplementToTrainee: true,
+                                  ));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Icon(Icons.add_circle,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      "اضافة مكمل غذائي",
+                                      style: TextStyle(
+                                          fontSize: 18.sp, color: Colors.white),
+                                    ),
+                                  ],
+                                )),
+                          ),
                         // const Spacer(),
                         if (_.selectedTrainee!.supplements == null ||
                             _.selectedTrainee!.supplements!.isEmpty)
@@ -76,8 +76,7 @@ class SupplementsHomeScreen extends StatelessWidget {
                                   onTap: () {
                                     To(
                                       SupplementArticlesDetailsScreen(
-                                        supplement:
-                                        _.selectedTrainee!
+                                        supplement: _.selectedTrainee!
                                             .supplements![index],
                                       ),
                                     );

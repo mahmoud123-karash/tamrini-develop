@@ -231,7 +231,9 @@ class _TrainerProfileScreenState extends State<TrainerProfileScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-              onTap: () => To(GalleryScreen(trainer: trainer,)),
+              onTap: () => To(GalleryScreen(
+                trainer: trainer,
+              )),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
@@ -239,7 +241,9 @@ class _TrainerProfileScreenState extends State<TrainerProfileScreen> {
                     'معرض الأعمال',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Icon(
                     Ionicons.arrow_back_circle_outline,
                     color: Colors.blue,
