@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/profile_image_name_type_widget.dart';
@@ -20,7 +21,11 @@ class ProfileContentSliverBoxWidget extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        ProfileImageNameTypeWidget(name: model.name, image: model.image),
+        ProfileImageNameTypeWidget(
+          name: model.name,
+          image: model.image,
+          role: CacheHelper.getData(key: 'usertype') ?? '',
+        ),
         const SizedBox(
           height: 15,
         ),

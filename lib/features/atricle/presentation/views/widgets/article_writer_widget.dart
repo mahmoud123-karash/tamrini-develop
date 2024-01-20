@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/publisher_name_and_role_widget.dart';
-
-import '../../../../profile/presentation/views/profile_screen.dart';
+import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
+import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
+import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 class ArticleWriterWidget extends StatelessWidget {
   const ArticleWriterWidget({
     super.key,
-    required this.writer,
-    required this.writerUid,
+    required this.model,
   });
-  final String writer, writerUid;
+  final UserModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,16 @@ class ArticleWriterWidget extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () {
-          navigateTo(context, const ProfileScreen());
+          String uid = CacheHelper.getData(key: 'uid') ?? '';
+          if (model.role == 'admin') {
+            showSnackBar(context, S.of(context).admin_hint);
+          }
+          if (model.uid == uid) {
+            navigateTo(context, const ProfileScreen());
+          }
+          if (model.role == 'writer') {
+            navigateTo(context, UserProfileScreen(model: model));
+          }
         },
         child: Row(
           children: [
@@ -33,11 +44,11 @@ class ArticleWriterWidget extends StatelessWidget {
               width: 10,
             ),
             PublisherNameAndRoleWidget(
-              role: writerUid == '' ? 'Admin' : writer,
-              name: writerUid == '' ? 'Ahmed' : writer,
+              role: model.role,
+              name: model.name,
             ),
             const Spacer(),
-            if (writerUid == '')
+            if (model.role == 'admin')
               const Icon(
                 Icons.stars_rounded,
                 color: Colors.amber,

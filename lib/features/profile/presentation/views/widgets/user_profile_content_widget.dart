@@ -7,8 +7,10 @@ import 'package:tamrini/features/questions/data/models/user_model/user_model.dar
 import 'package:tamrini/generated/l10n.dart';
 
 class UserProfileContentWidget extends StatelessWidget {
-  const UserProfileContentWidget({super.key, required this.model});
+  const UserProfileContentWidget(
+      {super.key, required this.model, this.isProfile = false});
   final UserModel model;
+  final bool? isProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class UserProfileContentWidget extends StatelessWidget {
           child: ProfileImageNameTypeWidget(
             name: model.name,
             image: model.image,
+            role: model.role,
           ),
         ),
         Padding(

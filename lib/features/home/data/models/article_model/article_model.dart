@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tamrini/core/contants/constants.dart';
 
 class ArticleModel {
   late Timestamp? date;
@@ -26,7 +27,7 @@ class ArticleModel {
       id: id,
       image: data['image'].cast<String>(),
       writer: data['writer'],
-      writerUid: data['writerUid'] ?? "",
+      writerUid: data['writerUid'] ?? adminUid,
       isBanned: data['isBanned'] ?? false,
       body: data['body'],
       title: data['title'],

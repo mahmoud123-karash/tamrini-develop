@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart' as intl;
-import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_widget.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_slide_image_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -109,15 +108,6 @@ class DietFoodDetailsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Divider(
-                    height: 40,
-                    endIndent: 20,
-                    indent: 20,
-                  ),
-                  ArticleWriterWidget(
-                    writer: model.writer,
-                    writerUid: model.writerUid,
-                  )
                 ],
               ),
             ),

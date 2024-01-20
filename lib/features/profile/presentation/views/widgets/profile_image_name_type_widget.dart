@@ -5,9 +5,13 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'profile_name_type_widget.dart';
 
 class ProfileImageNameTypeWidget extends StatelessWidget {
-  const ProfileImageNameTypeWidget(
-      {super.key, required this.name, required this.image});
-  final String name, image;
+  const ProfileImageNameTypeWidget({
+    super.key,
+    required this.name,
+    required this.image,
+    required this.role,
+  });
+  final String name, image, role;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,10 @@ class ProfileImageNameTypeWidget extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          ProfileNameTypeWidget(name: name),
+          ProfileNameTypeWidget(
+            name: name,
+            role: role,
+          ),
         ],
       ),
     );
