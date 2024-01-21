@@ -13,9 +13,11 @@ class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
     super.key,
     required this.model,
     required this.isMyday,
+    required this.id,
   });
   final ClassificationModel model;
   final bool isMyday;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
             model: model,
             list: state.list,
             isMyday: isMyday,
+            id: id,
           );
         } else if (state is ErrorGetNutritionState) {
           return MessageBuilderWidget(message: state.message);

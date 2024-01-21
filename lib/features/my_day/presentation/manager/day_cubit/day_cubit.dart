@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
 import 'package:tamrini/features/my_day/domain/repo/my_day_repo.dart';
 import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_states.dart';
 
@@ -18,6 +19,29 @@ class DayCubit extends Cubit<DayStates> {
     List<DayModel> list =
         box.values.toList().where((element) => element.id == id).toList();
     return list.first;
+  }
+
+  CalculatorModel getNeeds({required String id}) {
+    var box = Hive.box<DayModel>(dayBox);
+    List<DayModel> list =
+        box.values.toList().where((element) => element.id == id).toList();
+    DayModel model = list.first;
+    num calories = model.model.calories -
+        model.nutrients.values
+            .fold(0, (sum, nutrient) => sum + nutrient.calories);
+    num protein = model.model.protein -
+        model.nutrients.values
+            .fold(0, (sum, nutrient) => sum + nutrient.protein);
+    num fat = model.model.fat -
+        model.nutrients.values.fold(0, (sum, nutrient) => sum + nutrient.fat);
+    num carbs = model.model.carbs -
+        model.nutrients.values.fold(0, (sum, nutrient) => sum + nutrient.carbs);
+    return CalculatorModel(
+      calories: calories,
+      protein: protein,
+      fat: fat,
+      carbs: carbs,
+    );
   }
 
   final MyDayRepo myDayRepo;
@@ -59,6 +83,27 @@ class DayCubit extends Cubit<DayStates> {
     emit(LoadingGetDayState());
     var result = await myDayRepo.reCalculate(
         model: getDay(id: id), calculatorModel: calculatorModel);
+    result.fold(
+      (message) {
+        if (kDebugMode) {
+          print(message);
+        }
+        emit(ErrorGetDayState(message));
+      },
+      (list) {
+        emit(SucessGetDayState(list));
+      },
+    );
+  }
+
+  void addMeal({
+    required String id,
+    required Nutrient nutrient,
+    required String name,
+  }) async {
+    emit(LoadingGetDayState());
+    var result = await myDayRepo.addMealToDay(
+        model: getDay(id: id), nutrient: nutrient, name: name);
     result.fold(
       (message) {
         if (kDebugMode) {

@@ -10,8 +10,9 @@ import 'message_builder_widget.dart';
 
 class NutritionClassificationListViewBuilderWidget extends StatelessWidget {
   const NutritionClassificationListViewBuilderWidget(
-      {super.key, required this.isMyday});
+      {super.key, required this.isMyday, required this.id});
   final bool isMyday;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class NutritionClassificationListViewBuilderWidget extends StatelessWidget {
           return NutritionClassificationListViewWidget(
             list: state.list,
             isMyday: isMyday,
+            id: id,
           );
         } else if (state is ErrorGetClassificationState) {
           return MessageBuilderWidget(message: state.message);

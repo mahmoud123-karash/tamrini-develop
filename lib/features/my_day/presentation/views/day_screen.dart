@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_cubit.dart';
 import 'package:tamrini/features/my_day/presentation/views/widgets/day_protien_calculator_widget.dart';
@@ -28,6 +31,9 @@ class DayScreen extends StatelessWidget {
       body: BlocBuilder<DayCubit, DayStates>(
         builder: (context, state) {
           DayModel model = DayCubit.get(context).getDay(id: id);
+          CalculatorModel calculatorModel =
+              DayCubit.get(context).getNeeds(id: id);
+
           return SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -38,7 +44,7 @@ class DayScreen extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  const DayAddMealWidget(),
+                  DayAddMealWidget(id: model.id),
                   const SizedBox(
                     height: 10,
                   ),
@@ -51,10 +57,15 @@ class DayScreen extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  DayProtienCalculatorWidget(
-                    name: S.of(context).your_need,
-                    model: model.model,
-                    id: '',
+                  GestureDetector(
+                    onTap: () {
+                      log(calculatorModel.calories.toString());
+                    },
+                    child: DayProtienCalculatorWidget(
+                      name: S.of(context).your_need,
+                      model: calculatorModel,
+                      id: '',
+                    ),
                   ),
                   const SizedBox(
                     height: 15,

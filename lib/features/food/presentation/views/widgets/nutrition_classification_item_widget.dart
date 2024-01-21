@@ -8,9 +8,13 @@ import '../nutrition_calculator_screen.dart';
 
 class NutritionClassificationItemWidget extends StatelessWidget {
   const NutritionClassificationItemWidget(
-      {super.key, required this.model, required this.isMyday});
+      {super.key,
+      required this.model,
+      required this.isMyday,
+      required this.id});
   final ClassificationModel model;
   final bool isMyday;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +49,7 @@ class NutritionClassificationItemWidget extends StatelessWidget {
                   NutritionCalculatorScreen(
                     model: model,
                     isMyday: isMyday,
+                    id: id,
                   ));
             },
             title: Text(

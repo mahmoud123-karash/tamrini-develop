@@ -205,7 +205,9 @@
     "add_today_hint":"اليوم الحالي مضاف بالفعل",
     "success_recalulate":"تمت إعادة الحساب بنجاح",
     "success_remove_meal":"تمت حذف الوجبة بنجاح",
-    "success_add_meal":"تمت إضافة الوجبة بنجاح"
+    "success_add_meal":"تمت إضافة الوجبة بنجاح",
+    "add_meal_hint":"لم يتم اختيار وجبة"
+
 
 
 

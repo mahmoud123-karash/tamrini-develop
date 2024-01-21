@@ -6,13 +6,15 @@ import 'package:tamrini/features/food/presentation/views/nutrition_classificatio
 import 'package:tamrini/generated/l10n.dart';
 
 class DayAddMealWidget extends StatelessWidget {
-  const DayAddMealWidget({super.key});
+  const DayAddMealWidget({super.key, required this.id});
+  final String id;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        navigateTo(context, const NutritionClassificationScreen(isMyday: true));
+        navigateTo(
+            context, NutritionClassificationScreen(isMyday: true, id: id));
       },
       child: Container(
         decoration: BoxDecoration(

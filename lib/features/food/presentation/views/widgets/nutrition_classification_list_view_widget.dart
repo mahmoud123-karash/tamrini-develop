@@ -4,16 +4,20 @@ import 'package:tamrini/features/food/presentation/views/widgets/nutrition_class
 
 class NutritionClassificationListViewWidget extends StatelessWidget {
   const NutritionClassificationListViewWidget(
-      {super.key, required this.list, required this.isMyday});
+      {super.key, required this.list, required this.isMyday, required this.id});
   final List<ClassificationModel> list;
   final bool isMyday;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) => NutritionClassificationItemWidget(
-          model: list[index], isMyday: isMyday),
+        model: list[index],
+        isMyday: isMyday,
+        id: id,
+      ),
       separatorBuilder: (context, index) => const SizedBox(
         height: 5,
       ),

@@ -2119,6 +2119,16 @@ class S {
       args: [],
     );
   }
+
+  /// `لم يتم اختيار وجبة`
+  String get add_meal_hint {
+    return Intl.message(
+      'لم يتم اختيار وجبة',
+      name: 'add_meal_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

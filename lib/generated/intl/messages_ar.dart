@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
+        "add_meal_hint":
+            MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),

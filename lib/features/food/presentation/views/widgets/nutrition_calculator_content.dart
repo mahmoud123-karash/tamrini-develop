@@ -7,8 +7,8 @@ import 'package:tamrini/features/food/data/models/nutrition_model/classification
 import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_states.dart';
+import 'package:tamrini/features/food/presentation/views/widgets/add_meal_custom_button_builder_widget.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/nutrition_buttons_row_widget.dart';
-import 'add_meal_to_myday_custom_button_widget.dart';
 import 'nutrition_list_view_widget.dart';
 import 'nutrition_values_colum_widget.dart';
 import 'wieght_list_view_widget.dart';
@@ -18,10 +18,12 @@ class NutritionCalCulatorContentWidget extends StatefulWidget {
       {super.key,
       required this.model,
       required this.list,
-      required this.isMyday});
+      required this.isMyday,
+      required this.id});
   final ClassificationModel model;
   final List<NutritionModel> list;
   final bool isMyday;
+  final String id;
 
   @override
   State<NutritionCalCulatorContentWidget> createState() =>
@@ -124,7 +126,16 @@ class _NutritionCalCulatorContentWidgetState
                   },
                 ),
                 const NutritionValuesColumWidget(),
-                if (widget.isMyday) const AddMealToMaydaycustomButtonWidget(),
+                if (widget.isMyday)
+                  AddMealCustomButtonBuilderWidget(
+                    calories: cubit.model.calories,
+                    protein: cubit.model.proteins,
+                    fat: cubit.model.fats,
+                    carbs: cubit.model.carbs,
+                    id: widget.id,
+                    grams: cubit.selectedWieght,
+                    name: cubit.model.title,
+                  ),
               ],
             ),
           ),
