@@ -30,6 +30,7 @@ import 'package:tamrini/features/home/presentation/manager/article_cubit/article
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/my_day/data/repo/my_day_repo_impl.dart';
 import 'package:tamrini/features/my_day/presentation/manager/article_cubit/day_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
@@ -426,6 +427,8 @@ void main() async {
   await Hive.openBox<CategoryModel>(storeBox);
   Hive.registerAdapter(ProfileModelAdapter());
   await Hive.openBox<ProfileModel>(profileBox);
+  Hive.registerAdapter(DayModelAdapter());
+  await Hive.openBox<DayModel>(dayBox);
   checkInternet();
   requestAppPermissions();
   AwesomeNotifications().initialize(

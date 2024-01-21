@@ -1,12 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hive/hive.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 
 import 'nutrient.dart';
 
+part 'day_model.g.dart';
+
+@HiveType(typeId: 2)
 class DayModel {
+  @HiveField(0)
   final String id;
+  @HiveField(1)
   final Timestamp date;
+  @HiveField(2)
   final CalculatorModel model;
+  @HiveField(3)
   Map<String, Nutrient> nutrients;
 
   DayModel({

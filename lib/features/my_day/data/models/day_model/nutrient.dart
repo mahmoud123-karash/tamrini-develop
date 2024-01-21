@@ -1,8 +1,17 @@
+import 'package:hive/hive.dart';
+part 'nutrient.g.dart';
+
+@HiveType(typeId: 4)
 class Nutrient {
+  @HiveField(0)
   num carbs;
+  @HiveField(1)
   num protein;
+  @HiveField(2)
   num fat;
+  @HiveField(3)
   num calories;
+  @HiveField(4)
   num grams;
 
   Nutrient({

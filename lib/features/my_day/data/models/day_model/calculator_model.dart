@@ -1,7 +1,15 @@
+import 'package:hive/hive.dart';
+part 'calculator_model.g.dart';
+
+@HiveType(typeId: 3)
 class CalculatorModel {
+  @HiveField(0)
   final num calories;
+  @HiveField(1)
   final num protein;
+  @HiveField(2)
   final num fat;
+  @HiveField(3)
   final num carbs;
 
   CalculatorModel({
