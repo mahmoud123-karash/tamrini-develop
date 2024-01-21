@@ -161,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا إجابات حتى الآن"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل"),
+        "no_meals": MessageLookupByLibrary.simpleMessage("لا يوجد وجبات"),
         "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts":

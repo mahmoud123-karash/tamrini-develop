@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 
-import 'day_screen.dart';
+import '../day_screen.dart';
 
 class MyDayItemWidget extends StatelessWidget {
-  const MyDayItemWidget({super.key});
+  const MyDayItemWidget({super.key, required this.model});
+  final DayModel model;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        navigateTo(context, const DayScreen());
+        navigateTo(context, DayScreen(model: model));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -48,7 +51,9 @@ class MyDayItemWidget extends StatelessWidget {
                 ),
               ),
               title: Text(
-                '10/10/2023',
+                DateFormat('EEEE, MMM d, yyyy').format(
+                  model.date.toDate(),
+                ),
                 style: TextStyles.style16Bold,
               ),
               trailing: Icon(

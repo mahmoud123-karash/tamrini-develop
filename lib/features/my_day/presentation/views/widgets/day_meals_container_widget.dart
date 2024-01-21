@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'day_meals_list_view_widget.dart';
 
 class DayMealsContainerWidget extends StatelessWidget {
-  const DayMealsContainerWidget({super.key});
+  const DayMealsContainerWidget({super.key, required this.map});
+  final Map<String, Nutrient> map;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,11 @@ class DayMealsContainerWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            const DayMealsListViewWidget(),
+            if (map.isEmpty)
+              Center(
+                child: Text(S.of(context).no_meals),
+              ),
+            DayMealsListViewWidget(map: map),
           ],
         ),
       ),

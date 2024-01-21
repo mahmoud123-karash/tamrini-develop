@@ -30,6 +30,8 @@ import 'package:tamrini/features/home/presentation/manager/article_cubit/article
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/my_day/data/repo/my_day_repo_impl.dart';
+import 'package:tamrini/features/my_day/presentation/manager/article_cubit/day_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
 import 'package:tamrini/features/profile/presentation/manager/location_cubit/location_cubit.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_cubit.dart';
@@ -615,6 +617,11 @@ void main() async {
           ),
           BlocProvider(
             create: (context) => SelectCubit(),
+          ),
+          BlocProvider(
+            create: (context) => DayCubit(
+              getIt.get<MyDayRepoImpl>(),
+            )..getData(),
           ),
           BlocProvider(
             create: (context) => ManageCubit()

@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/my_day/presentation/views/widgets/day_protien_calculator_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'day_add_meal_widget.dart';
-import 'day_meals_container_widget.dart';
+import 'widgets/day_add_meal_widget.dart';
+import 'widgets/day_meals_container_widget.dart';
 
 class DayScreen extends StatelessWidget {
-  const DayScreen({super.key});
+  const DayScreen({super.key, required this.model});
+  final DayModel model;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar('10/12/2023'),
+      appBar: myAppBar(
+        DateFormat('EEEE, MMM d, yyyy').format(
+          model.date.toDate(),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -30,17 +37,19 @@ class DayScreen extends StatelessWidget {
               DayProtienCalculatorWidget(
                 name: S.of(context).protein_calculator,
                 isCalculator: true,
+                model: model.model,
               ),
               const SizedBox(
                 height: 15,
               ),
               DayProtienCalculatorWidget(
                 name: S.of(context).your_need,
+                model: model.model,
               ),
               const SizedBox(
                 height: 15,
               ),
-              const DayMealsContainerWidget(),
+              DayMealsContainerWidget(map: model.nutrients),
               const SizedBox(
                 height: 15,
               ),

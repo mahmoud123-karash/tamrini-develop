@@ -1,9 +1,9 @@
 class Nutrient {
-  double carbs;
-  double protein;
-  double fat;
-  double calories;
-  double grams;
+  num carbs;
+  num protein;
+  num fat;
+  num calories;
+  num grams;
 
   Nutrient({
     required this.carbs,

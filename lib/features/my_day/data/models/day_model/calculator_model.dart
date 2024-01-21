@@ -1,8 +1,8 @@
 class CalculatorModel {
-  final double calories;
-  final double protein;
-  final double fat;
-  final double carbs;
+  final num calories;
+  final num protein;
+  final num fat;
+  final num carbs;
 
   CalculatorModel({
     required this.calories,

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
 
 import '../../../../../generated/l10n.dart';
 import 'day_row_value_lable_widget.dart';
 
 class DayMealItemWidget extends StatelessWidget {
-  const DayMealItemWidget({super.key});
+  const DayMealItemWidget(
+      {super.key, required this.name, required this.nutrient});
+  final String name;
+  final Nutrient nutrient;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class DayMealItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'meal name',
+                name,
                 style: TextStyles.style14.copyWith(
                   fontWeight: FontWeight.w700,
                   color: appColor,
@@ -36,24 +40,24 @@ class DayMealItemWidget extends StatelessWidget {
                 height: 15,
               ),
               DayRowValueLableWidget(
-                value: '10.25',
+                value: nutrient.grams.toString(),
                 lable: S.of(context).weight,
               ),
               DayRowValueLableWidget(
-                value: '10.25',
+                value: nutrient.calories.toString(),
                 lable: S.of(context).calories,
                 isCalory: true,
               ),
               DayRowValueLableWidget(
-                value: '10.25',
+                value: nutrient.protein.toString(),
                 lable: S.of(context).protien,
               ),
               DayRowValueLableWidget(
-                value: '10.25',
+                value: nutrient.fat.toString(),
                 lable: S.of(context).fat,
               ),
               DayRowValueLableWidget(
-                value: '10.25',
+                value: nutrient.carbs.toString(),
                 lable: S.of(context).carb,
               )
             ],

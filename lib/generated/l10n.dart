@@ -2059,6 +2059,16 @@ class S {
       args: [],
     );
   }
+
+  /// `لا يوجد وجبات`
+  String get no_meals {
+    return Intl.message(
+      'لا يوجد وجبات',
+      name: 'no_meals',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

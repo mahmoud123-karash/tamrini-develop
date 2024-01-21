@@ -162,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_answers": MessageLookupByLibrary.simpleMessage("No answers yet"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. Some App Features May Not Work"),
+        "no_meals": MessageLookupByLibrary.simpleMessage("لا يوجد وجبات"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(

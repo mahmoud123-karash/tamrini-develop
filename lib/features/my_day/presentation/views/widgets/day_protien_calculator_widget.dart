@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'day_recalculator_widget.dart';
@@ -7,9 +8,13 @@ import 'day_row_value_lable_widget.dart';
 
 class DayProtienCalculatorWidget extends StatelessWidget {
   const DayProtienCalculatorWidget(
-      {super.key, this.isCalculator = false, required this.name});
+      {super.key,
+      this.isCalculator = false,
+      required this.name,
+      required this.model});
   final bool isCalculator;
   final String name;
+  final CalculatorModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -45,20 +50,20 @@ class DayProtienCalculatorWidget extends StatelessWidget {
             ),
             DayRowValueLableWidget(
               lable: S.of(context).calories,
-              value: '150.3660',
+              value: model.calories.toString(),
               isCalory: true,
             ),
             DayRowValueLableWidget(
               lable: S.of(context).protien,
-              value: '150.3660',
+              value: model.protein.toString(),
             ),
             DayRowValueLableWidget(
               lable: S.of(context).fat,
-              value: '150.3660',
+              value: model.fat.toString(),
             ),
             DayRowValueLableWidget(
               lable: S.of(context).carb,
-              value: '150.3660',
+              value: model.carbs.toString(),
             ),
           ],
         ),
