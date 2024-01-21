@@ -7,6 +7,7 @@ import 'package:tamrini/features/my_day/data/data_sources/local_data_source/my_d
 import 'package:tamrini/features/my_day/data/data_sources/remote_data_source/my_day_remote_data_source.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
 import 'package:tamrini/features/my_day/domain/repo/my_day_repo.dart';
 import 'package:uuid/uuid.dart';
 
@@ -53,6 +54,106 @@ class MyDayRepoImpl extends MyDayRepo {
           .set(model.toJson());
       var box = Hive.box<DayModel>(dayBox);
       box.add(model);
+      return right(box.values.toList());
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<DayModel>>> addMealToDay({
+    required DayModel model,
+    required Nutrient nutrient,
+    required String name,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      Map<String, Nutrient> nutrients = model.nutrients;
+      nutrients.addAll({
+        name: nutrient,
+      });
+      DayModel day = DayModel(
+        model: model.model,
+        nutrients: nutrients,
+        id: model.id,
+        date: model.date,
+      );
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('myday')
+          .doc(model.id)
+          .update(day.toJson());
+      var box = Hive.box<DayModel>(dayBox);
+      List<DayModel> localList = box.values.toList();
+      localList.remove(model);
+      localList.add(day);
+      await box.clear();
+      await box.addAll(localList);
+      return right(box.values.toList());
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<DayModel>>> reCalculate({
+    required DayModel model,
+    required CalculatorModel calculatorModel,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      DayModel day = DayModel(
+        model: calculatorModel,
+        nutrients: model.nutrients,
+        id: model.id,
+        date: model.date,
+      );
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('myday')
+          .doc(model.id)
+          .update(day.toJson());
+      var box = Hive.box<DayModel>(dayBox);
+      List<DayModel> localList = box.values.toList();
+      localList.remove(model);
+      localList.add(day);
+      await box.clear();
+      await box.addAll(localList);
+      return right(box.values.toList());
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<DayModel>>> removeMealFromDay({
+    required DayModel model,
+    required String name,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      Map<String, Nutrient> nutrients = model.nutrients;
+      nutrients.remove(name);
+      DayModel day = DayModel(
+        model: model.model,
+        nutrients: nutrients,
+        id: model.id,
+        date: model.date,
+      );
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('myday')
+          .doc(model.id)
+          .update(day.toJson());
+      var box = Hive.box<DayModel>(dayBox);
+      List<DayModel> localList = box.values.toList();
+      localList.remove(model);
+      localList.add(day);
+      await box.clear();
+      await box.addAll(localList);
       return right(box.values.toList());
     } catch (e) {
       return left(e.toString());

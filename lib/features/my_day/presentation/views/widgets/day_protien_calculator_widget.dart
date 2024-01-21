@@ -12,9 +12,10 @@ class DayProtienCalculatorWidget extends StatelessWidget {
     this.isCalculator = false,
     required this.name,
     required this.model,
+    required this.id,
   });
   final bool isCalculator;
-  final String name;
+  final String name, id;
   final CalculatorModel model;
 
   @override
@@ -45,26 +46,27 @@ class DayProtienCalculatorWidget extends StatelessWidget {
             DayRecalculatorWidget(
               name: "$name :",
               isCalculator: isCalculator,
+              id: id,
             ),
             const SizedBox(
               height: 10,
             ),
             DayRowValueLableWidget(
               lable: S.of(context).calories,
-              value: model.calories.toString(),
+              value: model.calories.toStringAsFixed(2),
               isCalory: true,
             ),
             DayRowValueLableWidget(
               lable: S.of(context).protien,
-              value: model.protein.toString(),
+              value: model.protein.toStringAsFixed(2),
             ),
             DayRowValueLableWidget(
               lable: S.of(context).fat,
-              value: model.fat.toString(),
+              value: model.fat.toStringAsFixed(2),
             ),
             DayRowValueLableWidget(
               lable: S.of(context).carb,
-              value: model.carbs.toString(),
+              value: model.carbs.toStringAsFixed(2),
             ),
           ],
         ),

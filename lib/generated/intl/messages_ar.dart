@@ -227,12 +227,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
+        "success_add_meal":
+            MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
         "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
+        "success_recalulate":
+            MessageLookupByLibrary.simpleMessage("تمت إعادة الحساب بنجاح"),
         "success_remove": MessageLookupByLibrary.simpleMessage("تم حذف السؤال"),
         "success_remove_answer":
             MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),
+        "success_remove_meal":
+            MessageLookupByLibrary.simpleMessage("تمت حذف الوجبة بنجاح"),
         "success_update":
             MessageLookupByLibrary.simpleMessage("تم تعديل السؤال"),
         "success_update_answer":

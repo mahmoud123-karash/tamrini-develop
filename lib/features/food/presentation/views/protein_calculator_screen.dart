@@ -6,17 +6,18 @@ import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart
 import 'package:tamrini/features/food/presentation/views/widgets/calculator_height_widget.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/calculator_number_of_calories_widget.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/calculator_values_colum_widget.dart';
+import 'package:tamrini/features/food/presentation/views/widgets/my_day_recalculate_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/calculator_gender_widget.dart';
 import 'widgets/calculator_target_widget.dart';
 import 'widgets/calculator_weight_and_age_widget.dart';
-import 'widgets/my_day_recalculator_widget.dart';
 
 class ProteinCalculatorScreen extends StatefulWidget {
-  const ProteinCalculatorScreen({Key? key, this.isMyday = false})
+  const ProteinCalculatorScreen({Key? key, this.isMyday = false, this.id = ''})
       : super(key: key);
   final bool isMyday;
+  final String id;
 
   @override
   State<ProteinCalculatorScreen> createState() =>
@@ -119,7 +120,14 @@ class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                  if (widget.isMyday) const MydayRecalculatorWidget(),
+                  if (widget.isMyday)
+                    MyDayRecalculateBuilderWidget(
+                      calories: cubit.calories,
+                      protein: cubit.protein,
+                      fat: cubit.fat,
+                      carbs: cubit.carbs,
+                      id: widget.id,
+                    ),
                 ],
               ),
             );

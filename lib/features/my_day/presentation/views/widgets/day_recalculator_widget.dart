@@ -7,9 +7,12 @@ import 'package:tamrini/generated/l10n.dart';
 
 class DayRecalculatorWidget extends StatelessWidget {
   const DayRecalculatorWidget(
-      {super.key, this.isCalculator = false, required this.name});
+      {super.key,
+      this.isCalculator = false,
+      required this.name,
+      required this.id});
   final bool isCalculator;
-  final String name;
+  final String name, id;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,12 @@ class DayRecalculatorWidget extends StatelessWidget {
             ),
             color: appColor,
             onPressed: () {
-              navigateTo(context, const ProteinCalculatorScreen(isMyday: true));
+              navigateTo(
+                  context,
+                  ProteinCalculatorScreen(
+                    isMyday: true,
+                    id: id,
+                  ));
             },
             child: Text(
               S.of(context).recalculate,

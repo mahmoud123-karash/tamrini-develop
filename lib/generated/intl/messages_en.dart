@@ -229,14 +229,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "success_add":
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
+        "success_add_meal":
+            MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
         "success_ban": MessageLookupByLibrary.simpleMessage(
             "Question restricted successfully"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("Logged Out Successfully"),
+        "success_recalulate":
+            MessageLookupByLibrary.simpleMessage("تمت إعادة الحساب بنجاح"),
         "success_remove": MessageLookupByLibrary.simpleMessage(
             "Question deleted successfully"),
         "success_remove_answer":
             MessageLookupByLibrary.simpleMessage("Answer Successfully Removed"),
+        "success_remove_meal":
+            MessageLookupByLibrary.simpleMessage("تمت حذف الوجبة بنجاح"),
         "success_update": MessageLookupByLibrary.simpleMessage(
             "Question updated successfully"),
         "success_update_answer":

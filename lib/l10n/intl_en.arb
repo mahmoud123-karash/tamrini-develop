@@ -202,7 +202,10 @@
     "save":"حفظ",
     "no_meals":"لا يوجد وجبات",
     "add_today":"إضافة اليوم الحالي",
-    "add_today_hint":"اليوم الحالي مضاف بالفعل"
+    "add_today_hint":"اليوم الحالي مضاف بالفعل",
+    "success_recalulate":"تمت إعادة الحساب بنجاح",
+    "success_remove_meal":"تمت حذف الوجبة بنجاح",
+    "success_add_meal":"تمت إضافة الوجبة بنجاح"
 
 
 

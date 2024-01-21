@@ -2089,6 +2089,36 @@ class S {
       args: [],
     );
   }
+
+  /// `تمت إعادة الحساب بنجاح`
+  String get success_recalulate {
+    return Intl.message(
+      'تمت إعادة الحساب بنجاح',
+      name: 'success_recalulate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تمت حذف الوجبة بنجاح`
+  String get success_remove_meal {
+    return Intl.message(
+      'تمت حذف الوجبة بنجاح',
+      name: 'success_remove_meal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تمت إضافة الوجبة بنجاح`
+  String get success_add_meal {
+    return Intl.message(
+      'تمت إضافة الوجبة بنجاح',
+      name: 'success_add_meal',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

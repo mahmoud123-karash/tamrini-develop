@@ -16,7 +16,7 @@ class MyDayItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        navigateTo(context, DayScreen(model: model));
+        navigateTo(context, DayScreen(date: model.date, id: model.id));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -54,7 +54,9 @@ class MyDayItemWidget extends StatelessWidget {
                 DateFormat('EEEE, MMM d, yyyy').format(
                   model.date.toDate(),
                 ),
-                style: TextStyles.style16Bold,
+                style: TextStyles.style14.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios_rounded,
