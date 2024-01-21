@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +16,7 @@ import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/services/internet_connection.dart';
 import 'package:tamrini/core/services/request_premission.dart';
 import 'package:tamrini/core/shared/bloc_observer.dart';
+import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/data/location.dart';
 
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
@@ -40,7 +40,7 @@ import 'package:tamrini/features/profile/presentation/manager/location_cubit/loc
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_cubit.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
-import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
+import 'package:tamrini/features/navBar/presentation/views/navbar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
 import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
@@ -423,8 +423,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setLocator();
-  checkInternet();
+
   await Hive.initFlutter();
   Hive.registerAdapter(CategoryModelAdapter());
   await Hive.openBox<CategoryModel>(storeBox);
@@ -436,22 +435,10 @@ void main() async {
   Hive.registerAdapter(NutrientAdapter());
   await Hive.openBox<DayModel>(dayBox);
 
+  setLocator();
   checkInternet();
   requestAppPermissions();
-  AwesomeNotifications().initialize(
-    '',
-    [
-      NotificationChannel(
-        channelGroupKey: 'basic_channel_group',
-        channelKey: 'basic_channel',
-        channelName: 'Basic notifications',
-        channelDescription: 'Notification channel for basic tests',
-        defaultColor: appColor,
-        ledColor: Colors.white,
-      )
-    ],
-    debug: true,
-  );
+  initializeNotifications();
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 

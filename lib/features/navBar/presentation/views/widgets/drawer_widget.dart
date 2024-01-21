@@ -9,6 +9,7 @@ import 'package:tamrini/features/profile/presentation/views/profile_screen.dart'
 import 'package:tamrini/features/settings/presentation/views/app_settings_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/settings_screen.dart';
+import 'package:tamrini/features/water_reminder/presentaion/views/water_reminder_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'drawer_list_tile_widget.dart';
@@ -75,6 +76,13 @@ class MyDrawer extends StatelessWidget {
                 },
                 icon: Ionicons.calendar_outline,
                 lable: S.of(context).my_day,
+              ),
+              DrawerListTileWidget(
+                onPressed: () {
+                  navigateTo(context, const WaterReminderScreen());
+                },
+                icon: Ionicons.alarm_outline,
+                lable: S.of(context).water_alarm,
               ),
               DrawerListTileWidget(
                 onPressed: () {

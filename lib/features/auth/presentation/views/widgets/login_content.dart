@@ -5,7 +5,7 @@ import 'package:tamrini/features/auth/presentation/manager/login_cubit/login_cub
 import 'package:tamrini/features/auth/presentation/views/reset_password_screen.dart';
 import 'package:tamrini/features/auth/presentation/views/widgets/input_text_field_widget.dart';
 import 'package:tamrini/features/auth/presentation/views/widgets/login_custom_builder_widget.dart';
-import 'package:tamrini/features/navBar/presentation/views/navabar_screen.dart';
+import 'package:tamrini/features/navBar/presentation/views/navbar_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../sign_up_screen.dart';

@@ -103,7 +103,7 @@ ThemeData darkTheme = ThemeData(
   primarySwatch: secondColor,
   appBarTheme: AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: HexColor('333739'),
+      statusBarColor: appColor,
       statusBarIconBrightness: Brightness.light,
     ),
     backgroundColor: appColor,
