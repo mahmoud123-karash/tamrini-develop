@@ -150,3 +150,35 @@ void showCalculatorDialog({
     },
   );
 }
+
+void showQuantityDialog({
+  required Widget child,
+  required FixedExtentScrollController controller,
+  required BuildContext context,
+  required int selectedQuantity,
+}) {
+  showCupertinoModalPopup<void>(
+    context: context,
+    builder: (BuildContext context) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (context) => controller.jumpToItem(
+          selectedQuantity,
+        ),
+      );
+
+      return Container(
+        width: double.infinity,
+        height: 300.sp,
+        padding: const EdgeInsets.only(top: 6.0),
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        color: CupertinoColors.systemBackground.resolveFrom(context),
+        child: SafeArea(
+          top: false,
+          child: child,
+        ),
+      );
+    },
+  );
+}

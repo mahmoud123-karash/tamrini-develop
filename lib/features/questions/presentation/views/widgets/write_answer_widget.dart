@@ -32,7 +32,7 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: whiteColor,
+      color: Theme.of(context).scaffoldBackgroundColor,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Row(
@@ -106,9 +106,6 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
                     borderSide: BorderSide(color: appColor),
                   ),
                   hintText: S.of(context).add_answer,
-                  hintStyle: TextStyle(
-                    color: blackColor.withOpacity(0.5),
-                  ),
                 ),
               ),
             ),

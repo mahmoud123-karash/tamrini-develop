@@ -9,6 +9,9 @@ import 'package:tamrini/utils/constants.dart';
 import '../../styles/styles.dart';
 
 ThemeData lightTheme = ThemeData(
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: whiteColor,
+  ),
   primaryColor: appColor,
   colorScheme: ColorScheme.fromSeed(
     seedColor: appColor,
@@ -36,30 +39,33 @@ ThemeData lightTheme = ThemeData(
     showUnselectedLabels: false,
   ),
   inputDecorationTheme: InputDecorationTheme(
-    prefixIconColor: Colors.white,
+    prefixIconColor: Colors.black,
     labelStyle: const TextStyle(
       fontFamily: "cairo",
-      color: Colors.white,
+      color: Colors.black,
     ),
     hintStyle: const TextStyle(
       fontFamily: "cairo",
-      color: Colors.white60,
+      color: Colors.black,
     ),
     border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(color: appColor),
     ),
     focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(color: appColor),
     ),
     enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(color: appColor),
     ),
   ),
   cupertinoOverrideTheme: const CupertinoThemeData(
     brightness: Brightness.light,
   ),
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: kPrimaryColor,
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: appColor,
     foregroundColor: Colors.white,
   ),
   textTheme: TextTheme(
@@ -84,6 +90,14 @@ ThemeData lightTheme = ThemeData(
       color: Colors.black54,
     ),
   ),
+  listTileTheme: ListTileThemeData(
+    titleTextStyle: TextStyle(
+      color: blackColor,
+      fontWeight: FontWeight.bold,
+      fontFamily: "cairo",
+    ),
+    iconColor: blackColor,
+  ),
   fontFamily: 'cairo',
   cardColor: Colors.white,
   secondaryHeaderColor: Colors.white,
@@ -96,6 +110,9 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: HexColor('1f2030'),
+  ),
   primaryColor: appColor,
   colorScheme: ColorScheme.fromSeed(
     seedColor: appColor,
@@ -133,12 +150,15 @@ ThemeData darkTheme = ThemeData(
       color: Colors.white60,
     ),
     border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(color: appColor),
     ),
     focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(color: appColor),
     ),
     enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
       borderSide: BorderSide(color: appColor),
     ),
   ),
@@ -181,6 +201,14 @@ ThemeData darkTheme = ThemeData(
       fontFamily: "cairo",
       color: Colors.white,
     ),
+  ),
+  listTileTheme: ListTileThemeData(
+    titleTextStyle: TextStyle(
+      color: whiteColor,
+      fontWeight: FontWeight.bold,
+      fontFamily: "cairo",
+    ),
+    iconColor: whiteColor,
   ),
   iconTheme: const IconThemeData(color: Colors.white),
   indicatorColor: Colors.white,

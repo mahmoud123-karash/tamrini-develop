@@ -2129,6 +2129,86 @@ class S {
       args: [],
     );
   }
+
+  /// `تذكير`
+  String get reminder {
+    return Intl.message(
+      'تذكير',
+      name: 'reminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التاريخ`
+  String get history {
+    return Intl.message(
+      'التاريخ',
+      name: 'history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الوقت`
+  String get time {
+    return Intl.message(
+      'الوقت',
+      name: 'time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الكمية`
+  String get qunatity {
+    return Intl.message(
+      'الكمية',
+      name: 'qunatity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة تذكير`
+  String get add_reminder {
+    return Intl.message(
+      'إضافة تذكير',
+      name: 'add_reminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تكرار`
+  String get repeat {
+    return Intl.message(
+      'تكرار',
+      name: 'repeat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفعيل`
+  String get submit {
+    return Intl.message(
+      'تفعيل',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ملي`
+  String get ml {
+    return Intl.message(
+      'ملي',
+      name: 'ml',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

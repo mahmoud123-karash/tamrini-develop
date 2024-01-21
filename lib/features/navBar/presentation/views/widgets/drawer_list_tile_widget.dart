@@ -31,14 +31,14 @@ class DrawerListTileWidget extends StatelessWidget {
           onTap: onPressed,
           leading: Icon(
             icon,
-            color: isSelected ? whiteColor : blackColor,
+            color: isSelected ? whiteColor : null,
           ),
           title: Text(
             lable,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
-              color: isSelected ? whiteColor : blackColor,
+              color: isSelected ? whiteColor : null,
               fontFamily: 'cairo',
             ),
           ),

@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
+        "add_reminder": MessageLookupByLibrary.simpleMessage("إضافة تذكير"),
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
@@ -123,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "highPrice": MessageLookupByLibrary.simpleMessage("الأعلى سعرا"),
         "high_activity":
             MessageLookupByLibrary.simpleMessage("نشاط عالي في العمل والنادي"),
+        "history": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
@@ -148,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "media": MessageLookupByLibrary.simpleMessage("مواقع التواصل"),
         "messages": MessageLookupByLibrary.simpleMessage("الرسائل"),
         "minDistance": MessageLookupByLibrary.simpleMessage("الأقرب"),
+        "ml": MessageLookupByLibrary.simpleMessage("ملي"),
         "moderate_activity":
             MessageLookupByLibrary.simpleMessage("نشاط معتدل في العمل والنادي"),
         "money": MessageLookupByLibrary.simpleMessage("السعر"),
@@ -203,11 +206,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "question_error":
             MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
+        "qunatity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
+        "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
+        "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
@@ -228,6 +234,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "store": MessageLookupByLibrary.simpleMessage("المتجر"),
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
@@ -252,6 +259,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "theme": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
+        "time": MessageLookupByLibrary.simpleMessage("الوقت"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),

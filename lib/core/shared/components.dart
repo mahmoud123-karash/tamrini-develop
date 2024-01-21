@@ -71,25 +71,11 @@ Widget searchField({
         onChanged: onChanged,
         controller: controller,
         decoration: InputDecoration(
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Ionicons.search_outline,
-            color: blackColor,
           ),
           hintText: S.of(navigationKey.currentContext!).search,
-          hintStyle: TextStyle(
-            color: blackColor,
-            fontWeight: FontWeight.w600,
-          ),
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
         ),
       ),
     );

@@ -205,7 +205,15 @@
     "success_recalulate":"تمت إعادة الحساب بنجاح",
     "success_remove_meal":"تمت حذف الوجبة بنجاح",
     "success_add_meal":"تمت إضافة الوجبة بنجاح",
-    "add_meal_hint":"لم يتم اختيار وجبة"
+    "add_meal_hint":"لم يتم اختيار وجبة",
+    "reminder":"تذكير",
+    "history":"التاريخ",
+    "time":"الوقت",
+    "qunatity":"الكمية",
+    "add_reminder":"إضافة تذكير",
+    "repeat":"تكرار",
+    "submit":"تفعيل",
+    "ml":"ملي"
 
 
 

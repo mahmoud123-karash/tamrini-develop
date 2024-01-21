@@ -146,3 +146,19 @@ void logOut(context) async {
   CacheHelper.removeData(key: 'deviceToken');
   navigateToAndFinish(context, const LoginScreen());
 }
+
+void showReminderBottomSheet(BuildContext context, Widget widget) {
+  showModalBottomSheet(
+    isScrollControlled: true,
+    context: context,
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    shape: const OutlineInputBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(20),
+        topRight: Radius.circular(20),
+      ),
+      borderSide: BorderSide.none,
+    ),
+    builder: (context) => widget,
+  );
+}
