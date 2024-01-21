@@ -24,7 +24,7 @@ class DayModel {
     required this.date,
   });
 
-  factory DayModel.fromJson(Map<String, dynamic> json, id) {
+  factory DayModel.fromJson(Map<String, dynamic> json) {
     Map<String, dynamic> nutrientsJson = json['nutrients'] ?? {};
     Map<String, Nutrient> nutrients = nutrientsJson.map((key, value) {
       return MapEntry(key, Nutrient.fromJson(value));
@@ -37,7 +37,7 @@ class DayModel {
       model: CalculatorModel.fromJson(
         calculatorJson,
       ),
-      id: id,
+      id: json['id'] ?? '',
       date: json['date'] ?? Timestamp.now(),
     );
   }
@@ -51,6 +51,7 @@ class DayModel {
       'nutrients': nutrientsJson,
       'proteins_calc': model.toJson(),
       'date': date,
+      'id': id,
     };
   }
 }

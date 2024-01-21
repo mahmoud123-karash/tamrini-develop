@@ -30,9 +30,11 @@ import 'package:tamrini/features/home/presentation/manager/article_cubit/article
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
 import 'package:tamrini/features/my_day/data/repo/my_day_repo_impl.dart';
-import 'package:tamrini/features/my_day/presentation/manager/article_cubit/day_cubit.dart';
+import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_cubit.dart';
 import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
 import 'package:tamrini/features/profile/presentation/manager/location_cubit/location_cubit.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_cubit.dart';
@@ -98,6 +100,7 @@ import 'package:tamrini/core/styles/themes.dart';
 import 'package:tamrini/utils/cache_helper.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 import 'features/auth/presentation/views/login_screen.dart';
+import 'features/my_day/data/models/day_model/times_model.g.dart';
 import 'features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'model/exercise.dart';
 import 'model/supplement.dart';
@@ -428,7 +431,11 @@ void main() async {
   Hive.registerAdapter(ProfileModelAdapter());
   await Hive.openBox<ProfileModel>(profileBox);
   Hive.registerAdapter(DayModelAdapter());
+  Hive.registerAdapter(TimestampAdapter());
+  Hive.registerAdapter(CalculatorModelAdapter());
+  Hive.registerAdapter(NutrientAdapter());
   await Hive.openBox<DayModel>(dayBox);
+
   checkInternet();
   requestAppPermissions();
   AwesomeNotifications().initialize(

@@ -31,6 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
+        "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
+        "add_today_hint":
+            MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "You cannot access the admin file"),
         "after": MessageLookupByLibrary.simpleMessage("After"),

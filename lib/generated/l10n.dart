@@ -2069,6 +2069,26 @@ class S {
       args: [],
     );
   }
+
+  /// `إضافة اليوم الحالي`
+  String get add_today {
+    return Intl.message(
+      'إضافة اليوم الحالي',
+      name: 'add_today',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اليوم الحالي مضاف بالفعل`
+  String get add_today_hint {
+    return Intl.message(
+      'اليوم الحالي مضاف بالفعل',
+      name: 'add_today_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

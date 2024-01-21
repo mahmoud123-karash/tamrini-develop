@@ -7,11 +7,12 @@ import 'day_recalculator_widget.dart';
 import 'day_row_value_lable_widget.dart';
 
 class DayProtienCalculatorWidget extends StatelessWidget {
-  const DayProtienCalculatorWidget(
-      {super.key,
-      this.isCalculator = false,
-      required this.name,
-      required this.model});
+  const DayProtienCalculatorWidget({
+    super.key,
+    this.isCalculator = false,
+    required this.name,
+    required this.model,
+  });
   final bool isCalculator;
   final String name;
   final CalculatorModel model;
