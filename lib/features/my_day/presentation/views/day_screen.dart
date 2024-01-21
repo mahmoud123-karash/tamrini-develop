@@ -70,7 +70,7 @@ class DayScreen extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  DayMealsContainerWidget(map: model.nutrients),
+                  DayMealsContainerWidget(map: model.nutrients, id: id),
                   const SizedBox(
                     height: 15,
                   ),

@@ -128,10 +128,10 @@ class _NutritionCalCulatorContentWidgetState
                 const NutritionValuesColumWidget(),
                 if (widget.isMyday)
                   AddMealCustomButtonBuilderWidget(
-                    calories: cubit.model.calories,
-                    protein: cubit.model.proteins,
-                    fat: cubit.model.fats,
-                    carbs: cubit.model.carbs,
+                    calories: cubit.model.calories * cubit.selectedWieght / 50,
+                    protein: cubit.model.proteins * cubit.selectedWieght / 50,
+                    fat: cubit.model.fats * cubit.selectedWieght / 50,
+                    carbs: cubit.model.carbs * cubit.selectedWieght / 50,
                     id: widget.id,
                     grams: cubit.selectedWieght,
                     name: cubit.model.title,

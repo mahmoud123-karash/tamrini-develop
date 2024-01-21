@@ -9,8 +9,11 @@ import 'classification_loading_widget.dart';
 import 'message_builder_widget.dart';
 
 class NutritionClassificationListViewBuilderWidget extends StatelessWidget {
-  const NutritionClassificationListViewBuilderWidget(
-      {super.key, required this.isMyday, required this.id});
+  const NutritionClassificationListViewBuilderWidget({
+    super.key,
+    required this.isMyday,
+    required this.id,
+  });
   final bool isMyday;
   final String id;
 

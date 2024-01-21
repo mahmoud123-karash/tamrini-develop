@@ -1,12 +1,15 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
 import 'package:tamrini/features/my_day/domain/repo/my_day_repo.dart';
 import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_states.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../data/models/day_model/calculator_model.dart';
 
 class DayCubit extends Cubit<DayStates> {
@@ -112,6 +115,28 @@ class DayCubit extends Cubit<DayStates> {
         emit(ErrorGetDayState(message));
       },
       (list) {
+        emit(SucessGetDayState(list));
+      },
+    );
+  }
+
+  void removeMeal({
+    required String id,
+    required String name,
+    required BuildContext context,
+  }) async {
+    var result =
+        await myDayRepo.removeMealFromDay(model: getDay(id: id), name: name);
+    result.fold(
+      (message) {
+        if (kDebugMode) {
+          print(message);
+        }
+        showSnackBar(context, message);
+        emit(ErrorGetDayState(message));
+      },
+      (list) {
+        showSnackBar(context, S.of(context).success_remove_meal);
         emit(SucessGetDayState(list));
       },
     );

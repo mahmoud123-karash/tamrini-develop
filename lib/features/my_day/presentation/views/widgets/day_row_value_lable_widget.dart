@@ -23,6 +23,9 @@ class DayRowValueLableWidget extends StatelessWidget {
           const Spacer(),
           Text(
             '$value ${isCalory ? S.of(context).calory : S.of(context).g}',
+            style: TextStyle(
+              color: value.contains('-') ? Colors.red : null,
+            ),
           ),
         ],
       ),

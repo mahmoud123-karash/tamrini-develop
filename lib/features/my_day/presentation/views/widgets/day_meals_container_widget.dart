@@ -7,8 +7,10 @@ import 'package:tamrini/generated/l10n.dart';
 import 'day_meals_list_view_widget.dart';
 
 class DayMealsContainerWidget extends StatelessWidget {
-  const DayMealsContainerWidget({super.key, required this.map});
+  const DayMealsContainerWidget(
+      {super.key, required this.map, required this.id});
   final Map<String, Nutrient> map;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class DayMealsContainerWidget extends StatelessWidget {
               Center(
                 child: Text(S.of(context).no_meals),
               ),
-            DayMealsListViewWidget(map: map),
+            DayMealsListViewWidget(map: map, id: id),
           ],
         ),
       ),

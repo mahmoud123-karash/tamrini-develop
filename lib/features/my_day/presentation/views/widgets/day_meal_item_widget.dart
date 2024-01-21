@@ -2,20 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
+import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_cubit.dart';
 
 import '../../../../../generated/l10n.dart';
 import 'day_row_value_lable_widget.dart';
 
 class DayMealItemWidget extends StatelessWidget {
-  const DayMealItemWidget(
-      {super.key, required this.name, required this.nutrient});
-  final String name;
+  const DayMealItemWidget({
+    super.key,
+    required this.name,
+    required this.nutrient,
+    required this.id,
+  });
+  final String name, id;
   final Nutrient nutrient;
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: UniqueKey(),
+      onDismissed: (direction) {
+        DayCubit.get(context).removeMeal(id: id, name: name, context: context);
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
