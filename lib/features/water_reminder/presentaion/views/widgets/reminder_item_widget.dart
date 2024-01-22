@@ -3,10 +3,12 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/water_reminder/data/models/reminder_model/reminder_model.dart';
 import 'package:tamrini/features/water_reminder/presentaion/views/widgets/add_reminder_bottom_sheet_widget.dart';
 
 class ReminderItemWidget extends StatefulWidget {
-  const ReminderItemWidget({super.key});
+  const ReminderItemWidget({super.key, required this.model});
+  final ReminderModel model;
 
   @override
   State<ReminderItemWidget> createState() => _ReminderItemWidgetState();

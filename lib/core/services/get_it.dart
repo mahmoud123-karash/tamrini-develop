@@ -32,6 +32,8 @@ import 'package:tamrini/features/trainer/data/data_sources/remote_data_source/tr
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 import 'package:tamrini/features/questions/data/data_sources/remote_data_source/user_remote_data_source.dart'
     as user;
+import 'package:tamrini/features/water_reminder/data/data_sources/local_data_source/reminder_local_data_source.dart';
+import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
 
 import '../../features/auth/data/repo/login_repo_impl.dart';
 
@@ -133,6 +135,12 @@ void setLocator() {
     MyDayRepoImpl(
       MyDayRemoteDataSourceImpl(),
       MyDayLocalDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<ReminderRepoImpl>(
+    ReminderRepoImpl(
+      ReminderLocalDataSourceImpl(),
     ),
   );
 }
