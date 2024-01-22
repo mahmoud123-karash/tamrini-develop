@@ -5,7 +5,7 @@ import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
-import 'package:tamrini/features/water_reminder/presentaion/views/widgets/remider_content_widget.dart';
+import 'package:tamrini/features/water_reminder/presentaion/views/widgets/reminder_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../manager/reminder_cubit/reminder_cubit.dart';

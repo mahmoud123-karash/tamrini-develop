@@ -8,7 +8,7 @@ import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'remider_hour_list_view_widget.dart';
+import 'reminder_hour_list_view_widget.dart';
 
 class AutoRemiderListTileWidget extends StatefulWidget {
   const AutoRemiderListTileWidget({super.key});

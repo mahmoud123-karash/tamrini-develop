@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/water_reminder/presentaion/manager/reminder_cubit/reminder_cubit.dart';
 import 'package:tamrini/features/water_reminder/presentaion/manager/reminder_cubit/reminder_states.dart';
-import 'package:tamrini/features/water_reminder/presentaion/views/widgets/remiders_list_view_widget.dart';
+import 'package:tamrini/features/water_reminder/presentaion/views/widgets/reminders_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'reminder_message_builder_widget.dart';
