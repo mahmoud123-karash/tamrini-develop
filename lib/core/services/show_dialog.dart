@@ -151,18 +151,18 @@ void showCalculatorDialog({
   );
 }
 
-void showQuantityDialog({
+void showReminderDialog({
   required Widget child,
   required FixedExtentScrollController controller,
   required BuildContext context,
-  required int selectedQuantity,
+  required int selectedItem,
 }) {
   showCupertinoModalPopup<void>(
     context: context,
     builder: (BuildContext context) {
       WidgetsBinding.instance.addPostFrameCallback(
         (context) => controller.jumpToItem(
-          selectedQuantity,
+          selectedItem,
         ),
       );
 

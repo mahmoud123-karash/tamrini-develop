@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "arabic_language": MessageLookupByLibrary.simpleMessage("Arabic"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
+        "auto_reminder":
+            MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
         "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
@@ -130,6 +132,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("Home Exercises"),
+        "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
+        "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("App Instructions"),
         "instgram": MessageLookupByLibrary.simpleMessage("Instagram"),
@@ -152,6 +156,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "media": MessageLookupByLibrary.simpleMessage("Social Media"),
         "messages": MessageLookupByLibrary.simpleMessage("Messages"),
         "minDistance": MessageLookupByLibrary.simpleMessage("Nearest"),
+        "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
         "ml": MessageLookupByLibrary.simpleMessage("ملي"),
         "moderate_activity": MessageLookupByLibrary.simpleMessage(
             "Moderate Activity in Work and Club"),
@@ -213,6 +218,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
+        "reminder_to_drink":
+            MessageLookupByLibrary.simpleMessage("تذكير لشرب الماء"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
@@ -264,6 +271,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "system": MessageLookupByLibrary.simpleMessage("System"),
         "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
+        "time_to_drink":
+            MessageLookupByLibrary.simpleMessage("حان وقت شرب الماء الخاص بك"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),

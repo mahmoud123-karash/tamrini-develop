@@ -8,12 +8,13 @@ class ReminderListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.separated(
-        itemBuilder: (context, index) => const ReminderItemWidget(),
-        separatorBuilder: (context, index) => const SizedBox(
-          height: 10,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: ListView.separated(
+          itemBuilder: (context, index) => const ReminderItemWidget(),
+          separatorBuilder: (context, index) => const Divider(),
+          itemCount: 15,
         ),
-        itemCount: 15,
       ),
     );
   }

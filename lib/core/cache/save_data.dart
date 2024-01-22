@@ -64,3 +64,8 @@ void saveCode(value) => CacheHelper.saveData(
       key: 'code',
       value: value,
     );
+
+void saveTime(value) => CacheHelper.saveData(
+      key: 'selectedTime',
+      value: value,
+    );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/water_reminder/presentaion/views/widgets/reminder_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -22,6 +23,7 @@ class _AddReminderBottomSheetWidgetState
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   FixedExtentScrollController? controller;
+  int selectedQuantity = 0;
 
   @override
   void initState() {
@@ -85,18 +87,19 @@ class _AddReminderBottomSheetWidgetState
                 ),
                 ReminderTextFieldWidgt(
                   onTap: () {
-                    showQuantityDialog(
+                    showReminderDialog(
                       child: QuantityListViewWidget(
                         onSelectedItemChanged: (selectedItem) {
+                          selectedQuantity = selectedItem;
                           quantityController.text =
-                              '$selectedItem ${S.of(context).ml}';
+                              '${qunatities[selectedItem]} ${S.of(context).ml}';
                           setState(() {});
                         },
                         scrollController: controller!,
                       ),
                       controller: controller!,
                       context: context,
-                      selectedQuantity: 300,
+                      selectedItem: selectedQuantity,
                     );
                   },
                   autovalidateMode: autovalidateMode,
@@ -113,7 +116,7 @@ class _AddReminderBottomSheetWidgetState
                     borderRadius: BorderRadius.circular(20),
                     borderSide: BorderSide.none,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                     } else {

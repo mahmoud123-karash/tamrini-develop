@@ -2209,6 +2209,66 @@ class S {
       args: [],
     );
   }
+
+  /// `التذكير التلقائي`
+  String get auto_reminder {
+    return Intl.message(
+      'التذكير التلقائي',
+      name: 'auto_reminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حان وقت شرب الماء الخاص بك`
+  String get time_to_drink {
+    return Intl.message(
+      'حان وقت شرب الماء الخاص بك',
+      name: 'time_to_drink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تذكير لشرب الماء`
+  String get reminder_to_drink {
+    return Intl.message(
+      'تذكير لشرب الماء',
+      name: 'reminder_to_drink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ساعة`
+  String get hour {
+    return Intl.message(
+      'ساعة',
+      name: 'hour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ساعات`
+  String get hours {
+    return Intl.message(
+      'ساعات',
+      name: 'hours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `دقيقة`
+  String get minute {
+    return Intl.message(
+      'دقيقة',
+      name: 'minute',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

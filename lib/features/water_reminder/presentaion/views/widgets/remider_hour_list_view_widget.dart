@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/generated/l10n.dart';
-
 import '../../../../../core/utils/lists.dart';
 
-class QuantityListViewWidget extends StatelessWidget {
-  const QuantityListViewWidget({
+class ReminderHourListViewWidget extends StatelessWidget {
+  const ReminderHourListViewWidget({
     super.key,
     required this.onSelectedItemChanged,
     required this.scrollController,
@@ -17,7 +15,7 @@ class QuantityListViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPicker(
       scrollController: scrollController,
-      magnification: 1.22,
+      magnification: 0.75,
       squeeze: 2.2,
       useMagnifier: true,
       itemExtent: 80.0,
@@ -28,12 +26,12 @@ class QuantityListViewWidget extends StatelessWidget {
 }
 
 List<Widget> list(context) => List<Widget>.generate(
-      qunatities.length,
+      times(context).length,
       (int index) {
         return Center(
           child: Text(
-            "${qunatities[index]} ${S.of(context).ml}",
-            style: TextStyles.style14.copyWith(
+            times(context)[index],
+            style: TextStyles.style17.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),

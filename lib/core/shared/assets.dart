@@ -141,6 +141,10 @@ class Assets {
   /// assets/images/water.png
   static const String imagesWater = "assets/images/water.png";
 
+  /// Assets for imagesWaterCover
+  /// assets/images/water_cover.jpg
+  static const String imagesWaterCover = "assets/images/water_cover.jpg";
+
   /// Assets for imagesWhey
   /// assets/images/whey.jpg
   static const String imagesWhey = "assets/images/whey.jpg";

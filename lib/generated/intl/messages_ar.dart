@@ -53,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
+        "auto_reminder":
+            MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
         "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
@@ -128,6 +130,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "home_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
+        "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
+        "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("تعليمات التطبيق"),
         "instgram": MessageLookupByLibrary.simpleMessage("انستجرام"),
@@ -150,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "media": MessageLookupByLibrary.simpleMessage("مواقع التواصل"),
         "messages": MessageLookupByLibrary.simpleMessage("الرسائل"),
         "minDistance": MessageLookupByLibrary.simpleMessage("الأقرب"),
+        "minute": MessageLookupByLibrary.simpleMessage("دقيقة"),
         "ml": MessageLookupByLibrary.simpleMessage("ملي"),
         "moderate_activity":
             MessageLookupByLibrary.simpleMessage("نشاط معتدل في العمل والنادي"),
@@ -212,6 +217,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
+        "reminder_to_drink":
+            MessageLookupByLibrary.simpleMessage("تذكير لشرب الماء"),
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
         "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
@@ -260,6 +267,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "theme": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
+        "time_to_drink":
+            MessageLookupByLibrary.simpleMessage("حان وقت شرب الماء الخاص بك"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
