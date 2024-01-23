@@ -20,6 +20,6 @@ String appLink = Platform.isIOS
 String storeBox = 'storeBox';
 String profileBox = 'profile_box';
 String dayBox = 'day_box';
-String reminderBox = 'reminder_box';
+String reminderBox = 'reminderbox';
 
 String adminUid = '7JGTeYMv6yfQrUwABPHibDJrot82';

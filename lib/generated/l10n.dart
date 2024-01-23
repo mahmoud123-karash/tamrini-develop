@@ -2269,6 +2269,36 @@ class S {
       args: [],
     );
   }
+
+  /// `تم الحذف بنجاح`
+  String get success_remove_reminder {
+    return Intl.message(
+      'تم الحذف بنجاح',
+      name: 'success_remove_reminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم التعديل بنجاح`
+  String get success_update_reminder {
+    return Intl.message(
+      'تم التعديل بنجاح',
+      name: 'success_update_reminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لابد أن يكون الوقت في المستقبل`
+  String get time_is_after_error {
+    return Intl.message(
+      'لابد أن يكون الوقت في المستقبل',
+      name: 'time_is_after_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

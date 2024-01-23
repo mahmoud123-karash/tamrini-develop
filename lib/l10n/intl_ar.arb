@@ -219,7 +219,10 @@
     "reminder_to_drink":"تذكير لشرب الماء",
     "hour":"ساعة",
     "hours":"ساعات",
-    "minute":"دقيقة"
+    "minute":"دقيقة",
+    "success_remove_reminder":"تم الحذف بنجاح",
+    "success_update_reminder":"تم التعديل بنجاح",
+    "time_is_after_error":"لابد أن يكون الوقت في المستقبل"
 
 
 

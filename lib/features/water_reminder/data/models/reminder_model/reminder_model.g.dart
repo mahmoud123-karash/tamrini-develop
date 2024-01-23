@@ -20,19 +20,22 @@ class ReminderModelAdapter extends TypeAdapter<ReminderModel> {
       id: fields[0] as int,
       quantiy: fields[1] as String,
       time: fields[2] as TimeOfDay,
+      isActive: fields[3] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, ReminderModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.quantiy)
       ..writeByte(2)
-      ..write(obj.time);
+      ..write(obj.time)
+      ..writeByte(3)
+      ..write(obj.isActive);
   }
 
   @override

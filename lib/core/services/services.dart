@@ -162,3 +162,24 @@ void showReminderBottomSheet(BuildContext context, Widget widget) {
     builder: (context) => widget,
   );
 }
+
+int compareTime(TimeOfDay a, TimeOfDay b) {
+  if (a.hour == b.hour) {
+    return b.minute.compareTo(a.minute);
+  } else {
+    return b.hour.compareTo(a.hour);
+  }
+}
+
+bool isTimeAfter(TimeOfDay givenTime) {
+  final currentDateTime = DateTime.now();
+  final givenDateTime = DateTime(
+    currentDateTime.year,
+    currentDateTime.month,
+    currentDateTime.day,
+    givenTime.hour,
+    givenTime.minute,
+  );
+
+  return givenDateTime.isAfter(currentDateTime);
+}

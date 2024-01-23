@@ -15,6 +15,7 @@ class ReminderListViewWidget extends StatelessWidget {
         child: ListView.separated(
           itemBuilder: (context, index) => ReminderItemWidget(
             model: list[index],
+            index: index,
           ),
           separatorBuilder: (context, index) => const Divider(),
           itemCount: list.length,

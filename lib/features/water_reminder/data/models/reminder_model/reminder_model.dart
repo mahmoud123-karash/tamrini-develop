@@ -11,10 +11,13 @@ class ReminderModel {
   final String quantiy;
   @HiveField(2)
   final TimeOfDay time;
+  @HiveField(3)
+  final bool isActive;
 
   ReminderModel({
     required this.id,
     required this.quantiy,
     required this.time,
+    required this.isActive,
   });
 }

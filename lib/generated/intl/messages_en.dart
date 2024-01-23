@@ -259,6 +259,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Answer Successfully Removed"),
         "success_remove_meal":
             MessageLookupByLibrary.simpleMessage("تمت حذف الوجبة بنجاح"),
+        "success_remove_reminder":
+            MessageLookupByLibrary.simpleMessage("تم الحذف بنجاح"),
         "success_update": MessageLookupByLibrary.simpleMessage(
             "Question updated successfully"),
         "success_update_answer":
@@ -267,10 +269,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your location has been updated"),
         "success_update_profile": MessageLookupByLibrary.simpleMessage(
             "Profile Successfully Updated"),
+        "success_update_reminder":
+            MessageLookupByLibrary.simpleMessage("تم التعديل بنجاح"),
         "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
         "system": MessageLookupByLibrary.simpleMessage("System"),
         "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
+        "time_is_after_error": MessageLookupByLibrary.simpleMessage(
+            "لابد أن يكون الوقت في المستقبل"),
         "time_to_drink":
             MessageLookupByLibrary.simpleMessage("حان وقت شرب الماء الخاص بك"),
         "to": MessageLookupByLibrary.simpleMessage("To"),

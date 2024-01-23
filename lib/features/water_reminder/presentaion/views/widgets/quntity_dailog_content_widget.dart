@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -15,14 +16,26 @@ class QuantityDialogContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPicker(
-      scrollController: scrollController,
-      magnification: 1.22,
-      squeeze: 2.2,
-      useMagnifier: true,
-      itemExtent: 80.0,
-      onSelectedItemChanged: onSelectedItemChanged,
-      children: list(context),
+    return Container(
+      width: double.infinity,
+      height: 300.sp,
+      padding: const EdgeInsets.only(top: 6.0),
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      color: CupertinoColors.systemBackground.resolveFrom(context),
+      child: SafeArea(
+        top: false,
+        child: CupertinoPicker(
+          scrollController: scrollController,
+          magnification: 1.22,
+          squeeze: 2.2,
+          useMagnifier: true,
+          itemExtent: 80.0,
+          onSelectedItemChanged: onSelectedItemChanged,
+          children: list(context),
+        ),
+      ),
     );
   }
 }

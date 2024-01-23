@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/water_reminder/presentaion/views/widgets/auto_reminder_list_tile_widget.dart';
-import 'package:tamrini/features/water_reminder/presentaion/views/widgets/reminder_content_builder_widget.dart';
+import 'package:tamrini/features/water_reminder/presentaion/views/widgets/reminder_list_view_builder_widget.dart';
 
 class ReminderContentWidget extends StatelessWidget {
   const ReminderContentWidget({super.key});

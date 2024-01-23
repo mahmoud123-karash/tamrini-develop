@@ -255,6 +255,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),
         "success_remove_meal":
             MessageLookupByLibrary.simpleMessage("تمت حذف الوجبة بنجاح"),
+        "success_remove_reminder":
+            MessageLookupByLibrary.simpleMessage("تم الحذف بنجاح"),
         "success_update":
             MessageLookupByLibrary.simpleMessage("تم تعديل السؤال"),
         "success_update_answer":
@@ -263,10 +265,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تحديث مواقعك"),
         "success_update_profile":
             MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي"),
+        "success_update_reminder":
+            MessageLookupByLibrary.simpleMessage("تم التعديل بنجاح"),
         "suggest": MessageLookupByLibrary.simpleMessage("قم بقتراح تمرين"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "theme": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
+        "time_is_after_error": MessageLookupByLibrary.simpleMessage(
+            "لابد أن يكون الوقت في المستقبل"),
         "time_to_drink":
             MessageLookupByLibrary.simpleMessage("حان وقت شرب الماء الخاص بك"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),

@@ -57,6 +57,8 @@ import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_cubit.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
+import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
+import 'package:tamrini/features/water_reminder/presentaion/manager/reminder_cubit/reminder_cubit.dart';
 import 'package:tamrini/firebase_options.dart';
 import 'package:tamrini/model/home_exercise.dart' as homeExercises;
 import 'package:tamrini/model/product.dart';
@@ -103,6 +105,7 @@ import 'features/auth/presentation/views/login_screen.dart';
 import 'features/my_day/data/models/day_model/times_model.g.dart';
 import 'features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'features/water_reminder/data/models/reminder_model/reminder_model.dart';
+import 'features/water_reminder/data/models/reminder_model/time_of_day.g.dart';
 import 'model/exercise.dart';
 import 'model/supplement.dart';
 import 'generated/l10n.dart';
@@ -436,6 +439,7 @@ void main() async {
   Hive.registerAdapter(NutrientAdapter());
   await Hive.openBox<DayModel>(dayBox);
   Hive.registerAdapter(ReminderModelAdapter());
+  Hive.registerAdapter(TimeOfDayAdapter());
   await Hive.openBox<ReminderModel>(reminderBox);
 
   setLocator();
@@ -623,6 +627,10 @@ void main() async {
               getIt.get<MyDayRepoImpl>(),
             )..getData(),
           ),
+          BlocProvider(
+              create: (context) => ReminderCubit(
+                    getIt.get<ReminderRepoImpl>(),
+                  )..getData()),
           BlocProvider(
             create: (context) => ManageCubit()
               ..changeAppTheme(
