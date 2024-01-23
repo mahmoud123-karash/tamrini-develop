@@ -7,10 +7,10 @@ abstract class ReminderRepo {
     required ReminderModel model,
   });
   Future<Either<String, List<ReminderModel>>> removeReminder({
-    required int index,
+    required ReminderModel model,
   });
   Future<Either<String, List<ReminderModel>>> updateReminder({
-    required int index,
+    required ReminderModel oldModel,
     required ReminderModel model,
   });
 }

@@ -154,8 +154,8 @@ class _ReminderBottomSheetWidgetState extends State<ReminderBottomSheetWidget> {
                               time: time,
                               isActive: true,
                             ),
-                            index: widget.index,
                             context: context,
+                            oldModel: widget.model!,
                           );
                           Navigator.pop(context);
                         } else {

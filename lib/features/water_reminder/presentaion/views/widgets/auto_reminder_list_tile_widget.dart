@@ -93,7 +93,7 @@ class _AutoRemiderListTileWidgetState extends State<AutoRemiderListTileWidget> {
             if (value) {
               setAutoReminder(context);
             } else {
-              cancelNotification(id: 100);
+              cancelNotification(id: 200000);
             }
             setState(() {});
           },

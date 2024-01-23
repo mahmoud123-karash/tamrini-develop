@@ -27,7 +27,7 @@ void setRepedtedNotification({
       await AwesomeNotifications().getLocalTimeZoneIdentifier();
   await AwesomeNotifications().createNotification(
     content: NotificationContent(
-      id: 100,
+      id: 200000,
       channelKey: 'basic_channel',
       actionType: ActionType.Default,
       title: title,
@@ -45,6 +45,53 @@ void setRepedtedNotification({
       repeats: true,
     ),
   );
+}
+
+void setNotification({
+  required String title,
+  required String body,
+  required int id,
+  required int hour,
+  required int minute,
+}) async {
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+      id: id,
+      channelKey: 'basic_channel',
+      actionType: ActionType.Default,
+      title: title,
+      body: body,
+      notificationLayout: NotificationLayout.BigPicture,
+      category: NotificationCategory.Reminder,
+      bigPicture: 'asset://assets/images/water_cover.jpg',
+      autoDismissible: false,
+      fullScreenIntent: true,
+      wakeUpScreen: true,
+    ),
+    schedule: NotificationCalendar.fromDate(
+      date: nextScheduledDate(
+        hour,
+        minute,
+      ),
+      preciseAlarm: true,
+      repeats: true,
+    ),
+  );
+}
+
+DateTime nextScheduledDate(hour, minute) {
+  final DateTime now = DateTime.now();
+  DateTime scheduledDate = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    hour,
+    minute,
+  );
+  if (scheduledDate.isBefore(now)) {
+    scheduledDate = scheduledDate.add(const Duration(days: 1));
+  }
+  return scheduledDate;
 }
 
 void cancelNotification({required int id}) async {
