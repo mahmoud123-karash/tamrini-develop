@@ -8,6 +8,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/messaging.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
@@ -36,6 +37,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
         NotificationCubit.get(context).getData();
       },
     );
+    listenNotification();
     super.initState();
   }
 

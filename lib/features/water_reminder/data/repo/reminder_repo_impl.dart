@@ -33,7 +33,7 @@ class ReminderRepoImpl extends ReminderRepo {
       setNotification(
         title: S.of(navigationKey.currentContext!).time_to_drink,
         body:
-            "${model.time.format(navigationKey.currentContext!)}-${model.quantiy}",
+            "${model.time.format(navigationKey.currentContext!)} - ${model.quantiy}",
         id: model.id,
         hour: model.time.hour,
         minute: model.time.minute,
@@ -76,7 +76,7 @@ class ReminderRepoImpl extends ReminderRepo {
         setNotification(
           title: S.of(navigationKey.currentContext!).time_to_drink,
           body:
-              "${model.time.format(navigationKey.currentContext!)}-${model.quantiy}",
+              "${model.time.format(navigationKey.currentContext!)} - ${model.quantiy}",
           id: model.id,
           hour: model.time.hour,
           minute: model.time.minute,
