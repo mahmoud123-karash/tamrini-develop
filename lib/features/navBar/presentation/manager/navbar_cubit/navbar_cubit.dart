@@ -4,7 +4,7 @@ import 'package:tamrini/features/exercise/presentation/views/exercises_types_scr
 import 'package:tamrini/features/home/presentation/views/home_screen.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
 import 'package:tamrini/features/diet_food/presentation/views/educate_your_self_screen.dart';
-import 'package:tamrini/features/store/presenrtation/views/stores_screen.dart';
+import 'package:tamrini/features/store/presentation/views/stores_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:tamrini/features/food/presentation/views/food_category_screen.dart';
 

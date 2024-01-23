@@ -57,7 +57,10 @@ class SupplementArticleItemWidget extends StatelessWidget {
                       model.title,
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                          fontSize: 20.sp, fontWeight: FontWeight.bold),
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        color: blackColor,
+                      ),
                     ),
                   ),
                 ),

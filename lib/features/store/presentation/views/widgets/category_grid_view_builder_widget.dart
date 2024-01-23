@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/data/models/category_model.dart';
-import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_cubit.dart';
-import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_states.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/category_grid_view_widget.dart';
+import 'package:tamrini/features/store/presentation/manager/article_cubit/category_cubit.dart';
+import 'package:tamrini/features/store/presentation/manager/article_cubit/category_states.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/category_grid_view_widget.dart';
 
 class CategoryGridViewBuilderWidget extends StatelessWidget {
   const CategoryGridViewBuilderWidget({super.key, required this.products});

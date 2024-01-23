@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_cubit.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_states.dart';
@@ -20,6 +21,7 @@ class LanguageContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = CacheHelper.getData(key: 'isdark') ?? false;
     return BlocBuilder<ManageCubit, ManageStates>(
       builder: (context, state) {
         return Padding(
@@ -33,7 +35,11 @@ class LanguageContainerWidget extends StatelessWidget {
                 color: isSelected ? appColor.withOpacity(0.5) : null,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: isSelected ? appColor : blackColor,
+                  color: isSelected
+                      ? appColor
+                      : isDark
+                          ? whiteColor
+                          : blackColor,
                   width: isSelected ? 2 : 1,
                 ),
               ),

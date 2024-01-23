@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
-import 'package:tamrini/features/store/presenrtation/views/product_details_screen.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/product_info_widget.dart';
+import 'package:tamrini/features/store/presentation/views/product_details_screen.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/product_info_widget.dart';
 
 class ProductItemWidget extends StatelessWidget {
   const ProductItemWidget(

@@ -2,8 +2,8 @@ import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/store_chat_icon_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/store_name_num_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/store_chat_icon_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/store_name_num_widget.dart';
 
 class StoreCoverImageWidget extends StatelessWidget {
   const StoreCoverImageWidget({

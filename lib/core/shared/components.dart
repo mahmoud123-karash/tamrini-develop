@@ -96,6 +96,7 @@ AwesomeDialog logOutDialog(context) => AwesomeDialog(
       dialogType: DialogType.question,
       animType: AnimType.bottomSlide,
       title: S.of(context).log_out,
+      titleTextStyle: const TextStyle(),
       desc: S.of(context).log_out_question,
       btnCancelOnPress: () {},
       btnOkOnPress: () {

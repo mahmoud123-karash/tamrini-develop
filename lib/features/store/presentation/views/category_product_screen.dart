@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/all_product_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/category_grid_view_builder_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/all_product_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/category_grid_view_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class CategoryProductScreen extends StatelessWidget {

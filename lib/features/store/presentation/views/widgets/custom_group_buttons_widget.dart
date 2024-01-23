@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/animated_container_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/animated_container_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class CustomGroupButtonWidget extends StatelessWidget {

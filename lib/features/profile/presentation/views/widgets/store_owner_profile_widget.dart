@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../../../../store/presenrtation/views/widgets/store_item_widget.dart';
+import '../../../../store/presentation/views/widgets/store_item_widget.dart';
 import 'name_text_widget.dart';
 
 class StoreOwnerProfileWidget extends StatelessWidget {

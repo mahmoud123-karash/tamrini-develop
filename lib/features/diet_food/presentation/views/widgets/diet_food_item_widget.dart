@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/views/diet_food_details_screen.dart';
@@ -50,8 +51,9 @@ class DietFoodItemWidget extends StatelessWidget {
                                 child: AutoSizeText(
                                   model.title,
                                   maxLines: 2,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 18,
+                                    color: blackColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

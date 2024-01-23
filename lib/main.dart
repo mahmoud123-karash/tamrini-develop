@@ -54,7 +54,7 @@ import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_cas
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
 import 'package:tamrini/features/store/data/models/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
-import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_cubit.dart';
+import 'package:tamrini/features/store/presentation/manager/article_cubit/category_cubit.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';

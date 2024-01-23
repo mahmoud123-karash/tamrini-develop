@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/product_rating_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/product_rating_widget.dart';
 
 import 'product_price_widget.dart';
 

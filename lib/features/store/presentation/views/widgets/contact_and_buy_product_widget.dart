@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/custom_buy_now_button_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/custom_buy_now_button_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class ContactAndBuyProductWidget extends StatelessWidget {

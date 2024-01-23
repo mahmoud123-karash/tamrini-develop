@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/custom_group_buttons_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/product_grid_view_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/store_best_seller_product_list_view_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/store_cover_image_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/custom_group_buttons_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/product_grid_view_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/store_best_seller_product_list_view_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/store_cover_image_widget.dart';
 
 class StoreScreen extends StatefulWidget {
   const StoreScreen({super.key, required this.model});

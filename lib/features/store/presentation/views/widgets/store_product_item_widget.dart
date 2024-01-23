@@ -1,10 +1,11 @@
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/store/presenrtation/views/product_details_screen.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/product_price_widget.dart';
+import 'package:tamrini/features/store/presentation/views/product_details_screen.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/product_price_widget.dart';
 
 import '../../../../home/data/models/store_model/product_model.dart';
 
@@ -20,6 +21,7 @@ class StoreProductItemWidget extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
     final getWidht = mediaQuery.size.width;
+    bool isDark = CacheHelper.getData(key: 'isdark') ?? false;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
@@ -33,7 +35,10 @@ class StoreProductItemWidget extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            border: Border.all(width: 0.2),
+            border: Border.all(
+              width: 0.2,
+              color: isDark ? whiteColor : blackColor,
+            ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

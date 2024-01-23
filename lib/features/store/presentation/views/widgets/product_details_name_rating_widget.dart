@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/product_rating_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/product_rating_widget.dart';
 
 class ProductDetailsNameRatingWidget extends StatelessWidget {
   const ProductDetailsNameRatingWidget({

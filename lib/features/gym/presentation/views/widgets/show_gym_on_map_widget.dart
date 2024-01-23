@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class ShowGymOnMapWWidget extends StatelessWidget {
@@ -23,6 +24,7 @@ class ShowGymOnMapWWidget extends StatelessWidget {
               child: Text(
                 S.of(context).show,
                 style: TextStyle(
+                  color: blackColor,
                   fontSize: 12.sp,
                 ),
               ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
@@ -90,7 +91,10 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                           widget.exercise.title ?? '',
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                              fontSize: 20.sp, fontWeight: FontWeight.bold),
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold,
+                            color: blackColor,
+                          ),
                         ),
                       ),
                     ),

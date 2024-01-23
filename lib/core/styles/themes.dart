@@ -9,6 +9,11 @@ import 'package:tamrini/utils/constants.dart';
 import '../../styles/styles.dart';
 
 ThemeData lightTheme = ThemeData(
+  dialogTheme: DialogTheme(
+    titleTextStyle: TextStyles.style16Bold.copyWith(
+      color: blackColor,
+    ),
+  ),
   bottomSheetTheme: BottomSheetThemeData(
     backgroundColor: whiteColor,
   ),
@@ -99,6 +104,7 @@ ThemeData lightTheme = ThemeData(
     iconColor: blackColor,
   ),
   fontFamily: 'cairo',
+  dividerColor: blackColor,
   cardColor: Colors.white,
   secondaryHeaderColor: Colors.white,
   indicatorColor: Colors.black,
@@ -162,6 +168,7 @@ ThemeData darkTheme = ThemeData(
       borderSide: BorderSide(color: appColor),
     ),
   ),
+  dividerColor: whiteColor,
   dialogTheme: DialogTheme(
     backgroundColor: Colors.grey[700],
     titleTextStyle: const TextStyle(

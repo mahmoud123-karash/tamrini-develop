@@ -3,8 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/data/models/category_model.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/category_product_item_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/other_category_item_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/category_product_item_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/other_category_item_widget.dart';
 
 class GategoryGridViewWidget extends StatelessWidget {
   const GategoryGridViewWidget({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/store_best_seller_product_item_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/store_best_seller_product_item_widget.dart';
 
 class StoreBestSellerProducctListViewWidget extends StatelessWidget {
   const StoreBestSellerProducctListViewWidget({super.key, required this.list});

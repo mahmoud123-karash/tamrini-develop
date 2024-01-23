@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/features/exercise/data/models/home_exercise/exercise_model.dart';
@@ -48,7 +49,10 @@ class HomeExerciseItemWidget extends StatelessWidget {
                           model.title!,
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                              fontSize: 20.sp, fontWeight: FontWeight.bold),
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold,
+                            color: blackColor,
+                          ),
                         ),
                       ),
                     ),

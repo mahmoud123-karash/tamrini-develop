@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/dinar_text_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/dinar_text_widget.dart';
 
 class ProductDetailsPriceWidget extends StatelessWidget {
   const ProductDetailsPriceWidget(

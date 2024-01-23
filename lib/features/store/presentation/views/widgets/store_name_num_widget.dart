@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/store/presenrtation/views/widgets/store_number_products_widget.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/store_number_products_widget.dart';
 
 class StoreNameNumWidget extends StatelessWidget {
   const StoreNameNumWidget({super.key, required this.name, required this.num});

@@ -3,7 +3,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_product_list_view.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/title_and_more_button_row_widget.dart';
-import 'package:tamrini/features/store/presenrtation/views/category_product_screen.dart';
+import 'package:tamrini/features/store/presentation/views/category_product_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class HomeProductWidget extends StatelessWidget {

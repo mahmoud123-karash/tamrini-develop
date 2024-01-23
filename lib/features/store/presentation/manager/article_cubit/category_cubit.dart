@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/store/domain/repo/store_repo.dart';
-import 'package:tamrini/features/store/presenrtation/manager/article_cubit/category_states.dart';
+import 'package:tamrini/features/store/presentation/manager/article_cubit/category_states.dart';
 
 class CategoryCubit extends Cubit<CategoryStates> {
   CategoryCubit(this.storeRepo) : super(InitialCategoriesState());

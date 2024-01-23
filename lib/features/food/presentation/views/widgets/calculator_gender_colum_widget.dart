@@ -21,13 +21,10 @@ class GenderColumnWidget extends StatelessWidget {
         Icon(
           icony,
           size: 40.sp,
-          color: colory,
         ),
         Text(
           texty,
-          style: TextStyle(
-            color: colory,
-          ),
+          style: const TextStyle(),
         ),
       ],
     );
