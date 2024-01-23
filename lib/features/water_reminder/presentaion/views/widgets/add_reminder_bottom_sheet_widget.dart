@@ -6,7 +6,7 @@ import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/water_reminder/presentaion/views/widgets/reminder_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'quntity_list_view_widget.dart';
+import 'quntity_dailog_content_widget.dart';
 
 class AddReminderBottomSheetWidget extends StatefulWidget {
   const AddReminderBottomSheetWidget({super.key});
@@ -88,7 +88,7 @@ class _AddReminderBottomSheetWidgetState
                 ReminderTextFieldWidgt(
                   onTap: () {
                     showReminderDialog(
-                      child: QuantityListViewWidget(
+                      child: QuantityDialogContentWidget(
                         onSelectedItemChanged: (selectedItem) {
                           selectedQuantity = selectedItem;
                           quantityController.text =

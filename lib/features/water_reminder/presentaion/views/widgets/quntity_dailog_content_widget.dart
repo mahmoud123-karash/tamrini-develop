@@ -4,8 +4,8 @@ import 'package:tamrini/generated/l10n.dart';
 
 import '../../../../../core/utils/lists.dart';
 
-class QuantityListViewWidget extends StatelessWidget {
-  const QuantityListViewWidget({
+class QuantityDialogContentWidget extends StatelessWidget {
+  const QuantityDialogContentWidget({
     super.key,
     required this.onSelectedItemChanged,
     required this.scrollController,

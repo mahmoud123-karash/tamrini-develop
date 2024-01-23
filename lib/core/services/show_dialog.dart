@@ -166,19 +166,7 @@ void showReminderDialog({
         ),
       );
 
-      return Container(
-        width: double.infinity,
-        height: 300.sp,
-        padding: const EdgeInsets.only(top: 6.0),
-        margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-        ),
-        color: CupertinoColors.systemBackground.resolveFrom(context),
-        child: SafeArea(
-          top: false,
-          child: child,
-        ),
-      );
+      return child;
     },
   );
 }

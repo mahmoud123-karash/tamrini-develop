@@ -69,3 +69,8 @@ void saveTime(value) => CacheHelper.saveData(
       key: 'selectedTime',
       value: value,
     );
+
+void saveIsActive(value) => CacheHelper.saveData(
+      key: 'isActive',
+      value: value,
+    );

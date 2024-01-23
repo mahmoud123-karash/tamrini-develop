@@ -8,7 +8,7 @@ import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'reminder_hour_list_view_widget.dart';
+import 'auto_reminder_dialog_content_widget.dart';
 
 class AutoRemiderListTileWidget extends StatefulWidget {
   const AutoRemiderListTileWidget({super.key});
@@ -22,7 +22,7 @@ class _AutoRemiderListTileWidgetState extends State<AutoRemiderListTileWidget> {
   FixedExtentScrollController? controller;
   late int selectedTime;
   late String selectedItem;
-  bool isActive = true;
+  late bool isActive;
 
   @override
   void initState() {
@@ -40,6 +40,7 @@ class _AutoRemiderListTileWidgetState extends State<AutoRemiderListTileWidget> {
   void didChangeDependencies() {
     selectedTime = CacheHelper.getData(key: 'selectedTime') ?? 0;
     selectedItem = times(context)[selectedTime];
+    isActive = CacheHelper.getData(key: 'isActive') ?? false;
     super.didChangeDependencies();
   }
 
@@ -49,12 +50,18 @@ class _AutoRemiderListTileWidgetState extends State<AutoRemiderListTileWidget> {
       contentPadding: const EdgeInsets.symmetric(horizontal: 25),
       onTap: () {
         showReminderDialog(
-          child: ReminderHourListViewWidget(
+          child: AutoReminderDialogContentWidget(
+            onPressed: () {
+              isActive = true;
+              saveIsActive(true);
+              saveTime(selectedTime);
+              setAutoReminder(context);
+              Navigator.pop(context);
+              setState(() {});
+            },
             onSelectedItemChanged: (selected) {
               selectedTime = selected;
-              saveTime(selected);
               selectedItem = times(context)[selected];
-              setState(() {});
             },
             scrollController: controller!,
           ),
@@ -82,11 +89,9 @@ class _AutoRemiderListTileWidgetState extends State<AutoRemiderListTileWidget> {
           value: isActive,
           onChanged: (value) {
             isActive = value;
+            saveIsActive(value);
             if (value) {
-              setRepedtedNotification(
-                secondes: 60,
-                title: S.of(context).reminder_to_drink,
-              );
+              setAutoReminder(context);
             } else {
               cancelNotification(id: 100);
             }
@@ -94,6 +99,19 @@ class _AutoRemiderListTileWidgetState extends State<AutoRemiderListTileWidget> {
           },
         ),
       ),
+    );
+  }
+
+  void setAutoReminder(BuildContext context) {
+    int seconds = 0;
+    if (selectedTime == 0) {
+      seconds = 30 * 60;
+    } else {
+      seconds = selectedTime * 60 * 60;
+    }
+    setRepedtedNotification(
+      secondes: seconds,
+      title: S.of(context).reminder_to_drink,
     );
   }
 }
