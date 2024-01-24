@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/exercise/data/models/home_exercise/home_exercise_model.dart';
-import 'package:tamrini/features/exercise/presentation/views/all_home_exercise_category_screen.dart';
+import 'package:tamrini/features/home_exercise/data/models/home_exercise/home_exercise_model.dart';
+import 'package:tamrini/features/home_exercise/presentation/views/all_home_exercise_category_screen.dart';
 
 class HomeCategoryItemWidget extends StatelessWidget {
   const HomeCategoryItemWidget({

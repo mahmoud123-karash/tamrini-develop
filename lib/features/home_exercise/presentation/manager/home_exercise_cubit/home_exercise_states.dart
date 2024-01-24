@@ -1,4 +1,4 @@
-import 'package:tamrini/features/exercise/data/models/home_exercise/home_exercise_model.dart';
+import 'package:tamrini/features/home_exercise/data/models/home_exercise/home_exercise_model.dart';
 
 abstract class HomeExersiceStates {}
 

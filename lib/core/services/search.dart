@@ -1,5 +1,5 @@
 import 'package:fuzzy/fuzzy.dart';
-import 'package:tamrini/features/exercise/data/models/home_exercise/exercise_data.dart';
+import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
 import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';

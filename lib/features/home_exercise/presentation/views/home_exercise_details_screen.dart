@@ -5,7 +5,7 @@ import 'package:tamrini/core/utils/distripute_assets.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../data/models/home_exercise/exercise_data.dart';
-import 'widgets/custom_image_slide_show.dart';
+import '../../../exercise/presentation/views/widgets/custom_image_slide_show.dart';
 
 class HomeExerciseDetailsScreen extends StatelessWidget {
   const HomeExerciseDetailsScreen({Key? key, required this.model})

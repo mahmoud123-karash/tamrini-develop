@@ -14,6 +14,7 @@ import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_
 import 'package:tamrini/features/home/data/repo/home_repo_impl.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
+import 'package:tamrini/features/home_exercise/data/data_sources/remote_data_source/home_exercise_remote_data_source.dart';
 import 'package:tamrini/features/my_day/data/data_sources/local_data_source/my_day_local_data_source.dart';
 import 'package:tamrini/features/my_day/data/data_sources/remote_data_source/my_day_remote_data_source.dart';
 import 'package:tamrini/features/my_day/data/repo/my_day_repo_impl.dart';
@@ -36,6 +37,7 @@ import 'package:tamrini/features/water_reminder/data/data_sources/local_data_sou
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
 
 import '../../features/auth/data/repo/login_repo_impl.dart';
+import '../../features/home_exercise/data/repo/home_exercise_repo_impl.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -141,6 +143,12 @@ void setLocator() {
   getIt.registerSingleton<ReminderRepoImpl>(
     ReminderRepoImpl(
       ReminderLocalDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton(
+    HomeExerciseRepoImpl(
+      HomeExerciseRemoteDataSourceImpl(),
     ),
   );
 }
