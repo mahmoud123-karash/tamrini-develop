@@ -2330,6 +2330,16 @@ class S {
     );
   }
 
+  /// `تعديل القسم`
+  String get edit_section {
+    return Intl.message(
+      'تعديل القسم',
+      name: 'edit_section',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `اسم القسم`
   String get section_name {
     return Intl.message(
@@ -2350,11 +2360,21 @@ class S {
     );
   }
 
-  /// `إضافة صور`
-  String get add_images {
+  /// `إضافة صورة`
+  String get add_image {
     return Intl.message(
-      'إضافة صور',
-      name: 'add_images',
+      'إضافة صورة',
+      name: 'add_image',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تغيير الصورة`
+  String get change_image {
+    return Intl.message(
+      'تغيير الصورة',
+      name: 'change_image',
       desc: '',
       args: [],
     );
@@ -2365,6 +2385,16 @@ class S {
     return Intl.message(
       'تم الإضافة بنجاح',
       name: 'success_add_e',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لم يتم إختيار صورة `
+  String get image_error {
+    return Intl.message(
+      'لم يتم إختيار صورة ',
+      name: 'image_error',
       desc: '',
       args: [],
     );

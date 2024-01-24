@@ -29,7 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
-        "add_images": MessageLookupByLibrary.simpleMessage("إضافة صور"),
+        "add_image": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
@@ -71,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "carb": MessageLookupByLibrary.simpleMessage("كربوهيدرات"),
         "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
+        "change_image": MessageLookupByLibrary.simpleMessage("تغيير الصورة"),
         "change_pass":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("إختر الوجبة"),
@@ -101,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_profile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "edit_question": MessageLookupByLibrary.simpleMessage("تعديل"),
+        "edit_section": MessageLookupByLibrary.simpleMessage("تعديل القسم"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بتفعيل الايميل الخاص"),
@@ -140,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("تعليمات التطبيق"),
+        "image_error":
+            MessageLookupByLibrary.simpleMessage("لم يتم إختيار صورة "),
         "instgram": MessageLookupByLibrary.simpleMessage("انستجرام"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "internet_connection":

@@ -1,17 +1,15 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/auth/presentation/manager/reset_cubit/reset_states.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AddSectionCustomButtonBuilderWidget extends StatelessWidget {
   const AddSectionCustomButtonBuilderWidget(
-      {super.key, required this.onPressed});
+      {super.key, required this.onPressed, required this.isEdit});
   final VoidCallback onPressed;
+  final bool isEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +18,22 @@ class AddSectionCustomButtonBuilderWidget extends StatelessWidget {
         if (state is ErrorGetExerciseState) {
           showSnackBar(context, state.message);
         }
-        if (state is SuccessResetState) {
+        if (state is SucessGetExerciseState) {
           Navigator.pop(context);
           showSnackBar(context, S.of(context).success_add_e);
         }
       },
       builder: (context, state) {
         if (state is LoadingGetExerciseState) {
-          return const CircularProgressIndicator();
+          return const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CircularProgressIndicator(),
+          );
         } else {
           return customButton(
             onPressed: onPressed,
-            lable: S.of(context).add_section,
+            lable:
+                isEdit ? S.of(context).edit_section : S.of(context).add_section,
           );
         }
       },

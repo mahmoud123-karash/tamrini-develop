@@ -31,7 +31,6 @@ class _ExerciseAssetsViewWidgetState extends State<ExerciseAssetsViewWidget> {
     if (widget.player == null) {
       log('message');
     }
-    log(widget.images.last);
     super.initState();
   }
 

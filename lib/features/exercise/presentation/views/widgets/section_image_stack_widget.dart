@@ -1,13 +1,16 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 
 import '../../../../../core/shared/components.dart';
 
 class SectionIamgeStackWidget extends StatelessWidget {
-  const SectionIamgeStackWidget({super.key, required this.image});
-  final String image;
+  const SectionIamgeStackWidget(
+      {super.key,
+      required this.imageProvider,
+      required this.onClose,
+      this.isEdit = false});
+  final ImageProvider<Object> imageProvider;
+  final VoidCallback onClose;
+  final bool isEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -18,27 +21,24 @@ class SectionIamgeStackWidget extends StatelessWidget {
         imageViewWidget(
           height: height / 4,
           width: width / 1.2,
-          imageProvider: FileImage(
-            File(image),
-          ),
+          imageProvider: imageProvider,
         ),
-        Positioned(
-          top: 0,
-          left: 0,
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: GestureDetector(
-              onTap: () {
-                ImageCubit.get(context).removeImage(path: image);
-              },
-              child: const Icon(
-                Icons.delete_forever,
-                color: Colors.red,
-                size: 30,
+        if (!isEdit)
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: GestureDetector(
+                onTap: onClose,
+                child: const Icon(
+                  Icons.delete_forever,
+                  color: Colors.red,
+                  size: 30,
+                ),
               ),
             ),
           ),
-        ),
       ],
     );
   }

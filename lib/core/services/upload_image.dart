@@ -29,8 +29,6 @@ Future<List<String>> uploadFiles({
           'videos/${DateTime.now().millisecondsSinceEpoch.toString()}$fileName';
       var snapshot = await storage.ref().child(destination).putFile(file);
       downloadUrls.add(await snapshot.ref.getDownloadURL());
-    } else {
-      downloadUrls.add(i);
     }
   }
   return downloadUrls;

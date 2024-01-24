@@ -12,7 +12,7 @@ class DataModel {
   });
 
   DataModel.fromJson(Map<String, dynamic> json) {
-    assets = json['image'].cast<String>();
+    assets = List<String>.from(json['image'] ?? []);
     description = json['description'];
     title = json['title'];
     id = json['id'];
@@ -20,7 +20,7 @@ class DataModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'assets': assets,
+      'image': assets,
       'description': description,
       'title': title,
       'id': id,

@@ -30,7 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
-        "add_images": MessageLookupByLibrary.simpleMessage("إضافة صور"),
+        "add_image": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "carb": MessageLookupByLibrary.simpleMessage("Carbohydrates"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
+        "change_image": MessageLookupByLibrary.simpleMessage("تغيير الصورة"),
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("Choose a meal"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("Choose weight"),
@@ -102,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
+        "edit_section": MessageLookupByLibrary.simpleMessage("تعديل القسم"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
@@ -142,6 +144,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("App Instructions"),
+        "image_error":
+            MessageLookupByLibrary.simpleMessage("لم يتم إختيار صورة "),
         "instgram": MessageLookupByLibrary.simpleMessage("Instagram"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "internet_connection": MessageLookupByLibrary.simpleMessage(

@@ -1,19 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_content_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_custom_button_builder_widget.dart';
+import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class AddNewSectionScreen extends StatefulWidget {
-  const AddNewSectionScreen({super.key});
+class NewSectionScreen extends StatefulWidget {
+  const NewSectionScreen({super.key, this.model});
+  final ExerciseModel? model;
 
   @override
-  State<AddNewSectionScreen> createState() => _AddNewSectionScreenState();
+  State<NewSectionScreen> createState() => _NewSectionScreenState();
 }
 
-class _AddNewSectionScreenState extends State<AddNewSectionScreen> {
+class _NewSectionScreenState extends State<NewSectionScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController orderController = TextEditingController();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -22,6 +26,10 @@ class _AddNewSectionScreenState extends State<AddNewSectionScreen> {
   @override
   void initState() {
     ImageCubit.get(context).clearPaths();
+    if (widget.model != null) {
+      nameController.text = widget.model!.title ?? '';
+      orderController.text = widget.model!.order.toString();
+    }
     super.initState();
   }
 
@@ -40,6 +48,7 @@ class _AddNewSectionScreenState extends State<AddNewSectionScreen> {
               orderController: orderController,
               autovalidateMode: autovalidateMode,
               formKey: formKey,
+              image: widget.model != null ? widget.model!.image ?? '' : '',
             ),
           ),
           SliverFillRemaining(
@@ -47,15 +56,33 @@ class _AddNewSectionScreenState extends State<AddNewSectionScreen> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: AddSectionCustomButtonBuilderWidget(
+                isEdit: widget.model != null,
                 onPressed: () {
+                  log(widget.model!.id!);
                   List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    ExerciseCubit.get(context).addNewSection(
-                      title: nameController.text,
-                      order: int.parse(orderController.text),
-                      imagePth: paths.first,
-                    );
+                    if (widget.model != null) {
+                      ExerciseCubit.get(context).editSection(
+                        id: widget.model!.id!,
+                        oldModel: widget.model!,
+                        title: nameController.text,
+                        order: int.parse(orderController.text),
+                        imagePth: paths.isEmpty ? '' : paths.first,
+                        data: widget.model!.data ?? [],
+                      );
+                    } else {
+                      if (paths.isNotEmpty) {
+                        ExerciseCubit.get(context).addNewSection(
+                          title: nameController.text,
+                          id: widget.model!.id!,
+                          order: int.parse(orderController.text),
+                          imagePth: paths.first,
+                        );
+                      } else {
+                        showSnackBar(context, S.of(context).image_error);
+                      }
+                    }
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});

@@ -30,8 +30,10 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       onTap: () {
-        if (widget.exercise.assets != null ||
-            widget.exercise.assets!.isNotEmpty) {
+        if (widget.exercise.assets == null || widget.exercise.assets!.isEmpty) {
+          navigateTo(
+              context, DetailsWithoutVedioScreen(model: widget.exercise));
+        } else {
           if (widget.exercise.assets!.length == 2) {
             navigateTo(
               context,
@@ -54,9 +56,6 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
             navigateTo(
                 context, DetailsWithoutVedioScreen(model: widget.exercise));
           }
-        } else {
-          navigateTo(
-              context, DetailsWithoutVedioScreen(model: widget.exercise));
         }
       },
       child: Padding(
@@ -73,16 +72,17 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    ImageViewWidget(
-                      image: widget.exercise.assets != null ||
-                              widget.exercise.assets!.isNotEmpty
-                          ? widget.exercise.assets!.length == 2
-                              ? widget.exercise.assets!.first
-                              : checkVedioformat(widget.exercise.assets!) == ''
-                                  ? widget.exercise.assets!.first
-                                  : ''
-                          : '',
-                    ),
+                    widget.exercise.assets == null ||
+                            widget.exercise.assets!.isEmpty
+                        ? Container()
+                        : ImageViewWidget(
+                            image: widget.exercise.assets!.length == 2
+                                ? widget.exercise.assets!.first
+                                : checkVedioformat(widget.exercise.assets!) ==
+                                        ''
+                                    ? widget.exercise.assets!.first
+                                    : '',
+                          ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10.0, right: 10),
                       child: SizedBox(

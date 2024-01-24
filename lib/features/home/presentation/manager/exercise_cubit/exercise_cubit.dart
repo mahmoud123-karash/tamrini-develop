@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/domain/repo/home_repo.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_states.dart';
 
@@ -34,14 +35,48 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
   void addNewSection({
     required String title,
     required int order,
+    required String id,
     required String imagePth,
   }) async {
     emit(LoadingGetExerciseState());
     var result = await homeRepo.addSection(
       list: exercises,
       title: title,
+      id: id,
       order: order,
       imagePth: imagePth,
+    );
+    result.fold(
+      (message) {
+        if (kDebugMode) {
+          print(message);
+        }
+        emit(ErrorGetExerciseState(message));
+      },
+      (list) {
+        exercises = list;
+        emit(SucessGetExerciseState(list));
+      },
+    );
+  }
+
+  void editSection({
+    required ExerciseModel oldModel,
+    required String title,
+    required int order,
+    required String imagePth,
+    required String id,
+    required List<DataModel> data,
+  }) async {
+    emit(LoadingGetExerciseState());
+    var result = await homeRepo.editSection(
+      list: exercises,
+      oldModel: oldModel,
+      title: title,
+      order: order,
+      imagePth: imagePth,
+      data: data,
+      id: id,
     );
     result.fold(
       (message) {

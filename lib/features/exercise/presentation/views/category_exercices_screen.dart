@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/exercise/presentation/views/add_new_section_screen.dart';
+import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_container_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/category_grid_view_widget.dart';
@@ -34,7 +34,7 @@ class CategoryExercisesScreen extends StatelessWidget {
                   children: [
                     addCustomButton(
                       onPressed: () {
-                        navigateTo(context, const AddNewSectionScreen());
+                        navigateTo(context, const NewSectionScreen());
                       },
                       lable: S.of(context).add_new_section,
                     ),

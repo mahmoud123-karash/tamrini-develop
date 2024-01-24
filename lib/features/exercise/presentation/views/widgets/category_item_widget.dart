@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/all_exercises_category_screen.dart';
 
@@ -25,7 +26,7 @@ class CategoryItemWidget extends StatelessWidget {
         );
       },
       child: Container(
-        alignment: Alignment.topRight,
+        alignment: Alignment.bottomCenter,
         constraints: const BoxConstraints(
           minHeight: 100,
           minWidth: 100,
@@ -37,7 +38,7 @@ class CategoryItemWidget extends StatelessWidget {
               Colors.black54,
               BlendMode.darken,
             ),
-            image: model.image != ''
+            image: model.image != null
                 ? FirebaseImageProvider(
                     FirebaseUrl(model.image!),
                   ) as ImageProvider
@@ -49,27 +50,29 @@ class CategoryItemWidget extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Expanded(
-                    child: AutoSizeText(
-                      model.title ?? '',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+              Expanded(
+                child: AutoSizeText(
+                  model.title ?? '',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
+                ),
               ),
+              GestureDetector(
+                onTap: () {
+                  navigateTo(context, NewSectionScreen(model: model));
+                },
+                child: const Icon(
+                  Icons.edit,
+                  size: 20,
+                  color: Colors.yellowAccent,
+                ),
+              )
             ],
           ),
         ),
