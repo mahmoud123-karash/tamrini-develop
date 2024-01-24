@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/features/water_reminder/data/data_sources/local_data_source/reminder_local_data_source.dart';
@@ -32,8 +33,7 @@ class ReminderRepoImpl extends ReminderRepo {
       await box.add(model);
       setNotification(
         title: S.of(navigationKey.currentContext!).time_to_drink,
-        body:
-            "${model.time.format(navigationKey.currentContext!)} - ${model.quantiy}",
+        body: "${DateFormat.jm().format(model.time)} - ${model.quantiy}",
         id: model.id,
         hour: model.time.hour,
         minute: model.time.minute,
@@ -75,8 +75,7 @@ class ReminderRepoImpl extends ReminderRepo {
       if (model.isActive) {
         setNotification(
           title: S.of(navigationKey.currentContext!).time_to_drink,
-          body:
-              "${model.time.format(navigationKey.currentContext!)} - ${model.quantiy}",
+          body: "${DateFormat.jm().format(model.time)} - ${model.quantiy}",
           id: model.id,
           hour: model.time.hour,
           minute: model.time.minute,

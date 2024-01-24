@@ -105,7 +105,7 @@ import 'features/auth/presentation/views/login_screen.dart';
 import 'features/my_day/data/models/day_model/times_model.g.dart';
 import 'features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'features/water_reminder/data/models/reminder_model/reminder_model.dart';
-import 'features/water_reminder/data/models/reminder_model/time_of_day.g.dart';
+import 'features/water_reminder/data/models/reminder_model/date_time.g.dart';
 import 'model/exercise.dart';
 import 'model/supplement.dart';
 import 'generated/l10n.dart';
@@ -439,7 +439,7 @@ void main() async {
   Hive.registerAdapter(NutrientAdapter());
   await Hive.openBox<DayModel>(dayBox);
   Hive.registerAdapter(ReminderModelAdapter());
-  Hive.registerAdapter(TimeOfDayAdapter());
+  Hive.registerAdapter(DateTimeAdapter());
   await Hive.openBox<ReminderModel>(reminderBox);
 
   setLocator();

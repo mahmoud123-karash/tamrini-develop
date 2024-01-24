@@ -19,7 +19,7 @@ class ReminderModelAdapter extends TypeAdapter<ReminderModel> {
     return ReminderModel(
       id: fields[0] as int,
       quantiy: fields[1] as String,
-      time: fields[2] as TimeOfDay,
+      time: fields[2] as DateTime,
       isActive: fields[3] as bool,
     );
   }

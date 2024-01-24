@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/assets.dart';
@@ -33,6 +36,7 @@ class ReminderItemWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: ListTile(
               onTap: () {
+                log(model.time.toString());
                 showReminderBottomSheet(
                   context,
                   ReminderBottomSheetWidget(
@@ -52,7 +56,7 @@ class ReminderItemWidget extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                model.time.format(context),
+                DateFormat.jm().format(model.time),
                 style: TextStyles.style14.copyWith(
                   color: appColor,
                   fontWeight: FontWeight.bold,
@@ -63,27 +67,18 @@ class ReminderItemWidget extends StatelessWidget {
                 child: Switch(
                   value: ReminderCubit.get(context).isActive,
                   onChanged: (value) {
-                    if (isTimeAfter(model.time)) {
-                      ReminderCubit.get(context).isActive = value;
-                      ReminderCubit.get(context).updateReminder(
-                        oldModel: model,
-                        context: context,
-                        model: ReminderModel(
-                          id: model.id,
-                          quantiy: model.quantiy,
-                          time: model.time,
-                          isActive: value,
-                        ),
-                      );
-                    } else {
-                      showReminderBottomSheet(
-                        context,
-                        ReminderBottomSheetWidget(
-                          index: index,
-                          model: model,
-                        ),
-                      );
-                    }
+                    ReminderCubit.get(context).isActive = value;
+                    ReminderCubit.get(context).updateReminder(
+                      oldModel: model,
+                      context: context,
+                      model: ReminderModel(
+                        id: model.id,
+                        quantiy: model.quantiy,
+                        time:
+                            nextScheduledDate(model.time.hour, model.time.hour),
+                        isActive: value,
+                      ),
+                    );
                   },
                 ),
               ),

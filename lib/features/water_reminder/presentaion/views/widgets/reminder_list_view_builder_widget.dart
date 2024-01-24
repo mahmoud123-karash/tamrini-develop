@@ -6,7 +6,6 @@ import 'package:tamrini/features/water_reminder/presentaion/manager/reminder_cub
 import 'package:tamrini/features/water_reminder/presentaion/views/widgets/reminders_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../../../../../core/services/services.dart';
 import 'reminder_message_builder_widget.dart';
 
 class ReminderListViewBuilderWidget extends StatelessWidget {
@@ -28,7 +27,7 @@ class ReminderListViewBuilderWidget extends StatelessWidget {
             );
           }
           state.list.sort(
-            (a, b) => compareTime(a.time, b.time),
+            (a, b) => a.time.compareTo(b.time),
           );
           return ReminderListViewWidget(list: state.list);
         } else if (state is ErrorGetRemindersState) {

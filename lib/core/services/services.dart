@@ -163,23 +163,22 @@ void showReminderBottomSheet(BuildContext context, Widget widget) {
   );
 }
 
-int compareTime(TimeOfDay a, TimeOfDay b) {
-  if (a.hour == b.hour) {
-    return b.minute.compareTo(a.minute);
-  } else {
-    return b.hour.compareTo(a.hour);
-  }
+bool isTimeAfter(DateTime givenTime) {
+  final currentDateTime = DateTime.now();
+  return givenTime.isAfter(currentDateTime);
 }
 
-bool isTimeAfter(TimeOfDay givenTime) {
-  final currentDateTime = DateTime.now();
-  final givenDateTime = DateTime(
-    currentDateTime.year,
-    currentDateTime.month,
-    currentDateTime.day,
-    givenTime.hour,
-    givenTime.minute,
+DateTime nextScheduledDate(hour, minute) {
+  final DateTime now = DateTime.now();
+  DateTime scheduledDate = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    hour,
+    minute,
   );
-
-  return givenDateTime.isAfter(currentDateTime);
+  if (scheduledDate.isBefore(now)) {
+    scheduledDate = scheduledDate.add(const Duration(days: 1));
+  }
+  return scheduledDate;
 }

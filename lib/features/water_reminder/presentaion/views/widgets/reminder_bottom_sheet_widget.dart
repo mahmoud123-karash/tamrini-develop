@@ -1,11 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/services/show_dialog.dart';
-import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/water_reminder/data/models/reminder_model/reminder_model.dart';
@@ -57,8 +55,14 @@ class _ReminderBottomSheetWidgetState extends State<ReminderBottomSheetWidget> {
       quantityController.text = '${qunatities[0]} ${S.of(context).ml}';
     }
     if (widget.model != null) {
-      time = widget.model!.time;
-      timeController.text = widget.model!.time.format(context);
+      time = TimeOfDay(
+        hour: widget.model!.time.hour,
+        minute: widget.model!.time.minute,
+      );
+      timeController.text = TimeOfDay(
+        hour: widget.model!.time.hour,
+        minute: widget.model!.time.minute,
+      ).format(context);
       quantityController.text = widget.model!.quantiy;
     }
     super.didChangeDependencies();
@@ -96,12 +100,14 @@ class _ReminderBottomSheetWidgetState extends State<ReminderBottomSheetWidget> {
                       context: context,
                       initialTime: TimeOfDay.now(),
                     );
-                    setState(() {
-                      if (newTime != null) {
-                        timeController.text = newTime.format(context);
-                        time = newTime;
-                      }
-                    });
+                    setState(
+                      () {
+                        if (newTime != null) {
+                          timeController.text = newTime.format(context);
+                          time = newTime;
+                        }
+                      },
+                    );
                   },
                   autovalidateMode: autovalidateMode,
                   controller: timeController,
@@ -145,34 +151,27 @@ class _ReminderBottomSheetWidgetState extends State<ReminderBottomSheetWidget> {
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      if (isTimeAfter(time)) {
-                        if (widget.model != null) {
-                          ReminderCubit.get(context).updateReminder(
-                            model: ReminderModel(
-                              id: widget.model!.id,
-                              quantiy: quantityController.text,
-                              time: time,
-                              isActive: true,
-                            ),
-                            context: context,
-                            oldModel: widget.model!,
-                          );
-                          Navigator.pop(context);
-                        } else {
-                          ReminderCubit.get(context).addReminder(
-                            context: context,
-                            model: ReminderModel(
-                              id: Random().nextInt(10000),
-                              quantiy: quantityController.text,
-                              time: time,
-                              isActive: true,
-                            ),
-                          );
-                        }
+                      if (widget.model != null) {
+                        ReminderCubit.get(context).updateReminder(
+                          model: ReminderModel(
+                            id: widget.model!.id,
+                            quantiy: quantityController.text,
+                            time: nextScheduledDate(time.hour, time.minute),
+                            isActive: true,
+                          ),
+                          context: context,
+                          oldModel: widget.model!,
+                        );
+                        Navigator.pop(context);
                       } else {
-                        showToast(
-                          S.of(context).time_is_after_error,
-                          gravity: ToastGravity.TOP,
+                        ReminderCubit.get(context).addReminder(
+                          context: context,
+                          model: ReminderModel(
+                            id: Random().nextInt(10000),
+                            quantiy: quantityController.text,
+                            time: nextScheduledDate(time.hour, time.minute),
+                            isActive: true,
+                          ),
                         );
                       }
                     } else {

@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
@@ -92,21 +93,6 @@ void setNotification({
       repeats: true,
     ),
   );
-}
-
-DateTime nextScheduledDate(hour, minute) {
-  final DateTime now = DateTime.now();
-  DateTime scheduledDate = DateTime(
-    now.year,
-    now.month,
-    now.day,
-    hour,
-    minute,
-  );
-  if (scheduledDate.isBefore(now)) {
-    scheduledDate = scheduledDate.add(const Duration(days: 1));
-  }
-  return scheduledDate;
 }
 
 void cancelNotification({required int id}) async {
