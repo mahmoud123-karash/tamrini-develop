@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/assets.dart';
-import 'package:tamrini/features/profile/presentation/manager/image_cubit/image_cubit.dart';
-import 'package:tamrini/features/profile/presentation/manager/image_cubit/image_states.dart';
+import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
+import 'package:tamrini/core/cubit/image_cubit/image_states.dart';
 
 class EditProfileImageStackWidget extends StatelessWidget {
   const EditProfileImageStackWidget({super.key, required this.image});
@@ -21,12 +21,13 @@ class EditProfileImageStackWidget extends StatelessWidget {
         children: [
           BlocBuilder<ImageCubit, ImageStates>(
             builder: (context, state) {
-              if (state is SuceesPickImageState) {
+              if (state is SuceessPickImageState) {
                 return CircleAvatar(
-                    radius: 50,
-                    backgroundImage: FileImage(
-                      File(state.image.path),
-                    ));
+                  radius: 50,
+                  backgroundImage: FileImage(
+                    File(state.image.path),
+                  ),
+                );
               } else {
                 return CircleAvatar(
                   radius: 50,
@@ -40,7 +41,7 @@ class EditProfileImageStackWidget extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              ImageCubit.get(context).pichImage();
+              ImageCubit.get(context).pickImage();
             },
             child: CircleAvatar(
               radius: 15,

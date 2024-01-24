@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/domain/repo/profile_repo.dart';
 
@@ -21,6 +21,7 @@ abstract class UseCase {
     required String twiterUri,
     required String whatsApp,
     required String address,
+    required String path,
   });
 }
 
@@ -42,11 +43,12 @@ class UpdateUseCase extends UseCase {
     required String twiterUri,
     required String whatsApp,
     required String address,
+    required String path,
   }) async {
     try {
       var box = Hive.box<ProfileModel>(profileBox);
       await box.clear();
-      String path = CacheHelper.getData(key: 'imagepath') ?? '';
+
       ProfileModel model(String img) => ProfileModel(
             name: name,
             facebookUri: facebookUri,
@@ -68,17 +70,21 @@ class UpdateUseCase extends UseCase {
         box.add(model(image));
         return right(model(image));
       } else {
+        List allPhotos = [];
+        allPhotos.add(File(path));
+        List<String> uris = await uploadFiles(
+          files: allPhotos,
+        );
         if (image != '') {
-          profileRepo.removeOldProfileImage(imagePath: image);
+          List<String> oldImages = [];
+          oldImages.add(image);
+          await deleteOldImages(newImages: uris, oldImages: oldImages);
         }
-        String uri = await profileRepo.uploadImge(
-          imageFile: File(path),
-        );
         profileRepo.updateProfile(
-          model: model(uri),
+          model: model(uris.first),
         );
-        box.add(model(uri));
-        return right(model(uri));
+        box.add(model(uris.first));
+        return right(model(uris.first));
       }
     } catch (e) {
       return left(e.toString());

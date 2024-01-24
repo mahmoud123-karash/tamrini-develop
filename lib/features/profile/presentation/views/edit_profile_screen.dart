@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
+import 'package:tamrini/core/cubit/image_cubit/image_states.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
+import '../../../../core/cubit/image_cubit/image_cubit.dart';
 import 'widgets/edit_profile_content_widget.dart';
 import 'widgets/edit_profile_custom_button_builder_widget.dart';
 
@@ -45,59 +48,78 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBar(S.of(context).edit_profile),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: EditProfileContentWidget(
-              formKey: formKey,
-              nameController: nameController,
-              phoneController: phoneController,
-              ageController: ageController,
-              autovalidateMode: autovalidateMode,
-              image: widget.model.image,
-              gender: widget.model.gender,
-            ),
-          ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: EditProfileCustomButtonBuilderWidget(
-                onPressed: () {
-                  String gender =
-                      CacheHelper.getData(key: 'gender') ?? widget.model.gender;
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    if (gender == '') {
-                      showSnackBar(context, S.of(context).genderConfirm);
-                    } else {
-                      ProfileCubit.get(context).updateProfile(
-                        name: nameController.text,
-                        email: widget.model.email,
-                        gender: gender,
-                        age: int.parse(ageController.text),
-                        phone: phoneController.text,
-                        image: widget.model.image,
-                        whatsApp: widget.model.whatsApp ?? '',
-                        isBanned: widget.model.isBanned,
-                        facebookUri: widget.model.facebookUri,
-                        instgramUri: widget.model.instgramUri,
-                        twiterUri: widget.model.twiterUri,
-                        address: widget.model.address,
-                      );
-                    }
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
-                },
+    return BlocProvider(
+      create: (context) => ImageCubit(),
+      child: Scaffold(
+        appBar: myAppBar(S.of(context).edit_profile),
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: EditProfileContentWidget(
+                formKey: formKey,
+                nameController: nameController,
+                phoneController: phoneController,
+                ageController: ageController,
+                autovalidateMode: autovalidateMode,
+                image: widget.model.image,
+                gender: widget.model.gender,
               ),
             ),
-          )
-        ],
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: BlocBuilder<ImageCubit, ImageStates>(
+                  builder: (context, state) {
+                    if (state is SuceessPickImageState) {
+                      return EditProfileCustomButtonBuilderWidget(
+                        onPressed: () {
+                          updateProfile(context, state.image.path);
+                        },
+                      );
+                    } else {
+                      return EditProfileCustomButtonBuilderWidget(
+                        onPressed: () {
+                          updateProfile(context, '');
+                        },
+                      );
+                    }
+                  },
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
+  }
+
+  void updateProfile(BuildContext context, String path) {
+    String gender = CacheHelper.getData(key: 'gender') ?? widget.model.gender;
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      if (gender == '') {
+        showSnackBar(context, S.of(context).genderConfirm);
+      } else {
+        ProfileCubit.get(context).updateProfile(
+          name: nameController.text,
+          email: widget.model.email,
+          gender: gender,
+          age: int.parse(ageController.text),
+          phone: phoneController.text,
+          image: widget.model.image,
+          whatsApp: widget.model.whatsApp ?? '',
+          isBanned: widget.model.isBanned,
+          facebookUri: widget.model.facebookUri,
+          instgramUri: widget.model.instgramUri,
+          twiterUri: widget.model.twiterUri,
+          address: widget.model.address,
+          path: path,
+        );
+      }
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {});
+    }
   }
 }

@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/services/get_it.dart';
-import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
-
 import 'package:tamrini/features/profile/presentation/views/widgets/name_text_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/profile_gender_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/profile_text_field_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-
-import '../../manager/image_cubit/image_cubit.dart';
 import 'edit_profile_image_stack_widget.dart';
 
 class EditProfileContentWidget extends StatelessWidget {
@@ -39,12 +33,7 @@ class EditProfileContentWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BlocProvider(
-              create: (context) => ImageCubit(
-                getIt.get<ProfileRepoImpl>(),
-              ),
-              child: EditProfileImageStackWidget(image: image),
-            ),
+            EditProfileImageStackWidget(image: image),
             const SizedBox(
               height: 30,
             ),
@@ -70,7 +59,7 @@ class EditProfileContentWidget extends StatelessWidget {
             ProfileTextFiledWidget(
               autovalidateMode: autovalidateMode,
               controller: ageController,
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.number,
             ),
             const SizedBox(
               height: 20,

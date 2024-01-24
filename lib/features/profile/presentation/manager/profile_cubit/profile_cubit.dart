@@ -41,6 +41,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
     required String twiterUri,
     required String address,
     required String whatsApp,
+    required String path,
   }) async {
     emit(LoadingGetProfileState());
     var result = await updateUseCase.update(
@@ -56,6 +57,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
       instgramUri: instgramUri,
       twiterUri: twiterUri,
       address: address,
+      path: path,
     );
     result.fold(
       (message) {

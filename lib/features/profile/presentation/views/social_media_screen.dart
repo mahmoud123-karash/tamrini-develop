@@ -83,6 +83,7 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
                       instgramUri: instgramController.text,
                       twiterUri: twiterController.text,
                       address: widget.model.address,
+                      path: '',
                     );
                   } else {
                     autovalidateMode = AutovalidateMode.always;
