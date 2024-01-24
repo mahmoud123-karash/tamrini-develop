@@ -6,6 +6,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/core/utils/navigation_route.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
@@ -102,4 +103,95 @@ AwesomeDialog logOutDialog(context) => AwesomeDialog(
       btnOkOnPress: () {
         logOut(context);
       },
+    );
+
+Widget addCustomButton({
+  required VoidCallback onPressed,
+  required String lable,
+}) =>
+    MaterialButton(
+      color: appColor,
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide.none,
+      ),
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 5,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.add_circle,
+              color: whiteColor,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              lable,
+              style: TextStyles.style20.copyWith(
+                color: whiteColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+Widget customButton({
+  required VoidCallback onPressed,
+  required String lable,
+}) =>
+    Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 10,
+      ),
+      child: MaterialButton(
+        padding: const EdgeInsets.all(0),
+        minWidth: double.infinity,
+        height: 40,
+        color: appColor,
+        shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        onPressed: onPressed,
+        child: Text(
+          lable,
+          style: TextStyles.style16Bold.copyWith(
+            color: whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+
+Widget addTextField({
+  required String lable,
+  required TextEditingController controller,
+  required BuildContext context,
+  TextInputType? keyboardType,
+  required AutovalidateMode autovalidateMode,
+}) =>
+    TextFormField(
+      autovalidateMode: autovalidateMode,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return S.of(context).validate;
+        }
+        return null;
+      },
+      controller: controller,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        labelText: lable,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 10,
+        ),
+      ),
     );

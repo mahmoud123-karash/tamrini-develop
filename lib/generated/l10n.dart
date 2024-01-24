@@ -2299,6 +2299,66 @@ class S {
       args: [],
     );
   }
+
+  /// `إضافة قسم جديد`
+  String get add_new_section {
+    return Intl.message(
+      'إضافة قسم جديد',
+      name: 'add_new_section',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة تمرين جديد`
+  String get add_new_exercise {
+    return Intl.message(
+      'إضافة تمرين جديد',
+      name: 'add_new_exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة القسم`
+  String get add_section {
+    return Intl.message(
+      'إضافة القسم',
+      name: 'add_section',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم القسم`
+  String get section_name {
+    return Intl.message(
+      'اسم القسم',
+      name: 'section_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ترتيب القسم`
+  String get section_order {
+    return Intl.message(
+      'ترتيب القسم',
+      name: 'section_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة صور`
+  String get add_images {
+    return Intl.message(
+      'إضافة صور',
+      name: 'add_images',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

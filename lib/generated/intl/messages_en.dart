@@ -30,10 +30,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
+        "add_images": MessageLookupByLibrary.simpleMessage("إضافة صور"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
+        "add_new_exercise":
+            MessageLookupByLibrary.simpleMessage("إضافة تمرين جديد"),
+        "add_new_section":
+            MessageLookupByLibrary.simpleMessage("إضافة قسم جديد"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("إضافة تذكير"),
+        "add_section": MessageLookupByLibrary.simpleMessage("إضافة القسم"),
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
@@ -233,6 +239,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Search for an Exercise"),
         "search_yourself":
             MessageLookupByLibrary.simpleMessage("Search for Your Exercise"),
+        "section_name": MessageLookupByLibrary.simpleMessage("اسم القسم"),
+        "section_order": MessageLookupByLibrary.simpleMessage("ترتيب القسم"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
