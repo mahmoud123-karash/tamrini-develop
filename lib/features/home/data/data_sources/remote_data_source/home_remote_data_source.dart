@@ -2,14 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 
 import '../../../../../core/cache/shared_preference.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<ExerciseModel>> getExercises();
   Future<List<ArticleModel>> getArticles();
   Future<List<StoreModel>> getStores();
   Future<Either<String, List<GymModel>>> getGyms({
@@ -18,23 +16,6 @@ abstract class HomeRemoteDataSource {
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
-  @override
-  Future<List<ExerciseModel>> getExercises() async {
-    List<ExerciseModel> exercices = [];
-    var data = await FirebaseFirestore.instance
-        .collection('exercises')
-        .doc('data')
-        .collection('data')
-        .get();
-
-    for (var element in data.docs) {
-      ExerciseModel model = ExerciseModel.fromJson(element.data(), element.id);
-      exercices.add(model);
-    }
-
-    return exercices;
-  }
-
   @override
   Future<List<ArticleModel>> getArticles() async {
     List<ArticleModel> list = [];

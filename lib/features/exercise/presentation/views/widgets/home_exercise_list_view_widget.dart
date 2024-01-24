@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/models/home_exercise/exercise_model.dart';
+import '../../../data/models/home_exercise/exercise_data.dart';
 import 'home_exercise_item_widget.dart';
 
 class HomeExerciseListViewWidget extends StatelessWidget {

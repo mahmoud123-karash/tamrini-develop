@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_screen.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_without_vedio_screen.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';

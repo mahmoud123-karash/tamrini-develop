@@ -5,8 +5,8 @@ import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_content_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_custom_button_builder_widget.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
-import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class NewSectionScreen extends StatefulWidget {
@@ -58,11 +58,11 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
               child: AddSectionCustomButtonBuilderWidget(
                 isEdit: widget.model != null,
                 onPressed: () {
-                  log(widget.model!.id!);
                   List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
+                      log(widget.model!.id!);
                       ExerciseCubit.get(context).editSection(
                         id: widget.model!.id!,
                         oldModel: widget.model!,
@@ -75,7 +75,6 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
                       if (paths.isNotEmpty) {
                         ExerciseCubit.get(context).addNewSection(
                           title: nameController.text,
-                          id: widget.model!.id!,
                           order: int.parse(orderController.text),
                           imagePth: paths.first,
                         );

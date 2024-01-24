@@ -8,7 +8,7 @@ import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercis
 import 'package:tamrini/features/exercise/presentation/views/widgets/home_category_grid_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../../../data/models/home_exercise/exercise_model.dart';
+import '../../../data/models/home_exercise/exercise_data.dart';
 
 class HomeCategoryExerciseBuilderWidget extends StatelessWidget {
   const HomeCategoryExerciseBuilderWidget({super.key});

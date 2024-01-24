@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_exercise_item_widget.dart';
 
 class ExercisesListViewWidget extends StatelessWidget {

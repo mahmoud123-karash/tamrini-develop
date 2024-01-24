@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/title_and_more_button_row_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 

@@ -1,4 +1,4 @@
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 
 class ExerciseModel {
   String? image;

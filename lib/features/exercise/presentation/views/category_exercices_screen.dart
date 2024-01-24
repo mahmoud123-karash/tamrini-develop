@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_container_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/category_grid_view_widget.dart';
-import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_states.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'all_exercises_category_screen.dart';

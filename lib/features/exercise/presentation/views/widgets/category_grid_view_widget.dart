@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
 
 import 'category_item_widget.dart';
 

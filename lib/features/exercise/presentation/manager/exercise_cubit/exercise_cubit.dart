@@ -1,23 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/home/domain/repo/home_repo.dart';
-import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_states.dart';
+import 'package:tamrini/features/exercise/domain/repo/exercise_repo.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
 
 import '../../../data/models/exercise_model/exercise_model.dart';
 
 class ExerciseCubit extends Cubit<ExerciseStates> {
-  ExerciseCubit(this.homeRepo) : super(InitialExerciseState());
+  ExerciseCubit(this.exerciseRepo) : super(InitialExerciseState());
 
   static ExerciseCubit get(context) => BlocProvider.of(context);
 
-  final HomeRepo homeRepo;
+  final ExerciseRepo exerciseRepo;
 
   List<ExerciseModel> exercises = [];
 
   void getData() async {
     emit(LoadingGetExerciseState());
-    var result = await homeRepo.getExercises();
+    var result = await exerciseRepo.getExercises();
     result.fold(
       (message) {
         if (kDebugMode) {
@@ -35,14 +35,12 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
   void addNewSection({
     required String title,
     required int order,
-    required String id,
     required String imagePth,
   }) async {
     emit(LoadingGetExerciseState());
-    var result = await homeRepo.addSection(
+    var result = await exerciseRepo.addSection(
       list: exercises,
       title: title,
-      id: id,
       order: order,
       imagePth: imagePth,
     );
@@ -69,7 +67,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
     required List<DataModel> data,
   }) async {
     emit(LoadingGetExerciseState());
-    var result = await homeRepo.editSection(
+    var result = await exerciseRepo.editSection(
       list: exercises,
       oldModel: oldModel,
       title: title,

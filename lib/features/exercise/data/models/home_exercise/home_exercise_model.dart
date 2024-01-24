@@ -1,4 +1,4 @@
-import 'exercise_model.dart';
+import 'exercise_data.dart';
 
 class HomeExerciseModel {
   String? image;

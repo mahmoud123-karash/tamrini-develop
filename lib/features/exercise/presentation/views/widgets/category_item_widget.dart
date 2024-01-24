@@ -3,7 +3,7 @@ import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
-import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/all_exercises_category_screen.dart';
 
 class CategoryItemWidget extends StatelessWidget {

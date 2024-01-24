@@ -179,6 +179,7 @@ Widget addTextField({
   required AutovalidateMode autovalidateMode,
 }) =>
     TextFormField(
+      maxLines: null,
       autovalidateMode: autovalidateMode,
       validator: (value) {
         if (value == null || value.isEmpty) {
@@ -192,6 +193,7 @@ Widget addTextField({
         labelText: lable,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 10,
+          vertical: 10,
         ),
       ),
     );

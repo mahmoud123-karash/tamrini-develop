@@ -3,7 +3,7 @@ import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/suggest_exercise_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-import '../../data/models/home_exercise/exercise_model.dart';
+import '../../data/models/home_exercise/exercise_data.dart';
 import 'widgets/home_exercise_list_view_widget.dart';
 
 class AllHomeExercisesCategoryScreen extends StatefulWidget {

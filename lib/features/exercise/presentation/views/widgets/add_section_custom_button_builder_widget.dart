@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_states.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AddSectionCustomButtonBuilderWidget extends StatelessWidget {
