@@ -21,11 +21,12 @@ class EditProfileImageStackWidget extends StatelessWidget {
         children: [
           BlocBuilder<ImageCubit, ImageStates>(
             builder: (context, state) {
-              if (state is SuceessPickImageState) {
+              List<String> paths = ImageCubit.get(context).paths;
+              if (state is SucessPickImageState) {
                 return CircleAvatar(
                   radius: 50,
                   backgroundImage: FileImage(
-                    File(state.image.path),
+                    File(paths.first),
                   ),
                 );
               } else {

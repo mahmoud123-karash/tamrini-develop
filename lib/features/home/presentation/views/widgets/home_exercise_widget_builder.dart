@@ -42,9 +42,11 @@ class HomeExerciseWidgetBuilder extends StatelessWidget {
     Random random = Random();
     List<DataModel> list = [];
     for (var element in state.exercises) {
-      DataModel model = element.data![random.nextInt(element.data!.length)];
-      if (list.length < 5) {
-        list.add(model);
+      if (element.data!.isNotEmpty) {
+        DataModel model = element.data![random.nextInt(element.data!.length)];
+        if (list.length < 5) {
+          list.add(model);
+        }
       }
     }
     return list;

@@ -11,4 +11,11 @@ abstract class HomeRepo {
   Future<Either<String, List<GymModel>>> getGyms({
     required bool update,
   });
+
+  Future<Either<String, List<ExerciseModel>>> addSection({
+    required List<ExerciseModel> list,
+    required String title,
+    required int order,
+    required String imagePth,
+  });
 }

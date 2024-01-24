@@ -22,7 +22,7 @@ class HomeExerciseWidget extends StatelessWidget {
         TitleAndMoreButtonRowWidget(
           lable: S.of(context).exercise,
           onPressed: () {
-            navigateTo(context, CategoryExercisesScreen(models: allExercises));
+            navigateTo(context, const CategoryExercisesScreen());
           },
         ),
         const SizedBox(

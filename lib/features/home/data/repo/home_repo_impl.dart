@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/home/data/models/exercise_model/exercise_model.dart';
@@ -45,5 +49,36 @@ class HomeRepoImpl extends HomeRepo {
     required bool update,
   }) async {
     return await homeRemoteDataSource.getGyms(update: update);
+  }
+
+  @override
+  Future<Either<String, List<ExerciseModel>>> addSection({
+    required List<ExerciseModel> list,
+    required String title,
+    required int order,
+    required String imagePth,
+  }) async {
+    try {
+      List paths = [];
+      paths.add(File(imagePth));
+      List<String> uris = await uploadFiles(files: paths);
+      ExerciseModel model = ExerciseModel(
+        data: [],
+        order: order,
+        title: title,
+        image: uris.isNotEmpty ? uris.first : '',
+      );
+      await FirebaseFirestore.instance
+          .collection('exercises')
+          .doc('data')
+          .collection('data')
+          .add(
+            model.toJson(),
+          );
+      list.add(model);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
   }
 }

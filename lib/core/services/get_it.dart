@@ -11,7 +11,7 @@ import 'package:tamrini/features/food/data/data_sources/remote_data_source/nutri
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
 import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
 import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
-import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
+import 'package:tamrini/features/home/data/repo/home_repo_impl.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/my_day/data/data_sources/local_data_source/my_day_local_data_source.dart';

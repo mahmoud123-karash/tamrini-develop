@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_states.dart';
@@ -7,12 +5,15 @@ import 'package:tamrini/core/cubit/image_cubit/image_states.dart';
 class ImageCubit extends Cubit<ImageStates> {
   ImageCubit() : super(InitialImageState());
   static ImageCubit get(context) => BlocProvider.of(context);
+
+  List<String> paths = [];
   final ImagePicker picker = ImagePicker();
 
   void pickImage() async {
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      emit(SuceessPickImageState(image));
+      paths.add(image.path);
+      emit(SucessPickImageState());
     } else {
       emit(ErrorPickImageState());
     }
@@ -20,12 +21,12 @@ class ImageCubit extends Cubit<ImageStates> {
 
   void imgsFromGallery() async {
     try {
-      List<File> photos = [];
       List<XFile> pickedFile = await picker.pickMultiImage(imageQuality: 50);
       pickedFile.map((e) {
-        photos.add(File(e.path));
+        paths.add(e.path);
       });
-      emit(SuceessPickMultiImageState(photos));
+
+      emit(SucessPickMultiImageState());
     } catch (e) {
       emit(ErrorPickImageState());
     }
@@ -36,9 +37,20 @@ class ImageCubit extends Cubit<ImageStates> {
       source: ImageSource.gallery,
     );
     if (vedio != null) {
-      emit(SuceessPickVedioState(vedio));
+      paths.add(vedio.path);
+      emit(SucessPickVedioState());
     } else {
       emit(ErrorPickImageState());
     }
+  }
+
+  void removeImage({required String path}) {
+    paths.remove(path);
+    emit(SucessRemoveImageState());
+  }
+
+  void clearPaths() {
+    paths.clear();
+    emit(SucessRemoveImageState());
   }
 }

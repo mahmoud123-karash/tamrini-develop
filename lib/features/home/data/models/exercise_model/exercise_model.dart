@@ -11,7 +11,7 @@ class ExerciseModel {
     this.image,
     this.data,
     this.title,
-    required this.id,
+    this.id,
     this.order,
   });
 
@@ -27,5 +27,14 @@ class ExerciseModel {
     }
     title = json['title'];
     order = json['order'] ?? 99;
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'image': image,
+      'data': data?.map((item) => item.toJson()).toList(),
+      'title': title,
+      'order': order,
+    };
   }
 }

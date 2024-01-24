@@ -1,10 +1,7 @@
 class DataModel {
   List<String>? assets;
-
   String? description;
-
   String? title;
-
   String? id;
 
   DataModel({
@@ -19,5 +16,14 @@ class DataModel {
     description = json['description'];
     title = json['title'];
     id = json['id'];
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'assets': assets,
+      'description': description,
+      'title': title,
+      'id': id,
+    };
   }
 }

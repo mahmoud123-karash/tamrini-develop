@@ -37,7 +37,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   void initState() {
-    CacheHelper.removeData(key: 'imagepath');
+    ImageCubit.get(context).clearPaths();
     CacheHelper.removeData(key: 'gender');
     nameController.text = widget.model.name;
     phoneController.text = widget.model.phone;
@@ -48,53 +48,46 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ImageCubit(),
-      child: Scaffold(
-        appBar: myAppBar(S.of(context).edit_profile),
-        body: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: EditProfileContentWidget(
-                formKey: formKey,
-                nameController: nameController,
-                phoneController: phoneController,
-                ageController: ageController,
-                autovalidateMode: autovalidateMode,
-                image: widget.model.image,
-                gender: widget.model.gender,
+    return Scaffold(
+      appBar: myAppBar(S.of(context).edit_profile),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: EditProfileContentWidget(
+              formKey: formKey,
+              nameController: nameController,
+              phoneController: phoneController,
+              ageController: ageController,
+              autovalidateMode: autovalidateMode,
+              image: widget.model.image,
+              gender: widget.model.gender,
+            ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: BlocBuilder<ImageCubit, ImageStates>(
+                builder: (context, state) {
+                  return EditProfileCustomButtonBuilderWidget(
+                    onPressed: () {
+                      List<String> paths = ImageCubit.get(context).paths;
+                      updateProfile(
+                        context,
+                        path: paths.isNotEmpty ? paths.first : '',
+                      );
+                    },
+                  );
+                },
               ),
             ),
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: BlocBuilder<ImageCubit, ImageStates>(
-                  builder: (context, state) {
-                    if (state is SuceessPickImageState) {
-                      return EditProfileCustomButtonBuilderWidget(
-                        onPressed: () {
-                          updateProfile(context, state.image.path);
-                        },
-                      );
-                    } else {
-                      return EditProfileCustomButtonBuilderWidget(
-                        onPressed: () {
-                          updateProfile(context, '');
-                        },
-                      );
-                    }
-                  },
-                ),
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
 
-  void updateProfile(BuildContext context, String path) {
+  void updateProfile(BuildContext context, {required String path}) {
     String gender = CacheHelper.getData(key: 'gender') ?? widget.model.gender;
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();

@@ -2359,6 +2359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تم الإضافة بنجاح`
+  String get success_add_e {
+    return Intl.message(
+      'تم الإضافة بنجاح',
+      name: 'success_add_e',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

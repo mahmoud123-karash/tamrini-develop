@@ -83,9 +83,11 @@ class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
                     length: length,
                   ),
                 )
-              : Center(
-                  child: Text(
-                    S.of(context).emptyList,
+              : Expanded(
+                  child: Center(
+                    child: Text(
+                      S.of(context).emptyList,
+                    ),
                   ),
                 ),
           if (searchList.isEmpty && searchController.text != '')

@@ -195,3 +195,67 @@ Widget addTextField({
         ),
       ),
     );
+
+Widget addFromGalleryItems({
+  required String title,
+  required IconData icon,
+  required VoidCallback function,
+}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      SizedBox(
+        height: 43.h,
+        child: Center(
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+      const SizedBox(
+        width: 5,
+      ),
+      IconButton(
+        onPressed: function,
+        icon: Icon(
+          icon,
+          color: const Color(0xFF7A90B7),
+          size: 40,
+        ),
+      )
+    ],
+  );
+}
+
+Widget imageViewWidget({
+  required double height,
+  required double width,
+  required ImageProvider<Object> imageProvider,
+}) =>
+    ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Image(
+        height: height,
+        width: width,
+        image: imageProvider,
+        fit: BoxFit.cover,
+        loadingBuilder: (_, Widget child, ImageChunkEvent? loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          } else {
+            return SizedBox(
+              height: height,
+              width: width,
+              child: const Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
+      ),
+    );

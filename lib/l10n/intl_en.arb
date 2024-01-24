@@ -229,7 +229,9 @@
     "add_section":"إضافة القسم",
     "section_name":"اسم القسم",
     "section_order":"ترتيب القسم",
-    "add_images":"إضافة صور"
+    "add_images":"إضافة صور",
+    "success_add_e":"تم الإضافة بنجاح"
+
 
 
 

@@ -253,6 +253,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
         "success_add":
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
+        "success_add_e":
+            MessageLookupByLibrary.simpleMessage("تم الإضافة بنجاح"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
         "success_ban": MessageLookupByLibrary.simpleMessage(

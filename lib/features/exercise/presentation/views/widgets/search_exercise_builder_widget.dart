@@ -24,8 +24,7 @@ class SearchExerciseBuilderWidget extends StatelessWidget {
             image: Assets.imagesGymloca2,
             lable: S.of(context).search_yourself,
             onPressed: () {
-              navigateTo(
-                  context, CategoryExercisesScreen(models: state.exercises));
+              navigateTo(context, const CategoryExercisesScreen());
             },
           );
         } else {

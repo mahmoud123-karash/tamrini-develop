@@ -50,11 +50,6 @@ void saveLong(value) => CacheHelper.saveData(
       value: value,
     );
 
-void saveImagePath(value) => CacheHelper.saveData(
-      key: 'imagepath',
-      value: value,
-    );
-
 void saveAddress(value) => CacheHelper.saveData(
       key: 'address',
       value: value,

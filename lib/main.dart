@@ -12,6 +12,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tamrini/core/cache/shared_preference.dart' as helper;
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/services/internet_connection.dart';
 import 'package:tamrini/core/services/request_premission.dart';
@@ -25,7 +26,7 @@ import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
 import 'package:tamrini/features/food/presentation/manager/classification_cubit/classification_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
-import 'package:tamrini/features/home/data/repo/home_repo_imol.dart';
+import 'package:tamrini/features/home/data/repo/home_repo_impl.dart';
 import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
@@ -626,6 +627,9 @@ void main() async {
             create: (context) => DayCubit(
               getIt.get<MyDayRepoImpl>(),
             )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => ImageCubit(),
           ),
           BlocProvider(
               create: (context) => ReminderCubit(

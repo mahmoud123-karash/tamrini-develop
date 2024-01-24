@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/exercise/presentation/views/widgets/section_image_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AddSectionContentWidget extends StatelessWidget {
@@ -26,6 +28,12 @@ class AddSectionContentWidget extends StatelessWidget {
         key: formKey,
         child: Column(
           children: [
+            const SectionImageWidget(
+              image: '',
+            ),
+            const SizedBox(
+              height: 25,
+            ),
             addTextField(
               lable: S.of(context).section_name,
               controller: nameController,
@@ -42,6 +50,16 @@ class AddSectionContentWidget extends StatelessWidget {
               context: context,
               autovalidateMode: autovalidateMode,
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            addFromGalleryItems(
+              title: S.of(context).add_images,
+              icon: Icons.add_a_photo_outlined,
+              function: () {
+                ImageCubit.get(context).pickImage();
+              },
+            )
           ],
         ),
       ),

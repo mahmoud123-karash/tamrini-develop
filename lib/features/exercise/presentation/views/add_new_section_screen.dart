@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_content_widget.dart';
+import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_custom_button_builder_widget.dart';
+import 'package:tamrini/features/home/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AddNewSectionScreen extends StatefulWidget {
@@ -15,6 +18,12 @@ class _AddNewSectionScreenState extends State<AddNewSectionScreen> {
   TextEditingController orderController = TextEditingController();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    ImageCubit.get(context).clearPaths();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,16 +46,21 @@ class _AddNewSectionScreenState extends State<AddNewSectionScreen> {
             hasScrollBody: false,
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: customButton(
+              child: AddSectionCustomButtonBuilderWidget(
                 onPressed: () {
+                  List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
+                    ExerciseCubit.get(context).addNewSection(
+                      title: nameController.text,
+                      order: int.parse(orderController.text),
+                      imagePth: paths.first,
+                    );
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
                   }
                 },
-                lable: S.of(context).add_section,
               ),
             ),
           )
