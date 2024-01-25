@@ -69,3 +69,8 @@ void saveIsActive(value) => CacheHelper.saveData(
       key: 'isActive',
       value: value,
     );
+
+void saveExerciseId(value) => CacheHelper.saveData(
+      key: 'exerciseId',
+      value: value,
+    );

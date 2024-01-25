@@ -48,7 +48,11 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
             );
           } else {
             navigateTo(
-                context, DetailsWithoutVedioScreen(model: widget.exercise));
+              context,
+              DetailsWithoutVedioScreen(
+                model: widget.exercise,
+              ),
+            );
           }
         }
       },

@@ -47,50 +47,61 @@ class _ExerciseAssetsViewWidgetState extends State<ExerciseAssetsViewWidget> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Swiper(
-                  scrollDirection: Axis.horizontal,
-                  axisDirection: AxisDirection.right,
-                  controller: SwiperCubit.get(context).swiperController,
-                  physics: const NeverScrollableScrollPhysics(),
-                  loop: false,
-                  index: cachedIndex,
-                  layout: SwiperLayout.CUSTOM,
-                  customLayoutOption: CustomLayoutOption(
-                    startIndex: -1,
-                    stateCount: 3,
-                  )
-                    ..addRotate([-45.0 / 180, 0.0, 45.0 / 180])
-                    ..addTranslate([
-                      const Offset(-370.0, -40.0),
-                      const Offset(0.0, 0.0),
-                      const Offset(370.0, -40.0)
-                    ]),
-                  itemWidth: double.infinity,
-                  itemHeight: getHeight / 4,
-                  onIndexChanged: (value) {
-                    SwiperCubit.get(context).saveIndex(value);
-                  },
-                  itemBuilder: (context, index) {
-                    return widget.player == null
-                        ? ImageViewWidget(
-                            width: getWidth,
-                            image: widget.images.first,
-                          )
-                        : widget.images.length == 1
-                            ? checkVedioformat(widget.images) == ''
-                                ? ImageViewWidget(
-                                    width: getWidth, image: widget.images.first)
-                                : widget.player!
-                            : index == 0
-                                ? ImageViewWidget(
-                                    width: getWidth, image: widget.images.first)
-                                : widget.player!;
-                  },
-                  itemCount: widget.images.length,
-                ),
-              ),
+              child: widget.images.isNotEmpty
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Swiper(
+                        scrollDirection: Axis.horizontal,
+                        axisDirection: AxisDirection.right,
+                        controller: SwiperCubit.get(context).swiperController,
+                        physics: const NeverScrollableScrollPhysics(),
+                        loop: false,
+                        index: cachedIndex,
+                        layout: SwiperLayout.CUSTOM,
+                        customLayoutOption: CustomLayoutOption(
+                          startIndex: -1,
+                          stateCount: 3,
+                        )
+                          ..addRotate([-45.0 / 180, 0.0, 45.0 / 180])
+                          ..addTranslate([
+                            const Offset(-370.0, -40.0),
+                            const Offset(0.0, 0.0),
+                            const Offset(370.0, -40.0)
+                          ]),
+                        itemWidth: double.infinity,
+                        itemHeight: getHeight / 4,
+                        onIndexChanged: (value) {
+                          SwiperCubit.get(context).saveIndex(value);
+                        },
+                        itemBuilder: (context, index) {
+                          return widget.player == null
+                              ? ImageViewWidget(
+                                  width: getWidth,
+                                  image: checkImageformat(widget.images),
+                                )
+                              : widget.images.length == 1
+                                  ? checkVedioformat(widget.images) == ''
+                                      ? ImageViewWidget(
+                                          width: getWidth,
+                                          image:
+                                              checkImageformat(widget.images),
+                                        )
+                                      : widget.player!
+                                  : index == 0
+                                      ? ImageViewWidget(
+                                          width: getWidth,
+                                          image:
+                                              checkImageformat(widget.images),
+                                        )
+                                      : widget.player!;
+                        },
+                        itemCount: widget.images.length,
+                      ),
+                    )
+                  : ImageViewWidget(
+                      width: getWidth,
+                      image: checkImageformat(widget.images),
+                    ),
             ),
             if (widget.images.length == 2)
               SwiperShowButtonsWidget(index: cachedIndex),

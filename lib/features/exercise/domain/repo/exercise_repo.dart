@@ -19,4 +19,23 @@ abstract class ExerciseRepo {
     required String imagePth,
     required List<DataModel> data,
   });
+
+  Future<Either<String, List<ExerciseModel>>> addExercise({
+    required List<ExerciseModel> list,
+    required ExerciseModel exercise,
+    required String title,
+    required String description,
+    required String youtubUrl,
+    required String imagePath,
+  });
+
+  Future<Either<String, List<ExerciseModel>>> editExercise({
+    required List<ExerciseModel> list,
+    required ExerciseModel exercise,
+    required String title,
+    required String description,
+    required String youtubUrl,
+    required String imagePath,
+    required DataModel oldData,
+  });
 }

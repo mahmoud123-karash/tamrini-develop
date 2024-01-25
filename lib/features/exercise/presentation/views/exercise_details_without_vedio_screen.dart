@@ -13,9 +13,13 @@ import 'package:tamrini/generated/l10n.dart';
 import 'new_exercise_screen.dart';
 
 class DetailsWithoutVedioScreen extends StatefulWidget {
-  const DetailsWithoutVedioScreen({Key? key, required this.model})
-      : super(key: key);
+  const DetailsWithoutVedioScreen({
+    Key? key,
+    required this.model,
+    this.isHome = false,
+  }) : super(key: key);
   final DataModel model;
+  final bool isHome;
 
   @override
   State<DetailsWithoutVedioScreen> createState() =>
@@ -77,14 +81,12 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  if (widget.model.assets != null ||
-                      widget.model.assets!.isNotEmpty)
-                    BlocProvider(
-                      create: (context) => SwiperCubit(),
-                      child: ExerciseAssetsViewWidget(
-                        images: widget.model.assets!,
-                      ),
+                  BlocProvider(
+                    create: (context) => SwiperCubit(),
+                    child: ExerciseAssetsViewWidget(
+                      images: widget.model.assets ?? [],
                     ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
@@ -98,16 +100,15 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                       ),
                     ),
                   ),
-                  customButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      navigateTo(
-                        context,
-                        NewExerciseScreen(model: widget.model),
-                      );
-                    },
-                    lable: S.of(context).edit_exercise,
-                  )
+                  if (!widget.isHome)
+                    customButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        navigateTo(
+                            context, NewExerciseScreen(model: widget.model));
+                      },
+                      lable: S.of(context).edit_exercise,
+                    )
                 ],
               ),
             ),

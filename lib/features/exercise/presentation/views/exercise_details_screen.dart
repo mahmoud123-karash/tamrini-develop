@@ -14,10 +14,15 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'new_exercise_screen.dart';
 
 class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({Key? key, required this.model, required this.vedio})
-      : super(key: key);
+  const DetailsScreen({
+    Key? key,
+    required this.model,
+    required this.vedio,
+    this.isHome = false,
+  }) : super(key: key);
   final DataModel model;
   final String vedio;
+  final bool isHome;
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -127,15 +132,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    if (widget.model.assets != null ||
-                        widget.model.assets!.isNotEmpty)
-                      BlocProvider(
-                        create: (context) => SwiperCubit(),
-                        child: ExerciseAssetsViewWidget(
-                          images: widget.model.assets!,
-                          player: player,
-                        ),
+                    BlocProvider(
+                      create: (context) => SwiperCubit(),
+                      child: ExerciseAssetsViewWidget(
+                        images: widget.model.assets!,
+                        player: player,
                       ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
@@ -149,16 +152,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         ),
                       ),
                     ),
-                    customButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        navigateTo(
-                          context,
-                          NewExerciseScreen(model: widget.model),
-                        );
-                      },
-                      lable: S.of(context).edit_exercise,
-                    )
+                    if (!widget.isHome)
+                      customButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          navigateTo(
+                            context,
+                            NewExerciseScreen(model: widget.model),
+                          );
+                        },
+                        lable: S.of(context).edit_exercise,
+                      )
                   ],
                 ),
               ),

@@ -49,7 +49,7 @@ class GymItemWidget extends StatelessWidget {
                       Colors.blueGrey[500]!.withOpacity(1.0),
                     ],
                   ),
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(20),
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,

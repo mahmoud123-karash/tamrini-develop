@@ -234,7 +234,7 @@ Widget imageProviderWidget({
   required ImageProvider<Object> imageProvider,
 }) =>
     ClipRRect(
-      borderRadius: BorderRadius.circular(30),
+      borderRadius: BorderRadius.circular(20),
       child: Image(
         height: height,
         width: width,

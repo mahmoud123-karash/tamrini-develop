@@ -53,6 +53,7 @@ class CategoryExercisesScreen extends StatelessWidget {
                             AllExercisesCategoryScreen(
                               list: exercises,
                               title: S.of(context).allEx,
+                              isAll: true,
                             ),
                           );
                         }

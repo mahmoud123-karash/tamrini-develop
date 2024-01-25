@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
@@ -17,6 +18,7 @@ class CategoryItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        saveExerciseId(model.id ?? '');
         navigateTo(
           context,
           AllExercisesCategoryScreen(

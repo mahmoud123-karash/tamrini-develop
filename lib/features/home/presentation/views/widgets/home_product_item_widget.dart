@@ -73,7 +73,7 @@ class HomeProductItemWidget extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blueGrey[500],
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,

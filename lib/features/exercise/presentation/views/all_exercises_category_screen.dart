@@ -12,9 +12,11 @@ class AllExercisesCategoryScreen extends StatefulWidget {
     Key? key,
     required this.list,
     required this.title,
+    this.isAll = false,
   }) : super(key: key);
   final List<DataModel> list;
   final String title;
+  final bool isAll;
 
   @override
   State<AllExercisesCategoryScreen> createState() =>
@@ -75,17 +77,18 @@ class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
               setState(() {});
             },
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15,
+          if (!widget.isAll)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+              ),
+              child: addCustomButton(
+                onPressed: () {
+                  navigateTo(context, const NewExerciseScreen());
+                },
+                lable: S.of(context).add_exercise,
+              ),
             ),
-            child: addCustomButton(
-              onPressed: () {
-                navigateTo(context, const NewExerciseScreen());
-              },
-              lable: S.of(context).add_exercise,
-            ),
-          ),
           widget.list.isNotEmpty
               ? Expanded(
                   child: ExerciseListViewWidget(

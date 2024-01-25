@@ -25,7 +25,7 @@ class HomeExerciseItemWidget extends StatelessWidget {
           if (model.assets == null || model.assets!.isEmpty) {
             navigateTo(
               context,
-              DetailsWithoutVedioScreen(model: model),
+              DetailsWithoutVedioScreen(model: model, isHome: true),
             );
           } else {
             if (checkVedioformat(model.assets ?? []) != '') {
@@ -34,10 +34,12 @@ class HomeExerciseItemWidget extends StatelessWidget {
                 DetailsScreen(
                   model: model,
                   vedio: checkVedioformat(model.assets ?? []),
+                  isHome: true,
                 ),
               );
             } else {
-              navigateTo(context, DetailsWithoutVedioScreen(model: model));
+              navigateTo(context,
+                  DetailsWithoutVedioScreen(model: model, isHome: true));
             }
           }
         },
@@ -59,7 +61,7 @@ class HomeExerciseItemWidget extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blueGrey[500],
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,

@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'dart:developer';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -18,14 +18,18 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
 
   List<ExerciseModel> exercises = [];
 
+  ExerciseModel getExercise({required String id}) {
+    List<ExerciseModel> list =
+        exercises.where((element) => element.id == id).toList();
+    return list.first;
+  }
+
   void getData() async {
     emit(LoadingGetExerciseState());
     var result = await exerciseRepo.getExercises();
     result.fold(
       (message) {
-        if (kDebugMode) {
-          print(message);
-        }
+        log(message);
         emit(ErrorGetExerciseState(message));
       },
       (list) {
@@ -50,9 +54,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
     );
     result.fold(
       (message) {
-        if (kDebugMode) {
-          print(message);
-        }
+        log(message);
         emit(ErrorGetExerciseState(message));
       },
       (list) {
@@ -84,14 +86,42 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
     );
     result.fold(
       (message) {
-        if (kDebugMode) {
-          print(message);
-        }
+        log(message);
         emit(ErrorGetExerciseState(message));
       },
       (list) {
         exercises = list;
         showSnackBar(context, S.of(context).success_edit_a);
+        emit(SucessGetExerciseState(list));
+      },
+    );
+  }
+
+  void addExercise({
+    required String id,
+    required String title,
+    required String description,
+    required String youtubUrl,
+    required String imagePath,
+    required BuildContext context,
+  }) async {
+    emit(LoadingGetExerciseState());
+    var result = await exerciseRepo.addExercise(
+      list: exercises,
+      exercise: getExercise(id: id),
+      title: title,
+      description: description,
+      youtubUrl: youtubUrl,
+      imagePath: imagePath,
+    );
+    result.fold(
+      (message) {
+        log(message);
+        emit(ErrorGetExerciseState(message));
+      },
+      (list) {
+        exercises = list;
+        showSnackBar(context, S.of(context).success_add_e);
         emit(SucessGetExerciseState(list));
       },
     );

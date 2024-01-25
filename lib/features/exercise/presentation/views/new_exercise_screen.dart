@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
 import 'package:tamrini/core/utils/regex.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/custom_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -85,7 +87,16 @@ class _NewExerciseScreenState extends State<NewExerciseScreen> {
                                 .hasMatch(youtubController.text) ==
                             false) {
                           showSnackBar(context, S.of(context).youtub_uri_hint);
-                        } else {}
+                        } else {
+                          ExerciseCubit.get(context).addExercise(
+                            id: CacheHelper.getData(key: 'exerciseId') ?? '',
+                            title: nameController.text,
+                            description: descriptionController.text,
+                            youtubUrl: youtubController.text,
+                            imagePath: paths.first,
+                            context: context,
+                          );
+                        }
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }
