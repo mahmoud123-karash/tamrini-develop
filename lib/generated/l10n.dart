@@ -2390,11 +2390,81 @@ class S {
     );
   }
 
+  /// `تم التعديل بنجاح`
+  String get success_edit_a {
+    return Intl.message(
+      'تم التعديل بنجاح',
+      name: 'success_edit_a',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `لم يتم إختيار صورة `
   String get image_error {
     return Intl.message(
       'لم يتم إختيار صورة ',
       name: 'image_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة تمرين`
+  String get add_exercise {
+    return Intl.message(
+      'إضافة تمرين',
+      name: 'add_exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل التمرين`
+  String get edit_exercise {
+    return Intl.message(
+      'تعديل التمرين',
+      name: 'edit_exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم التمرين`
+  String get exercise_name {
+    return Intl.message(
+      'اسم التمرين',
+      name: 'exercise_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `وصف التمرين`
+  String get exercise_description {
+    return Intl.message(
+      'وصف التمرين',
+      name: 'exercise_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رابط يوتيوب`
+  String get youtub_uri {
+    return Intl.message(
+      'رابط يوتيوب',
+      name: 'youtub_uri',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `من فضلك أدخل رابط صحيح`
+  String get youtub_uri_hint {
+    return Intl.message(
+      'من فضلك أدخل رابط صحيح',
+      name: 'youtub_uri_hint',
       desc: '',
       args: [],
     );

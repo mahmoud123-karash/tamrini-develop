@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
+        "add_exercise": MessageLookupByLibrary.simpleMessage("إضافة تمرين"),
         "add_image": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
@@ -101,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
+        "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_section": MessageLookupByLibrary.simpleMessage("تعديل القسم"),
@@ -113,6 +115,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_uri": MessageLookupByLibrary.simpleMessage("Enter the link"),
         "exDetails": MessageLookupByLibrary.simpleMessage("Exercise Details"),
         "exercise": MessageLookupByLibrary.simpleMessage("Various Exercises"),
+        "exercise_description":
+            MessageLookupByLibrary.simpleMessage("وصف التمرين"),
+        "exercise_name": MessageLookupByLibrary.simpleMessage("اسم التمرين"),
         "exercise_purpose":
             MessageLookupByLibrary.simpleMessage("Exercise Purpose"),
         "exercises":
@@ -263,6 +268,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
         "success_ban": MessageLookupByLibrary.simpleMessage(
             "Question restricted successfully"),
+        "success_edit_a":
+            MessageLookupByLibrary.simpleMessage("تم التعديل بنجاح"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("Logged Out Successfully"),
         "success_recalulate":
@@ -329,6 +336,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Write a new question..."),
         "years": MessageLookupByLibrary.simpleMessage("years old"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
-        "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك")
+        "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),
+        "youtub_uri": MessageLookupByLibrary.simpleMessage("رابط يوتيوب"),
+        "youtub_uri_hint":
+            MessageLookupByLibrary.simpleMessage("من فضلك أدخل رابط صحيح")
       };
 }

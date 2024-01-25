@@ -1,8 +1,11 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/domain/repo/exercise_repo.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 import '../../../data/models/exercise_model/exercise_model.dart';
 
@@ -36,6 +39,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
     required String title,
     required int order,
     required String imagePth,
+    required BuildContext context,
   }) async {
     emit(LoadingGetExerciseState());
     var result = await exerciseRepo.addSection(
@@ -53,6 +57,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       },
       (list) {
         exercises = list;
+        showSnackBar(context, S.of(context).success_add_e);
         emit(SucessGetExerciseState(list));
       },
     );
@@ -65,6 +70,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
     required String imagePth,
     required String id,
     required List<DataModel> data,
+    required BuildContext context,
   }) async {
     emit(LoadingGetExerciseState());
     var result = await exerciseRepo.editSection(
@@ -85,6 +91,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       },
       (list) {
         exercises = list;
+        showSnackBar(context, S.of(context).success_edit_a);
         emit(SucessGetExerciseState(list));
       },
     );

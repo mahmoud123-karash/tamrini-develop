@@ -4,7 +4,8 @@ import 'package:tamrini/core/utils/check_assets_format.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_screen.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_without_vedio_screen.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
+
+import 'image_view_widget.dart';
 
 class HomeExerciseItemWidget extends StatelessWidget {
   const HomeExerciseItemWidget({super.key, required this.model});
@@ -20,37 +21,32 @@ class HomeExerciseItemWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, right: 15),
       child: InkWell(
         borderRadius: BorderRadius.circular(30),
-        onTap: () async {
-          if (model.assets != null || model.assets!.isNotEmpty) {
-            if (model.assets!.length == 2) {
-              navigateTo(context,
-                  DetailsScreen(model: model, vedio: model.assets![1]));
-            }
-            if (model.assets!.length == 1 &&
-                checkVedioformat(model.assets!) != '') {
-              navigateTo(context,
-                  DetailsScreen(model: model, vedio: model.assets!.first));
-            }
-            if (model.assets!.length == 1 &&
-                checkVedioformat(model.assets!) == '') {
+        onTap: () {
+          if (model.assets == null || model.assets!.isEmpty) {
+            navigateTo(
+              context,
+              DetailsWithoutVedioScreen(model: model),
+            );
+          } else {
+            if (checkVedioformat(model.assets ?? []) != '') {
+              navigateTo(
+                context,
+                DetailsScreen(
+                  model: model,
+                  vedio: checkVedioformat(model.assets ?? []),
+                ),
+              );
+            } else {
               navigateTo(context, DetailsWithoutVedioScreen(model: model));
             }
-          } else {
-            navigateTo(context, DetailsWithoutVedioScreen(model: model));
           }
         },
         child: Stack(
           children: [
-            if (model.assets != null || model.assets!.isNotEmpty)
-              model.assets!.length == 2
-                  ? HomeImageWidget(
-                      width: getWidht - 70, image: model.assets!.first)
-                  : HomeImageWidget(
-                      width: getWidht - 70,
-                      image: checkVedioformat(model.assets!) == ''
-                          ? model.assets!.first
-                          : '',
-                    ),
+            ImageViewWidget(
+              image: checkImageformat(model.assets ?? []),
+              width: getWidht - 70,
+            ),
             Positioned(
               bottom: 0,
               right: 0,

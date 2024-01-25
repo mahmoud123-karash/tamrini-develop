@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
 import '../articles_details_screen.dart';
 
@@ -28,7 +28,7 @@ class AtricleItemWidget extends StatelessWidget {
         },
         child: Stack(
           children: [
-            HomeImageWidget(
+            ImageViewWidget(
               width: width,
               image: model.image == null || model.image!.isEmpty
                   ? ''

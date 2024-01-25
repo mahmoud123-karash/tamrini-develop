@@ -18,7 +18,7 @@ class SectionIamgeStackWidget extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     return Stack(
       children: [
-        imageViewWidget(
+        imageProviderWidget(
           height: height / 4,
           width: width / 1.2,
           imageProvider: imageProvider,

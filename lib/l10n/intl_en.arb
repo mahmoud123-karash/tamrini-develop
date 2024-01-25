@@ -233,7 +233,15 @@
     "add_image":"إضافة صورة",
     "change_image":"تغيير الصورة",
     "success_add_e":"تم الإضافة بنجاح",
-    "image_error":"لم يتم إختيار صورة "
+    "success_edit_a":"تم التعديل بنجاح",
+    "image_error":"لم يتم إختيار صورة ",
+    "add_exercise":"إضافة تمرين",
+    "edit_exercise":"تعديل التمرين",
+    "exercise_name":"اسم التمرين",
+    "exercise_description":"وصف التمرين",
+    "youtub_uri":"رابط يوتيوب",
+    "youtub_uri_hint":"من فضلك أدخل رابط صحيح"
+
 
 
 

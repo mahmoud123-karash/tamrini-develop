@@ -3,8 +3,8 @@ import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_product_price_widget.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
 import 'package:tamrini/features/store/presentation/views/product_details_screen.dart';
 
@@ -39,7 +39,7 @@ class HomeProductItemWidget extends StatelessWidget {
         },
         child: Stack(
           children: [
-            HomeImageWidget(
+            ImageViewWidget(
               image: model.image,
               width: width,
             ),

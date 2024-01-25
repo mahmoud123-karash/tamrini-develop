@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
+        "add_exercise": MessageLookupByLibrary.simpleMessage("إضافة تمرين"),
         "add_image": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
@@ -99,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
+        "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
         "edit_profile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "edit_question": MessageLookupByLibrary.simpleMessage("تعديل"),
@@ -113,6 +115,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
         "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
+        "exercise_description":
+            MessageLookupByLibrary.simpleMessage("وصف التمرين"),
+        "exercise_name": MessageLookupByLibrary.simpleMessage("اسم التمرين"),
         "exercise_purpose":
             MessageLookupByLibrary.simpleMessage("الغرض من التمرين"),
         "exercises": MessageLookupByLibrary.simpleMessage("التمارين واللياقة"),
@@ -255,11 +260,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
-        "success_add_e":
-            MessageLookupByLibrary.simpleMessage("تم الإضافة بنجاح"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
         "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),
+        "success_edit_a":
+            MessageLookupByLibrary.simpleMessage("تم التعديل بنجاح"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "success_recalulate":
@@ -322,6 +327,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),
         "years": MessageLookupByLibrary.simpleMessage("سنوات"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
-        "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك")
+        "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),
+        "youtub_uri": MessageLookupByLibrary.simpleMessage("رابط يوتيوب"),
+        "youtub_uri_hint":
+            MessageLookupByLibrary.simpleMessage("من فضلك أدخل رابط صحيح")
       };
 }

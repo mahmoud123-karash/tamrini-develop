@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_builder_widget.dart';
 import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
+
+import '../../../home/presentation/views/widgets/image_view_widget.dart';
 
 class ArticlesDetailsScreen extends StatelessWidget {
   const ArticlesDetailsScreen({Key? key, required this.model})
@@ -63,7 +64,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
                     height: 10,
                   ),
                   if (model.image != null || model.image!.isNotEmpty)
-                    HomeImageWidget(
+                    ImageViewWidget(
                       image: model.image!.first,
                       width: getWidht,
                     ),

@@ -4,10 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_assets_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
+
+import 'new_exercise_screen.dart';
 
 class DetailsWithoutVedioScreen extends StatefulWidget {
   const DetailsWithoutVedioScreen({Key? key, required this.model})
@@ -95,6 +98,16 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                       ),
                     ),
                   ),
+                  customButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      navigateTo(
+                        context,
+                        NewExerciseScreen(model: widget.model),
+                      );
+                    },
+                    lable: S.of(context).edit_exercise,
+                  )
                 ],
               ),
             ),

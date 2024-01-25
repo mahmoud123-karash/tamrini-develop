@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_details_screen.dart';
 import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/home_image_widget.dart';
 
 import '../../../../gym/presentation/views/widgets/gym_distance_price_widget.dart';
+import 'image_view_widget.dart';
 
 class GymItemWidget extends StatelessWidget {
   const GymItemWidget({super.key, required this.model, required this.width});
@@ -27,7 +27,7 @@ class GymItemWidget extends StatelessWidget {
         },
         child: Stack(
           children: [
-            HomeImageWidget(
+            ImageViewWidget(
               image: model.assets.first,
               width: width,
             ),

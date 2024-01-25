@@ -38,6 +38,8 @@ class _ExerciseAssetsViewWidgetState extends State<ExerciseAssetsViewWidget> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
+    final getWidth = mediaQuery.size.width;
+
     return BlocBuilder<SwiperCubit, SwiperStates>(
       builder: (context, state) {
         int cachedIndex = CacheHelper.getData(key: 'index') ?? 0;
@@ -72,13 +74,18 @@ class _ExerciseAssetsViewWidgetState extends State<ExerciseAssetsViewWidget> {
                   },
                   itemBuilder: (context, index) {
                     return widget.player == null
-                        ? ImageViewWidget(image: widget.images.first)
+                        ? ImageViewWidget(
+                            width: getWidth,
+                            image: widget.images.first,
+                          )
                         : widget.images.length == 1
                             ? checkVedioformat(widget.images) == ''
-                                ? ImageViewWidget(image: widget.images.first)
+                                ? ImageViewWidget(
+                                    width: getWidth, image: widget.images.first)
                                 : widget.player!
                             : index == 0
-                                ? ImageViewWidget(image: widget.images.first)
+                                ? ImageViewWidget(
+                                    width: getWidth, image: widget.images.first)
                                 : widget.player!;
                   },
                   itemCount: widget.images.length,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/core/utils/about_app_text_chaildern.dart';
+import 'package:tamrini/core/utils/about_app_text_children.dart';
 import 'package:tamrini/features/settings/presentation/views/widgets/app_logo_and_name_widget.dart';
 
 import '../../../../generated/l10n.dart';

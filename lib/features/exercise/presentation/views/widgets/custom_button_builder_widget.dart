@@ -3,14 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
-import 'package:tamrini/generated/l10n.dart';
 
-class AddSectionCustomButtonBuilderWidget extends StatelessWidget {
-  const AddSectionCustomButtonBuilderWidget(
-      {super.key, required this.onPressed, required this.isEdit});
+class CustomButtonBuilderWidget extends StatelessWidget {
+  const CustomButtonBuilderWidget(
+      {super.key, required this.onPressed, required this.lable});
   final VoidCallback onPressed;
-  final bool isEdit;
-
+  final String lable;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ExerciseCubit, ExerciseStates>(
@@ -20,7 +18,6 @@ class AddSectionCustomButtonBuilderWidget extends StatelessWidget {
         }
         if (state is SucessGetExerciseState) {
           Navigator.pop(context);
-          showSnackBar(context, S.of(context).success_add_e);
         }
       },
       builder: (context, state) {
@@ -30,10 +27,15 @@ class AddSectionCustomButtonBuilderWidget extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else {
-          return customButton(
-            onPressed: onPressed,
-            lable:
-                isEdit ? S.of(context).edit_section : S.of(context).add_section,
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 10,
+            ),
+            child: customButton(
+              onPressed: onPressed,
+              lable: lable,
+            ),
           );
         }
       },

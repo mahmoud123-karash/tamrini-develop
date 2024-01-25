@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/presentation/views/new_exercise_screen.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/suggest_exercise_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'widgets/exercise_list_view_widget.dart';
@@ -73,6 +74,17 @@ class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
               }
               setState(() {});
             },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+            ),
+            child: addCustomButton(
+              onPressed: () {
+                navigateTo(context, const NewExerciseScreen());
+              },
+              lable: S.of(context).add_exercise,
+            ),
           ),
           widget.list.isNotEmpty
               ? Expanded(

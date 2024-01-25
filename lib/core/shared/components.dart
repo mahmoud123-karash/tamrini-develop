@@ -146,27 +146,21 @@ Widget customButton({
   required VoidCallback onPressed,
   required String lable,
 }) =>
-    Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
+    MaterialButton(
+      padding: const EdgeInsets.all(0),
+      minWidth: double.infinity,
+      height: 40,
+      color: appColor,
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide.none,
       ),
-      child: MaterialButton(
-        padding: const EdgeInsets.all(0),
-        minWidth: double.infinity,
-        height: 40,
-        color: appColor,
-        shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide.none,
-        ),
-        onPressed: onPressed,
-        child: Text(
-          lable,
-          style: TextStyles.style16Bold.copyWith(
-            color: whiteColor,
-            fontWeight: FontWeight.bold,
-          ),
+      onPressed: onPressed,
+      child: Text(
+        lable,
+        style: TextStyles.style16Bold.copyWith(
+          color: whiteColor,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
@@ -234,13 +228,13 @@ Widget addFromGalleryItems({
   );
 }
 
-Widget imageViewWidget({
+Widget imageProviderWidget({
   required double height,
   required double width,
   required ImageProvider<Object> imageProvider,
 }) =>
     ClipRRect(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(30),
       child: Image(
         height: height,
         width: width,

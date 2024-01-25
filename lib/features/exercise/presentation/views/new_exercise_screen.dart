@@ -1,25 +1,27 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_content_widget.dart';
+import 'package:tamrini/core/utils/check_assets_format.dart';
+import 'package:tamrini/core/utils/regex.dart';
+import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/custom_button_builder_widget.dart';
-import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
-import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class NewSectionScreen extends StatefulWidget {
-  const NewSectionScreen({super.key, this.model});
-  final ExerciseModel? model;
+import 'widgets/add_exercise_content_widget.dart';
+
+class NewExerciseScreen extends StatefulWidget {
+  const NewExerciseScreen({super.key, this.model});
+  final DataModel? model;
 
   @override
-  State<NewSectionScreen> createState() => _NewSectionScreenState();
+  State<NewExerciseScreen> createState() => _NewExerciseScreenState();
 }
 
-class _NewSectionScreenState extends State<NewSectionScreen> {
+class _NewExerciseScreenState extends State<NewExerciseScreen> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController orderController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController youtubController = TextEditingController();
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -28,7 +30,8 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
     ImageCubit.get(context).clearPaths();
     if (widget.model != null) {
       nameController.text = widget.model!.title ?? '';
-      orderController.text = widget.model!.order.toString();
+      descriptionController.text = widget.model!.description ?? '';
+      youtubController.text = checkVedioformat(widget.model!.assets ?? []);
     }
     super.initState();
   }
@@ -38,19 +41,24 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
     return Scaffold(
       appBar: myAppBar(
         widget.model != null
-            ? S.of(context).edit_section
-            : S.of(context).add_new_section,
+            ? S.of(context).edit_exercise
+            : S.of(context).add_exercise,
       ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
-            child: AddSectionContentWidget(
+            child: AddExerciseContentWidget(
               nameController: nameController,
-              orderController: orderController,
+              descriptionController: descriptionController,
+              youtubController: youtubController,
               autovalidateMode: autovalidateMode,
               formKey: formKey,
-              image: widget.model != null ? widget.model!.image ?? '' : '',
+              image: widget.model == null
+                  ? ''
+                  : checkImageformat(widget.model!.assets ?? []) != ''
+                      ? widget.model!.assets!.first
+                      : '',
             ),
           ),
           SliverFillRemaining(
@@ -59,31 +67,25 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
               alignment: Alignment.bottomCenter,
               child: CustomButtonBuilderWidget(
                 lable: widget.model != null
-                    ? S.of(context).edit_section
-                    : S.of(context).add_section,
+                    ? S.of(context).edit_exercise
+                    : S.of(context).add_exercise,
                 onPressed: () {
                   List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
-                      log(widget.model!.id!);
-                      ExerciseCubit.get(context).editSection(
-                        id: widget.model!.id!,
-                        oldModel: widget.model!,
-                        title: nameController.text,
-                        order: int.parse(orderController.text),
-                        imagePth: paths.isEmpty ? '' : paths.first,
-                        data: widget.model!.data ?? [],
-                        context: context,
-                      );
+                      if (RegExp(RegexPatterns.allowedYoutubeUrlFormat)
+                              .hasMatch(youtubController.text) ==
+                          false) {
+                        showSnackBar(context, S.of(context).youtub_uri_hint);
+                      } else {}
                     } else {
                       if (paths.isNotEmpty) {
-                        ExerciseCubit.get(context).addNewSection(
-                          title: nameController.text,
-                          order: int.parse(orderController.text),
-                          imagePth: paths.first,
-                          context: context,
-                        );
+                        if (RegExp(RegexPatterns.allowedYoutubeUrlFormat)
+                                .hasMatch(youtubController.text) ==
+                            false) {
+                          showSnackBar(context, S.of(context).youtub_uri_hint);
+                        } else {}
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }
