@@ -19,11 +19,9 @@ class DetailsWithoutVedioScreen extends StatefulWidget {
     Key? key,
     this.isHome = false,
     required this.id,
-    this.homeModel,
   }) : super(key: key);
   final bool isHome;
   final String id;
-  final DataModel? homeModel;
 
   @override
   State<DetailsWithoutVedioScreen> createState() =>
@@ -49,9 +47,8 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
       ),
       body: BlocBuilder<ExerciseCubit, ExerciseStates>(
         builder: (context, state) {
-          DataModel model = widget.homeModel != null
-              ? widget.homeModel!
-              : ExerciseCubit.get(context).getExerciseData(dataId: widget.id);
+          DataModel model =
+              ExerciseCubit.get(context).getExerciseData(dataId: widget.id);
           return Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(

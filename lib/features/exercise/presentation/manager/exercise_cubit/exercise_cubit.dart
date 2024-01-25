@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/domain/repo/exercise_repo.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
@@ -29,13 +28,11 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
   DataModel getExerciseData({
     required String dataId,
   }) {
-    String id = CacheHelper.getData(key: 'exerciseId') ?? '';
-    List<ExerciseModel> list =
-        exercises.where((element) => element.id == id).toList();
-    return list.first.data!
-        .where((element) => element.id == dataId)
-        .toList()
-        .first;
+    List<DataModel> models = [];
+    for (var element in exercises) {
+      models.addAll(element.data!);
+    }
+    return models.where((element) => element.id == dataId).toList().first;
   }
 
   void getData() async {

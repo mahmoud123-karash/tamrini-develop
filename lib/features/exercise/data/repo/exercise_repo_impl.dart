@@ -191,11 +191,13 @@ class ExerciseRepoImpl extends ExerciseRepo {
         List<String> images = await uploadFiles(files: files);
         if (checkImageformat(oldData.assets ?? []) != '') {
           List<String> oldImages = [];
+          List<String> newImages = [];
+          newImages.addAll(images);
           oldImages.add(checkImageformat(oldData.assets ?? []));
-          await deleteOldImages(newImages: [], oldImages: oldImages);
+          await deleteOldImages(newImages: newImages, oldImages: oldImages);
         }
         List<String> assets = [];
-        assets.addAll([youtubUrl, images.first]);
+        assets.addAll([youtubUrl, ...images]);
         newData = DataModel(
           id: oldData.id,
           description: description,

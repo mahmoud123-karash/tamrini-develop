@@ -21,11 +21,9 @@ class DetailsScreen extends StatefulWidget {
     required this.vedio,
     this.isHome = false,
     required this.id,
-    this.homeModel,
   }) : super(key: key);
   final String vedio, id;
   final bool isHome;
-  final DataModel? homeModel;
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -99,10 +97,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ),
           body: BlocBuilder<ExerciseCubit, ExerciseStates>(
             builder: (context, state) {
-              DataModel model = widget.homeModel != null
-                  ? widget.homeModel!
-                  : ExerciseCubit.get(context)
-                      .getExerciseData(dataId: widget.id);
+              DataModel model =
+                  ExerciseCubit.get(context).getExerciseData(dataId: widget.id);
               return Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Container(

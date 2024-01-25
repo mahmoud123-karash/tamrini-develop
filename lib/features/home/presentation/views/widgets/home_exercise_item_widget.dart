@@ -28,7 +28,6 @@ class HomeExerciseItemWidget extends StatelessWidget {
               DetailsWithoutVedioScreen(
                 isHome: true,
                 id: model.id!,
-                homeModel: model,
               ),
             );
           } else {
@@ -39,7 +38,6 @@ class HomeExerciseItemWidget extends StatelessWidget {
                   id: model.id!,
                   vedio: checkVedioformat(model.assets ?? []),
                   isHome: true,
-                  homeModel: model,
                 ),
               );
             } else {
@@ -48,7 +46,6 @@ class HomeExerciseItemWidget extends StatelessWidget {
                   DetailsWithoutVedioScreen(
                     isHome: true,
                     id: model.id!,
-                    homeModel: model,
                   ));
             }
           }

@@ -35,7 +35,10 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
         if (widget.exercise.assets == null || widget.exercise.assets!.isEmpty) {
           navigateTo(
             context,
-            DetailsWithoutVedioScreen(id: widget.exercise.id!),
+            DetailsWithoutVedioScreen(
+              id: widget.exercise.id!,
+              isHome: true,
+            ),
           );
         } else {
           if (checkVedioformat(widget.exercise.assets ?? []) != '') {
@@ -44,12 +47,16 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
               DetailsScreen(
                 id: widget.exercise.id!,
                 vedio: checkVedioformat(widget.exercise.assets ?? []),
+                isHome: true,
               ),
             );
           } else {
             navigateTo(
               context,
-              DetailsWithoutVedioScreen(id: widget.exercise.id!),
+              DetailsWithoutVedioScreen(
+                id: widget.exercise.id!,
+                isHome: true,
+              ),
             );
           }
         }
