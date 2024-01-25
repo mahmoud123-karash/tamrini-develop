@@ -2000,520 +2000,520 @@ class S {
     );
   }
 
-  /// `إعادة الحساب`
+  /// `Recalculate`
   String get recalculate {
     return Intl.message(
-      'إعادة الحساب',
+      'Recalculate',
       name: 'recalculate',
       desc: '',
       args: [],
     );
   }
 
-  /// `باقي احتياجك`
+  /// `Your Need`
   String get your_need {
     return Intl.message(
-      'باقي احتياجك',
+      'Your Need',
       name: 'your_need',
       desc: '',
       args: [],
     );
   }
 
-  /// `وجباتك`
+  /// `Your Meals`
   String get your_meals {
     return Intl.message(
-      'وجباتك',
+      'Your Meals',
       name: 'your_meals',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسجب الوجبة أفقيا للحذف`
+  /// `Scroll vertically to remove meal`
   String get scroll_verticle_to_remove {
     return Intl.message(
-      'اسجب الوجبة أفقيا للحذف',
+      'Scroll vertically to remove meal',
       name: 'scroll_verticle_to_remove',
       desc: '',
       args: [],
     );
   }
 
-  /// `اضافة وجبة`
+  /// `Add Meal`
   String get add_meal {
     return Intl.message(
-      'اضافة وجبة',
+      'Add Meal',
       name: 'add_meal',
       desc: '',
       args: [],
     );
   }
 
-  /// `حفظ`
+  /// `Save`
   String get save {
     return Intl.message(
-      'حفظ',
+      'Save',
       name: 'save',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد وجبات`
+  /// `No Meals`
   String get no_meals {
     return Intl.message(
-      'لا يوجد وجبات',
+      'No Meals',
       name: 'no_meals',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة اليوم الحالي`
+  /// `Add Today`
   String get add_today {
     return Intl.message(
-      'إضافة اليوم الحالي',
+      'Add Today',
       name: 'add_today',
       desc: '',
       args: [],
     );
   }
 
-  /// `اليوم الحالي مضاف بالفعل`
+  /// `Current day already added`
   String get add_today_hint {
     return Intl.message(
-      'اليوم الحالي مضاف بالفعل',
+      'Current day already added',
       name: 'add_today_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `تمت إعادة الحساب بنجاح`
+  /// `Recalculation successful`
   String get success_recalulate {
     return Intl.message(
-      'تمت إعادة الحساب بنجاح',
+      'Recalculation successful',
       name: 'success_recalulate',
       desc: '',
       args: [],
     );
   }
 
-  /// `تمت حذف الوجبة بنجاح`
+  /// `Meal removed successfully`
   String get success_remove_meal {
     return Intl.message(
-      'تمت حذف الوجبة بنجاح',
+      'Meal removed successfully',
       name: 'success_remove_meal',
       desc: '',
       args: [],
     );
   }
 
-  /// `تمت إضافة الوجبة بنجاح`
+  /// `Meal added successfully`
   String get success_add_meal {
     return Intl.message(
-      'تمت إضافة الوجبة بنجاح',
+      'Meal added successfully',
       name: 'success_add_meal',
       desc: '',
       args: [],
     );
   }
 
-  /// `لم يتم اختيار وجبة`
+  /// `No meal selected`
   String get add_meal_hint {
     return Intl.message(
-      'لم يتم اختيار وجبة',
+      'No meal selected',
       name: 'add_meal_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `تذكير`
+  /// `Reminder`
   String get reminder {
     return Intl.message(
-      'تذكير',
+      'Reminder',
       name: 'reminder',
       desc: '',
       args: [],
     );
   }
 
-  /// `التاريخ`
+  /// `History`
   String get history {
     return Intl.message(
-      'التاريخ',
+      'History',
       name: 'history',
       desc: '',
       args: [],
     );
   }
 
-  /// `الوقت`
+  /// `Time`
   String get time {
     return Intl.message(
-      'الوقت',
+      'Time',
       name: 'time',
       desc: '',
       args: [],
     );
   }
 
-  /// `الكمية`
+  /// `Quantity`
   String get qunatity {
     return Intl.message(
-      'الكمية',
+      'Quantity',
       name: 'qunatity',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة تذكير`
+  /// `Add Reminder`
   String get add_reminder {
     return Intl.message(
-      'إضافة تذكير',
+      'Add Reminder',
       name: 'add_reminder',
       desc: '',
       args: [],
     );
   }
 
-  /// `تكرار`
+  /// `Repeat`
   String get repeat {
     return Intl.message(
-      'تكرار',
+      'Repeat',
       name: 'repeat',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفعيل`
+  /// `Submit`
   String get submit {
     return Intl.message(
-      'تفعيل',
+      'Submit',
       name: 'submit',
       desc: '',
       args: [],
     );
   }
 
-  /// `ملي`
+  /// `ml`
   String get ml {
     return Intl.message(
-      'ملي',
+      'ml',
       name: 'ml',
       desc: '',
       args: [],
     );
   }
 
-  /// `التذكير التلقائي`
+  /// `Auto Reminder`
   String get auto_reminder {
     return Intl.message(
-      'التذكير التلقائي',
+      'Auto Reminder',
       name: 'auto_reminder',
       desc: '',
       args: [],
     );
   }
 
-  /// `حان وقت شرب الماء الخاص بك`
+  /// `It's time to drink your water`
   String get time_to_drink {
     return Intl.message(
-      'حان وقت شرب الماء الخاص بك',
+      'It\'s time to drink your water',
       name: 'time_to_drink',
       desc: '',
       args: [],
     );
   }
 
-  /// `تذكير لشرب الماء`
+  /// `Reminder to drink water`
   String get reminder_to_drink {
     return Intl.message(
-      'تذكير لشرب الماء',
+      'Reminder to drink water',
       name: 'reminder_to_drink',
       desc: '',
       args: [],
     );
   }
 
-  /// `ساعة`
+  /// `hour`
   String get hour {
     return Intl.message(
-      'ساعة',
+      'hour',
       name: 'hour',
       desc: '',
       args: [],
     );
   }
 
-  /// `ساعات`
+  /// `hours`
   String get hours {
     return Intl.message(
-      'ساعات',
+      'hours',
       name: 'hours',
       desc: '',
       args: [],
     );
   }
 
-  /// `دقيقة`
+  /// `minute`
   String get minute {
     return Intl.message(
-      'دقيقة',
+      'minute',
       name: 'minute',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم الحذف بنجاح`
+  /// `Successfully removed`
   String get success_remove_reminder {
     return Intl.message(
-      'تم الحذف بنجاح',
+      'Successfully removed',
       name: 'success_remove_reminder',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم التعديل بنجاح`
+  /// `Successfully updated`
   String get success_update_reminder {
     return Intl.message(
-      'تم التعديل بنجاح',
+      'Successfully updated',
       name: 'success_update_reminder',
       desc: '',
       args: [],
     );
   }
 
-  /// `لابد أن يكون الوقت في المستقبل`
+  /// `Time must be in the future`
   String get time_is_after_error {
     return Intl.message(
-      'لابد أن يكون الوقت في المستقبل',
+      'Time must be in the future',
       name: 'time_is_after_error',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة قسم جديد`
+  /// `Add New Section`
   String get add_new_section {
     return Intl.message(
-      'إضافة قسم جديد',
+      'Add New Section',
       name: 'add_new_section',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة تمرين جديد`
+  /// `Add New Exercise`
   String get add_new_exercise {
     return Intl.message(
-      'إضافة تمرين جديد',
+      'Add New Exercise',
       name: 'add_new_exercise',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة القسم`
+  /// `Add Section`
   String get add_section {
     return Intl.message(
-      'إضافة القسم',
+      'Add Section',
       name: 'add_section',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل القسم`
+  /// `Edit Section`
   String get edit_section {
     return Intl.message(
-      'تعديل القسم',
+      'Edit Section',
       name: 'edit_section',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم القسم`
+  /// `Section Name`
   String get section_name {
     return Intl.message(
-      'اسم القسم',
+      'Section Name',
       name: 'section_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `ترتيب القسم`
+  /// `Section Order`
   String get section_order {
     return Intl.message(
-      'ترتيب القسم',
+      'Section Order',
       name: 'section_order',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة صورة`
+  /// `Add Image`
   String get add_image {
     return Intl.message(
-      'إضافة صورة',
+      'Add Image',
       name: 'add_image',
       desc: '',
       args: [],
     );
   }
 
-  /// `تغيير الصورة`
+  /// `Change Image`
   String get change_image {
     return Intl.message(
-      'تغيير الصورة',
+      'Change Image',
       name: 'change_image',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم الإضافة بنجاح`
+  /// `Added successfully`
   String get success_add_e {
     return Intl.message(
-      'تم الإضافة بنجاح',
+      'Added successfully',
       name: 'success_add_e',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم التعديل بنجاح`
+  /// `Edited successfully`
   String get success_edit_a {
     return Intl.message(
-      'تم التعديل بنجاح',
+      'Edited successfully',
       name: 'success_edit_a',
       desc: '',
       args: [],
     );
   }
 
-  /// `لم يتم إختيار صورة `
+  /// `No image selected`
   String get image_error {
     return Intl.message(
-      'لم يتم إختيار صورة ',
+      'No image selected',
       name: 'image_error',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة تمرين`
+  /// `Add Exercise`
   String get add_exercise {
     return Intl.message(
-      'إضافة تمرين',
+      'Add Exercise',
       name: 'add_exercise',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل التمرين`
+  /// `Edit Exercise`
   String get edit_exercise {
     return Intl.message(
-      'تعديل التمرين',
+      'Edit Exercise',
       name: 'edit_exercise',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم التمرين`
+  /// `Exercise Name`
   String get exercise_name {
     return Intl.message(
-      'اسم التمرين',
+      'Exercise Name',
       name: 'exercise_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `وصف التمرين`
+  /// `Exercise Description`
   String get exercise_description {
     return Intl.message(
-      'وصف التمرين',
+      'Exercise Description',
       name: 'exercise_description',
       desc: '',
       args: [],
     );
   }
 
-  /// `رابط يوتيوب`
+  /// `YouTube Link`
   String get youtub_uri {
     return Intl.message(
-      'رابط يوتيوب',
+      'YouTube Link',
       name: 'youtub_uri',
       desc: '',
       args: [],
     );
   }
 
-  /// `من فضلك أدخل رابط صحيح`
+  /// `Please enter a valid link`
   String get youtub_uri_hint {
     return Intl.message(
-      'من فضلك أدخل رابط صحيح',
+      'Please enter a valid link',
       name: 'youtub_uri_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `اختياري`
+  /// `Optional`
   String get optional {
     return Intl.message(
-      'اختياري',
+      'Optional',
       name: 'optional',
       desc: '',
       args: [],
     );
   }
 
-  /// `سيتم مراجعة التمرين واضافته قريبا`
+  /// `The exercise will be reviewed and added soon`
   String get review_suggest_exercise {
     return Intl.message(
-      'سيتم مراجعة التمرين واضافته قريبا',
+      'The exercise will be reviewed and added soon',
       name: 'review_suggest_exercise',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم اقتراح التمرين بنجاح`
+  /// `Exercise suggested successfully`
   String get success_suggest_exercise {
     return Intl.message(
-      'تم اقتراح التمرين بنجاح',
+      'Exercise suggested successfully',
       name: 'success_suggest_exercise',
       desc: '',
       args: [],
     );
   }
 
-  /// `التمارين المقترحة`
+  /// `Suggested Exercises`
   String get suggested_exercises {
     return Intl.message(
-      'التمارين المقترحة',
+      'Suggested Exercises',
       name: 'suggested_exercises',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد تمارين مقترحة بعد`
+  /// `No exercises suggested yet`
   String get no_exercises_yet {
     return Intl.message(
-      'لا يوجد تمارين مقترحة بعد',
+      'No exercises suggested yet',
       name: 'no_exercises_yet',
       desc: '',
       args: [],
