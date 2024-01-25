@@ -188,6 +188,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noProduct": MessageLookupByLibrary.simpleMessage(
             "No products found with this name"),
         "no_answers": MessageLookupByLibrary.simpleMessage("No answers yet"),
+        "no_exercises_yet":
+            MessageLookupByLibrary.simpleMessage("لا يوجد تمارين مقترحة بعد"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. Some App Features May Not Work"),
         "no_meals": MessageLookupByLibrary.simpleMessage("لا يوجد وجبات"),
@@ -200,6 +202,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nuttritions":
             MessageLookupByLibrary.simpleMessage("Nutritional supplements"),
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
+        "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("Our Products"),
@@ -240,6 +243,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("Type Email Address"),
+        "review_suggest_exercise": MessageLookupByLibrary.simpleMessage(
+            "سيتم مراجعة التمرين واضافته قريبا"),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "scroll_verticle_to_remove":
             MessageLookupByLibrary.simpleMessage("اسجب الوجبة أفقيا للحذف"),
@@ -282,6 +287,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تمت حذف الوجبة بنجاح"),
         "success_remove_reminder":
             MessageLookupByLibrary.simpleMessage("تم الحذف بنجاح"),
+        "success_suggest_exercise":
+            MessageLookupByLibrary.simpleMessage("تم اقتراح التمرين بنجاح"),
         "success_update": MessageLookupByLibrary.simpleMessage(
             "Question updated successfully"),
         "success_update_answer":
@@ -292,7 +299,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Profile Successfully Updated"),
         "success_update_reminder":
             MessageLookupByLibrary.simpleMessage("تم التعديل بنجاح"),
-        "suggest": MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
+        "suggest_exercise":
+            MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
+        "suggested_exercises":
+            MessageLookupByLibrary.simpleMessage("التمارين المقترحة"),
         "system": MessageLookupByLibrary.simpleMessage("System"),
         "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),

@@ -4,7 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
-import 'package:tamrini/features/exercise/presentation/views/all_exercises_category_content_widget.dart';
+import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_category_content_widget.dart';
 
 class AllExercisesCategoryScreen extends StatelessWidget {
   const AllExercisesCategoryScreen({

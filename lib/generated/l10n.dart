@@ -461,10 +461,10 @@ class S {
   }
 
   /// `Suggest an Exercise`
-  String get suggest {
+  String get suggest_exercise {
     return Intl.message(
       'Suggest an Exercise',
-      name: 'suggest',
+      name: 'suggest_exercise',
       desc: '',
       args: [],
     );
@@ -2465,6 +2465,56 @@ class S {
     return Intl.message(
       'من فضلك أدخل رابط صحيح',
       name: 'youtub_uri_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اختياري`
+  String get optional {
+    return Intl.message(
+      'اختياري',
+      name: 'optional',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سيتم مراجعة التمرين واضافته قريبا`
+  String get review_suggest_exercise {
+    return Intl.message(
+      'سيتم مراجعة التمرين واضافته قريبا',
+      name: 'review_suggest_exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم اقتراح التمرين بنجاح`
+  String get success_suggest_exercise {
+    return Intl.message(
+      'تم اقتراح التمرين بنجاح',
+      name: 'success_suggest_exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التمارين المقترحة`
+  String get suggested_exercises {
+    return Intl.message(
+      'التمارين المقترحة',
+      name: 'suggested_exercises',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد تمارين مقترحة بعد`
+  String get no_exercises_yet {
+    return Intl.message(
+      'لا يوجد تمارين مقترحة بعد',
+      name: 'no_exercises_yet',
       desc: '',
       args: [],
     );

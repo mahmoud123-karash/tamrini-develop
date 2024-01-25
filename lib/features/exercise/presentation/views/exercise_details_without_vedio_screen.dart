@@ -19,8 +19,9 @@ class DetailsWithoutVedioScreen extends StatefulWidget {
     Key? key,
     this.isHome = false,
     required this.id,
+    this.isAll = false,
   }) : super(key: key);
-  final bool isHome;
+  final bool isHome, isAll;
   final String id;
 
   @override
@@ -106,7 +107,7 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                           ),
                         ),
                       ),
-                      if (!widget.isHome)
+                      if (!widget.isHome && !widget.isAll)
                         customButton(
                           onPressed: () {
                             navigateToAndReplace(

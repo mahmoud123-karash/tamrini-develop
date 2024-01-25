@@ -57,6 +57,8 @@ import 'package:tamrini/features/questions/presentation/manager/question_cubit/q
 import 'package:tamrini/features/store/data/models/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/store/presentation/manager/article_cubit/category_cubit.dart';
+import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
+import 'package:tamrini/features/suggest_exercise/presentation/manager/suggest_cubit/suggest_cubit.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
@@ -631,6 +633,11 @@ void main() async {
           ),
           BlocProvider(
             create: (context) => ImageCubit(),
+          ),
+          BlocProvider(
+            create: (context) => SuggestCubit(
+              getIt.get<SuggestRepoIpml>(),
+            )..getData(),
           ),
           BlocProvider(
               create: (context) => ReminderCubit(

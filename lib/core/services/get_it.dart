@@ -29,6 +29,8 @@ import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_cas
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
+import 'package:tamrini/features/suggest_exercise/data/data_sources/remote_data_source/suggest_remote_data_source.dart';
+import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
 import 'package:tamrini/features/trainer/data/data_sources/remote_data_source/trainer_remote_data_source.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 import 'package:tamrini/features/questions/data/data_sources/remote_data_source/user_remote_data_source.dart'
@@ -149,6 +151,12 @@ void setLocator() {
   getIt.registerSingleton(
     HomeExerciseRepoImpl(
       HomeExerciseRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<SuggestRepoIpml>(
+    SuggestRepoIpml(
+      SuggestRemoteDataSourceImpl(),
     ),
   );
 }

@@ -21,9 +21,10 @@ class DetailsScreen extends StatefulWidget {
     required this.vedio,
     this.isHome = false,
     required this.id,
+    this.isAll = false,
   }) : super(key: key);
   final String vedio, id;
-  final bool isHome;
+  final bool isHome, isAll;
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -157,7 +158,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               ),
                             ),
                           ),
-                          if (!widget.isHome)
+                          if (!widget.isHome && !widget.isAll)
                             customButton(
                               onPressed: () {
                                 navigateToAndReplace(

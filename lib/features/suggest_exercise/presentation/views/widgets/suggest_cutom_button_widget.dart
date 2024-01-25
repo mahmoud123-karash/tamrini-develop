@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/exercise/presentation/views/suggest_screen.dart';
+import 'package:tamrini/features/suggest_exercise/presentation/views/suggest_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class SuggestCustomButtonWidget extends StatelessWidget {
@@ -23,7 +23,7 @@ class SuggestCustomButtonWidget extends StatelessWidget {
           vertical: 5,
         ),
         child: Text(
-          S.of(context).suggest,
+          S.of(context).suggest_exercise,
           style: TextStyles.style20.copyWith(
             color: whiteColor,
           ),

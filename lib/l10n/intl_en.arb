@@ -40,7 +40,7 @@
     "allEx": "All Exercises",
     "emptyList": "No Exercises",
     "search": "Search",
-    "suggest": "Suggest an Exercise",
+    "suggest_exercise": "Suggest an Exercise",
     "noExer": "No exercise found with this name",
     "searchHint": "Search for an Exercise",
     "articles": "Latest Articles",
@@ -240,7 +240,13 @@
     "exercise_name":"اسم التمرين",
     "exercise_description":"وصف التمرين",
     "youtub_uri":"رابط يوتيوب",
-    "youtub_uri_hint":"من فضلك أدخل رابط صحيح"
+    "youtub_uri_hint":"من فضلك أدخل رابط صحيح",
+    "optional":"اختياري",
+    "review_suggest_exercise":"سيتم مراجعة التمرين واضافته قريبا",
+    "success_suggest_exercise":"تم اقتراح التمرين بنجاح",
+    "suggested_exercises":"التمارين المقترحة",
+    "no_exercises_yet":"لا يوجد تمارين مقترحة بعد"
+
 
 
 

@@ -11,9 +11,11 @@ import 'package:tamrini/features/exercise/presentation/views/exercise_details_wi
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
 class ExerciseCardWidget extends StatefulWidget {
-  const ExerciseCardWidget({required this.exercise, Key? key})
+  const ExerciseCardWidget(
+      {required this.exercise, Key? key, required this.isAll})
       : super(key: key);
   final DataModel exercise;
+  final bool isAll;
 
   @override
   State<ExerciseCardWidget> createState() => _ExerciseCardWidgetState();
@@ -37,7 +39,7 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
             context,
             DetailsWithoutVedioScreen(
               id: widget.exercise.id!,
-              isHome: true,
+              isAll: widget.isAll,
             ),
           );
         } else {
@@ -47,7 +49,7 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
               DetailsScreen(
                 id: widget.exercise.id!,
                 vedio: checkVedioformat(widget.exercise.assets ?? []),
-                isHome: true,
+                isAll: widget.isAll,
               ),
             );
           } else {
@@ -55,7 +57,7 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
               context,
               DetailsWithoutVedioScreen(
                 id: widget.exercise.id!,
-                isHome: true,
+                isAll: widget.isAll,
               ),
             );
           }

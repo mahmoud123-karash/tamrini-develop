@@ -40,7 +40,7 @@
     "allEx": "جميع التمارين",
     "emptyList":"لا يوجد تمارين",
     "search":"بحث",
-    "suggest":"قم بقتراح تمرين",
+    "suggest_exercise":"اقترح تمرين",
     "noExer":"لا يوجد تمرين بهذا الاسم",
     "searchHint":"قم بالبحث عن تمرين",
     "articles":"آخر المقالات",
@@ -239,7 +239,12 @@
     "exercise_name":"اسم التمرين",
     "exercise_description":"وصف التمرين",
     "youtub_uri":"رابط يوتيوب",
-    "youtub_uri_hint":"من فضلك أدخل رابط صحيح"
+    "youtub_uri_hint":"من فضلك أدخل رابط صحيح",
+    "optional":"اختياري",
+    "review_suggest_exercise":"سيتم مراجعة التمرين واضافته قريبا",
+    "success_suggest_exercise":"تم اقتراح التمرين بنجاح",
+    "suggested_exercises":"التمارين المقترحة",
+    "no_exercises_yet":"لا يوجد تمارين مقترحة بعد"
 
 
 

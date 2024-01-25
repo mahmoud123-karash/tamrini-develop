@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/suggest_cutom_button_widget.dart';
+import 'package:tamrini/features/suggest_exercise/presentation/views/widgets/suggest_cutom_button_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class SuggestExerciseWidget extends StatelessWidget {
@@ -9,6 +10,7 @@ class SuggestExerciseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype') ?? 'user';
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -20,7 +22,7 @@ class SuggestExerciseWidget extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          const SuggestCustomButtonWidget(),
+          if (userType != 'admin') const SuggestCustomButtonWidget(),
         ],
       ),
     );

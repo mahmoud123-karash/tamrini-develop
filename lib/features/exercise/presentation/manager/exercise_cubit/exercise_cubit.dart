@@ -70,6 +70,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       },
       (list) {
         exercises = list;
+        Navigator.pop(context);
         showSnackBar(context, S.of(context).success_add_e);
         emit(SucessGetExerciseState(list));
       },
@@ -102,6 +103,7 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       },
       (list) {
         exercises = list;
+        Navigator.pop(context);
         showSnackBar(context, S.of(context).success_edit_a);
         emit(SucessGetExerciseState(list));
       },

@@ -3,9 +3,9 @@ import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_exercise_screen.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/suggest_exercise_widget.dart';
+import 'package:tamrini/features/suggest_exercise/presentation/views/widgets/suggest_exercise_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'widgets/exercise_list_view_widget.dart';
+import 'exercise_list_view_widget.dart';
 
 class AllExercisesCategoryContentWidget extends StatefulWidget {
   const AllExercisesCategoryContentWidget({
@@ -89,6 +89,7 @@ class _AllExercisesCategoryContentWidget
                   scrollController: scrollController,
                   list: searchController.text == '' ? widget.list : searchList,
                   length: length,
+                  isAll: widget.isAll,
                 ),
               )
             : Expanded(
