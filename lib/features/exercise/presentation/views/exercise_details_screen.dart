@@ -89,93 +89,94 @@ class _DetailsScreenState extends State<DetailsScreen> {
         controller: controller,
       ),
       builder: (context, player) => Scaffold(
-          appBar: AppBar(
-            systemOverlayStyle: const SystemUiOverlayStyle(),
-            title: Text(
-              S.of(context).exDetails,
-            ),
-            centerTitle: true,
+        appBar: AppBar(
+          systemOverlayStyle: const SystemUiOverlayStyle(),
+          title: Text(
+            S.of(context).exDetails,
           ),
-          body: BlocBuilder<ExerciseCubit, ExerciseStates>(
-            builder: (context, state) {
-              DataModel model =
-                  ExerciseCubit.get(context).getExerciseData(dataId: widget.id);
-              return Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
+          centerTitle: true,
+        ),
+        body: BlocBuilder<ExerciseCubit, ExerciseStates>(
+          builder: (context, state) {
+            DataModel model =
+                ExerciseCubit.get(context).getExerciseData(dataId: widget.id);
+            return Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            model.title ?? '',
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: Intl.getCurrentLocale() == 'en'
+                                ? TextAlign.end
+                                : TextAlign.start,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        BlocProvider(
+                          create: (context) => SwiperCubit(),
+                          child: ExerciseAssetsViewWidget(
+                            images: model.assets!,
+                            player: player,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: double.infinity,
                             child: Text(
-                              model.title ?? '',
+                              """${(model.description)}""",
                               style: TextStyle(
                                 fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: Intl.getCurrentLocale() == 'en'
-                                  ? TextAlign.end
-                                  : TextAlign.start,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          BlocProvider(
-                            create: (context) => SwiperCubit(),
-                            child: ExerciseAssetsViewWidget(
-                              images: model.assets!,
-                              player: player,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: Text(
-                                """${(model.description)}""",
-                                style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
-                          if (!widget.isHome && !widget.isAll)
-                            customButton(
-                              onPressed: () {
-                                navigateToAndReplace(
-                                  context,
-                                  NewExerciseScreen(model: model),
-                                );
-                              },
-                              lable: S.of(context).edit_exercise,
-                            )
-                        ],
-                      ),
+                        ),
+                        if (!widget.isHome && !widget.isAll)
+                          customButton(
+                            onPressed: () {
+                              navigateToAndReplace(
+                                context,
+                                NewExerciseScreen(model: model),
+                              );
+                            },
+                            lable: S.of(context).edit_exercise,
+                          )
+                      ],
                     ),
                   ),
                 ),
-              );
-            },
-          )),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }

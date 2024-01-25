@@ -12,6 +12,7 @@ import 'package:tamrini/features/settings/presentation/views/settings_screen.dar
 import 'package:tamrini/features/water_reminder/presentaion/views/water_reminder_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import 'admin_drawer_widget.dart';
 import 'drawer_list_tile_widget.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -77,6 +78,7 @@ class MyDrawer extends StatelessWidget {
                 icon: Ionicons.calendar_outline,
                 lable: S.of(context).my_day,
               ),
+              const AdminDrawerWidegt(),
               DrawerListTileWidget(
                 onPressed: () {
                   navigateTo(context, const WaterReminderScreen());
