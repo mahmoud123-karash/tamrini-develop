@@ -189,6 +189,11 @@ class ExerciseRepoImpl extends ExerciseRepo {
         List files = [];
         files.add(File(imagePath));
         List<String> images = await uploadFiles(files: files);
+        if (checkImageformat(oldData.assets ?? []) != '') {
+          List<String> oldImages = [];
+          oldImages.add(checkImageformat(oldData.assets ?? []));
+          await deleteOldImages(newImages: [], oldImages: oldImages);
+        }
         List<String> assets = [];
         assets.addAll([youtubUrl, images.first]);
         newData = DataModel(
@@ -215,6 +220,8 @@ class ExerciseRepoImpl extends ExerciseRepo {
           .update(
             model.toJson(),
           );
+
+      list.remove(exercise);
       list.add(model);
       return right(list);
     } catch (e) {

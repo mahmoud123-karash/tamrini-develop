@@ -2,10 +2,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/save_data.dart';
+import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
-import 'package:tamrini/features/exercise/presentation/views/all_exercises_category_screen.dart';
+
+import '../all_exercises_category_screen.dart';
 
 class CategoryItemWidget extends StatelessWidget {
   const CategoryItemWidget({
@@ -22,7 +24,6 @@ class CategoryItemWidget extends StatelessWidget {
         navigateTo(
           context,
           AllExercisesCategoryScreen(
-            list: model.data ?? [],
             title: model.title ?? '',
           ),
         );
@@ -45,7 +46,7 @@ class CategoryItemWidget extends StatelessWidget {
                     FirebaseUrl(model.image!),
                   ) as ImageProvider
                 : const AssetImage(
-                    "assets/images/allExer.jpg",
+                    Assets.imagesAllExer,
                   ),
             fit: BoxFit.cover,
           ),

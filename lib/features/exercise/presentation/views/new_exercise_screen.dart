@@ -56,11 +56,9 @@ class _NewExerciseScreenState extends State<NewExerciseScreen> {
               youtubController: youtubController,
               autovalidateMode: autovalidateMode,
               formKey: formKey,
-              image: widget.model == null
-                  ? ''
-                  : checkImageformat(widget.model!.assets ?? []) != ''
-                      ? widget.model!.assets!.first
-                      : '',
+              image: widget.model != null
+                  ? checkImageformat(widget.model!.assets ?? [])
+                  : "",
             ),
           ),
           SliverFillRemaining(
@@ -80,7 +78,23 @@ class _NewExerciseScreenState extends State<NewExerciseScreen> {
                               .hasMatch(youtubController.text) ==
                           false) {
                         showSnackBar(context, S.of(context).youtub_uri_hint);
-                      } else {}
+                      } else {
+                        if (checkImageformat(widget.model!.assets ?? []) ==
+                                '' &&
+                            paths.isEmpty) {
+                          showSnackBar(context, S.of(context).image_error);
+                        } else {
+                          ExerciseCubit.get(context).editExercise(
+                            id: CacheHelper.getData(key: 'exerciseId') ?? '',
+                            title: nameController.text,
+                            description: descriptionController.text,
+                            youtubUrl: youtubController.text,
+                            imagePath: paths.isEmpty ? '' : paths.first,
+                            oldData: widget.model!,
+                            context: context,
+                          );
+                        }
+                      }
                     } else {
                       if (paths.isNotEmpty) {
                         if (RegExp(RegexPatterns.allowedYoutubeUrlFormat)

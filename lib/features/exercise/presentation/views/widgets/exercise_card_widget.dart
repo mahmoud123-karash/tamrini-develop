@@ -35,23 +35,21 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
         if (widget.exercise.assets == null || widget.exercise.assets!.isEmpty) {
           navigateTo(
             context,
-            DetailsWithoutVedioScreen(model: widget.exercise),
+            DetailsWithoutVedioScreen(id: widget.exercise.id!),
           );
         } else {
           if (checkVedioformat(widget.exercise.assets ?? []) != '') {
             navigateTo(
               context,
               DetailsScreen(
-                model: widget.exercise,
+                id: widget.exercise.id!,
                 vedio: checkVedioformat(widget.exercise.assets ?? []),
               ),
             );
           } else {
             navigateTo(
               context,
-              DetailsWithoutVedioScreen(
-                model: widget.exercise,
-              ),
+              DetailsWithoutVedioScreen(id: widget.exercise.id!),
             );
           }
         }

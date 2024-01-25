@@ -6,23 +6,26 @@ import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_assets_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import '../manager/exercise_cubit/exercise_states.dart';
 import 'new_exercise_screen.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({
     Key? key,
-    required this.model,
     required this.vedio,
     this.isHome = false,
+    required this.id,
+    this.homeModel,
   }) : super(key: key);
-  final DataModel model;
-  final String vedio;
+  final String vedio, id;
   final bool isHome;
+  final DataModel? homeModel;
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -87,89 +90,95 @@ class _DetailsScreenState extends State<DetailsScreen> {
         controller: controller,
       ),
       builder: (context, player) => Scaffold(
-        appBar: AppBar(
-          systemOverlayStyle: const SystemUiOverlayStyle(),
-          title: Text(
-            S.of(context).exDetails,
-          ),
-          centerTitle: true,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
-              borderRadius: BorderRadius.circular(10.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: const Offset(0, 3),
-                ),
-              ],
+          appBar: AppBar(
+            systemOverlayStyle: const SystemUiOverlayStyle(),
+            title: Text(
+              S.of(context).exDetails,
             ),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        widget.model.title ?? '',
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: Intl.getCurrentLocale() == 'en'
-                            ? TextAlign.end
-                            : TextAlign.start,
+            centerTitle: true,
+          ),
+          body: BlocBuilder<ExerciseCubit, ExerciseStates>(
+            builder: (context, state) {
+              DataModel model = widget.homeModel != null
+                  ? widget.homeModel!
+                  : ExerciseCubit.get(context)
+                      .getExerciseData(dataId: widget.id);
+              return Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).cardColor,
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: const Offset(0, 3),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    BlocProvider(
-                      create: (context) => SwiperCubit(),
-                      child: ExerciseAssetsViewWidget(
-                        images: widget.model.assets!,
-                        player: player,
-                      ),
-                    ),
-                    Padding(
+                    ],
+                  ),
+                  child: SingleChildScrollView(
+                    child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          """${(widget.model.description)}""",
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              model.title ?? '',
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: Intl.getCurrentLocale() == 'en'
+                                  ? TextAlign.end
+                                  : TextAlign.start,
+                            ),
                           ),
-                        ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          BlocProvider(
+                            create: (context) => SwiperCubit(),
+                            child: ExerciseAssetsViewWidget(
+                              images: model.assets!,
+                              player: player,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: Text(
+                                """${(model.description)}""",
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                          if (!widget.isHome)
+                            customButton(
+                              onPressed: () {
+                                navigateToAndReplace(
+                                  context,
+                                  NewExerciseScreen(model: model),
+                                );
+                              },
+                              lable: S.of(context).edit_exercise,
+                            )
+                        ],
                       ),
                     ),
-                    if (!widget.isHome)
-                      customButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          navigateTo(
-                            context,
-                            NewExerciseScreen(model: widget.model),
-                          );
-                        },
-                        lable: S.of(context).edit_exercise,
-                      )
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          ),
-        ),
-      ),
+              );
+            },
+          )),
     );
   }
 }

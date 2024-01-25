@@ -1,115 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/services/search.dart';
-import 'package:tamrini/core/shared/components.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/exercise/presentation/views/new_exercise_screen.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/suggest_exercise_widget.dart';
-import 'package:tamrini/generated/l10n.dart';
-import 'widgets/exercise_list_view_widget.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
+import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
+import 'package:tamrini/features/exercise/presentation/views/all_exercises_category_content_widget.dart';
 
-class AllExercisesCategoryScreen extends StatefulWidget {
+class AllExercisesCategoryScreen extends StatelessWidget {
   const AllExercisesCategoryScreen({
-    Key? key,
-    required this.list,
+    super.key,
     required this.title,
+    this.list,
     this.isAll = false,
-  }) : super(key: key);
-  final List<DataModel> list;
+  });
   final String title;
+  final List<DataModel>? list;
   final bool isAll;
-
-  @override
-  State<AllExercisesCategoryScreen> createState() =>
-      _AllExercisesCategoryScreen();
-}
-
-class _AllExercisesCategoryScreen extends State<AllExercisesCategoryScreen> {
-  final TextEditingController searchController = TextEditingController();
-  ScrollController scrollController = ScrollController();
-  List<DataModel> searchList = [];
-
-  int length = 10;
-
-  @override
-  void initState() {
-    scrollController.addListener(_loadMoreData);
-    super.initState();
-  }
-
-  void _loadMoreData() {
-    if (scrollController.position.pixels ==
-        scrollController.position.maxScrollExtent) {
-      if (widget.list.length > length) {
-        length += 10;
-        Future.delayed(const Duration(seconds: 1)).then((value) {
-          if (mounted) {
-            WidgetsBinding.instance
-                .addPostFrameCallback((_) => setState(() {}));
-          }
-        });
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    searchController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          searchField(
-            controller: searchController,
-            onChanged: (value) {
-              searchList = searchExercise(value, widget.list);
-              if (value == '') {
-                length = 10;
-              }
-              setState(() {});
-            },
-          ),
-          if (!widget.isAll)
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              child: addCustomButton(
-                onPressed: () {
-                  navigateTo(context, const NewExerciseScreen());
-                },
-                lable: S.of(context).add_exercise,
-              ),
-            ),
-          widget.list.isNotEmpty
-              ? Expanded(
-                  child: ExerciseListViewWidget(
-                    scrollController: scrollController,
-                    list:
-                        searchController.text == '' ? widget.list : searchList,
-                    length: length,
-                  ),
-                )
-              : Expanded(
-                  child: Center(
-                    child: Text(
-                      S.of(context).emptyList,
-                    ),
-                  ),
-                ),
-          if (searchList.isEmpty && searchController.text != '')
-            const Expanded(
-              child: SuggestExerciseWidget(),
-            ),
-        ],
+      body: BlocBuilder<ExerciseCubit, ExerciseStates>(
+        builder: (context, state) {
+          var cubit = ExerciseCubit.get(context);
+          String id = CacheHelper.getData(key: 'exerciseId') ?? '';
+          return AllExercisesCategoryContentWidget(
+            list: isAll ? list! : cubit.getExercise(id: id).data ?? [],
+            isAll: isAll,
+          );
+        },
       ),
     );
   }

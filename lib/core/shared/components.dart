@@ -19,6 +19,11 @@ void navigateTo(context, route) => Navigator.push(
       createRoute(route),
     );
 
+void navigateToAndReplace(context, route) => Navigator.pushReplacement(
+      context,
+      createRoute(route),
+    );
+
 void navigateToAndFinish(context, route) => Navigator.pushAndRemoveUntil(
       context,
       createRoute(route),

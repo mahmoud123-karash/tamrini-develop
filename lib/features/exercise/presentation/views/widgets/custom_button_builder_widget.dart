@@ -16,9 +16,6 @@ class CustomButtonBuilderWidget extends StatelessWidget {
         if (state is ErrorGetExerciseState) {
           showSnackBar(context, state.message);
         }
-        if (state is SucessGetExerciseState) {
-          Navigator.pop(context);
-        }
       },
       builder: (context, state) {
         if (state is LoadingGetExerciseState) {

@@ -25,21 +25,31 @@ class HomeExerciseItemWidget extends StatelessWidget {
           if (model.assets == null || model.assets!.isEmpty) {
             navigateTo(
               context,
-              DetailsWithoutVedioScreen(model: model, isHome: true),
+              DetailsWithoutVedioScreen(
+                isHome: true,
+                id: model.id!,
+                homeModel: model,
+              ),
             );
           } else {
             if (checkVedioformat(model.assets ?? []) != '') {
               navigateTo(
                 context,
                 DetailsScreen(
-                  model: model,
+                  id: model.id!,
                   vedio: checkVedioformat(model.assets ?? []),
                   isHome: true,
+                  homeModel: model,
                 ),
               );
             } else {
-              navigateTo(context,
-                  DetailsWithoutVedioScreen(model: model, isHome: true));
+              navigateTo(
+                  context,
+                  DetailsWithoutVedioScreen(
+                    isHome: true,
+                    id: model.id!,
+                    homeModel: model,
+                  ));
             }
           }
         },
