@@ -2510,151 +2510,191 @@ class S {
     );
   }
 
-  /// `إضافة مقال`
+  /// `Add Article`
   String get add_article {
     return Intl.message(
-      'إضافة مقال',
+      'Add Article',
       name: 'add_article',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل المقال`
+  /// `Edit Article`
   String get edit_article {
     return Intl.message(
-      'تعديل المقال',
+      'Edit Article',
       name: 'edit_article',
       desc: '',
       args: [],
     );
   }
 
-  /// `المقالات المعلقة`
+  /// `Pending Articles`
   String get penging_articles {
     return Intl.message(
-      'المقالات المعلقة',
+      'Pending Articles',
       name: 'penging_articles',
       desc: '',
       args: [],
     );
   }
 
-  /// `حذف المقال`
+  /// `Remove Article`
   String get remove_article {
     return Intl.message(
-      'حذف المقال',
+      'Remove Article',
       name: 'remove_article',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد مقالات معلقة`
+  /// `No Pending Articles`
   String get no_pending_articles {
     return Intl.message(
-      'لا يوجد مقالات معلقة',
+      'No Pending Articles',
       name: 'no_pending_articles',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم المقال`
+  /// `Article Name`
   String get article_name {
     return Intl.message(
-      'اسم المقال',
+      'Article Name',
       name: 'article_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `المقال`
+  /// `Article Body`
   String get article_body {
     return Intl.message(
-      'المقال',
+      'Article Body',
       name: 'article_body',
       desc: '',
       args: [],
     );
   }
 
-  /// `قبول`
+  /// `Accept`
   String get accept {
     return Intl.message(
-      'قبول',
+      'Accept',
       name: 'accept',
       desc: '',
       args: [],
     );
   }
 
-  /// `رفض`
+  /// `Refuse`
   String get refuse {
     return Intl.message(
-      'رفض',
+      'Refuse',
       name: 'refuse',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفض هذا المقال`
+  /// `This article has been refused`
   String get refused_article {
     return Intl.message(
-      'تم رفض هذا المقال',
+      'This article has been refused',
       name: 'refused_article',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف المقال ؟`
+  /// `Do you want to remove the article?`
   String get q_remove_article {
     return Intl.message(
-      'هل تريد حذف المقال ؟',
+      'Do you want to remove the article?',
       name: 'q_remove_article',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم قبول هذا المقال`
+  /// `This article has been accepted`
   String get success_accept {
     return Intl.message(
-      'تم قبول هذا المقال',
+      'This article has been accepted',
       name: 'success_accept',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفض هذا المقال`
+  /// `This article has been refused`
   String get success_refused {
     return Intl.message(
-      'تم رفض هذا المقال',
+      'This article has been refused',
       name: 'success_refused',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تقييد هذا المقال`
+  /// `This article has been banned`
   String get success_banned {
     return Intl.message(
-      'تم تقييد هذا المقال',
+      'This article has been banned',
       name: 'success_banned',
       desc: '',
       args: [],
     );
   }
 
-  /// `تقييد المقال`
+  /// `Ban Article`
   String get ban_article {
     return Intl.message(
-      'تقييد المقال',
+      'Ban Article',
       name: 'ban_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your article has been accepted`
+  String get accept_your_article {
+    return Intl.message(
+      'Your article has been accepted',
+      name: 'accept_your_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your article has been refused`
+  String get refuse_your_article {
+    return Intl.message(
+      'Your article has been refused',
+      name: 'refuse_your_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your article has been banned`
+  String get ban_your_article {
+    return Intl.message(
+      'Your article has been banned',
+      name: 'ban_your_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New comment on your question`
+  String get new_comment_question {
+    return Intl.message(
+      'New comment on your question',
+      name: 'new_comment_question',
       desc: '',
       args: [],
     );

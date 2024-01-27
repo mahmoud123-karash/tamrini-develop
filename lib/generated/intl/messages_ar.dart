@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "NumProducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "accept": MessageLookupByLibrary.simpleMessage("قبول"),
+        "accept_your_article":
+            MessageLookupByLibrary.simpleMessage("تم قبول المقال الخاص بك"),
         "account_details":
             MessageLookupByLibrary.simpleMessage("تفاصيل الحساب"),
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
@@ -67,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
         "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
         "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
+        "ban_your_article":
+            MessageLookupByLibrary.simpleMessage("تم تقييد المقال الخاص بك"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "buyNow": MessageLookupByLibrary.simpleMessage("شراء الآن"),
@@ -182,6 +186,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "my_day": MessageLookupByLibrary.simpleMessage("يومي"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
+        "new_comment_question":
+            MessageLookupByLibrary.simpleMessage("تعليق جديد على سؤالك"),
         "noArticles":
             MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
         "noExer":
@@ -245,6 +251,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
+        "refuse_your_article":
+            MessageLookupByLibrary.simpleMessage("تم رفض المقال الخاص بك"),
         "refused_article":
             MessageLookupByLibrary.simpleMessage("تم رفض هذا المقال"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),

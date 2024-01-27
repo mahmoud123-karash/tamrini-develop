@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/artilcle_custom_button_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../manager/article_cubit/articles_states.dart';
+import 'refused_article_text_widget.dart';
 
 class AcceptRefuseButtonsWidget extends StatefulWidget {
   const AcceptRefuseButtonsWidget(
@@ -31,21 +31,7 @@ class _AcceptRefuseButtonsWidgetState extends State<AcceptRefuseButtonsWidget> {
   @override
   Widget build(BuildContext context) {
     return isRef
-        ? Center(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 10,
-                bottom: 10,
-              ),
-              child: Text(
-                S.of(context).refused_article,
-                style: TextStyles.style14.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                ),
-              ),
-            ),
-          )
+        ? const RefusedArticleTextWidget()
         : Row(
             children: [
               Expanded(

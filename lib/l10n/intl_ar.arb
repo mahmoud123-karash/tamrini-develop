@@ -258,7 +258,11 @@
     "success_accept":"تم قبول هذا المقال",
     "success_refused":"تم رفض هذا المقال",
     "success_banned":"تم تقييد هذا المقال",
-    "ban_article":"تقييد المقال"
+    "ban_article":"تقييد المقال",
+    "accept_your_article":"تم قبول المقال الخاص بك",
+    "refuse_your_article":"تم رفض المقال الخاص بك",
+    "ban_your_article":"تم تقييد المقال الخاص بك",
+    "new_comment_question":"تعليق جديد على سؤالك"
 
 
 

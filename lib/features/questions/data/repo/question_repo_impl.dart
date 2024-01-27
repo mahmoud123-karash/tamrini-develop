@@ -88,7 +88,7 @@ class QuestionRepoImpl extends QuestionRepo {
     String uid = CacheHelper.getData(key: 'uid');
     NotificationModel model = NotificationModel(
       senderUid: uid,
-      title: 'تعليق جديد على سؤالك',
+      title: 'answer',
       body: body,
       isReaden: false,
       type: 'notification',

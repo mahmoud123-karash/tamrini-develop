@@ -25,13 +25,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "NumProducts":
             MessageLookupByLibrary.simpleMessage("Number of Products"),
         "about_app": MessageLookupByLibrary.simpleMessage("About the App"),
-        "accept": MessageLookupByLibrary.simpleMessage("قبول"),
+        "accept": MessageLookupByLibrary.simpleMessage("Accept"),
+        "accept_your_article": MessageLookupByLibrary.simpleMessage(
+            "Your article has been accepted"),
         "account_details":
             MessageLookupByLibrary.simpleMessage("Account Details"),
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
-        "add_article": MessageLookupByLibrary.simpleMessage("إضافة مقال"),
+        "add_article": MessageLookupByLibrary.simpleMessage("Add Article"),
         "add_exercise": MessageLookupByLibrary.simpleMessage("Add Exercise"),
         "add_image": MessageLookupByLibrary.simpleMessage("Add Image"),
         "add_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
@@ -60,13 +62,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "app": MessageLookupByLibrary.simpleMessage("App"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
         "arabic_language": MessageLookupByLibrary.simpleMessage("Arabic"),
-        "article_body": MessageLookupByLibrary.simpleMessage("المقال"),
-        "article_name": MessageLookupByLibrary.simpleMessage("اسم المقال"),
+        "article_body": MessageLookupByLibrary.simpleMessage("Article Body"),
+        "article_name": MessageLookupByLibrary.simpleMessage("Article Name"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
-        "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
+        "ban_article": MessageLookupByLibrary.simpleMessage("Ban Article"),
         "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
+        "ban_your_article": MessageLookupByLibrary.simpleMessage(
+            "Your article has been banned"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
@@ -106,7 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
-        "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
+        "edit_article": MessageLookupByLibrary.simpleMessage("Edit Article"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_section": MessageLookupByLibrary.simpleMessage("Edit Section"),
@@ -183,6 +187,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "my_day": MessageLookupByLibrary.simpleMessage("My day"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "new_comment_question": MessageLookupByLibrary.simpleMessage(
+            "New comment on your question"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
         "noExer": MessageLookupByLibrary.simpleMessage(
@@ -198,7 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No Internet Connection. Some App Features May Not Work"),
         "no_meals": MessageLookupByLibrary.simpleMessage("No Meals"),
         "no_pending_articles":
-            MessageLookupByLibrary.simpleMessage("لا يوجد مقالات معلقة"),
+            MessageLookupByLibrary.simpleMessage("No Pending Articles"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
@@ -216,7 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "passConfirm":
             MessageLookupByLibrary.simpleMessage("please confirm the Password"),
         "penging_articles":
-            MessageLookupByLibrary.simpleMessage("المقالات المعلقة"),
+            MessageLookupByLibrary.simpleMessage("Pending Articles"),
         "permission":
             MessageLookupByLibrary.simpleMessage("Location Access Disabled"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
@@ -234,8 +240,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "protien": MessageLookupByLibrary.simpleMessage("Protein"),
         "protien_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),
-        "q_remove_article":
-            MessageLookupByLibrary.simpleMessage("هل تريد حذف المقال ؟"),
+        "q_remove_article": MessageLookupByLibrary.simpleMessage(
+            "Do you want to remove the article?"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "question_error": MessageLookupByLibrary.simpleMessage(
             "This question has been deleted"),
@@ -244,14 +250,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),
         "rating": MessageLookupByLibrary.simpleMessage("Rating"),
         "recalculate": MessageLookupByLibrary.simpleMessage("Recalculate"),
-        "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
-        "refused_article":
-            MessageLookupByLibrary.simpleMessage("تم رفض هذا المقال"),
+        "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
+        "refuse_your_article": MessageLookupByLibrary.simpleMessage(
+            "Your article has been refused"),
+        "refused_article": MessageLookupByLibrary.simpleMessage(
+            "This article has been refused"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
         "reminder_to_drink":
             MessageLookupByLibrary.simpleMessage("Reminder to drink water"),
-        "remove_article": MessageLookupByLibrary.simpleMessage("حذف المقال"),
+        "remove_article":
+            MessageLookupByLibrary.simpleMessage("Remove Article"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
@@ -279,8 +288,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
-        "success_accept":
-            MessageLookupByLibrary.simpleMessage("تم قبول هذا المقال"),
+        "success_accept": MessageLookupByLibrary.simpleMessage(
+            "This article has been accepted"),
         "success_add":
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
         "success_add_e":
@@ -289,16 +298,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Meal added successfully"),
         "success_ban": MessageLookupByLibrary.simpleMessage(
             "Question restricted successfully"),
-        "success_banned":
-            MessageLookupByLibrary.simpleMessage("تم تقييد هذا المقال"),
+        "success_banned": MessageLookupByLibrary.simpleMessage(
+            "This article has been banned"),
         "success_edit_a":
             MessageLookupByLibrary.simpleMessage("Edited successfully"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("Logged Out Successfully"),
         "success_recalulate":
             MessageLookupByLibrary.simpleMessage("Recalculation successful"),
-        "success_refused":
-            MessageLookupByLibrary.simpleMessage("تم رفض هذا المقال"),
+        "success_refused": MessageLookupByLibrary.simpleMessage(
+            "This article has been refused"),
         "success_remove":
             MessageLookupByLibrary.simpleMessage("Deleted successfully"),
         "success_remove_answer":

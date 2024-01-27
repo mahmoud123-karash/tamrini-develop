@@ -86,7 +86,7 @@ class ArticleRepoImpl extends ArticleRepo {
           id: oldModel.id,
           title: title,
           isPending: oldModel.isPending,
-          isRefused: oldModel.isRefused,
+          isRefused: false,
         );
       } else {
         List files = [];
@@ -133,6 +133,7 @@ class ArticleRepoImpl extends ArticleRepo {
           .collection('articles')
           .doc(oldModel.id)
           .delete();
+      await deleteOldImages(newImages: [], oldImages: oldModel.image ?? []);
       list.remove(oldModel);
       return right(list);
     } catch (e) {

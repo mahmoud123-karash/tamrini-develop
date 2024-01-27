@@ -32,7 +32,7 @@ class ArticleWriterWidget extends StatelessWidget {
               userType == 'admin' &&
               uid != article.writerUid)
             ArticleBanCustomButtonWidget(article: article, token: model.token),
-          if (article.isPending!)
+          if (article.isPending! && userType == 'admin')
             AcceptRefuseButtonsWidget(
               article: article,
               token: model.token,

@@ -11,8 +11,8 @@ import 'package:tamrini/features/atricle/presentation/views/new_article_screen.d
 import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_builder_widget.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/generated/l10n.dart';
-
 import '../../../home/presentation/views/widgets/image_view_widget.dart';
+import 'widgets/refused_article_text_widget.dart';
 
 class ArticlesDetailsScreen extends StatelessWidget {
   const ArticlesDetailsScreen({Key? key, required this.id}) : super(key: key);
@@ -55,6 +55,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      if (model.isRefused!) RefusedArticleTextWidget(),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
