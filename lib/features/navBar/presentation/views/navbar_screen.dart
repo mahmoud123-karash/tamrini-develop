@@ -28,6 +28,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   @override
   void initState() {
     UpdateCubit.get(context).update();
+    NotificationCubit.get(context).getData();
     log(CacheHelper.getData(key: 'deviceToken') ?? '');
     initiGetprofile(context);
     getintil(context);

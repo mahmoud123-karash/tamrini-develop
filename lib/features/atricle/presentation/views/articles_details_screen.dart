@@ -20,7 +20,6 @@ class ArticlesDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
-    String usertype = CacheHelper.getData(key: 'usertype');
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
     return Scaffold(
@@ -98,7 +97,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
                         uid: model.writerUid ?? '',
                         article: model,
                       ),
-                      const Divider(),
+                      if (model.writerUid == uid) const Divider(),
                       if (model.writerUid == uid)
                         customButton(
                           onPressed: () {

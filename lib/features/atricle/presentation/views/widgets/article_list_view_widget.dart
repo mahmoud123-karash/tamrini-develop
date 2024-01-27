@@ -15,6 +15,7 @@ class ArticleListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    list.sort((a, b) => b.date!.compareTo(a.date!));
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
     return ListView.separated(

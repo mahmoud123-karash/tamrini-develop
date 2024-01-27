@@ -612,7 +612,7 @@ void main() async {
           BlocProvider(
             create: (context) => NotificationCubit(
               getIt.get<NotificationRepoImpl>(),
-            )..getData(),
+            ),
           ),
           BlocProvider(
             create: (context) => SupplementCubit(

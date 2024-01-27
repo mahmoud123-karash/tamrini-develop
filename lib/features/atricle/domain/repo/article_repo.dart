@@ -26,5 +26,6 @@ abstract class ArticleRepo {
     required ArticleModel oldModel,
     required bool isAcceped,
     required String token,
+    required String title,
   });
 }

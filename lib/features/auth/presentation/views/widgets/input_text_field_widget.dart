@@ -75,6 +75,12 @@ class _InputTextFielsWidgetState extends State<InputTextFielsWidget> {
                 strokeAlign: BorderSide.strokeAlignOutside,
               ),
             ),
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.white,
+                strokeAlign: BorderSide.strokeAlignOutside,
+              ),
+            ),
             hintText: widget.hint,
             hintStyle: const TextStyle(
               color: Colors.white,

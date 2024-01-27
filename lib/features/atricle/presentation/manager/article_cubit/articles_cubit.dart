@@ -120,12 +120,14 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
     required bool isAcceped,
     required String token,
     required BuildContext context,
+    required String title,
   }) async {
     var result = await articleRepo.disPendingArticle(
       list: articles,
       oldModel: oldModel,
       isAcceped: isAcceped,
       token: token,
+      title: title,
     );
     result.fold(
       (message) {
@@ -135,9 +137,11 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
         articles = list;
         showSnackBar(
           context,
-          isAcceped
+          title == 'accept'
               ? S.of(context).success_accept
-              : S.of(context).success_refused,
+              : title == 'refuse'
+                  ? S.of(context).success_refused
+                  : S.of(context).success_banned,
         );
         emit(SucessGetArticlesState(list));
       },

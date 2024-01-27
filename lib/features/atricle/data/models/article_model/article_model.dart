@@ -37,7 +37,6 @@ class ArticleModel {
 
   Map<String, dynamic> toJson() => {
         "date": date,
-        "id": id,
         "image": image,
         "writerUid": writerUid,
         "isPending": isPending,

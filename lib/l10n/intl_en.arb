@@ -257,7 +257,10 @@
     "refused_article":"تم رفض هذا المقال",
     "q_remove_article":"هل تريد حذف المقال ؟",
     "success_accept":"تم قبول هذا المقال",
-    "success_refused":"تم رفض هذا المقال"
+    "success_refused":"تم رفض هذا المقال",
+    "success_banned":"تم تقييد هذا المقال",
+    "ban_article":"تقييد المقال"
+
 
 
 

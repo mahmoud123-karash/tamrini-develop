@@ -21,11 +21,13 @@ class ArticleCustomButtonWidget extends StatelessWidget {
         borderSide: BorderSide.none,
       ),
       onPressed: onPressed,
-      child: Text(
-        lable,
-        style: TextStyles.style14.copyWith(
-          fontWeight: FontWeight.bold,
-          color: whiteColor,
+      child: Center(
+        child: Text(
+          lable,
+          style: TextStyles.style14.copyWith(
+            fontWeight: FontWeight.bold,
+            color: whiteColor,
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
@@ -9,10 +10,15 @@ import '../../../data/models/article_model/article_model.dart';
 import 'article_list_view_widget.dart';
 
 class AllArticleContentWidget extends StatefulWidget {
-  const AllArticleContentWidget(
-      {super.key, required this.models, required this.isUserProfile});
-  final List<ArticleModel> models;
+  const AllArticleContentWidget({
+    super.key,
+    required this.length,
+    required this.isUserProfile,
+    required this.list,
+  });
+  final List<ArticleModel> list;
   final bool isUserProfile;
+  final int length;
 
   @override
   State<AllArticleContentWidget> createState() =>
@@ -23,14 +29,11 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
   final TextEditingController searchController = TextEditingController();
   ScrollController scrollController = ScrollController();
   List<ArticleModel> searchList = [];
-  late List<ArticleModel> list;
 
   int length = 10;
 
   @override
   void initState() {
-    list =
-        widget.models.where((element) => element.isPending == false).toList();
     super.initState();
     scrollController.addListener(_loadMoreData);
   }
@@ -38,7 +41,7 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (list.length > length) {
+      if (widget.list.length > length) {
         length += 10;
         Future.delayed(const Duration(seconds: 1)).then((value) {
           if (mounted) {
@@ -59,36 +62,33 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+
     return Column(
       children: [
         searchField(
           controller: searchController,
           onChanged: (value) {
-            searchList = searchArticles(value, list);
+            searchList = searchArticles(value, widget.list);
             if (value == '') {
               length = 10;
             }
             setState(() {});
           },
         ),
-        if (!widget.isUserProfile)
-          AddArticleRowWidget(
-            length: widget.models
-                .where((element) => element.isPending == true)
-                .toList()
-                .length,
-          ),
-        const SizedBox(
-          height: 5,
-        ),
+        if (userType == 'admin')
+          if (!widget.isUserProfile)
+            AddArticleRowWidget(
+              length: widget.length,
+            ),
         const SizedBox(
           height: 15,
         ),
-        list.isNotEmpty
+        widget.list.isNotEmpty
             ? Expanded(
                 child: ArticleListViewWidget(
                   controller: scrollController,
-                  list: searchController.text == '' ? list : searchList,
+                  list: searchController.text == '' ? widget.list : searchList,
                   length: length,
                 ),
               )

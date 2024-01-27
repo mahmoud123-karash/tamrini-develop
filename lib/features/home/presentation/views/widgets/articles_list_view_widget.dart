@@ -8,6 +8,7 @@ class ArticlesListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    models.sort((a, b) => b.date!.compareTo(a.date!));
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
     final getWidht = mediaQuery.size.width;

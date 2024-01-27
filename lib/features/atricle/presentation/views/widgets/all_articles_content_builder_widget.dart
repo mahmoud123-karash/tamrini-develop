@@ -23,8 +23,16 @@ class AllArticlesContentBuilderWidget extends StatelessWidget {
             );
           }
           return AllArticleContentWidget(
-            models: models != null ? models! : state.list,
+            list: models != null
+                ? models!
+                : state.list
+                    .where((element) => element.isPending == false)
+                    .toList(),
             isUserProfile: models != null,
+            length: state.list
+                .where((element) => element.isPending == true)
+                .toList()
+                .length,
           );
         } else if (state is ErrorGetArticlesState) {
           return messageBuilder(message: state.message);

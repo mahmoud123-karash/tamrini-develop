@@ -65,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
         "auto_reminder":
             MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
+        "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
         "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
@@ -284,6 +285,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
         "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),
+        "success_banned":
+            MessageLookupByLibrary.simpleMessage("تم تقييد هذا المقال"),
         "success_edit_a":
             MessageLookupByLibrary.simpleMessage("تم التعديل بنجاح"),
         "success_log_out":

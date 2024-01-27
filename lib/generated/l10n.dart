@@ -2639,6 +2639,26 @@ class S {
       args: [],
     );
   }
+
+  /// `تم تقييد هذا المقال`
+  String get success_banned {
+    return Intl.message(
+      'تم تقييد هذا المقال',
+      name: 'success_banned',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تقييد المقال`
+  String get ban_article {
+    return Intl.message(
+      'تقييد المقال',
+      name: 'ban_article',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

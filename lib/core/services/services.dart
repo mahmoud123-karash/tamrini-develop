@@ -140,7 +140,9 @@ void logOut(context) async {
   var box = Hive.box<ProfileModel>(profileBox);
   await box.clear();
   GoogleSignIn googleSignIn = GoogleSignIn();
-  googleSignIn.disconnect();
+  if (await googleSignIn.isSignedIn()) {
+    googleSignIn.disconnect();
+  }
   await FirebaseAuth.instance.signOut();
   CacheHelper.removeData(key: 'uid');
   CacheHelper.removeData(key: 'deviceToken');

@@ -28,7 +28,9 @@ class _NotificationListViewWidgetState
             .toList()
             .isNotEmpty) {
           NotificationCubit.get(context).updateNotification(
-              list: widget.notifications, lable: widget.lable);
+            list: widget.notifications,
+            lable: widget.lable,
+          );
         }
       }
     });

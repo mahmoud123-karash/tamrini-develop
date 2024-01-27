@@ -65,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
+        "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
         "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
@@ -288,6 +289,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Meal added successfully"),
         "success_ban": MessageLookupByLibrary.simpleMessage(
             "Question restricted successfully"),
+        "success_banned":
+            MessageLookupByLibrary.simpleMessage("تم تقييد هذا المقال"),
         "success_edit_a":
             MessageLookupByLibrary.simpleMessage("Edited successfully"),
         "success_log_out":

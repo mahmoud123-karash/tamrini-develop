@@ -146,6 +146,7 @@ class ArticleRepoImpl extends ArticleRepo {
     required ArticleModel oldModel,
     required bool isAcceped,
     required String token,
+    required String title,
   }) async {
     try {
       ArticleModel model = ArticleModel(
@@ -158,7 +159,7 @@ class ArticleRepoImpl extends ArticleRepo {
         isPending: !isAcceped,
         isRefused: !isAcceped,
       );
-      await sendNotification(token, isAcceped, oldModel);
+      await sendNotification(token, isAcceped, oldModel, title);
       await FirebaseFirestore.instance
           .collection('articles')
           .doc('data')
@@ -169,6 +170,7 @@ class ArticleRepoImpl extends ArticleRepo {
           );
       list.remove(oldModel);
       list.add(model);
+      list.sort((a, b) => b.date!.compareTo(a.date!));
       return right(list);
     } catch (e) {
       return left(e.toString());
@@ -179,12 +181,13 @@ class ArticleRepoImpl extends ArticleRepo {
     String token,
     bool isAcceped,
     ArticleModel oldModel,
+    String title,
   ) async {
     NotificationModel notification = NotificationModel(
       isReaden: false,
-      subType: 'artilce',
+      subType: 'article',
       senderUid: adminUid,
-      title: isAcceped ? 'تم قبول المقال الخاص بك' : 'تم رفض المقال الخاص بك',
+      title: title,
       body: '',
       type: 'notification',
       uid: oldModel.id!,
@@ -200,7 +203,11 @@ class ArticleRepoImpl extends ArticleRepo {
 
     dioHelper.sendNotification(
       token: token,
-      title: isAcceped ? 'تم قبول المقال الخاص بك' : 'تم رفض المقال الخاص بك',
+      title: title == 'accept'
+          ? 'تم قبول المقال الخاص بك'
+          : title == 'refuse'
+              ? 'تم رفض المقال الخاص بك'
+              : 'تم تقييد المقال الخاص بك',
       body: '',
       data: {
         "type": "notification",

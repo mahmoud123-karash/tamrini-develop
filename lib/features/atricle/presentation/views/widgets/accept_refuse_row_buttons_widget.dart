@@ -66,6 +66,7 @@ class _AcceptRefuseButtonsWidgetState extends State<AcceptRefuseButtonsWidget> {
                         isAcceped: true,
                         token: widget.token,
                         context: context,
+                        title: 'accept',
                       );
                     },
                   ),
@@ -86,6 +87,7 @@ class _AcceptRefuseButtonsWidgetState extends State<AcceptRefuseButtonsWidget> {
                       isAcceped: false,
                       token: widget.token,
                       context: context,
+                      title: 'refuse',
                     );
                   },
                 ),
