@@ -3,7 +3,6 @@
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
@@ -74,7 +73,8 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
           role: user.role,
         ),
         const Spacer(),
-        if (user.uid == CacheHelper.getData(key: 'uid') || user.uid == adminUid)
+        if (user.uid == CacheHelper.getData(key: 'uid') ||
+            CacheHelper.getData(key: 'usertype') == 'admin')
           InkWell(
             borderRadius: BorderRadius.circular(5),
             onTap: () {
@@ -83,8 +83,9 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
                 context: context,
                 builder: (context) => OptionsBottomSheetWidget(
                   model: model,
-                  isAdmin: user.uid == adminUid,
+                  isAdmin: CacheHelper.getData(key: 'usertype') == 'admin',
                   isDetails: isDetails,
+                  token: user.token,
                 ),
               );
             },

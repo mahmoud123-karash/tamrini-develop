@@ -2699,6 +2699,26 @@ class S {
       args: [],
     );
   }
+
+  /// `تم تقييد سؤالك`
+  String get ban_your_question {
+    return Intl.message(
+      'تم تقييد سؤالك',
+      name: 'ban_your_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تقييد هذا السؤال لانه يخالف الشروط`
+  String get why_ban_question {
+    return Intl.message(
+      'تم تقييد هذا السؤال لانه يخالف الشروط',
+      name: 'why_ban_question',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

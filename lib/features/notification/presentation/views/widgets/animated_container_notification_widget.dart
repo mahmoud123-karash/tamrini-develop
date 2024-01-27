@@ -45,10 +45,7 @@ class AnimatedContainerNotificaionWidget extends StatelessWidget {
                       fontSize: 12,
                     ),
                   ),
-                  if (length != 0)
-                    const SizedBox(
-                      width: 2,
-                    ),
+                  const SizedBox(width: 2),
                   if (length != 0)
                     Container(
                       decoration: BoxDecoration(
@@ -57,11 +54,11 @@ class AnimatedContainerNotificaionWidget extends StatelessWidget {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
+                          horizontal: 3,
                           vertical: 3,
                         ),
                         child: Text(
-                          length > 10 ? '10+' : length.toString(),
+                          length > 10 ? "10+" : length.toString(),
                           style: TextStyles.style12.copyWith(
                             color: Colors.white,
                             fontSize: 10,

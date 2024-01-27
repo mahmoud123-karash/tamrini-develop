@@ -12,10 +12,12 @@ class OptionsBottomSheetWidget extends StatelessWidget {
     required this.isAdmin,
     required this.model,
     required this.isDetails,
+    required this.token,
   });
   final QuestionModel model;
   final bool isAdmin;
   final bool isDetails;
+  final String token;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +96,7 @@ class OptionsBottomSheetWidget extends StatelessWidget {
                     borderSide: BorderSide.none,
                   ),
                   onTap: () {
-                    QuestionCubit.get(context).updateQuestion(
+                    QuestionCubit.get(context).banQuestion(
                       model: QuestionModel(
                         date: model.date,
                         body: model.body,
@@ -105,7 +107,7 @@ class OptionsBottomSheetWidget extends StatelessWidget {
                       ),
                       context: context,
                       id: model.id!,
-                      message: S.of(context).success_ban,
+                      token: token,
                     );
                   },
                   title: Text(S.of(context).ban_question),

@@ -28,3 +28,12 @@ class ErrorRemoveQuestionState extends QuestionStates {
   final String message;
   ErrorRemoveQuestionState(this.message);
 }
+
+class LoadingBanQuestionState extends QuestionStates {}
+
+class SucessBanQuestionState extends QuestionStates {}
+
+class ErrorBanQuestionState extends QuestionStates {
+  final String message;
+  ErrorBanQuestionState(this.message);
+}

@@ -15,6 +15,7 @@ class NotificationRemoteDataSourceImpl extends NotificationRemoteDataSource {
         .collection('notification')
         .doc(uid)
         .collection('data')
+        .orderBy('time', descending: true)
         .get();
     for (var element in result.docs) {
       NotificationModel model =

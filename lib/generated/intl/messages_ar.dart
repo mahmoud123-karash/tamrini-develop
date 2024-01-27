@@ -71,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
         "ban_your_article":
             MessageLookupByLibrary.simpleMessage("تم تقييد المقال الخاص بك"),
+        "ban_your_question":
+            MessageLookupByLibrary.simpleMessage("تم تقييد سؤالك"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "buyNow": MessageLookupByLibrary.simpleMessage("شراء الآن"),
@@ -360,6 +362,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "weight_maintenance":
             MessageLookupByLibrary.simpleMessage("الحفاظ على الوزن"),
         "whatsApp": MessageLookupByLibrary.simpleMessage("واتس اب"),
+        "why_ban_question": MessageLookupByLibrary.simpleMessage(
+            "تم تقييد هذا السؤال لانه يخالف الشروط"),
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),

@@ -47,7 +47,11 @@ class WriteAnswerUseCase extends UseCase {
       await questionRepo.updateQuestion(id: id, model: question);
       if (model.askerUid != uid) {
         questionRepo.setNotification(
-            id: model.askerUid, questionUid: id, body: answer);
+          id: model.askerUid,
+          questionUid: id,
+          body: answer,
+          title: 'answer',
+        );
         if (token != '') {
           dioHelper.sendNotification(
             token: token,

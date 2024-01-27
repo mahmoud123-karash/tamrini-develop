@@ -12,5 +12,6 @@ abstract class QuestionRepo {
     required String id,
     required String questionUid,
     required String body,
+    required String title,
   });
 }

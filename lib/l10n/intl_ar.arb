@@ -262,7 +262,10 @@
     "accept_your_article":"تم قبول المقال الخاص بك",
     "refuse_your_article":"تم رفض المقال الخاص بك",
     "ban_your_article":"تم تقييد المقال الخاص بك",
-    "new_comment_question":"تعليق جديد على سؤالك"
+    "new_comment_question":"تعليق جديد على سؤالك",
+    "ban_your_question":"تم تقييد سؤالك",
+    "why_ban_question":"تم تقييد هذا السؤال لانه يخالف الشروط"
+
 
 
 

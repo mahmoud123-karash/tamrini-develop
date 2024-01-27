@@ -65,7 +65,7 @@ class _EditQuestionBottomSheetWidgetState
                         askerUid: widget.model.askerUid,
                         answersCount: widget.model.answersCount,
                         answers: widget.model.answers,
-                        isBanned: widget.model.isBanned,
+                        isBanned: false,
                       ),
                       context: context,
                       id: widget.model.id!,

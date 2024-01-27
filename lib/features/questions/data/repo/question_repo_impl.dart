@@ -84,11 +84,12 @@ class QuestionRepoImpl extends QuestionRepo {
     required String id,
     required String questionUid,
     required String body,
+    required String title,
   }) async {
     String uid = CacheHelper.getData(key: 'uid');
     NotificationModel model = NotificationModel(
       senderUid: uid,
-      title: 'answer',
+      title: title,
       body: body,
       isReaden: false,
       type: 'notification',
