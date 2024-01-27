@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
+        "add_article": MessageLookupByLibrary.simpleMessage("إضافة مقال"),
         "add_exercise": MessageLookupByLibrary.simpleMessage("إضافة تمرين"),
         "add_image": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
@@ -100,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
+        "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
         "edit_profile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
@@ -208,6 +210,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passConfirm": MessageLookupByLibrary.simpleMessage(
             "الرجاء التأكد من كلمة المرور "),
+        "penging_articles":
+            MessageLookupByLibrary.simpleMessage("المقالات المعلقة"),
         "permission":
             MessageLookupByLibrary.simpleMessage("الوصول للموقع غير مفعل"),
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
@@ -237,6 +241,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
         "reminder_to_drink":
             MessageLookupByLibrary.simpleMessage("تذكير لشرب الماء"),
+        "remove_article": MessageLookupByLibrary.simpleMessage("حذف المقال"),
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
         "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),

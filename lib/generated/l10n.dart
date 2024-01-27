@@ -2519,6 +2519,46 @@ class S {
       args: [],
     );
   }
+
+  /// `إضافة مقال`
+  String get add_article {
+    return Intl.message(
+      'إضافة مقال',
+      name: 'add_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل المقال`
+  String get edit_article {
+    return Intl.message(
+      'تعديل المقال',
+      name: 'edit_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المقالات المعلقة`
+  String get penging_articles {
+    return Intl.message(
+      'المقالات المعلقة',
+      name: 'penging_articles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حذف المقال`
+  String get remove_article {
+    return Intl.message(
+      'حذف المقال',
+      name: 'remove_article',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -244,7 +244,11 @@
     "review_suggest_exercise":"سيتم مراجعة التمرين واضافته قريبا",
     "success_suggest_exercise":"تم اقتراح التمرين بنجاح",
     "suggested_exercises":"التمارين المقترحة",
-    "no_exercises_yet":"لا يوجد تمارين مقترحة بعد"
+    "no_exercises_yet":"لا يوجد تمارين مقترحة بعد",
+    "add_article":"إضافة مقال",
+    "edit_article":"تعديل المقال",
+    "penging_articles":"المقالات المعلقة",
+    "remove_article":"حذف المقال"
 
 
 

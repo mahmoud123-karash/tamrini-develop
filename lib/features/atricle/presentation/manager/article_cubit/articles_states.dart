@@ -1,4 +1,4 @@
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 
 abstract class ArticlesStates {}
 

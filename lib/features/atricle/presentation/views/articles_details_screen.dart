@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_builder_widget.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../../home/presentation/views/widgets/image_view_widget.dart';

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/presentation/views/all_articles_screen.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/articles_list_view_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/title_and_more_button_row_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-
-import '../../../../atricle/presentation/views/all_articles_screen.dart';
 
 class HomeProductsWidget extends StatelessWidget {
   const HomeProductsWidget({super.key, required this.list});
@@ -19,7 +18,7 @@ class HomeProductsWidget extends StatelessWidget {
         TitleAndMoreButtonRowWidget(
           lable: S.of(context).articles,
           onPressed: () {
-            navigateTo(context, AllArticlesScreen(models: list));
+            navigateTo(context, const AllArticlesScreen());
           },
         ),
         const SizedBox(

@@ -37,6 +37,19 @@ class AddSectionContentWidget extends StatelessWidget {
                 image: image,
               ),
               const SizedBox(
+                height: 20,
+              ),
+              if (ImageCubit.get(context).paths.isEmpty)
+                addFromGalleryItems(
+                  title: image != ''
+                      ? S.of(context).change_image
+                      : S.of(context).add_image,
+                  icon: Icons.add_a_photo_outlined,
+                  function: () {
+                    ImageCubit.get(context).pickImage();
+                  },
+                ),
+              const SizedBox(
                 height: 25,
               ),
               addTextField(
@@ -55,19 +68,6 @@ class AddSectionContentWidget extends StatelessWidget {
                 context: context,
                 autovalidateMode: autovalidateMode,
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              if (ImageCubit.get(context).paths.isEmpty)
-                addFromGalleryItems(
-                  title: image != ''
-                      ? S.of(context).change_image
-                      : S.of(context).add_image,
-                  icon: Icons.add_a_photo_outlined,
-                  function: () {
-                    ImageCubit.get(context).pickImage();
-                  },
-                )
             ],
           ),
         ),

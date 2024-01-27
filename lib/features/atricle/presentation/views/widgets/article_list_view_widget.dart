@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/aricles_item_widget.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 
 class ArticleListViewWidget extends StatelessWidget {
-  const ArticleListViewWidget(
-      {super.key,
-      required this.list,
-      required this.length,
-      required this.controller});
+  const ArticleListViewWidget({
+    super.key,
+    required this.list,
+    required this.length,
+    required this.controller,
+  });
   final List<ArticleModel> list;
   final int length;
   final ScrollController controller;

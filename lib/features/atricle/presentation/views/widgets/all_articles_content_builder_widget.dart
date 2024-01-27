@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../../../../atricle/presentation/views/all_articles_screen.dart';
-import 'artilcle_container_widget.dart';
+import '../../../data/models/article_model/article_model.dart';
+import 'all_articles_content_widget.dart';
 
-class ArticleWidgetBuilderWidget extends StatelessWidget {
-  const ArticleWidgetBuilderWidget({super.key});
+class AllArticlesContentBuilderWidget extends StatelessWidget {
+  const AllArticlesContentBuilderWidget({super.key, this.models});
+  final List<ArticleModel>? models;
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +18,19 @@ class ArticleWidgetBuilderWidget extends StatelessWidget {
       builder: (context, state) {
         if (state is SucessGetArticlesState) {
           if (state.list.isEmpty) {
-            return Container();
-          } else {
-            return ArticleContainerWidget(
-              image: Assets.imagesArticalesBanner,
-              lable: S.of(context).articlesT,
-              onPressed: () {
-                navigateTo(context, const AllArticlesScreen());
-              },
+            return messageBuilder(
+              message: S.of(context).noArticles,
             );
           }
+          return AllArticleContentWidget(
+            models: models != null ? models! : state.list,
+          );
+        } else if (state is ErrorGetArticlesState) {
+          return messageBuilder(message: state.message);
         } else {
-          return Container();
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
       },
     );

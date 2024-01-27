@@ -245,7 +245,11 @@
     "review_suggest_exercise": "The exercise will be reviewed and added soon",
     "success_suggest_exercise": "Exercise suggested successfully",
     "suggested_exercises": "Suggested Exercises",
-    "no_exercises_yet": "No exercises suggested yet"
+    "no_exercises_yet": "No exercises suggested yet",
+    "add_article":"إضافة مقال",
+    "edit_article":"تعديل المقال",
+    "penging_articles":"المقالات المعلقة",
+    "remove_article":"حذف المقال"
 
 
 

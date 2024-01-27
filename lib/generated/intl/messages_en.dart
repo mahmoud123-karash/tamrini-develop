@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "achevement": MessageLookupByLibrary.simpleMessage("Achievements"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
+        "add_article": MessageLookupByLibrary.simpleMessage("إضافة مقال"),
         "add_exercise": MessageLookupByLibrary.simpleMessage("Add Exercise"),
         "add_image": MessageLookupByLibrary.simpleMessage("Add Image"),
         "add_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
@@ -101,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
+        "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
@@ -208,6 +210,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "passConfirm":
             MessageLookupByLibrary.simpleMessage("please confirm the Password"),
+        "penging_articles":
+            MessageLookupByLibrary.simpleMessage("المقالات المعلقة"),
         "permission":
             MessageLookupByLibrary.simpleMessage("Location Access Disabled"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
@@ -237,6 +241,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
         "reminder_to_drink":
             MessageLookupByLibrary.simpleMessage("Reminder to drink water"),
+        "remove_article": MessageLookupByLibrary.simpleMessage("حذف المقال"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),

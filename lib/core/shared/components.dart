@@ -260,3 +260,19 @@ Widget imageProviderWidget({
         },
       ),
     );
+
+Widget messageBuilder({
+  required String message,
+}) =>
+    Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        child: Text(
+          message,
+          style: TextStyles.style16Bold,
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );

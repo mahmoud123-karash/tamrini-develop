@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_states.dart';
+import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
+import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_states.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_articles_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_loading_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_message_widget.dart';

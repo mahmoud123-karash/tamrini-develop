@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
 import '../articles_details_screen.dart';

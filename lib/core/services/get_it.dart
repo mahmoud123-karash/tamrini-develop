@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
+import 'package:tamrini/features/atricle/data/data_sources/remote_data_source/article_remote_data_source.dart';
+import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
 import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_remote_data_source.dart';
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
@@ -157,6 +159,11 @@ void setLocator() {
   getIt.registerSingleton<SuggestRepoIpml>(
     SuggestRepoIpml(
       SuggestRemoteDataSourceImpl(),
+    ),
+  );
+  getIt.registerSingleton<ArticleRepoImpl>(
+    ArticleRepoImpl(
+      ArticleRemoteDataSourceImpl(),
     ),
   );
 }

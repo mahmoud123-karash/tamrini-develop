@@ -19,6 +19,7 @@ import 'package:tamrini/core/services/request_premission.dart';
 import 'package:tamrini/core/shared/bloc_observer.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/data/location.dart';
+import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
 
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
 import 'package:tamrini/features/home_exercise/data/repo/home_exercise_repo_impl.dart';
@@ -28,7 +29,7 @@ import 'package:tamrini/features/food/presentation/manager/classification_cubit/
 import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/home/data/repo/home_repo_impl.dart';
-import 'package:tamrini/features/home/presentation/manager/article_cubit/articles_cubit.dart';
+import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
@@ -564,7 +565,7 @@ void main() async {
           ),
           BlocProvider(
             create: (context) => ArticlesCubit(
-              getIt.get<HomeRepoImpl>(),
+              getIt.get<ArticleRepoImpl>(),
             )..getData(),
           ),
           BlocProvider(

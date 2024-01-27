@@ -3,7 +3,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/views/all_articles_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import '../../../../atricle/presentation/views/widgets/aricles_item_widget.dart';
-import '../../../../home/data/models/article_model/article_model.dart';
+import '../../../../atricle/data/models/article_model/article_model.dart';
 import 'name_text_widget.dart';
 
 class ArticlesOwnerProfileWidget extends StatelessWidget {
