@@ -5,6 +5,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/atricle/presentation/views/articles_details_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
@@ -101,26 +102,31 @@ class NotificationItemWidget extends StatelessWidget {
       String type = CacheHelper.getData(key: 'usertype') ?? '';
       String token = CacheHelper.getData(key: 'deviceToken') ?? '';
       String uid = CacheHelper.getData(key: 'uid') ?? '';
-      navigateTo(
-        context,
-        AnswersScreen(
-          uid: model.uid,
-          model: UserModel(
-            role: type,
-            whatsApp: profile.whatsApp ?? '',
-            name: profile.name,
-            image: profile.image,
-            token: token,
-            facebookUri: profile.facebookUri,
-            uid: uid,
-            instgramUri: profile.instgramUri,
-            isBanned: profile.isBanned,
-            address: profile.address,
-            twiterUri: profile.twiterUri,
-            phone: profile.phone,
+      if (model.subType == 'question') {
+        navigateTo(
+          context,
+          AnswersScreen(
+            uid: model.uid,
+            model: UserModel(
+              role: type,
+              whatsApp: profile.whatsApp ?? '',
+              name: profile.name,
+              image: profile.image,
+              token: token,
+              facebookUri: profile.facebookUri,
+              uid: uid,
+              instgramUri: profile.instgramUri,
+              isBanned: profile.isBanned,
+              address: profile.address,
+              twiterUri: profile.twiterUri,
+              phone: profile.phone,
+            ),
           ),
-        ),
-      );
+        );
+      }
+      if (model.subType == 'article') {
+        navigateTo(context, ArticlesDetailsScreen(id: model.uid));
+      }
     }
   }
 }

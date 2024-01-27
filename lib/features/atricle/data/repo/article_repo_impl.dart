@@ -2,17 +2,21 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/atricle/data/data_sources/remote_data_source/article_remote_data_source.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/data/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/atricle/domain/repo/article_repo.dart';
 import 'package:uuid/uuid.dart';
 
 class ArticleRepoImpl extends ArticleRepo {
   final ArticleRemoteDataSource articleRemoteDataSource;
+  final DioHelper dioHelper;
 
-  ArticleRepoImpl(this.articleRemoteDataSource);
+  ArticleRepoImpl(this.articleRemoteDataSource, this.dioHelper);
 
   @override
   Future<Either<String, List<ArticleModel>>> getArticles() async {
@@ -46,6 +50,7 @@ class ArticleRepoImpl extends ArticleRepo {
         id: uuid,
         title: title,
         isPending: type == 'admin' ? false : true,
+        isRefused: false,
       );
       await FirebaseFirestore.instance
           .collection('articles')
@@ -81,6 +86,7 @@ class ArticleRepoImpl extends ArticleRepo {
           id: oldModel.id,
           title: title,
           isPending: oldModel.isPending,
+          isRefused: oldModel.isRefused,
         );
       } else {
         List files = [];
@@ -96,6 +102,7 @@ class ArticleRepoImpl extends ArticleRepo {
           id: oldModel.id,
           title: title,
           isPending: oldModel.isPending,
+          isRefused: oldModel.isRefused,
         );
       }
       await FirebaseFirestore.instance
@@ -137,6 +144,8 @@ class ArticleRepoImpl extends ArticleRepo {
   Future<Either<String, List<ArticleModel>>> disPendingArticle({
     required List<ArticleModel> list,
     required ArticleModel oldModel,
+    required bool isAcceped,
+    required String token,
   }) async {
     try {
       ArticleModel model = ArticleModel(
@@ -146,8 +155,10 @@ class ArticleRepoImpl extends ArticleRepo {
         body: oldModel.body,
         id: oldModel.id,
         title: oldModel.title,
-        isPending: false,
+        isPending: !isAcceped,
+        isRefused: !isAcceped,
       );
+      await sendNotification(token, isAcceped, oldModel);
       await FirebaseFirestore.instance
           .collection('articles')
           .doc('data')
@@ -162,5 +173,40 @@ class ArticleRepoImpl extends ArticleRepo {
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  Future<void> sendNotification(
+    String token,
+    bool isAcceped,
+    ArticleModel oldModel,
+  ) async {
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'artilce',
+      senderUid: adminUid,
+      title: isAcceped ? 'تم قبول المقال الخاص بك' : 'تم رفض المقال الخاص بك',
+      body: '',
+      type: 'notification',
+      uid: oldModel.id!,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(oldModel.writerUid)
+        .collection('data')
+        .add(
+          notification.toJson(),
+        );
+
+    dioHelper.sendNotification(
+      token: token,
+      title: isAcceped ? 'تم قبول المقال الخاص بك' : 'تم رفض المقال الخاص بك',
+      body: '',
+      data: {
+        "type": "notification",
+        "subType": "article",
+        "uid": oldModel.id,
+      },
+    );
   }
 }

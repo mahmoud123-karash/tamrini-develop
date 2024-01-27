@@ -111,7 +111,7 @@
     "write_question":"كتابة سؤال جديد...",
     "add":"إضافة",
     "success_add":"تم إضافة السؤال",
-    "success_remove":"تم حذف السؤال",
+    "success_remove":"تم الحذف ",
     "success_update":"تم تعديل السؤال",
     "success_ban":"تم تقييد السؤال",
     "remove_question":"حذف",
@@ -250,7 +250,13 @@
     "remove_article":"حذف المقال",
     "no_pending_articles":"لا يوجد مقالات معلقة",
     "article_name":"اسم المقال",
-    "article_body":"المقال"
+    "article_body":"المقال",
+    "accept":"قبول",
+    "refuse":"رفض",
+    "refused_article":"تم رفض هذا المقال",
+    "q_remove_article":"هل تريد حذف المقال ؟",
+    "success_accept":"تم قبول هذا المقال",
+    "success_refused":"تم رفض هذا المقال"
 
 
 

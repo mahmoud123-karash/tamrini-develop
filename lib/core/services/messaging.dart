@@ -8,6 +8,7 @@ import 'package:hive/hive.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/atricle/presentation/views/articles_details_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
@@ -76,25 +77,30 @@ void openNotification(RemoteMessage event, BuildContext context) {
     String type = CacheHelper.getData(key: 'usertype') ?? '';
     String token = CacheHelper.getData(key: 'deviceToken') ?? '';
     String uid = CacheHelper.getData(key: 'uid') ?? '';
-    navigateTo(
-      context,
-      AnswersScreen(
-        uid: event.data['uid'],
-        model: UserModel(
-          role: type,
-          whatsApp: model.whatsApp ?? '',
-          name: model.name,
-          image: model.image,
-          token: token,
-          facebookUri: model.facebookUri,
-          uid: uid,
-          instgramUri: model.instgramUri,
-          isBanned: model.isBanned,
-          address: model.address,
-          twiterUri: model.twiterUri,
-          phone: model.phone,
+    if (event.data['subType'] == 'question') {
+      navigateTo(
+        context,
+        AnswersScreen(
+          uid: event.data['uid'],
+          model: UserModel(
+            role: type,
+            whatsApp: model.whatsApp ?? '',
+            name: model.name,
+            image: model.image,
+            token: token,
+            facebookUri: model.facebookUri,
+            uid: uid,
+            instgramUri: model.instgramUri,
+            isBanned: model.isBanned,
+            address: model.address,
+            twiterUri: model.twiterUri,
+            phone: model.phone,
+          ),
         ),
-      ),
-    );
+      );
+    }
+    if (event.data['subType'] == 'article') {
+      navigateTo(context, ArticlesDetailsScreen(id: event.data['uid']));
+    }
   }
 }

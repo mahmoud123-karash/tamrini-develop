@@ -55,6 +55,7 @@ class WriteAnswerUseCase extends UseCase {
             body: answer,
             data: {
               "type": "notification",
+              "subType": "question",
               "uid": id,
             },
           );

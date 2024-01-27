@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
         "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
+        "accept": MessageLookupByLibrary.simpleMessage("قبول"),
         "account_details":
             MessageLookupByLibrary.simpleMessage("تفاصيل الحساب"),
         "achevement": MessageLookupByLibrary.simpleMessage("الإنجازات"),
@@ -232,6 +233,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "protien": MessageLookupByLibrary.simpleMessage("بروتين"),
         "protien_calculator":
             MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
+        "q_remove_article":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف المقال ؟"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "question_error":
             MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
@@ -240,6 +243,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
+        "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
+        "refused_article":
+            MessageLookupByLibrary.simpleMessage("تم رفض هذا المقال"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
         "reminder_to_drink":
@@ -272,6 +278,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
+        "success_accept":
+            MessageLookupByLibrary.simpleMessage("تم قبول هذا المقال"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
@@ -282,7 +290,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "success_recalulate":
             MessageLookupByLibrary.simpleMessage("تمت إعادة الحساب بنجاح"),
-        "success_remove": MessageLookupByLibrary.simpleMessage("تم حذف السؤال"),
+        "success_refused":
+            MessageLookupByLibrary.simpleMessage("تم رفض هذا المقال"),
+        "success_remove": MessageLookupByLibrary.simpleMessage("تم الحذف "),
         "success_remove_answer":
             MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),
         "success_remove_meal":

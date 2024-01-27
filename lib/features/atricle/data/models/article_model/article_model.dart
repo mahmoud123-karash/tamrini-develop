@@ -9,6 +9,7 @@ class ArticleModel {
   late String? title;
   late String? id;
   late bool? isPending;
+  late bool? isRefused;
 
   ArticleModel({
     required this.date,
@@ -18,6 +19,7 @@ class ArticleModel {
     required this.id,
     required this.title,
     required this.isPending,
+    required this.isRefused,
   });
 
   factory ArticleModel.fromJson(Map<String, dynamic> data, String id) {
@@ -27,6 +29,7 @@ class ArticleModel {
       image: data['image'].cast<String>(),
       writerUid: data['writerUid'] ?? adminUid,
       isPending: data['isPending'] ?? false,
+      isRefused: data['isRefused'] ?? false,
       body: data['body'],
       title: data['title'],
     );
@@ -40,5 +43,6 @@ class ArticleModel {
         "isPending": isPending,
         "body": body,
         "title": title,
+        "isRefused": isRefused,
       };
 }

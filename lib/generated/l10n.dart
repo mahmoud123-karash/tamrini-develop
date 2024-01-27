@@ -1170,10 +1170,10 @@ class S {
     );
   }
 
-  /// `Question deleted successfully`
+  /// `Deleted successfully`
   String get success_remove {
     return Intl.message(
-      'Question deleted successfully',
+      'Deleted successfully',
       name: 'success_remove',
       desc: '',
       args: [],
@@ -2575,6 +2575,66 @@ class S {
     return Intl.message(
       'المقال',
       name: 'article_body',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قبول`
+  String get accept {
+    return Intl.message(
+      'قبول',
+      name: 'accept',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رفض`
+  String get refuse {
+    return Intl.message(
+      'رفض',
+      name: 'refuse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفض هذا المقال`
+  String get refused_article {
+    return Intl.message(
+      'تم رفض هذا المقال',
+      name: 'refused_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف المقال ؟`
+  String get q_remove_article {
+    return Intl.message(
+      'هل تريد حذف المقال ؟',
+      name: 'q_remove_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم قبول هذا المقال`
+  String get success_accept {
+    return Intl.message(
+      'تم قبول هذا المقال',
+      name: 'success_accept',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفض هذا المقال`
+  String get success_refused {
+    return Intl.message(
+      'تم رفض هذا المقال',
+      name: 'success_refused',
       desc: '',
       args: [],
     );

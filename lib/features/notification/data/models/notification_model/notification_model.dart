@@ -6,15 +6,15 @@ class NotificationModel {
   final String senderUid;
   final String type;
   final String uid;
-  final String notificationUid;
-  final String promotionType;
+  String? notificationUid;
+  final String subType;
   final Timestamp time;
   late bool isReaden;
 
   NotificationModel({
-    required this.notificationUid,
+    String? notificationUid,
     required this.isReaden,
-    required this.promotionType,
+    required this.subType,
     required this.senderUid,
     required this.title,
     required this.body,
@@ -31,8 +31,19 @@ class NotificationModel {
         type: json['type'] ?? '',
         uid: json['uid'] ?? '',
         time: json['time'] ?? Timestamp.now(),
-        promotionType: json['promotionType'] ?? '',
+        subType: json['subType'] ?? '',
         notificationUid: id,
         isReaden: json['isReaden'] ?? false,
       );
+
+  Map<String, dynamic> toJson() => {
+        "title": title,
+        "body": body,
+        "uid": uid,
+        "time": time,
+        "type": type,
+        "senderUid": senderUid,
+        "subType": subType,
+        "isReaden": isReaden,
+      };
 }

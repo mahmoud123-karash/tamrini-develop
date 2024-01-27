@@ -4,6 +4,7 @@ import 'package:tamrini/features/atricle/data/models/article_model/article_model
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
 import '../articles_details_screen.dart';
+import 'remove_custom_button_widget.dart';
 
 class AtricleItemWidget extends StatelessWidget {
   const AtricleItemWidget(
@@ -15,6 +16,7 @@ class AtricleItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
+    final getWidth = mediaQuery.size.width;
 
     return Padding(
       padding: const EdgeInsets.only(
@@ -24,7 +26,7 @@ class AtricleItemWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(30),
         onTap: () {
-          navigateTo(context, ArticlesDetailsScreen(model: model));
+          navigateTo(context, ArticlesDetailsScreen(id: model.id!));
         },
         child: Stack(
           children: [
@@ -34,6 +36,7 @@ class AtricleItemWidget extends StatelessWidget {
                   ? ''
                   : model.image!.first,
             ),
+            if (width == getWidth) RemoveCustomButtonWidget(model: model),
             Positioned(
               bottom: 0,
               right: 0,

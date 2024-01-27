@@ -92,6 +92,7 @@ class QuestionRepoImpl extends QuestionRepo {
       body: body,
       isReaden: false,
       type: 'notification',
+      subType: 'question',
       uid: questionUid,
       time: Timestamp.now(),
     );

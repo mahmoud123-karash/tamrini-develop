@@ -21,9 +21,9 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
     return list;
   }
 
-  ArticleModel getArticle(uid) {
+  ArticleModel getArticle(id) {
     List<ArticleModel> list =
-        articles.where((element) => element.writerUid == uid).toList();
+        articles.where((element) => element.id == id).toList();
     return list.first;
   }
 
@@ -88,8 +88,57 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
       },
       (list) {
         articles = list;
-        showSnackBar(context, S.of(context).success_add_e);
         Navigator.pop(context);
+        showSnackBar(context, S.of(context).success_edit_a);
+        emit(SucessGetArticlesState(list));
+      },
+    );
+  }
+
+  void removeArticle({
+    required ArticleModel oldModel,
+    required BuildContext context,
+  }) async {
+    var result = await articleRepo.removeArticle(
+      oldModel: oldModel,
+      list: articles,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetArticlesState(message));
+      },
+      (list) {
+        articles = list;
+        showSnackBar(context, S.of(context).success_remove);
+        emit(SucessGetArticlesState(list));
+      },
+    );
+  }
+
+  void updateArticle({
+    required ArticleModel oldModel,
+    required bool isAcceped,
+    required String token,
+    required BuildContext context,
+  }) async {
+    var result = await articleRepo.disPendingArticle(
+      list: articles,
+      oldModel: oldModel,
+      isAcceped: isAcceped,
+      token: token,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetArticlesState(message));
+      },
+      (list) {
+        articles = list;
+        showSnackBar(
+          context,
+          isAcceped
+              ? S.of(context).success_accept
+              : S.of(context).success_refused,
+        );
         emit(SucessGetArticlesState(list));
       },
     );

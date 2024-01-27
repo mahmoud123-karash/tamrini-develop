@@ -1,9 +1,9 @@
-import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/publisher_name_and_role_widget.dart';
+import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/accept_refuse_row_buttons_widget.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
@@ -13,8 +13,10 @@ class ArticleWriterWidget extends StatelessWidget {
   const ArticleWriterWidget({
     super.key,
     required this.model,
+    required this.article,
   });
   final UserModel model;
+  final ArticleModel article;
 
   @override
   Widget build(BuildContext context) {
@@ -35,29 +37,15 @@ class ArticleWriterWidget extends StatelessWidget {
             navigateTo(context, UserProfileScreen(model: model));
           }
         },
-        child: Row(
+        child: Column(
           children: [
-            CircleAvatar(
-              radius: 40,
-              backgroundImage: model.image != ''
-                  ? FirebaseImageProvider(
-                      FirebaseUrl(model.image),
-                    ) as ImageProvider
-                  : const AssetImage(Assets.imagesProfile),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            PublisherNameAndRoleWidget(
-              role: model.role,
-              name: model.name,
-            ),
-            const Spacer(),
-            if (model.role == 'admin')
-              const Icon(
-                Icons.stars_rounded,
-                color: Colors.amber,
-              )
+            WriterRowWidget(model: model),
+            const Divider(),
+            if (!article.isRefused!)
+              AcceptRefuseButtonsWidget(
+                article: article,
+                token: model.token,
+              ),
           ],
         ),
       ),

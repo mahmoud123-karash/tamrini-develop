@@ -164,6 +164,7 @@ void setLocator() {
   getIt.registerSingleton<ArticleRepoImpl>(
     ArticleRepoImpl(
       ArticleRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 }

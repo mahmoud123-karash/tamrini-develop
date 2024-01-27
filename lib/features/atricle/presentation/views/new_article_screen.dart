@@ -69,6 +69,13 @@ class _NewArticleScreenState extends State<NewArticleScreen> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
+                      ArticlesCubit.get(context).editArticle(
+                        title: nameController.text,
+                        body: articleController.text,
+                        imagePath: paths.isEmpty ? '' : paths.first,
+                        context: context,
+                        oldModel: widget.model!,
+                      );
                     } else {
                       if (paths.isNotEmpty) {
                         ArticlesCubit.get(context).addArticle(
