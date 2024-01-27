@@ -80,6 +80,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+
     return YoutubePlayerBuilder(
       onExitFullScreen: () {
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
@@ -158,16 +160,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             ),
                           ),
                         ),
-                        if (!widget.isHome && !widget.isAll)
-                          customButton(
-                            onPressed: () {
-                              navigateToAndReplace(
-                                context,
-                                NewExerciseScreen(model: model),
-                              );
-                            },
-                            lable: S.of(context).edit_exercise,
-                          )
+                        if (userType == 'admin')
+                          if (!widget.isHome && !widget.isAll)
+                            customButton(
+                              onPressed: () {
+                                navigateToAndReplace(
+                                  context,
+                                  NewExerciseScreen(model: model),
+                                );
+                              },
+                              lable: S.of(context).edit_exercise,
+                            )
                       ],
                     ),
                   ),

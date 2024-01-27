@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/save_data.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
@@ -18,6 +19,8 @@ class CategoryItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+
     return GestureDetector(
       onTap: () {
         saveExerciseId(model.id ?? '');
@@ -66,16 +69,17 @@ class CategoryItemWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  navigateTo(context, NewSectionScreen(model: model));
-                },
-                child: const Icon(
-                  Icons.edit,
-                  size: 20,
-                  color: Colors.yellowAccent,
-                ),
-              )
+              if (userType == 'admin')
+                GestureDetector(
+                  onTap: () {
+                    navigateTo(context, NewSectionScreen(model: model));
+                  },
+                  child: const Icon(
+                    Icons.edit,
+                    size: 20,
+                    color: Colors.yellowAccent,
+                  ),
+                )
             ],
           ),
         ),

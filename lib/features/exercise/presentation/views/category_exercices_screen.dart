@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
@@ -16,6 +17,8 @@ class CategoryExercisesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -32,12 +35,13 @@ class CategoryExercisesScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    addCustomButton(
-                      onPressed: () {
-                        navigateTo(context, const NewSectionScreen());
-                      },
-                      lable: S.of(context).add_new_section,
-                    ),
+                    if (userType == 'admin')
+                      addCustomButton(
+                        onPressed: () {
+                          navigateTo(context, const NewSectionScreen());
+                        },
+                        lable: S.of(context).add_new_section,
+                      ),
                     const SizedBox(
                       height: 20,
                     ),

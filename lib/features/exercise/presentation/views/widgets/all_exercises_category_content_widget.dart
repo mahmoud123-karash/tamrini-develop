@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
@@ -59,6 +60,7 @@ class _AllExercisesCategoryContentWidget
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
     return Column(
       children: [
         searchField(
@@ -71,18 +73,19 @@ class _AllExercisesCategoryContentWidget
             setState(() {});
           },
         ),
-        if (!widget.isAll)
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15,
+        if (userType == "admin")
+          if (!widget.isAll)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+              ),
+              child: addCustomButton(
+                onPressed: () {
+                  navigateTo(context, const NewExerciseScreen());
+                },
+                lable: S.of(context).add_exercise,
+              ),
             ),
-            child: addCustomButton(
-              onPressed: () {
-                navigateTo(context, const NewExerciseScreen());
-              },
-              lable: S.of(context).add_exercise,
-            ),
-          ),
         widget.list.isNotEmpty
             ? Expanded(
                 child: ExerciseListViewWidget(

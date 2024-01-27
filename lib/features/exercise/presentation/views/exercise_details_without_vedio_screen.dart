@@ -38,6 +38,8 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(),
@@ -107,14 +109,15 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                           ),
                         ),
                       ),
-                      if (!widget.isHome && !widget.isAll)
-                        customButton(
-                          onPressed: () {
-                            navigateToAndReplace(
-                                context, NewExerciseScreen(model: model));
-                          },
-                          lable: S.of(context).edit_exercise,
-                        )
+                      if (userType == 'admin')
+                        if (!widget.isHome && !widget.isAll)
+                          customButton(
+                            onPressed: () {
+                              navigateToAndReplace(
+                                  context, NewExerciseScreen(model: model));
+                            },
+                            lable: S.of(context).edit_exercise,
+                          )
                     ],
                   ),
                 ),
