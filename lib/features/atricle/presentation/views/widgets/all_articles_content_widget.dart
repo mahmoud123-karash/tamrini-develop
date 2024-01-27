@@ -9,8 +9,10 @@ import '../../../data/models/article_model/article_model.dart';
 import 'article_list_view_widget.dart';
 
 class AllArticleContentWidget extends StatefulWidget {
-  const AllArticleContentWidget({super.key, required this.models});
+  const AllArticleContentWidget(
+      {super.key, required this.models, required this.isUserProfile});
   final List<ArticleModel> models;
+  final bool isUserProfile;
 
   @override
   State<AllArticleContentWidget> createState() =>
@@ -69,11 +71,13 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
             setState(() {});
           },
         ),
-        AddArticleRowWidget(
-          list: widget.models
-              .where((element) => element.isPending == true)
-              .toList(),
-        ),
+        if (!widget.isUserProfile)
+          AddArticleRowWidget(
+            length: widget.models
+                .where((element) => element.isPending == true)
+                .toList()
+                .length,
+          ),
         const SizedBox(
           height: 5,
         ),

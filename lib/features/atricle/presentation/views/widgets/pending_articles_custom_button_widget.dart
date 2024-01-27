@@ -1,15 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/views/pending_articles_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class PendingArticlesCustomButtonWidget extends StatelessWidget {
-  const PendingArticlesCustomButtonWidget({super.key, required this.list});
-  final List<ArticleModel> list;
+  const PendingArticlesCustomButtonWidget({super.key, required this.length});
+  final int length;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class PendingArticlesCustomButtonWidget extends StatelessWidget {
         borderSide: BorderSide.none,
       ),
       onPressed: () {
-        navigateTo(context, PendingArticlesScreen(list: list));
+        navigateTo(context, const PendingArticlesScreen());
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -34,11 +33,13 @@ class PendingArticlesCustomButtonWidget extends StatelessWidget {
             width: 5,
           ),
           AutoSizeText(
-            "${S.of(context).penging_articles} : ${list.length}",
-            style: TextStyles.style13.copyWith(
+            "${S.of(context).penging_articles} : ${formatNumber(length)}",
+            style: TextStyle(
               color: whiteColor,
               fontWeight: FontWeight.bold,
+              fontSize: length > 1000 ? 12 : 13,
             ),
+            maxLines: 1,
           ),
         ],
       ),

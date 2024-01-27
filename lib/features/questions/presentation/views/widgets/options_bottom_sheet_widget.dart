@@ -43,7 +43,7 @@ class OptionsBottomSheetWidget extends StatelessWidget {
                         EditQuestionBottomSheetWidget(model: model),
                   );
                 },
-                title: Text(S.of(context).edit_question),
+                title: Text(S.of(context).edit),
                 leading: const Icon(
                   Icons.edit,
                 ),

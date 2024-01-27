@@ -115,7 +115,7 @@
     "success_update":"تم تعديل السؤال",
     "success_ban":"تم تقييد السؤال",
     "remove_question":"حذف",
-    "edit_question":"تعديل",
+    "edit":"تعديل",
     "ban_question":"تقييد",
     "comment_error":"حدث خطأ",
     "edit_answer":"تعديل الإجابة",
@@ -225,7 +225,6 @@
     "time_is_after_error":"لابد أن يكون الوقت في المستقبل",
     "add_new_section":"إضافة قسم جديد",
     "add_new_exercise":"إضافة تمرين جديد",
-    "add_section":"إضافة القسم",
     "edit_section":"تعديل القسم",
     "section_name":"اسم القسم",
     "section_order":"ترتيب القسم",
@@ -248,7 +247,10 @@
     "add_article":"إضافة مقال",
     "edit_article":"تعديل المقال",
     "penging_articles":"المقالات المعلقة",
-    "remove_article":"حذف المقال"
+    "remove_article":"حذف المقال",
+    "no_pending_articles":"لا يوجد مقالات معلقة",
+    "article_name":"اسم المقال",
+    "article_body":"المقال"
 
 
 

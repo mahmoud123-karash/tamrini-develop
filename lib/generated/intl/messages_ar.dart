@@ -40,7 +40,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("إضافة قسم جديد"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("إضافة تذكير"),
-        "add_section": MessageLookupByLibrary.simpleMessage("إضافة القسم"),
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
@@ -59,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
         "arabic_language":
             MessageLookupByLibrary.simpleMessage("اللغة العربية"),
+        "article_body": MessageLookupByLibrary.simpleMessage("المقال"),
+        "article_name": MessageLookupByLibrary.simpleMessage("اسم المقال"),
         "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
         "auto_reminder":
@@ -100,12 +101,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "device_language": MessageLookupByLibrary.simpleMessage("لغة الجهاز"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
+        "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
         "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
         "edit_profile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
-        "edit_question": MessageLookupByLibrary.simpleMessage("تعديل"),
         "edit_section": MessageLookupByLibrary.simpleMessage("تعديل القسم"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
@@ -194,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "لا يوجد اتصال بالانترنت بعض مميزات التطبيق لن تعمل"),
         "no_meals": MessageLookupByLibrary.simpleMessage("لا يوجد وجبات"),
+        "no_pending_articles":
+            MessageLookupByLibrary.simpleMessage("لا يوجد مقالات معلقة"),
         "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts":

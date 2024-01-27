@@ -24,6 +24,7 @@ class AllArticlesContentBuilderWidget extends StatelessWidget {
           }
           return AllArticleContentWidget(
             models: models != null ? models! : state.list,
+            isUserProfile: models != null,
           );
         } else if (state is ErrorGetArticlesState) {
           return messageBuilder(message: state.message);

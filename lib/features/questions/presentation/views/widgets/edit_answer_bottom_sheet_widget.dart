@@ -60,7 +60,7 @@ class _EditAnswerBottomSheetWidgetState
                   controller.text != widget.model.answer)
                 AddQuestionCustomButtonBuilderWidget(
                   controller: controller,
-                  lable: S.of(context).edit_question,
+                  lable: S.of(context).edit,
                   onPressed: () {
                     AnswerCubit.get(context).updateAnswer(
                       aModel: widget.model,

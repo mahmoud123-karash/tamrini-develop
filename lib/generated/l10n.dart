@@ -1211,10 +1211,10 @@ class S {
   }
 
   /// `Edit`
-  String get edit_question {
+  String get edit {
     return Intl.message(
       'Edit',
-      name: 'edit_question',
+      name: 'edit',
       desc: '',
       args: [],
     );
@@ -2320,16 +2320,6 @@ class S {
     );
   }
 
-  /// `Add Section`
-  String get add_section {
-    return Intl.message(
-      'Add Section',
-      name: 'add_section',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Edit Section`
   String get edit_section {
     return Intl.message(
@@ -2555,6 +2545,36 @@ class S {
     return Intl.message(
       'حذف المقال',
       name: 'remove_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد مقالات معلقة`
+  String get no_pending_articles {
+    return Intl.message(
+      'لا يوجد مقالات معلقة',
+      name: 'no_pending_articles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم المقال`
+  String get article_name {
+    return Intl.message(
+      'اسم المقال',
+      name: 'article_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المقال`
+  String get article_body {
+    return Intl.message(
+      'المقال',
+      name: 'article_body',
       desc: '',
       args: [],
     );

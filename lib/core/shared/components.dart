@@ -271,7 +271,9 @@ Widget messageBuilder({
         ),
         child: Text(
           message,
-          style: TextStyles.style16Bold,
+          style: TextStyles.style14.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
           textAlign: TextAlign.center,
         ),
       ),

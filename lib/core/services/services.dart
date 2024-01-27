@@ -182,3 +182,8 @@ DateTime nextScheduledDate(hour, minute) {
   }
   return scheduledDate;
 }
+
+String formatNumber(int number) {
+  final formatter = NumberFormat.compact(locale: 'en_US');
+  return formatter.format(number);
+}

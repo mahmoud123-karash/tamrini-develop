@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/pending_articles_custom_button_widget.dart';
 import 'add_article_custom_button_widget.dart';
 
 class AddArticleRowWidget extends StatelessWidget {
-  const AddArticleRowWidget({super.key, required this.list});
-  final List<ArticleModel> list;
+  const AddArticleRowWidget({super.key, required this.length});
+  final int length;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,9 @@ class AddArticleRowWidget extends StatelessWidget {
           const SizedBox(
             width: 5,
           ),
-          PendingArticlesCustomButtonWidget(list: list)
+          Expanded(
+            child: PendingArticlesCustomButtonWidget(length: length),
+          )
         ],
       ),
     );

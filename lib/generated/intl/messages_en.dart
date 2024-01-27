@@ -41,7 +41,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("Add New Section"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("Add Reminder"),
-        "add_section": MessageLookupByLibrary.simpleMessage("Add Section"),
         "add_today": MessageLookupByLibrary.simpleMessage("Add Today"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("Current day already added"),
@@ -60,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "app": MessageLookupByLibrary.simpleMessage("App"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
         "arabic_language": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "article_body": MessageLookupByLibrary.simpleMessage("المقال"),
+        "article_name": MessageLookupByLibrary.simpleMessage("اسم المقال"),
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
@@ -101,11 +102,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Device Language"),
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("Dinar"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
         "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
-        "edit_question": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_section": MessageLookupByLibrary.simpleMessage("Edit Section"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
@@ -194,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. Some App Features May Not Work"),
         "no_meals": MessageLookupByLibrary.simpleMessage("No Meals"),
+        "no_pending_articles":
+            MessageLookupByLibrary.simpleMessage("لا يوجد مقالات معلقة"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(

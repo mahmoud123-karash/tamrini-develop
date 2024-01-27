@@ -67,8 +67,8 @@ class _NewExerciseScreenState extends State<NewExerciseScreen> {
               alignment: Alignment.bottomCenter,
               child: CustomButtonBuilderWidget(
                 lable: widget.model != null
-                    ? S.of(context).edit_exercise
-                    : S.of(context).add_exercise,
+                    ? S.of(context).edit
+                    : S.of(context).add,
                 onPressed: () {
                   List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {

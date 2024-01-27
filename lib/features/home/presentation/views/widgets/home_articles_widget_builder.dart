@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_states.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_articles_widget.dart';
@@ -15,10 +16,13 @@ class HomeArticlesWidgetBuilder extends StatelessWidget {
     return BlocBuilder<ArticlesCubit, ArticlesStates>(
       builder: (context, state) {
         if (state is SucessGetArticlesState) {
-          if (state.list.isEmpty) {
+          List<ArticleModel> list = state.list
+              .where((element) => element.isPending == false)
+              .toList();
+          if (list.isEmpty) {
             return Container();
           } else {
-            return HomeArticlesWidget(list: state.list);
+            return HomeArticlesWidget(list: list);
           }
         } else if (state is ErrorGetArticlesState) {
           return HomeMessageWidget(message: state.message);

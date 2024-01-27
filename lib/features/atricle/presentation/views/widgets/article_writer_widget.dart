@@ -1,3 +1,4 @@
+import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
@@ -36,9 +37,13 @@ class ArticleWriterWidget extends StatelessWidget {
         },
         child: Row(
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage(Assets.imagesProfile),
+              backgroundImage: model.image != ''
+                  ? FirebaseImageProvider(
+                      FirebaseUrl(model.image),
+                    ) as ImageProvider
+                  : const AssetImage(Assets.imagesProfile),
             ),
             const SizedBox(
               width: 10,
