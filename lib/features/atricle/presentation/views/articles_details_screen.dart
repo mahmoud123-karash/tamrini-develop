@@ -55,7 +55,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (model.isRefused!) RefusedArticleTextWidget(),
+                      if (model.isRefused!) const RefusedArticleTextWidget(),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(

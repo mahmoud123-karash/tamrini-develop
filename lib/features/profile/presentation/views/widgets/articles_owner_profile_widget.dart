@@ -36,7 +36,12 @@ class ArticlesOwnerProfileWidget extends StatelessWidget {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        navigateTo(context, AllArticlesScreen(models: list));
+                        navigateTo(
+                            context,
+                            AllArticlesScreen(
+                              models: list,
+                              isUsreProfile: true,
+                            ));
                       },
                       child: Text(S.of(context).more),
                     ),

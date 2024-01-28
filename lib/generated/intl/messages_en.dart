@@ -47,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_today": MessageLookupByLibrary.simpleMessage("Add Today"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("Current day already added"),
+        "admin": MessageLookupByLibrary.simpleMessage("أدمن"),
+        "admin_control_pannel":
+            MessageLookupByLibrary.simpleMessage("لوحة تحكم الأدمن"),
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "You cannot access the admin file"),
         "after": MessageLookupByLibrary.simpleMessage("After"),
@@ -148,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
+        "hello": MessageLookupByLibrary.simpleMessage("مرحبا"),
         "highPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
         "high_activity": MessageLookupByLibrary.simpleMessage(
             "High Activity in Work and Club"),
@@ -378,6 +382,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "write_question":
             MessageLookupByLibrary.simpleMessage("Write a new question..."),
         "years": MessageLookupByLibrary.simpleMessage("years old"),
+        "your_artilces": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("Your Meals"),
         "your_need": MessageLookupByLibrary.simpleMessage("Your Need"),
         "youtub_uri": MessageLookupByLibrary.simpleMessage("YouTube Link"),

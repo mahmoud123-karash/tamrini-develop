@@ -13,11 +13,11 @@ class AllArticleContentWidget extends StatefulWidget {
   const AllArticleContentWidget({
     super.key,
     required this.length,
-    required this.isUserProfile,
     required this.list,
+    required this.isWriter,
   });
   final List<ArticleModel> list;
-  final bool isUserProfile;
+  final bool isWriter;
   final int length;
 
   @override
@@ -76,11 +76,11 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
             setState(() {});
           },
         ),
-        if (userType == 'admin')
-          if (!widget.isUserProfile)
-            AddArticleRowWidget(
-              length: widget.length,
-            ),
+        if (userType == 'admin' || widget.isWriter)
+          AddArticleRowWidget(
+            length: widget.length,
+            isWriter: widget.isWriter,
+          ),
         const SizedBox(
           height: 15,
         ),

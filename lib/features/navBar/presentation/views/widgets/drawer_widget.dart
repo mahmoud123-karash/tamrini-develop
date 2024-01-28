@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
@@ -12,8 +13,9 @@ import 'package:tamrini/features/settings/presentation/views/settings_screen.dar
 import 'package:tamrini/features/water_reminder/presentaion/views/water_reminder_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'admin_drawer_widget.dart';
+import 'admin_list_tile_widget.dart';
 import 'drawer_list_tile_widget.dart';
+import 'writer_list_tile_widget.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -21,6 +23,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    String usertype = CacheHelper.getData(key: 'usertype');
     return Drawer(
       elevation: 0,
       width: width / 1.4,
@@ -71,6 +74,8 @@ class MyDrawer extends StatelessWidget {
                 icon: Ionicons.person_outline,
                 lable: S.of(context).profile,
               ),
+              if (usertype == 'admin') const AdminListTileWidget(),
+              if (usertype == 'writer') const WriterListTileWidget(),
               DrawerListTileWidget(
                 onPressed: () {
                   navigateTo(context, const MyDayScreen());
@@ -78,7 +83,6 @@ class MyDrawer extends StatelessWidget {
                 icon: Ionicons.calendar_outline,
                 lable: S.of(context).my_day,
               ),
-              const AdminDrawerWidegt(),
               DrawerListTileWidget(
                 onPressed: () {
                   navigateTo(context, const WaterReminderScreen());

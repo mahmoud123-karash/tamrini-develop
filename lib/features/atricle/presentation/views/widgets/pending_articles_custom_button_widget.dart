@@ -7,8 +7,10 @@ import 'package:tamrini/features/atricle/presentation/views/pending_articles_scr
 import 'package:tamrini/generated/l10n.dart';
 
 class PendingArticlesCustomButtonWidget extends StatelessWidget {
-  const PendingArticlesCustomButtonWidget({super.key, required this.length});
+  const PendingArticlesCustomButtonWidget(
+      {super.key, required this.length, required this.isWriter});
   final int length;
+  final bool isWriter;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class PendingArticlesCustomButtonWidget extends StatelessWidget {
         borderSide: BorderSide.none,
       ),
       onPressed: () {
-        navigateTo(context, const PendingArticlesScreen());
+        navigateTo(context, PendingArticlesScreen(isWriter: isWriter));
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +39,7 @@ class PendingArticlesCustomButtonWidget extends StatelessWidget {
             style: TextStyle(
               color: whiteColor,
               fontWeight: FontWeight.bold,
-              fontSize: length > 1000 ? 12 : 13,
+              fontSize: length > 100 ? 12 : 13,
             ),
             maxLines: 1,
           ),

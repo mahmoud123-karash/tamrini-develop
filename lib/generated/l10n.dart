@@ -2719,6 +2719,46 @@ class S {
       args: [],
     );
   }
+
+  /// `مقالاتي`
+  String get your_artilces {
+    return Intl.message(
+      'مقالاتي',
+      name: 'your_artilces',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أدمن`
+  String get admin {
+    return Intl.message(
+      'أدمن',
+      name: 'admin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مرحبا`
+  String get hello {
+    return Intl.message(
+      'مرحبا',
+      name: 'hello',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لوحة تحكم الأدمن`
+  String get admin_control_pannel {
+    return Intl.message(
+      'لوحة تحكم الأدمن',
+      name: 'admin_control_pannel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

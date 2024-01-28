@@ -19,16 +19,14 @@ class WriterRowWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         String uid = CacheHelper.getData(key: 'uid') ?? '';
-
         if (model.uid == uid) {
           navigateTo(context, const ProfileScreen());
+        } else if (model.role == 'writer') {
+          navigateTo(context, UserProfileScreen(model: model));
         } else {
           if (model.role == 'admin') {
             showSnackBar(context, S.of(context).admin_hint);
           }
-        }
-        if (model.role == 'writer') {
-          navigateTo(context, UserProfileScreen(model: model));
         }
       },
       child: Row(

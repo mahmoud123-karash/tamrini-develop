@@ -102,7 +102,7 @@ class ArticleRepoImpl extends ArticleRepo {
           id: oldModel.id,
           title: title,
           isPending: oldModel.isPending,
-          isRefused: oldModel.isRefused,
+          isRefused: false,
         );
       }
       await FirebaseFirestore.instance
@@ -160,7 +160,13 @@ class ArticleRepoImpl extends ArticleRepo {
         isPending: !isAcceped,
         isRefused: !isAcceped,
       );
-      await sendNotification(token, isAcceped, oldModel, title);
+      await sendNotification(
+        token,
+        isAcceped,
+        oldModel,
+        title,
+        oldModel.title ?? '',
+      );
       await FirebaseFirestore.instance
           .collection('articles')
           .doc('data')
@@ -183,13 +189,14 @@ class ArticleRepoImpl extends ArticleRepo {
     bool isAcceped,
     ArticleModel oldModel,
     String title,
+    String body,
   ) async {
     NotificationModel notification = NotificationModel(
       isReaden: false,
       subType: 'article',
       senderUid: adminUid,
       title: title,
-      body: '',
+      body: body,
       type: 'notification',
       uid: oldModel.id!,
       time: Timestamp.now(),
@@ -209,7 +216,7 @@ class ArticleRepoImpl extends ArticleRepo {
           : title == 'refuse'
               ? 'تم رفض المقال الخاص بك'
               : 'تم تقييد المقال الخاص بك',
-      body: '',
+      body: body,
       data: {
         "type": "notification",
         "subType": "article",

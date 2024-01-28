@@ -6,15 +6,23 @@ import '../../data/models/article_model/article_model.dart';
 import 'widgets/all_articles_content_builder_widget.dart';
 
 class AllArticlesScreen extends StatelessWidget {
-  const AllArticlesScreen({super.key, this.models});
+  const AllArticlesScreen({
+    super.key,
+    this.models,
+    this.isUsreProfile = false,
+  });
   final List<ArticleModel>? models;
+  final bool isUsreProfile;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(
         S.of(context).articlesT,
       ),
-      body: AllArticlesContentBuilderWidget(models: models),
+      body: AllArticlesContentBuilderWidget(
+        models: models,
+        isWriter: false,
+      ),
     );
   }
 }

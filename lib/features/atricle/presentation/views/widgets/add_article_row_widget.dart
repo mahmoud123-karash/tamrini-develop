@@ -3,8 +3,10 @@ import 'package:tamrini/features/atricle/presentation/views/widgets/pending_arti
 import 'add_article_custom_button_widget.dart';
 
 class AddArticleRowWidget extends StatelessWidget {
-  const AddArticleRowWidget({super.key, required this.length});
+  const AddArticleRowWidget(
+      {super.key, required this.length, required this.isWriter});
   final int length;
+  final bool isWriter;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,10 @@ class AddArticleRowWidget extends StatelessWidget {
             width: 5,
           ),
           Expanded(
-            child: PendingArticlesCustomButtonWidget(length: length),
+            child: PendingArticlesCustomButtonWidget(
+              length: length,
+              isWriter: isWriter,
+            ),
           )
         ],
       ),

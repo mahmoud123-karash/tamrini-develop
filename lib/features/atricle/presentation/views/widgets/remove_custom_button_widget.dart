@@ -1,6 +1,8 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -19,9 +21,18 @@ class RemoveCustomButtonWidget extends StatelessWidget {
             child: IconButton(
               onPressed: () {
                 AwesomeDialog(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                  ),
+                  showCloseIcon: true,
+                  titleTextStyle: TextStyles.style17.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: appColor,
+                  ),
                   context: context,
                   dialogType: DialogType.warning,
                   animType: AnimType.bottomSlide,
+                  title: model.title ?? '',
                   desc: S.of(context).q_remove_article,
                   btnCancelOnPress: () {},
                   btnOkOnPress: () {

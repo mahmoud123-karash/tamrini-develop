@@ -73,6 +73,7 @@ class _NotificationListViewWidgetState
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: ListView.separated(
+        controller: scrollController,
         itemBuilder: (context, index) {
           if (length > index) {
             return NotificationItemBuilderWidget(
@@ -92,7 +93,7 @@ class _NotificationListViewWidgetState
         separatorBuilder: (context, index) => const SizedBox(
           height: 30,
         ),
-        itemCount: length >=
+        itemCount: length >
                 widget.notifications
                     .where((element) => element.type == widget.lable)
                     .toList()
