@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/product_item_widget.dart';
 
 class ProductListViewWidget extends StatelessWidget {

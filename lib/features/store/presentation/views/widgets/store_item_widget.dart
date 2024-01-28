@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/views/store_screen.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_name_num_widget.dart';
 

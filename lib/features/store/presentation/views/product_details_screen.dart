@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/views/store_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 

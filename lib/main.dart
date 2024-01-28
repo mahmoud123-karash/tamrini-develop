@@ -31,7 +31,7 @@ import 'package:tamrini/features/home/data/repo/home_repo_impl.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/nutrient.dart';
@@ -54,7 +54,7 @@ import 'package:tamrini/features/profile/presentation/manager/profile_cubit/prof
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
-import 'package:tamrini/features/store/data/models/category_model.dart';
+import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/store/presentation/manager/article_cubit/category_cubit.dart';
 import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
@@ -239,7 +239,7 @@ void main() async {
           ),
           BlocProvider(
             create: (context) => StoreCubit(
-              getIt.get<HomeRepoImpl>(),
+              getIt.get<StoreRepoImpl>(),
             )..getData(),
           ),
           BlocProvider(

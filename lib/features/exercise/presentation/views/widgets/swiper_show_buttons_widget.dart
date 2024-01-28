@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
+import 'package:tamrini/features/exercise/presentation/manager/swiper_cubit/swiper_cubit.dart';
 
 class SwiperShowButtonsWidget extends StatelessWidget {
   const SwiperShowButtonsWidget({super.key, required this.index});

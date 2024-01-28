@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/store_cubit/store_states.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/stores_list_view_widget.dart';
 
 class StoresListViewBuilderWidget extends StatelessWidget {

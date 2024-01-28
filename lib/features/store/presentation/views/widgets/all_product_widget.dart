@@ -4,7 +4,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../../../../home/data/models/store_model/product_model.dart';
+import '../../../data/models/store_model/product_model.dart';
 import '../products_category_screen.dart';
 
 class AllProductsWidget extends StatelessWidget {

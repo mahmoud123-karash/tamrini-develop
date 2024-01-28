@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/store/data/models/category_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
 import 'package:tamrini/features/store/presentation/views/products_category_screen.dart';
 
 class CategoryProductItemWidget extends StatelessWidget {

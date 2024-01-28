@@ -1,4 +1,4 @@
-import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 
 class StoreModel {
   final String name;

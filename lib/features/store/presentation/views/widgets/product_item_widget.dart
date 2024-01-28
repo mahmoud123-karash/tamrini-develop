@@ -2,8 +2,8 @@ import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/views/product_details_screen.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/product_info_widget.dart';
 

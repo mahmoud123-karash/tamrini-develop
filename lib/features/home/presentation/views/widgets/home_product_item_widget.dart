@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_product_price_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';

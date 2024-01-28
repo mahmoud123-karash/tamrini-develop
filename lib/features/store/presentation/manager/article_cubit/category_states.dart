@@ -1,4 +1,4 @@
-import 'package:tamrini/features/store/data/models/category_model.dart';
+import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
 
 abstract class CategoryStates {}
 

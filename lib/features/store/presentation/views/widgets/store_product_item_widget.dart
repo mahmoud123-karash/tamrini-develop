@@ -7,7 +7,7 @@ import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/store/presentation/views/product_details_screen.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/product_price_widget.dart';
 
-import '../../../../home/data/models/store_model/product_model.dart';
+import '../../../data/models/store_model/product_model.dart';
 
 class StoreProductItemWidget extends StatelessWidget {
   const StoreProductItemWidget({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_item_widget.dart';
 
 class StoreListViewWidget extends StatelessWidget {

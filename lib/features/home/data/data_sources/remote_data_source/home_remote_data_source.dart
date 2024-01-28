@@ -2,32 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
 
 import '../../../../../core/cache/shared_preference.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<StoreModel>> getStores();
   Future<Either<String, List<GymModel>>> getGyms({
     required bool update,
   });
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
-  @override
-  Future<List<StoreModel>> getStores() async {
-    List<StoreModel> list = [];
-    var result = await FirebaseFirestore.instance
-        .collection('stores')
-        .where('isBanned', isEqualTo: false)
-        .get();
-    for (var element in result.docs) {
-      StoreModel model = StoreModel.fromMap(element.data());
-      list.add(model);
-    }
-    return list;
-  }
-
   @override
   Future<Either<String, List<GymModel>>> getGyms({
     required bool update,

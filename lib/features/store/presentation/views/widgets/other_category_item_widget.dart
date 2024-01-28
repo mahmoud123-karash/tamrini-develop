@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/home/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/presentation/views/products_category_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 

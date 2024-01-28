@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
-import 'package:tamrini/features/store/data/models/category_model.dart';
+import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/domain/repo/store_repo.dart';
 
 class StoreRepoImpl extends StoreRepo {
@@ -16,6 +17,16 @@ class StoreRepoImpl extends StoreRepo {
         return right(cachedList);
       }
       List<CategoryModel> list = await storeRemoteDataSource.get();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<StoreModel>>> getStores() async {
+    try {
+      List<StoreModel> list = await storeRemoteDataSource.getStores();
       return right(list);
     } catch (e) {
       return left(e.toString());

@@ -1,4 +1,4 @@
-import 'package:tamrini/features/home/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 
 abstract class StoreStates {}
 

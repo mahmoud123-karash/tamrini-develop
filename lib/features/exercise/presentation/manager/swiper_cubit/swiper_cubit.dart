@@ -2,7 +2,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/save_data.dart';
-import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_states.dart';
+import 'package:tamrini/features/exercise/presentation/manager/swiper_cubit/swiper_states.dart';
 
 class SwiperCubit extends Cubit<SwiperStates> {
   SwiperCubit() : super(InitialSwiperState());

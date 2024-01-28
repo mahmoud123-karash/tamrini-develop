@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/features/home/presentation/manager/swiper_cubit/swiper_cubit.dart';
+import 'package:tamrini/features/exercise/presentation/manager/swiper_cubit/swiper_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_assets_view_widget.dart';
 import 'package:tamrini/features/suggest_exercise/data/models/suggest_model/suggest_model.dart';
 import 'package:tamrini/generated/l10n.dart';
