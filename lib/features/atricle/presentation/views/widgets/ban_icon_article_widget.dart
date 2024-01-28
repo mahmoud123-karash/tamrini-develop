@@ -6,11 +6,14 @@ class BanIconArticleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(12.0),
-      child: Icon(
-        Ionicons.ban_outline,
-        color: Colors.red,
+    return const Align(
+      alignment: Alignment.centerRight,
+      child: Padding(
+        padding: EdgeInsets.all(12.0),
+        child: Icon(
+          Ionicons.ban_outline,
+          color: Colors.red,
+        ),
       ),
     );
   }

@@ -2779,6 +2779,66 @@ class S {
       args: [],
     );
   }
+
+  /// `جميع المستخدمين`
+  String get all_users {
+    return Intl.message(
+      'جميع المستخدمين',
+      name: 'all_users',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الناشرين`
+  String get writers {
+    return Intl.message(
+      'الناشرين',
+      name: 'writers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المدربين`
+  String get trainers {
+    return Intl.message(
+      'المدربين',
+      name: 'trainers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أصحاب الصالات`
+  String get gym_owners {
+    return Intl.message(
+      'أصحاب الصالات',
+      name: 'gym_owners',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أصحاب المتاجر`
+  String get store_owners {
+    return Intl.message(
+      'أصحاب المتاجر',
+      name: 'store_owners',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `طلبات الترقية`
+  String get promotion {
+    return Intl.message(
+      'طلبات الترقية',
+      name: 'promotion',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

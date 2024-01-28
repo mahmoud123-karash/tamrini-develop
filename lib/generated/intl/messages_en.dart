@@ -60,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "allProducts": MessageLookupByLibrary.simpleMessage("All Products"),
         "all_privay_saved":
             MessageLookupByLibrary.simpleMessage("All rights reserved"),
+        "all_users": MessageLookupByLibrary.simpleMessage("جميع المستخدمين"),
         "answer": MessageLookupByLibrary.simpleMessage("Answer"),
         "answers": MessageLookupByLibrary.simpleMessage("Answers"),
         "app": MessageLookupByLibrary.simpleMessage("App"),
@@ -150,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
         "gym_owner": MessageLookupByLibrary.simpleMessage("Gym owner"),
+        "gym_owners": MessageLookupByLibrary.simpleMessage("أصحاب الصالات"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
@@ -243,6 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
         "profile": MessageLookupByLibrary.simpleMessage("Your Profile"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("None"),
+        "promotion": MessageLookupByLibrary.simpleMessage("طلبات الترقية"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),
         "protien": MessageLookupByLibrary.simpleMessage("Protein"),
@@ -293,6 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),
+        "store_owners": MessageLookupByLibrary.simpleMessage("أصحاب المتاجر"),
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
@@ -354,6 +358,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
+        "trainers": MessageLookupByLibrary.simpleMessage("المدربين"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("Trainers Page"),
         "tranier_hint_social": MessageLookupByLibrary.simpleMessage(
             "This User does not have an account on this platform"),
@@ -385,6 +390,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Write a new question..."),
         "writer_articles":
             MessageLookupByLibrary.simpleMessage("مقالات الكاتب"),
+        "writers": MessageLookupByLibrary.simpleMessage("الناشرين"),
         "years": MessageLookupByLibrary.simpleMessage("years old"),
         "your_artilces": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("Your Meals"),

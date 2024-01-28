@@ -74,7 +74,8 @@ class MyDrawer extends StatelessWidget {
                 icon: Ionicons.person_outline,
                 lable: S.of(context).profile,
               ),
-              if (usertype == 'admin') const AdminListTileWidget(),
+              // if (usertype == 'admin')
+              const AdminListTileWidget(),
               if (usertype == 'writer') const WriterListTileWidget(),
               DrawerListTileWidget(
                 onPressed: () {

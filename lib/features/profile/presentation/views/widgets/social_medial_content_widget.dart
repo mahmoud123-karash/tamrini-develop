@@ -39,6 +39,9 @@ class SocialMediaContentWidget extends StatelessWidget {
               controller: whatsAppController,
               autovalidateMode: autovalidateMode,
             ),
+            const SizedBox(
+              height: 15,
+            ),
             NameTextWidget(text: S.of(context).facebooh),
             SocialTextFiledWidget(
               prefix: 'facebook.com',
@@ -46,7 +49,7 @@ class SocialMediaContentWidget extends StatelessWidget {
               autovalidateMode: autovalidateMode,
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             NameTextWidget(text: S.of(context).instgram),
             SocialTextFiledWidget(
@@ -55,7 +58,7 @@ class SocialMediaContentWidget extends StatelessWidget {
               autovalidateMode: autovalidateMode,
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             NameTextWidget(text: S.of(context).twiter),
             SocialTextFiledWidget(

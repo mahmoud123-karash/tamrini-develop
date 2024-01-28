@@ -271,7 +271,13 @@
     "hello":"مرحبا",
     "admin_control_pannel":"لوحة تحكم الأدمن",
     "writer_articles":"مقالات الكاتب",
-    "article_removed":"تم حذف هذا المقال"
+    "article_removed":"تم حذف هذا المقال",
+    "all_users":"جميع المستخدمين",
+    "writers":"الناشرين",
+    "trainers":"المدربين",
+    "gym_owners":"أصحاب الصالات",
+    "store_owners":"أصحاب المتاجر",
+    "promotion":"طلبات الترقية"
 
 
 

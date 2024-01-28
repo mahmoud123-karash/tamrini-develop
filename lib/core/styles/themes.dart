@@ -54,7 +54,7 @@ ThemeData lightTheme = ThemeData(
     hintStyle: const TextStyle(
       fontFamily: "cairo",
       color: Colors.black,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w600,
       fontSize: 14,
     ),
     border: OutlineInputBorder(
@@ -154,12 +154,12 @@ ThemeData darkTheme = ThemeData(
     labelStyle: const TextStyle(
       fontFamily: "cairo",
       color: Colors.white,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w600,
       fontSize: 14,
     ),
     hintStyle: const TextStyle(
       fontFamily: "cairo",
-      color: Colors.white60,
+      color: Colors.white,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     ),
