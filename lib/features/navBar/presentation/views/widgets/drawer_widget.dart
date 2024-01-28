@@ -15,6 +15,7 @@ import 'package:tamrini/generated/l10n.dart';
 
 import 'admin_list_tile_widget.dart';
 import 'drawer_list_tile_widget.dart';
+import 'store_owner_widget.dart';
 import 'writer_list_tile_widget.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -25,6 +26,7 @@ class MyDrawer extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     String usertype = CacheHelper.getData(key: 'usertype');
     return Drawer(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       elevation: 0,
       width: width / 1.4,
       shape: OutlineInputBorder(
@@ -44,83 +46,81 @@ class MyDrawer extends StatelessWidget {
               : const Radius.circular(0),
         ),
       ),
-      child: Container(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              SizedBox(
-                height: 30.h,
-              ),
-              Image.asset(
-                Assets.imagesLogo,
-                width: 130.w,
-                height: 130.h,
-              ),
-              DrawerListTileWidget(
-                isSelected: true,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Ionicons.home_outline,
-                lable: S.of(context).home,
-              ),
-              DrawerListTileWidget(
-                onPressed: () {
-                  navigateTo(context, const ProfileScreen());
-                },
-                icon: Ionicons.person_outline,
-                lable: S.of(context).profile,
-              ),
-              // if (usertype == 'admin')
-              const AdminListTileWidget(),
-              if (usertype == 'writer') const WriterListTileWidget(),
-              DrawerListTileWidget(
-                onPressed: () {
-                  navigateTo(context, const MyDayScreen());
-                },
-                icon: Ionicons.calendar_outline,
-                lable: S.of(context).my_day,
-              ),
-              DrawerListTileWidget(
-                onPressed: () {
-                  navigateTo(context, const WaterReminderScreen());
-                },
-                icon: Ionicons.alarm_outline,
-                lable: S.of(context).water_alarm,
-              ),
-              DrawerListTileWidget(
-                onPressed: () {
-                  navigateTo(context, const SettingsScreen());
-                },
-                icon: Ionicons.settings_outline,
-                lable: S.of(context).settings,
-              ),
-              DrawerListTileWidget(
-                onPressed: () {
-                  navigateTo(context, const AppSettingsScreen());
-                },
-                icon: Ionicons.phone_portrait_outline,
-                lable: S.of(context).app,
-              ),
-              DrawerListTileWidget(
-                onPressed: () {
-                  navigateTo(context, const ContactUsScreen());
-                },
-                icon: Ionicons.call_outline,
-                lable: S.of(context).contact_u,
-              ),
-              DrawerListTileWidget(
-                onPressed: () {
-                  logOutDialog(context).show();
-                },
-                icon: Ionicons.log_out_outline,
-                lable: S.of(context).log_out,
-              ),
-            ],
-          ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SizedBox(
+              height: 30.h,
+            ),
+            Image.asset(
+              Assets.imagesLogo,
+              width: 130.w,
+              height: 130.h,
+            ),
+            DrawerListTileWidget(
+              isSelected: true,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Ionicons.home_outline,
+              lable: S.of(context).home,
+            ),
+            DrawerListTileWidget(
+              onPressed: () {
+                navigateTo(context, const ProfileScreen());
+              },
+              icon: Ionicons.person_outline,
+              lable: S.of(context).profile,
+            ),
+            if (usertype == 'admin') const AdminListTileWidget(),
+            if (usertype == 'writer') const WriterListTileWidget(),
+            // if (usertype == 'admin' || usertype == 'store_owner')
+            const StoreOwnerWidget(),
+            DrawerListTileWidget(
+              onPressed: () {
+                navigateTo(context, const MyDayScreen());
+              },
+              icon: Ionicons.calendar_outline,
+              lable: S.of(context).my_day,
+            ),
+            DrawerListTileWidget(
+              onPressed: () {
+                navigateTo(context, const WaterReminderScreen());
+              },
+              icon: Ionicons.alarm_outline,
+              lable: S.of(context).water_alarm,
+            ),
+            DrawerListTileWidget(
+              onPressed: () {
+                navigateTo(context, const SettingsScreen());
+              },
+              icon: Ionicons.settings_outline,
+              lable: S.of(context).settings,
+            ),
+            DrawerListTileWidget(
+              onPressed: () {
+                navigateTo(context, const AppSettingsScreen());
+              },
+              icon: Ionicons.phone_portrait_outline,
+              lable: S.of(context).app,
+            ),
+            DrawerListTileWidget(
+              onPressed: () {
+                navigateTo(context, const ContactUsScreen());
+              },
+              icon: Ionicons.call_outline,
+              lable: S.of(context).contact_u,
+            ),
+            DrawerListTileWidget(
+              onPressed: () {
+                logOutDialog(context).show();
+              },
+              icon: Ionicons.log_out_outline,
+              lable: S.of(context).log_out,
+            ),
+          ],
         ),
       ),
     );

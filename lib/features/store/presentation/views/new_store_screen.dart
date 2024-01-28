@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/add_article_content_widget.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/build_store_custom_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'widgets/article_custom_builder_widget.dart';
+import 'widgets/new_store_content_widget.dart';
 
-class NewArticleScreen extends StatefulWidget {
-  const NewArticleScreen({super.key, this.model});
-  final ArticleModel? model;
+class NewStoreScreen extends StatefulWidget {
+  const NewStoreScreen({super.key, this.model});
+  final StoreModel? model;
 
   @override
-  State<NewArticleScreen> createState() => _NewArticleScreenState();
+  State<NewStoreScreen> createState() => _NewStoreScreenState();
 }
 
-class _NewArticleScreenState extends State<NewArticleScreen> {
+class _NewStoreScreenState extends State<NewStoreScreen> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController articleController = TextEditingController();
+  TextEditingController contactController = TextEditingController();
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -26,8 +26,8 @@ class _NewArticleScreenState extends State<NewArticleScreen> {
   void initState() {
     ImageCubit.get(context).clearPaths();
     if (widget.model != null) {
-      nameController.text = widget.model!.title ?? '';
-      articleController.text = widget.model!.body ?? '';
+      nameController.text = widget.model!.name;
+      contactController.text = widget.model!.contact;
     }
     super.initState();
   }
@@ -35,7 +35,7 @@ class _NewArticleScreenState extends State<NewArticleScreen> {
   @override
   void dispose() {
     nameController.dispose();
-    articleController.dispose();
+    contactController.dispose();
     super.dispose();
   }
 
@@ -44,53 +44,36 @@ class _NewArticleScreenState extends State<NewArticleScreen> {
     return Scaffold(
       appBar: myAppBar(
         widget.model != null
-            ? S.of(context).edit_article
-            : S.of(context).add_article,
+            ? S.of(context).edit_store
+            : S.of(context).build_store,
       ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
-            child: AddArticleContentWidget(
+            child: NewStoreContentWidget(
               nameController: nameController,
-              articleController: articleController,
+              contactController: contactController,
               autovalidateMode: autovalidateMode,
               formKey: formKey,
-              image: widget.model == null
-                  ? ''
-                  : widget.model!.image!.isEmpty
-                      ? ''
-                      : widget.model!.image!.first,
+              image: widget.model != null ? widget.model!.image : "",
             ),
           ),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: ArticleCustombuilderWidget(
+              child: StoreCustomButtonBuilderWidget(
                 lable: widget.model != null
                     ? S.of(context).edit
-                    : S.of(context).add,
+                    : S.of(context).build_store,
                 onPressed: () {
                   List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
-                      ArticlesCubit.get(context).editArticle(
-                        title: nameController.text,
-                        body: articleController.text,
-                        imagePath: paths.isEmpty ? '' : paths.first,
-                        context: context,
-                        oldModel: widget.model!,
-                      );
                     } else {
                       if (paths.isNotEmpty) {
-                        ArticlesCubit.get(context).addArticle(
-                          title: nameController.text,
-                          body: articleController.text,
-                          imagePath: paths.first,
-                          context: context,
-                        );
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }

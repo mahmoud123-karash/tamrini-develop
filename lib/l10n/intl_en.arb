@@ -277,7 +277,27 @@
     "trainers":"المدربين",
     "gym_owners":"أصحاب الصالات",
     "store_owners":"أصحاب المتاجر",
-    "promotion":"طلبات الترقية"
+    "promotion":"طلبات الترقية",
+    "orders":"الطلبات",
+    "build_store":"انشاء متجر",
+    "store_name":"اسم المتجر",
+    "store_contact":"رقم التواصل",
+    "edit_store":"تعديل المتجر",
+    "add_product":"إضافة منتج",
+    "edit_product":"تعديل المنتج",
+    "product_name":"اسم المنتج",
+    "product_price":"سعر المنتج",
+    "product_old_price":"السعر القديم للمنتج",
+    "remove_product_q":"هل تريد حذف المنتج ؟",
+    "available":"متاح",
+    "best_seller":"الأفضل مبيعا",
+    "product_description":"وصف المنتج",
+    "product_type":"نوع المنتج",
+    "sale":"خصم"
+
+
+
+
 
 
 

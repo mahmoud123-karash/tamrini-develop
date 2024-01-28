@@ -1,25 +1,26 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/add_section_content_widget.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/custom_button_builder_widget.dart';
-import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_model.dart';
-import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/presentation/views/widgets/build_store_custom_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class NewSectionScreen extends StatefulWidget {
-  const NewSectionScreen({super.key, this.model});
-  final ExerciseModel? model;
+import 'widgets/new_product_content_widget.dart';
+
+class NewProductScreen extends StatefulWidget {
+  const NewProductScreen({super.key, this.model});
+  final ProductModel? model;
 
   @override
-  State<NewSectionScreen> createState() => _NewSectionScreenState();
+  State<NewProductScreen> createState() => _NewProductScreenState();
 }
 
-class _NewSectionScreenState extends State<NewSectionScreen> {
+class _NewProductScreenState extends State<NewProductScreen> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController orderController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController priceController = TextEditingController();
+  TextEditingController oldPriceController = TextEditingController();
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -27,8 +28,10 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
   void initState() {
     ImageCubit.get(context).clearPaths();
     if (widget.model != null) {
-      nameController.text = widget.model!.title ?? '';
-      orderController.text = widget.model!.order.toString();
+      nameController.text = widget.model!.title;
+      descriptionController.text = widget.model!.description;
+      priceController.text = widget.model!.price.toString();
+      oldPriceController.text = widget.model!.oldPrice.toString();
     }
     super.initState();
   }
@@ -36,7 +39,9 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
   @override
   void dispose() {
     nameController.dispose();
-    orderController.dispose();
+    descriptionController.dispose();
+    priceController.dispose();
+    oldPriceController.dispose();
     super.dispose();
   }
 
@@ -45,26 +50,28 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
     return Scaffold(
       appBar: myAppBar(
         widget.model != null
-            ? S.of(context).edit_section
-            : S.of(context).add_new_section,
+            ? S.of(context).edit_store
+            : S.of(context).build_store,
       ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
-            child: AddSectionContentWidget(
+            child: NewProductContentWidget(
               nameController: nameController,
-              orderController: orderController,
+              descriptionController: descriptionController,
+              oldPriceController: oldPriceController,
+              priceController: priceController,
               autovalidateMode: autovalidateMode,
               formKey: formKey,
-              image: widget.model != null ? widget.model!.image ?? '' : '',
+              image: widget.model != null ? widget.model!.image : "",
             ),
           ),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: CustomButtonBuilderWidget(
+              child: StoreCustomButtonBuilderWidget(
                 lable: widget.model != null
                     ? S.of(context).edit
                     : S.of(context).add,
@@ -73,24 +80,8 @@ class _NewSectionScreenState extends State<NewSectionScreen> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
-                      log(widget.model!.id!);
-                      ExerciseCubit.get(context).editSection(
-                        id: widget.model!.id!,
-                        oldModel: widget.model!,
-                        title: nameController.text,
-                        order: int.parse(orderController.text),
-                        imagePth: paths.isEmpty ? '' : paths.first,
-                        data: widget.model!.data ?? [],
-                        context: context,
-                      );
                     } else {
                       if (paths.isNotEmpty) {
-                        ExerciseCubit.get(context).addNewSection(
-                          title: nameController.text,
-                          order: int.parse(orderController.text),
-                          imagePth: paths.first,
-                          context: context,
-                        );
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }

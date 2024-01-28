@@ -113,6 +113,8 @@ AwesomeDialog logOutDialog(context) => AwesomeDialog(
 Widget addCustomButton({
   required VoidCallback onPressed,
   required String lable,
+  IconData icon = Icons.add_circle,
+  double fontSize = 20,
 }) =>
     MaterialButton(
       color: appColor,
@@ -129,7 +131,7 @@ Widget addCustomButton({
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              Icons.add_circle,
+              icon,
               color: whiteColor,
             ),
             const SizedBox(
@@ -140,6 +142,7 @@ Widget addCustomButton({
               style: TextStyles.style20.copyWith(
                 color: whiteColor,
                 fontWeight: FontWeight.bold,
+                fontSize: fontSize,
               ),
             ),
           ],

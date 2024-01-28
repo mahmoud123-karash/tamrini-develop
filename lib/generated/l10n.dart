@@ -2839,6 +2839,166 @@ class S {
       args: [],
     );
   }
+
+  /// `الطلبات`
+  String get orders {
+    return Intl.message(
+      'الطلبات',
+      name: 'orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انشاء متجر`
+  String get build_store {
+    return Intl.message(
+      'انشاء متجر',
+      name: 'build_store',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم المتجر`
+  String get store_name {
+    return Intl.message(
+      'اسم المتجر',
+      name: 'store_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رقم التواصل`
+  String get store_contact {
+    return Intl.message(
+      'رقم التواصل',
+      name: 'store_contact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل المتجر`
+  String get edit_store {
+    return Intl.message(
+      'تعديل المتجر',
+      name: 'edit_store',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة منتج`
+  String get add_product {
+    return Intl.message(
+      'إضافة منتج',
+      name: 'add_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل المنتج`
+  String get edit_product {
+    return Intl.message(
+      'تعديل المنتج',
+      name: 'edit_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم المنتج`
+  String get product_name {
+    return Intl.message(
+      'اسم المنتج',
+      name: 'product_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سعر المنتج`
+  String get product_price {
+    return Intl.message(
+      'سعر المنتج',
+      name: 'product_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `السعر القديم للمنتج`
+  String get product_old_price {
+    return Intl.message(
+      'السعر القديم للمنتج',
+      name: 'product_old_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف المنتج ؟`
+  String get remove_product_q {
+    return Intl.message(
+      'هل تريد حذف المنتج ؟',
+      name: 'remove_product_q',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `متاح`
+  String get available {
+    return Intl.message(
+      'متاح',
+      name: 'available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأفضل مبيعا`
+  String get best_seller {
+    return Intl.message(
+      'الأفضل مبيعا',
+      name: 'best_seller',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `وصف المنتج`
+  String get product_description {
+    return Intl.message(
+      'وصف المنتج',
+      name: 'product_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نوع المنتج`
+  String get product_type {
+    return Intl.message(
+      'نوع المنتج',
+      name: 'product_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `خصم`
+  String get sale {
+    return Intl.message(
+      'خصم',
+      name: 'sale',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

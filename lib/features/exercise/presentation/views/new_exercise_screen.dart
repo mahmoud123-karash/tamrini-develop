@@ -39,6 +39,14 @@ class _NewExerciseScreenState extends State<NewExerciseScreen> {
   }
 
   @override
+  void dispose() {
+    nameController.dispose();
+    descriptionController.dispose();
+    youtubController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(

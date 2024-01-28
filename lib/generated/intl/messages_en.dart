@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Add New Exercise"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("Add New Section"),
+        "add_product": MessageLookupByLibrary.simpleMessage("إضافة منتج"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("Add Reminder"),
         "add_today": MessageLookupByLibrary.simpleMessage("Add Today"),
         "add_today_hint":
@@ -73,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
+        "available": MessageLookupByLibrary.simpleMessage("متاح"),
         "ban_article": MessageLookupByLibrary.simpleMessage("Ban Article"),
         "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
         "ban_your_article": MessageLookupByLibrary.simpleMessage(
@@ -81,6 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تقييد سؤالك"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
+        "best_seller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
+        "build_store": MessageLookupByLibrary.simpleMessage("انشاء متجر"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "calories": MessageLookupByLibrary.simpleMessage("Calories"),
@@ -120,8 +124,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
         "edit_article": MessageLookupByLibrary.simpleMessage("Edit Article"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
+        "edit_product": MessageLookupByLibrary.simpleMessage("تعديل المنتج"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_section": MessageLookupByLibrary.simpleMessage("Edit Section"),
+        "edit_store": MessageLookupByLibrary.simpleMessage("تعديل المتجر"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
@@ -226,6 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "optional": MessageLookupByLibrary.simpleMessage("Optional"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
+        "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("Our Products"),
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
@@ -242,6 +249,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyConfirm":
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
         "proDetails": MessageLookupByLibrary.simpleMessage("Product Details"),
+        "product_description":
+            MessageLookupByLibrary.simpleMessage("وصف المنتج"),
+        "product_name": MessageLookupByLibrary.simpleMessage("اسم المنتج"),
+        "product_old_price":
+            MessageLookupByLibrary.simpleMessage("السعر القديم للمنتج"),
+        "product_price": MessageLookupByLibrary.simpleMessage("سعر المنتج"),
+        "product_type": MessageLookupByLibrary.simpleMessage("نوع المنتج"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
         "profile": MessageLookupByLibrary.simpleMessage("Your Profile"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("None"),
@@ -272,6 +286,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reminder to drink water"),
         "remove_article":
             MessageLookupByLibrary.simpleMessage("Remove Article"),
+        "remove_product_q":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف المنتج ؟"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
@@ -279,6 +295,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Type Email Address"),
         "review_suggest_exercise": MessageLookupByLibrary.simpleMessage(
             "The exercise will be reviewed and added soon"),
+        "sale": MessageLookupByLibrary.simpleMessage("خصم"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "scroll_verticle_to_remove": MessageLookupByLibrary.simpleMessage(
             "Scroll vertically to remove meal"),
@@ -296,6 +313,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),
+        "store_contact": MessageLookupByLibrary.simpleMessage("رقم التواصل"),
+        "store_name": MessageLookupByLibrary.simpleMessage("اسم المتجر"),
         "store_owners": MessageLookupByLibrary.simpleMessage("أصحاب المتاجر"),
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),

@@ -4,11 +4,12 @@ import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cu
 import 'package:tamrini/features/store/presentation/views/widgets/product_item_widget.dart';
 
 class ProductListViewWidget extends StatelessWidget {
-  const ProductListViewWidget(
-      {super.key,
-      required this.list,
-      required this.length,
-      required this.scrollController});
+  const ProductListViewWidget({
+    super.key,
+    required this.list,
+    required this.length,
+    required this.scrollController,
+  });
   final List<ProductModel> list;
   final int length;
   final ScrollController scrollController;
