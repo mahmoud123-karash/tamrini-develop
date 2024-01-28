@@ -3,11 +3,11 @@
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/options_bottom_sheet_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/question_owner_name_type_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';

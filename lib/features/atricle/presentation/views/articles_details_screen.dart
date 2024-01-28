@@ -20,6 +20,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype');
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
     return Scaffold(
@@ -98,17 +99,20 @@ class ArticlesDetailsScreen extends StatelessWidget {
                         uid: model.writerUid ?? '',
                         article: model,
                       ),
-                      if (model.writerUid == uid) const Divider(),
                       if (model.writerUid == uid)
-                        customButton(
-                          onPressed: () {
-                            navigateTo(
-                              context,
-                              NewArticleScreen(model: model),
-                            );
-                          },
-                          lable: S.of(context).edit,
-                        )
+                        if (userType == 'admin' || userType == 'writer')
+                          const Divider(),
+                      if (model.writerUid == uid)
+                        if (userType == 'admin' || userType == 'writer')
+                          customButton(
+                            onPressed: () {
+                              navigateTo(
+                                context,
+                                NewArticleScreen(model: model),
+                              );
+                            },
+                            lable: S.of(context).edit,
+                          )
                     ],
                   ),
                 ),

@@ -14,9 +14,10 @@ class AllArticlesContentBuilderWidget extends StatelessWidget {
     this.models,
     required this.isWriter,
     this.pendingLength,
+    this.isUserProfile = false,
   });
   final List<ArticleModel>? models;
-  final bool isWriter;
+  final bool isWriter, isUserProfile;
   final int? pendingLength;
 
   @override
@@ -38,6 +39,7 @@ class AllArticlesContentBuilderWidget extends StatelessWidget {
             length: pendingLength != null
                 ? pendingLength!
                 : state.list.length - list.length,
+            isUserProfile: isUserProfile,
           );
         } else if (state is ErrorGetArticlesState) {
           return messageBuilder(message: state.message);

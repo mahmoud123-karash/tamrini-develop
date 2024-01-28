@@ -1,4 +1,4 @@
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 
 abstract class UserStates {}
 

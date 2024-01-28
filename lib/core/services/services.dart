@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
@@ -139,6 +140,8 @@ void logOut(context) async {
   );
   var box = Hive.box<ProfileModel>(profileBox);
   await box.clear();
+  var box1 = Hive.box<DayModel>(dayBox);
+  await box1.clear();
   GoogleSignIn googleSignIn = GoogleSignIn();
   if (await googleSignIn.isSignedIn()) {
     googleSignIn.disconnect();
@@ -186,6 +189,8 @@ DateTime nextScheduledDate(hour, minute) {
 }
 
 String formatNumber(int number) {
-  final formatter = NumberFormat.compact(locale: 'en_US');
+  final formatter = NumberFormat.compact(
+    locale: Intl.getCurrentLocale(),
+  );
   return formatter.format(number);
 }

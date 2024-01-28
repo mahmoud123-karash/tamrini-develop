@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/views/articles_details_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/answers_details_content_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/write_answer_widget.dart';
 import 'package:tamrini/generated/l10n.dart';

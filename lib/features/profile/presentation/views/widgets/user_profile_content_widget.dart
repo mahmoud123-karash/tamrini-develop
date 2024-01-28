@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/name_text_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/profile_image_name_type_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/profile_social_row_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/value_icon_row_widget.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class UserProfileContentWidget extends StatelessWidget {
-  const UserProfileContentWidget(
-      {super.key, required this.model, this.isProfile = false});
+  const UserProfileContentWidget({
+    super.key,
+    required this.model,
+    this.isProfile = false,
+  });
   final UserModel model;
   final bool? isProfile;
 

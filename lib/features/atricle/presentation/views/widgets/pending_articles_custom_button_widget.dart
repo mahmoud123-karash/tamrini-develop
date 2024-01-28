@@ -15,6 +15,7 @@ class PendingArticlesCustomButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      padding: const EdgeInsets.all(0),
       color: appColor,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
@@ -39,7 +40,7 @@ class PendingArticlesCustomButtonWidget extends StatelessWidget {
             style: TextStyle(
               color: whiteColor,
               fontWeight: FontWeight.bold,
-              fontSize: length > 100 ? 12 : 13,
+              fontSize: length > 100 ? 10 : 13,
             ),
             maxLines: 1,
           ),

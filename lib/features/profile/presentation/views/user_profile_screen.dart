@@ -4,7 +4,7 @@ import 'package:tamrini/features/atricle/presentation/manager/article_cubit/arti
 import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/articles_owner_profile_widget.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/gym_owner_profile_widget.dart';
@@ -42,6 +42,7 @@ class UserProfileScreen extends StatelessWidget {
                         ? ArticlesOwnerProfileWidget(
                             list: ArticlesCubit.get(context)
                                 .getUserArticles(model.uid),
+                            id: model.uid,
                           )
                         : Container(),
           )

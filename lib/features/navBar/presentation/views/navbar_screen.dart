@@ -9,6 +9,7 @@ import 'package:tamrini/core/services/messaging.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
+import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
@@ -29,6 +30,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   void initState() {
     UpdateCubit.get(context).update();
     NotificationCubit.get(context).getData();
+    DayCubit.get(context).getData();
     log(CacheHelper.getData(key: 'deviceToken') ?? '');
     initiGetprofile(context);
     getintil(context);

@@ -2759,6 +2759,16 @@ class S {
       args: [],
     );
   }
+
+  /// `مقالات الكاتب`
+  String get writer_articles {
+    return Intl.message(
+      'مقالات الكاتب',
+      name: 'writer_articles',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

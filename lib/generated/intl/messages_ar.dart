@@ -371,6 +371,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),
+        "writer_articles":
+            MessageLookupByLibrary.simpleMessage("مقالات الكاتب"),
         "years": MessageLookupByLibrary.simpleMessage("سنوات"),
         "your_artilces": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),

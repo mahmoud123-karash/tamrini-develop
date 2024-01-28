@@ -15,9 +15,10 @@ class AllArticleContentWidget extends StatefulWidget {
     required this.length,
     required this.list,
     required this.isWriter,
+    required this.isUserProfile,
   });
   final List<ArticleModel> list;
-  final bool isWriter;
+  final bool isWriter, isUserProfile;
   final int length;
 
   @override
@@ -80,6 +81,7 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
           AddArticleRowWidget(
             length: widget.length,
             isWriter: widget.isWriter,
+            isUserProfile: widget.isUserProfile,
           ),
         const SizedBox(
           height: 15,

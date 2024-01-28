@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/accept_refuse_row_buttons_widget.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
-
 import 'article_ban_custom_button_widget.dart';
 
 class ArticleWriterWidget extends StatelessWidget {

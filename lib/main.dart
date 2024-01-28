@@ -632,7 +632,7 @@ void main() async {
           BlocProvider(
             create: (context) => DayCubit(
               getIt.get<MyDayRepoImpl>(),
-            )..getData(),
+            ),
           ),
           BlocProvider(
             create: (context) => ImageCubit(),

@@ -1,27 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/features/questions/data/data_sources/remote_data_source/user_remote_data_source.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
 
 import '../models/notification_model/notification_model.dart';
 
 class QuestionRepoImpl extends QuestionRepo {
-  final UserRemoteDataSource userRemoteDataSource;
-
-  QuestionRepoImpl(this.userRemoteDataSource);
-  @override
-  Future<Either<String, UserModel>> getUser({required String uid}) async {
-    try {
-      UserModel model = await userRemoteDataSource.get(uid: uid);
-      return right(model);
-    } catch (e) {
-      return left(e.toString());
-    }
-  }
-
   @override
   Future<Either<String, String>> addNewQuestion({required String body}) async {
     QuestionModel model = QuestionModel(

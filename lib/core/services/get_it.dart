@@ -36,8 +36,7 @@ import 'package:tamrini/features/suggest_exercise/data/data_sources/remote_data_
 import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
 import 'package:tamrini/features/trainer/data/data_sources/remote_data_source/trainer_remote_data_source.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
-import 'package:tamrini/features/questions/data/data_sources/remote_data_source/user_remote_data_source.dart'
-    as user;
+   
 import 'package:tamrini/features/water_reminder/data/data_sources/local_data_source/reminder_local_data_source.dart';
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
 
@@ -96,7 +95,7 @@ void setLocator() {
 
   getIt.registerSingleton<QuestionRepoImpl>(
     QuestionRepoImpl(
-      user.UserRemoteDataSourceImpl(),
+     
     ),
   );
   getIt.registerSingleton<DioHelper>(

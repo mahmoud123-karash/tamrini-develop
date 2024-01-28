@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
-import 'package:tamrini/features/questions/presentation/manager/user_cubit/user_cubit.dart';
-import 'package:tamrini/features/questions/presentation/manager/user_cubit/user_states.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_cubit.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_states.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/loading_item_widget.dart';
 
 import 'question_item_widget.dart';

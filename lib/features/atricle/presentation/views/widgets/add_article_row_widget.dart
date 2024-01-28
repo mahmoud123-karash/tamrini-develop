@@ -4,9 +4,12 @@ import 'add_article_custom_button_widget.dart';
 
 class AddArticleRowWidget extends StatelessWidget {
   const AddArticleRowWidget(
-      {super.key, required this.length, required this.isWriter});
+      {super.key,
+      required this.length,
+      required this.isWriter,
+      required this.isUserProfile});
   final int length;
-  final bool isWriter;
+  final bool isWriter, isUserProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +20,11 @@ class AddArticleRowWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const AddArticleCustomButtonWidget(),
-          const SizedBox(
-            width: 5,
-          ),
+          if (!isUserProfile) const AddArticleCustomButtonWidget(),
+          if (!isUserProfile)
+            const SizedBox(
+              width: 5,
+            ),
           Expanded(
             child: PendingArticlesCustomButtonWidget(
               length: length,

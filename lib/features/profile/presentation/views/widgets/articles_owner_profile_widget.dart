@@ -7,8 +7,10 @@ import '../../../../atricle/data/models/article_model/article_model.dart';
 import 'name_text_widget.dart';
 
 class ArticlesOwnerProfileWidget extends StatelessWidget {
-  const ArticlesOwnerProfileWidget({super.key, required this.list});
+  const ArticlesOwnerProfileWidget(
+      {super.key, required this.list, required this.id});
   final List<ArticleModel> list;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +39,12 @@ class ArticlesOwnerProfileWidget extends StatelessWidget {
                     child: TextButton(
                       onPressed: () {
                         navigateTo(
-                            context,
-                            AllArticlesScreen(
-                              models: list,
-                              isUsreProfile: true,
-                            ));
+                          context,
+                          AllArticlesScreen(
+                            id: id,
+                            isUserProfile: true,
+                          ),
+                        );
                       },
                       child: Text(S.of(context).more),
                     ),

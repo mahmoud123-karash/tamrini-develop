@@ -5,7 +5,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
-import 'package:tamrini/features/questions/data/models/user_model/user_model.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'publisher_name_and_role_widget.dart';
@@ -16,44 +16,46 @@ class WriterRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        String uid = CacheHelper.getData(key: 'uid') ?? '';
-        if (model.uid == uid) {
-          navigateTo(context, const ProfileScreen());
-        } else if (model.role == 'writer') {
-          navigateTo(context, UserProfileScreen(model: model));
-        } else {
-          if (model.role == 'admin') {
-            showSnackBar(context, S.of(context).admin_hint);
-          }
-        }
-      },
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 40,
-            backgroundImage: model.image != ''
-                ? FirebaseImageProvider(
-                    FirebaseUrl(model.image),
-                  ) as ImageProvider
-                : const AssetImage(Assets.imagesProfile),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          PublisherNameAndRoleWidget(
-            role: model.role,
-            name: model.name,
-          ),
-          const Spacer(),
-          if (model.role == 'admin')
-            const Icon(
-              Icons.stars_rounded,
-              color: Colors.amber,
-            )
-        ],
-      ),
-    );
+    return model.isBanned
+        ? Container()
+        : GestureDetector(
+            onTap: () {
+              String uid = CacheHelper.getData(key: 'uid') ?? '';
+              if (model.uid == uid) {
+                navigateTo(context, const ProfileScreen());
+              } else if (model.role == 'writer') {
+                navigateTo(context, UserProfileScreen(model: model));
+              } else {
+                if (model.role == 'admin') {
+                  showSnackBar(context, S.of(context).admin_hint);
+                }
+              }
+            },
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage: model.image != ''
+                      ? FirebaseImageProvider(
+                          FirebaseUrl(model.image),
+                        ) as ImageProvider
+                      : const AssetImage(Assets.imagesProfile),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                PublisherNameAndRoleWidget(
+                  role: model.role,
+                  name: model.name,
+                ),
+                const Spacer(),
+                if (model.role == 'admin')
+                  const Icon(
+                    Icons.stars_rounded,
+                    color: Colors.amber,
+                  )
+              ],
+            ),
+          );
   }
 }
