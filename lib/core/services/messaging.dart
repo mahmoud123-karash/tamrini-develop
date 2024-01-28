@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -9,40 +8,38 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/atricle/presentation/views/articles_details_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
+import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
-void onMessage({required VoidCallback function}) {
+void onMessage({
+  required BuildContext context,
+}) {
   FirebaseMessaging.onMessage.listen(
     (RemoteMessage message) async {
-      function();
-      if (message.data['type'] == 'system') {
-        AwesomeDialog(
-          context: navigationKey.currentContext!,
-          dialogType: DialogType.info,
-          animType: AnimType.bottomSlide,
-          title: message.notification?.title,
-          desc: message.notification?.body,
-          btnCancelOnPress: () {},
-          btnOkOnPress: () {},
-        ).show();
-      } else {
-        AwesomeNotifications().createNotification(
-          content: NotificationContent(
-            id: message.notification.hashCode,
-            channelKey: 'basic_channel',
-            actionType: ActionType.Default,
-            title: message.notification!.title,
-            body: message.notification!.body,
-          ),
-        );
+      NotificationCubit.get(context).getData();
+      if (message.data['subType'] == 'article') {
+        ArticlesCubit.get(context).getData();
       }
+      AwesomeNotifications().createNotification(
+        content: NotificationContent(
+          id: message.notification.hashCode,
+          channelKey: 'basic_channel',
+          actionType: ActionType.Default,
+          title: message.notification!.title,
+          body: message.notification!.body,
+        ),
+      );
     },
   );
+}
+
+Future<void> onBackgroundMessageHandler(RemoteMessage message) async {
+  log('onBackgroundMessage');
 }
 
 void onMessageOpenedApp({required BuildContext context}) {

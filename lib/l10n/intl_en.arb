@@ -270,7 +270,8 @@
     "admin":"أدمن",
     "hello":"مرحبا",
     "admin_control_pannel":"لوحة تحكم الأدمن",
-    "writer_articles":"مقالات الكاتب"
+    "writer_articles":"مقالات الكاتب",
+    "article_removed":"تم حذف هذا المقال"
 
 
 

@@ -23,9 +23,12 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
     return list;
   }
 
-  ArticleModel getArticle(id) {
+  ArticleModel? getArticle(id) {
     List<ArticleModel> list =
         articles.where((element) => element.id == id).toList();
+    if (list.isEmpty) {
+      return null;
+    }
     return list.first;
   }
 

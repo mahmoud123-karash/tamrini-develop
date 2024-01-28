@@ -57,7 +57,6 @@ class HomeProvider extends ChangeNotifier {
       isLoaded = true;
 
       print("setupInteractedMessage ya hossam");
-      setupInteractedMessage();
 
       Dio()
           .get(

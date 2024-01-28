@@ -33,92 +33,99 @@ class ArticlesDetailsScreen extends StatelessWidget {
       ),
       body: BlocBuilder<ArticlesCubit, ArticlesStates>(
         builder: (context, state) {
-          ArticleModel model = ArticlesCubit.get(context).getArticle(id);
-          return Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Theme.of(context).cardColor,
-                borderRadius: BorderRadius.circular(10.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3),
+          ArticleModel? model = ArticlesCubit.get(context).getArticle(id);
+          return model == null
+              ? Center(
+                  child: Text(
+                    S.of(context).article_removed,
                   ),
-                ],
-              ),
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (model.isRefused!) const RefusedArticleTextWidget(),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          model.title ?? '',
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: Intl.getCurrentLocale() == 'en'
-                              ? TextAlign.end
-                              : TextAlign.start,
+                )
+              : Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).cardColor,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      if (model.image != null || model.image!.isNotEmpty)
-                        ImageViewWidget(
-                          image: model.image!.first,
-                          width: getWidht,
-                        ),
-                      Padding(
+                      ],
+                    ),
+                    child: SingleChildScrollView(
+                      child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: Text(
-                            """${(model.body)}""",
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w600,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (model.isRefused!)
+                              const RefusedArticleTextWidget(),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                model.title ?? '',
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: Intl.getCurrentLocale() == 'en'
+                                    ? TextAlign.end
+                                    : TextAlign.start,
+                              ),
                             ),
-                          ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            if (model.image != null || model.image!.isNotEmpty)
+                              ImageViewWidget(
+                                image: model.image!.first,
+                                width: getWidht,
+                              ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Text(
+                                  """${(model.body)}""",
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const Divider(),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            ArticlWriterBuilderWidget(
+                              uid: model.writerUid ?? '',
+                              article: model,
+                            ),
+                            if (model.writerUid == uid)
+                              if (userType == 'admin' || userType == 'writer')
+                                const Divider(),
+                            if (model.writerUid == uid)
+                              if (userType == 'admin' || userType == 'writer')
+                                customButton(
+                                  onPressed: () {
+                                    navigateTo(
+                                      context,
+                                      NewArticleScreen(model: model),
+                                    );
+                                  },
+                                  lable: S.of(context).edit,
+                                )
+                          ],
                         ),
                       ),
-                      const Divider(),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      ArticlWriterBuilderWidget(
-                        uid: model.writerUid ?? '',
-                        article: model,
-                      ),
-                      if (model.writerUid == uid)
-                        if (userType == 'admin' || userType == 'writer')
-                          const Divider(),
-                      if (model.writerUid == uid)
-                        if (userType == 'admin' || userType == 'writer')
-                          customButton(
-                            onPressed: () {
-                              navigateTo(
-                                context,
-                                NewArticleScreen(model: model),
-                              );
-                            },
-                            lable: S.of(context).edit,
-                          )
-                    ],
+                    ),
                   ),
-                ),
-              ),
-            ),
-          );
+                );
         },
       ),
     );

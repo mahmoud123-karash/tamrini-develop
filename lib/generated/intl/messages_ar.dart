@@ -66,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "article_body": MessageLookupByLibrary.simpleMessage("المقال"),
         "article_name": MessageLookupByLibrary.simpleMessage("اسم المقال"),
+        "article_removed":
+            MessageLookupByLibrary.simpleMessage("تم حذف هذا المقال"),
         "articles": MessageLookupByLibrary.simpleMessage("آخر المقالات"),
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
         "auto_reminder":

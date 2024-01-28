@@ -2769,6 +2769,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تم حذف هذا المقال`
+  String get article_removed {
+    return Intl.message(
+      'تم حذف هذا المقال',
+      name: 'article_removed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

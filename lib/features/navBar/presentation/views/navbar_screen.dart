@@ -35,11 +35,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     initiGetprofile(context);
     getintil(context);
     onMessageOpenedApp(context: context);
-    onMessage(
-      function: () {
-        NotificationCubit.get(context).getData();
-      },
-    );
+    onMessage(context: context);
     listenNotification();
     super.initState();
   }
