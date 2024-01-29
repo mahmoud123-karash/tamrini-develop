@@ -18,7 +18,7 @@ class StoreModel {
   });
 
   factory StoreModel.fromMap(Map<String, dynamic> map) {
-    final List<dynamic> productsJson = map['products'];
+    final List<dynamic> productsJson = map['products'] ?? [];
     List<ProductModel> products = productsJson.map((productJson) {
       return ProductModel.fromMap(productJson);
     }).toList();
@@ -40,7 +40,7 @@ class StoreModel {
       'image': image,
       'isBanned': isBanned,
       'contact': contact,
-      'products': products,
+      'products': products!.map((product) => product.toMap()).toList(),
     };
   }
 }

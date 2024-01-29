@@ -1,8 +1,13 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/domain/repo/store_repo.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
+import 'package:tamrini/generated/l10n.dart';
+
+import '../../views/store_owner_screen.dart';
 
 class StoreCubit extends Cubit<StoreStates> {
   StoreCubit(this.storeRepo) : super(InitialStoresState());
@@ -36,15 +41,11 @@ class StoreCubit extends Cubit<StoreStates> {
     );
   }
 
-  bool isSale = false;
-  bool isBestSeller = false;
-  bool available = false;
-  String productType = '';
-
   void addStore({
     required String name,
     required String contact,
     required String imagePath,
+    required BuildContext context,
   }) async {
     emit(LoadingGetStoresState());
     var result = await storeRepo.addStore(
@@ -58,6 +59,79 @@ class StoreCubit extends Cubit<StoreStates> {
       },
       (list) {
         stores = list;
+        showSnackBar(context, S.of(context).success_add_e);
+        navigateToAndReplace(context, const StoreOwnerScreen());
+        emit(SucessGetStoresState(list));
+      },
+    );
+  }
+
+  void editStore({
+    required String name,
+    required String contact,
+    required String imagePath,
+    required StoreModel model,
+    required BuildContext context,
+  }) async {
+    emit(LoadingGetStoresState());
+    var result = await storeRepo.editStore(
+      name: name,
+      contact: contact,
+      imagePath: imagePath,
+      store: model,
+    );
+    result.fold(
+      (message) {
+        if (kDebugMode) {
+          print(message);
+        }
+        emit(ErrorGetStoresState(message));
+      },
+      (list) {
+        stores = list;
+        Navigator.pop(context);
+        showSnackBar(context, S.of(context).success_edit_a);
+        emit(SucessGetStoresState(list));
+      },
+    );
+  }
+
+  bool isSale = false;
+  bool isBestSeller = false;
+  bool available = true;
+  String productType = '';
+
+  void addProduct({
+    required String title,
+    required String description,
+    required num price,
+    required num oldPrice,
+    required String imagePath,
+    required StoreModel store,
+    required BuildContext context,
+  }) async {
+    emit(LoadingGetStoresState());
+    var result = await storeRepo.addProduct(
+      title: title,
+      description: description,
+      type: productType,
+      price: price,
+      oldPrice: oldPrice,
+      bestSeller: isBestSeller,
+      imagePath: imagePath,
+      store: store,
+    );
+    result.fold(
+      (message) {
+        if (kDebugMode) {
+          print(message);
+        }
+        emit(ErrorGetStoresState(message));
+      },
+      (list) {
+        stores = list;
+        Navigator.pop(context);
+        showSnackBar(context, S.of(context).success_add_e);
         emit(SucessGetStoresState(list));
       },
     );

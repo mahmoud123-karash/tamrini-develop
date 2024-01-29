@@ -30,19 +30,20 @@ class ProductDetailsScreen extends StatelessWidget {
         title: Text(S.of(context).proDetails),
         centerTitle: true,
         actions: [
-          if (sModel != null)
-            IconButton(
-              onPressed: () {
-                if (sModel == null) {
-                  Navigator.pop(context);
-                } else {
-                  navigateTo(context, StoreScreen(model: sModel!));
-                }
-              },
-              icon: const Icon(
-                Ionicons.storefront,
-              ),
-            )
+          if (model.ownerUid != uid)
+            if (sModel != null)
+              IconButton(
+                onPressed: () {
+                  if (sModel == null) {
+                    Navigator.pop(context);
+                  } else {
+                    navigateTo(context, StoreScreen(model: sModel!));
+                  }
+                },
+                icon: const Icon(
+                  Ionicons.storefront,
+                ),
+              )
         ],
       ),
       body: Padding(
@@ -74,7 +75,8 @@ class ProductDetailsScreen extends StatelessWidget {
               model.ownerUid == uid
                   ? customButton(
                       onPressed: () {
-                        navigateTo(context, NewProductScreen(model: model));
+                        navigateTo(context,
+                            NewProductScreen(model: model, store: sModel!));
                       },
                       lable: S.of(context).edit,
                     )

@@ -43,7 +43,7 @@ class ProductModel {
       'bestSeller': bestSeller,
       'type': type,
       'oldPrice': oldPrice,
-      'rating': rating,
+      'rating': rating.map((e) => e.toMap()).toList(),
     };
   }
 

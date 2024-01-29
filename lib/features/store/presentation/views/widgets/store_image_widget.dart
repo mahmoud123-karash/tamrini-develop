@@ -30,9 +30,9 @@ class StoreImageWidget extends StatelessWidget {
         : ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.asset(
-              Assets.imagesExercise,
+              Assets.imagesWhey,
               fit: BoxFit.cover,
-              width: getWidht - 70,
+              width: getWidht,
               height: getHeight * 0.3,
             ),
           );

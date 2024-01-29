@@ -13,6 +13,7 @@ class RemoveProductIconWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 5,
+        horizontal: 5,
       ),
       child: CircleAvatar(
         backgroundColor: Colors.red.withOpacity(0.2),

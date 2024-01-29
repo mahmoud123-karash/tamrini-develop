@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/presentation/views/new_store_screen.dart';
 import 'package:tamrini/features/store/presentation/views/store_screen.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_name_num_widget.dart';
 
+import '../store_owner_screen.dart';
 import 'store_chat_icon_widget.dart';
 import 'store_image_widget.dart';
 
@@ -18,13 +21,17 @@ class StoreItemWidget extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
     final getWidht = mediaQuery.size.width;
-
+    String uid = CacheHelper.getData(key: 'uid');
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         onTap: () {
-          navigateTo(context, StoreScreen(model: model));
+          if (uid == model.storeOwnerUid) {
+            navigateTo(context, const StoreOwnerScreen());
+          } else {
+            navigateTo(context, StoreScreen(model: model));
+          }
         },
         child: Stack(
           children: [
@@ -73,31 +80,41 @@ class StoreItemWidget extends StatelessWidget {
                         num: model.products!.length,
                       ),
                       const Spacer(),
-                      StoreChatIconWidget(
-                        icon: Icons.chat,
-                        onPressed: () {
-                          Uri smsUri = Uri(
-                            scheme: 'sms',
-                            path: model.contact,
-                          );
-                          openUri(url: smsUri);
-                        },
-                        color: appColor,
-                      ),
+                      if (uid != model.storeOwnerUid)
+                        StoreChatIconWidget(
+                          icon: Icons.chat,
+                          onPressed: () {
+                            Uri smsUri = Uri(
+                              scheme: 'sms',
+                              path: model.contact,
+                            );
+                            openUri(url: smsUri);
+                          },
+                          color: appColor,
+                        ),
                       const SizedBox(
                         width: 10,
                       ),
-                      StoreChatIconWidget(
-                        icon: Icons.phone,
-                        onPressed: () {
-                          Uri phoneUri = Uri(
-                            scheme: 'tel',
-                            path: model.contact,
-                          );
-                          openUri(url: phoneUri);
-                        },
-                        color: Colors.amber.withOpacity(0.5),
-                      ),
+                      if (uid != model.storeOwnerUid)
+                        StoreChatIconWidget(
+                          icon: Icons.phone,
+                          onPressed: () {
+                            Uri phoneUri = Uri(
+                              scheme: 'tel',
+                              path: model.contact,
+                            );
+                            openUri(url: phoneUri);
+                          },
+                          color: Colors.amber.withOpacity(0.5),
+                        ),
+                      if (uid == model.storeOwnerUid)
+                        StoreChatIconWidget(
+                          icon: Icons.edit,
+                          onPressed: () {
+                            navigateTo(context, NewStoreScreen(model: model));
+                          },
+                          color: appColor,
+                        )
                     ],
                   ),
                 ),

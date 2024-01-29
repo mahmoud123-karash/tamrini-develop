@@ -56,6 +56,7 @@ class StoreOwnerScreen extends StatelessWidget {
                         shrinkWrap: true,
                         itemBuilder: (context, index) => ProductStoreItemWidget(
                           model: model.products![index],
+                          sModel: model,
                         ),
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 10,

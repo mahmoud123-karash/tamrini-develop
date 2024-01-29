@@ -16,6 +16,7 @@ class ArticleCustombuilderWidget extends StatelessWidget {
       listener: (context, state) {
         if (state is ErrorGetArticlesState) {
           showSnackBar(context, state.message);
+          ArticlesCubit.get(context).getData();
         }
       },
       builder: (context, state) {

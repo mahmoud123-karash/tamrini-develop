@@ -22,16 +22,19 @@ class ProductDetailsImageWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           color: whiteColor,
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Image(
-            image: FirebaseImageProvider(
-              FirebaseUrl(image),
-              options: const CacheOptions(
-                checkForMetadataChange: false,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Image(
+              image: FirebaseImageProvider(
+                FirebaseUrl(image),
+                options: const CacheOptions(
+                  checkForMetadataChange: false,
+                ),
               ),
+              fit: BoxFit.contain,
             ),
-            fit: BoxFit.contain,
           ),
         ),
       ),

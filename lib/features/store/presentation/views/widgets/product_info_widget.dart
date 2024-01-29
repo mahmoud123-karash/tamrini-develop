@@ -15,54 +15,55 @@ class ProductInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          constraints: BoxConstraints(
-            maxWidth: getWidht - (120.w + 10 + 25),
-          ),
-          child: Text(
-            model.title,
-            maxLines: 1,
-            textAlign: TextAlign.start,
-            style: const TextStyle(
-              fontFamily: 'Cairo',
-              fontWeight: FontWeight.bold,
+    return SizedBox(
+      height: 120.h,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            constraints: BoxConstraints(
+              maxWidth: getWidht - (120.w + 10 + 25),
             ),
-          ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Container(
-          constraints: BoxConstraints(
-            maxWidth: getWidht - (120.w + 10 + 25),
-          ),
-          child: Text(
-            model.description,
-            maxLines: 2,
-            style: const TextStyle(
-              fontWeight: FontWeight.normal,
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        model.rating.isEmpty
-            ? const NewBadgeWidget()
-            : ProductRatingWidget(
-                rating: calculateAverageRating(model.rating),
+            child: Text(
+              model.title,
+              maxLines: 1,
+              textAlign: TextAlign.start,
+              style: const TextStyle(
+                fontFamily: 'Cairo',
+                fontWeight: FontWeight.bold,
               ),
-        ProductPriceWidget(
-          price: model.price.toStringAsFixed(1),
-          oldPrice: model.oldPrice.toStringAsFixed(1),
-          spacer: 5,
-          mainAxisAlignment: MainAxisAlignment.start,
-        )
-      ],
+            ),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            constraints: BoxConstraints(
+              maxWidth: getWidht - (120.w + 10 + 25),
+            ),
+            child: Text(
+              model.description,
+              maxLines: 2,
+              style: const TextStyle(
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+          ),
+          const Spacer(),
+          model.rating.isEmpty
+              ? const NewBadgeWidget()
+              : ProductRatingWidget(
+                  rating: calculateAverageRating(model.rating),
+                ),
+          ProductPriceWidget(
+            price: model.price.toStringAsFixed(1),
+            oldPrice: model.oldPrice.toStringAsFixed(1),
+            spacer: 5,
+            mainAxisAlignment: MainAxisAlignment.start,
+          )
+        ],
+      ),
     );
   }
 }

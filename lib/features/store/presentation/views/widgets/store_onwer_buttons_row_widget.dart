@@ -35,7 +35,7 @@ class StoreOwnerButtonsRowWidget extends StatelessWidget {
               fontSize: 15,
               lable: S.of(context).add_product,
               onPressed: () {
-                navigateTo(context, const NewProductScreen());
+                navigateTo(context, NewProductScreen(store: model));
               },
             ),
           )

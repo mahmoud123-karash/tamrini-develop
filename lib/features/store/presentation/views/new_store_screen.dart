@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/build_store_custom_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -72,8 +73,21 @@ class _NewStoreScreenState extends State<NewStoreScreen> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
+                      StoreCubit.get(context).editStore(
+                        name: nameController.text,
+                        contact: contactController.text,
+                        imagePath: paths.isEmpty ? "" : paths.first,
+                        model: widget.model!,
+                        context: context,
+                      );
                     } else {
                       if (paths.isNotEmpty) {
+                        StoreCubit.get(context).addStore(
+                          name: nameController.text,
+                          contact: contactController.text,
+                          imagePath: paths.first,
+                          context: context,
+                        );
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }

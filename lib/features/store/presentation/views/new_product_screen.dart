@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
+import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/build_store_custom_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -11,8 +12,9 @@ import '../manager/store_cubit/store_cubit.dart';
 import 'widgets/new_product_content_widget.dart';
 
 class NewProductScreen extends StatefulWidget {
-  const NewProductScreen({super.key, this.model});
+  const NewProductScreen({super.key, this.model, required this.store});
   final ProductModel? model;
+  final StoreModel store;
 
   @override
   State<NewProductScreen> createState() => _NewProductScreenState();
@@ -105,7 +107,17 @@ class _NewProductScreenState extends State<NewProductScreen> {
                             showSnackBar(
                                 context, S.of(context).product_type_hint);
                           } else {
-                            log('add');
+                            cubit.addProduct(
+                              title: nameController.text,
+                              description: descriptionController.text,
+                              price: int.parse(priceController.text),
+                              oldPrice: cubit.isSale
+                                  ? int.parse(oldPriceController.text)
+                                  : 0,
+                              imagePath: paths.first,
+                              store: widget.store,
+                              context: context,
+                            );
                           }
                         });
                       } else {

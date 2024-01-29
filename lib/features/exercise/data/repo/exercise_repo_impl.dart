@@ -83,11 +83,11 @@ class ExerciseRepoImpl extends ExerciseRepo {
           id: id,
           image: images.isEmpty ? '' : images.first,
         );
-        List<String> newImages = [];
-        List<String> oldImages = [];
-        oldImages.add(oldModel.image!);
-        newImages.add(images.first);
-        await deleteOldImages(newImages: newImages, oldImages: oldImages);
+        if (oldModel.image != '') {
+          List<String> oldImages = [];
+          oldImages.add(oldModel.image!);
+          await deleteOldImages(newImages: images, oldImages: oldImages);
+        }
       } else {
         newModel = ExerciseModel(
           data: data,
@@ -191,10 +191,8 @@ class ExerciseRepoImpl extends ExerciseRepo {
         List<String> images = await uploadFiles(files: files);
         if (checkImageformat(oldData.assets ?? []) != '') {
           List<String> oldImages = [];
-          List<String> newImages = [];
-          newImages.addAll(images);
           oldImages.add(checkImageformat(oldData.assets ?? []));
-          await deleteOldImages(newImages: newImages, oldImages: oldImages);
+          await deleteOldImages(newImages: images, oldImages: oldImages);
         }
         List<String> assets = [];
         assets.addAll([youtubUrl, ...images]);

@@ -80,11 +80,12 @@ class UpdateUseCase extends UseCase {
           oldImages.add(image);
           await deleteOldImages(newImages: uris, oldImages: oldImages);
         }
+        String uri = uris.isEmpty ? '' : uris.first;
         profileRepo.updateProfile(
-          model: model(uris.first),
+          model: model(uri),
         );
-        box.add(model(uris.first));
-        return right(model(uris.first));
+        box.add(model(uri));
+        return right(model(uri));
       }
     } catch (e) {
       return left(e.toString());

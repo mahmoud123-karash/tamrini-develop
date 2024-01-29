@@ -10,8 +10,22 @@ abstract class StoreRepo {
     required String contact,
     required String imagePath,
   });
-  Future<Either<String, List<StoreModel>>> editStore();
-  Future<Either<String, List<StoreModel>>> addProduct();
+  Future<Either<String, List<StoreModel>>> editStore({
+    required String name,
+    required String contact,
+    required String imagePath,
+    required StoreModel store,
+  });
+  Future<Either<String, List<StoreModel>>> addProduct({
+    required String title,
+    required String description,
+    required String type,
+    required num price,
+    required num oldPrice,
+    required bool bestSeller,
+    required String imagePath,
+    required StoreModel store,
+  });
   Future<Either<String, List<StoreModel>>> editProduct();
   Future<Either<String, List<StoreModel>>> removeProduct();
 }

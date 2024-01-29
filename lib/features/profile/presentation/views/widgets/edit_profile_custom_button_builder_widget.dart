@@ -20,6 +20,7 @@ class EditProfileCustomButtonBuilderWidget extends StatelessWidget {
           showSnackBar(context, S.of(context).success_update_profile);
         }
         if (state is ErrorGetProfileState) {
+          ProfileCubit.get(context).getProfile();
           showSnackBar(context, state.message);
         }
       },

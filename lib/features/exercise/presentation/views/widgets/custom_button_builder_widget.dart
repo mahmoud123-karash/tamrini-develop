@@ -15,6 +15,7 @@ class CustomButtonBuilderWidget extends StatelessWidget {
       listener: (context, state) {
         if (state is ErrorGetExerciseState) {
           showSnackBar(context, state.message);
+          ExerciseCubit.get(context).getData();
         }
       },
       builder: (context, state) {

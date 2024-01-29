@@ -44,10 +44,12 @@ List<ProductModel> genrateHomeList(SucessGetStoresState state) {
   Random random = Random();
   List<ProductModel> list = [];
   for (var element in state.list) {
-    ProductModel model =
-        element.products![random.nextInt(element.products!.length)];
-    if (list.length < 5) {
-      list.add(model);
+    if (element.products!.isNotEmpty) {
+      ProductModel model =
+          element.products![random.nextInt(element.products!.length)];
+      if (list.length < 5) {
+        list.add(model);
+      }
     }
   }
   return list;
