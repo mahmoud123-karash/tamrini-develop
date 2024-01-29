@@ -259,6 +259,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "product_old_price":
             MessageLookupByLibrary.simpleMessage("السعر القديم للمنتج"),
         "product_price": MessageLookupByLibrary.simpleMessage("سعر المنتج"),
+        "product_removed":
+            MessageLookupByLibrary.simpleMessage("تم حذف هذا المنتج"),
         "product_type": MessageLookupByLibrary.simpleMessage("نوع المنتج"),
         "product_type_hint":
             MessageLookupByLibrary.simpleMessage("يجب اختيار نوع المنتج"),

@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/domain/repo/store_repo.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
@@ -24,14 +24,23 @@ class StoreCubit extends Cubit<StoreStates> {
     return list;
   }
 
+  ProductModel? getProduct(id) {
+    List<ProductModel> list = [];
+    for (var element in stores) {
+      list.addAll(
+          element.products!.where((element) => element.id == id).toList());
+    }
+    if (list.isEmpty) {
+      return null;
+    }
+    return list.first;
+  }
+
   void getData() async {
     emit(LoadingGetStoresState());
     var result = await storeRepo.getStores();
     result.fold(
       (message) {
-        if (kDebugMode) {
-          print(message);
-        }
         emit(ErrorGetStoresState(message));
       },
       (list) {
@@ -52,9 +61,6 @@ class StoreCubit extends Cubit<StoreStates> {
         name: name, contact: contact, imagePath: imagePath);
     result.fold(
       (message) {
-        if (kDebugMode) {
-          print(message);
-        }
         emit(ErrorGetStoresState(message));
       },
       (list) {
@@ -82,9 +88,6 @@ class StoreCubit extends Cubit<StoreStates> {
     );
     result.fold(
       (message) {
-        if (kDebugMode) {
-          print(message);
-        }
         emit(ErrorGetStoresState(message));
       },
       (list) {
@@ -123,15 +126,48 @@ class StoreCubit extends Cubit<StoreStates> {
     );
     result.fold(
       (message) {
-        if (kDebugMode) {
-          print(message);
-        }
         emit(ErrorGetStoresState(message));
       },
       (list) {
         stores = list;
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_add_e);
+        emit(SucessGetStoresState(list));
+      },
+    );
+  }
+
+  void editProduct({
+    required String title,
+    required String description,
+    required num price,
+    required num oldPrice,
+    required String imagePath,
+    required StoreModel store,
+    required ProductModel oldModel,
+    required BuildContext context,
+  }) async {
+    emit(LoadingGetStoresState());
+    var result = await storeRepo.editProduct(
+      title: title,
+      description: description,
+      type: productType,
+      price: price,
+      oldPrice: oldPrice,
+      bestSeller: isBestSeller,
+      imagePath: imagePath,
+      store: store,
+      available: available,
+      oldModel: oldModel,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetStoresState(message));
+      },
+      (list) {
+        stores = list;
+        Navigator.pop(context);
+        showSnackBar(context, S.of(context).success_edit_a);
         emit(SucessGetStoresState(list));
       },
     );

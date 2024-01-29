@@ -31,11 +31,7 @@ class HomeProductItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         onTap: () {
           navigateTo(
-              context,
-              ProductDetailsScreen(
-                model: model,
-                sModel: smodel,
-              ));
+              context, ProductDetailsScreen(id: model.id, sModel: smodel));
         },
         child: Stack(
           children: [

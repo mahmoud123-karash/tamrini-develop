@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -98,7 +96,18 @@ class _NewProductScreenState extends State<NewProductScreen> {
                     formKey.currentState!.save();
                     if (widget.model != null) {
                       checkIsSale(cubit, context, () {
-                        log('edit');
+                        cubit.editProduct(
+                          oldModel: widget.model!,
+                          title: nameController.text,
+                          description: descriptionController.text,
+                          price: int.parse(priceController.text),
+                          oldPrice: cubit.isSale
+                              ? int.parse(oldPriceController.text)
+                              : 0,
+                          imagePath: paths.isEmpty ? '' : paths.first,
+                          store: widget.store,
+                          context: context,
+                        );
                       });
                     } else {
                       if (paths.isNotEmpty) {

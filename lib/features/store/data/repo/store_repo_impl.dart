@@ -185,22 +185,46 @@ class StoreRepoImpl extends StoreRepo {
     required ProductModel oldModel,
   }) async {
     try {
-      List<String> images = await getImages(imagePath);
-      ProductModel productModel = ProductModel(
-        contact: store.contact,
-        ownerUid: store.storeOwnerUid,
-        title: title,
-        description: description,
-        id: oldModel.id,
-        type: type,
-        image: images.isEmpty ? '' : images.first,
-        price: price,
-        oldPrice: oldPrice,
-        available: available,
-        bestSeller: bestSeller,
-        rating: oldModel.rating,
-      );
+      late ProductModel productModel;
+      if (imagePath == '') {
+        productModel = ProductModel(
+          contact: store.contact,
+          ownerUid: store.storeOwnerUid,
+          title: title,
+          description: description,
+          id: oldModel.id,
+          type: type,
+          image: oldModel.image,
+          price: price,
+          oldPrice: oldPrice,
+          available: available,
+          bestSeller: bestSeller,
+          rating: oldModel.rating,
+        );
+      } else {
+        List<String> images = await getImages(imagePath);
+        if (oldModel.image != '') {
+          List<String> oldImages = [];
+          oldImages.add(oldModel.image);
+          await deleteOldImages(newImages: images, oldImages: oldImages);
+        }
+        productModel = ProductModel(
+          contact: store.contact,
+          ownerUid: store.storeOwnerUid,
+          title: title,
+          description: description,
+          id: oldModel.id,
+          type: type,
+          image: images.isEmpty ? '' : images.first,
+          price: price,
+          oldPrice: oldPrice,
+          available: available,
+          bestSeller: bestSeller,
+          rating: oldModel.rating,
+        );
+      }
       List<ProductModel> products = store.products ?? [];
+      products.remove(oldModel);
       products.add(productModel);
       StoreModel model = StoreModel(
         image: store.image,
@@ -222,8 +246,29 @@ class StoreRepoImpl extends StoreRepo {
   }
 
   @override
-  Future<Either<String, List<StoreModel>>> removeProduct() {
-    // TODO: implement removeProduct
-    throw UnimplementedError();
+  Future<Either<String, List<StoreModel>>> removeProduct({
+    required ProductModel oldModel,
+    required StoreModel store,
+  }) async {
+    try {
+      List<ProductModel> products = store.products ?? [];
+      products.remove(oldModel);
+      StoreModel model = StoreModel(
+        image: store.image,
+        name: store.name,
+        storeOwnerUid: store.storeOwnerUid,
+        contact: store.contact,
+        isBanned: false,
+        products: products,
+      );
+      await FirebaseFirestore.instance
+          .collection('stores')
+          .doc(store.storeOwnerUid)
+          .update(model.toMap());
+      List<StoreModel> list = await storeRemoteDataSource.getStores();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
   }
 }

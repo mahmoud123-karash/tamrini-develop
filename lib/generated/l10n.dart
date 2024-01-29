@@ -3029,6 +3029,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تم حذف هذا المنتج`
+  String get product_removed {
+    return Intl.message(
+      'تم حذف هذا المنتج',
+      name: 'product_removed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

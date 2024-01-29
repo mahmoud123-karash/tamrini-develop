@@ -20,7 +20,7 @@ class ProductItemWidget extends StatelessWidget {
         navigateTo(
             context,
             ProductDetailsScreen(
-              model: model,
+              id: model.id,
               sModel: sModel,
             ));
       },
