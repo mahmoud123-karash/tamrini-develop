@@ -22,6 +22,8 @@ import 'package:tamrini/features/my_day/data/data_sources/remote_data_source/my_
 import 'package:tamrini/features/my_day/data/repo/my_day_repo_impl.dart';
 import 'package:tamrini/features/notification/data/data_sources/remote_data_source/notification_remote_data_source.dart';
 import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
+import 'package:tamrini/features/order/data/data_sources/remote_data_source/order_remote_data_source.dart';
+import 'package:tamrini/features/order/data/repo/order_repo_impl.dart';
 import 'package:tamrini/features/profile/data/data_sources/local_data_source/profile_local_data_source.dart';
 import 'package:tamrini/features/profile/data/data_sources/remote_data_source/profile_remote_data_source.dart';
 import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
@@ -166,10 +168,16 @@ void setLocator() {
     ),
   );
 
-  getIt.registerSingleton(
+  getIt.registerSingleton<BanQuestionUseCase>(
     BanQuestionUseCase(
       getIt.get<QuestionRepoImpl>(),
       getIt.get<DioHelper>(),
+    ),
+  );
+
+  getIt.registerSingleton<OrederRepoImpl>(
+    OrederRepoImpl(
+      OrderRemoteDataSourceImpl(),
     ),
   );
 }

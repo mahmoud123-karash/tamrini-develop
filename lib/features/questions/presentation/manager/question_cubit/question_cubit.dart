@@ -86,7 +86,6 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required String token,
   }) async {
     emit(LoadingUpdateQuestionState());
-
     var result =
         await banQuestionUseCase.ban(model: model, id: id, token: token);
     result.fold(

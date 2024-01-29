@@ -15,6 +15,7 @@ import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/badge_notification_icon_widget.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
+import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'widgets/curved_nav_bar_widget.dart';
 import 'widgets/drawer_widget.dart';
 
@@ -31,6 +32,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     UpdateCubit.get(context).update();
     NotificationCubit.get(context).getData();
     DayCubit.get(context).getData();
+    OrderCubit.get(context).getData();
     log(CacheHelper.getData(key: 'deviceToken') ?? '');
     initiGetprofile(context);
     getintil(context);
