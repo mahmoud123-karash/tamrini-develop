@@ -172,4 +172,26 @@ class StoreCubit extends Cubit<StoreStates> {
       },
     );
   }
+
+  void removeProduct({
+    required StoreModel store,
+    required ProductModel oldModel,
+    required BuildContext context,
+  }) async {
+    var result = await storeRepo.removeProduct(
+      store: store,
+      oldModel: oldModel,
+    );
+    result.fold(
+      (message) {
+        getData();
+        emit(ErrorGetStoresState(message));
+      },
+      (list) {
+        stores = list;
+        showSnackBar(context, S.of(context).success_remove);
+        emit(SucessGetStoresState(list));
+      },
+    );
+  }
 }

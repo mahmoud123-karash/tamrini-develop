@@ -74,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "articles": MessageLookupByLibrary.simpleMessage("Latest Articles"),
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
-        "available": MessageLookupByLibrary.simpleMessage("متاح"),
+        "available": MessageLookupByLibrary.simpleMessage("متوفر"),
         "ban_article": MessageLookupByLibrary.simpleMessage("Ban Article"),
         "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
         "ban_your_article": MessageLookupByLibrary.simpleMessage(
@@ -391,6 +391,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This User does not have an account on this platform"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "twiter": MessageLookupByLibrary.simpleMessage("Twitter"),
+        "unavailable": MessageLookupByLibrary.simpleMessage("غير متوفر"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "update_profile":
             MessageLookupByLibrary.simpleMessage("Update Profile"),

@@ -7,8 +7,12 @@ import 'package:tamrini/features/store/data/models/category_model/category_model
 import 'package:tamrini/features/store/presentation/views/products_category_screen.dart';
 
 class CategoryProductItemWidget extends StatelessWidget {
-  const CategoryProductItemWidget(
-      {super.key, required this.model, required this.list, required this.name});
+  const CategoryProductItemWidget({
+    super.key,
+    required this.model,
+    required this.list,
+    required this.name,
+  });
   final CategoryModel model;
   final List<ProductModel> list;
   final String name;

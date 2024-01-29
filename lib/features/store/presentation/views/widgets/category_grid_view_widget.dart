@@ -43,8 +43,10 @@ class GategoryGridViewWidget extends StatelessWidget {
                   )
                 : Container();
           } else {
-            List<ProductModel> list =
-                products.where((element) => element.type == 'أخري').toList();
+            List<ProductModel> list = products
+                .where((element) => element.type == 'أخري')
+                .where((element) => element.available == true)
+                .toList();
             return list.isNotEmpty
                 ? OtherCategoryItemWidget(
                     list: list,

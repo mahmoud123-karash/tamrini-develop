@@ -20,7 +20,9 @@ class CategoryProductScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              AllProductsWidget(list: list),
+              AllProductsWidget(
+                list: list,
+              ),
               const SizedBox(
                 height: 40,
               ),

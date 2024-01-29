@@ -74,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "articlesT": MessageLookupByLibrary.simpleMessage("المقالات"),
         "auto_reminder":
             MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
-        "available": MessageLookupByLibrary.simpleMessage("متاح"),
+        "available": MessageLookupByLibrary.simpleMessage("متوفر"),
         "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
         "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
         "ban_your_article":
@@ -384,6 +384,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "هذا المستخدم ليس لديه حساب في هذا الموقع"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
         "twiter": MessageLookupByLibrary.simpleMessage("تويتر"),
+        "unavailable": MessageLookupByLibrary.simpleMessage("غير متوفر"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "update_profile": MessageLookupByLibrary.simpleMessage("تحديث"),
         "update_your_account":

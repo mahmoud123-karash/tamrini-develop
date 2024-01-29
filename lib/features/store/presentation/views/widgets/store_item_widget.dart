@@ -77,7 +77,11 @@ class StoreItemWidget extends StatelessWidget {
                     children: [
                       StoreNameNumWidget(
                         name: model.name,
-                        num: model.products!.length,
+                        num: model.storeOwnerUid == uid
+                            ? model.products!.length
+                            : model.products!
+                                .where((element) => element.available)
+                                .length,
                       ),
                       const Spacer(),
                       if (uid != model.storeOwnerUid)

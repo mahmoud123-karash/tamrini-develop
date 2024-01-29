@@ -2950,11 +2950,21 @@ class S {
     );
   }
 
-  /// `متاح`
+  /// `متوفر`
   String get available {
     return Intl.message(
-      'متاح',
+      'متوفر',
       name: 'available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `غير متوفر`
+  String get unavailable {
+    return Intl.message(
+      'غير متوفر',
+      name: 'unavailable',
       desc: '',
       args: [],
     );

@@ -9,9 +9,14 @@ import 'package:tamrini/features/store/presentation/views/product_details_screen
 import 'package:tamrini/features/store/presentation/views/widgets/product_info_widget.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/remove_product_icon_widget.dart';
 
+import 'unavailable_badge_widget.dart';
+
 class ProductStoreItemWidget extends StatelessWidget {
-  const ProductStoreItemWidget(
-      {super.key, required this.model, required this.sModel});
+  const ProductStoreItemWidget({
+    super.key,
+    required this.model,
+    required this.sModel,
+  });
   final ProductModel model;
   final StoreModel sModel;
   @override
@@ -42,27 +47,36 @@ class ProductStoreItemWidget extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  SizedBox(
-                    width: 120.w,
-                    height: 140.h,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image(
-                          image: FirebaseImageProvider(
-                            FirebaseUrl(model.image),
+                  Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      SizedBox(
+                        width: 120.w,
+                        height: 140.h,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image(
+                              image: FirebaseImageProvider(
+                                FirebaseUrl(model.image),
+                              ),
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          fit: BoxFit.cover,
                         ),
                       ),
-                    ),
+                      if (!model.available) const UnAvailableBadgeWidget(),
+                    ],
                   ),
                   ProductInfoWidget(model: model),
                 ],
               ),
             ),
-            RemoveProductIconWidget(title: model.title),
+            RemoveProductIconWidget(
+              model: model,
+              store: sModel,
+            ),
           ],
         ),
       ),

@@ -11,7 +11,6 @@ import 'package:tamrini/features/store/presentation/views/new_product_screen.dar
 import 'package:tamrini/features/store/presentation/views/store_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'store_owner_screen.dart';
 import 'widgets/contact_and_buy_product_widget.dart';
 import 'widgets/product_details_content_widget.dart';
 
@@ -35,22 +34,19 @@ class ProductDetailsScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           if (sModel != null)
-            IconButton(
-              onPressed: () {
-                if (sModel == null) {
-                  Navigator.pop(context);
-                } else {
-                  if (sModel!.storeOwnerUid == uid) {
-                    navigateTo(context, const StoreOwnerScreen());
+            if (sModel!.storeOwnerUid != uid)
+              IconButton(
+                onPressed: () {
+                  if (sModel == null) {
+                    Navigator.pop(context);
                   } else {
                     navigateTo(context, StoreScreen(model: sModel!));
                   }
-                }
-              },
-              icon: const Icon(
-                Ionicons.storefront,
-              ),
-            )
+                },
+                icon: const Icon(
+                  Ionicons.storefront,
+                ),
+              )
         ],
       ),
       body: BlocBuilder<StoreCubit, StoreStates>(
