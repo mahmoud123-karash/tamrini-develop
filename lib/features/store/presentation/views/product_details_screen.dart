@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
+import 'package:tamrini/features/store/presentation/views/new_product_screen.dart';
 import 'package:tamrini/features/store/presentation/views/store_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -10,8 +12,11 @@ import 'widgets/contact_and_buy_product_widget.dart';
 import 'widgets/product_details_content_widget.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({Key? key, required this.model, this.sModel})
-      : super(key: key);
+  const ProductDetailsScreen({
+    Key? key,
+    required this.model,
+    this.sModel,
+  }) : super(key: key);
   final ProductModel model;
   final StoreModel? sModel;
 
@@ -19,6 +24,7 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHight = mediaQuery.size.height;
+    String uid = CacheHelper.getData(key: 'uid');
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).proDetails),
@@ -65,9 +71,16 @@ class ProductDetailsScreen extends StatelessWidget {
                   child: ProductDetailsContentWidget(model: model),
                 ),
               ),
-              ContactAndBuyProductWidget(
-                contact: model.contact,
-              )
+              model.ownerUid == uid
+                  ? customButton(
+                      onPressed: () {
+                        navigateTo(context, NewProductScreen(model: model));
+                      },
+                      lable: S.of(context).edit,
+                    )
+                  : ContactAndBuyProductWidget(
+                      contact: model.contact,
+                    )
             ],
           ),
         ),

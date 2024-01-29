@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/product_add_text_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -19,7 +20,13 @@ class AddProductPriceWidget extends StatefulWidget {
 }
 
 class _AddProductPriceWidgetState extends State<AddProductPriceWidget> {
-  bool sale = false;
+  late bool sale;
+
+  @override
+  void initState() {
+    sale = StoreCubit.get(context).isSale;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +43,7 @@ class _AddProductPriceWidgetState extends State<AddProductPriceWidget> {
             value: sale,
             onChanged: (value) {
               sale = value!;
+              StoreCubit.get(context).isSale = value;
               setState(() {});
             },
           ),

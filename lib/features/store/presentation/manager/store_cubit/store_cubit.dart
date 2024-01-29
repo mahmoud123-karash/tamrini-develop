@@ -35,4 +35,31 @@ class StoreCubit extends Cubit<StoreStates> {
       },
     );
   }
+
+  bool isSale = false;
+  bool isBestSeller = false;
+  bool available = false;
+  String productType = '';
+
+  void addStore({
+    required String name,
+    required String contact,
+    required String imagePath,
+  }) async {
+    emit(LoadingGetStoresState());
+    var result = await storeRepo.addStore(
+        name: name, contact: contact, imagePath: imagePath);
+    result.fold(
+      (message) {
+        if (kDebugMode) {
+          print(message);
+        }
+        emit(ErrorGetStoresState(message));
+      },
+      (list) {
+        stores = list;
+        emit(SucessGetStoresState(list));
+      },
+    );
+  }
 }

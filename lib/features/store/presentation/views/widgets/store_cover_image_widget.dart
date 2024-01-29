@@ -1,5 +1,6 @@
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_chat_icon_widget.dart';
@@ -21,6 +22,7 @@ class StoreCoverImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
+    String id = CacheHelper.getData(key: 'uid');
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         bottomLeft: Radius.circular(30),
@@ -79,31 +81,33 @@ class StoreCoverImageWidget extends StatelessWidget {
                       num: num,
                     ),
                     const Spacer(),
-                    StoreChatIconWidget(
-                      icon: Icons.chat,
-                      onPressed: () {
-                        Uri smsUri = Uri(
-                          scheme: 'sms',
-                          path: contact,
-                        );
-                        openUri(url: smsUri);
-                      },
-                      color: appColor,
-                    ),
+                    if (uid != id)
+                      StoreChatIconWidget(
+                        icon: Icons.chat,
+                        onPressed: () {
+                          Uri smsUri = Uri(
+                            scheme: 'sms',
+                            path: contact,
+                          );
+                          openUri(url: smsUri);
+                        },
+                        color: appColor,
+                      ),
                     const SizedBox(
                       width: 10,
                     ),
-                    StoreChatIconWidget(
-                      icon: Icons.phone,
-                      onPressed: () {
-                        Uri phoneUri = Uri(
-                          scheme: 'tel',
-                          path: contact,
-                        );
-                        openUri(url: phoneUri);
-                      },
-                      color: Colors.amber.withOpacity(0.5),
-                    ),
+                    if (uid != id)
+                      StoreChatIconWidget(
+                        icon: Icons.phone,
+                        onPressed: () {
+                          Uri phoneUri = Uri(
+                            scheme: 'tel',
+                            path: contact,
+                          );
+                          openUri(url: phoneUri);
+                        },
+                        color: Colors.amber.withOpacity(0.5),
+                      ),
                   ],
                 ),
               ),

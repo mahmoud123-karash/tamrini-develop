@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 class ProductTypeWidget extends StatefulWidget {
   const ProductTypeWidget({super.key, required this.types});
@@ -12,9 +16,10 @@ class ProductTypeWidget extends StatefulWidget {
 
 class _ProductTypeWidgetState extends State<ProductTypeWidget> {
   late String groupValue;
+
   @override
   void initState() {
-    groupValue = widget.types.isNotEmpty ? widget.types[0].title : '';
+    groupValue = StoreCubit.get(context).productType;
     super.initState();
   }
 
@@ -23,18 +28,20 @@ class _ProductTypeWidgetState extends State<ProductTypeWidget> {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: widget.types.length,
+      itemCount: widget.types.length + 1,
       itemBuilder: (context, index) => RadioListTile(
         title: Text(
-          widget.types[index].title,
+          index == 6 ? S.of(context).other : widget.types[index].title,
           style: TextStyles.style14.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
-        value: widget.types[index].title,
+        value: index == 6 ? S.of(context).other : widget.types[index].title,
         groupValue: groupValue,
         onChanged: (value) {
-          groupValue = value!;
+          groupValue = value ?? "";
+          StoreCubit.get(context).productType = value ?? '';
+          log(StoreCubit.get(context).productType);
           setState(() {});
         },
       ),

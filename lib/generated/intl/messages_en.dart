@@ -221,6 +221,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_meals": MessageLookupByLibrary.simpleMessage("No Meals"),
         "no_pending_articles":
             MessageLookupByLibrary.simpleMessage("No Pending Articles"),
+        "no_products_yet":
+            MessageLookupByLibrary.simpleMessage("لا يوجد منتجات حتى الآن"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
@@ -230,6 +232,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "nuttritions":
             MessageLookupByLibrary.simpleMessage("Nutritional supplements"),
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
+        "oldprice_hint_error": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم"),
         "optional": MessageLookupByLibrary.simpleMessage("Optional"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
@@ -256,6 +260,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("السعر القديم للمنتج"),
         "product_price": MessageLookupByLibrary.simpleMessage("سعر المنتج"),
         "product_type": MessageLookupByLibrary.simpleMessage("نوع المنتج"),
+        "product_type_hint":
+            MessageLookupByLibrary.simpleMessage("يجب اختيار نوع المنتج"),
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
         "profile": MessageLookupByLibrary.simpleMessage("Your Profile"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("None"),

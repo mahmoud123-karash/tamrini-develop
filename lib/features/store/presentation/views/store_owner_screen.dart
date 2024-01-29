@@ -4,6 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/product_store_item_widget.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 import '../manager/store_cubit/store_cubit.dart';
 import 'widgets/store_cover_image_widget.dart';
@@ -16,6 +17,7 @@ class StoreOwnerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
     final EdgeInsets systemPadding = MediaQuery.of(context).padding;
+    var height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: BlocBuilder<StoreCubit, StoreStates>(
@@ -41,17 +43,25 @@ class StoreOwnerScreen extends StatelessWidget {
                 StoreOwnerButtonsRowWidget(
                   model: model,
                 ),
-                ListView.separated(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) => ProductStoreItemWidget(
-                    model: model.products![index],
+                if (model.products!.isEmpty)
+                  SizedBox(
+                    height: height / 3.5,
                   ),
-                  separatorBuilder: (context, index) => const SizedBox(
-                    height: 10,
-                  ),
-                  itemCount: model.products!.length,
-                )
+                model.products!.isEmpty
+                    ? Text(
+                        S.of(context).no_products_yet,
+                      )
+                    : ListView.separated(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) => ProductStoreItemWidget(
+                          model: model.products![index],
+                        ),
+                        separatorBuilder: (context, index) => const SizedBox(
+                          height: 10,
+                        ),
+                        itemCount: model.products!.length,
+                      )
               ],
             ),
           );

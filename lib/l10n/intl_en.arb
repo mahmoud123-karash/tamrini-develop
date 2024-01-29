@@ -293,7 +293,13 @@
     "best_seller":"الأفضل مبيعا",
     "product_description":"وصف المنتج",
     "product_type":"نوع المنتج",
-    "sale":"خصم"
+    "sale":"خصم",
+    "oldprice_hint_error":"لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم",
+    "product_type_hint":"يجب اختيار نوع المنتج",
+    "no_products_yet":"لا يوجد منتجات حتى الآن"
+
+
+
 
 
 

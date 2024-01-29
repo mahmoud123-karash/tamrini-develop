@@ -2999,6 +2999,36 @@ class S {
       args: [],
     );
   }
+
+  /// `لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم`
+  String get oldprice_hint_error {
+    return Intl.message(
+      'لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم',
+      name: 'oldprice_hint_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يجب اختيار نوع المنتج`
+  String get product_type_hint {
+    return Intl.message(
+      'يجب اختيار نوع المنتج',
+      name: 'product_type_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد منتجات حتى الآن`
+  String get no_products_yet {
+    return Intl.message(
+      'لا يوجد منتجات حتى الآن',
+      name: 'no_products_yet',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

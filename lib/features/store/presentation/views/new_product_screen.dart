@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -5,6 +7,7 @@ import 'package:tamrini/features/store/data/models/store_model/product_model.dar
 import 'package:tamrini/features/store/presentation/views/widgets/build_store_custom_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../manager/store_cubit/store_cubit.dart';
 import 'widgets/new_product_content_widget.dart';
 
 class NewProductScreen extends StatefulWidget {
@@ -23,15 +26,26 @@ class _NewProductScreenState extends State<NewProductScreen> {
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  late StoreCubit cubit;
 
   @override
   void initState() {
     ImageCubit.get(context).clearPaths();
+    cubit = StoreCubit.get(context);
     if (widget.model != null) {
       nameController.text = widget.model!.title;
       descriptionController.text = widget.model!.description;
       priceController.text = widget.model!.price.toString();
       oldPriceController.text = widget.model!.oldPrice.toString();
+      cubit.isSale = widget.model!.oldPrice != 0.0;
+      cubit.isBestSeller = widget.model!.bestSeller;
+      cubit.available = widget.model!.available;
+      cubit.productType = widget.model!.type;
+    } else {
+      cubit.isSale = false;
+      cubit.isBestSeller = false;
+      cubit.available = false;
+      cubit.productType = '';
     }
     super.initState();
   }
@@ -65,6 +79,7 @@ class _NewProductScreenState extends State<NewProductScreen> {
               autovalidateMode: autovalidateMode,
               formKey: formKey,
               image: widget.model != null ? widget.model!.image : "",
+              isEdit: widget.model != null,
             ),
           ),
           SliverFillRemaining(
@@ -80,8 +95,19 @@ class _NewProductScreenState extends State<NewProductScreen> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
+                      checkIsSale(cubit, context, () {
+                        log('edit');
+                      });
                     } else {
                       if (paths.isNotEmpty) {
+                        checkIsSale(cubit, context, () {
+                          if (cubit.productType == '') {
+                            showSnackBar(
+                                context, S.of(context).product_type_hint);
+                          } else {
+                            log('add');
+                          }
+                        });
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }
@@ -97,5 +123,22 @@ class _NewProductScreenState extends State<NewProductScreen> {
         ],
       ),
     );
+  }
+
+  void checkIsSale(
+    StoreCubit cubit,
+    BuildContext context,
+    VoidCallback function,
+  ) {
+    if (cubit.isSale) {
+      if (int.parse(priceController.text) >=
+          int.parse(oldPriceController.text)) {
+        showSnackBar(context, S.of(context).oldprice_hint_error);
+      } else {
+        function();
+      }
+    } else {
+      function();
+    }
   }
 }

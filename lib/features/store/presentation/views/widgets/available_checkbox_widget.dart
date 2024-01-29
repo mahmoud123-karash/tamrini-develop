@@ -3,19 +3,19 @@ import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cu
 import 'package:tamrini/features/store/presentation/views/widgets/product_add_text_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class BestSellerCheckboxWidget extends StatefulWidget {
-  const BestSellerCheckboxWidget({super.key});
+class AvailableCheckboxWidget extends StatefulWidget {
+  const AvailableCheckboxWidget({super.key});
 
   @override
-  State<BestSellerCheckboxWidget> createState() =>
-      _BestSellerCheckboxWidgetState();
+  State<AvailableCheckboxWidget> createState() =>
+      _AvailableCheckboxWidgetState();
 }
 
-class _BestSellerCheckboxWidgetState extends State<BestSellerCheckboxWidget> {
-  late bool isbest;
+class _AvailableCheckboxWidgetState extends State<AvailableCheckboxWidget> {
+  late bool available;
   @override
   void initState() {
-    isbest = StoreCubit.get(context).isBestSeller;
+    available = StoreCubit.get(context).available;
     super.initState();
   }
 
@@ -28,12 +28,12 @@ class _BestSellerCheckboxWidgetState extends State<BestSellerCheckboxWidget> {
       ),
       child: CheckboxListTile(
         title: ProductAddTextWidget(
-          text: S.of(context).best_seller,
+          text: S.of(context).available,
         ),
-        value: isbest,
+        value: available,
         onChanged: (value) {
-          isbest = value!;
-          StoreCubit.get(context).isBestSeller = value;
+          available = value!;
+          StoreCubit.get(context).available = value;
           setState(() {});
         },
       ),

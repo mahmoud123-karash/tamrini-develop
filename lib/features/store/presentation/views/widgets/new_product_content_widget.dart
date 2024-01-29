@@ -9,6 +9,7 @@ import 'package:tamrini/features/store/presentation/views/widgets/product_type_l
 import 'package:tamrini/generated/l10n.dart';
 
 import 'add_product_price_widget.dart';
+import 'available_checkbox_widget.dart';
 import 'best_seller_checkbox_widget.dart';
 
 class NewProductContentWidget extends StatelessWidget {
@@ -21,6 +22,7 @@ class NewProductContentWidget extends StatelessWidget {
     required this.descriptionController,
     required this.priceController,
     required this.oldPriceController,
+    required this.isEdit,
   });
   final TextEditingController nameController;
   final TextEditingController descriptionController;
@@ -30,6 +32,7 @@ class NewProductContentWidget extends StatelessWidget {
   final AutovalidateMode autovalidateMode;
   final GlobalKey<FormState> formKey;
   final String image;
+  final bool isEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +91,7 @@ class NewProductContentWidget extends StatelessWidget {
               ),
               ProductAddTextWidget(text: S.of(context).product_type),
               const ProductTypeListViewBuilderWidget(),
+              if (isEdit) const AvailableCheckboxWidget(),
               const BestSellerCheckboxWidget(),
             ],
           ),
