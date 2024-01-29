@@ -16,7 +16,7 @@ class WriterListTileWidget extends StatelessWidget {
         navigateTo(context, const WriterArticlesScreen());
       },
       icon: Ionicons.reader_outline,
-      lable: S.of(context).your_artilces,
+      lable: S.of(context).your_articles,
     );
   }
 }

@@ -2700,350 +2700,350 @@ class S {
     );
   }
 
-  /// `تم تقييد سؤالك`
+  /// `Your question has been banned`
   String get ban_your_question {
     return Intl.message(
-      'تم تقييد سؤالك',
+      'Your question has been banned',
       name: 'ban_your_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تقييد هذا السؤال لانه يخالف الشروط`
+  /// `This question has been banned because it violates the terms`
   String get why_ban_question {
     return Intl.message(
-      'تم تقييد هذا السؤال لانه يخالف الشروط',
+      'This question has been banned because it violates the terms',
       name: 'why_ban_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `مقالاتي`
-  String get your_artilces {
+  /// `My Articles`
+  String get your_articles {
     return Intl.message(
-      'مقالاتي',
-      name: 'your_artilces',
+      'My Articles',
+      name: 'your_articles',
       desc: '',
       args: [],
     );
   }
 
-  /// `أدمن`
+  /// `Admin`
   String get admin {
     return Intl.message(
-      'أدمن',
+      'Admin',
       name: 'admin',
       desc: '',
       args: [],
     );
   }
 
-  /// `مرحبا`
+  /// `Hello`
   String get hello {
     return Intl.message(
-      'مرحبا',
+      'Hello',
       name: 'hello',
       desc: '',
       args: [],
     );
   }
 
-  /// `لوحة تحكم الأدمن`
-  String get admin_control_pannel {
+  /// `Admin Control Panel`
+  String get admin_control_panel {
     return Intl.message(
-      'لوحة تحكم الأدمن',
-      name: 'admin_control_pannel',
+      'Admin Control Panel',
+      name: 'admin_control_panel',
       desc: '',
       args: [],
     );
   }
 
-  /// `مقالات الكاتب`
+  /// `Writer's Articles`
   String get writer_articles {
     return Intl.message(
-      'مقالات الكاتب',
+      'Writer\'s Articles',
       name: 'writer_articles',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حذف هذا المقال`
+  /// `This article has been removed`
   String get article_removed {
     return Intl.message(
-      'تم حذف هذا المقال',
+      'This article has been removed',
       name: 'article_removed',
       desc: '',
       args: [],
     );
   }
 
-  /// `جميع المستخدمين`
+  /// `All Users`
   String get all_users {
     return Intl.message(
-      'جميع المستخدمين',
+      'All Users',
       name: 'all_users',
       desc: '',
       args: [],
     );
   }
 
-  /// `الناشرين`
+  /// `Writers`
   String get writers {
     return Intl.message(
-      'الناشرين',
+      'Writers',
       name: 'writers',
       desc: '',
       args: [],
     );
   }
 
-  /// `المدربين`
+  /// `Trainers`
   String get trainers {
     return Intl.message(
-      'المدربين',
+      'Trainers',
       name: 'trainers',
       desc: '',
       args: [],
     );
   }
 
-  /// `أصحاب الصالات`
+  /// `Gym Owners`
   String get gym_owners {
     return Intl.message(
-      'أصحاب الصالات',
+      'Gym Owners',
       name: 'gym_owners',
       desc: '',
       args: [],
     );
   }
 
-  /// `أصحاب المتاجر`
+  /// `Store Owners`
   String get store_owners {
     return Intl.message(
-      'أصحاب المتاجر',
+      'Store Owners',
       name: 'store_owners',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلبات الترقية`
+  /// `Promotion Requests`
   String get promotion {
     return Intl.message(
-      'طلبات الترقية',
+      'Promotion Requests',
       name: 'promotion',
       desc: '',
       args: [],
     );
   }
 
-  /// `الطلبات`
+  /// `Orders`
   String get orders {
     return Intl.message(
-      'الطلبات',
+      'Orders',
       name: 'orders',
       desc: '',
       args: [],
     );
   }
 
-  /// `انشاء متجر`
+  /// `Build Store`
   String get build_store {
     return Intl.message(
-      'انشاء متجر',
+      'Build Store',
       name: 'build_store',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم المتجر`
+  /// `Store Name`
   String get store_name {
     return Intl.message(
-      'اسم المتجر',
+      'Store Name',
       name: 'store_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `رقم التواصل`
+  /// `Contact Number`
   String get store_contact {
     return Intl.message(
-      'رقم التواصل',
+      'Contact Number',
       name: 'store_contact',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل المتجر`
+  /// `Edit Store`
   String get edit_store {
     return Intl.message(
-      'تعديل المتجر',
+      'Edit Store',
       name: 'edit_store',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة منتج`
+  /// `Add Product`
   String get add_product {
     return Intl.message(
-      'إضافة منتج',
+      'Add Product',
       name: 'add_product',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل المنتج`
+  /// `Edit Product`
   String get edit_product {
     return Intl.message(
-      'تعديل المنتج',
+      'Edit Product',
       name: 'edit_product',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم المنتج`
+  /// `Product Name`
   String get product_name {
     return Intl.message(
-      'اسم المنتج',
+      'Product Name',
       name: 'product_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `سعر المنتج`
+  /// `Product Price`
   String get product_price {
     return Intl.message(
-      'سعر المنتج',
+      'Product Price',
       name: 'product_price',
       desc: '',
       args: [],
     );
   }
 
-  /// `السعر القديم للمنتج`
+  /// `Product Old Price`
   String get product_old_price {
     return Intl.message(
-      'السعر القديم للمنتج',
+      'Product Old Price',
       name: 'product_old_price',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف المنتج ؟`
+  /// `Do you want to remove the product?`
   String get remove_product_q {
     return Intl.message(
-      'هل تريد حذف المنتج ؟',
+      'Do you want to remove the product?',
       name: 'remove_product_q',
       desc: '',
       args: [],
     );
   }
 
-  /// `متوفر`
+  /// `Available`
   String get available {
     return Intl.message(
-      'متوفر',
+      'Available',
       name: 'available',
       desc: '',
       args: [],
     );
   }
 
-  /// `غير متوفر`
+  /// `Unavailable`
   String get unavailable {
     return Intl.message(
-      'غير متوفر',
+      'Unavailable',
       name: 'unavailable',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأفضل مبيعا`
+  /// `Best Seller`
   String get best_seller {
     return Intl.message(
-      'الأفضل مبيعا',
+      'Best Seller',
       name: 'best_seller',
       desc: '',
       args: [],
     );
   }
 
-  /// `وصف المنتج`
+  /// `Product Description`
   String get product_description {
     return Intl.message(
-      'وصف المنتج',
+      'Product Description',
       name: 'product_description',
       desc: '',
       args: [],
     );
   }
 
-  /// `نوع المنتج`
+  /// `Product Type`
   String get product_type {
     return Intl.message(
-      'نوع المنتج',
+      'Product Type',
       name: 'product_type',
       desc: '',
       args: [],
     );
   }
 
-  /// `خصم`
+  /// `Sale`
   String get sale {
     return Intl.message(
-      'خصم',
+      'Sale',
       name: 'sale',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم`
+  /// `Current price cannot be greater than or equal to the old price`
   String get oldprice_hint_error {
     return Intl.message(
-      'لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم',
+      'Current price cannot be greater than or equal to the old price',
       name: 'oldprice_hint_error',
       desc: '',
       args: [],
     );
   }
 
-  /// `يجب اختيار نوع المنتج`
+  /// `Product type must be selected`
   String get product_type_hint {
     return Intl.message(
-      'يجب اختيار نوع المنتج',
+      'Product type must be selected',
       name: 'product_type_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد منتجات حتى الآن`
+  /// `No products yet`
   String get no_products_yet {
     return Intl.message(
-      'لا يوجد منتجات حتى الآن',
+      'No products yet',
       name: 'no_products_yet',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حذف هذا المنتج`
+  /// `This product has been removed`
   String get product_removed {
     return Intl.message(
-      'تم حذف هذا المنتج',
+      'This product has been removed',
       name: 'product_removed',
       desc: '',
       args: [],

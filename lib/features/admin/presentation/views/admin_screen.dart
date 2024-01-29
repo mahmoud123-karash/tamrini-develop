@@ -15,7 +15,7 @@ class AdminScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(S.of(context).admin_control_pannel),
+      appBar: myAppBar(S.of(context).admin_control_panel),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,

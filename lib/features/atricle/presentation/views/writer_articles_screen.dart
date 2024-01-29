@@ -15,7 +15,7 @@ class WriterArticlesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(
-        S.of(context).your_artilces,
+        S.of(context).your_articles,
       ),
       body: BlocBuilder<ArticlesCubit, ArticlesStates>(
         builder: (context, state) {

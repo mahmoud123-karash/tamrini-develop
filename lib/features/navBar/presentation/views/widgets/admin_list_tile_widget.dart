@@ -14,7 +14,7 @@ class AdminListTileWidget extends StatelessWidget {
         navigateTo(context, const AdminScreen());
       },
       icon: Icons.admin_panel_settings_outlined,
-      lable: S.of(context).admin_control_pannel,
+      lable: S.of(context).admin_control_panel,
     );
   }
 }

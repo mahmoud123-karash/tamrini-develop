@@ -8,7 +8,7 @@ import 'package:tamrini/features/store/presentation/views/store_owner_screen.dar
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../../../../core/shared/components.dart';
-import '../../../../store/presentation/views/orders_screen.dart';
+import '../../../../order/presentation/views/orders_screen.dart';
 import '../../../../store/presentation/views/new_store_screen.dart';
 
 class StoreOwnerWidget extends StatelessWidget {
