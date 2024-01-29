@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/gym_item_widget.dart';
 
 class GymListViewWidget extends StatelessWidget {

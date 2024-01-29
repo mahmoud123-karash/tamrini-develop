@@ -6,6 +6,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
+import 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/app_settings_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
@@ -78,6 +79,8 @@ class MyDrawer extends StatelessWidget {
             if (usertype == 'writer') const WriterListTileWidget(),
             if (usertype == 'admin' || usertype == 'store_owner')
               const StoreOwnerWidget(),
+            // if (usertype == 'gym_owner')
+            const GymOwnerListTileWidget(),
             DrawerListTileWidget(
               onPressed: () {
                 navigateTo(context, const MyDayScreen());

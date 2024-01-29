@@ -1,4 +1,4 @@
-import '../../features/home/data/models/gym_model/gym_model.dart';
+import '../../features/gym/data/models/gym_model/gym_model.dart';
 
 List<GymModel> sortByPrice(bool isAscending, List<GymModel> list) {
   if (isAscending) {

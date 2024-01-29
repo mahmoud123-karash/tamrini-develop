@@ -27,10 +27,10 @@ import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
 import 'package:tamrini/features/food/presentation/manager/classification_cubit/classification_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
-import 'package:tamrini/features/home/data/repo/home_repo_impl.dart';
+import 'package:tamrini/features/gym/data/repo/gym_repo_impl.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
@@ -234,7 +234,7 @@ void main() async {
           ),
           BlocProvider(
             create: (context) => GymCubit(
-              getIt.get<HomeRepoImpl>(),
+              getIt.get<GymRepoImpl>(),
             )..getData(update: false),
           ),
           BlocProvider(

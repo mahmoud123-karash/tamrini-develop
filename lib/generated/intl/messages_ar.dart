@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
         "admin": MessageLookupByLibrary.simpleMessage("أدمن"),
+        "admin_control_panel":
+            MessageLookupByLibrary.simpleMessage("لوحة تحكم الأدمن"),
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "لا تستطيع الوصول لملف الأدمن"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
@@ -408,6 +410,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مقالات الكاتب"),
         "writers": MessageLookupByLibrary.simpleMessage("الناشرين"),
         "years": MessageLookupByLibrary.simpleMessage("سنوات"),
+        "your_articles": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
         "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),
         "youtub_uri": MessageLookupByLibrary.simpleMessage("رابط يوتيوب"),

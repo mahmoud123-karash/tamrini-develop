@@ -265,10 +265,10 @@
     "new_comment_question":"تعليق جديد على سؤالك",
     "ban_your_question":"تم تقييد سؤالك",
     "why_ban_question":"تم تقييد هذا السؤال لانه يخالف الشروط",
-    "your_artilces":"مقالاتي",
+    "your_articles":"مقالاتي",
     "admin":"أدمن",
     "hello":"مرحبا",
-    "admin_control_pannel":"لوحة تحكم الأدمن",
+    "admin_control_panel":"لوحة تحكم الأدمن",
     "writer_articles":"مقالات الكاتب",
     "article_removed":"تم حذف هذا المقال",
     "all_users":"جميع المستخدمين",
@@ -298,7 +298,6 @@
     "product_type_hint":"يجب اختيار نوع المنتج",
     "no_products_yet":"لا يوجد منتجات حتى الآن",
     "product_removed":"تم حذف هذا المنتج"
-
 
 
 

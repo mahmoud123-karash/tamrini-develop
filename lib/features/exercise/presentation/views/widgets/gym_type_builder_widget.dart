@@ -5,8 +5,8 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_type_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/loading_type_widget.dart';
 import 'package:tamrini/features/gym/presentation/views/all_gyms_screen.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_states.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class GymTypeBuilderWidget extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 
 import 'gym_distance_widget.dart';
 import 'gym_name_and_price_widget.dart';

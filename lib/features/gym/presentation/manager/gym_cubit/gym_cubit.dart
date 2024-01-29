@@ -1,16 +1,16 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/home/domain/repo/home_repo.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_states.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/domain/repo/gym_repo.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
 
 class GymCubit extends Cubit<GymStates> {
-  GymCubit(this.homeRepo) : super(InitialGymState());
+  GymCubit(this.gymRepo) : super(InitialGymState());
 
   static GymCubit get(context) => BlocProvider.of(context);
 
-  final HomeRepo homeRepo;
+  final GymRepo gymRepo;
   List<GymModel> gyms = [];
 
   List<GymModel> getGym(uid) {
@@ -23,7 +23,7 @@ class GymCubit extends Cubit<GymStates> {
     required bool update,
   }) async {
     emit(LoadingGetGymsState());
-    var result = await homeRepo.getGyms(update: update);
+    var result = await gymRepo.getGyms(update: update);
     result.fold(
       (message) {
         log(message);

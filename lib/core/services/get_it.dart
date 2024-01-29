@@ -12,8 +12,8 @@ import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/nutrition_remote_data_source.dart';
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
 import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
-import 'package:tamrini/features/home/data/data_sources/remote_data_source/home_remote_data_source.dart';
-import 'package:tamrini/features/home/data/repo/home_repo_impl.dart';
+import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';
+import 'package:tamrini/features/gym/data/repo/gym_repo_impl.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
 import 'package:tamrini/features/home_exercise/data/data_sources/remote_data_source/home_exercise_remote_data_source.dart';
@@ -36,7 +36,7 @@ import 'package:tamrini/features/suggest_exercise/data/data_sources/remote_data_
 import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
 import 'package:tamrini/features/trainer/data/data_sources/remote_data_source/trainer_remote_data_source.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
-   
+
 import 'package:tamrini/features/water_reminder/data/data_sources/local_data_source/reminder_local_data_source.dart';
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
 
@@ -63,9 +63,9 @@ void setLocator() {
       getIt.get<LoginRepoImpl>(),
     ),
   );
-  getIt.registerSingleton<HomeRepoImpl>(
-    HomeRepoImpl(
-      HomeRemoteDataSourceImpl(),
+  getIt.registerSingleton<GymRepoImpl>(
+    GymRepoImpl(
+      GymRemoteDataSourceImpl(),
     ),
   );
   getIt.registerSingleton<StoreRepoImpl>(
@@ -94,9 +94,7 @@ void setLocator() {
   );
 
   getIt.registerSingleton<QuestionRepoImpl>(
-    QuestionRepoImpl(
-     
-    ),
+    QuestionRepoImpl(),
   );
   getIt.registerSingleton<DioHelper>(
     DioHelper(

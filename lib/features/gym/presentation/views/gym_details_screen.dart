@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'widgets/gym_custom_buttons_widget.dart';
 import 'widgets/gym_details_content_widget.dart';
 

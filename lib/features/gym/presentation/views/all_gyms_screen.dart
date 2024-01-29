@@ -6,7 +6,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/drop_menu_sort_gyms_widget.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/gym_list_view_widge.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class AllGymsScreen extends StatefulWidget {

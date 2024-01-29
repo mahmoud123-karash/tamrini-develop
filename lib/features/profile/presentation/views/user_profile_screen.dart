@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/articles_owner_profile_widget.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';

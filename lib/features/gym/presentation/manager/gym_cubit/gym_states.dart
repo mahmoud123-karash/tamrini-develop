@@ -1,4 +1,4 @@
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 
 abstract class GymStates {}
 

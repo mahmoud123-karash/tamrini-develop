@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_states.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/error_get_gym_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_gym_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_loading_widget.dart';

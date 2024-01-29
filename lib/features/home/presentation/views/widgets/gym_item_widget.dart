@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_details_screen.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 
 import '../../../../gym/presentation/views/widgets/gym_distance_price_widget.dart';
 import 'image_view_widget.dart';

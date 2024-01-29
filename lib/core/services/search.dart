@@ -3,7 +3,7 @@ import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercis
 import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';

@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/services/location.dart';
-import 'package:tamrini/features/home/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 
 import '../../../../../core/cache/shared_preference.dart';
 
-abstract class HomeRemoteDataSource {
+abstract class GymRemoteDataSource {
   Future<Either<String, List<GymModel>>> getGyms({
     required bool update,
   });
 }
 
-class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
+class GymRemoteDataSourceImpl extends GymRemoteDataSource {
   @override
   Future<Either<String, List<GymModel>>> getGyms({
     required bool update,

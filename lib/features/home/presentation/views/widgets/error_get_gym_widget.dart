@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/home/presentation/manager/gym_cubit/gym_cubit.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/update_location_custom_button_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
