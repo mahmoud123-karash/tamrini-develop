@@ -3050,150 +3050,150 @@ class S {
     );
   }
 
-  /// `إضافة صالة رياصية`
+  /// `Add Gym`
   String get add_gym {
     return Intl.message(
-      'إضافة صالة رياصية',
+      'Add Gym',
       name: 'add_gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل الصالة`
+  /// `Edit Gym`
   String get edit_gym {
     return Intl.message(
-      'تعديل الصالة',
+      'Edit Gym',
       name: 'edit_gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم الصالة الرياضية`
+  /// `Gym Name`
   String get gym_name {
     return Intl.message(
-      'اسم الصالة الرياضية',
+      'Gym Name',
       name: 'gym_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `الوصف`
+  /// `Description`
   String get gym_description {
     return Intl.message(
-      'الوصف',
+      'Description',
       name: 'gym_description',
       desc: '',
       args: [],
     );
   }
 
-  /// `سعر الاشتراك`
+  /// `Subscription Price`
   String get price_sub {
     return Intl.message(
-      'سعر الاشتراك',
+      'Subscription Price',
       name: 'price_sub',
       desc: '',
       args: [],
     );
   }
 
-  /// `الموقع`
+  /// `Location`
   String get gym_location {
     return Intl.message(
-      'الموقع',
+      'Location',
       name: 'gym_location',
       desc: '',
       args: [],
     );
   }
 
-  /// `الصور الجديدة`
+  /// `New Images`
   String get new_images {
     return Intl.message(
-      'الصور الجديدة',
+      'New Images',
       name: 'new_images',
       desc: '',
       args: [],
     );
   }
 
-  /// `الصور القديمة`
+  /// `Old Images`
   String get old_images {
     return Intl.message(
-      'الصور القديمة',
+      'Old Images',
       name: 'old_images',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة صور`
+  /// `Add Images`
   String get add_images {
     return Intl.message(
-      'إضافة صور',
+      'Add Images',
       name: 'add_images',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حذف هذه الصالة`
+  /// `This gym has been removed`
   String get gym_remove_hint {
     return Intl.message(
-      'تم حذف هذه الصالة',
+      'This gym has been removed',
       name: 'gym_remove_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `حدد موقع الصالة`
+  /// `Locate Gym`
   String get locate_gym {
     return Intl.message(
-      'حدد موقع الصالة',
+      'Locate Gym',
       name: 'locate_gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تحديد الموقع`
+  /// `Location has been set`
   String get success_locate_gym {
     return Intl.message(
-      'تم تحديد الموقع',
+      'Location has been set',
       name: 'success_locate_gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذه الصالة ؟`
+  /// `Do you want to remove this gym?`
   String get gym_removed_hint {
     return Intl.message(
-      'هل تريد حذف هذه الصالة ؟',
+      'Do you want to remove this gym?',
       name: 'gym_removed_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `لم يتم تحديد موقع الصالة`
+  /// `Gym location has not been set`
   String get location_gym_hint_error {
     return Intl.message(
-      'لم يتم تحديد موقع الصالة',
+      'Gym location has not been set',
       name: 'location_gym_hint_error',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل الصالة`
+  /// `Gym Details`
   String get gym_details {
     return Intl.message(
-      'تفاصيل الصالة',
+      'Gym Details',
       name: 'gym_details',
       desc: '',
       args: [],

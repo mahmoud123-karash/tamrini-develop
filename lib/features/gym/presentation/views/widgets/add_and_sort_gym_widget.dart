@@ -26,7 +26,7 @@ class AddAndSortGymWidget extends StatelessWidget {
               selectedSortBy: selectedSortBy,
               onChanged: onChanged),
           const SizedBox(
-            width: 30,
+            width: 25,
           ),
           Expanded(
             child: addCustomButton(

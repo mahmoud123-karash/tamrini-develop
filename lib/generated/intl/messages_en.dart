@@ -35,9 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
         "add_article": MessageLookupByLibrary.simpleMessage("Add Article"),
         "add_exercise": MessageLookupByLibrary.simpleMessage("Add Exercise"),
-        "add_gym": MessageLookupByLibrary.simpleMessage("إضافة صالة رياصية"),
+        "add_gym": MessageLookupByLibrary.simpleMessage("Add Gym"),
         "add_image": MessageLookupByLibrary.simpleMessage("Add Image"),
-        "add_images": MessageLookupByLibrary.simpleMessage("إضافة صور"),
+        "add_images": MessageLookupByLibrary.simpleMessage("Add Images"),
         "add_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("No meal selected"),
@@ -126,7 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
         "edit_article": MessageLookupByLibrary.simpleMessage("Edit Article"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
-        "edit_gym": MessageLookupByLibrary.simpleMessage("تعديل الصالة"),
+        "edit_gym": MessageLookupByLibrary.simpleMessage("Edit Gym"),
         "edit_product": MessageLookupByLibrary.simpleMessage("Edit Product"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_section": MessageLookupByLibrary.simpleMessage("Edit Section"),
@@ -159,16 +159,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
-        "gym_description": MessageLookupByLibrary.simpleMessage("الوصف"),
-        "gym_details": MessageLookupByLibrary.simpleMessage("تفاصيل الصالة"),
-        "gym_location": MessageLookupByLibrary.simpleMessage("الموقع"),
-        "gym_name": MessageLookupByLibrary.simpleMessage("اسم الصالة الرياضية"),
+        "gym_description": MessageLookupByLibrary.simpleMessage("Description"),
+        "gym_details": MessageLookupByLibrary.simpleMessage("Gym Details"),
+        "gym_location": MessageLookupByLibrary.simpleMessage("Location"),
+        "gym_name": MessageLookupByLibrary.simpleMessage("Gym Name"),
         "gym_owner": MessageLookupByLibrary.simpleMessage("Gym owner"),
         "gym_owners": MessageLookupByLibrary.simpleMessage("Gym Owners"),
         "gym_remove_hint":
-            MessageLookupByLibrary.simpleMessage("تم حذف هذه الصالة"),
-        "gym_removed_hint":
-            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الصالة ؟"),
+            MessageLookupByLibrary.simpleMessage("This gym has been removed"),
+        "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
+            "Do you want to remove this gym?"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
@@ -191,12 +191,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "internet_connection": MessageLookupByLibrary.simpleMessage(
             "Internet Connection Established"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
-        "locate_gym": MessageLookupByLibrary.simpleMessage("حدد موقع الصالة"),
+        "locate_gym": MessageLookupByLibrary.simpleMessage("Locate Gym"),
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
-        "location_gym_hint_error":
-            MessageLookupByLibrary.simpleMessage("لم يتم تحديد موقع الصالة"),
+        "location_gym_hint_error": MessageLookupByLibrary.simpleMessage(
+            "Gym location has not been set"),
         "log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
         "log_out_question":
             MessageLookupByLibrary.simpleMessage("Do you want to log out?"),
@@ -219,7 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "new_comment_question": MessageLookupByLibrary.simpleMessage(
             "New comment on your question"),
-        "new_images": MessageLookupByLibrary.simpleMessage("الصور الجديدة"),
+        "new_images": MessageLookupByLibrary.simpleMessage("New Images"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
         "noExer": MessageLookupByLibrary.simpleMessage(
@@ -247,7 +247,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nuttritions":
             MessageLookupByLibrary.simpleMessage("Nutritional supplements"),
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
-        "old_images": MessageLookupByLibrary.simpleMessage("الصور القديمة"),
+        "old_images": MessageLookupByLibrary.simpleMessage("Old Images"),
         "oldprice_hint_error": MessageLookupByLibrary.simpleMessage(
             "Current price cannot be greater than or equal to the old price"),
         "optional": MessageLookupByLibrary.simpleMessage("Optional"),
@@ -265,7 +265,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phoneLenght": MessageLookupByLibrary.simpleMessage(
             "please Confirm your phone number"),
-        "price_sub": MessageLookupByLibrary.simpleMessage("سعر الاشتراك"),
+        "price_sub": MessageLookupByLibrary.simpleMessage("Subscription Price"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
         "privacyConfirm":
             MessageLookupByLibrary.simpleMessage("please agree the privacy"),
@@ -359,7 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_edit_a":
             MessageLookupByLibrary.simpleMessage("Edited successfully"),
         "success_locate_gym":
-            MessageLookupByLibrary.simpleMessage("تم تحديد الموقع"),
+            MessageLookupByLibrary.simpleMessage("Location has been set"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("Logged Out Successfully"),
         "success_recalulate":
