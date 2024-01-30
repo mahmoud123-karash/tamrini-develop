@@ -4,8 +4,7 @@ import 'package:tamrini/features/gym/presentation/views/widgets/new_images_list_
 import 'package:tamrini/features/gym/presentation/views/widgets/old_images_list_view_widget.dart';
 
 class NewGymImagesListViewWidget extends StatelessWidget {
-  const NewGymImagesListViewWidget({super.key, required this.images});
-  final List<String> images;
+  const NewGymImagesListViewWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,9 @@ class NewGymImagesListViewWidget extends StatelessWidget {
         NewImagesListViewWidget(
           height: height,
         ),
-        OldImagesListViewWidget(height: height, images: images),
+        OldImagesListViewWidget(
+          height: height,
+        ),
       ],
     );
   }

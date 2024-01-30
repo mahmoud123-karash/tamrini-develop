@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_details_screen.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
@@ -22,6 +23,7 @@ class GymItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
+    String uid = CacheHelper.getData(key: 'uid');
     return Padding(
       padding: const EdgeInsets.only(
         left: 15,
@@ -30,8 +32,7 @@ class GymItemWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         onTap: () {
-          navigateTo(
-              context, GymDetailsScreen(gymId: model.id, name: model.name));
+          navigateTo(context, GymDetailsScreen(gymId: model.id));
         },
         child: Stack(
           children: [
@@ -39,12 +40,13 @@ class GymItemWidget extends StatelessWidget {
               image: model.assets.first,
               width: width,
             ),
-            if (!isHome)
-              RemoveGymIconWidget(
-                id: model.id,
-                title: model.name,
-                assests: model.assets,
-              ),
+            if (model.ownerUid == uid)
+              if (!isHome)
+                RemoveGymIconWidget(
+                  id: model.id,
+                  title: model.name,
+                  assests: model.assets,
+                ),
             Positioned(
               bottom: 0,
               right: 0,

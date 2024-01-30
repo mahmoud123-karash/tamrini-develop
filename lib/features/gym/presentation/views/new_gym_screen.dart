@@ -31,6 +31,7 @@ class _NewGymScreenState extends State<NewGymScreen> {
     CacheHelper.removeData(key: 'langmap');
     ImageCubit.get(context).clearPaths();
     if (widget.model != null) {
+      ImageCubit.get(context).images = widget.model!.assets;
       nameController.text = widget.model!.name;
       priceController.text = widget.model!.price.toString();
       descriptionController.text = widget.model!.description.toString();
@@ -62,7 +63,6 @@ class _NewGymScreenState extends State<NewGymScreen> {
               priceController: priceController,
               autovalidateMode: autovalidateMode,
               formKey: formKey,
-              images: widget.model == null ? [] : widget.model!.assets,
             ),
           ),
           SliverFillRemaining(
@@ -80,6 +80,18 @@ class _NewGymScreenState extends State<NewGymScreen> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
+                      GymCubit.get(context).editGym(
+                        paths: paths,
+                        name: nameController.text,
+                        description: descriptionController.text,
+                        price: int.parse(priceController.text),
+                        lat: lat == 0 ? widget.model!.location.latitude : lat,
+                        long:
+                            lang == 0 ? widget.model!.location.longitude : lang,
+                        images: ImageCubit.get(context).images,
+                        oldModel: widget.model!,
+                        context: context,
+                      );
                     } else {
                       if (paths.isNotEmpty) {
                         if (lat != 0.0) {

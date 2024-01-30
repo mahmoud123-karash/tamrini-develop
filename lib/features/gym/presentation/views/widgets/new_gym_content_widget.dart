@@ -16,14 +16,12 @@ class NewGymContentWidget extends StatelessWidget {
     required this.formKey,
     required this.priceController,
     required this.descriptionController,
-    required this.images,
   });
   final TextEditingController nameController;
   final TextEditingController priceController;
   final TextEditingController descriptionController;
   final AutovalidateMode autovalidateMode;
   final GlobalKey<FormState> formKey;
-  final List<String> images;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class NewGymContentWidget extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
-              NewGymImagesListViewWidget(images: images),
+              const NewGymImagesListViewWidget(),
               addFromGalleryItems(
                 title: S.of(context).add_images,
                 icon: Icons.add_a_photo_outlined,

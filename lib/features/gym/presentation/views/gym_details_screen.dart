@@ -13,30 +13,18 @@ import 'widgets/gym_custom_buttons_widget.dart';
 import 'widgets/gym_details_content_widget.dart';
 
 class GymDetailsScreen extends StatelessWidget {
-  const GymDetailsScreen({super.key, required this.gymId, required this.name});
+  const GymDetailsScreen({super.key, required this.gymId});
   final String gymId;
-  final String name;
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
-    final getWidth = mediaQuery.size.width;
     String userType = CacheHelper.getData(key: 'usertype');
     String uid = CacheHelper.getData(key: 'uid');
     log(gymId);
     return Scaffold(
-      appBar: AppBar(
-        title: Container(
-          constraints: BoxConstraints(
-            maxWidth: getWidth / 2,
-          ),
-          child: Text(
-            name,
-          ),
-        ),
-        centerTitle: true,
-      ),
+      appBar: myAppBar(S.of(context).gym_details),
       body: BlocBuilder<GymCubit, GymStates>(
         builder: (context, state) {
           List<GymModel> list = GymCubit.get(context).getGym(gymId);

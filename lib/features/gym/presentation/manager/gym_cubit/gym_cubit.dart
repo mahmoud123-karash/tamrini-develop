@@ -76,6 +76,41 @@ class GymCubit extends Cubit<GymStates> {
     );
   }
 
+  void editGym({
+    required List<String> paths,
+    required String name,
+    required String description,
+    required int price,
+    required double lat,
+    required double long,
+    required GymModel oldModel,
+    required List<String> images,
+    required BuildContext context,
+  }) async {
+    emit(LoadingGetGymsState());
+    var result = await gymRepo.editGym(
+        paths: paths,
+        name: name,
+        description: description,
+        price: price,
+        lat: lat,
+        long: long,
+        oldModel: oldModel,
+        images: images);
+    result.fold(
+      (message) {
+        log(message);
+        emit(ErrorGetGymsState(message));
+      },
+      (list) {
+        gyms = list;
+        showSnackBar(context, S.of(context).success_edit_a);
+        Navigator.pop(context);
+        emit(SucessGetGymsState(list));
+      },
+    );
+  }
+
   void removeGym({
     required List<String> images,
     required String id,

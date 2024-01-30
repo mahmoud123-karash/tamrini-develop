@@ -14,7 +14,16 @@ abstract class GymRepo {
     required double lat,
     required double long,
   });
-  Future<Either<String, List<GymModel>>> editGym();
+  Future<Either<String, List<GymModel>>> editGym({
+    required List<String> paths,
+    required String name,
+    required String description,
+    required int price,
+    required double lat,
+    required double long,
+    required GymModel oldModel,
+    required List<String> images,
+  });
   Future<Either<String, List<GymModel>>> removeGym({
     required String id,
     required List<String> images,

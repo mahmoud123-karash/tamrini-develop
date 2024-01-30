@@ -3189,6 +3189,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تفاصيل الصالة`
+  String get gym_details {
+    return Intl.message(
+      'تفاصيل الصالة',
+      name: 'gym_details',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

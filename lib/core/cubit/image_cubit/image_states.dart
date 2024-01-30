@@ -10,4 +10,6 @@ class SucessPickVedioState extends ImageStates {}
 
 class SucessRemoveImageState extends ImageStates {}
 
+class SucessRemoveOldImageState extends ImageStates {}
+
 class ErrorPickImageState extends ImageStates {}

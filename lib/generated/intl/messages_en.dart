@@ -160,6 +160,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please choose the gender"),
         "gym": MessageLookupByLibrary.simpleMessage("Nearest Gym"),
         "gym_description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "gym_details": MessageLookupByLibrary.simpleMessage("تفاصيل الصالة"),
         "gym_location": MessageLookupByLibrary.simpleMessage("الموقع"),
         "gym_name": MessageLookupByLibrary.simpleMessage("اسم الصالة الرياضية"),
         "gym_owner": MessageLookupByLibrary.simpleMessage("Gym owner"),

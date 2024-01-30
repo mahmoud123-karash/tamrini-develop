@@ -311,7 +311,8 @@
     "locate_gym":"حدد موقع الصالة",
     "success_locate_gym":"تم تحديد الموقع",
     "gym_removed_hint":"هل تريد حذف هذه الصالة ؟",
-    "location_gym_hint_error":"لم يتم تحديد موقع الصالة"
+    "location_gym_hint_error":"لم يتم تحديد موقع الصالة",
+    "gym_details":"تفاصيل الصالة"
 
 
 
