@@ -65,7 +65,7 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
       },
       (list) {
         articles = list;
-        showSnackBar(context, S.of(context).success_add_e);
+        showSnackBar(context, S.of(context).success_add_a);
         Navigator.pop(context);
         emit(SucessGetArticlesState(list));
       },

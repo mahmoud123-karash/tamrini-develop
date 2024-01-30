@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_details_screen.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/remove_gym_icon_widget.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
 import '../../../../gym/presentation/views/widgets/gym_distance_price_widget.dart';
-import 'image_view_widget.dart';
 
 class GymItemWidget extends StatelessWidget {
-  const GymItemWidget({super.key, required this.model, required this.width});
+  const GymItemWidget({
+    super.key,
+    required this.model,
+    required this.width,
+    this.isHome = false,
+  });
   final GymModel model;
   final double width;
+  final bool isHome;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +39,12 @@ class GymItemWidget extends StatelessWidget {
               image: model.assets.first,
               width: width,
             ),
+            if (!isHome)
+              RemoveGymIconWidget(
+                id: model.id,
+                title: model.name,
+                assests: model.assets,
+              ),
             Positioned(
               bottom: 0,
               right: 0,

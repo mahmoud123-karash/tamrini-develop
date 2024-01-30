@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/gym_item_widget.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/gym_item_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/name_text_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 

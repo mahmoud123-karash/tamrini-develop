@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 
 class DropMenuSortGymsWidget extends StatelessWidget {
-  const DropMenuSortGymsWidget(
-      {super.key,
-      required this.items,
-      required this.selectedSortBy,
-      required this.onChanged});
+  const DropMenuSortGymsWidget({
+    super.key,
+    required this.items,
+    required this.selectedSortBy,
+    required this.onChanged,
+  });
   final List<DropdownMenuItem<String>> items;
   final String selectedSortBy;
   final Function(String?) onChanged;

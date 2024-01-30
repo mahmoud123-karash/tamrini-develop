@@ -65,7 +65,7 @@ class StoreCubit extends Cubit<StoreStates> {
       },
       (list) {
         stores = list;
-        showSnackBar(context, S.of(context).success_add_e);
+        showSnackBar(context, S.of(context).success_add_a);
         navigateToAndReplace(context, const StoreOwnerScreen());
         emit(SucessGetStoresState(list));
       },
@@ -131,7 +131,7 @@ class StoreCubit extends Cubit<StoreStates> {
       (list) {
         stores = list;
         Navigator.pop(context);
-        showSnackBar(context, S.of(context).success_add_e);
+        showSnackBar(context, S.of(context).success_add_a);
         emit(SucessGetStoresState(list));
       },
     );

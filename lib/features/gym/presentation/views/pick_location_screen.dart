@@ -71,7 +71,6 @@ class _PickLocationScreenState extends State<PickLocationScreen> {
           MyLocationButtonMapWidget(
             onPressed: () async {
               var position = await determinePosition();
-
               _mapController.animateCamera(
                 CameraUpdate.newCameraPosition(
                   CameraPosition(

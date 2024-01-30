@@ -71,6 +71,7 @@ class NewGymContentWidget extends StatelessWidget {
                 controller: priceController,
                 context: context,
                 autovalidateMode: autovalidateMode,
+                keyboardType: TextInputType.number,
               ),
               const SizedBox(
                 height: 20,

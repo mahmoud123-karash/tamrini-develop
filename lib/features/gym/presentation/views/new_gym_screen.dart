@@ -3,6 +3,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/gym_custom_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -73,12 +74,28 @@ class _NewGymScreenState extends State<NewGymScreen> {
                     ? S.of(context).edit
                     : S.of(context).add,
                 onPressed: () {
+                  double lat = CacheHelper.getData(key: 'latmap') ?? 0.0;
+                  double lang = CacheHelper.getData(key: 'langmap') ?? 0.0;
                   List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
                     } else {
                       if (paths.isNotEmpty) {
+                        if (lat != 0.0) {
+                          GymCubit.get(context).addGym(
+                            paths: paths,
+                            name: nameController.text,
+                            description: descriptionController.text,
+                            price: int.parse(priceController.text),
+                            lat: lat,
+                            long: lang,
+                            context: context,
+                          );
+                        } else {
+                          showSnackBar(
+                              context, S.of(context).location_gym_hint_error);
+                        }
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }

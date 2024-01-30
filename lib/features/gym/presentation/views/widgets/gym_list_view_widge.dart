@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/home/presentation/views/widgets/gym_item_widget.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/gym_item_widget.dart';
 
 class GymListViewWidget extends StatelessWidget {
-  const GymListViewWidget(
-      {super.key,
-      required this.list,
-      required this.length,
-      required this.controller});
+  const GymListViewWidget({
+    super.key,
+    required this.list,
+    required this.length,
+    required this.controller,
+  });
   final List<GymModel> list;
   final int length;
   final ScrollController controller;

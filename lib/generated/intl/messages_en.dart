@@ -166,6 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_owners": MessageLookupByLibrary.simpleMessage("Gym Owners"),
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("تم حذف هذه الصالة"),
+        "gym_removed_hint":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الصالة ؟"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
@@ -192,6 +194,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "location": MessageLookupByLibrary.simpleMessage("Location"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("Location Service Disabled"),
+        "location_gym_hint_error":
+            MessageLookupByLibrary.simpleMessage("لم يتم تحديد موقع الصالة"),
         "log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
         "log_out_question":
             MessageLookupByLibrary.simpleMessage("Do you want to log out?"),
@@ -343,7 +347,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This article has been accepted"),
         "success_add":
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
-        "success_add_e":
+        "success_add_a":
             MessageLookupByLibrary.simpleMessage("Added successfully"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("Meal added successfully"),

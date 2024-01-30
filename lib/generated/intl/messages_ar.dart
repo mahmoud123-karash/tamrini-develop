@@ -165,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_owners": MessageLookupByLibrary.simpleMessage("أصحاب الصالات"),
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("تم حذف هذه الصالة"),
+        "gym_removed_hint":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الصالة ؟"),
         "haveacount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "health": MessageLookupByLibrary.simpleMessage("الصحة والتغذية"),
         "height": MessageLookupByLibrary.simpleMessage("الطول"),
@@ -191,6 +193,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "location": MessageLookupByLibrary.simpleMessage("الموقع الجغرافي"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
+        "location_gym_hint_error":
+            MessageLookupByLibrary.simpleMessage("لم يتم تحديد موقع الصالة"),
         "log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "log_out_question":
             MessageLookupByLibrary.simpleMessage("هل تريد تسجيل الخروج ؟"),
@@ -341,6 +345,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_accept":
             MessageLookupByLibrary.simpleMessage("تم قبول هذا المقال"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
+        "success_add_a":
+            MessageLookupByLibrary.simpleMessage("تم الإضافة بنجاح"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
         "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),

@@ -126,7 +126,7 @@ Future<String> getAddress({required GeoPoint location}) async {
 setLocation(Prediction suggestion, GoogleMapController controller) async {
   var location = await getPlaceMarkFromId(suggestion.placeId ?? '');
   saveLatMap(location.lat ?? 0.0);
-  saveLatMap(location.lang ?? 0.0);
+  saveLatMap(location.lng ?? 0.0);
   controller.animateCamera(
     CameraUpdate.newCameraPosition(
       CameraPosition(

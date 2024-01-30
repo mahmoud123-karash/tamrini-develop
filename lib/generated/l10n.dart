@@ -2371,10 +2371,10 @@ class S {
   }
 
   /// `Added successfully`
-  String get success_add_e {
+  String get success_add_a {
     return Intl.message(
       'Added successfully',
-      name: 'success_add_e',
+      name: 'success_add_a',
       desc: '',
       args: [],
     );
@@ -3165,6 +3165,26 @@ class S {
     return Intl.message(
       'تم تحديد الموقع',
       name: 'success_locate_gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذه الصالة ؟`
+  String get gym_removed_hint {
+    return Intl.message(
+      'هل تريد حذف هذه الصالة ؟',
+      name: 'gym_removed_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لم يتم تحديد موقع الصالة`
+  String get location_gym_hint_error {
+    return Intl.message(
+      'لم يتم تحديد موقع الصالة',
+      name: 'location_gym_hint_error',
       desc: '',
       args: [],
     );

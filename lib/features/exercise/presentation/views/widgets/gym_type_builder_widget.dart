@@ -24,7 +24,7 @@ class GymTypeBuilderWidget extends StatelessWidget {
             image: Assets.imagesExercise,
             lable: S.of(context).slatGym,
             onPressed: () {
-              navigateTo(context, AllGymsScreen(models: state.list));
+              navigateTo(context, const AllGymsScreen());
             },
           );
         } else {
