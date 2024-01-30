@@ -13,9 +13,14 @@ class GymCubit extends Cubit<GymStates> {
   final GymRepo gymRepo;
   List<GymModel> gyms = [];
 
-  List<GymModel> getGym(uid) {
+  List<GymModel> getUserGym(uid) {
     List<GymModel> list =
         gyms.where((element) => element.ownerUid == uid).toList();
+    return list;
+  }
+
+  List<GymModel> getGym(id) {
+    List<GymModel> list = gyms.where((element) => element.id == id).toList();
     return list;
   }
 

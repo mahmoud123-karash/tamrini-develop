@@ -14,4 +14,22 @@ class GymRepoImpl extends GymRepo {
   }) async {
     return await gymRemoteDataSource.getGyms(update: update);
   }
+
+  @override
+  Future<Either<String, List<GymModel>>> addGym() {
+    // TODO: implement addGym
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<String, List<GymModel>>> editGym() {
+    // TODO: implement editGym
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<String, List<GymModel>>> removeGym() {
+    // TODO: implement removeGym
+    throw UnimplementedError();
+  }
 }

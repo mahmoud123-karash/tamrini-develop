@@ -23,3 +23,4 @@ String dayBox = 'day_box';
 String reminderBox = 'reminderbox';
 
 String adminUid = '7JGTeYMv6yfQrUwABPHibDJrot82';
+String apiKey = 'AIzaSyBufaYHAy80nTHvhEjS8ABOwBlSK_3HCnQ';

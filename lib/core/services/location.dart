@@ -6,6 +6,39 @@ import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 
+import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_webservice/geocoding.dart';
+import 'package:google_maps_webservice/places.dart';
+import 'package:http/http.dart' as http;
+
+Future<Position> determinePosition() async {
+  bool serviceEnabled;
+  LocationPermission permission;
+
+  serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  if (!serviceEnabled) {
+    return Future.error('Location services are disabled.');
+  }
+
+  permission = await Geolocator.checkPermission();
+  if (permission == LocationPermission.denied) {
+    permission = await Geolocator.requestPermission();
+    if (permission == LocationPermission.denied) {
+      return Future.error('Location permissions are denied');
+    }
+  }
+
+  if (permission == LocationPermission.deniedForever) {
+    return Future.error(
+        'Location permissions are permanently denied, we cannot request permissions.');
+  }
+
+  return await Geolocator.getCurrentPosition();
+}
+
 Future<String> handleLocationPermission() async {
   bool serviceEnabled;
   LocationPermission permission;
@@ -88,4 +121,55 @@ Future<String> getAddress({required GeoPoint location}) async {
       return '';
     }
   }
+}
+
+setLocation(Prediction suggestion, GoogleMapController controller) async {
+  var location = await getPlaceMarkFromId(suggestion.placeId ?? '');
+  saveLatMap(location.lat ?? 0.0);
+  saveLatMap(location.lang ?? 0.0);
+  controller.animateCamera(
+    CameraUpdate.newCameraPosition(
+      CameraPosition(
+        target: LatLng(location.lat ?? 0.0, location.lng ?? 0.0),
+        zoom: 17,
+      ),
+    ),
+  );
+}
+
+Future<dynamic> getPlaceMarkFromId(String placeId) async {
+  final geocoding =
+      GoogleMapsGeocoding(apiKey: "AIzaSyBufaYHAy80nTHvhEjS8ABOwBlSK_3HCnQ");
+
+  final response = await geocoding.searchByPlaceId(placeId);
+
+  final result = response.results[0].geometry.location;
+  return result;
+}
+
+Future<List<Prediction>> searchLocation(
+  BuildContext context,
+  String text,
+) async {
+  List<Prediction> predictionList = [];
+  if (text.isNotEmpty) {
+    http.Response response = await getLocationData(text);
+    var data = jsonDecode(response.body.toString());
+    if (data['status'] == 'OK') {
+      predictionList = [];
+      data['predictions'].forEach(
+          (prediction) => predictionList.add(Prediction.fromJson(prediction)));
+    } else {}
+  }
+  return predictionList;
+}
+
+Future<http.Response> getLocationData(String text) async {
+  http.Response response;
+
+  var apiKey = "AIzaSyBufaYHAy80nTHvhEjS8ABOwBlSK_3HCnQ";
+  response = await http.get(Uri.parse(
+    'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$text&key=$apiKey',
+  ));
+  return response;
 }

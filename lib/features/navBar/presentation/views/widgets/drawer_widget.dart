@@ -123,6 +123,9 @@ class MyDrawer extends StatelessWidget {
               icon: Ionicons.log_out_outline,
               lable: S.of(context).log_out,
             ),
+            const SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),

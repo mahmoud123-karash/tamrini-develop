@@ -34,7 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
         "add_article": MessageLookupByLibrary.simpleMessage("إضافة مقال"),
         "add_exercise": MessageLookupByLibrary.simpleMessage("إضافة تمرين"),
+        "add_gym": MessageLookupByLibrary.simpleMessage("إضافة صالة رياصية"),
         "add_image": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
+        "add_images": MessageLookupByLibrary.simpleMessage("إضافة صور"),
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
@@ -123,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
         "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
+        "edit_gym": MessageLookupByLibrary.simpleMessage("تعديل الصالة"),
         "edit_product": MessageLookupByLibrary.simpleMessage("تعديل المنتج"),
         "edit_profile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
@@ -155,8 +158,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "genderConfirm":
             MessageLookupByLibrary.simpleMessage("الرجاء إختيار الجنس"),
         "gym": MessageLookupByLibrary.simpleMessage("أقرب جيم"),
+        "gym_description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "gym_location": MessageLookupByLibrary.simpleMessage("الموقع"),
+        "gym_name": MessageLookupByLibrary.simpleMessage("اسم الصالة الرياضية"),
         "gym_owner": MessageLookupByLibrary.simpleMessage("الصالة الرياضية"),
         "gym_owners": MessageLookupByLibrary.simpleMessage("أصحاب الصالات"),
+        "gym_remove_hint":
+            MessageLookupByLibrary.simpleMessage("تم حذف هذه الصالة"),
         "haveacount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "health": MessageLookupByLibrary.simpleMessage("الصحة والتغذية"),
         "height": MessageLookupByLibrary.simpleMessage("الطول"),
@@ -179,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "internet_connection":
             MessageLookupByLibrary.simpleMessage("تم الإتصال بالإنترنت"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "locate_gym": MessageLookupByLibrary.simpleMessage("حدد موقع الصالة"),
         "location": MessageLookupByLibrary.simpleMessage("الموقع الجغرافي"),
         "locationService":
             MessageLookupByLibrary.simpleMessage("خدمة الموقع معطلة"),
@@ -204,6 +213,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
         "new_comment_question":
             MessageLookupByLibrary.simpleMessage("تعليق جديد على سؤالك"),
+        "new_images": MessageLookupByLibrary.simpleMessage("الصور الجديدة"),
         "noArticles":
             MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
         "noExer":
@@ -232,6 +242,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nuttritions":
             MessageLookupByLibrary.simpleMessage("المكملات الغذائية"),
         "ok": MessageLookupByLibrary.simpleMessage("أوافق"),
+        "old_images": MessageLookupByLibrary.simpleMessage("الصور القديمة"),
         "oldprice_hint_error": MessageLookupByLibrary.simpleMessage(
             "لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم"),
         "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
@@ -249,6 +260,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "phoneLenght":
             MessageLookupByLibrary.simpleMessage("الرجاء التأكد من رقم الهاتف"),
+        "price_sub": MessageLookupByLibrary.simpleMessage("سعر الاشتراك"),
         "privacy": MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
         "privacyConfirm":
             MessageLookupByLibrary.simpleMessage("الرجاء الموافقة على الشروط"),
@@ -336,6 +348,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تقييد هذا المقال"),
         "success_edit_a":
             MessageLookupByLibrary.simpleMessage("تم التعديل بنجاح"),
+        "success_locate_gym":
+            MessageLookupByLibrary.simpleMessage("تم تحديد الموقع"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "success_recalulate":

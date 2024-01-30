@@ -28,7 +28,7 @@ class UserProfileScreen extends StatelessWidget {
             hasScrollBody: false,
             child: model.role == 'gymOwner'
                 ? GymOwnerProfileWidget(
-                    list: GymCubit.get(context).getGym(
+                    list: GymCubit.get(context).getUserGym(
                       model.uid,
                     ),
                   )

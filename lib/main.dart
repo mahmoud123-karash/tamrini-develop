@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
@@ -13,11 +12,11 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/services/internet_connection.dart';
+import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/core/services/messaging.dart';
 import 'package:tamrini/core/services/request_premission.dart';
 import 'package:tamrini/core/shared/bloc_observer.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
-import 'package:tamrini/data/location.dart';
 import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
 
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
@@ -114,6 +113,7 @@ void main() async {
   Hive.registerAdapter(DateTimeAdapter());
   await Hive.openBox<ReminderModel>(reminderBox);
 
+  determinePosition();
   setLocator();
   checkInternet();
   requestAppPermissions();
@@ -136,9 +136,6 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<LocationController>(
-          create: (_) => LocationController(),
-        ),
         ChangeNotifierProvider<ArticleProvider>(
           create: (_) => ArticleProvider()..fetchAndSetArticles(),
         ),
@@ -349,7 +346,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => LocationController(), fenix: true);
     return ScreenUtilInit(
       builder: (_, __) {
         return ChangeNotifierProvider<ThemeProvider>(

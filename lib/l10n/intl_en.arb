@@ -298,22 +298,19 @@
     "oldprice_hint_error": "Current price cannot be greater than or equal to the old price",
     "product_type_hint": "Product type must be selected",
     "no_products_yet": "No products yet",
-    "product_removed": "This product has been removed"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "product_removed": "This product has been removed",
+    "add_gym":"إضافة صالة رياصية",
+    "edit_gym":"تعديل الصالة",
+    "gym_name":"اسم الصالة الرياضية",
+    "gym_description":"الوصف",
+    "price_sub":"سعر الاشتراك",
+    "gym_location":"الموقع",
+    "new_images":"الصور الجديدة",
+    "old_images":"الصور القديمة",
+    "add_images":"إضافة صور",
+    "gym_remove_hint":"تم حذف هذه الصالة",
+    "locate_gym":"حدد موقع الصالة",
+    "success_locate_gym":"تم تحديد الموقع"
 
 
 

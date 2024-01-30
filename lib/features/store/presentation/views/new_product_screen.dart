@@ -64,8 +64,8 @@ class _NewProductScreenState extends State<NewProductScreen> {
     return Scaffold(
       appBar: myAppBar(
         widget.model != null
-            ? S.of(context).edit_store
-            : S.of(context).build_store,
+            ? S.of(context).edit_product
+            : S.of(context).add_product,
       ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),

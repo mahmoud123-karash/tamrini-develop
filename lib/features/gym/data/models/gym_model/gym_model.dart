@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tamrini/core/contants/constants.dart';
 
 class GymModel {
   final List<String> assets;
@@ -32,7 +33,7 @@ class GymModel {
         price: json['price'] ?? '',
         id: id,
         description: json['description'] ?? '',
-        ownerUid: json['ownerUid'] ?? '',
+        ownerUid: json['gymOwnerId'] ?? adminUid,
         isBanned: json['isBanned'] ?? false,
         distance: distance,
       );
@@ -42,7 +43,7 @@ class GymModel {
         'name': name,
         'location': location,
         'price': price,
-        'ownerUid': ownerUid,
+        'gymOwnerId': ownerUid,
         'isBanned': isBanned,
         'description': description,
       };

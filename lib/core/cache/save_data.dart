@@ -74,3 +74,12 @@ void saveExerciseId(value) => CacheHelper.saveData(
       key: 'exerciseId',
       value: value,
     );
+
+void saveLatMap(value) => CacheHelper.saveData(
+      key: 'latmap',
+      value: value,
+    );
+void saveLongMap(value) => CacheHelper.saveData(
+      key: 'langmap',
+      value: value,
+    );

@@ -5,4 +5,8 @@ abstract class GymRepo {
   Future<Either<String, List<GymModel>>> getGyms({
     required bool update,
   });
+
+  Future<Either<String, List<GymModel>>> addGym();
+  Future<Either<String, List<GymModel>>> editGym();
+  Future<Either<String, List<GymModel>>> removeGym();
 }

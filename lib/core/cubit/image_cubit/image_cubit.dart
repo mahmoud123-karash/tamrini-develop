@@ -22,10 +22,9 @@ class ImageCubit extends Cubit<ImageStates> {
   void imgsFromGallery() async {
     try {
       List<XFile> pickedFile = await picker.pickMultiImage(imageQuality: 50);
-      pickedFile.map((e) {
-        paths.add(e.path);
-      });
-
+      for (var element in pickedFile) {
+        paths.add(element.path);
+      }
       emit(SucessPickMultiImageState());
     } catch (e) {
       emit(ErrorPickImageState());

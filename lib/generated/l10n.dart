@@ -3049,6 +3049,126 @@ class S {
       args: [],
     );
   }
+
+  /// `إضافة صالة رياصية`
+  String get add_gym {
+    return Intl.message(
+      'إضافة صالة رياصية',
+      name: 'add_gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل الصالة`
+  String get edit_gym {
+    return Intl.message(
+      'تعديل الصالة',
+      name: 'edit_gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم الصالة الرياضية`
+  String get gym_name {
+    return Intl.message(
+      'اسم الصالة الرياضية',
+      name: 'gym_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الوصف`
+  String get gym_description {
+    return Intl.message(
+      'الوصف',
+      name: 'gym_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سعر الاشتراك`
+  String get price_sub {
+    return Intl.message(
+      'سعر الاشتراك',
+      name: 'price_sub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الموقع`
+  String get gym_location {
+    return Intl.message(
+      'الموقع',
+      name: 'gym_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الصور الجديدة`
+  String get new_images {
+    return Intl.message(
+      'الصور الجديدة',
+      name: 'new_images',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الصور القديمة`
+  String get old_images {
+    return Intl.message(
+      'الصور القديمة',
+      name: 'old_images',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة صور`
+  String get add_images {
+    return Intl.message(
+      'إضافة صور',
+      name: 'add_images',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم حذف هذه الصالة`
+  String get gym_remove_hint {
+    return Intl.message(
+      'تم حذف هذه الصالة',
+      name: 'gym_remove_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حدد موقع الصالة`
+  String get locate_gym {
+    return Intl.message(
+      'حدد موقع الصالة',
+      name: 'locate_gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تحديد الموقع`
+  String get success_locate_gym {
+    return Intl.message(
+      'تم تحديد الموقع',
+      name: 'success_locate_gym',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

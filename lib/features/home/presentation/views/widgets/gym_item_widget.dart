@@ -23,7 +23,8 @@ class GymItemWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         onTap: () {
-          navigateTo(context, GymDetailsScreen(model: model));
+          navigateTo(
+              context, GymDetailsScreen(gymId: model.id, name: model.name));
         },
         child: Stack(
           children: [
