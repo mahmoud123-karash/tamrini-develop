@@ -135,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
         "emptyList": MessageLookupByLibrary.simpleMessage("No Exercises"),
+        "end_date": MessageLookupByLibrary.simpleMessage("تاريخ الإنتهاء"),
         "english_language": MessageLookupByLibrary.simpleMessage("English"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("Enter the number"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("Enter the link"),
@@ -343,6 +344,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "store_owners": MessageLookupByLibrary.simpleMessage("Store Owners"),
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
+        "sub_date": MessageLookupByLibrary.simpleMessage("تاريخ الإشتراك"),
+        "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "success_accept": MessageLookupByLibrary.simpleMessage(
             "This article has been accepted"),

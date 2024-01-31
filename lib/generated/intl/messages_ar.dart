@@ -135,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailverify": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بتفعيل الايميل الخاص"),
         "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
+        "end_date": MessageLookupByLibrary.simpleMessage("تاريخ الإنتهاء"),
         "english_language":
             MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("أدخل الرقم"),
@@ -342,6 +343,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "store_owners": MessageLookupByLibrary.simpleMessage("أصحاب المتاجر"),
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
+        "sub_date": MessageLookupByLibrary.simpleMessage("تاريخ الإشتراك"),
+        "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
         "success_accept":
             MessageLookupByLibrary.simpleMessage("تم قبول هذا المقال"),

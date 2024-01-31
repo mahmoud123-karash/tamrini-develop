@@ -13,6 +13,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_webservice/geocoding.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:http/http.dart' as http;
+import 'package:tamrini/core/services/services.dart';
 
 Future<Position> determinePosition() async {
   bool serviceEnabled;
@@ -172,4 +173,13 @@ Future<http.Response> getLocationData(String text) async {
     'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$text&key=$apiKey',
   ));
   return response;
+}
+
+void openLocation({
+  required double lat,
+  required double long,
+}) {
+  String googleUrl =
+      'https://www.google.com/maps/search/?api=1&query=$lat,$long';
+  openUri(url: Uri.parse(googleUrl));
 }

@@ -3199,6 +3199,36 @@ class S {
       args: [],
     );
   }
+
+  /// `المشتركين`
+  String get subcribers {
+    return Intl.message(
+      'المشتركين',
+      name: 'subcribers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تاريخ الإشتراك`
+  String get sub_date {
+    return Intl.message(
+      'تاريخ الإشتراك',
+      name: 'sub_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تاريخ الإنتهاء`
+  String get end_date {
+    return Intl.message(
+      'تاريخ الإنتهاء',
+      name: 'end_date',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -313,7 +313,10 @@
     "success_locate_gym": "Location has been set",
     "gym_removed_hint": "Do you want to remove this gym?",
     "location_gym_hint_error": "Gym location has not been set",
-    "gym_details": "Gym Details"
+    "gym_details": "Gym Details",
+    "subcribers":"المشتركين",
+    "sub_date":"تاريخ الإشتراك",
+    "end_date":"تاريخ الإنتهاء"
 
 
 

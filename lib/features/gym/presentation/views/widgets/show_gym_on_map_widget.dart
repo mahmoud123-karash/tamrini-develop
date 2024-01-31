@@ -16,17 +16,14 @@ class ShowGymOnMapWWidget extends StatelessWidget {
           Icons.location_on,
           color: Colors.red,
         ),
-        InkWell(
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              child: Text(
-                S.of(context).show,
-                style: TextStyle(
-                  color: blackColor,
-                  fontSize: 12.sp,
-                ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            child: Text(
+              S.of(context).show,
+              style: TextStyle(
+                color: blackColor,
+                fontSize: 12.sp,
               ),
             ),
           ),
