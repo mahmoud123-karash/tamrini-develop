@@ -6,7 +6,9 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
 import 'package:tamrini/features/gym/domain/repo/gym_repo.dart';
+import 'package:uuid/uuid.dart';
 
 class GymRepoImpl extends GymRepo {
   final GymRemoteDataSource gymRemoteDataSource;
@@ -144,5 +146,69 @@ class GymRepoImpl extends GymRepo {
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  @override
+  Future<Either<String, List<SubscriberModel>>> getSubscribers({
+    required String gymId,
+  }) async {
+    try {
+      List<SubscriberModel> list = await gymRemoteDataSource.get(gymId: gymId);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<SubscriberModel>>> subUser({
+    required String gymId,
+    required int count,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      Timestamp endDate = Timestamp.fromDate(
+        Timestamp.now().toDate().add(
+              const Duration(days: 30),
+            ),
+      );
+      var uuid = const Uuid().v4();
+      SubscriberModel model = SubscriberModel(
+        uid: uuid,
+        userId: uid,
+        subDate: Timestamp.now(),
+        endDate: endDate,
+      );
+      await FirebaseFirestore.instance
+          .collection('gyms')
+          .doc('data')
+          .collection('data')
+          .doc(gymId)
+          .collection('subscribers')
+          .doc(uuid)
+          .set(
+            model.toJson(),
+          );
+
+      await updateGymSubCount(gymId: gymId, count: count);
+      List<SubscriberModel> list = await gymRemoteDataSource.get(gymId: gymId);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  Future<void> updateGymSubCount(
+      {required String gymId, required int count}) async {
+    await FirebaseFirestore.instance
+        .collection('gyms')
+        .doc('data')
+        .collection('data')
+        .doc(gymId)
+        .update(
+      {
+        "subcribersCount": count,
+      },
+    );
   }
 }

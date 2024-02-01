@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
 
 import 'sub_end_date_row_widget.dart';
 import 'subscriber_row_widget.dart';
 
 class SubscribersItemWidget extends StatelessWidget {
-  const SubscribersItemWidget({super.key});
+  const SubscribersItemWidget(
+      {super.key, required this.model, required this.user});
+  final SubscriberModel model;
+  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +21,20 @@ class SubscribersItemWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: appColor.withOpacity(0.6),
+          color: appColor.withOpacity(0.5),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const SudscriberRowWidget(),
+              SudscriberRowWidget(user: user),
               Divider(
                 color: blackColor,
               ),
-              const SubEndDateRowWidget(),
+              SubEndDateRowWidget(
+                subDate: model.subDate.toDate(),
+                endDate: model.endDate.toDate(),
+              ),
             ],
           ),
         ),

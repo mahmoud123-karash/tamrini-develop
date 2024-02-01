@@ -9,9 +9,9 @@ import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.da
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
 import 'package:tamrini/features/gym/presentation/views/new_gym_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'widgets/gym_custom_buttons_widget.dart';
 import 'widgets/gym_details_content_widget.dart';
 import 'widgets/no_gym_message_widget.dart';
+import 'widgets/sub_gym_builder_widget.dart';
 
 class GymDetailsScreen extends StatelessWidget {
   const GymDetailsScreen({super.key, required this.gymId});
@@ -71,10 +71,7 @@ class GymDetailsScreen extends StatelessWidget {
                                     ),
                                   )
                                 : Container()
-                            : GymCustomButtonsWidget(
-                                lat: model.location.latitude,
-                                long: model.location.longitude,
-                              ),
+                            : SubGymBuilderWidget(model: model)
                       ],
                     ),
                   ),

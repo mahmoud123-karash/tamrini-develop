@@ -20,6 +20,7 @@ import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
 
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
+import 'package:tamrini/features/gym/presentation/manager/subscriber_cubit/subscriber_cubit.dart';
 import 'package:tamrini/features/home_exercise/data/repo/home_exercise_repo_impl.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
@@ -310,9 +311,15 @@ void main() async {
             ),
           ),
           BlocProvider(
-              create: (context) => ReminderCubit(
-                    getIt.get<ReminderRepoImpl>(),
-                  )..getData()),
+            create: (context) => ReminderCubit(
+              getIt.get<ReminderRepoImpl>(),
+            )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => SubscriberCubit(
+              getIt.get<GymRepoImpl>(),
+            ),
+          ),
           BlocProvider(
             create: (context) => ManageCubit()
               ..changeAppTheme(

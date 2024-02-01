@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/date_sub_end_colum_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class SubEndDateRowWidget extends StatelessWidget {
-  const SubEndDateRowWidget({super.key});
+  const SubEndDateRowWidget(
+      {super.key, required this.subDate, required this.endDate});
+  final DateTime subDate;
+  final DateTime endDate;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class SubEndDateRowWidget extends StatelessWidget {
         DateSubEndColumWidget(
           label: S.of(context).sub_date,
           color: Colors.white,
-          value: '10/5/2024',
+          value: DateFormat('yyyy-MM-dd', 'en').format(subDate).toString(),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
@@ -29,7 +33,7 @@ class SubEndDateRowWidget extends StatelessWidget {
         DateSubEndColumWidget(
           label: S.of(context).end_date,
           color: Colors.red,
-          value: '10/6/2024',
+          value: DateFormat('yyyy-MM-dd', 'en').format(endDate).toString(),
         ),
       ],
     );

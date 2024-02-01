@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
 
 abstract class GymRepo {
   Future<Either<String, List<GymModel>>> getGyms({
@@ -27,5 +28,14 @@ abstract class GymRepo {
   Future<Either<String, List<GymModel>>> removeGym({
     required String id,
     required List<String> images,
+  });
+
+  Future<Either<String, List<SubscriberModel>>> getSubscribers({
+    required String gymId,
+  });
+
+  Future<Either<String, List<SubscriberModel>>> subUser({
+    required String gymId,
+    required int count,
   });
 }

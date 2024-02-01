@@ -3229,6 +3229,16 @@ class S {
       args: [],
     );
   }
+
+  /// `انت مشترك بالفعل فى هذه الصالة`
+  String get sub_hint {
+    return Intl.message(
+      'انت مشترك بالفعل فى هذه الصالة',
+      name: 'sub_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

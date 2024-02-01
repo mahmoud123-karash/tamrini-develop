@@ -345,6 +345,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "sub_date": MessageLookupByLibrary.simpleMessage("تاريخ الإشتراك"),
+        "sub_hint": MessageLookupByLibrary.simpleMessage(
+            "انت مشترك بالفعل فى هذه الصالة"),
         "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "success_accept": MessageLookupByLibrary.simpleMessage(

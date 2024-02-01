@@ -2,12 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
 
 import '../../../../../core/cache/shared_preference.dart';
 
 abstract class GymRemoteDataSource {
   Future<Either<String, List<GymModel>>> getGyms({
     required bool update,
+  });
+  Future<List<SubscriberModel>> get({
+    required String gymId,
   });
 }
 
@@ -47,5 +51,22 @@ class GymRemoteDataSourceImpl extends GymRemoteDataSource {
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  @override
+  Future<List<SubscriberModel>> get({required String gymId}) async {
+    List<SubscriberModel> list = [];
+    var result = await FirebaseFirestore.instance
+        .collection('gyms')
+        .doc('data')
+        .collection('data')
+        .doc(gymId)
+        .collection('subscribers')
+        .get();
+    for (var element in result.docs) {
+      SubscriberModel model = SubscriberModel.fromJson(element.data());
+      list.add(model);
+    }
+    return list;
   }
 }

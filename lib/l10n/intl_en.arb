@@ -316,7 +316,9 @@
     "gym_details": "Gym Details",
     "subcribers":"المشتركين",
     "sub_date":"تاريخ الإشتراك",
-    "end_date":"تاريخ الإنتهاء"
+    "end_date":"تاريخ الإنتهاء",
+    "sub_hint":"انت مشترك بالفعل فى هذه الصالة"
+
 
 
 

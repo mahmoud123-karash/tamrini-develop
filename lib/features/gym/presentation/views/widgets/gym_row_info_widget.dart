@@ -42,7 +42,7 @@ class GymRowInfoWidget extends StatelessWidget {
           ),
           GymContainerInfoWidget(
             onPressed: () {
-              navigateTo(context, const GymSubcribersScreen());
+              navigateTo(context, GymSubcribersScreen(gymId: model.id));
             },
             lable: S.of(context).subcribers,
             value: model.subcribersCount.toString(),
