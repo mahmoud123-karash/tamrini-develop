@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
 import 'package:tamrini/features/gym/presentation/manager/subscriber_cubit/subscriber_cubit.dart';
 import 'package:tamrini/features/gym/presentation/manager/subscriber_cubit/subscriber_states.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -35,13 +37,27 @@ class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
         if (state is SucessGetSubscribersState) {
           bool isSub = state.list.any((element) => element.userId == uid);
           if (isSub) {
-            return SizedBox(
-              height: 50,
-              child: SubscriberMessageBuilderWidget(
-                message: S.of(context).sub_hint,
-                isSub: true,
-              ),
-            );
+            SubscriberModel model = state.list
+                .where((element) => element.userId == uid)
+                .toList()
+                .first;
+            if (model.endDate.toDate().isBefore(DateTime.now())) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: customButton(
+                  onPressed: () {},
+                  lable: S.of(context).renew_sub,
+                ),
+              );
+            } else {
+              return SizedBox(
+                height: 50,
+                child: SubscriberMessageBuilderWidget(
+                  message: S.of(context).sub_hint,
+                  isSub: true,
+                ),
+              );
+            }
           } else {
             return GymCustomButtonsWidget(
               lat: widget.model.location.latitude,

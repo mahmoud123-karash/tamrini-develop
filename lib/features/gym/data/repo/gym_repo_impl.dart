@@ -277,4 +277,44 @@ class GymRepoImpl extends GymRepo {
       },
     );
   }
+
+  @override
+  Future<Either<String, List<SubscriberModel>>> renewSub({
+    required String gymId,
+       required String subId,
+    required num price,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      Timestamp endDate = Timestamp.fromDate(
+        Timestamp.now().toDate().add(
+              const Duration(days: 30),
+            ),
+      );
+      SubscriberModel model = SubscriberModel(
+        uid: subId,
+        userId: uid,
+        subDate: Timestamp.now(),
+        endDate: endDate,
+        paymentMethod: 'Zain Cash',
+        price: price,
+      );
+      await FirebaseFirestore.instance
+          .collection('gyms')
+          .doc('data')
+          .collection('data')
+          .doc(gymId)
+          .collection('subscribers')
+          .doc(subId)
+          .set(
+            model.toJson(),
+          );
+
+      await addSubUser(subId, endDate, gymId, price, uid);
+      List<SubscriberModel> list = await gymRemoteDataSource.get(gymId: gymId);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

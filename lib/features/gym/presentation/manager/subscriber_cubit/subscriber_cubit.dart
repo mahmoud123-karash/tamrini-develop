@@ -52,4 +52,27 @@ class SubscriberCubit extends Cubit<SubscriberStates> {
       },
     );
   }
+
+  void renewSub({
+    required String gymId,
+    required String subId,
+    required num price,
+  }) async {
+    var result = await gymRepo.renewSub(
+      gymId: gymId,
+      subId: subId,
+      price: price,
+    );
+    result.fold(
+      (message) {
+        log(message);
+        emit(ErrorGetSubscribersState(message));
+      },
+      (list) {
+        if (!isClosed) {
+          emit(SucessGetSubscribersState(list));
+        }
+      },
+    );
+  }
 }

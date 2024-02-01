@@ -41,4 +41,10 @@ abstract class GymRepo {
     required int count,
     required num price,
   });
+
+  Future<Either<String, List<SubscriberModel>>> renewSub({
+    required String gymId,
+    required num price,
+    required String subId,
+  });
 }

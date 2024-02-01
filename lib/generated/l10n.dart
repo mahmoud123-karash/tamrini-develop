@@ -3359,6 +3359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تجديد الاشتراك`
+  String get renew_sub {
+    return Intl.message(
+      'تجديد الاشتراك',
+      name: 'renew_sub',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
