@@ -155,21 +155,26 @@ Widget customButton({
   required String lable,
   Color? color,
 }) =>
-    MaterialButton(
-      padding: const EdgeInsets.all(0),
-      minWidth: double.infinity,
-      height: 40,
-      color: color ?? appColor,
-      shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide.none,
+    Padding(
+      padding: const EdgeInsets.only(
+        bottom: 10,
       ),
-      onPressed: onPressed,
-      child: Text(
-        lable,
-        style: TextStyles.style16Bold.copyWith(
-          color: whiteColor,
-          fontWeight: FontWeight.bold,
+      child: MaterialButton(
+        padding: const EdgeInsets.all(0),
+        minWidth: double.infinity,
+        height: 40,
+        color: color ?? appColor,
+        shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        onPressed: onPressed,
+        child: Text(
+          lable,
+          style: TextStyles.style16Bold.copyWith(
+            color: whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

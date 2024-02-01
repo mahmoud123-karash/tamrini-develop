@@ -45,7 +45,6 @@ class NewProductContentWidget extends StatelessWidget {
         child: Form(
           key: formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SectionImageWidget(
                 image: image,

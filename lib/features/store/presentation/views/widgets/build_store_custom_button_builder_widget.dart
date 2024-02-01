@@ -21,7 +21,7 @@ class StoreCustomButtonBuilderWidget extends StatelessWidget {
       builder: (context, state) {
         if (state is LoadingGetStoresState) {
           return const Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(15.0),
             child: CircularProgressIndicator(),
           );
         } else {

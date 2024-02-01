@@ -78,8 +78,8 @@ class MyDrawer extends StatelessWidget {
             ),
             if (usertype == 'admin') const AdminListTileWidget(),
             if (usertype == 'writer') const WriterListTileWidget(),
-            if (usertype == 'admin' || usertype == 'store_owner')
-              const StoreOwnerWidget(),
+            //  if (usertype == 'admin' || usertype == 'store_owner')
+            const StoreOwnerWidget(),
             // if (usertype == 'gym_owner')
             const GymOwnerListTileWidget(),
             const SubstrictionsListTileWidget(),

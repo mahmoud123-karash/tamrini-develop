@@ -21,7 +21,7 @@ class CustomButtonBuilderWidget extends StatelessWidget {
       builder: (context, state) {
         if (state is LoadingGetExerciseState) {
           return const Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(15.0),
             child: CircularProgressIndicator(),
           );
         } else {

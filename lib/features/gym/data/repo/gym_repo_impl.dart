@@ -168,6 +168,10 @@ class GymRepoImpl extends GymRepo {
         body: !isBanned
             ? 'تم رفع التقييد عن الصالة الرياضية الخاصة بك'
             : 'تم تقييد الصالة الرياضية الخاصة بك',
+        data: {
+          "type": "notification",
+          "subType": 'ban_gym',
+        },
       );
     }
 
@@ -281,7 +285,7 @@ class GymRepoImpl extends GymRepo {
   @override
   Future<Either<String, List<SubscriberModel>>> renewSub({
     required String gymId,
-       required String subId,
+    required String subId,
     required num price,
   }) async {
     try {

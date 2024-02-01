@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../../core/shared/components.dart';
 
 class SectionIamgeStackWidget extends StatelessWidget {
-  const SectionIamgeStackWidget(
-      {super.key,
-      required this.imageProvider,
-      required this.onClose,
-      this.isEdit = false});
+  const SectionIamgeStackWidget({
+    super.key,
+    required this.imageProvider,
+    required this.onClose,
+    this.isEdit = false,
+  });
   final ImageProvider<Object> imageProvider;
   final VoidCallback onClose;
   final bool isEdit;

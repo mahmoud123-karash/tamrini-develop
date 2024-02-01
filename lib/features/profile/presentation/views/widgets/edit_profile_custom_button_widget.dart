@@ -12,19 +12,24 @@ class CustomEditProfileButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide.none,
+    return Padding(
+      padding: const EdgeInsets.only(
+        bottom: 15,
       ),
-      color: appColor,
-      onPressed: onPressed,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          S.of(context).update_profile,
-          style: TextStyles.style17.copyWith(
-            color: whiteColor,
+      child: MaterialButton(
+        shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+        color: appColor,
+        onPressed: onPressed,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            S.of(context).update_profile,
+            style: TextStyles.style17.copyWith(
+              color: whiteColor,
+            ),
           ),
         ),
       ),
