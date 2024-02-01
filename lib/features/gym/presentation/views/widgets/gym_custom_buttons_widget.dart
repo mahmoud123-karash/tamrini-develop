@@ -13,10 +13,12 @@ class GymCustomButtonsWidget extends StatelessWidget {
       required this.lat,
       required this.long,
       required this.gymId,
-      required this.count});
+      required this.count,
+      required this.price});
   final double lat, long;
   final String gymId;
   final int count;
+  final num price;
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +56,11 @@ class GymCustomButtonsWidget extends StatelessWidget {
                   borderSide: BorderSide.none,
                 ),
                 onPressed: () {
-                  SubscriberCubit.get(context)
-                      .subUser(gymId: gymId, count: count);
+                  SubscriberCubit.get(context).subUser(
+                    gymId: gymId,
+                    count: count,
+                    price: price,
+                  );
                 },
                 child: Text(
                   S.of(context).sub,

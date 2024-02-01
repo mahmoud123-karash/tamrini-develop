@@ -441,6 +441,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),
         "youtub_uri": MessageLookupByLibrary.simpleMessage("رابط يوتيوب"),
         "youtub_uri_hint":
-            MessageLookupByLibrary.simpleMessage("من فضلك أدخل رابط صحيح")
+            MessageLookupByLibrary.simpleMessage("من فضلك أدخل رابط صحيح"),
+        "zain_cash": MessageLookupByLibrary.simpleMessage("زين كاش")
       };
 }

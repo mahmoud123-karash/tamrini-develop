@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SubscriberModel {
-  final String userId;
+class SubscriptionModel {
+  final String gymId;
   final Timestamp subDate;
   final Timestamp endDate;
   final String uid;
   final num price;
   final String paymentMethod;
 
-  SubscriberModel({
-    required this.userId,
+  SubscriptionModel({
+    required this.gymId,
     required this.subDate,
     required this.endDate,
     required this.uid,
@@ -17,9 +17,9 @@ class SubscriberModel {
     required this.paymentMethod,
   });
 
-  factory SubscriberModel.fromJson(Map<String, dynamic> json) =>
-      SubscriberModel(
-        userId: json['userId'] ?? "",
+  factory SubscriptionModel.fromJson(Map<String, dynamic> json) =>
+      SubscriptionModel(
+        gymId: json['gymId'] ?? "",
         subDate: json['subDate'] ?? Timestamp.now(),
         endDate: json['endDate'] ?? Timestamp.now(),
         uid: json['uid'] ?? '',
@@ -28,7 +28,7 @@ class SubscriberModel {
       );
 
   Map<String, dynamic> toJson() => {
-        'userId': userId,
+        'gymId': gymId,
         "subDate": subDate,
         "endDate": endDate,
         "uid": uid,

@@ -19,7 +19,7 @@ class SudscriberRowWidget extends StatelessWidget {
             navigateTo(context, UserProfileScreen(model: user));
           },
           child: CircleAvatar(
-            radius: 35,
+            radius: 30,
             backgroundImage: user.image != ''
                 ? FirebaseImageProvider(
                     FirebaseUrl(user.image),

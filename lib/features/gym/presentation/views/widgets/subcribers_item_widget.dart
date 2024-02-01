@@ -3,6 +3,7 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
 
+import 'payment_method_and_price_widget.dart';
 import 'sub_end_date_row_widget.dart';
 import 'subscriber_row_widget.dart';
 
@@ -34,6 +35,13 @@ class SubscribersItemWidget extends StatelessWidget {
               SubEndDateRowWidget(
                 subDate: model.subDate.toDate(),
                 endDate: model.endDate.toDate(),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              PaymentMethodAndPriceWidget(
+                price: model.paymentMethod.toString(),
+                paymentMethod: model.paymentMethod,
               ),
             ],
           ),

@@ -48,6 +48,7 @@ class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
               long: widget.model.location.longitude,
               gymId: widget.model.id,
               count: widget.model.subcribersCount + 1,
+              price: widget.model.price,
             );
           }
         } else {

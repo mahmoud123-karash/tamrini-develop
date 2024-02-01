@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
@@ -164,6 +165,7 @@ class GymRepoImpl extends GymRepo {
   Future<Either<String, List<SubscriberModel>>> subUser({
     required String gymId,
     required int count,
+    required num price,
   }) async {
     try {
       String uid = CacheHelper.getData(key: 'uid');
@@ -178,6 +180,8 @@ class GymRepoImpl extends GymRepo {
         userId: uid,
         subDate: Timestamp.now(),
         endDate: endDate,
+        paymentMethod: 'Zain Cash',
+        price: price,
       );
       await FirebaseFirestore.instance
           .collection('gyms')
@@ -191,11 +195,32 @@ class GymRepoImpl extends GymRepo {
           );
 
       await updateGymSubCount(gymId: gymId, count: count);
+      await addSubUser(uuid, endDate, gymId, price, uid);
       List<SubscriberModel> list = await gymRemoteDataSource.get(gymId: gymId);
       return right(list);
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  Future<void> addSubUser(String uuid, Timestamp endDate, String gymId,
+      num price, String uid) async {
+    SubscriptionModel sModel = SubscriptionModel(
+      uid: uuid,
+      subDate: Timestamp.now(),
+      endDate: endDate,
+      gymId: gymId,
+      paymentMethod: 'Zain Cash',
+      price: price,
+    );
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .collection('Subscriptions')
+        .doc(uuid)
+        .set(
+          sModel.toJson(),
+        );
   }
 
   Future<void> updateGymSubCount(

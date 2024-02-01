@@ -32,10 +32,12 @@ class SubscriberCubit extends Cubit<SubscriberStates> {
   void subUser({
     required String gymId,
     required int count,
+    required num price,
   }) async {
     var result = await gymRepo.subUser(
       gymId: gymId,
       count: count,
+      price: price,
     );
 
     result.fold(

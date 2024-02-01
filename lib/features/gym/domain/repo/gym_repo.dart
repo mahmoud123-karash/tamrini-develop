@@ -37,5 +37,6 @@ abstract class GymRepo {
   Future<Either<String, List<SubscriberModel>>> subUser({
     required String gymId,
     required int count,
+    required num price,
   });
 }

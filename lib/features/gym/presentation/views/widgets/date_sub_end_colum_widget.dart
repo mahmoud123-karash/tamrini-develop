@@ -17,7 +17,7 @@ class DateSubEndColumWidget extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyles.style16Bold.copyWith(
+          style: TextStyles.style14.copyWith(
             color: color,
             fontWeight: FontWeight.bold,
           ),
@@ -27,7 +27,7 @@ class DateSubEndColumWidget extends StatelessWidget {
         ),
         Text(
           value,
-          style: TextStyles.style14,
+          style: TextStyles.style12,
         )
       ],
     );
