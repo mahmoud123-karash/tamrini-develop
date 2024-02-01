@@ -8,6 +8,7 @@ import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
 import 'package:tamrini/features/gym/presentation/views/new_gym_screen.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_custom_button_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'widgets/gym_details_content_widget.dart';
 import 'widgets/no_gym_message_widget.dart';
@@ -71,7 +72,14 @@ class GymDetailsScreen extends StatelessWidget {
                                     ),
                                   )
                                 : Container()
-                            : SubGymBuilderWidget(model: model)
+                            : SubGymBuilderWidget(model: model),
+                        if (userType == 'admin' && model.ownerUid != uid)
+                          BanGymCustomButtonWidget(
+                            uid: model.id,
+                            title: model.name,
+                            ownerId: model.ownerUid,
+                            isBanned: model.isBanned,
+                          ),
                       ],
                     ),
                   ),

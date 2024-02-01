@@ -37,6 +37,7 @@ class UserCubit extends Cubit<UserStates> {
           .collection('users')
           .doc(uid)
           .collection('Subscriptions')
+          .orderBy('subDate', descending: true)
           .get();
       for (var element in result.docs) {
         SubscriptionModel model = SubscriptionModel.fromJson(element.data());

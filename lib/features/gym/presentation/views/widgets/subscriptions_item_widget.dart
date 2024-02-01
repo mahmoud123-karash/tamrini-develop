@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
-
+import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
+import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/subscription_gym_details_widget.dart';
+import 'gym_slide_show_images_widget.dart';
 import 'payment_method_and_price_widget.dart';
 import 'sub_end_date_row_widget.dart';
-import 'subscriber_row_widget.dart';
 
-class SubscribersItemWidget extends StatelessWidget {
-  const SubscribersItemWidget(
-      {super.key, required this.model, required this.user});
-  final SubscriberModel model;
-  final UserModel user;
+class SubscribtionsItemWidget extends StatelessWidget {
+  const SubscribtionsItemWidget(
+      {super.key, required this.model, required this.gym});
+  final SubscriptionModel model;
+  final GymModel gym;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,21 @@ class SubscribersItemWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: appColor.withOpacity(0.5),
+          color: appColor.withOpacity(0.2),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SudscriberRowWidget(user: user),
+              SubscriptionGymDetailsWidget(gym: gym),
+              const SizedBox(
+                height: 5,
+              ),
+              GymSlideShowImagesWidget(
+                assets: gym.assets,
+                name: gym.description,
+              ),
               Divider(
                 color: blackColor,
               ),

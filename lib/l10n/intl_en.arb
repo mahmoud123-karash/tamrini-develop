@@ -113,7 +113,7 @@
     "success_add": "Question added successfully",
     "success_remove": "Deleted successfully",
     "success_update": "Question updated successfully",
-    "success_ban": "Question restricted successfully",
+    "success_ban": "restricted successfully",
     "remove_question": "Delete",
     "edit": "Edit",
     "ban_question": "Restrict",
@@ -318,7 +318,22 @@
     "sub_date":"تاريخ الإشتراك",
     "end_date":"تاريخ الإنتهاء",
     "sub_hint":"انت مشترك بالفعل فى هذه الصالة",
-    "zain_cash":"Zain Cash"
+    "zain_cash":"Zain Cash",
+    "Subscriptions":"الاشتراكات",
+    "no_sub":"لا يوجد إشتراكات حتي الآن",
+    "ban_gym":"تقييد الصالة",
+    "ban_gym_q":"هل تريد تقييد هذه الصالة الرياضية ؟",
+    "banned_gym_hint":"لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات",
+    "no_ban_gym":"رفع التقييد",
+    "no_ban_gym_q":"هل تريد رفع التقييد ؟",
+    "no_banned_gym_hint":"تم رفع التقييد عن الصالة الخاصة بك",
+    "ban":"تقييد",
+    "ban_sucess_gym":"تم تقيييد الصالة الرياضية",
+    "no_ban_suvccess_gym":"تم رفع التقييد عن الصالة الرياضية"
+
+
+
+
 
 
 

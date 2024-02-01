@@ -65,11 +65,7 @@ void setLocator() {
       getIt.get<LoginRepoImpl>(),
     ),
   );
-  getIt.registerSingleton<GymRepoImpl>(
-    GymRepoImpl(
-      GymRemoteDataSourceImpl(),
-    ),
-  );
+
   getIt.registerSingleton<StoreRepoImpl>(
     StoreRepoImpl(
       StoreRemoteDataSourceImpl(),
@@ -101,6 +97,13 @@ void setLocator() {
   getIt.registerSingleton<DioHelper>(
     DioHelper(
       Dio(),
+    ),
+  );
+
+  getIt.registerSingleton<GymRepoImpl>(
+    GymRepoImpl(
+      GymRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 

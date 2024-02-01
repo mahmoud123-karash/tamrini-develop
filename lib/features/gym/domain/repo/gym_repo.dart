@@ -25,9 +25,11 @@ abstract class GymRepo {
     required GymModel oldModel,
     required List<String> images,
   });
-  Future<Either<String, List<GymModel>>> removeGym({
-    required String id,
-    required List<String> images,
+
+  Future<Either<String, List<GymModel>>> banGym({
+    required String gymId,
+    required String ownerId,
+    required bool isBannd,
   });
 
   Future<Either<String, List<SubscriberModel>>> getSubscribers({

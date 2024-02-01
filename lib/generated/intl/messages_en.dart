@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts":
             MessageLookupByLibrary.simpleMessage("Number of Products"),
+        "Subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
         "about_app": MessageLookupByLibrary.simpleMessage("About the App"),
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
         "accept_your_article": MessageLookupByLibrary.simpleMessage(
@@ -77,12 +78,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
         "available": MessageLookupByLibrary.simpleMessage("Available"),
+        "ban": MessageLookupByLibrary.simpleMessage("تقييد"),
         "ban_article": MessageLookupByLibrary.simpleMessage("Ban Article"),
+        "ban_gym": MessageLookupByLibrary.simpleMessage("تقييد الصالة"),
+        "ban_gym_q": MessageLookupByLibrary.simpleMessage(
+            "هل تريد تقييد هذه الصالة الرياضية ؟"),
         "ban_question": MessageLookupByLibrary.simpleMessage("Restrict"),
+        "ban_sucess_gym":
+            MessageLookupByLibrary.simpleMessage("تم تقيييد الصالة الرياضية"),
         "ban_your_article": MessageLookupByLibrary.simpleMessage(
             "Your article has been banned"),
         "ban_your_question": MessageLookupByLibrary.simpleMessage(
             "Your question has been banned"),
+        "banned_gym_hint": MessageLookupByLibrary.simpleMessage(
+            "لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "best_seller": MessageLookupByLibrary.simpleMessage("Best Seller"),
@@ -230,6 +239,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "noProduct": MessageLookupByLibrary.simpleMessage(
             "No products found with this name"),
         "no_answers": MessageLookupByLibrary.simpleMessage("No answers yet"),
+        "no_ban_gym": MessageLookupByLibrary.simpleMessage("رفع التقييد"),
+        "no_ban_gym_q":
+            MessageLookupByLibrary.simpleMessage("هل تريد رفع التقييد ؟"),
+        "no_ban_suvccess_gym": MessageLookupByLibrary.simpleMessage(
+            "تم رفع التقييد عن الصالة الرياضية"),
+        "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
+            "تم رفع التقييد عن الصالة الخاصة بك"),
         "no_exercises_yet":
             MessageLookupByLibrary.simpleMessage("No exercises suggested yet"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
@@ -240,6 +256,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_products_yet":
             MessageLookupByLibrary.simpleMessage("No products yet"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
+        "no_sub":
+            MessageLookupByLibrary.simpleMessage("لا يوجد إشتراكات حتي الآن"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
@@ -357,8 +375,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Added successfully"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("Meal added successfully"),
-        "success_ban": MessageLookupByLibrary.simpleMessage(
-            "Question restricted successfully"),
+        "success_ban":
+            MessageLookupByLibrary.simpleMessage("restricted successfully"),
         "success_banned": MessageLookupByLibrary.simpleMessage(
             "This article has been banned"),
         "success_edit_a":

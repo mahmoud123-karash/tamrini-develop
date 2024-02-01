@@ -41,9 +41,8 @@ class GymRemoteDataSourceImpl extends GymRemoteDataSource {
           );
           GymModel model =
               GymModel.fromJson(element.data(), element.id, distance);
-          if (!model.isBanned) {
-            list.add(model);
-          }
+
+          list.add(model);
         }
         list.sort((a, b) => a.distance.compareTo(b.distance));
         return right(list);
@@ -62,6 +61,7 @@ class GymRemoteDataSourceImpl extends GymRemoteDataSource {
         .collection('data')
         .doc(gymId)
         .collection('subscribers')
+        .orderBy('subDate', descending: true)
         .get();
     for (var element in result.docs) {
       SubscriberModel model = SubscriberModel.fromJson(element.data());

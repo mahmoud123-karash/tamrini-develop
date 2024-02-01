@@ -31,15 +31,16 @@ class NotificationBodyWidget extends StatelessWidget {
             style: TextStyles.style13.copyWith(
               fontWeight: FontWeight.w600,
             ),
-            maxLines: 1,
+            maxLines: 2,
           ),
         ),
         Container(
           constraints: BoxConstraints(maxWidth: width - (30 + 70 + 20 + 20)),
           child: Text(
             body,
-            style:
-                TextStyles.style12.copyWith(color: greyColor.withOpacity(0.9)),
+            style: TextStyles.style12.copyWith(
+              color: greyColor.withOpacity(0.9),
+            ),
             maxLines: 1,
           ),
         )
@@ -58,6 +59,10 @@ class NotificationBodyWidget extends StatelessWidget {
                     ? S.of(context).new_comment_question
                     : title == 'ban_question'
                         ? S.of(context).ban_your_question
-                        : title;
+                        : title == 'ban_gym'
+                            ? S.of(context).banned_gym_hint
+                            : title == 'no_ban_gym'
+                                ? S.of(context).no_banned_gym_hint
+                                : title;
   }
 }

@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "NumProducts": MessageLookupByLibrary.simpleMessage("عدد المنتجات"),
+        "Subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
         "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "accept": MessageLookupByLibrary.simpleMessage("قبول"),
         "accept_your_article":
@@ -77,12 +78,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "auto_reminder":
             MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
         "available": MessageLookupByLibrary.simpleMessage("متوفر"),
+        "ban": MessageLookupByLibrary.simpleMessage("تقييد"),
         "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
+        "ban_gym": MessageLookupByLibrary.simpleMessage("تقييد الصالة"),
+        "ban_gym_q": MessageLookupByLibrary.simpleMessage(
+            "هل تريد تقييد هذه الصالة الرياضية ؟"),
         "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
+        "ban_sucess_gym":
+            MessageLookupByLibrary.simpleMessage("تم تقيييد الصالة الرياضية"),
         "ban_your_article":
             MessageLookupByLibrary.simpleMessage("تم تقييد المقال الخاص بك"),
         "ban_your_question":
             MessageLookupByLibrary.simpleMessage("تم تقييد سؤالك"),
+        "banned_gym_hint": MessageLookupByLibrary.simpleMessage(
+            "لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "best_seller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
@@ -230,6 +239,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات بهذا الإسم"),
         "no_answers":
             MessageLookupByLibrary.simpleMessage("لا إجابات حتى الآن"),
+        "no_ban_gym": MessageLookupByLibrary.simpleMessage("رفع التقييد"),
+        "no_ban_gym_q":
+            MessageLookupByLibrary.simpleMessage("هل تريد رفع التقييد ؟"),
+        "no_ban_suvccess_gym": MessageLookupByLibrary.simpleMessage(
+            "تم رفع التقييد عن الصالة الرياضية"),
+        "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
+            "تم رفع التقييد عن الصالة الخاصة بك"),
         "no_exercises_yet":
             MessageLookupByLibrary.simpleMessage("لا يوجد تمارين مقترحة بعد"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
@@ -240,6 +256,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_products_yet":
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات حتى الآن"),
         "no_results": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
+        "no_sub":
+            MessageLookupByLibrary.simpleMessage("لا يوجد إشتراكات حتي الآن"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("لا يوجد مدربين"),
         "nocProducts":
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات في هذه الفئة"),
@@ -355,7 +373,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم الإضافة بنجاح"),
         "success_add_meal":
             MessageLookupByLibrary.simpleMessage("تمت إضافة الوجبة بنجاح"),
-        "success_ban": MessageLookupByLibrary.simpleMessage("تم تقييد السؤال"),
+        "success_ban": MessageLookupByLibrary.simpleMessage("تم التقييد بنجاح"),
         "success_banned":
             MessageLookupByLibrary.simpleMessage("تم تقييد هذا المقال"),
         "success_edit_a":

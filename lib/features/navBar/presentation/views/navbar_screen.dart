@@ -17,7 +17,7 @@ import 'package:tamrini/features/navBar/presentation/views/widgets/badge_notific
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'widgets/curved_nav_bar_widget.dart';
-import 'widgets/drawer_widget.dart';
+import 'drawer_widget.dart';
 
 class NavBarScreen extends StatefulWidget {
   const NavBarScreen({super.key});

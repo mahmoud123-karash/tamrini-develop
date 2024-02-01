@@ -2,9 +2,12 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
+import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
@@ -13,8 +16,9 @@ import 'package:uuid/uuid.dart';
 
 class GymRepoImpl extends GymRepo {
   final GymRemoteDataSource gymRemoteDataSource;
+  final DioHelper dioHelper;
 
-  GymRepoImpl(this.gymRemoteDataSource);
+  GymRepoImpl(this.gymRemoteDataSource, this.dioHelper);
 
   @override
   Future<Either<String, List<GymModel>>> getGyms({
@@ -131,22 +135,59 @@ class GymRepoImpl extends GymRepo {
   }
 
   @override
-  Future<Either<String, List<GymModel>>> removeGym({
-    required String id,
-    required List<String> images,
+  Future<Either<String, List<GymModel>>> banGym({
+    required String gymId,
+    required String ownerId,
+    required bool isBannd,
   }) async {
     try {
-      await deleteOldImages(newImages: [], oldImages: images);
+      await sendNotification(ownerId, gymId, isBannd);
       await FirebaseFirestore.instance
           .collection('gyms')
           .doc('data')
           .collection('data')
-          .doc(id)
-          .delete();
+          .doc(gymId)
+          .update({
+        'isBanned': isBannd,
+      });
       return await gymRemoteDataSource.getGyms(update: false);
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  Future<void> sendNotification(
+      String ownerId, String gymId, bool isBanned) async {
+    var data =
+        await FirebaseFirestore.instance.collection('users').doc(ownerId).get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: 'تقييد الصالة الرياضية',
+        body: !isBanned
+            ? 'تم رفع التقييد عن الصالة الرياضية الخاصة بك'
+            : 'تم تقييد الصالة الرياضية الخاصة بك',
+      );
+    }
+
+    NotificationModel model = NotificationModel(
+      isReaden: false,
+      subType: 'ban_gym',
+      senderUid: adminUid,
+      title: isBanned ? 'ban_gym' : 'no_ban_gym',
+      body: '',
+      type: 'notification',
+      uid: gymId,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(ownerId)
+        .collection('data')
+        .add(
+          model.toJson(),
+        );
   }
 
   @override

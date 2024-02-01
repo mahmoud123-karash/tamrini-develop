@@ -8,7 +8,7 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/atricle/data/data_sources/remote_data_source/article_remote_data_source.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
-import 'package:tamrini/features/atricle/data/models/notification_model/notification_model.dart';
+import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/atricle/domain/repo/article_repo.dart';
 import 'package:uuid/uuid.dart';
 

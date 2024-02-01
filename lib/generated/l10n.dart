@@ -1190,10 +1190,10 @@ class S {
     );
   }
 
-  /// `Question restricted successfully`
+  /// `restricted successfully`
   String get success_ban {
     return Intl.message(
-      'Question restricted successfully',
+      'restricted successfully',
       name: 'success_ban',
       desc: '',
       args: [],
@@ -3245,6 +3245,116 @@ class S {
     return Intl.message(
       'Zain Cash',
       name: 'zain_cash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاشتراكات`
+  String get Subscriptions {
+    return Intl.message(
+      'الاشتراكات',
+      name: 'Subscriptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد إشتراكات حتي الآن`
+  String get no_sub {
+    return Intl.message(
+      'لا يوجد إشتراكات حتي الآن',
+      name: 'no_sub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تقييد الصالة`
+  String get ban_gym {
+    return Intl.message(
+      'تقييد الصالة',
+      name: 'ban_gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد تقييد هذه الصالة الرياضية ؟`
+  String get ban_gym_q {
+    return Intl.message(
+      'هل تريد تقييد هذه الصالة الرياضية ؟',
+      name: 'ban_gym_q',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات`
+  String get banned_gym_hint {
+    return Intl.message(
+      'لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات',
+      name: 'banned_gym_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رفع التقييد`
+  String get no_ban_gym {
+    return Intl.message(
+      'رفع التقييد',
+      name: 'no_ban_gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد رفع التقييد ؟`
+  String get no_ban_gym_q {
+    return Intl.message(
+      'هل تريد رفع التقييد ؟',
+      name: 'no_ban_gym_q',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفع التقييد عن الصالة الخاصة بك`
+  String get no_banned_gym_hint {
+    return Intl.message(
+      'تم رفع التقييد عن الصالة الخاصة بك',
+      name: 'no_banned_gym_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تقييد`
+  String get ban {
+    return Intl.message(
+      'تقييد',
+      name: 'ban',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تقيييد الصالة الرياضية`
+  String get ban_sucess_gym {
+    return Intl.message(
+      'تم تقيييد الصالة الرياضية',
+      name: 'ban_sucess_gym',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفع التقييد عن الصالة الرياضية`
+  String get no_ban_suvccess_gym {
+    return Intl.message(
+      'تم رفع التقييد عن الصالة الرياضية',
+      name: 'no_ban_suvccess_gym',
       desc: '',
       args: [],
     );

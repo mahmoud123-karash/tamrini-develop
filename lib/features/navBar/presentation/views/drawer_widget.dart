@@ -7,6 +7,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
+import 'package:tamrini/features/navBar/presentation/views/widgets/substrictions_list_tile_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/app_settings_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
@@ -14,10 +15,10 @@ import 'package:tamrini/features/settings/presentation/views/settings_screen.dar
 import 'package:tamrini/features/water_reminder/presentaion/views/water_reminder_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'admin_list_tile_widget.dart';
-import 'drawer_list_tile_widget.dart';
-import 'store_owner_widget.dart';
-import 'writer_list_tile_widget.dart';
+import 'widgets/admin_list_tile_widget.dart';
+import 'widgets/drawer_list_tile_widget.dart';
+import 'widgets/store_owner_widget.dart';
+import 'widgets/writer_list_tile_widget.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -81,6 +82,7 @@ class MyDrawer extends StatelessWidget {
               const StoreOwnerWidget(),
             // if (usertype == 'gym_owner')
             const GymOwnerListTileWidget(),
+            const SubstrictionsListTileWidget(),
             DrawerListTileWidget(
               onPressed: () {
                 navigateTo(context, const MyDayScreen());

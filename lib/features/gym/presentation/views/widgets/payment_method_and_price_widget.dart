@@ -13,7 +13,9 @@ class PaymentMethodAndPriceWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Text(paymentMethod),
+          Text(
+            S.of(context).zain_cash,
+          ),
           const Spacer(),
           Text(
             '$price ${S.of(context).dinar}',

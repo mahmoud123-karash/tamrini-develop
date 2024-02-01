@@ -153,12 +153,13 @@ Widget addCustomButton({
 Widget customButton({
   required VoidCallback onPressed,
   required String lable,
+  Color? color,
 }) =>
     MaterialButton(
       padding: const EdgeInsets.all(0),
       minWidth: double.infinity,
       height: 40,
-      color: appColor,
+      color: color ?? appColor,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
         borderSide: BorderSide.none,

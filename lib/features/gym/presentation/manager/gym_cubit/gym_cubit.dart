@@ -39,9 +39,20 @@ class GymCubit extends Cubit<GymStates> {
       },
       (list) {
         gyms = list;
-        emit(SucessGetGymsState(list));
+        List<GymModel> models = clearBannedGym(list);
+        emit(SucessGetGymsState(models));
       },
     );
+  }
+
+  List<GymModel> clearBannedGym(List<GymModel> list) {
+    List<GymModel> models = [];
+    for (var element in list) {
+      if (!element.isBanned) {
+        models.add(element);
+      }
+    }
+    return models;
   }
 
   void addGym({
@@ -71,7 +82,9 @@ class GymCubit extends Cubit<GymStates> {
         gyms = list;
         showSnackBar(context, S.of(context).success_add_a);
         Navigator.pop(context);
-        emit(SucessGetGymsState(list));
+        List<GymModel> models = clearBannedGym(list);
+
+        emit(SucessGetGymsState(models));
       },
     );
   }
@@ -89,14 +102,15 @@ class GymCubit extends Cubit<GymStates> {
   }) async {
     emit(LoadingGetGymsState());
     var result = await gymRepo.editGym(
-        paths: paths,
-        name: name,
-        description: description,
-        price: price,
-        lat: lat,
-        long: long,
-        oldModel: oldModel,
-        images: images);
+      paths: paths,
+      name: name,
+      description: description,
+      price: price,
+      lat: lat,
+      long: long,
+      oldModel: oldModel,
+      images: images,
+    );
     result.fold(
       (message) {
         log(message);
@@ -106,17 +120,20 @@ class GymCubit extends Cubit<GymStates> {
         gyms = list;
         showSnackBar(context, S.of(context).success_edit_a);
         Navigator.pop(context);
-        emit(SucessGetGymsState(list));
+        List<GymModel> models = clearBannedGym(list);
+        emit(SucessGetGymsState(models));
       },
     );
   }
 
-  void removeGym({
-    required List<String> images,
+  void banGym({
     required String id,
+    required String ownerId,
+    required bool isBannd,
     required BuildContext context,
   }) async {
-    var result = await gymRepo.removeGym(id: id, images: images);
+    var result =
+        await gymRepo.banGym(gymId: id, ownerId: ownerId, isBannd: isBannd);
     result.fold(
       (message) {
         log(message);
@@ -124,8 +141,14 @@ class GymCubit extends Cubit<GymStates> {
       },
       (list) {
         gyms = list;
-        showSnackBar(context, S.of(context).success_remove);
-        emit(SucessGetGymsState(list));
+        showSnackBar(
+          context,
+          isBannd
+              ? S.of(context).ban_sucess_gym
+              : S.of(context).no_ban_suvccess_gym,
+        );
+        List<GymModel> models = clearBannedGym(list);
+        emit(SucessGetGymsState(models));
       },
     );
   }
