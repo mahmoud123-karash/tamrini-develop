@@ -136,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_article": MessageLookupByLibrary.simpleMessage("Edit Article"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
         "edit_gym": MessageLookupByLibrary.simpleMessage("Edit Gym"),
+        "edit_meal": MessageLookupByLibrary.simpleMessage("تعديل الوجبة"),
         "edit_product": MessageLookupByLibrary.simpleMessage("Edit Product"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_section": MessageLookupByLibrary.simpleMessage("Edit Section"),
@@ -216,6 +217,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Low Activity in Work and Club"),
         "male": MessageLookupByLibrary.simpleMessage("Make"),
         "maxDistance": MessageLookupByLibrary.simpleMessage("Farthest"),
+        "meal_description":
+            MessageLookupByLibrary.simpleMessage("تفاصيل الوجبة"),
+        "meal_name": MessageLookupByLibrary.simpleMessage("اسم الوجبة"),
         "media": MessageLookupByLibrary.simpleMessage("Social Media"),
         "messages": MessageLookupByLibrary.simpleMessage("Messages"),
         "minDistance": MessageLookupByLibrary.simpleMessage("Nearest"),
@@ -230,6 +234,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_comment_question": MessageLookupByLibrary.simpleMessage(
             "New comment on your question"),
         "new_images": MessageLookupByLibrary.simpleMessage("New Images"),
+        "new_meal": MessageLookupByLibrary.simpleMessage("إضافة وجبة "),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
         "noExer": MessageLookupByLibrary.simpleMessage(
@@ -330,6 +335,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reminder to drink water"),
         "remove_article":
             MessageLookupByLibrary.simpleMessage("Remove Article"),
+        "remove_meal_q":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الوجبة ؟"),
         "remove_product_q": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove the product?"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),

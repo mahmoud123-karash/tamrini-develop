@@ -3369,6 +3369,56 @@ class S {
       args: [],
     );
   }
+
+  /// `اسم الوجبة`
+  String get meal_name {
+    return Intl.message(
+      'اسم الوجبة',
+      name: 'meal_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل الوجبة`
+  String get meal_description {
+    return Intl.message(
+      'تفاصيل الوجبة',
+      name: 'meal_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة وجبة `
+  String get new_meal {
+    return Intl.message(
+      'إضافة وجبة ',
+      name: 'new_meal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل الوجبة`
+  String get edit_meal {
+    return Intl.message(
+      'تعديل الوجبة',
+      name: 'edit_meal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذه الوجبة ؟`
+  String get remove_meal_q {
+    return Intl.message(
+      'هل تريد حذف هذه الوجبة ؟',
+      name: 'remove_meal_q',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

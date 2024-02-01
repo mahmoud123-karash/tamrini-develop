@@ -6,7 +6,6 @@ class DietFoodModel {
   final String title;
   final String id;
   final Timestamp date;
-  final String writer;
   final String writerUid;
 
   DietFoodModel({
@@ -14,7 +13,6 @@ class DietFoodModel {
     required this.description,
     required this.title,
     required this.date,
-    required this.writer,
     required this.id,
     required this.writerUid,
   });
@@ -27,7 +25,6 @@ class DietFoodModel {
       date: json['date'] ?? Timestamp.now(),
       writerUid: json['writerUid'] ?? '',
       id: id,
-      writer: json['writer'] ?? "",
     );
   }
 
@@ -38,7 +35,6 @@ class DietFoodModel {
     data['title'] = title;
     data['date'] = date;
     data['writerUid'] = writerUid;
-    data['writer'] = writer;
 
     return data;
   }

@@ -46,7 +46,7 @@ import 'package:tamrini/features/settings/presentation/manager/manage_cubit/mana
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/navbar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
-import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_foood_cubit.dart';
+import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_cubit.dart';
 import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
