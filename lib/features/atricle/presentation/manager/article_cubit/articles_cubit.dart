@@ -40,10 +40,21 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
         emit(ErrorGetArticlesState(message));
       },
       (list) {
+        List<ArticleModel> models = clearPendingArticles(list);
         articles = list;
-        emit(SucessGetArticlesState(list));
+        emit(SucessGetArticlesState(models));
       },
     );
+  }
+
+  List<ArticleModel> clearPendingArticles(List<ArticleModel> list) {
+    List<ArticleModel> models = [];
+    for (var element in list) {
+      if (element.isPending == false) {
+        models.add(element);
+      }
+    }
+    return models;
   }
 
   void addArticle({
@@ -64,10 +75,11 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
         emit(ErrorGetArticlesState(message));
       },
       (list) {
+        List<ArticleModel> models = clearPendingArticles(list);
         articles = list;
         showSnackBar(context, S.of(context).success_add_a);
         Navigator.pop(context);
-        emit(SucessGetArticlesState(list));
+        emit(SucessGetArticlesState(models));
       },
     );
   }
@@ -92,10 +104,11 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
         emit(ErrorGetArticlesState(message));
       },
       (list) {
+        List<ArticleModel> models = clearPendingArticles(list);
         articles = list;
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_edit_a);
-        emit(SucessGetArticlesState(list));
+        emit(SucessGetArticlesState(models));
       },
     );
   }
@@ -110,45 +123,42 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
     );
     result.fold(
       (message) {
+        getData();
         emit(ErrorGetArticlesState(message));
       },
       (list) {
+        List<ArticleModel> models = clearPendingArticles(list);
         articles = list;
         showSnackBar(context, S.of(context).success_remove);
-        emit(SucessGetArticlesState(list));
+        emit(SucessGetArticlesState(models));
       },
     );
   }
 
-  void updateArticle({
-    required ArticleModel oldModel,
-    required bool isAcceped,
-    required String token,
+  void banArticle({
+    required bool isPending,
+    required String articleId,
+    required String writerUid,
     required BuildContext context,
-    required String title,
   }) async {
-    var result = await articleRepo.disPendingArticle(
-      list: articles,
-      oldModel: oldModel,
-      isAcceped: isAcceped,
-      token: token,
-      title: title,
+    var result = await articleRepo.banArticle(
+      isPending: isPending,
+      articleId: articleId,
+      writerUid: writerUid,
     );
     result.fold(
       (message) {
+        getData();
         emit(ErrorGetArticlesState(message));
       },
       (list) {
+        List<ArticleModel> models = clearPendingArticles(list);
         articles = list;
         showSnackBar(
           context,
-          title == 'accept'
-              ? S.of(context).success_accept
-              : title == 'refuse'
-                  ? S.of(context).success_refused
-                  : S.of(context).success_banned,
+          isPending ? S.of(context).ban_succes : S.of(context).no_ban_scucess,
         );
-        emit(SucessGetArticlesState(list));
+        emit(SucessGetArticlesState(models));
       },
     );
   }

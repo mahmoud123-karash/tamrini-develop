@@ -3,7 +3,6 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 import '../articles_details_screen.dart';
-import 'ban_icon_article_widget.dart';
 import 'remove_custom_button_widget.dart';
 
 class AtricleItemWidget extends StatelessWidget {
@@ -37,7 +36,6 @@ class AtricleItemWidget extends StatelessWidget {
                   : model.image!.first,
             ),
             if (width == getWidth) RemoveCustomButtonWidget(model: model),
-            if (model.isRefused!) const BanIconArticleWidget(),
             Positioned(
               bottom: 0,
               right: 0,

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/add_article_row_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../../data/models/article_model/article_model.dart';
+import 'add_article_custom_button_widget.dart';
 import 'article_list_view_widget.dart';
 
 class AllArticleContentWidget extends StatefulWidget {
@@ -63,8 +62,6 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
-
     return Column(
       children: [
         searchField(
@@ -77,14 +74,9 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
             setState(() {});
           },
         ),
-        if (userType == 'admin' || widget.isWriter)
-          AddArticleRowWidget(
-            length: widget.length,
-            isWriter: widget.isWriter,
-            isUserProfile: widget.isUserProfile,
-          ),
+        const AddArticleCustomButtonWidget(),
         const SizedBox(
-          height: 15,
+          height: 10,
         ),
         widget.list.isNotEmpty
             ? Expanded(

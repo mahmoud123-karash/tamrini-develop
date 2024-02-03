@@ -336,8 +336,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
         "refuse_your_article":
             MessageLookupByLibrary.simpleMessage("تم رفض المقال الخاص بك"),
-        "refused_article":
-            MessageLookupByLibrary.simpleMessage("تم رفض هذا المقال"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "reminder": MessageLookupByLibrary.simpleMessage("تذكير"),
         "reminder_to_drink":
@@ -383,8 +381,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "انت مشترك بالفعل فى هذه الصالة"),
         "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
-        "success_accept":
-            MessageLookupByLibrary.simpleMessage("تم قبول هذا المقال"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
         "success_add_a":
             MessageLookupByLibrary.simpleMessage("تم الإضافة بنجاح"),
@@ -401,8 +397,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
         "success_recalulate":
             MessageLookupByLibrary.simpleMessage("تمت إعادة الحساب بنجاح"),
-        "success_refused":
-            MessageLookupByLibrary.simpleMessage("تم رفض هذا المقال"),
         "success_remove": MessageLookupByLibrary.simpleMessage("تم الحذف "),
         "success_remove_answer":
             MessageLookupByLibrary.simpleMessage("تم حذف الإجابة"),

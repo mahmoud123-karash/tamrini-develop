@@ -336,8 +336,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
         "refuse_your_article": MessageLookupByLibrary.simpleMessage(
             "Your article has been refused"),
-        "refused_article": MessageLookupByLibrary.simpleMessage(
-            "This article has been refused"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
         "reminder_to_drink":
@@ -384,8 +382,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "انت مشترك بالفعل فى هذه الصالة"),
         "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
-        "success_accept": MessageLookupByLibrary.simpleMessage(
-            "This article has been accepted"),
         "success_add":
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
         "success_add_a":
@@ -404,8 +400,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Logged Out Successfully"),
         "success_recalulate":
             MessageLookupByLibrary.simpleMessage("Recalculation successful"),
-        "success_refused": MessageLookupByLibrary.simpleMessage(
-            "This article has been refused"),
         "success_remove":
             MessageLookupByLibrary.simpleMessage("Deleted successfully"),
         "success_remove_answer":

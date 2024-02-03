@@ -37,7 +37,6 @@ class ArticleRepoImpl extends ArticleRepo {
   }) async {
     try {
       String uid = CacheHelper.getData(key: 'uid') ?? '';
-      String type = CacheHelper.getData(key: 'usertype') ?? '';
       var uuid = const Uuid().v4();
       List files = [];
       files.add(File(imagePath));
@@ -49,7 +48,7 @@ class ArticleRepoImpl extends ArticleRepo {
         body: body,
         id: uuid,
         title: title,
-        isPending: type == 'admin' ? false : true,
+        isPending: false,
         isRefused: false,
       );
       await FirebaseFirestore.instance
@@ -142,42 +141,28 @@ class ArticleRepoImpl extends ArticleRepo {
   }
 
   @override
-  Future<Either<String, List<ArticleModel>>> disPendingArticle({
-    required List<ArticleModel> list,
-    required ArticleModel oldModel,
-    required bool isAcceped,
-    required String token,
-    required String title,
+  Future<Either<String, List<ArticleModel>>> banArticle({
+    required bool isPending,
+    required String articleId,
+    required String writerUid,
   }) async {
     try {
-      ArticleModel model = ArticleModel(
-        date: oldModel.date,
-        image: oldModel.image,
-        writerUid: oldModel.writerUid,
-        body: oldModel.body,
-        id: oldModel.id,
-        title: oldModel.title,
-        isPending: !isAcceped,
-        isRefused: !isAcceped,
-      );
-      await sendNotification(
-        token,
-        isAcceped,
-        oldModel,
-        title,
-        oldModel.title ?? '',
-      );
+      var data = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(writerUid)
+          .get();
+      String token = data['token'] ?? '';
+      await sendNotification(token, isPending, articleId, writerUid);
       await FirebaseFirestore.instance
           .collection('articles')
           .doc('data')
           .collection('articles')
-          .doc(oldModel.id)
-          .update(
-            model.toJson(),
-          );
-      list.remove(oldModel);
-      list.add(model);
-      list.sort((a, b) => b.date!.compareTo(a.date!));
+          .doc(articleId)
+          .update({
+        "isPending": isPending,
+        "isRefused": isPending,
+      });
+      List<ArticleModel> list = await articleRemoteDataSource.getArticles();
       return right(list);
     } catch (e) {
       return left(e.toString());
@@ -186,42 +171,40 @@ class ArticleRepoImpl extends ArticleRepo {
 
   Future<void> sendNotification(
     String token,
-    bool isAcceped,
-    ArticleModel oldModel,
-    String title,
-    String body,
+    bool isPending,
+    String articleId,
+    String writerUid,
   ) async {
     NotificationModel notification = NotificationModel(
       isReaden: false,
       subType: 'article',
       senderUid: adminUid,
-      title: title,
-      body: body,
+      title: isPending == true ? 'ban_article' : 'no_ban_article',
+      body: '',
       type: 'notification',
-      uid: oldModel.id!,
+      uid: articleId,
       time: Timestamp.now(),
     );
     await FirebaseFirestore.instance
         .collection('notification')
-        .doc(oldModel.writerUid)
+        .doc(writerUid)
         .collection('data')
         .add(
           notification.toJson(),
         );
-
-    dioHelper.sendNotification(
-      token: token,
-      title: title == 'accept'
-          ? 'تم قبول المقال الخاص بك'
-          : title == 'refuse'
-              ? 'تم رفض المقال الخاص بك'
-              : 'تم تقييد المقال الخاص بك',
-      body: body,
-      data: {
-        "type": "notification",
-        "subType": "article",
-        "uid": oldModel.id,
-      },
-    );
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: 'مقالاتك',
+        body: isPending == false
+            ? 'تم رفع التقييد عن المقال الخاص بك'
+            : 'تم تقييد المقال الخاص بك',
+        data: {
+          "type": "notification",
+          "subType": "article",
+          "uid": articleId,
+        },
+      );
+    }
   }
 }

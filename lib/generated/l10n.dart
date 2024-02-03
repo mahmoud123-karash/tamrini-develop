@@ -2590,41 +2590,11 @@ class S {
     );
   }
 
-  /// `This article has been refused`
-  String get refused_article {
-    return Intl.message(
-      'This article has been refused',
-      name: 'refused_article',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Do you want to remove the article?`
   String get q_remove_article {
     return Intl.message(
       'Do you want to remove the article?',
       name: 'q_remove_article',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `This article has been accepted`
-  String get success_accept {
-    return Intl.message(
-      'This article has been accepted',
-      name: 'success_accept',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `This article has been refused`
-  String get success_refused {
-    return Intl.message(
-      'This article has been refused',
-      name: 'success_refused',
       desc: '',
       args: [],
     );

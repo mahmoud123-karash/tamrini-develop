@@ -167,7 +167,7 @@ class DietFoodRepoImpl extends DietFoodRepo {
   Future<void> sendNotification(
     String writerId,
     String foodId,
-    bool isRefused,
+    bool isPending,
   ) async {
     var data = await FirebaseFirestore.instance
         .collection('users')
@@ -178,7 +178,7 @@ class DietFoodRepoImpl extends DietFoodRepo {
       dioHelper.sendNotification(
         token: token,
         title: 'مقالاتك',
-        body: isRefused == false
+        body: isPending == false
             ? 'تم رفع التقييد عن المقال الخاص بك'
             : 'تم تقييد المقال الخاص بك',
         data: {
@@ -193,7 +193,7 @@ class DietFoodRepoImpl extends DietFoodRepo {
       isReaden: false,
       subType: 'diet_food',
       senderUid: adminUid,
-      title: isRefused == true ? 'ban_food' : 'no_ban_food',
+      title: isPending == true ? 'ban_food' : 'no_ban_food',
       body: '',
       type: 'notification',
       uid: foodId,

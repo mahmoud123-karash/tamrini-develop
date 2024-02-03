@@ -49,10 +49,10 @@ class NotificationBodyWidget extends StatelessWidget {
   }
 
   String getNotificationTitle(BuildContext context) {
-    return title == 'accept'
-        ? S.of(context).accept_your_article
-        : title == 'refuse'
-            ? S.of(context).refuse_your_article
+    return title == 'ban_article'
+        ? S.of(context).ban_title_food
+        : title == 'no_ban_article'
+            ? S.of(context).no_ban_title_food
             : title == 'ban'
                 ? S.of(context).ban_your_article
                 : title == 'answer'

@@ -135,6 +135,7 @@ class DietFoodCubit extends Cubit<DietFoodStates> {
     );
     result.fold(
       (message) {
+        getData();
         emit(ErrorGetDietFoodState(message));
       },
       (list) {

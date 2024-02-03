@@ -21,11 +21,9 @@ abstract class ArticleRepo {
     required ArticleModel oldModel,
   });
 
-  Future<Either<String, List<ArticleModel>>> disPendingArticle({
-    required List<ArticleModel> list,
-    required ArticleModel oldModel,
-    required bool isAcceped,
-    required String token,
-    required String title,
+  Future<Either<String, List<ArticleModel>>> banArticle({
+    required bool isPending,
+    required String articleId,
+    required String writerUid,
   });
 }
