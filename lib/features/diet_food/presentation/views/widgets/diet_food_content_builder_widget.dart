@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_states.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_cubit.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_content_widget.dart';
@@ -21,9 +22,7 @@ class DietFoodContentBuilderWidget extends StatelessWidget {
         } else if (state is ErrorGetDietFoodState) {
           return MessageDietFoodWidget(message: state.message);
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return loadingWidget();
         }
       },
     );

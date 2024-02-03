@@ -1220,16 +1220,6 @@ class S {
     );
   }
 
-  /// `Restrict`
-  String get ban_question {
-    return Intl.message(
-      'Restrict',
-      name: 'ban_question',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `An error occurred`
   String get comment_error {
     return Intl.message(
@@ -3270,16 +3260,6 @@ class S {
     );
   }
 
-  /// `تقييد الصالة`
-  String get ban_gym {
-    return Intl.message(
-      'تقييد الصالة',
-      name: 'ban_gym',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `هل تريد تقييد هذه الصالة الرياضية ؟`
   String get ban_gym_q {
     return Intl.message(
@@ -3301,30 +3281,10 @@ class S {
   }
 
   /// `رفع التقييد`
-  String get no_ban_gym {
+  String get no_ban {
     return Intl.message(
       'رفع التقييد',
-      name: 'no_ban_gym',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `هل تريد رفع التقييد ؟`
-  String get no_ban_gym_q {
-    return Intl.message(
-      'هل تريد رفع التقييد ؟',
-      name: 'no_ban_gym_q',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `تم رفع التقييد عن الصالة الخاصة بك`
-  String get no_banned_gym_hint {
-    return Intl.message(
-      'تم رفع التقييد عن الصالة الخاصة بك',
-      name: 'no_banned_gym_hint',
+      name: 'no_ban',
       desc: '',
       args: [],
     );
@@ -3335,6 +3295,36 @@ class S {
     return Intl.message(
       'تقييد',
       name: 'ban',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد رفع التقييد ؟`
+  String get no_ban_question {
+    return Intl.message(
+      'هل تريد رفع التقييد ؟',
+      name: 'no_ban_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد تقييد هذا المقال ؟`
+  String get ban_question {
+    return Intl.message(
+      'هل تريد تقييد هذا المقال ؟',
+      name: 'ban_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفع التقييد عن الصالة الخاصة بك`
+  String get no_banned_gym_hint {
+    return Intl.message(
+      'تم رفع التقييد عن الصالة الخاصة بك',
+      name: 'no_banned_gym_hint',
       desc: '',
       args: [],
     );
@@ -3351,10 +3341,10 @@ class S {
   }
 
   /// `تم رفع التقييد عن الصالة الرياضية`
-  String get no_ban_suvccess_gym {
+  String get no_ban_success_gym {
     return Intl.message(
       'تم رفع التقييد عن الصالة الرياضية',
-      name: 'no_ban_suvccess_gym',
+      name: 'no_ban_success_gym',
       desc: '',
       args: [],
     );
@@ -3415,6 +3405,56 @@ class S {
     return Intl.message(
       'هل تريد حذف هذه الوجبة ؟',
       name: 'remove_meal_q',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم التقييد`
+  String get ban_succes {
+    return Intl.message(
+      'تم التقييد',
+      name: 'ban_succes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفع التقييد`
+  String get no_ban_scucess {
+    return Intl.message(
+      'تم رفع التقييد',
+      name: 'no_ban_scucess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تقيييد المقال الخاص بك`
+  String get ban_title_food {
+    return Intl.message(
+      'تم تقيييد المقال الخاص بك',
+      name: 'ban_title_food',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفع التقييد عن المقال الخاص بك`
+  String get no_ban_title_food {
+    return Intl.message(
+      'تم رفع التقييد عن المقال الخاص بك',
+      name: 'no_ban_title_food',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تقييد هذا المقال`
+  String get ban_food_hint {
+    return Intl.message(
+      'تم تقييد هذا المقال',
+      name: 'ban_food_hint',
       desc: '',
       args: [],
     );

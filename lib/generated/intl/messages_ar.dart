@@ -80,12 +80,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "available": MessageLookupByLibrary.simpleMessage("متوفر"),
         "ban": MessageLookupByLibrary.simpleMessage("تقييد"),
         "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
-        "ban_gym": MessageLookupByLibrary.simpleMessage("تقييد الصالة"),
+        "ban_food_hint":
+            MessageLookupByLibrary.simpleMessage("تم تقييد هذا المقال"),
         "ban_gym_q": MessageLookupByLibrary.simpleMessage(
             "هل تريد تقييد هذه الصالة الرياضية ؟"),
-        "ban_question": MessageLookupByLibrary.simpleMessage("تقييد"),
+        "ban_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد تقييد هذا المقال ؟"),
+        "ban_succes": MessageLookupByLibrary.simpleMessage("تم التقييد"),
         "ban_sucess_gym":
             MessageLookupByLibrary.simpleMessage("تم تقيييد الصالة الرياضية"),
+        "ban_title_food":
+            MessageLookupByLibrary.simpleMessage("تم تقيييد المقال الخاص بك"),
         "ban_your_article":
             MessageLookupByLibrary.simpleMessage("تم تقييد المقال الخاص بك"),
         "ban_your_question":
@@ -244,11 +249,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا يوجد منتجات بهذا الإسم"),
         "no_answers":
             MessageLookupByLibrary.simpleMessage("لا إجابات حتى الآن"),
-        "no_ban_gym": MessageLookupByLibrary.simpleMessage("رفع التقييد"),
-        "no_ban_gym_q":
+        "no_ban": MessageLookupByLibrary.simpleMessage("رفع التقييد"),
+        "no_ban_question":
             MessageLookupByLibrary.simpleMessage("هل تريد رفع التقييد ؟"),
-        "no_ban_suvccess_gym": MessageLookupByLibrary.simpleMessage(
+        "no_ban_scucess":
+            MessageLookupByLibrary.simpleMessage("تم رفع التقييد"),
+        "no_ban_success_gym": MessageLookupByLibrary.simpleMessage(
             "تم رفع التقييد عن الصالة الرياضية"),
+        "no_ban_title_food": MessageLookupByLibrary.simpleMessage(
+            "تم رفع التقييد عن المقال الخاص بك"),
         "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
             "تم رفع التقييد عن الصالة الخاصة بك"),
         "no_exercises_yet":

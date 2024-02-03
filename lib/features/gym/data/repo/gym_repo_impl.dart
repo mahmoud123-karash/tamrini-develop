@@ -157,15 +157,18 @@ class GymRepoImpl extends GymRepo {
   }
 
   Future<void> sendNotification(
-      String ownerId, String gymId, bool isBanned) async {
+    String ownerId,
+    String gymId,
+    bool isBanned,
+  ) async {
     var data =
         await FirebaseFirestore.instance.collection('users').doc(ownerId).get();
     String token = data['token'] ?? '';
     if (token != '') {
       dioHelper.sendNotification(
         token: token,
-        title: 'تقييد الصالة الرياضية',
-        body: !isBanned
+        title: 'الصالة الرياضية',
+        body: isBanned == false
             ? 'تم رفع التقييد عن الصالة الرياضية الخاصة بك'
             : 'تم تقييد الصالة الرياضية الخاصة بك',
         data: {
@@ -179,7 +182,7 @@ class GymRepoImpl extends GymRepo {
       isReaden: false,
       subType: 'ban_gym',
       senderUid: adminUid,
-      title: isBanned ? 'ban_gym' : 'no_ban_gym',
+      title: isBanned == true ? 'ban_gym' : 'no_ban_gym',
       body: '',
       type: 'notification',
       uid: gymId,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
+import 'package:tamrini/features/diet_food/presentation/views/new_diet_food_screen.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -32,12 +34,14 @@ class _DietFoodContentWidgetState extends State<DietFoodContentWidget> {
         scrollController.position.maxScrollExtent) {
       if (widget.models.length > length) {
         length += 10;
-        Future.delayed(const Duration(seconds: 1)).then((value) {
-          if (mounted) {
-            WidgetsBinding.instance
-                .addPostFrameCallback((_) => setState(() {}));
-          }
-        });
+        Future.delayed(const Duration(seconds: 1)).then(
+          (value) {
+            if (mounted) {
+              WidgetsBinding.instance
+                  .addPostFrameCallback((_) => setState(() {}));
+            }
+          },
+        );
       }
     }
   }
@@ -51,6 +55,8 @@ class _DietFoodContentWidgetState extends State<DietFoodContentWidget> {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+
     return Column(
       children: [
         searchField(
@@ -63,6 +69,18 @@ class _DietFoodContentWidgetState extends State<DietFoodContentWidget> {
             setState(() {});
           },
         ),
+        if (userType == 'admin' || userType == 'writer')
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+            ),
+            child: addCustomButton(
+              onPressed: () {
+                navigateTo(context, const NewDietFoodScreen());
+              },
+              lable: S.of(context).new_meal,
+            ),
+          ),
         const SizedBox(
           height: 5,
         ),

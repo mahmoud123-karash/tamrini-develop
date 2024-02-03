@@ -287,3 +287,41 @@ Widget messageBuilder({
         ),
       ),
     );
+
+Widget banWidget({
+  required String lable,
+}) =>
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.red.withOpacity(0.3),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 5,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.info_outline,
+                color: Colors.red,
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                lable,
+                style: TextStyles.style14.copyWith(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );

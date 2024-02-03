@@ -63,6 +63,10 @@ class NotificationBodyWidget extends StatelessWidget {
                             ? S.of(context).banned_gym_hint
                             : title == 'no_ban_gym'
                                 ? S.of(context).no_banned_gym_hint
-                                : title;
+                                : title == 'ban_food'
+                                    ? S.of(context).ban_title_food
+                                    : title == 'no_ban_food'
+                                        ? S.of(context).no_ban_title_food
+                                        : title;
   }
 }

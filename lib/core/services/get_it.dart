@@ -48,6 +48,12 @@ import '../../features/home_exercise/data/repo/home_exercise_repo_impl.dart';
 GetIt getIt = GetIt.instance;
 
 void setLocator() {
+  getIt.registerSingleton<DioHelper>(
+    DioHelper(
+      Dio(),
+    ),
+  );
+
   getIt.registerSingleton<RegisterUseCase>(
     RegisterUseCase(
       RegisterRepoImpl(),
@@ -88,16 +94,12 @@ void setLocator() {
   getIt.registerSingleton<DietFoodRepoImpl>(
     DietFoodRepoImpl(
       DietFoodRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 
   getIt.registerSingleton<QuestionRepoImpl>(
     QuestionRepoImpl(),
-  );
-  getIt.registerSingleton<DioHelper>(
-    DioHelper(
-      Dio(),
-    ),
   );
 
   getIt.registerSingleton<GymRepoImpl>(

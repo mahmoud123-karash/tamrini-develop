@@ -1,13 +1,12 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/views/diet_food_details_screen.dart';
 
+import 'diet_food_name_and_date_widget.dart';
 import 'diet_food_slide_image_widget.dart';
+import 'remove_diet_food_widget.dart';
 
 class DietFoodItemWidget extends StatelessWidget {
   const DietFoodItemWidget({super.key, required this.model});
@@ -15,94 +14,66 @@ class DietFoodItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid');
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () {
-          navigateTo(context, DietFoodDetailsScreen(model: model));
+          navigateTo(context, DietFoodDetailsScreen(id: model.id));
         },
-        child: Stack(
-          children: [
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              elevation: 7,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    if (model.assets.isNotEmpty)
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          elevation: 7,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                if (model.assets.isNotEmpty)
+                  Stack(
+                    alignment: Alignment.topLeft,
+                    children: [
                       DietFoodSlideImageWidget(
-                          images: model.assets, title: model.title),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0, right: 10),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: AutoSizeText(
-                                  model.title,
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: blackColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            model.date != Timestamp.now()
-                                ? Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: AutoSizeText(
-                                        DateFormat('yyyy-MM-dd').format(
-                                            DateTime.parse(model.date
-                                                .toDate()
-                                                .toString())),
-                                        style: const TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                : Container(),
-                          ],
-                        ),
+                        images: model.assets,
+                        title: model.title,
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 10),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          model.description,
-                          textAlign: TextAlign.start,
-                          maxLines: 2,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.grey.shade500,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                      if (model.writerUid == uid)
+                        RemoveDietFoodWidget(model: model),
+                    ],
+                  ),
+                const SizedBox(
+                  height: 5,
                 ),
-              ),
+                DietFoodNameAndDateWidget(
+                  name: model.title,
+                  date: model.date,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 5,
+                    horizontal: 5,
+                  ),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      model.description,
+                      textAlign: TextAlign.start,
+                      maxLines: 2,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey.shade500,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

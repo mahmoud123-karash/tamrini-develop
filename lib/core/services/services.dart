@@ -101,26 +101,20 @@ String formatTimeDifferenceInArabic(DateTime dateTime) {
   if (difference.inSeconds < 60) {
     return 'الآن';
   } else if (difference.inMinutes < 60) {
-    final format = DateFormat('منذ mm دقائق');
-    return format.format(dateTime);
+    return 'منذ ${difference.inMinutes} دقائق';
   } else if (difference.inHours < 24) {
-    final format = DateFormat('منذ HH ساعات');
-    return format.format(dateTime);
+    return 'منذ ${difference.inHours} ساعات';
   } else if (difference.inDays < 7) {
-    final format = DateFormat('EEEE', 'ar');
-    return format.format(dateTime);
+    return 'منذ ${difference.inDays} ${difference.inDays == 1 ? 'يوم' : 'أيام'}';
   } else if (difference.inDays < 30) {
     final weeks = (difference.inDays / 7).floor();
-    final format = DateFormat('منذ $weeks أسابيع');
-    return format.format(dateTime);
+    return 'منذ $weeks ${weeks == 1 ? 'أسبوع' : 'أسابيع'}';
   } else if (difference.inDays < 365) {
     final months = (difference.inDays / 30).floor();
-    final format = DateFormat('منذ $months أشهر');
-    return format.format(dateTime);
+    return 'منذ $months ${months > 1 ? 'أ' : ''}شهر';
   } else {
     final years = (difference.inDays / 365).floor();
-    final format = DateFormat('منذ $years سنوات');
-    return format.format(dateTime);
+    return 'منذ $years ${years == 1 ? 'ًسنة' : 'سنوات'}';
   }
 }
 

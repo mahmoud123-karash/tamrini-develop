@@ -145,7 +145,7 @@ class GymCubit extends Cubit<GymStates> {
           context,
           isBannd
               ? S.of(context).ban_sucess_gym
-              : S.of(context).no_ban_suvccess_gym,
+              : S.of(context).no_ban_success_gym,
         );
         List<GymModel> models = clearBannedGym(list);
         emit(SucessGetGymsState(models));

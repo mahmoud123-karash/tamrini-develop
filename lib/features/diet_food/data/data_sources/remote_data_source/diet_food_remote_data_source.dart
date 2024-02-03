@@ -13,7 +13,7 @@ class DietFoodRemoteDataSourceImpl extends DietFoodRemoteDataSource {
         .collection('dietFood')
         .doc('data')
         .collection('data')
-        .orderBy('title', descending: true)
+        .orderBy('date', descending: true)
         .get();
 
     for (var element in result.docs) {

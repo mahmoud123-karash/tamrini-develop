@@ -37,9 +37,7 @@ class BanGymCustomButtonWidget extends StatelessWidget {
             dialogType: DialogType.warning,
             animType: AnimType.bottomSlide,
             title: title,
-            desc: !isBanned
-                ? S.of(context).ban_gym_q
-                : S.of(context).no_ban_gym_q,
+            desc: !isBanned ? S.of(context).ban_gym_q : S.of(context).no_ban,
             btnCancelOnPress: () {},
             btnOkOnPress: () {
               GymCubit.get(context).banGym(
@@ -51,7 +49,7 @@ class BanGymCustomButtonWidget extends StatelessWidget {
             },
           ).show();
         },
-        lable: !isBanned ? S.of(context).ban_gym : S.of(context).no_ban_gym,
+        lable: !isBanned ? S.of(context).ban : S.of(context).no_ban,
       ),
     );
   }

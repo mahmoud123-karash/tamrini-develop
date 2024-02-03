@@ -11,6 +11,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
 import 'package:tamrini/features/atricle/presentation/views/articles_details_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
+import 'package:tamrini/features/diet_food/presentation/views/diet_food_details_screen.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
@@ -103,6 +104,10 @@ void openNotification(RemoteMessage event, BuildContext context) {
 
     if (event.data['subType'] == 'ban_gym') {
       navigateTo(context, const GymOwnerScreen());
+    }
+
+    if (event.data['subType'] == 'diet_food') {
+      navigateTo(context, DietFoodDetailsScreen(id: event.data['uid']));
     }
   }
 }

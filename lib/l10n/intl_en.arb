@@ -116,7 +116,6 @@
     "success_ban": "restricted successfully",
     "remove_question": "Delete",
     "edit": "Edit",
-    "ban_question": "Restrict",
     "comment_error": "An error occurred",
     "edit_answer": "Edit Answer",
     "success_remove_answer": "Answer Successfully Removed",
@@ -321,21 +320,27 @@
     "zain_cash":"Zain Cash",
     "Subscriptions":"الاشتراكات",
     "no_sub":"لا يوجد إشتراكات حتي الآن",
-    "ban_gym":"تقييد الصالة",
     "ban_gym_q":"هل تريد تقييد هذه الصالة الرياضية ؟",
     "banned_gym_hint":"لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات",
-    "no_ban_gym":"رفع التقييد",
-    "no_ban_gym_q":"هل تريد رفع التقييد ؟",
-    "no_banned_gym_hint":"تم رفع التقييد عن الصالة الخاصة بك",
+    "no_ban":"رفع التقييد",
     "ban":"تقييد",
+    "no_ban_question":"هل تريد رفع التقييد ؟",
+    "ban_question":"هل تريد تقييد هذا المقال ؟",
+    "no_banned_gym_hint":"تم رفع التقييد عن الصالة الخاصة بك",
     "ban_sucess_gym":"تم تقيييد الصالة الرياضية",
-    "no_ban_suvccess_gym":"تم رفع التقييد عن الصالة الرياضية",
+    "no_ban_success_gym":"تم رفع التقييد عن الصالة الرياضية",
     "renew_sub":"تجديد الاشتراك",
     "meal_name":"اسم الوجبة",
     "meal_description":"تفاصيل الوجبة",
     "new_meal":"إضافة وجبة ",
     "edit_meal":"تعديل الوجبة",
-    "remove_meal_q":"هل تريد حذف هذه الوجبة ؟"
+    "remove_meal_q":"هل تريد حذف هذه الوجبة ؟",
+    "ban_succes":"تم التقييد",
+    "no_ban_scucess":"تم رفع التقييد",
+    "ban_title_food":"تم تقيييد المقال الخاص بك",
+    "no_ban_title_food":"تم رفع التقييد عن المقال الخاص بك",
+    "ban_food_hint":"تم تقييد هذا المقال"
+
 
 
 

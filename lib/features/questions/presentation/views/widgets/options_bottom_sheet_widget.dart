@@ -110,7 +110,7 @@ class OptionsBottomSheetWidget extends StatelessWidget {
                       token: token,
                     );
                   },
-                  title: Text(S.of(context).ban_question),
+                  title: Text(S.of(context).ban),
                   leading: const Icon(
                     Icons.remove_circle,
                   ),

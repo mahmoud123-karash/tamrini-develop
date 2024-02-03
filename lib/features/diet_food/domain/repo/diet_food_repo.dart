@@ -18,4 +18,10 @@ abstract class DietFoodRepo {
     required String id,
     required List<String> assets,
   });
+
+  Future<Either<String, List<DietFoodModel>>> banFood({
+    required String id,
+    required bool isPending,
+    required String writerUid,
+  });
 }
