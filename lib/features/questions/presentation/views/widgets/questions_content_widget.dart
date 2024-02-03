@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
@@ -50,19 +49,6 @@ class _QuestionContentWidgetState extends State<QuestionContentWidget> {
         ),
         if (controller.text != '' && searchList.isEmpty)
           MessageQuestionBuilderWidget(message: S.of(context).no_results),
-        if (widget.state is! SucessGetQuestionsState &&
-            widget.state is! ErrorGetQuestionsState)
-          Container(
-            width: 150,
-            height: 150,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: appColor.withOpacity(0.5),
-            ),
-            child: const Center(
-              child: CircularProgressIndicator(),
-            ),
-          )
       ],
     );
   }

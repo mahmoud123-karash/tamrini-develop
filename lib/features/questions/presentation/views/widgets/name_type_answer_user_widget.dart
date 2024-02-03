@@ -39,7 +39,7 @@ class NameAswertypeUserWidget extends StatelessWidget {
                 letterSpacing: -0.90,
               ),
               textAlign: TextAlign.start,
-              maxLines: 5,
+              maxLines: null,
             ),
           ),
         ),

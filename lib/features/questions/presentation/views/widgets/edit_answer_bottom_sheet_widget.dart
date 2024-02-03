@@ -69,6 +69,7 @@ class _EditAnswerBottomSheetWidgetState
                       id: widget.question.id!,
                       newAnswer: controller.text,
                     );
+                    Navigator.pop(context);
                   },
                 ),
             ],

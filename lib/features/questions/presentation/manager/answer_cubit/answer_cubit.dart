@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
@@ -23,17 +24,17 @@ class AnswerCubit extends Cubit<AnswerStates> {
     required String id,
     required String token,
   }) async {
-    emit(LoadingAddAnswerState());
+    emit(LoadingAnswerState());
     var result = await writeAnswerUseCase.answer(
         answer: answer, model: model, id: id, token: token);
 
     result.fold(
       (message) {
         log(message);
-        emit(ErrorAddAnswerState(message));
+        emit(ErrorUpdateAnswerState(message));
       },
       (success) {
-        emit(SucessAddAnswerState());
+        emit(SucessUpdateAnswerState());
       },
     );
   }
@@ -45,7 +46,7 @@ class AnswerCubit extends Cubit<AnswerStates> {
     required String id,
     required String newAnswer,
   }) async {
-    emit(LoadingUpdateAnswerState());
+    emit(LoadingAnswerState());
     AnswerModel answer = AnswerModel(
       date: aModel.date,
       answer: newAnswer,
@@ -77,10 +78,10 @@ class AnswerCubit extends Cubit<AnswerStates> {
   void removeAnswer({
     required AnswerModel aModel,
     required QuestionModel model,
-    required BuildContext context,
+    required String message,
     required String id,
   }) async {
-    emit(LoadingUpdateAnswerState());
+    emit(LoadingAnswerState());
     List<AnswerModel> list = model.answers;
     list.remove(aModel);
     QuestionModel question = QuestionModel(
@@ -98,7 +99,8 @@ class AnswerCubit extends Cubit<AnswerStates> {
         emit(ErrorUpdateAnswerState(message));
       },
       (success) {
-        emit(SucessRemoveAnswerState());
+        showToast(message);
+        emit(SucessUpdateAnswerState());
       },
     );
   }

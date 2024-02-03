@@ -57,7 +57,7 @@ class _AnswersScreenState extends State<AnswersScreen> {
                     message: S.of(context).question_error,
                   )
                 : Stack(
-                    alignment: Alignment.bottomCenter,
+                    alignment: Alignment.center,
                     children: [
                       Align(
                         alignment: Alignment.topCenter,

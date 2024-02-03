@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
@@ -18,12 +19,17 @@ class QuestionCubit extends Cubit<QuestionStates> {
   final QuestionRepo questionRepo;
   final BanQuestionUseCase banQuestionUseCase;
 
-  void getQuestions() async {
+  List<QuestionModel> questions = [];
+  void getQuestions({String? message}) async {
     var result = await questionRepo.getQuestons();
     result.fold((message) {
       emit(ErrorGetQuestionsState(message));
     }, (list) {
       List<QuestionModel> models = clearBannedQuestions(list);
+      questions = models;
+      if (message != null) {
+        showToast(message, gravity: ToastGravity.BOTTOM);
+      }
       emit(SucessGetQuestionsState(models));
     });
   }
@@ -42,6 +48,7 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required String body,
     required BuildContext context,
   }) async {
+    emit(LoadingGetQuestionsState());
     var result = await questionRepo.addNewQuestion(body: body);
     result.fold(
       (message) {
@@ -51,8 +58,10 @@ class QuestionCubit extends Cubit<QuestionStates> {
       },
       (list) {
         Navigator.pop(context);
+        Navigator.pop(context);
         showSnackBar(context, S.of(context).success_add);
         List<QuestionModel> models = clearBannedQuestions(list);
+        questions = models;
         emit(SucessGetQuestionsState(models));
       },
     );
@@ -64,6 +73,7 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required String id,
     required String message,
   }) async {
+    emit(LoadingGetQuestionsState());
     var result = await questionRepo.updateQuestion(id: id, model: model);
     result.fold(
       (message) {
@@ -74,9 +84,11 @@ class QuestionCubit extends Cubit<QuestionStates> {
       (list) {
         if (message != '') {
           showSnackBar(context, message);
-          Navigator.pop(context);
         }
+        Navigator.pop(context);
+        Navigator.pop(context);
         List<QuestionModel> models = clearBannedQuestions(list);
+        questions = models;
         emit(SucessGetQuestionsState(models));
       },
     );
@@ -86,6 +98,7 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required BuildContext context,
     required String id,
   }) async {
+    emit(LoadingGetQuestionsState());
     var result = await questionRepo.removeQuestion(id: id);
     result.fold(
       (message) {
@@ -95,8 +108,10 @@ class QuestionCubit extends Cubit<QuestionStates> {
       },
       (list) {
         Navigator.pop(context);
+        Navigator.pop(context);
         showSnackBar(context, S.of(context).success_remove);
         List<QuestionModel> models = clearBannedQuestions(list);
+        questions = models;
         emit(SucessGetQuestionsState(models));
       },
     );
@@ -108,6 +123,7 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required String id,
     required String token,
   }) async {
+    emit(LoadingGetQuestionsState());
     var result = await banQuestionUseCase.ban(
       model: model,
       id: id,
@@ -122,7 +138,10 @@ class QuestionCubit extends Cubit<QuestionStates> {
       (list) {
         showSnackBar(context, S.of(context).success_ban);
         Navigator.pop(context);
+        Navigator.pop(context);
+        Navigator.pop(context);
         List<QuestionModel> models = clearBannedQuestions(list);
+        questions = models;
         emit(SucessGetQuestionsState(models));
       },
     );

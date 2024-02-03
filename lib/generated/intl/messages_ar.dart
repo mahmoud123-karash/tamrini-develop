@@ -442,6 +442,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "unavailable": MessageLookupByLibrary.simpleMessage("غير متوفر"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
         "update_profile": MessageLookupByLibrary.simpleMessage("تحديث"),
+        "update_success": MessageLookupByLibrary.simpleMessage("تم التحديث"),
         "update_your_account":
             MessageLookupByLibrary.simpleMessage("ترقية الحساب"),
         "user_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),

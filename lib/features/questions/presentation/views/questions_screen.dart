@@ -9,9 +9,14 @@ import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/questions_content_builder_widget.dart';
 
-class QuestionsScreen extends StatelessWidget {
+class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
 
+  @override
+  State<QuestionsScreen> createState() => _QuestionsScreenState();
+}
+
+class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +38,11 @@ class QuestionsScreen extends StatelessWidget {
         onRefresh: () async {
           await Future.delayed(const Duration(milliseconds: 1500))
               .then((value) {
-            QuestionCubit.get(context).getQuestions();
+            if (mounted) {
+              QuestionCubit.get(context).getQuestions(
+                message: S.of(context).update_success,
+              );
+            }
           });
         },
         child: const QuestionsContentBuilderWidget(),

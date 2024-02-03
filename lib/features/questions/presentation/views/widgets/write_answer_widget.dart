@@ -9,6 +9,7 @@ import 'package:tamrini/features/questions/data/models/question_model/question_m
 import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_states.dart';
 import 'package:tamrini/generated/l10n.dart';
+import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 class WriteAnswerWidget extends StatefulWidget {
   const WriteAnswerWidget(
@@ -33,11 +34,15 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
   Widget build(BuildContext context) {
     return BlocConsumer<AnswerCubit, AnswerStates>(
       listener: (context, state) {
-        if (state is SucessAddAnswerState) {
+        if (state is SucessUpdateAnswerState) {
           controller.clear();
+          Navigator.pop(context);
         }
-        if (state is ErrorAddAnswerState) {
+        if (state is ErrorUpdateAnswerState) {
           showSnackBar(context, state.message);
+        }
+        if (state is LoadingAnswerState) {
+          showLoaderDialog(context);
         }
       },
       builder: (context, state) => Container(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
-import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
@@ -31,20 +30,7 @@ class _AnswerOptionsBottomSheetWidgetState
   @override
   Widget build(BuildContext context) {
     return BlocListener<AnswerCubit, AnswerStates>(
-      listener: (context, state) {
-        if (state is SucessUpdateAnswerState) {
-          if (mounted) {
-            Navigator.pop(context);
-            showSnackBar(context, S.of(context).success_update_answer);
-          }
-        }
-        if (state is SucessRemoveAnswerState) {
-          if (mounted) {
-            Navigator.pop(context);
-            showSnackBar(context, S.of(context).success_remove_answer);
-          }
-        }
-      },
+      listener: (context, state) {},
       child: Container(
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -87,9 +73,10 @@ class _AnswerOptionsBottomSheetWidgetState
                   AnswerCubit.get(context).removeAnswer(
                     aModel: widget.model,
                     model: widget.question,
-                    context: context,
+                    message: S.of(context).success_remove_answer,
                     id: widget.question.id!,
                   );
+                  Navigator.pop(context);
                 },
               )
             ],

@@ -448,6 +448,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "update_profile":
             MessageLookupByLibrary.simpleMessage("Update Profile"),
+        "update_success": MessageLookupByLibrary.simpleMessage("تم التحديث"),
         "update_your_account":
             MessageLookupByLibrary.simpleMessage("Update Your Account"),
         "user_profile": MessageLookupByLibrary.simpleMessage("User profile"),

@@ -335,7 +335,8 @@
     "no_ban_scucess":"تم رفع التقييد",
     "ban_title_food":"تم تقيييد المقال الخاص بك",
     "no_ban_title_food":"تم رفع التقييد عن المقال الخاص بك",
-    "ban_food_hint":"تم تقييد هذا المقال"
+    "ban_food_hint":"تم تقييد هذا المقال",
+    "update_success":"تم التحديث"
    
 
 
