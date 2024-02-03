@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
+import 'package:tamrini/features/questions/data/data_sources/remote_data_source/remote_question_data_source.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
 
 abstract class UseCase {
-  Future<Either<String, String>> ban({
+  Future<Either<String, List<QuestionModel>>> ban({
     required QuestionModel model,
     required String id,
     required String token,
@@ -14,10 +15,12 @@ abstract class UseCase {
 class BanQuestionUseCase extends UseCase {
   final QuestionRepo questionRepo;
   final DioHelper dioHelper;
+  final QuestionRemoteDataSource questionRemoteDataSource;
 
-  BanQuestionUseCase(this.questionRepo, this.dioHelper);
+  BanQuestionUseCase(
+      this.questionRepo, this.dioHelper, this.questionRemoteDataSource);
   @override
-  Future<Either<String, String>> ban({
+  Future<Either<String, List<QuestionModel>>> ban({
     required QuestionModel model,
     required String id,
     required String token,
@@ -41,8 +44,8 @@ class BanQuestionUseCase extends UseCase {
       if (token != '') {
         dioHelper.sendNotification(
           token: token,
-          title: 'تم تقييد سؤالك',
-          body: '',
+          title: 'الإسئلة',
+          body: 'تم تقييد سؤالك',
           data: {
             "type": "notification",
             "subType": "question",
@@ -50,8 +53,8 @@ class BanQuestionUseCase extends UseCase {
           },
         );
       }
-
-      return right('');
+      List<QuestionModel> list = await questionRemoteDataSource.get();
+      return right(list);
     } catch (e) {
       return left(e.toString());
     }

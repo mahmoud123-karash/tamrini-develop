@@ -31,31 +31,35 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).scaffoldBackgroundColor,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: Row(
-          children: [
-            if (controller.text != '')
-              BlocListener<AnswerCubit, AnswerStates>(
-                listener: (context, state) {
-                  if (state is SucessAddAnswerState) {
-                    controller.clear();
-                  }
-                  if (state is ErrorAddAnswerState) {
-                    showSnackBar(context, state.message);
-                  }
-                },
-                child: GestureDetector(
+    return BlocConsumer<AnswerCubit, AnswerStates>(
+      listener: (context, state) {
+        if (state is SucessAddAnswerState) {
+          controller.clear();
+        }
+        if (state is ErrorAddAnswerState) {
+          showSnackBar(context, state.message);
+        }
+      },
+      builder: (context, state) => Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          child: Row(
+            children: [
+              if (controller.text != '')
+                GestureDetector(
                   onTap: () async {
                     if (await InternetConnectionChecker().hasConnection) {
-                      AnswerCubit.get(context).addNewAnswer(
-                        answer: controller.text,
-                        model: widget.model,
-                        id: widget.model.id!,
-                        token: widget.token,
-                      );
+                      if (controller.text == '') {
+                      } else {
+                        AnswerCubit.get(context).addNewAnswer(
+                          answer: controller.text,
+                          model: widget.model,
+                          id: widget.model.id!,
+                          token: widget.token,
+                        );
+                        setState(() {});
+                      }
                     } else {
                       showSnackBar(context, S.of(context).comment_error);
                     }
@@ -79,37 +83,37 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
                     ),
                   ),
                 ),
+              const SizedBox(
+                width: 5,
               ),
-            const SizedBox(
-              width: 5,
-            ),
-            Expanded(
-              child: TextFormField(
-                autovalidateMode: AutovalidateMode.always,
-                controller: controller,
-                minLines: 1,
-                maxLines: 15,
-                onChanged: (value) {
-                  setState(() {});
-                },
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 0,
-                    horizontal: 15,
+              Expanded(
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.always,
+                  controller: controller,
+                  minLines: 1,
+                  maxLines: 15,
+                  onChanged: (value) {
+                    setState(() {});
+                  },
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 15,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: appColor),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: appColor),
+                    ),
+                    hintText: S.of(context).add_answer,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: appColor),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: appColor),
-                  ),
-                  hintText: S.of(context).add_answer,
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

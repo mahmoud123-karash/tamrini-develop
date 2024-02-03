@@ -29,10 +29,10 @@ class _AnswersDetailsContentWidgetState
   @override
   void initState() {
     super.initState();
-    scrollController.addListener(_loadMoreData);
+    scrollController.addListener(loadMoreData);
   }
 
-  void _loadMoreData() {
+  void loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
       if (widget.model.answers.length > length) {

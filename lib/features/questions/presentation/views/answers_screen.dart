@@ -2,30 +2,35 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/answers_details_content_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/write_answer_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import '../../data/models/question_model/question_model.dart';
 import 'widgets/message_question_builder_widget.dart';
 
-class AnswersScreen extends StatelessWidget {
+class AnswersScreen extends StatefulWidget {
   const AnswersScreen({super.key, required this.model, required this.uid});
   final UserModel model;
   final String uid;
 
   @override
+  State<AnswersScreen> createState() => _AnswersScreenState();
+}
+
+class _AnswersScreenState extends State<AnswersScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).answers),
-        centerTitle: true,
+      appBar: myAppBar(
+        S.of(context).answers,
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
             .collection('Q&A')
             .doc('questions')
             .collection('questions')
-            .doc(uid)
+            .doc(widget.uid)
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
@@ -43,7 +48,8 @@ class AnswersScreen extends StatelessWidget {
             }
             QuestionModel question = QuestionModel.fromJson(
               map,
-              uid,
+              widget.uid,
+              widget.model,
             );
             log(question.answers.length.toString());
             return snapshot.data!.data() == null
@@ -56,7 +62,7 @@ class AnswersScreen extends StatelessWidget {
                       Align(
                         alignment: Alignment.topCenter,
                         child: AnswersDetailsContentWidget(
-                          user: model,
+                          user: widget.model,
                           model: question,
                         ),
                       ),
@@ -64,7 +70,7 @@ class AnswersScreen extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         child: WriteAnswerWidget(
                           model: question,
-                          token: model.token,
+                          token: widget.model.token,
                         ),
                       ),
                     ],

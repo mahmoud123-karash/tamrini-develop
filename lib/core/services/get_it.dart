@@ -28,6 +28,7 @@ import 'package:tamrini/features/profile/data/data_sources/local_data_source/pro
 import 'package:tamrini/features/profile/data/data_sources/remote_data_source/profile_remote_data_source.dart';
 import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
 import 'package:tamrini/features/profile/domain/use_cases/update_profile_use_case.dart';
+import 'package:tamrini/features/questions/data/data_sources/remote_data_source/remote_question_data_source.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/ban_question_use_case.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
@@ -99,7 +100,9 @@ void setLocator() {
   );
 
   getIt.registerSingleton<QuestionRepoImpl>(
-    QuestionRepoImpl(),
+    QuestionRepoImpl(
+      QuestionRemoteDataSourceImpl(),
+    ),
   );
 
   getIt.registerSingleton<GymRepoImpl>(
@@ -177,6 +180,7 @@ void setLocator() {
     BanQuestionUseCase(
       getIt.get<QuestionRepoImpl>(),
       getIt.get<DioHelper>(),
+      QuestionRemoteDataSourceImpl(),
     ),
   );
 

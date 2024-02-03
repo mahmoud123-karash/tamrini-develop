@@ -1,39 +1,18 @@
+import '../../../data/models/question_model/question_model.dart';
+
 abstract class QuestionStates {}
 
 class InitialQuestionState extends QuestionStates {}
 
-class LoadingAddQuestionState extends QuestionStates {}
+class LoadingGetQuestionsState extends QuestionStates {}
 
-class SucessAddQuestionState extends QuestionStates {}
+class SucessGetQuestionsState extends QuestionStates {
+  final List<QuestionModel> list;
 
-class ErrorAddQuestionState extends QuestionStates {
-  final String message;
-  ErrorAddQuestionState(this.message);
+  SucessGetQuestionsState(this.list);
 }
 
-class LoadingUpdateQuestionState extends QuestionStates {}
-
-class SucessUpdateQuestionState extends QuestionStates {}
-
-class ErrorUpdateQuestionState extends QuestionStates {
+class ErrorGetQuestionsState extends QuestionStates {
   final String message;
-  ErrorUpdateQuestionState(this.message);
-}
-
-class LoadingRemoveQuestionState extends QuestionStates {}
-
-class SucessRemoveQuestionState extends QuestionStates {}
-
-class ErrorRemoveQuestionState extends QuestionStates {
-  final String message;
-  ErrorRemoveQuestionState(this.message);
-}
-
-class LoadingBanQuestionState extends QuestionStates {}
-
-class SucessBanQuestionState extends QuestionStates {}
-
-class ErrorBanQuestionState extends QuestionStates {
-  final String message;
-  ErrorBanQuestionState(this.message);
+  ErrorGetQuestionsState(this.message);
 }

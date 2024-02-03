@@ -15,6 +15,9 @@ class LoadingUpdateAnswerState extends AnswerStates {}
 
 class SucessUpdateAnswerState extends AnswerStates {}
 
+class SucessRemoveAnswerState extends AnswerStates {}
+
+
 class ErrorUpdateAnswerState extends AnswerStates {
   final String message;
   ErrorUpdateAnswerState(this.message);

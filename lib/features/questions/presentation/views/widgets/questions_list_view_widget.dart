@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/question_item_builder_widget.dart';
+
+import 'question_item_widget.dart';
 
 class QuestionsListViewWidget extends StatefulWidget {
   const QuestionsListViewWidget({super.key, required this.list});
@@ -55,8 +56,9 @@ class _QuestionsListViewWidgetState extends State<QuestionsListViewWidget> {
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             if (index < length) {
-              return QuestionItemBuilderWidget(
+              return QuestionItemWidget(
                 model: widget.list[index],
+                user: widget.list[index].user!,
               );
             } else {
               return const Center(

@@ -18,19 +18,42 @@ class QuestionCubit extends Cubit<QuestionStates> {
   final QuestionRepo questionRepo;
   final BanQuestionUseCase banQuestionUseCase;
 
-  void addNewQuestion(
-      {required String body, required BuildContext context}) async {
-    emit(LoadingAddQuestionState());
+  void getQuestions() async {
+    var result = await questionRepo.getQuestons();
+    result.fold((message) {
+      emit(ErrorGetQuestionsState(message));
+    }, (list) {
+      List<QuestionModel> models = clearBannedQuestions(list);
+      emit(SucessGetQuestionsState(models));
+    });
+  }
+
+  List<QuestionModel> clearBannedQuestions(List<QuestionModel> list) {
+    List<QuestionModel> models = [];
+    for (var element in list) {
+      if (element.isBanned == false) {
+        models.add(element);
+      }
+    }
+    return models;
+  }
+
+  void addNewQuestion({
+    required String body,
+    required BuildContext context,
+  }) async {
     var result = await questionRepo.addNewQuestion(body: body);
     result.fold(
       (message) {
         log(message);
-        emit(ErrorAddQuestionState(message));
+        getQuestions();
+        emit(ErrorGetQuestionsState(message));
       },
-      (success) {
+      (list) {
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_add);
-        emit(SucessAddQuestionState());
+        List<QuestionModel> models = clearBannedQuestions(list);
+        emit(SucessGetQuestionsState(models));
       },
     );
   }
@@ -41,20 +64,20 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required String id,
     required String message,
   }) async {
-    emit(LoadingUpdateQuestionState());
-
     var result = await questionRepo.updateQuestion(id: id, model: model);
     result.fold(
       (message) {
         log(message);
-        emit(ErrorUpdateQuestionState(message));
+        getQuestions();
+        emit(ErrorGetQuestionsState(message));
       },
-      (success) {
+      (list) {
         if (message != '') {
           showSnackBar(context, message);
           Navigator.pop(context);
         }
-        emit(SucessUpdateQuestionState());
+        List<QuestionModel> models = clearBannedQuestions(list);
+        emit(SucessGetQuestionsState(models));
       },
     );
   }
@@ -63,18 +86,18 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required BuildContext context,
     required String id,
   }) async {
-    emit(LoadingRemoveQuestionState());
-
     var result = await questionRepo.removeQuestion(id: id);
     result.fold(
       (message) {
         log(message);
-        emit(ErrorRemoveQuestionState(message));
+        getQuestions();
+        emit(ErrorGetQuestionsState(message));
       },
-      (success) {
+      (list) {
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_remove);
-        emit(SucessRemoveQuestionState());
+        List<QuestionModel> models = clearBannedQuestions(list);
+        emit(SucessGetQuestionsState(models));
       },
     );
   }
@@ -85,18 +108,22 @@ class QuestionCubit extends Cubit<QuestionStates> {
     required String id,
     required String token,
   }) async {
-    emit(LoadingUpdateQuestionState());
-    var result =
-        await banQuestionUseCase.ban(model: model, id: id, token: token);
+    var result = await banQuestionUseCase.ban(
+      model: model,
+      id: id,
+      token: token,
+    );
     result.fold(
       (message) {
         log(message);
-        emit(ErrorUpdateQuestionState(message));
+        getQuestions();
+        emit(ErrorGetQuestionsState(message));
       },
-      (success) {
+      (list) {
         showSnackBar(context, S.of(context).success_ban);
         Navigator.pop(context);
-        emit(SucessUpdateQuestionState());
+        List<QuestionModel> models = clearBannedQuestions(list);
+        emit(SucessGetQuestionsState(models));
       },
     );
   }

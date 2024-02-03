@@ -76,19 +76,33 @@ class ArticleDetailsContentWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Divider(),
-                const SizedBox(
-                  height: 5,
-                ),
-                ArticlWriterBuilderWidget(
-                  uid: model.writerUid ?? '',
-                  article: model,
-                ),
+                if (model.writerUid != uid)
+                  WriterWidget(writerUid: model.writerUid ?? '')
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class WriterWidget extends StatelessWidget {
+  const WriterWidget({super.key, required this.writerUid});
+  final String writerUid;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const Divider(),
+        const SizedBox(
+          height: 5,
+        ),
+        ArticlWriterBuilderWidget(
+          uid: writerUid,
+        ),
+      ],
     );
   }
 }

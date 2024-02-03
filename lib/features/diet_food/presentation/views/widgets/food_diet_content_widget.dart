@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_builder_widget.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_name_and_date_widget.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_slide_image_widget.dart';
@@ -51,8 +52,33 @@ class DietFoodContentWidget extends StatelessWidget {
               ),
             ),
           ),
+          if (model.writerUid != uid) WriterWidget(model: model)
         ],
       ),
+    );
+  }
+}
+
+class WriterWidget extends StatelessWidget {
+  const WriterWidget({
+    super.key,
+    required this.model,
+  });
+
+  final DietFoodModel model;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const Divider(),
+        const SizedBox(
+          height: 5,
+        ),
+        ArticlWriterBuilderWidget(
+          uid: model.writerUid,
+        ),
+      ],
     );
   }
 }

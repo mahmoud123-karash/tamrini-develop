@@ -2,13 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_states.dart';
-import 'package:tamrini/generated/l10n.dart';
 
 class AnswerCubit extends Cubit<AnswerStates> {
   AnswerCubit(this.questionRepo, this.writeAnswerUseCase)
@@ -71,8 +69,6 @@ class AnswerCubit extends Cubit<AnswerStates> {
         emit(ErrorUpdateAnswerState(message));
       },
       (success) {
-        showSnackBar(context, S.of(context).success_update_answer);
-        Navigator.pop(context);
         emit(SucessUpdateAnswerState());
       },
     );
@@ -102,9 +98,7 @@ class AnswerCubit extends Cubit<AnswerStates> {
         emit(ErrorUpdateAnswerState(message));
       },
       (success) {
-        showSnackBar(context, S.of(context).success_remove_answer);
-        Navigator.pop(context);
-        emit(SucessUpdateAnswerState());
+        emit(SucessRemoveAnswerState());
       },
     );
   }

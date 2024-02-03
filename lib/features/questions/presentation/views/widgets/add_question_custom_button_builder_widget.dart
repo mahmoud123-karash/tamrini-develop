@@ -19,7 +19,7 @@ class AddQuestionCustomButtonBuilderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<QuestionCubit, QuestionStates>(
       builder: (context, state) {
-        if (state is LoadingAddQuestionState) {
+        if (state is LoadingGetQuestionsState) {
           return const CircularProgressIndicator();
         } else {
           return AddQuestionCustomButtonWidget(

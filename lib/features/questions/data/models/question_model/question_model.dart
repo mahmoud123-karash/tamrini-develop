@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/questions/data/models/question_model/answer_model.dart';
 
 class QuestionModel {
@@ -9,6 +12,7 @@ class QuestionModel {
   final List<AnswerModel> answers;
   final int answersCount;
   final bool isBanned;
+  UserModel? user;
 
   QuestionModel({
     required this.date,
@@ -18,22 +22,26 @@ class QuestionModel {
     required this.answersCount,
     required this.answers,
     required this.isBanned,
+    this.user,
   });
 
-  factory QuestionModel.fromJson(Map<String, dynamic> json, String id) {
+  factory QuestionModel.fromJson(
+      Map<String, dynamic> json, String id, UserModel user) {
     final List<dynamic> jsonAnswers = json['answers'] ?? [];
-
     final List<AnswerModel> answers = jsonAnswers
-        .map((jsonAnswer) => AnswerModel.fromJson(jsonAnswer))
+        .map(
+          (jsonAnswer) => AnswerModel.fromJson(jsonAnswer),
+        )
         .toList();
     return QuestionModel(
       date: json['date'] ?? Timestamp.now(),
       answers: answers,
-      askerUid: json['askerUid'] ?? '',
+      askerUid: json['askerUid'] ?? adminUid,
       body: json['body'] ?? '',
       isBanned: json['isBanned'] ?? false,
       answersCount: json['answersCount'] ?? 0,
       id: id,
+      user: user,
     );
   }
 
@@ -47,4 +55,18 @@ class QuestionModel {
     data['answersCount'] = answersCount;
     return data;
   }
+}
+
+Future<UserModel> getAsker(
+    QueryDocumentSnapshot<Map<String, dynamic>> element) async {
+  String askerUid = element.data()['askerUid'] ?? adminUid;
+  var result =
+      await FirebaseFirestore.instance.collection('users').doc(askerUid).get();
+  GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
+  GeoPoint location = result.data() == null
+      ? defultLocation
+      : result.data()!['location'] ?? defultLocation;
+  String address = await getAddress(location: location);
+  UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+  return user;
 }

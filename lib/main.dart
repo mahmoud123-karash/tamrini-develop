@@ -266,7 +266,7 @@ void main() async {
             create: (context) => QuestionCubit(
               getIt.get<QuestionRepoImpl>(),
               getIt.get<BanQuestionUseCase>(),
-            ),
+            )..getQuestions(),
           ),
           BlocProvider(
             create: (context) => AnswerCubit(
