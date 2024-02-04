@@ -18,7 +18,7 @@ class SupplementsCategoryScreen extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          if (userType != 'admin')
+          if (userType == 'admin')
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 15,

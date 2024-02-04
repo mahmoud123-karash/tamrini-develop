@@ -1,82 +1,119 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_builder_widget.dart';
+import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
+import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
+import 'package:tamrini/features/food/presentation/views/new_supplement_screen.dart';
+import 'package:tamrini/features/food/presentation/views/widgets/supplement_details_content_widget.dart';
+import 'package:tamrini/generated/l10n.dart';
 import '../../data/models/supplement_model/supplement_data.dart';
-import 'widgets/supplement_image_slide_show_widget.dart';
 
 class SupplementArticlesDetailsScreen extends StatelessWidget {
   const SupplementArticlesDetailsScreen({
     Key? key,
-    required this.model,
+    required this.id,
+    required this.categoryId,
   }) : super(key: key);
+  final String id;
+  final String categoryId;
+
+  @override
+  Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid');
+    return Scaffold(
+      appBar: myAppBar(S.of(context).supplement_details),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.7),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: BlocBuilder<SupplementCubit, SupplementStates>(
+              builder: (context, state) {
+                SupplementData? model =
+                    SupplementCubit.get(context).getSupplementData(id);
+                return model == null
+                    ? Center(
+                        child: Text(
+                          S.of(context).supplement_removed,
+                        ),
+                      )
+                    : CustomScrollView(
+                        slivers: [
+                          SliverToBoxAdapter(
+                            child: SupplementSetailsContentWidget(model: model),
+                          ),
+                          SliverFillRemaining(
+                            hasScrollBody: false,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  const Divider(),
+                                  ArticlWriterBuilderWidget(
+                                    uid: model.writerUid,
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  if (userType == 'admin')
+                                    EditCustomButtomWidget(
+                                      categoryId: categoryId,
+                                      model: model,
+                                    ),
+                                  if (model.writerUid == uid &&
+                                      userType == 'writer')
+                                    EditCustomButtomWidget(
+                                      categoryId: categoryId,
+                                      model: model,
+                                    ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      );
+              },
+            )),
+      ),
+    );
+  }
+}
+
+class EditCustomButtomWidget extends StatelessWidget {
+  const EditCustomButtomWidget(
+      {super.key, required this.categoryId, required this.model});
+  final String categoryId;
   final SupplementData model;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBar(model.title),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Theme.of(context).cardColor.withOpacity(0.7),
-            borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.7),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      model.title,
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  model.images.isEmpty
-                      ? Container()
-                      : SupplementImageSlideShowWidget(
-                          images: model.images,
-                          title: model.title,
-                        ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          (model.description),
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
+    return customButton(
+      onPressed: () {
+        navigateTo(
+            context,
+            NewSupplementScreen(
+              model: model,
+              categoryId: categoryId,
+            ));
+      },
+      lable: S.of(context).edit,
     );
   }
 }

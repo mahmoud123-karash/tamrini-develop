@@ -27,7 +27,7 @@ class RemoveCategoryCustomButtonWidget extends StatelessWidget {
           dialogType: DialogType.warning,
           animType: AnimType.bottomSlide,
           title: model.title,
-          desc: S.of(context).remove_category_question,
+          desc: S.of(context).category_remove_question,
           btnCancelOnPress: () {},
           btnOkOnPress: () {
             SupplementCubit.get(context).removeCategory(

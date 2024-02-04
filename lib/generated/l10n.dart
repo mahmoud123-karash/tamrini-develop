@@ -25,8 +25,6 @@ class S {
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
-  get remove_category_question => null;
-
   static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false)
         ? locale.languageCode
@@ -3517,6 +3515,86 @@ class S {
     return Intl.message(
       'هل تريد حذف هذه الفئة ؟',
       name: 'category_remove_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم المكمل`
+  String get supplement_name {
+    return Intl.message(
+      'اسم المكمل',
+      name: 'supplement_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `وصف المكمل`
+  String get supplemment_description {
+    return Intl.message(
+      'وصف المكمل',
+      name: 'supplemment_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة مكمل`
+  String get add_supplement {
+    return Intl.message(
+      'إضافة مكمل',
+      name: 'add_supplement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعدبل المكمل`
+  String get edit_supplememt {
+    return Intl.message(
+      'تعدبل المكمل',
+      name: 'edit_supplememt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذا المكمل ؟`
+  String get supplement_remove_question {
+    return Intl.message(
+      'هل تريد حذف هذا المكمل ؟',
+      name: 'supplement_remove_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم مسح هذه الفئة`
+  String get category_removed {
+    return Intl.message(
+      'تم مسح هذه الفئة',
+      name: 'category_removed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم حذف هذا المكمل`
+  String get supplement_removed {
+    return Intl.message(
+      'تم حذف هذا المكمل',
+      name: 'supplement_removed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل المكمل`
+  String get supplement_details {
+    return Intl.message(
+      'تفاصيل المكمل',
+      name: 'supplement_details',
       desc: '',
       args: [],
     );

@@ -2,12 +2,13 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
 import 'package:tamrini/features/food/presentation/views/new_category_screen.dart';
-import 'package:tamrini/features/food/presentation/views/supplement_category_articles_screen.dart';
 
+import '../supplement_articles_screen.dart';
 import 'remove_category_custom_button_widget.dart';
 
 class SupplementCategoryItemWidget extends StatelessWidget {
@@ -16,10 +17,14 @@ class SupplementCategoryItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+
     return GestureDetector(
       onTap: () {
-        navigateTo(context,
-            SupplementArticlesScreen(list: model.data, title: model.title));
+        navigateTo(
+          context,
+          SupplementArticlesScreen(id: model.id ?? '', title: model.title),
+        );
       },
       child: Container(
         alignment: Alignment.topRight,
@@ -44,10 +49,13 @@ class SupplementCategoryItemWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: userType != 'admin'
+                ? MainAxisAlignment.end
+                : MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              RemoveCategoryCustomButtonWidget(model: model),
+              if (userType == 'admin')
+                RemoveCategoryCustomButtonWidget(model: model),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -67,15 +75,16 @@ class SupplementCategoryItemWidget extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      navigateTo(context, NewCategoryScreen(model: model));
-                    },
-                    child: const Icon(
-                      Icons.edit,
-                      color: Colors.yellowAccent,
+                  if (userType == 'admin')
+                    GestureDetector(
+                      onTap: () {
+                        navigateTo(context, NewCategoryScreen(model: model));
+                      },
+                      child: const Icon(
+                        Icons.edit,
+                        color: Colors.yellowAccent,
+                      ),
                     ),
-                  ),
                 ],
               ),
             ],

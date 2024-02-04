@@ -345,7 +345,17 @@
     "add_new_nutirtion":"اضافة قيمة جديدة",
     "edit_nutirtion":"تعدبل القيمة ",
     "remove_nutirtion":"هل تريد حذف هذه القيمة ؟",
-    "category_remove_question":"هل تريد حذف هذه الفئة ؟"
+    "category_remove_question":"هل تريد حذف هذه الفئة ؟",
+    "supplement_name":"اسم المكمل",
+    "supplemment_description":"وصف المكمل",
+    "add_supplement":"إضافة مكمل",
+    "edit_supplememt":"تعدبل المكمل",
+    "supplement_remove_question":"هل تريد حذف هذا المكمل ؟",
+    "category_removed":"تم مسح هذه الفئة",
+    "supplement_removed":"تم حذف هذا المكمل",
+    "supplement_details":"تفاصيل المكمل"
+
+
 
     
 

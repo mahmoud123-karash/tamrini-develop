@@ -51,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إضافة فئة جديدة"),
         "add_product": MessageLookupByLibrary.simpleMessage("إضافة منتج"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("إضافة تذكير"),
+        "add_supplement": MessageLookupByLibrary.simpleMessage("إضافة مكمل"),
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
@@ -115,6 +116,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "category_remove_question":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الفئة ؟"),
+        "category_removed":
+            MessageLookupByLibrary.simpleMessage("تم مسح هذه الفئة"),
         "change_image": MessageLookupByLibrary.simpleMessage("تغيير الصورة"),
         "change_pass":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
@@ -158,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "edit_section": MessageLookupByLibrary.simpleMessage("تعديل القسم"),
         "edit_store": MessageLookupByLibrary.simpleMessage("تعديل المتجر"),
+        "edit_supplememt": MessageLookupByLibrary.simpleMessage("تعدبل المكمل"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailverify": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بتفعيل الايميل الخاص"),
@@ -433,6 +437,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "suggest_exercise": MessageLookupByLibrary.simpleMessage("اقترح تمرين"),
         "suggested_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المقترحة"),
+        "supplement_details":
+            MessageLookupByLibrary.simpleMessage("تفاصيل المكمل"),
+        "supplement_name": MessageLookupByLibrary.simpleMessage("اسم المكمل"),
+        "supplement_remove_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا المكمل ؟"),
+        "supplement_removed":
+            MessageLookupByLibrary.simpleMessage("تم حذف هذا المكمل"),
+        "supplemment_description":
+            MessageLookupByLibrary.simpleMessage("وصف المكمل"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "theme": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
