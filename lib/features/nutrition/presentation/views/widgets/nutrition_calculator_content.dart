@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/select_cubit.dart/select_states.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/add_meal_custom_button_builder_widget.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/wieght_list_view_widget.dart';
+import 'edit_remove_nutrition_row_buttons_widget.dart';
 import 'nutrition_buttons_row_widget.dart';
 import 'nutrition_list_view_widget.dart';
 import 'nutrition_values_colum_widget.dart';
 
 class NutritionCalCulatorContentWidget extends StatefulWidget {
-  const NutritionCalCulatorContentWidget(
-      {super.key,
-      required this.model,
-      required this.list,
-      required this.isMyday,
-      required this.id});
+  const NutritionCalCulatorContentWidget({
+    super.key,
+    required this.model,
+    required this.list,
+    required this.isMyday,
+    required this.id,
+  });
   final ClassificationModel model;
   final List<NutritionModel> list;
   final bool isMyday;
@@ -80,6 +84,12 @@ class _NutritionCalCulatorContentWidgetState
               children: [
                 NutritionButtonsRowWidget(
                   onPressedOne: () {
+                    List<NutritionModel> finalList = searchController.text == ''
+                        ? widget.list
+                        : cubit.searchList;
+                    if (finalList.isNotEmpty) {
+                      cubit.selectmeal(finalList[0]);
+                    }
                     showPickerDialog(
                       controller: _mealController!,
                       context: context,
@@ -92,10 +102,6 @@ class _NutritionCalCulatorContentWidgetState
                       ),
                       child: BlocBuilder<SelectCubit, SelectStates>(
                         builder: (context, state) {
-                          List<NutritionModel> finalList =
-                              searchController.text == ''
-                                  ? widget.list
-                                  : cubit.searchList;
                           return NutritionlistViewWidget(
                             scrollController: _mealController!,
                             list: finalList,
@@ -138,11 +144,41 @@ class _NutritionCalCulatorContentWidgetState
                 const SizedBox(
                   height: 10,
                 ),
+                if (cubit.model.user != null)
+                  WriterWidget(user: cubit.model.user!),
+                const SizedBox(
+                  height: 10,
+                ),
+                if (!widget.isMyday)
+                  EditRemoveNutritionRowButtonsWidget(model: cubit.model),
               ],
             ),
           ),
         );
       },
+    );
+  }
+}
+
+class WriterWidget extends StatelessWidget {
+  const WriterWidget({super.key, required this.user});
+  final UserModel user;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+      ),
+      child: Column(
+        children: [
+          const Divider(),
+          WriterRowWidget(
+            model: user,
+          ),
+          const Divider(),
+        ],
+      ),
     );
   }
 }

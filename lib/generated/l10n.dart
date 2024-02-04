@@ -3479,6 +3479,36 @@ class S {
       args: [],
     );
   }
+
+  /// `اضافة قيمة جديدة`
+  String get add_new_nutirtion {
+    return Intl.message(
+      'اضافة قيمة جديدة',
+      name: 'add_new_nutirtion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعدبل القيمة `
+  String get edit_nutirtion {
+    return Intl.message(
+      'تعدبل القيمة ',
+      name: 'edit_nutirtion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذه القيمة ؟`
+  String get remove_nutirtion {
+    return Intl.message(
+      'هل تريد حذف هذه القيمة ؟',
+      name: 'remove_nutirtion',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

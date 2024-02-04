@@ -22,7 +22,10 @@ class SelectCubit extends Cubit<SelectStates> {
     proteins: 0.0,
     fats: 0.0,
     carbs: 0.0,
+    categryId: '',
     id: '',
+    writerUid: '',
+    user: null,
   );
 
   void selectmeal(NutritionModel meal) {
@@ -45,6 +48,7 @@ class SelectCubit extends Cubit<SelectStates> {
       fats: 0.0,
       carbs: 0.0,
       id: '',
+      writerUid: '',
     );
     emit(ResetState());
   }

@@ -88,7 +88,7 @@ Widget searchField({
 
 Widget loadingWidget() => Center(
       child: SizedBox(
-        height: 80.h,
+        height: 100.h,
         child: Center(
           child: Image.asset(
             Assets.imagesLoading,

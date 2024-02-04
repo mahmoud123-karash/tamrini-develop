@@ -8,6 +8,7 @@ import 'package:tamrini/features/nutrition/presentation/manager/classification_c
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../../data/models/nutrition_model/classification_model.dart';
+import 'cancel_dialog_text_button_widget.dart';
 
 class NewClassificationDialogWidget extends StatefulWidget {
   const NewClassificationDialogWidget({super.key, this.model});
@@ -59,38 +60,58 @@ class _NewClassificationDialogWidgetState
         ),
       ),
       actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text(
-            S.of(context).cancel,
-            style: TextStyles.style13.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Colors.red,
-            ),
-          ),
-        ),
         BlocBuilder<ClassificationCubit, ClassificationStates>(
-          builder: (context, state) => TextButton(
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                if (widget.model != null) {
-                } else {}
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
-            },
-            child: Text(
-              widget.model != null ? S.of(context).edit : S.of(context).add,
-              style: TextStyles.style13.copyWith(
-                fontWeight: FontWeight.bold,
-                color: appColor,
-              ),
-            ),
-          ),
+          builder: (context, state) {
+            if (state is LoadingGetClassificationState) {
+              return Container();
+            } else {
+              return const CancelDiologTextButtonWidget();
+            }
+          },
+        ),
+        BlocConsumer<ClassificationCubit, ClassificationStates>(
+          listener: (context, state) {
+            if (state is ErrorGetClassificationState) {
+              ClassificationCubit.get(context).getData();
+            }
+          },
+          builder: (context, state) {
+            if (state is LoadingGetClassificationState) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return TextButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    if (widget.model != null) {
+                      ClassificationCubit.get(context).editClassifications(
+                        name: controller.text,
+                        id: widget.model!.id,
+                        context: context,
+                      );
+                    } else {
+                      ClassificationCubit.get(context).addClassifications(
+                        name: controller.text,
+                        context: context,
+                      );
+                    }
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+                child: Text(
+                  widget.model != null ? S.of(context).edit : S.of(context).add,
+                  style: TextStyles.style13.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: appColor,
+                  ),
+                ),
+              );
+            }
+          },
         ),
       ],
     );

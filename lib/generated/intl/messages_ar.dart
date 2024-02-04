@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
         "add_new_exercise":
             MessageLookupByLibrary.simpleMessage("إضافة تمرين جديد"),
+        "add_new_nutirtion":
+            MessageLookupByLibrary.simpleMessage("اضافة قيمة جديدة"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("إضافة قسم جديد"),
         "add_nutrition_classification":
@@ -146,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
         "edit_gym": MessageLookupByLibrary.simpleMessage("تعديل الصالة"),
         "edit_meal": MessageLookupByLibrary.simpleMessage("تعديل الوجبة"),
+        "edit_nutirtion": MessageLookupByLibrary.simpleMessage("تعدبل القيمة "),
         "edit_nutrition_classification":
             MessageLookupByLibrary.simpleMessage("تعدبل الفئة"),
         "edit_product": MessageLookupByLibrary.simpleMessage("تعديل المنتج"),
@@ -350,6 +353,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_article": MessageLookupByLibrary.simpleMessage("حذف المقال"),
         "remove_meal_q":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الوجبة ؟"),
+        "remove_nutirtion":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه القيمة ؟"),
         "remove_product_q":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف المنتج ؟"),
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),

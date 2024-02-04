@@ -46,10 +46,11 @@ class NutritionClassificationItemWidget extends StatelessWidget {
         ),
         child: Center(
           child: ListTile(
-            leading: userType != 'admin'
+            leading: userType == 'admin'
                 ? IconButton(
                     onPressed: () {
                       showDialog(
+                        barrierDismissible: false,
                         context: context,
                         builder: (context) =>
                             NewClassificationDialogWidget(model: model),
@@ -58,8 +59,8 @@ class NutritionClassificationItemWidget extends StatelessWidget {
                     icon: const Icon(Icons.edit),
                   )
                 : const SizedBox(
-                    width: 5,
-                    height: 5,
+                    width: 2,
+                    height: 2,
                   ),
             onTap: () {
               navigateTo(

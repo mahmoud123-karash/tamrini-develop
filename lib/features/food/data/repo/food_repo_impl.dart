@@ -18,4 +18,20 @@ class FoodRepoImpl extends FoodRepo {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, List<SupplementModel>>> addSection(
+      {required String imagePath, required String title}) {
+    // TODO: implement addSection
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<String, List<SupplementModel>>> editSection(
+      {required String imagePath,
+      required String title,
+      required SupplementModel oldModel}) {
+    // TODO: implement editSection
+    throw UnimplementedError();
+  }
 }

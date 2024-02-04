@@ -26,6 +26,7 @@ import 'package:tamrini/features/home_exercise/presentation/manager/home_exercis
 import 'package:tamrini/features/food/data/repo/food_repo_impl.dart';
 import 'package:tamrini/features/nutrition/data/repo/nutrition_repo_impl.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/classification_cubit/classification_cubit.dart';
+import 'package:tamrini/features/nutrition/presentation/manager/nutrition_cubit/nutrition_cubit.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/gym/data/repo/gym_repo_impl.dart';
@@ -289,6 +290,11 @@ void main() async {
             create: (context) => ClassificationCubit(
               getIt.get<NutritionRepoImpl>(),
             )..getData(),
+          ),
+          BlocProvider(
+            create: (context) => NutritionCubit(
+              getIt.get<NutritionRepoImpl>(),
+            ),
           ),
           BlocProvider(
             create: (context) => SelectCubit(),

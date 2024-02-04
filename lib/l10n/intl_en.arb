@@ -341,7 +341,10 @@
     "cancel":"الغاء",
     "add_nutrition_classification":"إضافة فئة جديدة",
     "edit_nutrition_classification":"تعدبل الفئة",
-    "classification_name":"اسم الفئة"
+    "classification_name":"اسم الفئة",
+    "add_new_nutirtion":"اضافة قيمة جديدة",
+    "edit_nutirtion":"تعدبل القيمة ",
+    "remove_nutirtion":"هل تريد حذف هذه القيمة ؟"
     
 
 

@@ -6,7 +6,6 @@ import 'package:tamrini/features/nutrition/presentation/manager/nutrition_cubit/
 import 'package:tamrini/features/nutrition/presentation/manager/nutrition_cubit/nutrition_states.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/message_builder_widget.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/nutrition_calculator_content.dart';
-import 'package:tamrini/generated/l10n.dart';
 
 class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
   const NutritionCalculatorContentBuilderWidget({
@@ -24,9 +23,6 @@ class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
     return BlocBuilder<NutritionCubit, NutritionStates>(
       builder: (context, state) {
         if (state is SucessGetNutritionState) {
-          if (state.list.isEmpty) {
-            return MessageBuilderWidget(message: S.of(context).no_results);
-          }
           return NutritionCalCulatorContentWidget(
             model: model,
             list: state.list,
