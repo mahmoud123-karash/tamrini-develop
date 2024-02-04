@@ -52,20 +52,20 @@ class DayMealItemWidget extends StatelessWidget {
                 lable: S.of(context).weight,
               ),
               DayRowValueLableWidget(
-                value: nutrient.calories.toString(),
+                value: nutrient.calories.toStringAsFixed(2),
                 lable: S.of(context).calories,
                 isCalory: true,
               ),
               DayRowValueLableWidget(
-                value: nutrient.protein.toString(),
+                value: nutrient.protein.toStringAsFixed(2),
                 lable: S.of(context).protien,
               ),
               DayRowValueLableWidget(
-                value: nutrient.fat.toString(),
+                value: nutrient.fat.toStringAsFixed(2),
                 lable: S.of(context).fat,
               ),
               DayRowValueLableWidget(
-                value: nutrient.carbs.toString(),
+                value: nutrient.carbs.toStringAsFixed(2),
                 lable: S.of(context).carb,
               )
             ],

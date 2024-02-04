@@ -20,77 +20,93 @@ class EditRemoveNutritionRowButtonsWidget extends StatelessWidget {
     String userType = CacheHelper.getData(key: 'usertype');
     String uid = CacheHelper.getData(key: 'uid');
 
-    return userType == 'admin' || userType == 'writer'
-        ? model.writerUid == uid
-            ? Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 25,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: customButton(
-                        onPressed: () {
-                          if (model.title == '') {
-                            showSnackBar(context, S.of(context).no_meals);
-                          } else {
-                            showDialog(
-                              context: context,
-                              barrierDismissible: false,
-                              builder: (context) => NewNutritionDialogWidget(
-                                model: model,
-                                categoryId: model.categryId ?? '',
-                              ),
-                            );
-                          }
-                        },
-                        lable: S.of(context).edit,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: customButton(
-                        color: Colors.red,
-                        onPressed: () {
-                          if (model.title != '') {
-                            AwesomeDialog(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                              ),
-                              showCloseIcon: true,
-                              titleTextStyle: TextStyles.style17.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: appColor,
-                              ),
-                              context: context,
-                              dialogType: DialogType.warning,
-                              animType: AnimType.bottomSlide,
-                              title: model.title,
-                              desc: S.of(context).remove_nutirtion,
-                              btnCancelOnPress: () {},
-                              btnOkOnPress: () {
-                                NutritionCubit.get(context).removeNutrition(
-                                  categoryId: model.categryId ?? '',
-                                  id: model.id ?? '',
-                                  context: context,
-                                );
+    return Column(
+      children: [
+        if (userType == 'admin') RemoveEditNutritionWidget(model: model),
+        if (userType == 'writer' && model.writerUid == uid)
+          RemoveEditNutritionWidget(model: model)
+      ],
+    );
+  }
+}
 
-                                SelectCubit.get(context).reset();
-                              },
-                            ).show();
-                          } else {
-                            showSnackBar(context, S.of(context).no_meals);
-                          }
-                        },
-                        lable: S.of(context).remove_question,
-                      ),
-                    )
-                  ],
-                ),
-              )
-            : Container()
-        : Container();
+class RemoveEditNutritionWidget extends StatelessWidget {
+  const RemoveEditNutritionWidget({
+    super.key,
+    required this.model,
+  });
+
+  final NutritionModel model;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 25,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: customButton(
+              onPressed: () {
+                if (model.title == '') {
+                  showSnackBar(context, S.of(context).no_meals);
+                } else {
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (context) => NewNutritionDialogWidget(
+                      model: model,
+                      categoryId: model.categryId ?? '',
+                    ),
+                  );
+                }
+              },
+              lable: S.of(context).edit,
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: customButton(
+              color: Colors.red,
+              onPressed: () {
+                if (model.title != '') {
+                  AwesomeDialog(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 15,
+                    ),
+                    showCloseIcon: true,
+                    titleTextStyle: TextStyles.style17.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: appColor,
+                    ),
+                    context: context,
+                    dialogType: DialogType.warning,
+                    animType: AnimType.bottomSlide,
+                    title: model.title,
+                    desc: S.of(context).remove_nutirtion,
+                    btnCancelOnPress: () {},
+                    btnOkOnPress: () {
+                      NutritionCubit.get(context).removeNutrition(
+                        categoryId: model.categryId ?? '',
+                        id: model.id ?? '',
+                        context: context,
+                      );
+
+                      SelectCubit.get(context).reset();
+                    },
+                  ).show();
+                } else {
+                  showSnackBar(context, S.of(context).no_meals);
+                }
+              },
+              lable: S.of(context).remove_question,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

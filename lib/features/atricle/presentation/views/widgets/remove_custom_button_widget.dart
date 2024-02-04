@@ -12,10 +12,12 @@ class RemoveCustomButtonWidget extends StatelessWidget {
     String uid = CacheHelper.getData(key: 'uid');
     String userType = CacheHelper.getData(key: 'usertype');
 
-    return userType == 'admin' || userType == 'writer'
-        ? model.writerUid == uid
-            ? IconRemoveArticleWidget(model: model)
-            : Container()
-        : Container();
+    return Column(
+      children: [
+        if (userType == 'admin') IconRemoveArticleWidget(model: model),
+        if (userType == 'writer' && model.writerUid == uid)
+          IconRemoveArticleWidget(model: model),
+      ],
+    );
   }
 }

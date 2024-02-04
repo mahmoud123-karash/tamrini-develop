@@ -20,6 +20,7 @@ class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return BlocBuilder<NutritionCubit, NutritionStates>(
       builder: (context, state) {
         if (state is SucessGetNutritionState) {
@@ -32,7 +33,10 @@ class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
         } else if (state is ErrorGetNutritionState) {
           return MessageBuilderWidget(message: state.message);
         } else {
-          return loadingWidget();
+          return Padding(
+            padding: EdgeInsets.only(top: height / 3),
+            child: loadingWidget(),
+          );
         }
       },
     );

@@ -11,14 +11,9 @@ import 'article_list_view_widget.dart';
 class AllArticleContentWidget extends StatefulWidget {
   const AllArticleContentWidget({
     super.key,
-    required this.length,
     required this.list,
-    required this.isWriter,
-    required this.isUserProfile,
   });
   final List<ArticleModel> list;
-  final bool isWriter, isUserProfile;
-  final int length;
 
   @override
   State<AllArticleContentWidget> createState() =>

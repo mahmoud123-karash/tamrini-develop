@@ -15,14 +15,6 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
   final ArticleRepo articleRepo;
   List<ArticleModel> articles = [];
 
-  List<ArticleModel> getUserArticles(uid) {
-    List<ArticleModel> list = articles
-        .where((element) => element.writerUid == uid)
-        .where((element) => element.isPending == false)
-        .toList();
-    return list;
-  }
-
   ArticleModel? getArticle(id) {
     List<ArticleModel> list =
         articles.where((element) => element.id == id).toList();

@@ -11,35 +11,21 @@ import 'all_articles_content_widget.dart';
 class AllArticlesContentBuilderWidget extends StatelessWidget {
   const AllArticlesContentBuilderWidget({
     super.key,
-    this.models,
-    required this.isWriter,
-    this.pendingLength,
-    this.isUserProfile = false,
   });
-  final List<ArticleModel>? models;
-  final bool isWriter, isUserProfile;
-  final int? pendingLength;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ArticlesCubit, ArticlesStates>(
       builder: (context, state) {
         if (state is SucessGetArticlesState) {
-          List<ArticleModel> list = state.list
-              .where((element) => element.isPending == false)
-              .toList();
+          List<ArticleModel> list = state.list;
           if (list.isEmpty) {
             return messageBuilder(
               message: S.of(context).noArticles,
             );
           }
           return AllArticleContentWidget(
-            list: models != null ? models! : list,
-            isWriter: isWriter,
-            length: pendingLength != null
-                ? pendingLength!
-                : state.list.length - list.length,
-            isUserProfile: isUserProfile,
+            list: list,
           );
         } else if (state is ErrorGetArticlesState) {
           return messageBuilder(message: state.message);

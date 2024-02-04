@@ -13,24 +13,42 @@ class EditArticleCustomButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
     String userType = CacheHelper.getData(key: 'usertype');
-    return userType == 'admin' || userType == 'writer'
-        ? model.writerUid == uid
-            ? Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 5,
-                ),
-                child: customButton(
-                  onPressed: () {
-                    navigateTo(
-                      context,
-                      NewArticleScreen(model: model),
-                    );
-                  },
-                  lable: S.of(context).edit,
-                ),
-              )
-            : Container()
-        : Container();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        if (userType == 'admin')
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+              vertical: 5,
+            ),
+            child: customButton(
+              onPressed: () {
+                navigateTo(
+                  context,
+                  NewArticleScreen(model: model),
+                );
+              },
+              lable: S.of(context).edit,
+            ),
+          ),
+        if (userType == 'writer' && model.writerUid == uid)
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+              vertical: 5,
+            ),
+            child: customButton(
+              onPressed: () {
+                navigateTo(
+                  context,
+                  NewArticleScreen(model: model),
+                );
+              },
+              lable: S.of(context).edit,
+            ),
+          )
+      ],
+    );
   }
 }
