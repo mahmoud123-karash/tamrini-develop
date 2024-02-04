@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/food/presentation/manager/classification_cubit/classification_cubit.dart';
-import 'package:tamrini/features/food/presentation/manager/classification_cubit/classification_states.dart';
-import 'package:tamrini/features/food/presentation/views/widgets/nutrition_classification_list_view_widget.dart';
+import 'package:tamrini/features/food/presentation/views/widgets/message_builder_widget.dart';
+import 'package:tamrini/features/nutrition/presentation/manager/classification_cubit/classification_cubit.dart';
+import 'package:tamrini/features/nutrition/presentation/manager/classification_cubit/classification_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'classification_loading_widget.dart';
-import 'message_builder_widget.dart';
+import 'nutrition_classification_list_view_widget.dart';
 
 class NutritionClassificationListViewBuilderWidget extends StatelessWidget {
   const NutritionClassificationListViewBuilderWidget({

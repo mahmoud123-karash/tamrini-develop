@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/food/presentation/views/widgets/add_meal_to_myday_custom_button_widget.dart';
+import 'package:tamrini/features/nutrition/presentation/views/widgets/add_meal_to_myday_custom_button_widget.dart';
 import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_cubit.dart';
 import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_states.dart';
 import 'package:tamrini/generated/l10n.dart';

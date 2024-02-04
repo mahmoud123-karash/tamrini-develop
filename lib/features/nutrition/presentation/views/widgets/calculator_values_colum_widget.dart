@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart/calculator_cubit.dart';
-import 'package:tamrini/features/food/presentation/views/widgets/nurition_value_lable_widget.dart';
+import 'package:tamrini/features/nutrition/presentation/views/widgets/nurition_value_lable_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class CalculatorValuesColumWidget extends StatelessWidget {

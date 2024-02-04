@@ -336,7 +336,12 @@
     "ban_title_food":"تم تقيييد المقال الخاص بك",
     "no_ban_title_food":"تم رفع التقييد عن المقال الخاص بك",
     "ban_food_hint":"تم تقييد هذا المقال",
-    "update_success":"تم التحديث"
+    "update_success":"تم التحديث",
+    "cancel":"الغاء",
+    "add_nutrition_classification":"إضافة فئة جديدة",
+    "edit_nutrition_classification":"تعدبل الفئة",
+    "classification_name":"اسم الفئة"
+    
    
 
 

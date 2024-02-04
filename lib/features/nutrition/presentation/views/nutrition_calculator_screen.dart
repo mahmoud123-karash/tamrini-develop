@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/food/data/data_sources/remote_data_source/nutrition_remote_data_source.dart';
-import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model/classification_model.dart';
-import 'package:tamrini/features/food/data/repo/food_repo_impl.dart';
+import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
+import 'package:tamrini/features/nutrition/data/repo/nutrition_repo_impl.dart';
+import 'package:tamrini/features/nutrition/presentation/views/widgets/nutrition_calculator_content_builder_widget.dart';
 
 import '../manager/nutrition_cubit/nutrition_cubit.dart';
-import 'widgets/nutrition_calculator_content_builder_widget.dart';
 
 class NutritionCalculatorScreen extends StatelessWidget {
-  const NutritionCalculatorScreen(
-      {super.key,
-      required this.model,
-      required this.isMyday,
-      required this.id});
+  const NutritionCalculatorScreen({
+    super.key,
+    required this.model,
+    required this.isMyday,
+    required this.id,
+  });
   final ClassificationModel model;
   final bool isMyday;
   final String id;
@@ -23,10 +23,7 @@ class NutritionCalculatorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => NutritionCubit(
-        FoodRepoImpl(
-          SupplementRemoteDataSourceImpl(),
-          NutritionRemoteDataSourceImpl(),
-        ),
+        getIt.get<NutritionRepoImpl>(),
       )..getData(id: model.id),
       child: Scaffold(
         appBar: myAppBar(

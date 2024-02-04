@@ -3439,6 +3439,46 @@ class S {
       args: [],
     );
   }
+
+  /// `الغاء`
+  String get cancel {
+    return Intl.message(
+      'الغاء',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة فئة جديدة`
+  String get add_nutrition_classification {
+    return Intl.message(
+      'إضافة فئة جديدة',
+      name: 'add_nutrition_classification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعدبل الفئة`
+  String get edit_nutrition_classification {
+    return Intl.message(
+      'تعدبل الفئة',
+      name: 'edit_nutrition_classification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم الفئة`
+  String get classification_name {
+    return Intl.message(
+      'اسم الفئة',
+      name: 'classification_name',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

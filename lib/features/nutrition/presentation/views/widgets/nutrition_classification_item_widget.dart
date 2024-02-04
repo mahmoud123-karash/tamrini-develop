@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model/classification_model.dart';
+import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
+import 'package:tamrini/features/nutrition/presentation/views/widgets/new_classification_dialog_widget.dart';
 
 import '../nutrition_calculator_screen.dart';
 
@@ -18,6 +20,7 @@ class NutritionClassificationItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -43,6 +46,21 @@ class NutritionClassificationItemWidget extends StatelessWidget {
         ),
         child: Center(
           child: ListTile(
+            leading: userType != 'admin'
+                ? IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) =>
+                            NewClassificationDialogWidget(model: model),
+                      );
+                    },
+                    icon: const Icon(Icons.edit),
+                  )
+                : const SizedBox(
+                    width: 5,
+                    height: 5,
+                  ),
             onTap: () {
               navigateTo(
                   context,

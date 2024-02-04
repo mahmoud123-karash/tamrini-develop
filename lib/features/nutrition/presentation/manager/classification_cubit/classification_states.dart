@@ -1,4 +1,4 @@
-import 'package:tamrini/features/food/data/models/nutrition_model/classification_model.dart';
+import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
 
 abstract class ClassificationStates {}
 

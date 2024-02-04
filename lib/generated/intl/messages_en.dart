@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Add New Exercise"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("Add New Section"),
+        "add_nutrition_classification":
+            MessageLookupByLibrary.simpleMessage("إضافة فئة جديدة"),
         "add_product": MessageLookupByLibrary.simpleMessage("Add Product"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("Add Reminder"),
         "add_today": MessageLookupByLibrary.simpleMessage("Add Today"),
@@ -105,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "calories": MessageLookupByLibrary.simpleMessage("Calories"),
         "calory": MessageLookupByLibrary.simpleMessage("Calorie"),
+        "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
         "carb": MessageLookupByLibrary.simpleMessage("Carbohydrates"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
@@ -112,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("Choose a meal"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("Choose weight"),
+        "classification_name":
+            MessageLookupByLibrary.simpleMessage("اسم الفئة"),
         "cm": MessageLookupByLibrary.simpleMessage("cm"),
         "coach": MessageLookupByLibrary.simpleMessage("Coach"),
         "comment_error":
@@ -142,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
         "edit_gym": MessageLookupByLibrary.simpleMessage("Edit Gym"),
         "edit_meal": MessageLookupByLibrary.simpleMessage("تعديل الوجبة"),
+        "edit_nutrition_classification":
+            MessageLookupByLibrary.simpleMessage("تعدبل الفئة"),
         "edit_product": MessageLookupByLibrary.simpleMessage("Edit Product"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "edit_section": MessageLookupByLibrary.simpleMessage("Edit Section"),

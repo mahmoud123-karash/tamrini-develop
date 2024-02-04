@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/services/search.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
-import 'package:tamrini/features/food/presentation/manager/select_cubit.dart/select_states.dart';
+import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
+import 'package:tamrini/features/nutrition/presentation/manager/select_cubit.dart/select_states.dart';
 
 class SelectCubit extends Cubit<SelectStates> {
   SelectCubit() : super(InitialSelecteState());

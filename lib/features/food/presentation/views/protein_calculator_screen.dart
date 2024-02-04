@@ -5,7 +5,7 @@ import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart
 import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart/calculator_states.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/calculator_height_widget.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/calculator_number_of_calories_widget.dart';
-import 'package:tamrini/features/food/presentation/views/widgets/calculator_values_colum_widget.dart';
+import 'package:tamrini/features/nutrition/presentation/views/widgets/calculator_values_colum_widget.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/my_day_recalculate_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 

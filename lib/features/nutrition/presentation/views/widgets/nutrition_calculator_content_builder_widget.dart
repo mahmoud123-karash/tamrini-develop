@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model/classification_model.dart';
-import 'package:tamrini/features/food/presentation/manager/nutrition_cubit/nutrition_cubit.dart';
-import 'package:tamrini/features/food/presentation/manager/nutrition_cubit/nutrition_states.dart';
+import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
+import 'package:tamrini/features/nutrition/presentation/manager/nutrition_cubit/nutrition_cubit.dart';
+import 'package:tamrini/features/nutrition/presentation/manager/nutrition_cubit/nutrition_states.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/message_builder_widget.dart';
-import 'package:tamrini/features/food/presentation/views/widgets/nutrition_calculator_content.dart';
+import 'package:tamrini/features/nutrition/presentation/views/widgets/nutrition_calculator_content.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class NutritionCalculatorContentBuilderWidget extends StatelessWidget {

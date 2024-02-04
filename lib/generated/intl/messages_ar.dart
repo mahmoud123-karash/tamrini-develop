@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إضافة تمرين جديد"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("إضافة قسم جديد"),
+        "add_nutrition_classification":
+            MessageLookupByLibrary.simpleMessage("إضافة فئة جديدة"),
         "add_product": MessageLookupByLibrary.simpleMessage("إضافة منتج"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("إضافة تذكير"),
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
@@ -105,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
         "calories": MessageLookupByLibrary.simpleMessage("سعرات"),
         "calory": MessageLookupByLibrary.simpleMessage("سعرة"),
+        "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
         "carb": MessageLookupByLibrary.simpleMessage("كربوهيدرات"),
         "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
@@ -113,6 +116,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("إختر الوجبة"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("اختر الوزن"),
+        "classification_name":
+            MessageLookupByLibrary.simpleMessage("اسم الفئة"),
         "cm": MessageLookupByLibrary.simpleMessage("سم"),
         "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
         "comment_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
@@ -141,6 +146,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
         "edit_gym": MessageLookupByLibrary.simpleMessage("تعديل الصالة"),
         "edit_meal": MessageLookupByLibrary.simpleMessage("تعديل الوجبة"),
+        "edit_nutrition_classification":
+            MessageLookupByLibrary.simpleMessage("تعدبل الفئة"),
         "edit_product": MessageLookupByLibrary.simpleMessage("تعديل المنتج"),
         "edit_profile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),

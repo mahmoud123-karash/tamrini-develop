@@ -5,7 +5,7 @@ import 'package:tamrini/features/food/presentation/views/protein_calculator_scre
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
 
 import '../../../../generated/l10n.dart';
-import 'nutrition_classification_screen.dart';
+import '../../../nutrition/presentation/views/nutrition_classification_screen.dart';
 import 'supplement_category_screen.dart';
 import 'widgets/food_category_item_widget.dart';
 

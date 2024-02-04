@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/food/presentation/views/nutrition_classification_screen.dart';
+import 'package:tamrini/features/nutrition/presentation/views/nutrition_classification_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class DayAddMealWidget extends StatelessWidget {

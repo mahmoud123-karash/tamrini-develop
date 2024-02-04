@@ -9,9 +9,8 @@ import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.d
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
-import 'package:tamrini/features/food/data/data_sources/remote_data_source/nutrition_remote_data_source.dart';
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
-import 'package:tamrini/features/food/data/repo/food_repo_Impl.dart';
+import 'package:tamrini/features/food/data/repo/food_repo_impl.dart';
 import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';
 import 'package:tamrini/features/gym/data/repo/gym_repo_impl.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
@@ -22,6 +21,8 @@ import 'package:tamrini/features/my_day/data/data_sources/remote_data_source/my_
 import 'package:tamrini/features/my_day/data/repo/my_day_repo_impl.dart';
 import 'package:tamrini/features/notification/data/data_sources/remote_data_source/notification_remote_data_source.dart';
 import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
+import 'package:tamrini/features/nutrition/data/data_source/remote_data_source/nutrition_remote_data_source.dart';
+import 'package:tamrini/features/nutrition/data/repo/nutrition_repo_impl.dart';
 import 'package:tamrini/features/order/data/data_sources/remote_data_source/order_remote_data_source.dart';
 import 'package:tamrini/features/order/data/repo/order_repo_impl.dart';
 import 'package:tamrini/features/profile/data/data_sources/local_data_source/profile_local_data_source.dart';
@@ -138,10 +139,15 @@ void setLocator() {
     ),
   );
 
-  getIt.registerSingleton<FoodRepoImpl>(
+  getIt.registerSingleton<NutritionRepoImpl>(
+    NutritionRepoImpl(
+      NutritionRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton(
     FoodRepoImpl(
       SupplementRemoteDataSourceImpl(),
-      NutritionRemoteDataSourceImpl(),
     ),
   );
 

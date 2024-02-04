@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:tamrini/features/food/data/models/nutrition_model/nutrition_model.dart';
+import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class NutritionlistViewWidget extends StatelessWidget {
