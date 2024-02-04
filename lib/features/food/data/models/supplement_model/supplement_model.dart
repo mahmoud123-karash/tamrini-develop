@@ -10,7 +10,7 @@ class SupplementModel {
     required this.image,
     required this.data,
     required this.title,
-    String? id,
+    this.id,
   });
 
   factory SupplementModel.fromJson(Map<String, dynamic> json, String id) {

@@ -5,7 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
+import 'package:tamrini/features/food/presentation/views/new_category_screen.dart';
 import 'package:tamrini/features/food/presentation/views/supplement_category_articles_screen.dart';
+
+import 'remove_category_custom_button_widget.dart';
 
 class SupplementCategoryItemWidget extends StatelessWidget {
   const SupplementCategoryItemWidget({super.key, required this.model});
@@ -41,17 +44,39 @@ class SupplementCategoryItemWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              AutoSizeText(
-                model.title,
-                maxLines: 2,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              RemoveCategoryCustomButtonWidget(model: model),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    constraints: BoxConstraints(
+                      maxWidth: 105.w,
+                    ),
+                    child: AutoSizeText(
+                      model.title,
+                      maxLines: 2,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      navigateTo(context, NewCategoryScreen(model: model));
+                    },
+                    child: const Icon(
+                      Icons.edit,
+                      color: Colors.yellowAccent,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

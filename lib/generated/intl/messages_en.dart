@@ -113,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "carb": MessageLookupByLibrary.simpleMessage("Carbohydrates"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
+        "category_remove_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الفئة ؟"),
         "change_image": MessageLookupByLibrary.simpleMessage("Change Image"),
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("Choose a meal"),

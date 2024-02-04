@@ -25,6 +25,8 @@ class S {
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
+  get remove_category_question => null;
+
   static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false)
         ? locale.languageCode
@@ -3505,6 +3507,16 @@ class S {
     return Intl.message(
       'هل تريد حذف هذه القيمة ؟',
       name: 'remove_nutirtion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذه الفئة ؟`
+  String get category_remove_question {
+    return Intl.message(
+      'هل تريد حذف هذه الفئة ؟',
+      name: 'category_remove_question',
       desc: '',
       args: [],
     );
