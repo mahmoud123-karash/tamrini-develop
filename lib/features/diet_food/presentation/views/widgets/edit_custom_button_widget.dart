@@ -14,15 +14,24 @@ class EditCustomButtonWidget extends StatelessWidget {
     String uid = CacheHelper.getData(key: 'uid');
     String userType = CacheHelper.getData(key: 'usertype');
 
-    return userType == 'admin' || userType == 'writer'
-        ? model.writerUid == uid
-            ? customButton(
-                onPressed: () {
-                  navigateTo(context, NewDietFoodScreen(model: model));
-                },
-                lable: S.of(context).edit_meal,
-              )
-            : Container()
-        : Container();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        if (userType == 'admin')
+          customButton(
+            onPressed: () {
+              navigateTo(context, NewDietFoodScreen(model: model));
+            },
+            lable: S.of(context).edit_meal,
+          ),
+        if (userType == 'writer' && model.writerUid == uid)
+          customButton(
+            onPressed: () {
+              navigateTo(context, NewDietFoodScreen(model: model));
+            },
+            lable: S.of(context).edit_meal,
+          )
+      ],
+    );
   }
 }

@@ -14,37 +14,56 @@ class RemoveDietFoodWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid');
 
-    return userType == 'admin' || userType == 'writer'
-        ? IconButton(
-            onPressed: () {
-              AwesomeDialog(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                ),
-                showCloseIcon: true,
-                titleTextStyle: TextStyles.style17.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: appColor,
-                ),
-                context: context,
-                dialogType: DialogType.warning,
-                animType: AnimType.bottomSlide,
-                title: model.title,
-                desc: S.of(context).q_remove_article,
-                btnCancelOnPress: () {},
-                btnOkOnPress: () {
-                  DietFoodCubit.get(context).removeMeal(
-                    assets: model.assets,
-                    id: model.id,
-                    context: context,
-                  );
-                },
-              ).show();
-            },
-            icon: const Icon(Icons.delete_forever),
-            color: Colors.red,
-          )
-        : Container();
+    return Column(
+      children: [
+        if (userType == 'admin') RemoveWidget(model: model),
+        if (userType == 'writer' && model.writerUid == uid)
+          RemoveWidget(model: model),
+      ],
+    );
+  }
+}
+
+class RemoveWidget extends StatelessWidget {
+  const RemoveWidget({
+    super.key,
+    required this.model,
+  });
+
+  final DietFoodModel model;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        AwesomeDialog(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+          ),
+          showCloseIcon: true,
+          titleTextStyle: TextStyles.style17.copyWith(
+            fontWeight: FontWeight.bold,
+            color: appColor,
+          ),
+          context: context,
+          dialogType: DialogType.warning,
+          animType: AnimType.bottomSlide,
+          title: model.title,
+          desc: S.of(context).q_remove_article,
+          btnCancelOnPress: () {},
+          btnOkOnPress: () {
+            DietFoodCubit.get(context).removeMeal(
+              assets: model.assets,
+              id: model.id,
+              context: context,
+            );
+          },
+        ).show();
+      },
+      icon: const Icon(Icons.delete_forever),
+      color: Colors.red,
+    );
   }
 }

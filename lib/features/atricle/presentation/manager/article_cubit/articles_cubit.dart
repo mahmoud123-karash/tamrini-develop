@@ -126,32 +126,4 @@ class ArticlesCubit extends Cubit<ArticlesStates> {
       },
     );
   }
-
-  void banArticle({
-    required bool isPending,
-    required String articleId,
-    required String writerUid,
-    required BuildContext context,
-  }) async {
-    var result = await articleRepo.banArticle(
-      isPending: isPending,
-      articleId: articleId,
-      writerUid: writerUid,
-    );
-    result.fold(
-      (message) {
-        getData();
-        emit(ErrorGetArticlesState(message));
-      },
-      (list) {
-        List<ArticleModel> models = clearPendingArticles(list);
-        articles = list;
-        showSnackBar(
-          context,
-          isPending ? S.of(context).ban_succes : S.of(context).no_ban_scucess,
-        );
-        emit(SucessGetArticlesState(models));
-      },
-    );
-  }
 }

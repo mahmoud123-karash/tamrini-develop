@@ -4,8 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/diet_food/data/data_sources/remote_data_source/diet_food_remote_data_source.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
@@ -136,75 +134,5 @@ class DietFoodRepoImpl extends DietFoodRepo {
     }
     List<String> assets = await uploadFiles(files: files);
     return assets;
-  }
-
-  @override
-  Future<Either<String, List<DietFoodModel>>> banFood({
-    required String id,
-    required String writerUid,
-    required bool isPending,
-  }) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection('dietFood')
-          .doc('data')
-          .collection('data')
-          .doc(id)
-          .update(
-        {
-          "isRefused": isPending,
-          "isPending": isPending,
-        },
-      );
-      sendNotification(writerUid, id, isPending);
-      List<DietFoodModel> list = await dietFoodRemoteDataSource.get();
-      return right(list);
-    } catch (e) {
-      return left(e.toString());
-    }
-  }
-
-  Future<void> sendNotification(
-    String writerId,
-    String foodId,
-    bool isPending,
-  ) async {
-    var data = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(writerId)
-        .get();
-    String token = data['token'] ?? '';
-    if (token != '') {
-      dioHelper.sendNotification(
-        token: token,
-        title: 'مقالاتك',
-        body: isPending == false
-            ? 'تم رفع التقييد عن المقال الخاص بك'
-            : 'تم تقييد المقال الخاص بك',
-        data: {
-          "type": "notification",
-          "subType": 'diet_food',
-          "uid": foodId,
-        },
-      );
-    }
-
-    NotificationModel model = NotificationModel(
-      isReaden: false,
-      subType: 'diet_food',
-      senderUid: adminUid,
-      title: isPending == true ? 'ban_food' : 'no_ban_food',
-      body: '',
-      type: 'notification',
-      uid: foodId,
-      time: Timestamp.now(),
-    );
-    await FirebaseFirestore.instance
-        .collection('notification')
-        .doc(writerId)
-        .collection('data')
-        .add(
-          model.toJson(),
-        );
   }
 }

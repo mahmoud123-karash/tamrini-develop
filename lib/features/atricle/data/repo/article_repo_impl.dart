@@ -4,11 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/atricle/data/data_sources/remote_data_source/article_remote_data_source.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
-import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/atricle/domain/repo/article_repo.dart';
 import 'package:uuid/uuid.dart';
 
@@ -140,71 +138,71 @@ class ArticleRepoImpl extends ArticleRepo {
     }
   }
 
-  @override
-  Future<Either<String, List<ArticleModel>>> banArticle({
-    required bool isPending,
-    required String articleId,
-    required String writerUid,
-  }) async {
-    try {
-      var data = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(writerUid)
-          .get();
-      String token = data['token'] ?? '';
-      await sendNotification(token, isPending, articleId, writerUid);
-      await FirebaseFirestore.instance
-          .collection('articles')
-          .doc('data')
-          .collection('articles')
-          .doc(articleId)
-          .update({
-        "isPending": isPending,
-        "isRefused": isPending,
-      });
-      List<ArticleModel> list = await articleRemoteDataSource.getArticles();
-      return right(list);
-    } catch (e) {
-      return left(e.toString());
-    }
-  }
+  // @override
+  // Future<Either<String, List<ArticleModel>>> banArticle({
+  //   required bool isPending,
+  //   required String articleId,
+  //   required String writerUid,
+  // }) async {
+  //   try {
+  //     var data = await FirebaseFirestore.instance
+  //         .collection('users')
+  //         .doc(writerUid)
+  //         .get();
+  //     String token = data['token'] ?? '';
+  //     await sendNotification(token, isPending, articleId, writerUid);
+  //     await FirebaseFirestore.instance
+  //         .collection('articles')
+  //         .doc('data')
+  //         .collection('articles')
+  //         .doc(articleId)
+  //         .update({
+  //       "isPending": isPending,
+  //       "isRefused": isPending,
+  //     });
+  //     List<ArticleModel> list = await articleRemoteDataSource.getArticles();
+  //     return right(list);
+  //   } catch (e) {
+  //     return left(e.toString());
+  //   }
+  // }
 
-  Future<void> sendNotification(
-    String token,
-    bool isPending,
-    String articleId,
-    String writerUid,
-  ) async {
-    NotificationModel notification = NotificationModel(
-      isReaden: false,
-      subType: 'article',
-      senderUid: adminUid,
-      title: isPending == true ? 'ban_article' : 'no_ban_article',
-      body: '',
-      type: 'notification',
-      uid: articleId,
-      time: Timestamp.now(),
-    );
-    await FirebaseFirestore.instance
-        .collection('notification')
-        .doc(writerUid)
-        .collection('data')
-        .add(
-          notification.toJson(),
-        );
-    if (token != '') {
-      dioHelper.sendNotification(
-        token: token,
-        title: 'مقالاتك',
-        body: isPending == false
-            ? 'تم رفع التقييد عن المقال الخاص بك'
-            : 'تم تقييد المقال الخاص بك',
-        data: {
-          "type": "notification",
-          "subType": "article",
-          "uid": articleId,
-        },
-      );
-    }
-  }
+  // Future<void> sendNotification(
+  //   String token,
+  //   bool isPending,
+  //   String articleId,
+  //   String writerUid,
+  // ) async {
+  //   NotificationModel notification = NotificationModel(
+  //     isReaden: false,
+  //     subType: 'article',
+  //     senderUid: adminUid,
+  //     title: isPending == true ? 'ban_article' : 'no_ban_article',
+  //     body: '',
+  //     type: 'notification',
+  //     uid: articleId,
+  //     time: Timestamp.now(),
+  //   );
+  //   await FirebaseFirestore.instance
+  //       .collection('notification')
+  //       .doc(writerUid)
+  //       .collection('data')
+  //       .add(
+  //         notification.toJson(),
+  //       );
+  //   if (token != '') {
+  //     dioHelper.sendNotification(
+  //       token: token,
+  //       title: 'مقالاتك',
+  //       body: isPending == false
+  //           ? 'تم رفع التقييد عن المقال الخاص بك'
+  //           : 'تم تقييد المقال الخاص بك',
+  //       data: {
+  //         "type": "notification",
+  //         "subType": "article",
+  //         "uid": articleId,
+  //       },
+  //     );
+  //   }
+  // }
 }

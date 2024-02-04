@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_cubit.dart';
-import 'package:tamrini/features/diet_food/presentation/views/widgets/ban_custom_button_widget.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/food_diet_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import '../manager/article_cubit/diet_food_states.dart';
@@ -59,13 +58,7 @@ class DietFoodDetailsScreen extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,
                               ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  EditCustomButtonWidget(model: model),
-                                  BanCustomButtonWidget(model: model),
-                                ],
-                              ),
+                              child: EditCustomButtonWidget(model: model),
                             ),
                           ),
                         )

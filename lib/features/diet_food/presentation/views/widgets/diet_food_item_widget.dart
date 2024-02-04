@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/views/diet_food_details_screen.dart';
@@ -14,8 +13,6 @@ class DietFoodItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
-
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
@@ -40,8 +37,7 @@ class DietFoodItemWidget extends StatelessWidget {
                         images: model.assets,
                         title: model.title,
                       ),
-                      if (model.writerUid == uid)
-                        RemoveDietFoodWidget(model: model),
+                      RemoveDietFoodWidget(model: model),
                     ],
                   ),
                 const SizedBox(

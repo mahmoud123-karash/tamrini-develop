@@ -20,10 +20,4 @@ abstract class ArticleRepo {
     required List<ArticleModel> list,
     required ArticleModel oldModel,
   });
-
-  Future<Either<String, List<ArticleModel>>> banArticle({
-    required bool isPending,
-    required String articleId,
-    required String writerUid,
-  });
 }

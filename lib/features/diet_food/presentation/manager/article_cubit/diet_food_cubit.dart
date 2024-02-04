@@ -121,32 +121,4 @@ class DietFoodCubit extends Cubit<DietFoodStates> {
       },
     );
   }
-
-  void banFood({
-    required bool isPending,
-    required String id,
-    required BuildContext context,
-    required String writerUid,
-  }) async {
-    var result = await dietFoodRePo.banFood(
-      id: id,
-      isPending: isPending,
-      writerUid: writerUid,
-    );
-    result.fold(
-      (message) {
-        getData();
-        emit(ErrorGetDietFoodState(message));
-      },
-      (list) {
-        List<DietFoodModel> models = clearRefusedFood(list);
-        foods = list;
-        showSnackBar(
-          context,
-          isPending ? S.of(context).ban_succes : S.of(context).no_ban_scucess,
-        );
-        emit(SucessGetDietFoodState(models));
-      },
-    );
-  }
 }
