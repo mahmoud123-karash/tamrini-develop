@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/exercise/presentation/views/new_exercise_screen.dart';
+import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
+import 'package:tamrini/features/home_exercise/presentation/views/new_home_exercise_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class EditExerciseCustomButtonWidget extends StatelessWidget {
-  const EditExerciseCustomButtonWidget({super.key, required this.model});
-  final DataModel model;
+class EditHomeExerciseCustomButtonWidget extends StatelessWidget {
+  const EditHomeExerciseCustomButtonWidget({super.key, required this.model});
+  final Data model;
 
   @override
   Widget build(BuildContext context) {
@@ -17,27 +17,27 @@ class EditExerciseCustomButtonWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         if (userType == 'admin') const Divider(),
-        if (userType == 'admin')
-          customButton(
-            onPressed: () {
-              navigateToAndReplace(
-                context,
-                NewExerciseScreen(model: model),
-              );
-            },
-            lable: S.of(context).edit_exercise,
-          ),
+        // if (userType == 'admin')
+        customButton(
+          onPressed: () {
+            navigateTo(
+              context,
+              NewHomeExerciseScreen(model: model),
+            );
+          },
+          lable: S.of(context).edit,
+        ),
         if (userType == 'writer' && model.writerUid == uid) const Divider(),
         if (userType == 'writer' && model.writerUid == uid)
           customButton(
             onPressed: () {
-              navigateToAndReplace(
+              navigateTo(
                 context,
-                NewExerciseScreen(model: model),
+                NewHomeExerciseScreen(model: model),
               );
             },
-            lable: S.of(context).edit_exercise,
-          ),
+            lable: S.of(context).edit,
+          )
       ],
     );
   }

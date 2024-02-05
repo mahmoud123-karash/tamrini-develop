@@ -20,7 +20,7 @@ class HomeExerciseModel {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(Data.fromJson(v, id));
       });
     }
     title = json['title'] ?? '';

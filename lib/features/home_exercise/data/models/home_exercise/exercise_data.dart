@@ -1,26 +1,31 @@
 import 'package:tamrini/core/contants/constants.dart';
 
 class Data {
-  List<String>? assets;
-  String? description;
-  String? title;
-  String? id;
-  String? writerUid;
+  final List<String> assets;
+  final String description;
+  final String title;
+  final String id;
+  final String writerUid;
+  String? sectionId;
 
   Data({
-    this.assets,
-    this.description,
-    this.title,
+    required this.assets,
+    required this.description,
+    required this.title,
     required this.id,
-    this.writerUid,
+    required this.writerUid,
+    this.sectionId,
   });
 
-  Data.fromJson(Map<String, dynamic> json) {
-    assets = json['image'].cast<String>();
-    description = json['description'] ?? '';
-    title = json['title'] ?? '';
-    id = json['id'] ?? '';
-    writerUid = json['writerUid'] ?? adminUid;
+  factory Data.fromJson(Map<String, dynamic> json, sectionId) {
+    return Data(
+      assets: List<String>.from(json['image'] ?? []),
+      description: json['description'] ?? '',
+      title: json['title'] ?? '',
+      id: json['id'] ?? '',
+      writerUid: json['writerUid'] ?? adminUid,
+      sectionId: sectionId,
+    );
   }
 
   Map<String, dynamic> toJson() {

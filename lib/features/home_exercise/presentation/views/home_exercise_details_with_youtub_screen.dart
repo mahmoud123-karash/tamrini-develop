@@ -3,24 +3,25 @@ import 'package:flutter/services.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import 'widgets/exercise_details_body_widget.dart';
+import 'widgets/home_exercise_body_widget.dart';
 
-class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({
+class HomeExerciseDetailsWithYoutubScreen extends StatefulWidget {
+  const HomeExerciseDetailsWithYoutubScreen({
     Key? key,
     required this.vedio,
-    this.isHome = false,
     required this.id,
     this.isAll = false,
   }) : super(key: key);
   final String vedio, id;
-  final bool isHome, isAll;
+  final bool isAll;
 
   @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
+  State<HomeExerciseDetailsWithYoutubScreen> createState() =>
+      _HomeExerciseDetailsWithYoutubScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
+class _HomeExerciseDetailsWithYoutubScreenState
+    extends State<HomeExerciseDetailsWithYoutubScreen> {
   late YoutubePlayerController controller;
   late String videoId;
   late PlayerState playerState;
@@ -71,8 +72,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget build(BuildContext context) {
     return YoutubePlayerBuilder(
       onExitFullScreen: () {
-        SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-            overlays: SystemUiOverlay.values);
+        SystemChrome.setEnabledSystemUIMode(
+          SystemUiMode.manual,
+          overlays: SystemUiOverlay.values,
+        );
       },
       player: YoutubePlayer(
         controller: controller,
@@ -90,9 +93,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
         ),
-        body: ExerciseDetailsBodyWidget(
+        body: HomeExerciseBodyWidget(
           id: widget.id,
-          isHome: widget.isHome,
           isAll: widget.isAll,
           player: player,
         ),

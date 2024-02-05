@@ -7,7 +7,7 @@ import 'package:tamrini/features/home_exercise/domain/repo/home_exercise_repo.da
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class HomeExerciseCubit extends Cubit<HomeExersiceStates> {
+class HomeExerciseCubit extends Cubit<HomeExerciseStates> {
   HomeExerciseCubit(this.homeExerciseRepo) : super(InitialHomeExerciseState());
 
   static HomeExerciseCubit get(context) => BlocProvider.of(context);

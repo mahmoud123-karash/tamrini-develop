@@ -72,7 +72,7 @@ class _CustomImageSlideShowState extends State<CustomImageSlideShow> {
             children: widget.children,
           ),
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
           Positioned.fill(
             bottom: 5,

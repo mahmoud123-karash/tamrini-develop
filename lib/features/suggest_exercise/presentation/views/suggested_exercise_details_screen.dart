@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/features/exercise/presentation/manager/swiper_cubit/swiper_cubit.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_assets_view_widget.dart';
+import 'package:tamrini/core/utils/distripute_assets.dart';
+import 'package:tamrini/features/exercise/presentation/views/widgets/custom_image_slide_show.dart';
 import 'package:tamrini/features/suggest_exercise/data/models/suggest_model/suggest_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -46,7 +44,6 @@ class _SuggestedExerciseDetailsScreenState
     )..addListener(listener);
     videoMetaData = const YoutubeMetaData();
     playerState = PlayerState.unknown;
-    CacheHelper.removeData(key: 'index');
     super.initState();
   }
 
@@ -133,11 +130,14 @@ class _SuggestedExerciseDetailsScreenState
                   const SizedBox(
                     height: 10,
                   ),
-                  BlocProvider(
-                    create: (context) => SwiperCubit(),
-                    child: ExerciseAssetsViewWidget(
-                      images: assets,
-                      player: player,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: CustomImageSlideShow(
+                      assets: assets,
+                      children: distributeAssets(
+                        assets,
+                        player: player,
+                      ),
                     ),
                   ),
                 ],

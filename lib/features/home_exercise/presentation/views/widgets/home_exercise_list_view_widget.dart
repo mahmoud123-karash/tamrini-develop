@@ -4,13 +4,17 @@ import '../../../data/models/home_exercise/exercise_data.dart';
 import 'home_exercise_item_widget.dart';
 
 class HomeExerciseListViewWidget extends StatelessWidget {
-  const HomeExerciseListViewWidget(
-      {super.key,
-      required this.list,
-      required this.length,
-      required this.scrollController});
+  const HomeExerciseListViewWidget({
+    super.key,
+    required this.list,
+    required this.length,
+    required this.scrollController,
+    required this.isAll,
+  });
   final List<Data> list;
   final int length;
+  final bool isAll;
+
   final ScrollController scrollController;
 
   @override
@@ -19,7 +23,7 @@ class HomeExerciseListViewWidget extends StatelessWidget {
       controller: scrollController,
       itemBuilder: (context, index) {
         if (index < length) {
-          return HomeExerciseItemWidget(model: list[index]);
+          return HomeExerciseItemWidget(model: list[index], isAll: isAll);
         } else {
           return const Center(
             child: Padding(

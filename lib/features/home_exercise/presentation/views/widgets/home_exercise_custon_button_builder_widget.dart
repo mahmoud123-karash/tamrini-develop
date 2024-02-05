@@ -11,7 +11,7 @@ class HomeExerciseCustomButtonBuilderWidget extends StatelessWidget {
   final String lable;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeExerciseCubit, HomeExersiceStates>(
+    return BlocConsumer<HomeExerciseCubit, HomeExerciseStates>(
       listener: (context, state) {
         if (state is ErrorGetHomeExerciseState) {
           showSnackBar(context, state.message);

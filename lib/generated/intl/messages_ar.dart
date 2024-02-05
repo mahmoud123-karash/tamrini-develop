@@ -178,6 +178,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "exercise_name": MessageLookupByLibrary.simpleMessage("اسم التمرين"),
         "exercise_purpose":
             MessageLookupByLibrary.simpleMessage("الغرض من التمرين"),
+        "exercise_removed":
+            MessageLookupByLibrary.simpleMessage("تم حذف هذا التمرين"),
         "exercises": MessageLookupByLibrary.simpleMessage("التمارين واللياقة"),
         "facebooh": MessageLookupByLibrary.simpleMessage("فيسبوك"),
         "fat": MessageLookupByLibrary.simpleMessage("دهون"),

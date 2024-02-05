@@ -3609,6 +3609,16 @@ class S {
       args: [],
     );
   }
+
+  /// `تم حذف هذا التمرين`
+  String get exercise_removed {
+    return Intl.message(
+      'تم حذف هذا التمرين',
+      name: 'exercise_removed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

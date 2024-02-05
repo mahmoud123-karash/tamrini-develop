@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/home_exercise/presentation/views/new_home_exercise_screen.dart';
 import 'package:tamrini/features/suggest_exercise/presentation/views/widgets/suggest_exercise_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import '../../data/models/home_exercise/exercise_data.dart';
@@ -41,9 +43,14 @@ class _AllHomeExercisesCategoryScreen
         scrollController.position.maxScrollExtent) {
       if (widget.models.length > length) {
         length += 5;
-        Future.delayed(const Duration(seconds: 1)).then((value) {
-          WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-        });
+        Future.delayed(const Duration(seconds: 1)).then(
+          (value) {
+            if (mounted) {
+              WidgetsBinding.instance
+                  .addPostFrameCallback((_) => setState(() {}));
+            }
+          },
+        );
       }
     }
   }
@@ -57,6 +64,7 @@ class _AllHomeExercisesCategoryScreen
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
     return Scaffold(
       appBar: myAppBar(
         widget.title,
@@ -74,15 +82,18 @@ class _AllHomeExercisesCategoryScreen
             },
           ),
           if (!widget.isAll)
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
+            if (userType == 'admin' || userType == 'writer')
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: addCustomButton(
+                  onPressed: () {
+                    navigateTo(context, const NewHomeExerciseScreen());
+                  },
+                  lable: S.of(context).add_new_exercise,
+                ),
               ),
-              child: addCustomButton(
-                onPressed: () {},
-                lable: S.of(context).add_new_exercise,
-              ),
-            ),
           widget.models.isEmpty
               ? Expanded(
                   child: Center(
@@ -93,6 +104,7 @@ class _AllHomeExercisesCategoryScreen
                 )
               : Expanded(
                   child: HomeExerciseListViewWidget(
+                    isAll: widget.isAll,
                     scrollController: scrollController,
                     list: searchController.text == ''
                         ? widget.models

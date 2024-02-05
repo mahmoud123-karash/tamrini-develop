@@ -19,9 +19,10 @@ class ExerciseCardWidget extends StatefulWidget {
     Key? key,
     required this.isAll,
     required this.id,
+    this.isHome = false,
   }) : super(key: key);
   final DataModel exercise;
-  final bool isAll;
+  final bool isAll, isHome;
   final String id;
 
   @override
@@ -49,6 +50,7 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
             DetailsWithoutVedioScreen(
               id: widget.exercise.id!,
               isAll: widget.isAll,
+              isHome: widget.isHome,
             ),
           );
         } else {
@@ -59,6 +61,7 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                 id: widget.exercise.id!,
                 vedio: checkVedioformat(widget.exercise.assets ?? []),
                 isAll: widget.isAll,
+                isHome: widget.isHome,
               ),
             );
           } else {
@@ -67,6 +70,7 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
               DetailsWithoutVedioScreen(
                 id: widget.exercise.id!,
                 isAll: widget.isAll,
+                isHome: widget.isHome,
               ),
             );
           }
@@ -132,16 +136,18 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                 ),
               ),
             ),
-            if (userType == 'admin')
-              RemoveExerciseIconWidget(
-                model: widget.exercise,
-                id: widget.id,
-              ),
-            if (userType == 'writer' && widget.exercise.writerUid == uid)
-              RemoveExerciseIconWidget(
-                model: widget.exercise,
-                id: widget.id,
-              ),
+            if (!widget.isAll)
+              if (userType == 'admin')
+                RemoveExerciseIconWidget(
+                  model: widget.exercise,
+                  id: widget.id,
+                ),
+            if (!widget.isAll)
+              if (userType == 'writer' && widget.exercise.writerUid == uid)
+                RemoveExerciseIconWidget(
+                  model: widget.exercise,
+                  id: widget.id,
+                ),
           ],
         ),
       ),

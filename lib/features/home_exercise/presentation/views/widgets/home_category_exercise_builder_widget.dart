@@ -19,7 +19,7 @@ class HomeCategoryExerciseBuilderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     String userType = CacheHelper.getData(key: 'usertype');
 
-    return BlocBuilder<HomeExerciseCubit, HomeExersiceStates>(
+    return BlocBuilder<HomeExerciseCubit, HomeExerciseStates>(
       builder: (context, state) {
         if (state is SucessGetHomeExerciseState) {
           if (state.list.isEmpty) {

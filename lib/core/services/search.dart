@@ -40,7 +40,7 @@ List<ProductModel> searchProduct(value, List<ProductModel> data) {
 }
 
 List<Data> searchHomeExercise(value, List<Data> data) {
-  final options = [for (var element in data) element.title!];
+  final options = [for (var element in data) element.title];
   final fuse = Fuzzy(options);
   final results = fuse.search(value).map((result) => result.item).toList();
   return data.where((element) => results.contains(element.title)).toList();
