@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_states.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/utils/video_manager.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/section_image_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -16,8 +15,7 @@ class NewHomeExerciseContentWidget extends StatelessWidget {
     required this.image,
     required this.descriptionController,
     required this.youtubController,
-    required this.isUri,
-    required this.vedioUri,
+    required this.isYoutub,
   });
   final TextEditingController nameController;
   final TextEditingController descriptionController;
@@ -25,8 +23,7 @@ class NewHomeExerciseContentWidget extends StatelessWidget {
   final AutovalidateMode autovalidateMode;
   final GlobalKey<FormState> formKey;
   final String image;
-  final bool isUri;
-  final String vedioUri;
+  final bool isYoutub;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,7 @@ class NewHomeExerciseContentWidget extends StatelessWidget {
                       : S.of(context).add_image,
                   icon: Icons.add_a_photo_outlined,
                   function: () {
-                    ImageCubit.get(context).videoFromGallery();
+                    ImageCubit.get(context).pickImage();
                   },
                 ),
               const SizedBox(
@@ -75,13 +72,10 @@ class NewHomeExerciseContentWidget extends StatelessWidget {
                 context: context,
                 autovalidateMode: autovalidateMode,
               ),
-              VideoManager(
-                remote_url: vedioUri,
-              ),
               const SizedBox(
                 height: 20,
               ),
-              if (isUri)
+              if (!isYoutub)
                 addTextField(
                   lable: S.of(context).youtub_uri,
                   controller: youtubController,

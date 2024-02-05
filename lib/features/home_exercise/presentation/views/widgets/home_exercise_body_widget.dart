@@ -55,6 +55,9 @@ class HomeExerciseBodyWidget extends StatelessWidget {
                             children: [
                               const Divider(),
                               ArticlWriterBuilderWidget(uid: model.writerUid),
+                              const SizedBox(
+                                height: 10,
+                              ),
                               if (!isAll)
                                 EditHomeExerciseCustomButtonWidget(
                                   model: model,

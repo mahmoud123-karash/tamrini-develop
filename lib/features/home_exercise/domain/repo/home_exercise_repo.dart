@@ -24,6 +24,14 @@ abstract class HomeExerciseRepo {
     required HomeExerciseModel section,
   });
 
+  Future<Either<String, List<HomeExerciseModel>>> editExercise({
+    required String name,
+    required String description,
+    required String youtubUri,
+    required List<String> paths,
+    required Data oldData,
+    required HomeExerciseModel section,
+  });
   Future<Either<String, List<HomeExerciseModel>>> removeExercise({
     required Data oldData,
     required HomeExerciseModel section,

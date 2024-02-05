@@ -4,14 +4,16 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
 import 'package:tamrini/core/utils/regex.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
+import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/widgets/home_exercise_custon_button_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/new_home_exercise_content_widget.dart';
 
 class NewHomeExerciseScreen extends StatefulWidget {
-  const NewHomeExerciseScreen({super.key, this.model});
+  const NewHomeExerciseScreen({super.key, this.model, required this.id});
   final Data? model;
+  final String id;
 
   @override
   State<NewHomeExerciseScreen> createState() => _NewHomeExerciseScreenState();
@@ -65,10 +67,9 @@ class _NewHomeExerciseScreenState extends State<NewHomeExerciseScreen> {
               image: widget.model != null
                   ? checkImageformat(widget.model!.assets)
                   : "",
-              isUri: widget.model != null
-                  ? checkVedioformat(widget.model!.assets) != ''
-                  : false,
-              vedioUri: widget.model != null ? widget.model!.assets[1] : '',
+              isYoutub: widget.model == null
+                  ? false
+                  : checkVedioformat(widget.model!.assets) == '',
             ),
           ),
           SliverFillRemaining(
@@ -84,15 +85,32 @@ class _NewHomeExerciseScreenState extends State<NewHomeExerciseScreen> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
-                      if (RegExp(RegexPatterns.allowedYoutubeUrlFormat)
-                              .hasMatch(youtubController.text) ==
-                          false) {
-                        showSnackBar(context, S.of(context).youtub_uri_hint);
+                      if (youtubController.text == '') {
+                        HomeExerciseCubit.get(context).editExercise(
+                          oldData: widget.model!,
+                          name: nameController.text,
+                          description: descriptionController.text,
+                          youtubUri: '',
+                          paths: paths,
+                          id: widget.id,
+                          context: context,
+                        );
                       } else {
-                        if (checkImageformat(widget.model!.assets) == '' &&
-                            paths.isEmpty) {
-                          showSnackBar(context, S.of(context).image_error);
-                        } else {}
+                        if (RegExp(RegexPatterns.allowedYoutubeUrlFormat)
+                                .hasMatch(youtubController.text) ==
+                            false) {
+                          showSnackBar(context, S.of(context).youtub_uri_hint);
+                        } else {
+                          HomeExerciseCubit.get(context).editExercise(
+                            oldData: widget.model!,
+                            name: nameController.text,
+                            description: descriptionController.text,
+                            youtubUri: youtubController.text,
+                            paths: paths,
+                            id: widget.id,
+                            context: context,
+                          );
+                        }
                       }
                     } else {
                       if (paths.isNotEmpty) {
@@ -100,7 +118,16 @@ class _NewHomeExerciseScreenState extends State<NewHomeExerciseScreen> {
                                 .hasMatch(youtubController.text) ==
                             false) {
                           showSnackBar(context, S.of(context).youtub_uri_hint);
-                        } else {}
+                        } else {
+                          HomeExerciseCubit.get(context).addExercise(
+                            name: nameController.text,
+                            description: descriptionController.text,
+                            youtubUri: youtubController.text,
+                            paths: paths,
+                            id: widget.id,
+                            context: context,
+                          );
+                        }
                       } else {
                         showSnackBar(context, S.of(context).image_error);
                       }

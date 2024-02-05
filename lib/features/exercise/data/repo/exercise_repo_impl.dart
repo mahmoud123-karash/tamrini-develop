@@ -131,7 +131,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
       List<DataModel> dataList = exercise.data ?? [];
       var id = const Uuid().v4();
       List<String> assets = [];
-      assets.addAll([youtubUrl, ...images]);
+      assets.addAll([...images, youtubUrl]);
       DataModel data = DataModel(
         writerUid: uid,
         id: id,
@@ -180,10 +180,10 @@ class ExerciseRepoImpl extends ExerciseRepo {
       late DataModel newData;
       if (imagePath == '') {
         List<String> assets = [];
-        assets.add(youtubUrl);
         if (checkImageformat(oldData.assets ?? []) != '') {
           assets.add(checkImageformat(oldData.assets ?? []));
         }
+        assets.add(youtubUrl);
         newData = DataModel(
           writerUid: uid,
           id: oldData.id,
@@ -201,7 +201,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
           await deleteOldImages(newImages: images, oldImages: oldImages);
         }
         List<String> assets = [];
-        assets.addAll([youtubUrl, ...images]);
+        assets.addAll([...images, youtubUrl]);
         newData = DataModel(
           writerUid: uid,
           id: oldData.id,

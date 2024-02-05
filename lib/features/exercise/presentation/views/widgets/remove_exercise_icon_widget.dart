@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
@@ -36,7 +37,7 @@ class RemoveExerciseIconWidget extends StatelessWidget {
             btnCancelOnPress: () {},
             btnOkOnPress: () {
               ExerciseCubit.get(context).removeExercise(
-                exerciseId: id,
+                exerciseId: CacheHelper.getData(key: 'exerciseId') ?? '',
                 oldData: model,
                 message: S.of(context).success_remove,
               );

@@ -5,6 +5,8 @@ import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercis
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/home_exercise_model.dart';
 import 'package:tamrini/features/home_exercise/domain/repo/home_exercise_repo.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_states.dart';
+import 'package:tamrini/features/home_exercise/presentation/views/home_exercise_details_screen.dart';
+import 'package:tamrini/features/home_exercise/presentation/views/home_exercise_details_with_youtub_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class HomeExerciseCubit extends Cubit<HomeExerciseStates> {
@@ -94,6 +96,99 @@ class HomeExerciseCubit extends Cubit<HomeExerciseStates> {
         models = list;
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_edit_a);
+        emit(SucessGetHomeExerciseState(list));
+      },
+    );
+  }
+
+  void addExercise({
+    required String name,
+    required String description,
+    required String youtubUri,
+    required List<String> paths,
+    required String id,
+    required BuildContext context,
+  }) async {
+    emit(LoadingGetHomeExerciseState());
+    var result = await homeExerciseRepo.addExercise(
+      name: name,
+      description: description,
+      youtubUri: youtubUri,
+      paths: paths,
+      section: getSection(id),
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetHomeExerciseState(message));
+      },
+      (list) {
+        models = list;
+        Navigator.pop(context);
+        showSnackBar(context, S.of(context).success_add_a);
+        emit(SucessGetHomeExerciseState(list));
+      },
+    );
+  }
+
+  void editExercise({
+    required String name,
+    required String description,
+    required String youtubUri,
+    required List<String> paths,
+    required Data oldData,
+    required String id,
+    required BuildContext context,
+  }) async {
+    emit(LoadingGetHomeExerciseState());
+    var result = await homeExerciseRepo.editExercise(
+      name: name,
+      description: description,
+      youtubUri: youtubUri,
+      paths: paths,
+      oldData: oldData,
+      section: getSection(id),
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetHomeExerciseState(message));
+      },
+      (list) {
+        models = list;
+        if (youtubUri == '') {
+          navigateToAndReplace(
+              context, HomeExerciseDetailsScreen(id: oldData.id, isAll: false));
+        } else {
+          navigateToAndReplace(
+              context,
+              HomeExerciseDetailsWithYoutubScreen(
+                id: oldData.id,
+                isAll: false,
+                vedio: youtubUri,
+              ));
+        }
+        showSnackBar(context, S.of(context).success_edit_a);
+        emit(SucessGetHomeExerciseState(list));
+      },
+    );
+  }
+
+  void removeExercise({
+    required Data oldData,
+    required String id,
+    required String message,
+  }) async {
+    var result = await homeExerciseRepo.removeExercise(
+      oldData: oldData,
+      section: getSection(id),
+    );
+    result.fold(
+      (message) {
+        getData();
+        emit(ErrorGetHomeExerciseState(message));
+      },
+      (list) {
+        models = list;
+        showToast(message);
         emit(SucessGetHomeExerciseState(list));
       },
     );

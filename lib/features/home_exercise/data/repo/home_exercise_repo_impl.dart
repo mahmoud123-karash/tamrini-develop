@@ -124,7 +124,7 @@ class HomeExerciseRepoImpl extends HomeExerciseRepo {
 
       List<String> images = await uploadPaths(paths);
       List<String> assets = [];
-      assets.addAll([youtubUri, ...images]);
+      assets.addAll([...images, youtubUri]);
       Data dataModel = Data(
         assets: assets,
         description: description,
@@ -169,6 +169,71 @@ class HomeExerciseRepoImpl extends HomeExerciseRepo {
         await deleteOldImages(newImages: [], oldImages: oldImages);
       }
       List<Data> dataList = section.data ?? [];
+      dataList.remove(oldData);
+      HomeExerciseModel model = HomeExerciseModel(
+        data: dataList,
+        order: section.order,
+        title: section.title,
+        image: section.image ?? '',
+      );
+      FirebaseFirestore.instance
+          .collection('homeExercises')
+          .doc('data')
+          .collection('data')
+          .doc(section.id)
+          .update(
+            model.toJson(),
+          );
+
+      List<HomeExerciseModel> list = await homeExerciseRemoteDataSource.get();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<HomeExerciseModel>>> editExercise({
+    required String name,
+    required String description,
+    required String youtubUri,
+    required List<String> paths,
+    required Data oldData,
+    required HomeExerciseModel section,
+  }) async {
+    try {
+      late Data dataModel;
+      if (paths.isEmpty) {
+        dataModel = Data(
+          assets: oldData.assets,
+          description: description,
+          title: name,
+          id: oldData.id,
+          writerUid: oldData.writerUid,
+        );
+      } else {
+        List<String> images = await uploadPaths(paths);
+        List<String> assets = [];
+        if (youtubUri != '') {
+          assets.addAll([...images, youtubUri]);
+        } else {
+          String image = checkImageformat(oldData.assets);
+          List<String> finalImages = oldData.assets;
+          finalImages.remove(image);
+          assets.addAll(images);
+          assets.addAll(finalImages);
+        }
+        dataModel = Data(
+          assets: assets,
+          description: description,
+          title: name,
+          id: oldData.id,
+          writerUid: oldData.writerUid,
+        );
+      }
+
+      List<Data> dataList = section.data ?? [];
+      dataList.add(dataModel);
       dataList.remove(oldData);
       HomeExerciseModel model = HomeExerciseModel(
         data: dataList,

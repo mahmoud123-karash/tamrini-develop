@@ -52,10 +52,11 @@ class HomeCategoryExerciseBuilderWidget extends StatelessWidget {
                         if (list.isNotEmpty) {
                           navigateTo(
                             context,
-                            AllHomeExercisesCategoryScreen(
-                              models: list,
+                            AllHomeExerciseCategoryScreen(
+                              list: list,
                               title: S.of(context).home_exercises,
                               isAll: true,
+                              id: '',
                             ),
                           );
                         }

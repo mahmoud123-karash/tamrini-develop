@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
+import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class RemoveHomeExerciseIconWidget extends StatelessWidget {
@@ -33,7 +34,13 @@ class RemoveHomeExerciseIconWidget extends StatelessWidget {
             title: model.title,
             desc: S.of(context).remove_exercise_question,
             btnCancelOnPress: () {},
-            btnOkOnPress: () {},
+            btnOkOnPress: () {
+              HomeExerciseCubit.get(context).removeExercise(
+                oldData: model,
+                id: model.sectionId ?? '',
+                message: S.of(context).success_remove,
+              );
+            },
           ).show();
         },
         icon: const Icon(Icons.delete),

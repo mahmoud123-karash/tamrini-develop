@@ -22,9 +22,10 @@ class HomeCategoryItemWidget extends StatelessWidget {
       onTap: () {
         navigateTo(
             context,
-            AllHomeExercisesCategoryScreen(
-              models: model.data ?? [],
+            AllHomeExerciseCategoryScreen(
               title: model.title ?? '',
+              id: model.id ?? '',
+              isAll: false,
             ));
       },
       child: Container(

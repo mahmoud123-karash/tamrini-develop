@@ -17,23 +17,23 @@ class EditHomeExerciseCustomButtonWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         if (userType == 'admin') const Divider(),
-        // if (userType == 'admin')
-        customButton(
-          onPressed: () {
-            navigateTo(
-              context,
-              NewHomeExerciseScreen(model: model),
-            );
-          },
-          lable: S.of(context).edit,
-        ),
+        if (userType == 'admin')
+          customButton(
+            onPressed: () {
+              navigateToAndReplace(
+                context,
+                NewHomeExerciseScreen(model: model, id: model.sectionId ?? ''),
+              );
+            },
+            lable: S.of(context).edit,
+          ),
         if (userType == 'writer' && model.writerUid == uid) const Divider(),
         if (userType == 'writer' && model.writerUid == uid)
           customButton(
             onPressed: () {
-              navigateTo(
+              navigateToAndReplace(
                 context,
-                NewHomeExerciseScreen(model: model),
+                NewHomeExerciseScreen(model: model, id: model.sectionId ?? ''),
               );
             },
             lable: S.of(context).edit,
