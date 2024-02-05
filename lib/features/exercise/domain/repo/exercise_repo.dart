@@ -38,4 +38,9 @@ abstract class ExerciseRepo {
     required String imagePath,
     required DataModel oldData,
   });
+
+  Future<Either<String, List<ExerciseModel>>> removeExercise({
+    required ExerciseModel exercise,
+    required DataModel oldData,
+  });
 }

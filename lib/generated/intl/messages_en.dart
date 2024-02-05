@@ -358,6 +358,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reminder to drink water"),
         "remove_article":
             MessageLookupByLibrary.simpleMessage("Remove Article"),
+        "remove_exercise_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا التمرين ؟"),
         "remove_meal_q":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الوجبة ؟"),
         "remove_nutirtion":

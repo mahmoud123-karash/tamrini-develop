@@ -23,6 +23,7 @@ class ExerciseListViewWidget extends StatelessWidget {
           return ExerciseCardWidget(
             exercise: list[index],
             isAll: isAll,
+            id: list[index].id ?? '',
           );
         } else {
           return const Center(

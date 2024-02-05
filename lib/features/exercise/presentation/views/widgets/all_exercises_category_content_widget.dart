@@ -73,7 +73,7 @@ class _AllExercisesCategoryContentWidget
             setState(() {});
           },
         ),
-        if (userType == "admin")
+        if (userType == "admin" || userType == 'writer')
           if (!widget.isAll)
             Padding(
               padding: const EdgeInsets.symmetric(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/widgets/home_category_exercise_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -8,9 +9,8 @@ class HomeCategoryExercisesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).home_exercises),
-        centerTitle: true,
+      appBar: myAppBar(
+        S.of(context).home_exercises,
       ),
       body: const HomeCategoryExerciseBuilderWidget(),
     );

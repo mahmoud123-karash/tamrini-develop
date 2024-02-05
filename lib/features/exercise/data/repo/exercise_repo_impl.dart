@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
 import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
@@ -123,6 +124,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
     required String imagePath,
   }) async {
     try {
+      String uid = CacheHelper.getData(key: 'uid');
       List files = [];
       files.add(File(imagePath));
       List<String> images = await uploadFiles(files: files);
@@ -131,6 +133,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
       List<String> assets = [];
       assets.addAll([youtubUrl, ...images]);
       DataModel data = DataModel(
+        writerUid: uid,
         id: id,
         description: description,
         title: title,
@@ -171,6 +174,8 @@ class ExerciseRepoImpl extends ExerciseRepo {
     required DataModel oldData,
   }) async {
     try {
+      String uid = CacheHelper.getData(key: 'uid');
+
       List<DataModel> dataList = exercise.data ?? [];
       late DataModel newData;
       if (imagePath == '') {
@@ -180,6 +185,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
           assets.add(checkImageformat(oldData.assets ?? []));
         }
         newData = DataModel(
+          writerUid: uid,
           id: oldData.id,
           description: description,
           title: title,
@@ -197,6 +203,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
         List<String> assets = [];
         assets.addAll([youtubUrl, ...images]);
         newData = DataModel(
+          writerUid: uid,
           id: oldData.id,
           description: description,
           title: title,
@@ -224,6 +231,37 @@ class ExerciseRepoImpl extends ExerciseRepo {
       list.remove(exercise);
       list.add(model);
       return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<ExerciseModel>>> removeExercise({
+    required ExerciseModel exercise,
+    required DataModel oldData,
+  }) async {
+    try {
+      List<DataModel> dataList = exercise.data ?? [];
+      dataList.remove(oldData);
+      ExerciseModel model = ExerciseModel(
+        id: exercise.id,
+        image: exercise.image,
+        order: exercise.order,
+        title: exercise.title,
+        data: dataList,
+      );
+      await FirebaseFirestore.instance
+          .collection('exercises')
+          .doc('data')
+          .collection('data')
+          .doc(exercise.id)
+          .update(
+            model.toJson(),
+          );
+      List<ExerciseModel> exercises =
+          await exerciseRemoteDataSource.getExercises();
+      return right(exercises);
     } catch (e) {
       return left(e.toString());
     }

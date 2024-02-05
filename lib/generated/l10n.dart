@@ -3599,6 +3599,16 @@ class S {
       args: [],
     );
   }
+
+  /// `هل تريد حذف هذا التمرين ؟`
+  String get remove_exercise_question {
+    return Intl.message(
+      'هل تريد حذف هذا التمرين ؟',
+      name: 'remove_exercise_question',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

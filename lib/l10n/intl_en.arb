@@ -353,7 +353,9 @@
     "supplement_remove_question":"هل تريد حذف هذا المكمل ؟",
     "category_removed":"تم مسح هذه الفئة",
     "supplement_removed":"تم حذف هذا المكمل",
-    "supplement_details":"تفاصيل المكمل"
+    "supplement_details":"تفاصيل المكمل",
+    "remove_exercise_question":"هل تريد حذف هذا التمرين ؟"
+
 
 
 

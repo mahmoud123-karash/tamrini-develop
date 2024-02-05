@@ -30,9 +30,11 @@ class _QuestionsListViewWidgetState extends State<QuestionsListViewWidget> {
       if (widget.list.length > length) {
         length += 10;
         Future.delayed(const Duration(seconds: 1)).then((value) {
-          WidgetsBinding.instance.addPostFrameCallback(
-            (_) => setState(() {}),
-          );
+          if (mounted) {
+            WidgetsBinding.instance.addPostFrameCallback(
+              (_) => setState(() {}),
+            );
+          }
         });
       }
     }

@@ -173,4 +173,26 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       },
     );
   }
+
+  void removeExercise({
+    required String exerciseId,
+    required DataModel oldData,
+    required String message,
+  }) async {
+    var result = await exerciseRepo.removeExercise(
+      exercise: getExercise(id: exerciseId),
+      oldData: oldData,
+    );
+    result.fold(
+      (message) {
+        log(message);
+        emit(ErrorGetExerciseState(message));
+      },
+      (list) {
+        exercises = list;
+        showToast(message);
+        emit(SucessGetExerciseState(list));
+      },
+    );
+  }
 }

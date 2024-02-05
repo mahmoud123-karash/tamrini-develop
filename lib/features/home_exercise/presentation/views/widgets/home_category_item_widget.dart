@@ -1,9 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/home_exercise_model.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/all_home_exercise_category_screen.dart';
+import 'package:tamrini/features/home_exercise/presentation/views/new_home_section_screen.dart';
 
 class HomeCategoryItemWidget extends StatelessWidget {
   const HomeCategoryItemWidget({
@@ -14,17 +17,18 @@ class HomeCategoryItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
     return GestureDetector(
       onTap: () {
         navigateTo(
             context,
             AllHomeExercisesCategoryScreen(
-              model: model.data!,
+              models: model.data ?? [],
               title: model.title ?? '',
             ));
       },
       child: Container(
-        alignment: Alignment.topRight,
+        alignment: Alignment.bottomCenter,
         constraints: const BoxConstraints(
           minHeight: 100,
           minWidth: 100,
@@ -41,34 +45,36 @@ class HomeCategoryItemWidget extends StatelessWidget {
                     FirebaseUrl(model.image!),
                   ) as ImageProvider
                 : const AssetImage(
-                    "assets/images/allExer.jpg",
+                    Assets.imagesAllExer,
                   ),
             fit: BoxFit.cover,
           ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
+          child: Row(
             children: [
-              const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Expanded(
-                    child: AutoSizeText(
-                      model.title ?? '',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+              Expanded(
+                child: AutoSizeText(
+                  model.title ?? '',
+                  maxLines: 2,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
+                ),
               ),
+              if (userType == 'admin')
+                GestureDetector(
+                  onTap: () {
+                    navigateTo(context, NewHomeSectionScreen(model: model));
+                  },
+                  child: const Icon(
+                    Icons.edit,
+                    color: Colors.yellow,
+                  ),
+                ),
             ],
           ),
         ),

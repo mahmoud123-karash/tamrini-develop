@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
@@ -10,12 +11,18 @@ import 'package:tamrini/features/exercise/presentation/views/exercise_details_sc
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_without_vedio_screen.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
+import 'remove_exercise_icon_widget.dart';
+
 class ExerciseCardWidget extends StatefulWidget {
-  const ExerciseCardWidget(
-      {required this.exercise, Key? key, required this.isAll})
-      : super(key: key);
+  const ExerciseCardWidget({
+    required this.exercise,
+    Key? key,
+    required this.isAll,
+    required this.id,
+  }) : super(key: key);
   final DataModel exercise;
   final bool isAll;
+  final String id;
 
   @override
   State<ExerciseCardWidget> createState() => _ExerciseCardWidgetState();
@@ -30,6 +37,8 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid');
 
     return InkWell(
       borderRadius: BorderRadius.circular(15),
@@ -66,6 +75,7 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Stack(
+          alignment: Alignment.topLeft,
           children: [
             Card(
               shape: RoundedRectangleBorder(
@@ -122,6 +132,16 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                 ),
               ),
             ),
+            if (userType == 'admin')
+              RemoveExerciseIconWidget(
+                model: widget.exercise,
+                id: widget.id,
+              ),
+            if (userType == 'writer' && widget.exercise.writerUid == uid)
+              RemoveExerciseIconWidget(
+                model: widget.exercise,
+                id: widget.id,
+              ),
           ],
         ),
       ),

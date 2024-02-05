@@ -7,18 +7,23 @@ class HomeExerciseModel {
   String? id;
   int? order;
 
-  HomeExerciseModel(
-      {this.image, this.data, this.title, required this.id, this.order});
+  HomeExerciseModel({
+    this.image,
+    this.data,
+    this.title,
+    this.id,
+    this.order,
+  });
 
-  HomeExerciseModel.fromJson(Map<String, dynamic> json, String this.id) {
-    image = json['image'];
+  HomeExerciseModel.fromJson(Map<String, dynamic> json, this.id) {
+    image = json['image'] ?? '';
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
         data!.add(Data.fromJson(v));
       });
     }
-    title = json['title'];
+    title = json['title'] ?? '';
     order = json['order'] ?? 99;
   }
 

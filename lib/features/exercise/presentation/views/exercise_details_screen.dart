@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/swiper_cubit/swiper_cubit.dart';
@@ -13,7 +12,7 @@ import 'package:tamrini/generated/l10n.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../manager/exercise_cubit/exercise_states.dart';
-import 'new_exercise_screen.dart';
+import 'widgets/edit_exercise_custom_button_widget.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({
@@ -80,8 +79,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
-
     return YoutubePlayerBuilder(
       onExitFullScreen: () {
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
@@ -97,6 +94,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
             S.of(context).exDetails,
           ),
           centerTitle: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            ),
+          ),
         ),
         body: BlocBuilder<ExerciseCubit, ExerciseStates>(
           builder: (context, state) {
@@ -160,17 +162,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             ),
                           ),
                         ),
-                        if (userType == 'admin')
-                          if (!widget.isHome && !widget.isAll)
-                            customButton(
-                              onPressed: () {
-                                navigateToAndReplace(
-                                  context,
-                                  NewExerciseScreen(model: model),
-                                );
-                              },
-                              lable: S.of(context).edit_exercise,
-                            )
+                        if (!widget.isHome && !widget.isAll)
+                          EditExerciseCustomButtonWidget(model: model)
                       ],
                     ),
                   ),

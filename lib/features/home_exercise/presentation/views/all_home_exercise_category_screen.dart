@@ -9,11 +9,13 @@ import 'widgets/home_exercise_list_view_widget.dart';
 class AllHomeExercisesCategoryScreen extends StatefulWidget {
   const AllHomeExercisesCategoryScreen({
     Key? key,
-    required this.model,
+    required this.models,
     required this.title,
+    this.isAll = false,
   }) : super(key: key);
-  final List<Data>? model;
+  final List<Data> models;
   final String title;
+  final bool isAll;
 
   @override
   State<AllHomeExercisesCategoryScreen> createState() =>
@@ -37,7 +39,7 @@ class _AllHomeExercisesCategoryScreen
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (widget.model!.length > length) {
+      if (widget.models.length > length) {
         length += 5;
         Future.delayed(const Duration(seconds: 1)).then((value) {
           WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -56,37 +58,46 @@ class _AllHomeExercisesCategoryScreen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        centerTitle: true,
+      appBar: myAppBar(
+        widget.title,
       ),
       body: Column(
         children: [
           searchField(
             controller: searchController,
             onChanged: (value) {
-              searchList = searchHomeExercise(value, widget.model!);
+              searchList = searchHomeExercise(value, widget.models);
               if (value == '') {
                 length = 5;
               }
               setState(() {});
             },
           ),
-          widget.model != null || widget.model!.isNotEmpty
+          if (!widget.isAll)
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+              ),
+              child: addCustomButton(
+                onPressed: () {},
+                lable: S.of(context).add_new_exercise,
+              ),
+            ),
+          widget.models.isEmpty
               ? Expanded(
-                  child: HomeExerciseListViewWidget(
-                    scrollController: scrollController,
-                    list: searchController.text == ''
-                        ? widget.model!
-                        : searchList,
-                    length: length,
-                  ),
-                )
-              : Expanded(
                   child: Center(
                     child: Text(
                       S.of(context).emptyList,
                     ),
+                  ),
+                )
+              : Expanded(
+                  child: HomeExerciseListViewWidget(
+                    scrollController: scrollController,
+                    list: searchController.text == ''
+                        ? widget.models
+                        : searchList,
+                    length: length,
                   ),
                 ),
           if (searchList.isEmpty && searchController.text != '')

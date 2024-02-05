@@ -11,8 +11,7 @@ import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/ex
 import 'package:tamrini/features/exercise/presentation/manager/swiper_cubit/swiper_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_assets_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-
-import 'new_exercise_screen.dart';
+import 'widgets/edit_exercise_custom_button_widget.dart';
 
 class DetailsWithoutVedioScreen extends StatefulWidget {
   const DetailsWithoutVedioScreen({
@@ -38,15 +37,9 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
-
     return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(),
-        title: Text(
-          S.of(context).exDetails,
-        ),
-        centerTitle: true,
+      appBar: myAppBar(
+        S.of(context).exDetails,
       ),
       body: BlocBuilder<ExerciseCubit, ExerciseStates>(
         builder: (context, state) {
@@ -109,15 +102,8 @@ class _DetailsWithoutVedioScreenState extends State<DetailsWithoutVedioScreen> {
                           ),
                         ),
                       ),
-                      if (userType == 'admin')
-                        if (!widget.isHome && !widget.isAll)
-                          customButton(
-                            onPressed: () {
-                              navigateToAndReplace(
-                                  context, NewExerciseScreen(model: model));
-                            },
-                            lable: S.of(context).edit_exercise,
-                          )
+                      if (!widget.isHome && !widget.isAll)
+                        EditExerciseCustomButtonWidget(model: model),
                     ],
                   ),
                 ),

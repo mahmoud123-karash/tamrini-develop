@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
@@ -20,9 +21,8 @@ class AllExercisesCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        centerTitle: true,
+      appBar: myAppBar(
+        title,
       ),
       body: BlocBuilder<ExerciseCubit, ExerciseStates>(
         builder: (context, state) {

@@ -20,11 +20,8 @@ class CategoryExercisesScreen extends StatelessWidget {
     String userType = CacheHelper.getData(key: 'usertype');
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          S.of(context).categoryEx,
-        ),
-        centerTitle: true,
+      appBar: myAppBar(
+        S.of(context).categoryEx,
       ),
       body: BlocBuilder<ExerciseCubit, ExerciseStates>(
         builder: (context, state) {
