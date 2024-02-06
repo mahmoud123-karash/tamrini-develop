@@ -3790,90 +3790,90 @@ class S {
     );
   }
 
-  /// `تفاصيل الطلب `
+  /// `Order Details`
   String get summary_deatils {
     return Intl.message(
-      'تفاصيل الطلب ',
+      'Order Details',
       name: 'summary_deatils',
       desc: '',
       args: [],
     );
   }
 
-  /// `اتمام الشراء`
+  /// `Submit Order`
   String get submit_order {
     return Intl.message(
-      'اتمام الشراء',
+      'Submit Order',
       name: 'submit_order',
       desc: '',
       args: [],
     );
   }
 
-  /// `العنوان`
+  /// `Address`
   String get address {
     return Intl.message(
-      'العنوان',
+      'Address',
       name: 'address',
       desc: '',
       args: [],
     );
   }
 
-  /// `لقد تم تأكيد طلبك بنجاح`
+  /// `Your order has been placed successfully`
   String get order_placed {
     return Intl.message(
-      'لقد تم تأكيد طلبك بنجاح',
+      'Your order has been placed successfully',
       name: 'order_placed',
       desc: '',
       args: [],
     );
   }
 
-  /// `معاينة تفاصيل الطلب`
+  /// `View Order Details`
   String get view_rder_details {
     return Intl.message(
-      'معاينة تفاصيل الطلب',
+      'View Order Details',
       name: 'view_rder_details',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل شراء`
+  /// `Purchase Details`
   String get purchase_details {
     return Intl.message(
-      'تفاصيل شراء',
+      'Purchase Details',
       name: 'purchase_details',
       desc: '',
       args: [],
     );
   }
 
-  /// `تتبع`
+  /// `Tracking`
   String get tracking {
     return Intl.message(
-      'تتبع',
+      'Tracking',
       name: 'tracking',
       desc: '',
       args: [],
     );
   }
 
-  /// `رقم الطلب `
+  /// `Order ID`
   String get order_id {
     return Intl.message(
-      'رقم الطلب ',
+      'Order ID',
       name: 'order_id',
       desc: '',
       args: [],
     );
   }
 
-  /// `تاريخ الطلب`
+  /// `Order Date`
   String get order_date {
     return Intl.message(
-      'تاريخ الطلب',
+      'Order Date',
       name: 'order_date',
       desc: '',
       args: [],

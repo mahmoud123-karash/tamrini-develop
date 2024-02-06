@@ -57,7 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_today": MessageLookupByLibrary.simpleMessage("Add Today"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("Current day already added"),
-        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "admin": MessageLookupByLibrary.simpleMessage("Admin"),
         "admin_control_panel":
             MessageLookupByLibrary.simpleMessage("Admin Control Panel"),
@@ -322,10 +322,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Current price cannot be greater than or equal to the old price"),
         "optional": MessageLookupByLibrary.simpleMessage("Optional"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
-        "order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
-        "order_id": MessageLookupByLibrary.simpleMessage("رقم الطلب "),
-        "order_placed":
-            MessageLookupByLibrary.simpleMessage("لقد تم تأكيد طلبك بنجاح"),
+        "order_date": MessageLookupByLibrary.simpleMessage("Order Date"),
+        "order_id": MessageLookupByLibrary.simpleMessage("Order ID"),
+        "order_placed": MessageLookupByLibrary.simpleMessage(
+            "Your order has been placed successfully"),
         "orders": MessageLookupByLibrary.simpleMessage("Orders"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("Our Products"),
@@ -367,7 +367,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "protien": MessageLookupByLibrary.simpleMessage("Protein"),
         "protien_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),
-        "purchase_details": MessageLookupByLibrary.simpleMessage("تفاصيل شراء"),
+        "purchase_details":
+            MessageLookupByLibrary.simpleMessage("Purchase Details"),
         "q_remove_article": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove the article?"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
@@ -434,7 +435,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You are already subscribed to this gym"),
         "subcribers": MessageLookupByLibrary.simpleMessage("Subscribers"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
-        "submit_order": MessageLookupByLibrary.simpleMessage("اتمام الشراء"),
+        "submit_order": MessageLookupByLibrary.simpleMessage("Submit Order"),
         "success_add":
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
         "success_add_a":
@@ -478,7 +479,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "suggested_exercises":
             MessageLookupByLibrary.simpleMessage("Suggested Exercises"),
         "summary_deatils":
-            MessageLookupByLibrary.simpleMessage("تفاصيل الطلب "),
+            MessageLookupByLibrary.simpleMessage("Order Details"),
         "supplement_details":
             MessageLookupByLibrary.simpleMessage("Supplement Details"),
         "supplement_name":
@@ -499,7 +500,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "total_price": MessageLookupByLibrary.simpleMessage("Total Price"),
-        "tracking": MessageLookupByLibrary.simpleMessage("تتبع"),
+        "tracking": MessageLookupByLibrary.simpleMessage("Tracking"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
         "trainer": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
@@ -527,7 +528,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "very_intense_activity": MessageLookupByLibrary.simpleMessage(
             "Very Intense Activity in Work and Club"),
         "view_rder_details":
-            MessageLookupByLibrary.simpleMessage("معاينة تفاصيل الطلب"),
+            MessageLookupByLibrary.simpleMessage("View Order Details"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("Water alarm"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight"),
         "weight_gain": MessageLookupByLibrary.simpleMessage("Weight Gain"),

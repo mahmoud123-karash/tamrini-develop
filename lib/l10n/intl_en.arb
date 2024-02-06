@@ -373,15 +373,15 @@
     "full_name": "Full Name",
     "payment": "Payment",
     "total_price": "Total Price",
-    "summary_deatils":"تفاصيل الطلب ",
-    "submit_order":"اتمام الشراء",
-    "address":"العنوان",
-    "order_placed":"لقد تم تأكيد طلبك بنجاح",
-    "view_rder_details":"معاينة تفاصيل الطلب",
-    "purchase_details":"تفاصيل شراء",
-    "tracking":"تتبع",
-    "order_id":"رقم الطلب ",
-    "order_date":"تاريخ الطلب"
+    "summary_deatils": "Order Details",
+    "submit_order": "Submit Order",
+    "address": "Address",
+    "order_placed": "Your order has been placed successfully",
+    "view_rder_details": "View Order Details",
+    "purchase_details": "Purchase Details",
+    "tracking": "Tracking",
+    "order_id": "Order ID",
+    "order_date": "Order Date"
 
 
 
