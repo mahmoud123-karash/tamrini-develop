@@ -372,7 +372,12 @@
     "city": "City",
     "full_name": "Full Name",
     "payment": "Payment",
-    "total_price": "Total Price"
+    "total_price": "Total Price",
+    "summary_deatils":"تفاصيل الطلب ",
+    "submit_order":"اتمام الشراء",
+    "address":"العنوان",
+    "order_placed":"لقد تم تأكيد طلبك بنجاح"
+
 
 
 

@@ -3,19 +3,34 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/order/data/models/order_model/order_model.dart';
 
 abstract class OrderRemoteDataSource {
-  Future<List<OrderModel>> get();
+  Future<List<OrderModel>> getStoreOrders();
+  Future<List<OrderModel>> getUserOrders();
 }
 
 class OrderRemoteDataSourceImpl extends OrderRemoteDataSource {
   @override
-  Future<List<OrderModel>> get() async {
+  Future<List<OrderModel>> getStoreOrders() async {
     String uid = CacheHelper.getData(key: 'uid');
-
     List<OrderModel> list = [];
     var result = await FirebaseFirestore.instance
-        .collection('stores')
-        .doc(uid)
         .collection('orders')
+        .where('storeId', isEqualTo: uid)
+        .get();
+
+    for (var element in result.docs) {
+      OrderModel model = OrderModel.fromJson(element.data());
+      list.add(model);
+    }
+    return list;
+  }
+
+  @override
+  Future<List<OrderModel>> getUserOrders() async {
+    String uid = CacheHelper.getData(key: 'uid');
+    List<OrderModel> list = [];
+    var result = await FirebaseFirestore.instance
+        .collection('orders')
+        .where('userId', isEqualTo: uid)
         .get();
 
     for (var element in result.docs) {

@@ -4,6 +4,7 @@ import 'package:tamrini/features/order/presentation/manager/address_cubit/addres
 class AddressCubit extends Cubit<AddressStates> {
   AddressCubit() : super(InitialAddressState());
   static AddressCubit get(context) => BlocProvider.of(context);
+
   int amount = 1;
   void addAmout() async {
     amount++;

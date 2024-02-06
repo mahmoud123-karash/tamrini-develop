@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:provider/provider.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
@@ -70,26 +69,11 @@ import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trai
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
 import 'package:tamrini/features/water_reminder/presentaion/manager/reminder_cubit/reminder_cubit.dart';
 import 'package:tamrini/firebase_options.dart';
-import 'package:tamrini/provider/ThemeProvider.dart';
-import 'package:tamrini/provider/Upload_Image_provider.dart';
-import 'package:tamrini/provider/artical_provider.dart';
-import 'package:tamrini/provider/diet_food_provider.dart';
-import 'package:tamrini/provider/exercise_provider.dart';
-import 'package:tamrini/provider/gym_provider.dart';
-import 'package:tamrini/provider/home_exercise_provider.dart';
-import 'package:tamrini/provider/home_provider.dart';
-import 'package:tamrini/provider/nutritious_value_provider.dart';
-import 'package:tamrini/provider/product_provider.dart';
-import 'package:tamrini/provider/proten_calculator_provider.dart';
-import 'package:tamrini/provider/questions_proviser.dart';
-import 'package:tamrini/provider/supplement_provider.dart';
-import 'package:tamrini/provider/trainee_provider.dart';
-import 'package:tamrini/provider/trainer_provider.dart';
-import 'package:tamrini/provider/user_provider.dart';
 import 'package:tamrini/core/styles/themes.dart';
 import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 import 'features/auth/presentation/views/login_screen.dart';
 import 'features/my_day/data/models/day_model/times_model.g.dart';
+import 'features/order/presentation/manager/user_order_cubit/user_order_cubit.dart';
 import 'features/questions/domain/use_cases/ban_question_use_case.dart';
 import 'features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'features/water_reminder/data/models/reminder_model/reminder_model.dart';
@@ -139,214 +123,147 @@ void main() async {
     startWidget = const NavBarScreen();
   }
   runApp(
-    MultiProvider(
+    MultiBlocProvider(
       providers: [
-        ChangeNotifierProvider<ArticleProvider>(
-          create: (_) => ArticleProvider()..fetchAndSetArticles(),
+        BlocProvider(
+          create: (context) => LocationCubit()..getLocationAddress(),
         ),
-        ChangeNotifierProvider<DietFoodProvider>(
-          create: (_) => DietFoodProvider()..fetchAndSetMeals(),
+        BlocProvider(
+          create: (context) => ProfileCubit(
+            getIt.get<ProfileRepoImpl>(),
+            getIt.get<UpdateUseCase>(),
+          )..getProfile(),
         ),
-        ChangeNotifierProvider<UploadProvider>(
-          create: (_) => UploadProvider(),
+        BlocProvider(
+          create: (context) => UpdateCubit(
+            NavBarRepo(),
+          ),
         ),
-        ChangeNotifierProvider<UserProvider>(
-          create: (_) => UserProvider()..initiate(),
+        BlocProvider(
+          create: (context) => ExerciseCubit(
+            getIt.get<ExerciseRepoImpl>(),
+          )..getData(),
         ),
-        ChangeNotifierProvider<SupplementProvider>(
-          create: (_) => SupplementProvider()..fetchAndSetSupplements(),
+        BlocProvider(
+          create: (context) => ArticlesCubit(
+            getIt.get<ArticleRepoImpl>(),
+          )..getData(),
         ),
-        ChangeNotifierProxyProvider<UserProvider, ProductProvider>(
-          create: (_) => ProductProvider()..fetchAndSetProducts(),
-          update: (_, userProvider, productProvider) =>
-              productProvider!..initiate(userProvider),
+        BlocProvider(
+          create: (context) => GymCubit(
+            getIt.get<GymRepoImpl>(),
+          )..getData(update: false),
         ),
-        ChangeNotifierProvider<GymProvider>(
-            create: (_) => GymProvider()..fetchAndSetGyms()),
-        ChangeNotifierProvider<HomeExerciseProvider>(
-          create: (_) => HomeExerciseProvider()..fetchAndSetExercise(),
+        BlocProvider(
+          create: (context) => StoreCubit(
+            getIt.get<StoreRepoImpl>(),
+          )..getData(),
         ),
-        ChangeNotifierProvider<QuestionsProvider>(
-          create: (_) => QuestionsProvider()..fetchQuestions(),
+        BlocProvider(
+          create: (context) => TrainersCubit(
+            getIt.get<TrainerRepoImpl>(),
+          )..getData(),
         ),
-        ChangeNotifierProvider<ProteinCalculatorProvider>(
-          create: (_) => ProteinCalculatorProvider(),
+        BlocProvider(
+          create: (context) => CategoryCubit(
+            getIt.get<StoreRepoImpl>(),
+          )..getData(),
         ),
-        ChangeNotifierProvider<NutritionalValueProvider>(
-          create: (_) => NutritionalValueProvider()..initiate(),
+        BlocProvider(
+          create: (context) => DietFoodCubit(
+            getIt.get<DietFoodRepoImpl>(),
+          )..getData(),
         ),
-        ChangeNotifierProvider<ExerciseProvider>(
-          create: (_) => ExerciseProvider()..fetchAndSetExercise(),
+        BlocProvider(
+          create: (context) => HomeExerciseCubit(
+            getIt.get<HomeExerciseRepoImpl>(),
+          )..getData(),
         ),
-        ChangeNotifierProxyProvider<UserProvider, TrainerProvider>(
-          create: (_) => TrainerProvider()..fetchAndSetTrainers(),
-          update: (_, userProvider, trainerProvider) =>
-              trainerProvider!..initiate(userProvider),
+        BlocProvider(
+          create: (context) => QuestionCubit(
+            getIt.get<QuestionRepoImpl>(),
+            getIt.get<BanQuestionUseCase>(),
+          )..getQuestions(),
         ),
-        ChangeNotifierProxyProvider3<ExerciseProvider, UserProvider,
-            SupplementProvider, TraineeProvider>(
-          create: (_) => TraineeProvider(),
-          update: (_, exerciseProvider, userProvider, supplementProvider,
-                  traineeProvider) =>
-              traineeProvider!
-                ..initiate(
-                  userProvider,
-                  exerciseProvider,
-                  supplementProvider,
-                ),
+        BlocProvider(
+          create: (context) => AnswerCubit(
+            getIt.get<QuestionRepoImpl>(),
+            getIt.get<WriteAnswerUseCase>(),
+          ),
         ),
-        ChangeNotifierProxyProvider5<UserProvider, ExerciseProvider,
-            ArticleProvider, GymProvider, ProductProvider, HomeProvider>(
-          create: (_) => HomeProvider(),
-          update: (_, userProvider, exerciseProvider, articleProvider,
-                  gymProvider, productProvider, homeProvider) =>
-              homeProvider!
-                ..init(
-                  userProvider: userProvider,
-                  exerciseProvider: exerciseProvider,
-                  articleProvider: articleProvider,
-                  gymProvider: gymProvider,
-                  productProvider: productProvider,
-                ),
+        BlocProvider(
+          create: (context) => NotificationCubit(
+            getIt.get<NotificationRepoImpl>(),
+          ),
         ),
+        BlocProvider(
+          create: (context) => SupplementCubit(
+            getIt.get<FoodRepoImpl>(),
+          )..getData(),
+        ),
+        BlocProvider(
+          create: (context) => ClassificationCubit(
+            getIt.get<NutritionRepoImpl>(),
+          )..getData(),
+        ),
+        BlocProvider(
+          create: (context) => NutritionCubit(
+            getIt.get<NutritionRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SelectCubit(),
+        ),
+        BlocProvider(
+          create: (context) => DayCubit(
+            getIt.get<MyDayRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => ImageCubit(),
+        ),
+        BlocProvider(
+          create: (context) => SuggestCubit(
+            getIt.get<SuggestRepoIpml>(),
+          )..getData(),
+        ),
+        BlocProvider(
+          create: (context) => OrderCubit(
+            getIt.get<OrederRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => UserOrderCubit(
+            getIt.get<OrederRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => ReminderCubit(
+            getIt.get<ReminderRepoImpl>(),
+          )..getData(),
+        ),
+        BlocProvider(
+          create: (context) => SubscriberCubit(
+            getIt.get<GymRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => UsersCubit(
+            getIt.get<AdminRepoImpl>(),
+          )..getUsers(),
+        ),
+        BlocProvider(
+          create: (context) => ManageCubit()
+            ..changeAppTheme(
+              fromSP: CacheHelper.getData(key: 'isdark') ?? false,
+            )
+            ..changeLanguage(
+              language: CacheHelper.getData(key: 'lang') ?? '',
+            ),
+        )
       ],
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => LocationCubit()..getLocationAddress(),
-          ),
-          BlocProvider(
-            create: (context) => ProfileCubit(
-              getIt.get<ProfileRepoImpl>(),
-              getIt.get<UpdateUseCase>(),
-            )..getProfile(),
-          ),
-          BlocProvider(
-            create: (context) => UpdateCubit(
-              NavBarRepo(),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => ExerciseCubit(
-              getIt.get<ExerciseRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => ArticlesCubit(
-              getIt.get<ArticleRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => GymCubit(
-              getIt.get<GymRepoImpl>(),
-            )..getData(update: false),
-          ),
-          BlocProvider(
-            create: (context) => StoreCubit(
-              getIt.get<StoreRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => TrainersCubit(
-              getIt.get<TrainerRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => CategoryCubit(
-              getIt.get<StoreRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => DietFoodCubit(
-              getIt.get<DietFoodRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => HomeExerciseCubit(
-              getIt.get<HomeExerciseRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => QuestionCubit(
-              getIt.get<QuestionRepoImpl>(),
-              getIt.get<BanQuestionUseCase>(),
-            )..getQuestions(),
-          ),
-          BlocProvider(
-            create: (context) => AnswerCubit(
-              getIt.get<QuestionRepoImpl>(),
-              getIt.get<WriteAnswerUseCase>(),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => NotificationCubit(
-              getIt.get<NotificationRepoImpl>(),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => SupplementCubit(
-              getIt.get<FoodRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => ClassificationCubit(
-              getIt.get<NutritionRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => NutritionCubit(
-              getIt.get<NutritionRepoImpl>(),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => SelectCubit(),
-          ),
-          BlocProvider(
-            create: (context) => DayCubit(
-              getIt.get<MyDayRepoImpl>(),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => ImageCubit(),
-          ),
-          BlocProvider(
-            create: (context) => SuggestCubit(
-              getIt.get<SuggestRepoIpml>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => OrderCubit(
-              getIt.get<OrederRepoImpl>(),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => ReminderCubit(
-              getIt.get<ReminderRepoImpl>(),
-            )..getData(),
-          ),
-          BlocProvider(
-            create: (context) => SubscriberCubit(
-              getIt.get<GymRepoImpl>(),
-            ),
-          ),
-          BlocProvider(
-            create: (context) => UsersCubit(
-              getIt.get<AdminRepoImpl>(),
-            )..getUsers(),
-          ),
-          BlocProvider(
-            create: (context) => ManageCubit()
-              ..changeAppTheme(
-                fromSP: CacheHelper.getData(key: 'isdark') ?? false,
-              )
-              ..changeLanguage(
-                language: CacheHelper.getData(key: 'lang') ?? '',
-              ),
-          )
-        ],
-        child: MyApp(
-          startWidget: startWidget,
-        ),
+      child: MyApp(
+        startWidget: startWidget,
       ),
     ),
   );
@@ -369,35 +286,23 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (_, __) {
-        return ChangeNotifierProvider<ThemeProvider>(
-          create: (_) => ThemeProvider()..init(),
-          builder: (context, obj) {
-            return GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTapDown: (_) {
-                Provider.of<ThemeProvider>(context, listen: false)
-                    .addTabCalculator();
-              },
-              child: BlocBuilder<ManageCubit, ManageStates>(
-                builder: (context, state) {
-                  bool isDark = ManageCubit.get(context).isDark;
-                  String lang = ManageCubit.get(context).lang;
-                  return MaterialApp(
-                    locale: Locale(lang),
-                    localizationsDelegates: const [
-                      S.delegate,
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                    ],
-                    supportedLocales: S.delegate.supportedLocales,
-                    debugShowCheckedModeBanner: false,
-                    theme: isDark ? darkTheme : lightTheme,
-                    home: widget.startWidget,
-                    navigatorKey: navigationKey,
-                  );
-                },
-              ),
+        return BlocBuilder<ManageCubit, ManageStates>(
+          builder: (context, state) {
+            bool isDark = ManageCubit.get(context).isDark;
+            String lang = ManageCubit.get(context).lang;
+            return MaterialApp(
+              locale: Locale(lang),
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+              debugShowCheckedModeBanner: false,
+              theme: isDark ? darkTheme : lightTheme,
+              home: widget.startWidget,
+              navigatorKey: navigationKey,
             );
           },
         );

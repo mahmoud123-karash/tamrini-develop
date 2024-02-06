@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
+        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "admin": MessageLookupByLibrary.simpleMessage("أدمن"),
         "admin_control_panel":
             MessageLookupByLibrary.simpleMessage("لوحة تحكم الأدمن"),
@@ -320,6 +321,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم"),
         "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
+        "order_placed":
+            MessageLookupByLibrary.simpleMessage("لقد تم تأكيد طلبك بنجاح"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "other": MessageLookupByLibrary.simpleMessage("أخري"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("منتجاتنا"),
@@ -426,6 +429,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "انت مشترك بالفعل فى هذه الصالة"),
         "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
+        "submit_order": MessageLookupByLibrary.simpleMessage("اتمام الشراء"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),
         "success_add_a":
             MessageLookupByLibrary.simpleMessage("تم الإضافة بنجاح"),
@@ -464,6 +468,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "suggest_exercise": MessageLookupByLibrary.simpleMessage("اقترح تمرين"),
         "suggested_exercises":
             MessageLookupByLibrary.simpleMessage("التمارين المقترحة"),
+        "summary_deatils":
+            MessageLookupByLibrary.simpleMessage("تفاصيل الطلب "),
         "supplement_details":
             MessageLookupByLibrary.simpleMessage("تفاصيل المكمل"),
         "supplement_name": MessageLookupByLibrary.simpleMessage("اسم المكمل"),

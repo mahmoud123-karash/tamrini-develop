@@ -371,7 +371,12 @@
     "city":"المدينة",
     "full_name":"الاسم كامل",
     "payment":"الدفع",
-    "total_price":"السعر الكلى"
+    "total_price":"السعر الكلى",
+    "summary_deatils":"تفاصيل الطلب ",
+    "submit_order":"اتمام الشراء",
+    "address":"العنوان",
+    "order_placed":"لقد تم تأكيد طلبك بنجاح"
+
 
 
 

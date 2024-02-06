@@ -3789,6 +3789,46 @@ class S {
       args: [],
     );
   }
+
+  /// `تفاصيل الطلب `
+  String get summary_deatils {
+    return Intl.message(
+      'تفاصيل الطلب ',
+      name: 'summary_deatils',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اتمام الشراء`
+  String get submit_order {
+    return Intl.message(
+      'اتمام الشراء',
+      name: 'submit_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `العنوان`
+  String get address {
+    return Intl.message(
+      'العنوان',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لقد تم تأكيد طلبك بنجاح`
+  String get order_placed {
+    return Intl.message(
+      'لقد تم تأكيد طلبك بنجاح',
+      name: 'order_placed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

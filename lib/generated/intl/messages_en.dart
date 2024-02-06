@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_today": MessageLookupByLibrary.simpleMessage("Add Today"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("Current day already added"),
+        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "admin": MessageLookupByLibrary.simpleMessage("Admin"),
         "admin_control_panel":
             MessageLookupByLibrary.simpleMessage("Admin Control Panel"),
@@ -321,6 +322,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Current price cannot be greater than or equal to the old price"),
         "optional": MessageLookupByLibrary.simpleMessage("Optional"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
+        "order_placed":
+            MessageLookupByLibrary.simpleMessage("لقد تم تأكيد طلبك بنجاح"),
         "orders": MessageLookupByLibrary.simpleMessage("Orders"),
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "ourProducts": MessageLookupByLibrary.simpleMessage("Our Products"),
@@ -428,6 +431,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You are already subscribed to this gym"),
         "subcribers": MessageLookupByLibrary.simpleMessage("Subscribers"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "submit_order": MessageLookupByLibrary.simpleMessage("اتمام الشراء"),
         "success_add":
             MessageLookupByLibrary.simpleMessage("Question added successfully"),
         "success_add_a":
@@ -470,6 +474,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Suggest an Exercise"),
         "suggested_exercises":
             MessageLookupByLibrary.simpleMessage("Suggested Exercises"),
+        "summary_deatils":
+            MessageLookupByLibrary.simpleMessage("تفاصيل الطلب "),
         "supplement_details":
             MessageLookupByLibrary.simpleMessage("Supplement Details"),
         "supplement_name":

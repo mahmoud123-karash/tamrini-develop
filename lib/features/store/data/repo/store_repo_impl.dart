@@ -162,7 +162,7 @@ class StoreRepoImpl extends StoreRepo {
         name: store.name,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
-        isBanned: false,
+        isBanned: store.isBanned,
         products: products,
       );
       await FirebaseFirestore.instance
@@ -236,7 +236,7 @@ class StoreRepoImpl extends StoreRepo {
         name: store.name,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
-        isBanned: false,
+        isBanned: store.isBanned,
         products: products,
       );
       await FirebaseFirestore.instance

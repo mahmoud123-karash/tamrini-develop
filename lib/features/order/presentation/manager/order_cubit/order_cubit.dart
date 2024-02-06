@@ -9,7 +9,7 @@ class OrderCubit extends Cubit<OrderStates> {
   final OrderRepo orderRepo;
 
   void getData() async {
-    var result = await orderRepo.getOrders();
+    var result = await orderRepo.getStoreOrders();
     result.fold((message) {
       emit(ErrorGetOrdersState(message));
     }, (list) {

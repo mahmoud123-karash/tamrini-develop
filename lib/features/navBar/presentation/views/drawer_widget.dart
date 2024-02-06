@@ -8,6 +8,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/substrictions_list_tile_widget.dart';
+import 'package:tamrini/features/order/presentation/views/user_orders_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/app_settings_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
@@ -81,6 +82,14 @@ class MyDrawer extends StatelessWidget {
             if (usertype == 'gym owner') const GymOwnerListTileWidget(),
             if (usertype != 'admin' && usertype != 'gym owner')
               const SubstrictionsListTileWidget(),
+            if (usertype != 'admin' && usertype != 'gym owner')
+              DrawerListTileWidget(
+                onPressed: () {
+                  navigateTo(context, const UserOrdersScreen());
+                },
+                icon: Icons.shopping_bag_outlined,
+                lable: S.of(context).orders,
+              ),
             DrawerListTileWidget(
               onPressed: () {
                 navigateTo(context, const MyDayScreen());
