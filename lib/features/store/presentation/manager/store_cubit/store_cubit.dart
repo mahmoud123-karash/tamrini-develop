@@ -45,9 +45,20 @@ class StoreCubit extends Cubit<StoreStates> {
       },
       (list) {
         stores = list;
-        emit(SucessGetStoresState(list));
+        List<StoreModel> models = clearBannedStore(list);
+        emit(SucessGetStoresState(models));
       },
     );
+  }
+
+  List<StoreModel> clearBannedStore(List<StoreModel> list) {
+    List<StoreModel> models = [];
+    for (var element in list) {
+      if (element.isBanned == false) {
+        models.add(element);
+      }
+    }
+    return models;
   }
 
   void addStore({
@@ -65,9 +76,10 @@ class StoreCubit extends Cubit<StoreStates> {
       },
       (list) {
         stores = list;
+        List<StoreModel> models = clearBannedStore(list);
         showSnackBar(context, S.of(context).success_add_a);
         navigateToAndReplace(context, const StoreOwnerScreen());
-        emit(SucessGetStoresState(list));
+        emit(SucessGetStoresState(models));
       },
     );
   }
@@ -94,7 +106,8 @@ class StoreCubit extends Cubit<StoreStates> {
         stores = list;
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_edit_a);
-        emit(SucessGetStoresState(list));
+        List<StoreModel> models = clearBannedStore(list);
+        emit(SucessGetStoresState(models));
       },
     );
   }
@@ -130,9 +143,10 @@ class StoreCubit extends Cubit<StoreStates> {
       },
       (list) {
         stores = list;
+        List<StoreModel> models = clearBannedStore(list);
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_add_a);
-        emit(SucessGetStoresState(list));
+        emit(SucessGetStoresState(models));
       },
     );
   }
@@ -168,7 +182,8 @@ class StoreCubit extends Cubit<StoreStates> {
         stores = list;
         Navigator.pop(context);
         showSnackBar(context, S.of(context).success_edit_a);
-        emit(SucessGetStoresState(list));
+        List<StoreModel> models = clearBannedStore(list);
+        emit(SucessGetStoresState(models));
       },
     );
   }
@@ -190,7 +205,29 @@ class StoreCubit extends Cubit<StoreStates> {
       (list) {
         stores = list;
         showSnackBar(context, S.of(context).success_remove);
-        emit(SucessGetStoresState(list));
+        List<StoreModel> models = clearBannedStore(list);
+        emit(SucessGetStoresState(models));
+      },
+    );
+  }
+
+  void banStore({
+    required String message,
+    required String uid,
+  }) async {
+    var result = await storeRepo.banStore(
+      store: getStore(uid).first,
+    );
+    result.fold(
+      (message) {
+        getData();
+        emit(ErrorGetStoresState(message));
+      },
+      (list) {
+        stores = list;
+        showToast(message);
+        List<StoreModel> models = clearBannedStore(list);
+        emit(SucessGetStoresState(models));
       },
     );
   }

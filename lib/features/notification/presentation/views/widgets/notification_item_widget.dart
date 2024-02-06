@@ -6,15 +6,13 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/atricle/presentation/views/articles_details_screen.dart';
-import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
-import 'package:tamrini/features/diet_food/presentation/views/diet_food_details_screen.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
+import 'package:tamrini/features/store/presentation/views/store_owner_screen.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -93,11 +91,6 @@ class NotificationItemWidget extends StatelessWidget {
   }
 
   void notificationNavigate(BuildContext context) {
-    if (model.type == 'system') {}
-
-    if (model.type == 'message') {
-      navigateTo(context, const ChatScreen());
-    }
     if (model.type == 'notification') {
       var box = Hive.box<ProfileModel>(profileBox);
       ProfileModel profile = box.values.toList().first;
@@ -126,16 +119,12 @@ class NotificationItemWidget extends StatelessWidget {
           ),
         );
       }
-      if (model.subType == 'article') {
-        navigateTo(context, ArticlesDetailsScreen(id: model.uid));
+      if (model.subType == 'store') {
+        navigateTo(context, StoreOwnerScreen());
       }
 
-      if (model.subType == 'ban_gym') {
+      if (model.subType == 'gym') {
         navigateTo(context, const GymOwnerScreen());
-      }
-
-      if (model.subType == 'diet_food') {
-        navigateTo(context, DietFoodDetailsScreen(id: model.uid));
       }
     }
   }

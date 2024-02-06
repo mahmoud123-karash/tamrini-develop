@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_container_widget.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
-import 'package:tamrini/features/store/presentation/views/widgets/product_store_item_widget.dart';
+import 'package:tamrini/features/store/presentation/views/store_onwer_products_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../manager/store_cubit/store_cubit.dart';
 import 'widgets/store_cover_image_widget.dart';
 import 'widgets/store_onwer_buttons_row_widget.dart';
+import 'widgets/store_owner_list_tile_widget.dart';
 
 class StoreOwnerScreen extends StatelessWidget {
   const StoreOwnerScreen({super.key});
@@ -17,54 +20,48 @@ class StoreOwnerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
     final EdgeInsets systemPadding = MediaQuery.of(context).padding;
-    var height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: BlocBuilder<StoreCubit, StoreStates>(
         builder: (context, state) {
           StoreModel model = StoreCubit.get(context).getStore(uid).first;
-          return SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: systemPadding.top + systemPadding.bottom,
-                ),
-                StoreCoverImageWidget(
-                  name: model.name,
-                  contact: model.contact,
-                  uid: model.storeOwnerUid,
-                  image: model.image,
-                  num: model.products!.length,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                StoreOwnerButtonsRowWidget(
-                  model: model,
-                ),
-                if (model.products!.isEmpty)
-                  SizedBox(
-                    height: height / 3.5,
-                  ),
-                model.products!.isEmpty
-                    ? Text(
-                        S.of(context).no_products_yet,
-                      )
-                    : ListView.separated(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) => ProductStoreItemWidget(
-                          model: model.products![index],
-                          sModel: model,
-                        ),
-                        separatorBuilder: (context, index) => const SizedBox(
-                          height: 10,
-                        ),
-                        itemCount: model.products!.length,
-                      )
-              ],
-            ),
+          return Column(
+            children: [
+              SizedBox(
+                height: systemPadding.top + systemPadding.bottom,
+              ),
+              StoreCoverImageWidget(
+                isBanned: model.isBanned,
+                name: model.name,
+                contact: model.contact,
+                uid: model.storeOwnerUid,
+                image: model.image,
+                num: model.products!.length,
+              ),
+              if (model.isBanned == true)
+                BanGymContainerWidget(message: S.of(context).ban_store_hint),
+              StoreOwnerButtonsRowWidget(
+                model: model,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              StoreOwnerListTileWidget(
+                onTap: () {
+                  navigateTo(context, StoreOnwerProductScreen(uid: uid));
+                },
+                icon: Icons.storage,
+                lable: S.of(context).store_owner_products,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              StoreOwnerListTileWidget(
+                onTap: () {},
+                icon: Icons.attach_money_rounded,
+                lable: S.of(context).profits,
+              ),
+            ],
           );
         },
       ),

@@ -17,6 +17,8 @@ import 'package:tamrini/core/services/messaging.dart';
 import 'package:tamrini/core/services/request_premission.dart';
 import 'package:tamrini/core/shared/bloc_observer.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
+import 'package:tamrini/features/admin/data/repo/admin_repo_impl.dart';
+import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_cubit.dart';
 import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
 
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
@@ -326,6 +328,11 @@ void main() async {
             create: (context) => SubscriberCubit(
               getIt.get<GymRepoImpl>(),
             ),
+          ),
+          BlocProvider(
+            create: (context) => UsersCubit(
+              getIt.get<AdminRepoImpl>(),
+            )..getUsers(),
           ),
           BlocProvider(
             create: (context) => ManageCubit()

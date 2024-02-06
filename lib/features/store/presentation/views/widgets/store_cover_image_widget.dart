@@ -7,6 +7,8 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_chat_icon_widget.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_name_num_widget.dart';
 
+import 'ban_gym_custom_button_widget.dart';
+
 class StoreCoverImageWidget extends StatelessWidget {
   const StoreCoverImageWidget({
     super.key,
@@ -15,15 +17,18 @@ class StoreCoverImageWidget extends StatelessWidget {
     required this.uid,
     required this.image,
     required this.num,
+    required this.isBanned,
   });
   final String name, contact, uid, image;
   final int num;
+  final bool isBanned;
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
     String id = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype');
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         bottomLeft: Radius.circular(30),
@@ -44,6 +49,16 @@ class StoreCoverImageWidget extends StatelessWidget {
             height: getHeight / 3.8,
             width: double.infinity,
           ),
+          if (userType == 'admin' && uid != id)
+            Positioned(
+              top: 0,
+              left: 0,
+              child: BanStoreCustomButtonWidget(
+                name: name,
+                uid: uid,
+                isBanned: isBanned,
+              ),
+            ),
           Positioned(
             bottom: 0,
             right: 0,

@@ -3619,6 +3619,106 @@ class S {
       args: [],
     );
   }
+
+  /// `لا يوجد مستخدمين`
+  String get no_users {
+    return Intl.message(
+      'لا يوجد مستخدمين',
+      name: 'no_users',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد تقييد هذا المتجر ؟`
+  String get ban_store_question {
+    return Intl.message(
+      'هل تريد تقييد هذا المتجر ؟',
+      name: 'ban_store_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد  رفع التقييد عن هذا المتجر ؟`
+  String get no_ban_store_question {
+    return Intl.message(
+      'هل تريد  رفع التقييد عن هذا المتجر ؟',
+      name: 'no_ban_store_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لقد تم حظر المتجر الخاص بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات`
+  String get ban_store_hint {
+    return Intl.message(
+      'لقد تم حظر المتجر الخاص بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات',
+      name: 'ban_store_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المنتجات`
+  String get store_owner_products {
+    return Intl.message(
+      'المنتجات',
+      name: 'store_owner_products',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأرباح`
+  String get profits {
+    return Intl.message(
+      'الأرباح',
+      name: 'profits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تقييد المتجر الخاص بك`
+  String get ban_titile_store {
+    return Intl.message(
+      'تم تقييد المتجر الخاص بك',
+      name: 'ban_titile_store',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفع التقييد الخاص بك`
+  String get no_ban_titile_store {
+    return Intl.message(
+      'تم رفع التقييد الخاص بك',
+      name: 'no_ban_titile_store',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المتاجر المقيدة`
+  String get store_banned {
+    return Intl.message(
+      'المتاجر المقيدة',
+      name: 'store_banned',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الصالات الرياضية المقيدة`
+  String get gyms_banned {
+    return Intl.message(
+      'الصالات الرياضية المقيدة',
+      name: 'gyms_banned',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -28,10 +28,7 @@ class StoreRemoteDataSourceImpl extends StoreRemoteDataSource {
   @override
   Future<List<StoreModel>> getStores() async {
     List<StoreModel> list = [];
-    var result = await FirebaseFirestore.instance
-        .collection('stores')
-        .where('isBanned', isEqualTo: false)
-        .get();
+    var result = await FirebaseFirestore.instance.collection('stores').get();
     for (var element in result.docs) {
       StoreModel model = StoreModel.fromMap(element.data());
       list.add(model);

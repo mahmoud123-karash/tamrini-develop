@@ -73,9 +73,14 @@ class ProductStoreItemWidget extends StatelessWidget {
                 ],
               ),
             ),
-            RemoveProductIconWidget(
-              model: model,
-              store: sModel,
+            Positioned(
+              bottom: 0,
+              left: Intl.getCurrentLocale() == 'en' ? null : 0,
+              right: Intl.getCurrentLocale() == 'ar' ? null : 0,
+              child: RemoveProductIconWidget(
+                model: model,
+                store: sModel,
+              ),
             ),
           ],
         ),

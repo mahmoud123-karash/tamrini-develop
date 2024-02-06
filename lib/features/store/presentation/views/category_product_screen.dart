@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/all_product_widget.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/category_grid_view_builder_widget.dart';
@@ -11,9 +12,8 @@ class CategoryProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).category),
-        centerTitle: true,
+      appBar: myAppBar(
+        S.of(context).category,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

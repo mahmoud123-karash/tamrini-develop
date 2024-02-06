@@ -6,7 +6,11 @@ import 'package:tamrini/features/settings/presentation/views/contact_us_screen.d
 import 'package:tamrini/generated/l10n.dart';
 
 class BanGymContainerWidget extends StatelessWidget {
-  const BanGymContainerWidget({super.key});
+  const BanGymContainerWidget({
+    super.key,
+    required this.message,
+  });
+  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -31,25 +35,28 @@ class BanGymContainerWidget extends StatelessWidget {
                 size: 30,
               ),
               Text(
-                S.of(context).banned_gym_hint,
+                message,
                 style: TextStyles.style16Bold.copyWith(
                   color: Colors.red,
                 ),
               ),
-              MaterialButton(
-                color: appColor,
-                shape: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide.none,
-                ),
-                onPressed: () {
-                  navigateTo(context, const ContactUsScreen());
-                },
-                child: Text(
-                  S.of(context).contact_u,
-                  style: TextStyles.style14.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: whiteColor,
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: MaterialButton(
+                  color: appColor,
+                  shape: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide.none,
+                  ),
+                  onPressed: () {
+                    navigateTo(context, const ContactUsScreen());
+                  },
+                  child: Text(
+                    S.of(context).contact_u,
+                    style: TextStyles.style14.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: whiteColor,
+                    ),
                   ),
                 ),
               )

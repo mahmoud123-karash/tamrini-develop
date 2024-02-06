@@ -2,7 +2,10 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
@@ -15,7 +18,9 @@ import 'package:uuid/uuid.dart';
 class StoreRepoImpl extends StoreRepo {
   final StoreRemoteDataSource storeRemoteDataSource;
   final StoreLocalDataSource storeLocalDataSource;
-  StoreRepoImpl(this.storeRemoteDataSource, this.storeLocalDataSource);
+  final DioHelper dioHelper;
+  StoreRepoImpl(
+      this.storeRemoteDataSource, this.storeLocalDataSource, this.dioHelper);
   @override
   Future<Either<String, List<CategoryModel>>> getCategories() async {
     try {
@@ -269,6 +274,74 @@ class StoreRepoImpl extends StoreRepo {
       return right(list);
     } catch (e) {
       return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<StoreModel>>> banStore({
+    required StoreModel store,
+  }) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('stores')
+          .doc(store.storeOwnerUid)
+          .update(
+        {
+          "isBanned": !store.isBanned,
+        },
+      );
+      sendNotification(
+        isBanned: !store.isBanned,
+        owneruid: store.storeOwnerUid,
+        storeId: store.storeOwnerUid,
+      );
+      List<StoreModel> list = await storeRemoteDataSource.getStores();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  Future<void> sendNotification({
+    required bool isBanned,
+    required String owneruid,
+    required String storeId,
+  }) async {
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'store',
+      senderUid: adminUid,
+      title: isBanned == true ? 'ban_stotre' : 'no_ban_store',
+      body: '',
+      type: 'notification',
+      uid: storeId,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(owneruid)
+        .collection('data')
+        .add(
+          notification.toJson(),
+        );
+    var data = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(owneruid)
+        .get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: 'المتجر',
+        body: isBanned == false
+            ? 'تم رفع التقييد عن المتجر الخاص بك'
+            : 'تم تقييد المتجر الخاص بك',
+        data: {
+          "type": "notification",
+          "subType": "store",
+          "uid": storeId,
+        },
+      );
     }
   }
 }

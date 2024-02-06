@@ -24,13 +24,13 @@ class UserProfileScreen extends StatelessWidget {
           ),
           SliverFillRemaining(
             hasScrollBody: false,
-            child: model.role == 'gymOwner'
+            child: model.role == 'gym owner'
                 ? GymOwnerProfileWidget(
                     list: GymCubit.get(context).getUserGym(
                       model.uid,
                     ),
                   )
-                : model.role == 'storeOwner'
+                : model.role == 'store owner'
                     ? StoreOwnerProfileWidget(
                         list: StoreCubit.get(context).getStore(
                           model.uid,

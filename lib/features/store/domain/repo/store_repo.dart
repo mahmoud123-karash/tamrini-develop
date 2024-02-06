@@ -43,4 +43,8 @@ abstract class StoreRepo {
     required ProductModel oldModel,
     required StoreModel store,
   });
+
+  Future<Either<String, List<StoreModel>>> banStore({
+    required StoreModel store,
+  });
 }

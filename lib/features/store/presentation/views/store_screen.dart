@@ -27,6 +27,7 @@ class _StoreScreenState extends State<StoreScreen> {
             height: systemPadding.top + systemPadding.bottom,
           ),
           StoreCoverImageWidget(
+            isBanned: widget.model.isBanned,
             name: widget.model.name,
             contact: widget.model.contact,
             uid: widget.model.storeOwnerUid,

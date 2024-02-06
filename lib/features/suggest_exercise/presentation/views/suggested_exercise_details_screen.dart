@@ -71,10 +71,11 @@ class _SuggestedExerciseDetailsScreenState
   @override
   Widget build(BuildContext context) {
     List<String> assets = [];
-    assets.add(widget.model.url);
     if (widget.model.image != '') {
       assets.add(widget.model.image);
     }
+    assets.add(widget.model.url);
+
     var hieght = MediaQuery.of(context).size.height;
     return YoutubePlayerBuilder(
       onExitFullScreen: () {

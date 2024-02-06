@@ -354,7 +354,17 @@
     "supplement_removed":"تم حذف هذا المكمل",
     "supplement_details":"تفاصيل المكمل",
     "remove_exercise_question":"هل تريد حذف هذا التمرين ؟",
-    "exercise_removed":"تم حذف هذا التمرين"
+    "exercise_removed":"تم حذف هذا التمرين",
+    "no_users":"لا يوجد مستخدمين",
+    "ban_store_question":"هل تريد تقييد هذا المتجر ؟",
+    "no_ban_store_question":"هل تريد  رفع التقييد عن هذا المتجر ؟",
+    "ban_store_hint":"لقد تم حظر المتجر الخاص بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات",
+    "store_owner_products":"المنتجات",
+    "profits":"الأرباح",
+    "ban_titile_store":"تم تقييد المتجر الخاص بك",
+    "no_ban_titile_store":"تم رفع التقييد الخاص بك",
+    "store_banned":"المتاجر المقيدة",
+    "gyms_banned":"الصالات الرياضية المقيدة"
 
 
 

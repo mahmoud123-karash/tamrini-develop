@@ -23,12 +23,10 @@ class WriterRowWidget extends StatelessWidget {
               String uid = CacheHelper.getData(key: 'uid') ?? '';
               if (model.uid == uid) {
                 navigateTo(context, const ProfileScreen());
-              } else if (model.role == 'writer') {
-                navigateTo(context, UserProfileScreen(model: model));
+              } else if (model.role == 'admin') {
+                showSnackBar(context, S.of(context).admin_hint);
               } else {
-                if (model.role == 'admin') {
-                  showSnackBar(context, S.of(context).admin_hint);
-                }
+                navigateTo(context, UserProfileScreen(model: model));
               }
             },
             child: Row(

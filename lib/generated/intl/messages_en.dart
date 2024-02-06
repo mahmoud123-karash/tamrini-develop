@@ -91,9 +91,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل تريد تقييد هذه الصالة الرياضية ؟"),
         "ban_question":
             MessageLookupByLibrary.simpleMessage("هل تريد تقييد هذا المقال ؟"),
+        "ban_store_hint": MessageLookupByLibrary.simpleMessage(
+            "لقد تم حظر المتجر الخاص بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات"),
+        "ban_store_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد تقييد هذا المتجر ؟"),
         "ban_succes": MessageLookupByLibrary.simpleMessage("تم التقييد"),
         "ban_sucess_gym":
             MessageLookupByLibrary.simpleMessage("تم تقيييد الصالة الرياضية"),
+        "ban_titile_store":
+            MessageLookupByLibrary.simpleMessage("تم تقييد المتجر الخاص بك"),
         "ban_title_food":
             MessageLookupByLibrary.simpleMessage("تم تقيييد المقال الخاص بك"),
         "ban_your_article": MessageLookupByLibrary.simpleMessage(
@@ -203,6 +209,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("This gym has been removed"),
         "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove this gym?"),
+        "gyms_banned":
+            MessageLookupByLibrary.simpleMessage("الصالات الرياضية المقيدة"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
@@ -272,8 +280,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هل تريد رفع التقييد ؟"),
         "no_ban_scucess":
             MessageLookupByLibrary.simpleMessage("تم رفع التقييد"),
+        "no_ban_store_question": MessageLookupByLibrary.simpleMessage(
+            "هل تريد  رفع التقييد عن هذا المتجر ؟"),
         "no_ban_success_gym": MessageLookupByLibrary.simpleMessage(
             "تم رفع التقييد عن الصالة الرياضية"),
+        "no_ban_titile_store":
+            MessageLookupByLibrary.simpleMessage("تم رفع التقييد الخاص بك"),
         "no_ban_title_food": MessageLookupByLibrary.simpleMessage(
             "تم رفع التقييد عن المقال الخاص بك"),
         "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
@@ -291,6 +303,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_sub":
             MessageLookupByLibrary.simpleMessage("لا يوجد إشتراكات حتي الآن"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
+        "no_users": MessageLookupByLibrary.simpleMessage("لا يوجد مستخدمين"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
         "notification": MessageLookupByLibrary.simpleMessage("Notifications"),
@@ -335,6 +348,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "products": MessageLookupByLibrary.simpleMessage("Various Products"),
         "profile": MessageLookupByLibrary.simpleMessage("Your Profile"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("None"),
+        "profits": MessageLookupByLibrary.simpleMessage("الأرباح"),
         "promotion": MessageLookupByLibrary.simpleMessage("Promotion Requests"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),
@@ -394,8 +408,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),
+        "store_banned": MessageLookupByLibrary.simpleMessage("المتاجر المقيدة"),
         "store_contact": MessageLookupByLibrary.simpleMessage("Contact Number"),
         "store_name": MessageLookupByLibrary.simpleMessage("Store Name"),
+        "store_owner_products":
+            MessageLookupByLibrary.simpleMessage("المنتجات"),
         "store_owners": MessageLookupByLibrary.simpleMessage("Store Owners"),
         "stores": MessageLookupByLibrary.simpleMessage("Stores"),
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),

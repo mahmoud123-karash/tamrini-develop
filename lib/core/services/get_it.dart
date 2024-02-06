@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
+import 'package:tamrini/features/admin/data/remote_data_source/admin_remote_data_source.dart';
+import 'package:tamrini/features/admin/data/repo/admin_repo_impl.dart';
 import 'package:tamrini/features/atricle/data/data_sources/remote_data_source/article_remote_data_source.dart';
 import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
 import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_remote_data_source.dart';
@@ -78,6 +80,7 @@ void setLocator() {
     StoreRepoImpl(
       StoreRemoteDataSourceImpl(),
       StoreLocalDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 
@@ -193,6 +196,12 @@ void setLocator() {
   getIt.registerSingleton<OrederRepoImpl>(
     OrederRepoImpl(
       OrderRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<AdminRepoImpl>(
+    AdminRepoImpl(
+      AdminRemoteDataSourceImpl(),
     ),
   );
 }

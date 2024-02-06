@@ -29,9 +29,8 @@ class ProductDetailsScreen extends StatelessWidget {
     final getHight = mediaQuery.size.height;
     String uid = CacheHelper.getData(key: 'uid');
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).proDetails),
-        centerTitle: true,
+      appBar: myAppBar(
+        S.of(context).proDetails,
         actions: [
           if (sModel != null)
             if (sModel!.storeOwnerUid != uid)

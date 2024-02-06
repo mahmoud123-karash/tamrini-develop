@@ -49,24 +49,18 @@ class NotificationBodyWidget extends StatelessWidget {
   }
 
   String getNotificationTitle(BuildContext context) {
-    return title == 'ban_article'
-        ? S.of(context).ban_title_food
-        : title == 'no_ban_article'
-            ? S.of(context).no_ban_title_food
-            : title == 'ban'
-                ? S.of(context).ban_your_article
-                : title == 'answer'
-                    ? S.of(context).new_comment_question
-                    : title == 'ban_question'
-                        ? S.of(context).ban_your_question
-                        : title == 'ban_gym'
-                            ? S.of(context).banned_gym_hint
-                            : title == 'no_ban_gym'
-                                ? S.of(context).no_banned_gym_hint
-                                : title == 'ban_food'
-                                    ? S.of(context).ban_title_food
-                                    : title == 'no_ban_food'
-                                        ? S.of(context).no_ban_title_food
-                                        : title;
+    return title == 'answer'
+        ? S.of(context).new_comment_question
+        : title == 'ban_question'
+            ? S.of(context).ban_your_question
+            : title == 'ban_gym'
+                ? S.of(context).banned_gym_hint
+                : title == 'no_ban_gym'
+                    ? S.of(context).no_banned_gym_hint
+                    : title == 'ban_store'
+                        ? S.of(context).ban_titile_store
+                        : title == 'no_ban_store'
+                            ? S.of(context).no_ban_titile_store
+                            : title;
   }
 }

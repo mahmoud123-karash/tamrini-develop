@@ -1,4 +1,5 @@
 import 'package:fuzzy/fuzzy.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
@@ -79,4 +80,11 @@ List<NutritionModel> searchNutrition(value, List<NutritionModel> data) {
   final fuse = Fuzzy(options);
   final results = fuse.search(value).map((result) => result.item).toList();
   return data.where((element) => results.contains(element.title)).toList();
+}
+
+List<UserModel> searchUser(value, List<UserModel> data) {
+  final options = [for (var element in data) element.name];
+  final fuse = Fuzzy(options);
+  final results = fuse.search(value).map((result) => result.item).toList();
+  return data.where((element) => results.contains(element.name)).toList();
 }

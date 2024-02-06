@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/admin/presentation/views/banned_stores_screen.dart';
+import 'package:tamrini/features/admin/presentation/views/gyms_banned_screen.dart';
 import 'package:tamrini/features/suggest_exercise/presentation/views/suggested_exercises_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -35,8 +37,8 @@ class AdminScreen extends StatelessWidget {
               lable: S.of(context).all_users,
               icon: Ionicons.person,
               onPressed: () {
-                navigateTo(
-                    context, UsersScreen(title: S.of(context).all_users));
+                navigateTo(context,
+                    UsersScreen(title: S.of(context).all_users, usrType: ''));
               },
             ),
             AdminListTileWidget(
@@ -44,6 +46,20 @@ class AdminScreen extends StatelessWidget {
               lable: S.of(context).suggested_exercises,
               onPressed: () {
                 navigateTo(context, const SuggestedExerciseScreen());
+              },
+            ),
+            AdminListTileWidget(
+              icon: Icons.store_sharp,
+              lable: S.of(context).store_banned,
+              onPressed: () {
+                navigateTo(context, const BannedStoreScreen());
+              },
+            ),
+            AdminListTileWidget(
+              icon: Icons.fitness_center,
+              lable: S.of(context).gyms_banned,
+              onPressed: () {
+                navigateTo(context, const BannedGymsScreen());
               },
             ),
             AdminListTileWidget(

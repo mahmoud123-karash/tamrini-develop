@@ -51,10 +51,7 @@ class _ProductsCategoryScreenState extends State<ProductsCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        centerTitle: true,
-      ),
+      appBar: myAppBar(widget.title),
       body: widget.list.isNotEmpty
           ? Column(
               children: [

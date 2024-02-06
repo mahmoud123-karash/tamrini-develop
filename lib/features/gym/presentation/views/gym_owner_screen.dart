@@ -34,7 +34,10 @@ class GymOwnerScreen extends StatelessWidget {
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (model.isBanned) const BanGymContainerWidget(),
+                    if (model.isBanned)
+                      BanGymContainerWidget(
+                        message: S.of(context).banned_gym_hint,
+                      ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 15,

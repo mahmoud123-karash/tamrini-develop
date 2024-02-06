@@ -8,15 +8,14 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
-import 'package:tamrini/features/atricle/presentation/views/articles_details_screen.dart';
-import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
-import 'package:tamrini/features/diet_food/presentation/views/diet_food_details_screen.dart';
+import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
-import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
+import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
+
+import '../../features/store/presentation/views/store_owner_screen.dart';
 
 void onMessage({
   required BuildContext context,
@@ -24,8 +23,11 @@ void onMessage({
   FirebaseMessaging.onMessage.listen(
     (RemoteMessage message) async {
       NotificationCubit.get(context).getData();
-      if (message.data['subType'] == 'article') {
-        ArticlesCubit.get(context).getData();
+      if (message.data['subType'] == 'store') {
+        StoreCubit.get(context).getData();
+      }
+      if (message.data['subType'] == 'gym') {
+        GymCubit.get(context).getData(update: false);
       }
       AwesomeNotifications().createNotification(
         content: NotificationContent(
@@ -63,13 +65,6 @@ void getintil(context) async {
 }
 
 void openNotification(RemoteMessage event, BuildContext context) {
-  if (event.data['type'] == 'system') {
-    navigateTo(context, const NotificationScreen(value: 'system'));
-  }
-
-  if (event.data['type'] == 'message') {
-    navigateTo(context, const ChatScreen());
-  }
   if (event.data['type'] == 'notification') {
     var box = Hive.box<ProfileModel>(profileBox);
     ProfileModel model = box.values.toList().first;
@@ -98,16 +93,11 @@ void openNotification(RemoteMessage event, BuildContext context) {
         ),
       );
     }
-    if (event.data['subType'] == 'article') {
-      navigateTo(context, ArticlesDetailsScreen(id: event.data['uid']));
+    if (event.data['subType'] == 'store') {
+      navigateTo(context, const StoreOwnerScreen());
     }
-
-    if (event.data['subType'] == 'ban_gym') {
+    if (event.data['subType'] == 'gym') {
       navigateTo(context, const GymOwnerScreen());
-    }
-
-    if (event.data['subType'] == 'diet_food') {
-      navigateTo(context, DietFoodDetailsScreen(id: event.data['uid']));
     }
   }
 }

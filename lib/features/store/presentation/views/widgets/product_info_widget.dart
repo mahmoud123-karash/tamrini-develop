@@ -23,7 +23,7 @@ class ProductInfoWidget extends StatelessWidget {
         children: [
           Container(
             constraints: BoxConstraints(
-              maxWidth: getWidht - (120.w + 10 + 25),
+              maxWidth: getWidht - (120.w + 10 + 25 + 10),
             ),
             child: Text(
               model.title,
@@ -40,7 +40,7 @@ class ProductInfoWidget extends StatelessWidget {
           ),
           Container(
             constraints: BoxConstraints(
-              maxWidth: getWidht - (120.w + 10 + 25),
+              maxWidth: getWidht - (120.w + 10 + 25 + 10),
             ),
             child: Text(
               model.description,

@@ -19,42 +19,36 @@ class RemoveProductIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 5,
-        horizontal: 5,
-      ),
-      child: CircleAvatar(
-        backgroundColor: Colors.red.withOpacity(0.2),
-        child: IconButton(
-          onPressed: () {
-            AwesomeDialog(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              showCloseIcon: true,
-              titleTextStyle: TextStyles.style17.copyWith(
-                fontWeight: FontWeight.bold,
-                color: appColor,
-              ),
-              context: context,
-              dialogType: DialogType.warning,
-              animType: AnimType.bottomSlide,
-              title: model.title,
-              desc: S.of(context).remove_product_q,
-              btnCancelOnPress: () {},
-              btnOkOnPress: () {
-                StoreCubit.get(context).removeProduct(
-                  store: store,
-                  oldModel: model,
-                  context: context,
-                );
-              },
-            ).show();
-          },
-          icon: const Icon(
-            Icons.delete_forever,
-            color: Colors.red,
-          ),
+      padding: const EdgeInsets.all(5.0),
+      child: ElevatedButton(
+        onPressed: () {
+          AwesomeDialog(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+            ),
+            showCloseIcon: true,
+            titleTextStyle: TextStyles.style17.copyWith(
+              fontWeight: FontWeight.bold,
+              color: appColor,
+            ),
+            context: context,
+            dialogType: DialogType.warning,
+            animType: AnimType.bottomSlide,
+            title: model.title,
+            desc: S.of(context).remove_product_q,
+            btnCancelOnPress: () {},
+            btnOkOnPress: () {
+              StoreCubit.get(context).removeProduct(
+                store: store,
+                oldModel: model,
+                context: context,
+              );
+            },
+          ).show();
+        },
+        child: const Icon(
+          Icons.delete,
+          color: Colors.red,
         ),
       ),
     );

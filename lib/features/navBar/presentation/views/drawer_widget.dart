@@ -76,11 +76,10 @@ class MyDrawer extends StatelessWidget {
               lable: S.of(context).profile,
             ),
             if (usertype == 'admin') const AdminListTileWidget(),
-            //  if (usertype == 'admin' || usertype == 'store_owner')
-            const StoreOwnerWidget(),
-            // if (usertype == 'gym_owner')
-            const GymOwnerListTileWidget(),
-            const SubstrictionsListTileWidget(),
+            if (usertype == 'admin' || usertype == 'store owner')
+              const StoreOwnerWidget(),
+            if (usertype == 'gym owner') const GymOwnerListTileWidget(),
+            if (usertype != 'admin') const SubstrictionsListTileWidget(),
             DrawerListTileWidget(
               onPressed: () {
                 navigateTo(context, const MyDayScreen());
