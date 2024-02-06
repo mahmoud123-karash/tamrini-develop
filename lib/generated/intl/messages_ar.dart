@@ -321,6 +321,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "لا يمكن ان يكون السعر الحالي أكبر من أو يساوى السعر القديم"),
         "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
+        "order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
+        "order_id": MessageLookupByLibrary.simpleMessage("رقم الطلب "),
         "order_placed":
             MessageLookupByLibrary.simpleMessage("لقد تم تأكيد طلبك بنجاح"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
@@ -364,6 +366,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "protien": MessageLookupByLibrary.simpleMessage("بروتين"),
         "protien_calculator":
             MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
+        "purchase_details": MessageLookupByLibrary.simpleMessage("تفاصيل شراء"),
         "q_remove_article":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف المقال ؟"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
@@ -489,6 +492,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
         "total_price": MessageLookupByLibrary.simpleMessage("السعر الكلى"),
+        "tracking": MessageLookupByLibrary.simpleMessage("تتبع"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
         "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("معرض الأعمال"),
@@ -511,6 +515,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "values_food": MessageLookupByLibrary.simpleMessage("القيم الغذائية"),
         "very_intense_activity": MessageLookupByLibrary.simpleMessage(
             "نشاط مكثف جدا في العمل والنادي"),
+        "view_rder_details":
+            MessageLookupByLibrary.simpleMessage("معاينة تفاصيل الطلب"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
         "weight": MessageLookupByLibrary.simpleMessage("الوزن"),
         "weight_gain": MessageLookupByLibrary.simpleMessage("زيادة في الوزن"),

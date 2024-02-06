@@ -85,7 +85,7 @@ class MyDrawer extends StatelessWidget {
             if (usertype != 'admin' && usertype != 'gym owner')
               DrawerListTileWidget(
                 onPressed: () {
-                  navigateTo(context, const UserOrdersScreen());
+                  navigateTo(context, const OrdersScreen(isUser: true));
                 },
                 icon: Icons.shopping_bag_outlined,
                 lable: S.of(context).orders,

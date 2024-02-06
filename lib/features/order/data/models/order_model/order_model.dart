@@ -49,6 +49,7 @@ class OrderModel {
     data['paymentMethod'] = paymentMethod;
     data['storeId'] = storeId;
     data['userName'] = userName;
+    data['orderId'] = orderId;
     data['userPhone'] = userPhone;
     return data;
   }

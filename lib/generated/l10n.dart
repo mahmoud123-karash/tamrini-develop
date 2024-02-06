@@ -3829,6 +3829,56 @@ class S {
       args: [],
     );
   }
+
+  /// `معاينة تفاصيل الطلب`
+  String get view_rder_details {
+    return Intl.message(
+      'معاينة تفاصيل الطلب',
+      name: 'view_rder_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل شراء`
+  String get purchase_details {
+    return Intl.message(
+      'تفاصيل شراء',
+      name: 'purchase_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تتبع`
+  String get tracking {
+    return Intl.message(
+      'تتبع',
+      name: 'tracking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رقم الطلب `
+  String get order_id {
+    return Intl.message(
+      'رقم الطلب ',
+      name: 'order_id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تاريخ الطلب`
+  String get order_date {
+    return Intl.message(
+      'تاريخ الطلب',
+      name: 'order_date',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

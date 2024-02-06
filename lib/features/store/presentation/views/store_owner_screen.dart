@@ -6,7 +6,7 @@ import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_containe
 import 'package:tamrini/features/navBar/presentation/views/widgets/badge_order_icon_widget.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_states.dart';
-import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
+import 'package:tamrini/features/order/presentation/views/user_orders_screen.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_products_screen.dart';
@@ -76,7 +76,8 @@ class StoreOwnerScreen extends StatelessWidget {
                         Expanded(
                           child: StoreOwnerListTileWidget(
                             onTap: () {
-                              navigateTo(context, const OrdersScreen());
+                              navigateTo(
+                                  context, const OrdersScreen(isUser: false));
                             },
                             icon: Icons.shopping_bag_outlined,
                             lable: S.of(context).orders,
