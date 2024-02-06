@@ -23,27 +23,21 @@ class NotificationRepoImpl extends NotificationRepo {
   @override
   Future<Either<String, List<NotificationModel>>> updateNotification({
     required List<NotificationModel> list,
-    required String lable,
+    required NotificationModel model,
   }) async {
     try {
-      List<NotificationModel> finalList = list
-          .where((element) => element.type == lable)
-          .where((element) => element.isReaden == false)
-          .toList();
-      for (var element in finalList) {
-        String uid = CacheHelper.getData(key: 'uid');
-        await FirebaseFirestore.instance
-            .collection('notification')
-            .doc(uid)
-            .collection('data')
-            .doc(element.notificationUid)
-            .update(
-          {
-            "isReaden": true,
-          },
-        );
-        element.isReaden = true;
-      }
+      String uid = CacheHelper.getData(key: 'uid');
+      await FirebaseFirestore.instance
+          .collection('notification')
+          .doc(uid)
+          .collection('data')
+          .doc(model.notificationUid)
+          .update(
+        {
+          "isReaden": true,
+        },
+      );
+      model.isReaden = true;
       return right(list);
     } catch (e) {
       return left(e.toString());

@@ -5,6 +5,7 @@ abstract class NotificationRepo {
   Future<Either<String, List<NotificationModel>>> get();
   Future<Either<String, List<NotificationModel>>> updateNotification({
     required List<NotificationModel> list,
-    required String lable,
+        required NotificationModel model,
+
   });
 }

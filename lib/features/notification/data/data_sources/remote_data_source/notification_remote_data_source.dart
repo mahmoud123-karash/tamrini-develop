@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
 
 abstract class NotificationRemoteDataSource {
@@ -18,10 +20,29 @@ class NotificationRemoteDataSourceImpl extends NotificationRemoteDataSource {
         .orderBy('time', descending: true)
         .get();
     for (var element in result.docs) {
+      UserModel? user = await getAsker(element);
       NotificationModel model =
-          NotificationModel.fromJson(element.data(), element.id);
+          NotificationModel.fromJson(element.data(), element.id, user);
       list.add(model);
     }
     return list;
+  }
+
+  Future<UserModel> getAsker(
+    QueryDocumentSnapshot<Map<String, dynamic>> element,
+  ) async {
+    String senderUid = element.data()['senderUid'] ?? '';
+
+    var result = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(senderUid)
+        .get();
+    GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
+    GeoPoint location = result.data() == null
+        ? defultLocation
+        : result.data()!['location'] ?? defultLocation;
+    String address = await getAddress(location: location);
+    UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+    return user;
   }
 }

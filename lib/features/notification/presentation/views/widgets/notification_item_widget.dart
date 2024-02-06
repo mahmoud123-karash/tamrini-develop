@@ -8,6 +8,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
+import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
@@ -19,15 +20,16 @@ import 'package:tamrini/generated/l10n.dart';
 import 'notification_body_widget.dart';
 
 class NotificationItemWidget extends StatelessWidget {
-  const NotificationItemWidget(
-      {super.key, required this.model, required this.user});
+  const NotificationItemWidget({super.key, required this.model});
   final NotificationModel model;
-  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        NotificationCubit.get(context).updateNotification(
+          model: model,
+        );
         notificationNavigate(context);
       },
       child: Padding(
@@ -46,32 +48,32 @@ class NotificationItemWidget extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 String uid = CacheHelper.getData(key: 'uid') ?? '';
-                if (user.uid == uid) {
+                if (model.user.uid == uid) {
                   navigateTo(context, const ProfileScreen());
                 } else {
-                  if (user.role == 'admin') {
+                  if (model.user.role == 'admin') {
                     showSnackBar(context, S.of(context).admin_hint);
                   } else {
-                    if (user.role == 'captain') {
+                    if (model.user.role == 'captain') {
                       navigateTo(
                         context,
                         TrainerProfileScreen(
                           trainer: TrainersCubit.get(context)
-                              .getTrainer(uid: user.uid),
+                              .getTrainer(uid: model.user.uid),
                         ),
                       );
                     } else {
-                      navigateTo(context, UserProfileScreen(model: user));
+                      navigateTo(context, UserProfileScreen(model: model.user));
                     }
                   }
                 }
               },
               child: CircleAvatar(
                 radius: 35,
-                backgroundImage: user.image == ""
+                backgroundImage: model.user.image == ""
                     ? const AssetImage(Assets.imagesProfile) as ImageProvider
                     : FirebaseImageProvider(
-                        FirebaseUrl(user.image),
+                        FirebaseUrl(model.user.image),
                       ),
               ),
             ),
@@ -82,7 +84,7 @@ class NotificationItemWidget extends StatelessWidget {
               body: model.body,
               title: model.title,
               date: model.time.toDate(),
-              userName: user.name,
+              userName: model.user.name,
             ),
           ],
         ),
@@ -120,7 +122,7 @@ class NotificationItemWidget extends StatelessWidget {
         );
       }
       if (model.subType == 'store') {
-        navigateTo(context, StoreOwnerScreen());
+        navigateTo(context, const StoreOwnerScreen());
       }
 
       if (model.subType == 'gym') {

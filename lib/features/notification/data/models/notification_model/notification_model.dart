@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 
 class NotificationModel {
   final String title;
@@ -10,6 +11,7 @@ class NotificationModel {
   final String subType;
   final Timestamp time;
   late bool isReaden;
+  final UserModel user;
 
   NotificationModel({
     required this.notificationUid,
@@ -21,9 +23,11 @@ class NotificationModel {
     required this.type,
     required this.uid,
     required this.time,
+    required this.user,
   });
 
-  factory NotificationModel.fromJson(Map<String, dynamic> json, String id) =>
+  factory NotificationModel.fromJson(
+          Map<String, dynamic> json, String id, UserModel user) =>
       NotificationModel(
         title: json['title'] ?? '',
         senderUid: json['senderUid'] ?? '',
@@ -34,5 +38,6 @@ class NotificationModel {
         subType: json['subType'] ?? '',
         notificationUid: id,
         isReaden: json['isReaden'] ?? false,
+        user: user,
       );
 }

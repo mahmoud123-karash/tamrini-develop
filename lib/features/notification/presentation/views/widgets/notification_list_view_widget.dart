@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
-import 'package:tamrini/features/notification/presentation/views/widgets/notification_item_builder_widget.dart';
+
+import 'notification_item_widget.dart';
 
 class NotificationListViewWidget extends StatefulWidget {
   const NotificationListViewWidget({super.key, required this.notifications});
@@ -15,19 +16,6 @@ class _NotificationListViewWidgetState
     extends State<NotificationListViewWidget> {
   ScrollController scrollController = ScrollController();
   int length = 10;
-
-  @override
-  void didChangeDependencies() {
-    Future.delayed(const Duration(seconds: 2)).then((value) {
-      if (mounted) {
-        // NotificationCubit.get(context).updateNotification(
-        //   list: widget.notifications,
-        //   lable: widget.lable,
-        // );
-      }
-    });
-    super.didChangeDependencies();
-  }
 
   @override
   void initState() {
@@ -64,7 +52,7 @@ class _NotificationListViewWidgetState
         controller: scrollController,
         itemBuilder: (context, index) {
           if (length > index) {
-            return NotificationItemBuilderWidget(
+            return NotificationItemWidget(
               model: widget.notifications[index],
             );
           } else {
