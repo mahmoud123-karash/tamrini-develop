@@ -26,7 +26,6 @@ class _CompleteContentWidgetState extends State<CompleteContentWidget> {
   TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
-  TextEditingController ageController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -35,7 +34,6 @@ class _CompleteContentWidgetState extends State<CompleteContentWidget> {
     emailController.dispose();
     nameController.dispose();
     phoneController.dispose();
-    ageController.dispose();
 
     super.dispose();
   }
@@ -98,13 +96,6 @@ class _CompleteContentWidgetState extends State<CompleteContentWidget> {
                         type: TextInputType.phone,
                         controller: phoneController,
                       ),
-                      InputTextFielsWidget(
-                        autovalidateMode: autovalidateMode,
-                        hint: S.of(context).age,
-                        iconData: Ionicons.calendar_outline,
-                        type: TextInputType.phone,
-                        controller: ageController,
-                      ),
                       const GenderRowWidget(),
                       const AgreePrivacyRowWidget(),
                       CompleteCustomBuilderWidget(
@@ -128,7 +119,6 @@ class _CompleteContentWidgetState extends State<CompleteContentWidget> {
                                 name: nameController.text,
                                 email: emailController.text,
                                 phone: phoneController.text,
-                                age: int.parse(ageController.text),
                                 gender: gender,
                                 uid: widget.uid,
                               );

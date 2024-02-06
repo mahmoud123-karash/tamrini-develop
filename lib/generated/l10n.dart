@@ -3160,40 +3160,40 @@ class S {
     );
   }
 
-  /// `المشتركين`
+  /// `Subscribers`
   String get subcribers {
     return Intl.message(
-      'المشتركين',
+      'Subscribers',
       name: 'subcribers',
       desc: '',
       args: [],
     );
   }
 
-  /// `تاريخ الإشتراك`
+  /// `Subscription Date`
   String get sub_date {
     return Intl.message(
-      'تاريخ الإشتراك',
+      'Subscription Date',
       name: 'sub_date',
       desc: '',
       args: [],
     );
   }
 
-  /// `تاريخ الإنتهاء`
+  /// `End Date`
   String get end_date {
     return Intl.message(
-      'تاريخ الإنتهاء',
+      'End Date',
       name: 'end_date',
       desc: '',
       args: [],
     );
   }
 
-  /// `انت مشترك بالفعل فى هذه الصالة`
+  /// `You are already subscribed to this gym`
   String get sub_hint {
     return Intl.message(
-      'انت مشترك بالفعل فى هذه الصالة',
+      'You are already subscribed to this gym',
       name: 'sub_hint',
       desc: '',
       args: [],
@@ -3210,510 +3210,510 @@ class S {
     );
   }
 
-  /// `الاشتراكات`
+  /// `Subscriptions`
   String get Subscriptions {
     return Intl.message(
-      'الاشتراكات',
+      'Subscriptions',
       name: 'Subscriptions',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد إشتراكات حتي الآن`
+  /// `No subscriptions yet`
   String get no_sub {
     return Intl.message(
-      'لا يوجد إشتراكات حتي الآن',
+      'No subscriptions yet',
       name: 'no_sub',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد تقييد هذه الصالة الرياضية ؟`
+  /// `Do you want to ban this gym?`
   String get ban_gym_q {
     return Intl.message(
-      'هل تريد تقييد هذه الصالة الرياضية ؟',
+      'Do you want to ban this gym?',
       name: 'ban_gym_q',
       desc: '',
       args: [],
     );
   }
 
-  /// `لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات`
+  /// `Your gym has been banned. Please contact the administrator for more information.`
   String get banned_gym_hint {
     return Intl.message(
-      'لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات',
+      'Your gym has been banned. Please contact the administrator for more information.',
       name: 'banned_gym_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `رفع التقييد`
+  /// `Remove Ban`
   String get no_ban {
     return Intl.message(
-      'رفع التقييد',
+      'Remove Ban',
       name: 'no_ban',
       desc: '',
       args: [],
     );
   }
 
-  /// `تقييد`
+  /// `Ban`
   String get ban {
     return Intl.message(
-      'تقييد',
+      'Ban',
       name: 'ban',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد رفع التقييد ؟`
+  /// `Do you want to remove the ban?`
   String get no_ban_question {
     return Intl.message(
-      'هل تريد رفع التقييد ؟',
+      'Do you want to remove the ban?',
       name: 'no_ban_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد تقييد هذا المقال ؟`
+  /// `Do you want to ban this article?`
   String get ban_question {
     return Intl.message(
-      'هل تريد تقييد هذا المقال ؟',
+      'Do you want to ban this article?',
       name: 'ban_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفع التقييد عن الصالة الخاصة بك`
+  /// `The ban on your gym has been lifted`
   String get no_banned_gym_hint {
     return Intl.message(
-      'تم رفع التقييد عن الصالة الخاصة بك',
+      'The ban on your gym has been lifted',
       name: 'no_banned_gym_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تقيييد الصالة الرياضية`
+  /// `The gym has been banned`
   String get ban_sucess_gym {
     return Intl.message(
-      'تم تقيييد الصالة الرياضية',
+      'The gym has been banned',
       name: 'ban_sucess_gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفع التقييد عن الصالة الرياضية`
+  /// `The ban on the gym has been lifted`
   String get no_ban_success_gym {
     return Intl.message(
-      'تم رفع التقييد عن الصالة الرياضية',
+      'The ban on the gym has been lifted',
       name: 'no_ban_success_gym',
       desc: '',
       args: [],
     );
   }
 
-  /// `تجديد الاشتراك`
+  /// `Renew Subscription`
   String get renew_sub {
     return Intl.message(
-      'تجديد الاشتراك',
+      'Renew Subscription',
       name: 'renew_sub',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم الوجبة`
+  /// `Meal Name`
   String get meal_name {
     return Intl.message(
-      'اسم الوجبة',
+      'Meal Name',
       name: 'meal_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل الوجبة`
+  /// `Meal Details`
   String get meal_description {
     return Intl.message(
-      'تفاصيل الوجبة',
+      'Meal Details',
       name: 'meal_description',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة وجبة `
+  /// `Add Meal`
   String get new_meal {
     return Intl.message(
-      'إضافة وجبة ',
+      'Add Meal',
       name: 'new_meal',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل الوجبة`
+  /// `Edit Meal`
   String get edit_meal {
     return Intl.message(
-      'تعديل الوجبة',
+      'Edit Meal',
       name: 'edit_meal',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذه الوجبة ؟`
+  /// `Do you want to delete this meal?`
   String get remove_meal_q {
     return Intl.message(
-      'هل تريد حذف هذه الوجبة ؟',
+      'Do you want to delete this meal?',
       name: 'remove_meal_q',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم التقييد`
+  /// `Banned successfully`
   String get ban_succes {
     return Intl.message(
-      'تم التقييد',
+      'Banned successfully',
       name: 'ban_succes',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفع التقييد`
+  /// `Ban lifted successfully`
   String get no_ban_scucess {
     return Intl.message(
-      'تم رفع التقييد',
+      'Ban lifted successfully',
       name: 'no_ban_scucess',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تقيييد المقال الخاص بك`
+  /// `Your article has been banned`
   String get ban_title_food {
     return Intl.message(
-      'تم تقيييد المقال الخاص بك',
+      'Your article has been banned',
       name: 'ban_title_food',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفع التقييد عن المقال الخاص بك`
+  /// `The ban on your article has been lifted`
   String get no_ban_title_food {
     return Intl.message(
-      'تم رفع التقييد عن المقال الخاص بك',
+      'The ban on your article has been lifted',
       name: 'no_ban_title_food',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تقييد هذا المقال`
+  /// `This article has been banned`
   String get ban_food_hint {
     return Intl.message(
-      'تم تقييد هذا المقال',
+      'This article has been banned',
       name: 'ban_food_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم التحديث`
+  /// `Update successful`
   String get update_success {
     return Intl.message(
-      'تم التحديث',
+      'Update successful',
       name: 'update_success',
       desc: '',
       args: [],
     );
   }
 
-  /// `الغاء`
+  /// `Cancel`
   String get cancel {
     return Intl.message(
-      'الغاء',
+      'Cancel',
       name: 'cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة فئة جديدة`
+  /// `Add New Category`
   String get add_nutrition_classification {
     return Intl.message(
-      'إضافة فئة جديدة',
+      'Add New Category',
       name: 'add_nutrition_classification',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعدبل الفئة`
+  /// `Edit Category`
   String get edit_nutrition_classification {
     return Intl.message(
-      'تعدبل الفئة',
+      'Edit Category',
       name: 'edit_nutrition_classification',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم الفئة`
+  /// `Category Name`
   String get classification_name {
     return Intl.message(
-      'اسم الفئة',
+      'Category Name',
       name: 'classification_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `اضافة قيمة جديدة`
+  /// `Add New Value`
   String get add_new_nutirtion {
     return Intl.message(
-      'اضافة قيمة جديدة',
+      'Add New Value',
       name: 'add_new_nutirtion',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعدبل القيمة `
+  /// `Edit Value`
   String get edit_nutirtion {
     return Intl.message(
-      'تعدبل القيمة ',
+      'Edit Value',
       name: 'edit_nutirtion',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذه القيمة ؟`
+  /// `Do you want to delete this value?`
   String get remove_nutirtion {
     return Intl.message(
-      'هل تريد حذف هذه القيمة ؟',
+      'Do you want to delete this value?',
       name: 'remove_nutirtion',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذه الفئة ؟`
+  /// `Do you want to delete this category?`
   String get category_remove_question {
     return Intl.message(
-      'هل تريد حذف هذه الفئة ؟',
+      'Do you want to delete this category?',
       name: 'category_remove_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم المكمل`
+  /// `Supplement Name`
   String get supplement_name {
     return Intl.message(
-      'اسم المكمل',
+      'Supplement Name',
       name: 'supplement_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `وصف المكمل`
+  /// `Supplement Description`
   String get supplemment_description {
     return Intl.message(
-      'وصف المكمل',
+      'Supplement Description',
       name: 'supplemment_description',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة مكمل`
+  /// `Add Supplement`
   String get add_supplement {
     return Intl.message(
-      'إضافة مكمل',
+      'Add Supplement',
       name: 'add_supplement',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعدبل المكمل`
+  /// `Edit Supplement`
   String get edit_supplememt {
     return Intl.message(
-      'تعدبل المكمل',
+      'Edit Supplement',
       name: 'edit_supplememt',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذا المكمل ؟`
+  /// `Do you want to delete this supplement?`
   String get supplement_remove_question {
     return Intl.message(
-      'هل تريد حذف هذا المكمل ؟',
+      'Do you want to delete this supplement?',
       name: 'supplement_remove_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم مسح هذه الفئة`
+  /// `Category deleted`
   String get category_removed {
     return Intl.message(
-      'تم مسح هذه الفئة',
+      'Category deleted',
       name: 'category_removed',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حذف هذا المكمل`
+  /// `Supplement deleted`
   String get supplement_removed {
     return Intl.message(
-      'تم حذف هذا المكمل',
+      'Supplement deleted',
       name: 'supplement_removed',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل المكمل`
+  /// `Supplement Details`
   String get supplement_details {
     return Intl.message(
-      'تفاصيل المكمل',
+      'Supplement Details',
       name: 'supplement_details',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذا التمرين ؟`
+  /// `Do you want to delete this exercise?`
   String get remove_exercise_question {
     return Intl.message(
-      'هل تريد حذف هذا التمرين ؟',
+      'Do you want to delete this exercise?',
       name: 'remove_exercise_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حذف هذا التمرين`
+  /// `Exercise deleted`
   String get exercise_removed {
     return Intl.message(
-      'تم حذف هذا التمرين',
+      'Exercise deleted',
       name: 'exercise_removed',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد مستخدمين`
+  /// `No users`
   String get no_users {
     return Intl.message(
-      'لا يوجد مستخدمين',
+      'No users',
       name: 'no_users',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد تقييد هذا المتجر ؟`
+  /// `Do you want to ban this store?`
   String get ban_store_question {
     return Intl.message(
-      'هل تريد تقييد هذا المتجر ؟',
+      'Do you want to ban this store?',
       name: 'ban_store_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد  رفع التقييد عن هذا المتجر ؟`
+  /// `Do you want to remove the ban from this store?`
   String get no_ban_store_question {
     return Intl.message(
-      'هل تريد  رفع التقييد عن هذا المتجر ؟',
+      'Do you want to remove the ban from this store?',
       name: 'no_ban_store_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `لقد تم حظر المتجر الخاص بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات`
+  /// `Your store has been banned. Please contact the administrator for more information.`
   String get ban_store_hint {
     return Intl.message(
-      'لقد تم حظر المتجر الخاص بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات',
+      'Your store has been banned. Please contact the administrator for more information.',
       name: 'ban_store_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `المنتجات`
+  /// `Products`
   String get store_owner_products {
     return Intl.message(
-      'المنتجات',
+      'Products',
       name: 'store_owner_products',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأرباح`
+  /// `Profits`
   String get profits {
     return Intl.message(
-      'الأرباح',
+      'Profits',
       name: 'profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تقييد المتجر الخاص بك`
+  /// `Your store has been banned`
   String get ban_titile_store {
     return Intl.message(
-      'تم تقييد المتجر الخاص بك',
+      'Your store has been banned',
       name: 'ban_titile_store',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفع التقييد الخاص بك`
+  /// `The ban on your store has been lifted`
   String get no_ban_titile_store {
     return Intl.message(
-      'تم رفع التقييد الخاص بك',
+      'The ban on your store has been lifted',
       name: 'no_ban_titile_store',
       desc: '',
       args: [],
     );
   }
 
-  /// `المتاجر المقيدة`
+  /// `Banned Stores`
   String get store_banned {
     return Intl.message(
-      'المتاجر المقيدة',
+      'Banned Stores',
       name: 'store_banned',
       desc: '',
       args: [],
     );
   }
 
-  /// `الصالات الرياضية المقيدة`
+  /// `Banned Gyms`
   String get gyms_banned {
     return Intl.message(
-      'الصالات الرياضية المقيدة',
+      'Banned Gyms',
       name: 'gyms_banned',
       desc: '',
       args: [],

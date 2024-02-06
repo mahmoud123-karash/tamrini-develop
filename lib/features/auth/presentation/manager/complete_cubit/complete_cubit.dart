@@ -14,7 +14,6 @@ class CompleteCubit extends Cubit<CompleteStates> {
     required String name,
     required String email,
     required String phone,
-    required int age,
     required String gender,
     required String uid,
   }) async {
@@ -24,7 +23,6 @@ class CompleteCubit extends Cubit<CompleteStates> {
         name: name,
         email: email,
         phone: phone,
-        age: age,
         gender: gender,
         uid: uid,
       );

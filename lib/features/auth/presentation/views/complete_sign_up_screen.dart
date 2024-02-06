@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/presentation/manager/complete_cubit/complete_cubit.dart';
-import 'package:tamrini/features/auth/presentation/views/widgets/complete_context_widget.dart';
+import 'package:tamrini/features/auth/presentation/views/widgets/complete_content_widget.dart';
 
 class CompleteSignUpScreen extends StatelessWidget {
   const CompleteSignUpScreen({

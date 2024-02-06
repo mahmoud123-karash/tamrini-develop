@@ -6,7 +6,6 @@ abstract class UseCase {
     required String name,
     required String email,
     required String phone,
-    required int age,
     required String gender,
     required String password,
   });
@@ -21,7 +20,6 @@ class RegisterUseCase extends UseCase {
     required String name,
     required String email,
     required String phone,
-    required int age,
     required String gender,
     required String password,
   }) async {
@@ -31,7 +29,6 @@ class RegisterUseCase extends UseCase {
         name: name,
         email: email,
         phone: phone,
-        age: age,
         gender: gender,
         uid: uid,
       );

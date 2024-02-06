@@ -19,7 +19,6 @@ class RegisterRepoImpl extends RegisterRepo {
     required String name,
     required String email,
     required String phone,
-    required int age,
     required String gender,
     required String uid,
   }) async {
@@ -27,13 +26,8 @@ class RegisterRepoImpl extends RegisterRepo {
       name: name,
       email: email,
       phone: phone,
-      token: '',
       uid: uid,
       gender: gender,
-      age: age,
-      isSubscribedToTrainer: false,
-      isSubscribedToGym: false,
-      isBanned: false,
       role: 'user',
     );
     await FirebaseFirestore.instance.collection('users').doc(uid).set(

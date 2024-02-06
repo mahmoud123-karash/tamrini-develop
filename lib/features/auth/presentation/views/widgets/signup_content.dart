@@ -26,7 +26,6 @@ class _SignupContentState extends State<SignupContent>
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
-  TextEditingController ageController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -37,7 +36,6 @@ class _SignupContentState extends State<SignupContent>
     passwordController.dispose();
     nameController.dispose();
     phoneController.dispose();
-    ageController.dispose();
 
     super.dispose();
   }
@@ -105,13 +103,6 @@ class _SignupContentState extends State<SignupContent>
                       type: TextInputType.text,
                       controller: confirmPasswordController,
                     ),
-                    InputTextFielsWidget(
-                      autovalidateMode: autovalidateMode,
-                      hint: S.of(context).age,
-                      iconData: Ionicons.calendar_outline,
-                      type: TextInputType.phone,
-                      controller: ageController,
-                    ),
                     const GenderRowWidget(),
                     const AgreePrivacyRowWidget(),
                     RegisterCustomBuilderButton(
@@ -137,7 +128,6 @@ class _SignupContentState extends State<SignupContent>
                               name: nameController.text,
                               email: emailController.text,
                               phone: phoneController.text,
-                              age: int.parse(ageController.text),
                               gender: gender,
                               password: passwordController.text,
                             );

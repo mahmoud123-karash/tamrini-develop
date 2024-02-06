@@ -7,7 +7,6 @@ abstract class RegisterRepo {
     required String name,
     required String email,
     required String phone,
-    required int age,
     required String gender,
     required String uid,
   });
