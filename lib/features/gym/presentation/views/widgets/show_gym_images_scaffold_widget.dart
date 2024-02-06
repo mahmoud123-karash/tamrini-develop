@@ -21,7 +21,7 @@ class ShowGymImagesScaffoldWidget extends StatelessWidget {
         iconTheme: const IconThemeData(
           color: Color(0xFF003E4F),
         ),
-        centerTitle: false,
+        centerTitle: true,
         title: Text(
           name,
           style: const TextStyle(

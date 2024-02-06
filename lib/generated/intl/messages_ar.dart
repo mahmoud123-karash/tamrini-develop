@@ -74,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
         "arabic_language":
             MessageLookupByLibrary.simpleMessage("اللغة العربية"),
+        "area": MessageLookupByLibrary.simpleMessage("الشارع ,المنطقة"),
         "article_body": MessageLookupByLibrary.simpleMessage("المقال"),
         "article_name": MessageLookupByLibrary.simpleMessage("اسم المقال"),
         "article_removed":
@@ -129,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("إختر الوجبة"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("اختر الوزن"),
+        "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "classification_name":
             MessageLookupByLibrary.simpleMessage("اسم الفئة"),
         "cm": MessageLookupByLibrary.simpleMessage("سم"),
@@ -193,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "from": MessageLookupByLibrary.simpleMessage("من"),
+        "full_name": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
         "g": MessageLookupByLibrary.simpleMessage("جم"),
         "gender": MessageLookupByLibrary.simpleMessage("الجنس"),
         "genderConfirm":
@@ -223,6 +226,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التمارين المنزلية"),
         "hour": MessageLookupByLibrary.simpleMessage("ساعة"),
         "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
+        "house_noum": MessageLookupByLibrary.simpleMessage("رقم المنزل"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("تعليمات التطبيق"),
         "image_error":
@@ -322,6 +326,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pass": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passConfirm": MessageLookupByLibrary.simpleMessage(
             "الرجاء التأكد من كلمة المرور "),
+        "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
         "penging_articles":
             MessageLookupByLibrary.simpleMessage("المقالات المعلقة"),
         "permission":
@@ -329,6 +334,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "phoneLenght":
             MessageLookupByLibrary.simpleMessage("الرجاء التأكد من رقم الهاتف"),
+        "pincode": MessageLookupByLibrary.simpleMessage("الرمز السري"),
         "price_sub": MessageLookupByLibrary.simpleMessage("سعر الاشتراك"),
         "privacy": MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
         "privacyConfirm":
@@ -476,6 +482,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حان وقت شرب الماء الخاص بك"),
         "to": MessageLookupByLibrary.simpleMessage("إلي"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
+        "total_price": MessageLookupByLibrary.simpleMessage("السعر الكلى"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
         "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("معرض الأعمال"),

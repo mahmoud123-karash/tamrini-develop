@@ -35,7 +35,7 @@ class SubscribtionsItemWidget extends StatelessWidget {
               ),
               GymSlideShowImagesWidget(
                 assets: gym.assets,
-                name: gym.description,
+                name: gym.name,
               ),
               Divider(
                 color: blackColor,

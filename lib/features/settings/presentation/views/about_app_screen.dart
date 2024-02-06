@@ -29,24 +29,25 @@ class AboutAppScreen extends StatelessWidget {
               ),
             ],
           ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(15),
-                child: Text.rich(
-                  TextSpan(
-                    style: TextStyles.style17.copyWith(
-                      fontWeight: FontWeight.w600,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Text.rich(
+                    TextSpan(
+                      style: TextStyles.style16Bold.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                      children: Intl.getCurrentLocale() == 'en'
+                          ? childrenEn
+                          : childrenAr,
                     ),
-                    children: Intl.getCurrentLocale() == 'en'
-                        ? childrenEn
-                        : childrenAr,
                   ),
                 ),
-              ),
-              const Spacer(),
-              const ApplogoAndNameWidget(),
-            ],
+                const ApplogoAndNameWidget(),
+              ],
+            ),
           ),
         ),
       ),

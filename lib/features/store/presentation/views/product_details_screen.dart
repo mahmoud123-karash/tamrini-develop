@@ -97,7 +97,7 @@ class ProductDetailsScreen extends StatelessWidget {
                                 ),
                               )
                             : ContactAndBuyProductWidget(
-                                contact: model.contact,
+                                model: model,
                               )
                       ],
                     ),

@@ -3719,6 +3719,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Pincode`
+  String get pincode {
+    return Intl.message(
+      'Pincode',
+      name: 'pincode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Street/Area`
+  String get area {
+    return Intl.message(
+      'Street/Area',
+      name: 'area',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `House Number`
+  String get house_noum {
+    return Intl.message(
+      'House Number',
+      name: 'house_noum',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message(
+      'City',
+      name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message(
+      'Full Name',
+      name: 'full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment`
+  String get payment {
+    return Intl.message(
+      'Payment',
+      name: 'payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Price`
+  String get total_price {
+    return Intl.message(
+      'Total Price',
+      name: 'total_price',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

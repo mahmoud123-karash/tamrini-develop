@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "app": MessageLookupByLibrary.simpleMessage("App"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
         "arabic_language": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "area": MessageLookupByLibrary.simpleMessage("Street/Area"),
         "article_body": MessageLookupByLibrary.simpleMessage("Article Body"),
         "article_name": MessageLookupByLibrary.simpleMessage("Article Name"),
         "article_removed": MessageLookupByLibrary.simpleMessage(
@@ -130,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("Choose a meal"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("Choose weight"),
+        "city": MessageLookupByLibrary.simpleMessage("City"),
         "classification_name":
             MessageLookupByLibrary.simpleMessage("Category Name"),
         "cm": MessageLookupByLibrary.simpleMessage("cm"),
@@ -197,6 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue without login"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
+        "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "g": MessageLookupByLibrary.simpleMessage("g"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
         "genderConfirm":
@@ -226,6 +229,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Home Exercises"),
         "hour": MessageLookupByLibrary.simpleMessage("hour"),
         "hours": MessageLookupByLibrary.simpleMessage("hours"),
+        "house_noum": MessageLookupByLibrary.simpleMessage("House Number"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("App Instructions"),
         "image_error":
@@ -323,6 +327,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pass": MessageLookupByLibrary.simpleMessage("Password"),
         "passConfirm":
             MessageLookupByLibrary.simpleMessage("please confirm the Password"),
+        "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "penging_articles":
             MessageLookupByLibrary.simpleMessage("Pending Articles"),
         "permission":
@@ -330,6 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phoneLenght": MessageLookupByLibrary.simpleMessage(
             "please Confirm your phone number"),
+        "pincode": MessageLookupByLibrary.simpleMessage("Pincode"),
         "price_sub": MessageLookupByLibrary.simpleMessage("Subscription Price"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
         "privacyConfirm":
@@ -483,6 +489,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "It\'s time to drink your water"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
+        "total_price": MessageLookupByLibrary.simpleMessage("Total Price"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
         "trainer": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),

@@ -365,7 +365,17 @@
     "ban_titile_store": "Your store has been banned",
     "no_ban_titile_store": "The ban on your store has been lifted",
     "store_banned": "Banned Stores",
-    "gyms_banned": "Banned Gyms"
+    "gyms_banned": "Banned Gyms",
+    "pincode": "Pincode",
+    "area": "Street/Area",
+    "house_noum": "House Number",
+    "city": "City",
+    "full_name": "Full Name",
+    "payment": "Payment",
+    "total_price": "Total Price"
+
+
+
 
 
 
