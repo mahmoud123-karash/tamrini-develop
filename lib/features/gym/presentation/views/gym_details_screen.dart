@@ -59,20 +59,20 @@ class GymDetailsScreen extends StatelessWidget {
                             child: GymDetailsContentWidget(model: model),
                           ),
                         ),
-                        userType == 'admin' || userType == 'gym_onwer'
-                            ? model.ownerUid == uid
-                                ? Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: customButton(
-                                      onPressed: () {
-                                        navigateTo(context,
-                                            NewGymScreen(model: model));
-                                      },
-                                      lable: S.of(context).edit,
-                                    ),
-                                  )
-                                : Container()
-                            : SubGymBuilderWidget(model: model),
+                        if (userType == 'admin' || userType == 'gym owner')
+                          model.ownerUid == uid
+                              ? Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: customButton(
+                                    onPressed: () {
+                                      navigateTo(
+                                          context, NewGymScreen(model: model));
+                                    },
+                                    lable: S.of(context).edit,
+                                  ),
+                                )
+                              : Container(),
+                        SubGymBuilderWidget(model: model),
                         if (userType == 'admin' && model.ownerUid != uid)
                           BanGymCustomButtonWidget(
                             uid: model.id,

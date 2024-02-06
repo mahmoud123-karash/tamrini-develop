@@ -79,7 +79,8 @@ class MyDrawer extends StatelessWidget {
             if (usertype == 'admin' || usertype == 'store owner')
               const StoreOwnerWidget(),
             if (usertype == 'gym owner') const GymOwnerListTileWidget(),
-            if (usertype != 'admin') const SubstrictionsListTileWidget(),
+            if (usertype != 'admin' && usertype != 'gym owner')
+              const SubstrictionsListTileWidget(),
             DrawerListTileWidget(
               onPressed: () {
                 navigateTo(context, const MyDayScreen());

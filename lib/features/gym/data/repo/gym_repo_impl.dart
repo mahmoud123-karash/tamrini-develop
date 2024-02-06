@@ -173,14 +173,14 @@ class GymRepoImpl extends GymRepo {
             : 'تم تقييد الصالة الرياضية الخاصة بك',
         data: {
           "type": "notification",
-          "subType": 'ban_gym',
+          "subType": 'gym',
         },
       );
     }
 
     NotificationModel model = NotificationModel(
       isReaden: false,
-      subType: 'ban_gym',
+      subType: 'gym',
       senderUid: adminUid,
       title: isBanned == true ? 'ban_gym' : 'no_ban_gym',
       body: '',

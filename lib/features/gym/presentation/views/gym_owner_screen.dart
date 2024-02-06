@@ -48,6 +48,36 @@ class GymOwnerScreen extends StatelessWidget {
                         style: TextStyles.style20Bold.copyWith(color: appColor),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 10,
+                      ),
+                      child: ListTile(
+                        onTap: () {},
+                        shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: appColor,
+                          ),
+                        ),
+                        leading: Icon(
+                          Icons.attach_money_rounded,
+                          color: appColor,
+                        ),
+                        title: Text(
+                          S.of(context).profits,
+                          style: TextStyles.style13.copyWith(
+                            color: appColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: appColor,
+                        ),
+                      ),
+                    ),
                     GymRowInfoWidget(
                       model: model,
                     ),

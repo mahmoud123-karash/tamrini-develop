@@ -31,6 +31,7 @@ class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
   @override
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype');
 
     return BlocBuilder<SubscriberCubit, SubscriberStates>(
       builder: (context, state) {
@@ -42,21 +43,25 @@ class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
                 .toList()
                 .first;
             if (model.endDate.toDate().isBefore(DateTime.now())) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: customButton(
-                  onPressed: () {},
-                  lable: S.of(context).renew_sub,
-                ),
-              );
+              return userType == 'gym owner'
+                  ? Container()
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: customButton(
+                        onPressed: () {},
+                        lable: S.of(context).renew_sub,
+                      ),
+                    );
             } else {
-              return SizedBox(
-                height: 50,
-                child: SubscriberMessageBuilderWidget(
-                  message: S.of(context).sub_hint,
-                  isSub: true,
-                ),
-              );
+              return userType == 'gym owner'
+                  ? Container()
+                  : SizedBox(
+                      height: 50,
+                      child: SubscriberMessageBuilderWidget(
+                        message: S.of(context).sub_hint,
+                        isSub: true,
+                      ),
+                    );
             }
           } else {
             return GymCustomButtonsWidget(

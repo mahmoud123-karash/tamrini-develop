@@ -7,8 +7,8 @@ import 'package:tamrini/features/store/presentation/manager/store_cubit/store_st
 import 'package:tamrini/features/store/presentation/views/widgets/store_owner_products_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class StoreOnwerProductScreen extends StatelessWidget {
-  const StoreOnwerProductScreen({super.key, required this.uid});
+class StoreOwnerProductScreen extends StatelessWidget {
+  const StoreOwnerProductScreen({super.key, required this.uid});
   final String uid;
 
   @override

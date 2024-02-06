@@ -5,7 +5,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_container_widget.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
-import 'package:tamrini/features/store/presentation/views/store_onwer_products_screen.dart';
+import 'package:tamrini/features/store/presentation/views/store_owner_products_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../manager/store_cubit/store_cubit.dart';
@@ -48,7 +48,7 @@ class StoreOwnerScreen extends StatelessWidget {
               ),
               StoreOwnerListTileWidget(
                 onTap: () {
-                  navigateTo(context, StoreOnwerProductScreen(uid: uid));
+                  navigateTo(context, StoreOwnerProductScreen(uid: uid));
                 },
                 icon: Icons.storage,
                 lable: S.of(context).store_owner_products,

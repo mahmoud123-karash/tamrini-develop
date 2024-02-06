@@ -18,35 +18,35 @@ class RemoveProductIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: ElevatedButton(
-        onPressed: () {
-          AwesomeDialog(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15,
-            ),
-            showCloseIcon: true,
-            titleTextStyle: TextStyles.style17.copyWith(
-              fontWeight: FontWeight.bold,
-              color: appColor,
-            ),
-            context: context,
-            dialogType: DialogType.warning,
-            animType: AnimType.bottomSlide,
-            title: model.title,
-            desc: S.of(context).remove_product_q,
-            btnCancelOnPress: () {},
-            btnOkOnPress: () {
-              StoreCubit.get(context).removeProduct(
-                store: store,
-                oldModel: model,
-                context: context,
-              );
-            },
-          ).show();
-        },
-        child: const Icon(
+    return GestureDetector(
+      onTap: () {
+        AwesomeDialog(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+          ),
+          showCloseIcon: true,
+          titleTextStyle: TextStyles.style17.copyWith(
+            fontWeight: FontWeight.bold,
+            color: appColor,
+          ),
+          context: context,
+          dialogType: DialogType.warning,
+          animType: AnimType.bottomSlide,
+          title: model.title,
+          desc: S.of(context).remove_product_q,
+          btnCancelOnPress: () {},
+          btnOkOnPress: () {
+            StoreCubit.get(context).removeProduct(
+              store: store,
+              oldModel: model,
+              context: context,
+            );
+          },
+        ).show();
+      },
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Icon(
           Icons.delete,
           color: Colors.red,
         ),
