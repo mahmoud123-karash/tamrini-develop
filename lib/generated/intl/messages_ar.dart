@@ -140,9 +140,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "cm": MessageLookupByLibrary.simpleMessage("سم"),
         "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
         "comment_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
-        "compeleted": MessageLookupByLibrary.simpleMessage("مكتمل"),
-        "compeleted_message": MessageLookupByLibrary.simpleMessage(
-            "تم تسليم طلبك ,أنت لم توقع بعد"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("من فضلك أكمل التسجيل"),
         "complete": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
@@ -158,8 +155,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
-        "deliverd": MessageLookupByLibrary.simpleMessage("تم التسليم"),
-        "delivered": MessageLookupByLibrary.simpleMessage("مستلم"),
         "delivered_message": MessageLookupByLibrary.simpleMessage(
             "تم تسليم طلبك ,أنت وقعت عليه"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
@@ -399,9 +394,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "rating_hint":
             MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المنتج"),
-        "rating_prodyct_hint":
-            MessageLookupByLibrary.simpleMessage("من فضلك قم بتقييم المنتج"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
+        "received": MessageLookupByLibrary.simpleMessage("مستلم"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
         "refuse_your_article":
             MessageLookupByLibrary.simpleMessage("تم رفض المقال الخاص بك"),

@@ -385,7 +385,7 @@
     "pending_message":"طلبك لم يتم تسليمه بعد",
     "compeleted":"مكتمل",
     "compeleted_message":"تم تسليم طلبك ,أنت لم توقع بعد",
-    "delivered":"مستلم",
+    "received":"مستلم",
     "delivered_message":"تم تسليم طلبك ,أنت وقعت عليه",
     "deliverd":"تم التسليم",
     "done":"تم",

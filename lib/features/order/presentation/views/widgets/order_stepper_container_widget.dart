@@ -76,15 +76,15 @@ class OrderStepperDetailsWidget extends StatelessWidget {
                 ? StepState.complete
                 : StepState.indexed,
             isActive: getStep(status: status) >= 1,
-            title: Text(S.of(context).compeleted),
-            content: Text(S.of(context).compeleted_message),
+            title: Text(S.of(context).completed),
+            content: Text(S.of(context).completed_message),
           ),
           Step(
             state: getStep(status: status) > 2
                 ? StepState.complete
                 : StepState.indexed,
             isActive: getStep(status: status) >= 2,
-            title: Text(S.of(context).delivered),
+            title: Text(S.of(context).received),
             content: Text('${S.of(context).delivered_message}!'),
           ),
           Step(
@@ -92,7 +92,7 @@ class OrderStepperDetailsWidget extends StatelessWidget {
                 ? StepState.complete
                 : StepState.indexed,
             isActive: getStep(status: status) == 3,
-            title: Text(S.of(context).deliverd),
+            title: Text(S.of(context).delivered),
             content: Text(S.of(context).delivered_message),
           ),
         ],

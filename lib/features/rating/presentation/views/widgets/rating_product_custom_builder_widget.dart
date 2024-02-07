@@ -32,7 +32,7 @@ class RatingProductCustomBuilderWidget extends StatelessWidget {
           return customButton(
               onPressed: () {
                 if (RatingCubit.get(context).rating == 1) {
-                  showSnackBar(context, S.of(context).rating_prodyct_hint);
+                  showSnackBar(context, S.of(context).rating_product_hint);
                 } else {
                   RatingCubit.get(context).rateProduct(
                     storeId: storeId,

@@ -86,8 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
         "available": MessageLookupByLibrary.simpleMessage("Available"),
-        "back_to_home":
-            MessageLookupByLibrary.simpleMessage("العودة الى الرئيسية"),
+        "back_to_home": MessageLookupByLibrary.simpleMessage("Back to Home"),
         "ban": MessageLookupByLibrary.simpleMessage("Ban"),
         "ban_article": MessageLookupByLibrary.simpleMessage("Ban Article"),
         "ban_food_hint": MessageLookupByLibrary.simpleMessage(
@@ -119,7 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "best_seller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "build_store": MessageLookupByLibrary.simpleMessage("Build Store"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
-        "buy_orders": MessageLookupByLibrary.simpleMessage("طلبات الشراء"),
+        "buy_orders": MessageLookupByLibrary.simpleMessage("Buy Orders"),
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "calories": MessageLookupByLibrary.simpleMessage("Calories"),
         "calory": MessageLookupByLibrary.simpleMessage("Calorie"),
@@ -142,12 +141,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "coach": MessageLookupByLibrary.simpleMessage("Coach"),
         "comment_error":
             MessageLookupByLibrary.simpleMessage("An error occurred"),
-        "compeleted": MessageLookupByLibrary.simpleMessage("مكتمل"),
-        "compeleted_message": MessageLookupByLibrary.simpleMessage(
-            "تم تسليم طلبك ,أنت لم توقع بعد"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
+        "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+        "completed_message": MessageLookupByLibrary.simpleMessage(
+            "Your order has been delivered, you are yet to sign."),
         "confirm_lang": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmpass": MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
@@ -160,16 +159,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "create1": MessageLookupByLibrary.simpleMessage("Create acount"),
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
-        "deliverd": MessageLookupByLibrary.simpleMessage("تم التسليم"),
-        "delivered": MessageLookupByLibrary.simpleMessage("مستلم"),
+        "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
         "delivered_message": MessageLookupByLibrary.simpleMessage(
-            "تم تسليم طلبك ,أنت وقعت عليه"),
+            "Your order has been delivered and signed by you"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "device_language":
             MessageLookupByLibrary.simpleMessage("Device Language"),
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("D.I"),
-        "done": MessageLookupByLibrary.simpleMessage("تم"),
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
         "edit_article": MessageLookupByLibrary.simpleMessage("Edit Article"),
@@ -193,7 +191,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "english_language": MessageLookupByLibrary.simpleMessage("English"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("Enter the number"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("Enter the link"),
-        "error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "exDetails": MessageLookupByLibrary.simpleMessage("Exercise Details"),
         "exercise": MessageLookupByLibrary.simpleMessage("Various Exercises"),
         "exercise_description":
@@ -227,7 +225,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("This gym has been removed"),
         "gym_remove_question": MessageLookupByLibrary.simpleMessage(
-            "هل تريد حذف هذه الصالة الرياضية ؟"),
+            "Do you want to delete this gym?"),
         "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove this gym?"),
         "gyms_banned": MessageLookupByLibrary.simpleMessage("Banned Gyms"),
@@ -338,7 +336,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "order_date": MessageLookupByLibrary.simpleMessage("Order Date"),
         "order_delivered": MessageLookupByLibrary.simpleMessage(
-            "تم استلام الطلب واضافت الارباح"),
+            "Order received and profits added"),
         "order_id": MessageLookupByLibrary.simpleMessage("Order ID"),
         "order_placed": MessageLookupByLibrary.simpleMessage(
             "Your order has been placed successfully"),
@@ -349,9 +347,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passConfirm":
             MessageLookupByLibrary.simpleMessage("please confirm the Password"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
-        "pending": MessageLookupByLibrary.simpleMessage("فى الإنتظار"),
-        "pending_message":
-            MessageLookupByLibrary.simpleMessage("طلبك لم يتم تسليمه بعد"),
+        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
+        "pending_message": MessageLookupByLibrary.simpleMessage(
+            "Your order is yet to be delivered"),
         "penging_articles":
             MessageLookupByLibrary.simpleMessage("Pending Articles"),
         "permission":
@@ -381,7 +379,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("None"),
         "profits": MessageLookupByLibrary.simpleMessage("Profits"),
         "profits_request":
-            MessageLookupByLibrary.simpleMessage("طلبات سحلب الارباح"),
+            MessageLookupByLibrary.simpleMessage("Profits Request"),
         "promotion": MessageLookupByLibrary.simpleMessage("Promotion Requests"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),
@@ -399,11 +397,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "qunatity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),
         "rating": MessageLookupByLibrary.simpleMessage("Rating"),
-        "rating_hint":
-            MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المنتج"),
-        "rating_prodyct_hint":
-            MessageLookupByLibrary.simpleMessage("من فضلك قم بتقييم المنتج"),
+        "rating_hint": MessageLookupByLibrary.simpleMessage(
+            "Rate this product from 1 to 5"),
+        "rating_product_hint":
+            MessageLookupByLibrary.simpleMessage("Please rate the product"),
         "recalculate": MessageLookupByLibrary.simpleMessage("Recalculate"),
+        "received": MessageLookupByLibrary.simpleMessage("Received"),
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
         "refuse_your_article": MessageLookupByLibrary.simpleMessage(
             "Your article has been refused"),

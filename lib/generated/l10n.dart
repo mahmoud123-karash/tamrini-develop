@@ -3880,160 +3880,160 @@ class S {
     );
   }
 
-  /// `فى الإنتظار`
+  /// `Pending`
   String get pending {
     return Intl.message(
-      'فى الإنتظار',
+      'Pending',
       name: 'pending',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلبك لم يتم تسليمه بعد`
+  /// `Your order is yet to be delivered`
   String get pending_message {
     return Intl.message(
-      'طلبك لم يتم تسليمه بعد',
+      'Your order is yet to be delivered',
       name: 'pending_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `مكتمل`
-  String get compeleted {
+  /// `Completed`
+  String get completed {
     return Intl.message(
-      'مكتمل',
-      name: 'compeleted',
+      'Completed',
+      name: 'completed',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تسليم طلبك ,أنت لم توقع بعد`
-  String get compeleted_message {
+  /// `Your order has been delivered, you are yet to sign.`
+  String get completed_message {
     return Intl.message(
-      'تم تسليم طلبك ,أنت لم توقع بعد',
-      name: 'compeleted_message',
+      'Your order has been delivered, you are yet to sign.',
+      name: 'completed_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `مستلم`
-  String get delivered {
+  /// `Received`
+  String get received {
     return Intl.message(
-      'مستلم',
-      name: 'delivered',
+      'Received',
+      name: 'received',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم تسليم طلبك ,أنت وقعت عليه`
+  /// `Your order has been delivered and signed by you`
   String get delivered_message {
     return Intl.message(
-      'تم تسليم طلبك ,أنت وقعت عليه',
+      'Your order has been delivered and signed by you',
       name: 'delivered_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم`
+  /// `Done`
   String get done {
     return Intl.message(
-      'تم',
+      'Done',
       name: 'done',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم التسليم`
-  String get deliverd {
+  /// `Delivered`
+  String get delivered {
     return Intl.message(
-      'تم التسليم',
-      name: 'deliverd',
+      'Delivered',
+      name: 'delivered',
       desc: '',
       args: [],
     );
   }
 
-  /// `حدث خطأ`
+  /// `Error`
   String get error {
     return Intl.message(
-      'حدث خطأ',
+      'Error',
       name: 'error',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم استلام الطلب واضافت الارباح`
+  /// `Order received and profits added`
   String get order_delivered {
     return Intl.message(
-      'تم استلام الطلب واضافت الارباح',
+      'Order received and profits added',
       name: 'order_delivered',
       desc: '',
       args: [],
     );
   }
 
-  /// `أعطى من 1 إلي 5 لهذا المنتج`
+  /// `Rate this product from 1 to 5`
   String get rating_hint {
     return Intl.message(
-      'أعطى من 1 إلي 5 لهذا المنتج',
+      'Rate this product from 1 to 5',
       name: 'rating_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `العودة الى الرئيسية`
+  /// `Back to Home`
   String get back_to_home {
     return Intl.message(
-      'العودة الى الرئيسية',
+      'Back to Home',
       name: 'back_to_home',
       desc: '',
       args: [],
     );
   }
 
-  /// `من فضلك قم بتقييم المنتج`
-  String get rating_prodyct_hint {
+  /// `Please rate the product`
+  String get rating_product_hint {
     return Intl.message(
-      'من فضلك قم بتقييم المنتج',
-      name: 'rating_prodyct_hint',
+      'Please rate the product',
+      name: 'rating_product_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلبات سحلب الارباح`
+  /// `Profits Request`
   String get profits_request {
     return Intl.message(
-      'طلبات سحلب الارباح',
+      'Profits Request',
       name: 'profits_request',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذه الصالة الرياضية ؟`
+  /// `Do you want to delete this gym?`
   String get gym_remove_question {
     return Intl.message(
-      'هل تريد حذف هذه الصالة الرياضية ؟',
+      'Do you want to delete this gym?',
       name: 'gym_remove_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلبات الشراء`
+  /// `Buy Orders`
   String get buy_orders {
     return Intl.message(
-      'طلبات الشراء',
+      'Buy Orders',
       name: 'buy_orders',
       desc: '',
       args: [],
