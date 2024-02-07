@@ -196,6 +196,7 @@ void setLocator() {
   getIt.registerSingleton<OrederRepoImpl>(
     OrederRepoImpl(
       OrderRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 

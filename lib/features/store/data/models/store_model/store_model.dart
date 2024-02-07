@@ -6,6 +6,7 @@ class StoreModel {
   final String image;
   final String storeOwnerUid;
   final bool isBanned;
+  final num profits;
   List<ProductModel>? products;
 
   StoreModel({
@@ -15,6 +16,7 @@ class StoreModel {
     required this.contact,
     required this.isBanned,
     required this.products,
+    required this.profits,
   });
 
   factory StoreModel.fromMap(Map<String, dynamic> map) {
@@ -29,6 +31,7 @@ class StoreModel {
       isBanned: map['isBanned'] ?? false,
       storeOwnerUid: map['storeOwnerUid'] ?? '',
       contact: map['contact'] ?? '',
+      profits: map['profits'] ?? 0,
       products: products,
     );
   }
@@ -40,6 +43,7 @@ class StoreModel {
       'image': image,
       'isBanned': isBanned,
       'contact': contact,
+      'profits': profits,
       'products': products!.map((product) => product.toMap()).toList(),
     };
   }

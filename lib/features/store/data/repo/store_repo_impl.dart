@@ -60,6 +60,7 @@ class StoreRepoImpl extends StoreRepo {
         image: images.isEmpty ? '' : images.first,
         name: name,
         storeOwnerUid: uid,
+        profits: 0,
         contact: contact,
         isBanned: false,
         products: [],
@@ -91,6 +92,7 @@ class StoreRepoImpl extends StoreRepo {
           storeOwnerUid: store.storeOwnerUid,
           contact: contact,
           isBanned: false,
+          profits: store.profits,
           products: store.products,
         );
       } else {
@@ -106,6 +108,7 @@ class StoreRepoImpl extends StoreRepo {
           storeOwnerUid: store.storeOwnerUid,
           contact: contact,
           isBanned: false,
+          profits: store.profits,
           products: store.products,
         );
       }
@@ -162,6 +165,7 @@ class StoreRepoImpl extends StoreRepo {
         name: store.name,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
+        profits: store.profits,
         isBanned: store.isBanned,
         products: products,
       );
@@ -236,6 +240,7 @@ class StoreRepoImpl extends StoreRepo {
         name: store.name,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
+        profits: store.profits,
         isBanned: store.isBanned,
         products: products,
       );
@@ -263,6 +268,7 @@ class StoreRepoImpl extends StoreRepo {
         name: store.name,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
+        profits: store.profits,
         isBanned: false,
         products: products,
       );

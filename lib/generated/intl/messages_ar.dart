@@ -85,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "auto_reminder":
             MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
         "available": MessageLookupByLibrary.simpleMessage("متوفر"),
+        "back_to_home":
+            MessageLookupByLibrary.simpleMessage("العودة الى الرئيسية"),
         "ban": MessageLookupByLibrary.simpleMessage("تقييد"),
         "ban_article": MessageLookupByLibrary.simpleMessage("تقييد المقال"),
         "ban_food_hint":
@@ -137,6 +139,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cm": MessageLookupByLibrary.simpleMessage("سم"),
         "coach": MessageLookupByLibrary.simpleMessage("المدرب"),
         "comment_error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
+        "compeleted": MessageLookupByLibrary.simpleMessage("مكتمل"),
+        "compeleted_message": MessageLookupByLibrary.simpleMessage(
+            "تم تسليم طلبك ,أنت لم توقع بعد"),
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("من فضلك أكمل التسجيل"),
         "complete": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
@@ -152,10 +157,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
+        "deliverd": MessageLookupByLibrary.simpleMessage("تم التسليم"),
+        "delivered": MessageLookupByLibrary.simpleMessage("مستلم"),
+        "delivered_message": MessageLookupByLibrary.simpleMessage(
+            "تم تسليم طلبك ,أنت وقعت عليه"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "device_language": MessageLookupByLibrary.simpleMessage("لغة الجهاز"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
-        "dinar": MessageLookupByLibrary.simpleMessage("دينار"),
+        "dinar": MessageLookupByLibrary.simpleMessage("د.ع"),
+        "done": MessageLookupByLibrary.simpleMessage("تم"),
         "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
         "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
@@ -180,6 +190,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("أدخل الرقم"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
+        "error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
         "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
         "exercise_description":
@@ -322,6 +333,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
+        "order_delivered": MessageLookupByLibrary.simpleMessage(
+            "تم استلام الطلب واضافت الارباح"),
         "order_id": MessageLookupByLibrary.simpleMessage("رقم الطلب "),
         "order_placed":
             MessageLookupByLibrary.simpleMessage("لقد تم تأكيد طلبك بنجاح"),
@@ -332,6 +345,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passConfirm": MessageLookupByLibrary.simpleMessage(
             "الرجاء التأكد من كلمة المرور "),
         "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
+        "pending": MessageLookupByLibrary.simpleMessage("فى الإنتظار"),
+        "pending_message":
+            MessageLookupByLibrary.simpleMessage("طلبك لم يتم تسليمه بعد"),
         "penging_articles":
             MessageLookupByLibrary.simpleMessage("المقالات المعلقة"),
         "permission":
@@ -376,6 +392,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "qunatity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
+        "rating_hint":
+            MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المنتج"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
         "refuse_your_article":

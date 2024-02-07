@@ -12,4 +12,16 @@ abstract class OrderRepo {
     required String phone,
     required Product product,
   });
+
+  Future<Either<String, List<OrderModel>>> updateOrder({
+    required String status,
+    required String orderId,
+  });
+
+  Future<Either<String, List<OrderModel>>> userReciededOrder({
+    required String status,
+    required String orderId,
+    required String stroreId,
+    required num totalPrice,
+  });
 }

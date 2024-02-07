@@ -56,7 +56,7 @@
     "bestSeller":"الأفضل مبيعا",
     "proDetails": "تفاصيل المنتج",
     "description":"الوصف",
-    "dinar":"دينار",
+    "dinar":"د.ع",
     "buyNow":"شراء الآن",
     "contactUs":"تواصل معنا",
     "locationService":"خدمة الموقع معطلة",
@@ -380,7 +380,19 @@
     "purchase_details":"تفاصيل شراء",
     "tracking":"تتبع",
     "order_id":"رقم الطلب ",
-    "order_date":"تاريخ الطلب"
+    "order_date":"تاريخ الطلب",
+    "pending":"فى الإنتظار",
+    "pending_message":"طلبك لم يتم تسليمه بعد",
+    "compeleted":"مكتمل",
+    "compeleted_message":"تم تسليم طلبك ,أنت لم توقع بعد",
+    "delivered":"مستلم",
+    "delivered_message":"تم تسليم طلبك ,أنت وقعت عليه",
+    "deliverd":"تم التسليم",
+    "done":"تم",
+    "error":"حدث خطأ",
+    "order_delivered":"تم استلام الطلب واضافت الارباح",
+    "rating_hint":"أعطى من 1 إلي 5 لهذا المنتج",
+    "back_to_home":"العودة الى الرئيسية"
 
 
 

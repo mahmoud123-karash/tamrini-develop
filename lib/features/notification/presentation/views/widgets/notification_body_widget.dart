@@ -61,6 +61,8 @@ class NotificationBodyWidget extends StatelessWidget {
                         ? S.of(context).ban_titile_store
                         : title == 'no_ban_store'
                             ? S.of(context).no_ban_titile_store
-                            : title;
+                            : title == 'order'
+                                ? S.of(context).order_delivered
+                                : title;
   }
 }

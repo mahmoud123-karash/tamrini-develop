@@ -56,7 +56,7 @@
     "bestSeller": "Best Seller",
     "proDetails": "Product Details",
     "description": "Description",
-    "dinar": "Dinar",
+    "dinar": "D.I",
     "buyNow": "Buy Now",
     "contactUs": "Contact Us",
     "locationService": "Location Service Disabled",
@@ -381,31 +381,19 @@
     "purchase_details": "Purchase Details",
     "tracking": "Tracking",
     "order_id": "Order ID",
-    "order_date": "Order Date"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
+    "order_date": "Order Date",
+    "pending":"فى الإنتظار",
+    "pending_message":"طلبك لم يتم تسليمه بعد",
+    "compeleted":"مكتمل",
+    "compeleted_message":"تم تسليم طلبك ,أنت لم توقع بعد",
+    "delivered":"مستلم",
+    "delivered_message":"تم تسليم طلبك ,أنت وقعت عليه",
+    "done":"تم",
+    "deliverd":"تم التسليم",
+    "error":"حدث خطأ",
+    "order_delivered":"تم استلام الطلب واضافت الارباح",
+    "rating_hint":"أعطى من 1 إلي 5 لهذا المنتج",
+    "back_to_home":"العودة الى الرئيسية"
 
 
 

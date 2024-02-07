@@ -19,7 +19,10 @@ class OrderGridViewWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
           onTap: () {
-            navigateTo(context, OrderDetailsScreen(order: list[index]));
+            navigateTo(
+              context,
+              OrderDetailsScreen(orderId: list[index].orderId),
+            );
           },
           child: OrderItemWidget(image: list[index].product.image),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/order/data/models/order_model/product.dart';
-import 'package:tamrini/features/order/presentation/views/widgets/ddress_container_widget.dart';
+import 'package:tamrini/features/order/presentation/views/widgets/address_container_widget.dart';
 import 'package:tamrini/features/order/presentation/views/widgets/row_value_lable_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 

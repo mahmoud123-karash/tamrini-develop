@@ -6,7 +6,7 @@ import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_containe
 import 'package:tamrini/features/navBar/presentation/views/widgets/badge_order_icon_widget.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_states.dart';
-import 'package:tamrini/features/order/presentation/views/user_orders_screen.dart';
+import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_products_screen.dart';
@@ -60,14 +60,6 @@ class StoreOwnerScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              StoreOwnerListTileWidget(
-                onTap: () {},
-                icon: Icons.attach_money_rounded,
-                lable: S.of(context).profits,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
               BlocBuilder<OrderCubit, OrderStates>(
                 builder: (context, state) {
                   if (state is SuccessGetOrdersState) {
@@ -85,7 +77,7 @@ class StoreOwnerScreen extends StatelessWidget {
                         ),
                         BadgeOrderIconWidget(
                           length: state.list
-                              .where((element) => element.status == 'waiting')
+                              .where((element) => element.status == 'Pending')
                               .length,
                         )
                       ],
@@ -94,6 +86,14 @@ class StoreOwnerScreen extends StatelessWidget {
                     return Container();
                   }
                 },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              StoreOwnerListTileWidget(
+                onTap: () {},
+                icon: Icons.attach_money_rounded,
+                lable: S.of(context).profits,
               ),
             ],
           );

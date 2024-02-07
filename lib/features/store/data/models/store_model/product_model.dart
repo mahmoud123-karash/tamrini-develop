@@ -30,23 +30,6 @@ class ProductModel {
     required this.rating,
   });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'description': description,
-      'title': title,
-      'id': id,
-      'contact': contact,
-      'image': image,
-      'price': price,
-      'ownerUid': ownerUid,
-      'available': available,
-      'bestSeller': bestSeller,
-      'type': type,
-      'oldPrice': oldPrice,
-      'rating': rating.map((e) => e.toMap()).toList(),
-    };
-  }
-
   factory ProductModel.fromMap(Map<String, dynamic> map) {
     final List<dynamic> productsJson = map['rating'] ?? [];
     List<Rating> rate = productsJson.map((productJson) {
@@ -66,5 +49,22 @@ class ProductModel {
       type: map['type'] ?? '',
       rating: rate,
     );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'description': description,
+      'title': title,
+      'id': id,
+      'contact': contact,
+      'image': image,
+      'price': price,
+      'ownerUid': ownerUid,
+      'available': available,
+      'bestSeller': bestSeller,
+      'type': type,
+      'oldPrice': oldPrice,
+      'rating': rating.map((e) => e.toMap()).toList(),
+    };
   }
 }

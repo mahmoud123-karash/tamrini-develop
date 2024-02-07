@@ -11,6 +11,8 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
+import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
+import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
@@ -28,6 +30,9 @@ void onMessage({
       }
       if (message.data['subType'] == 'gym') {
         GymCubit.get(context).getData(update: false);
+      }
+      if (message.data['subType'] == 'order') {
+        OrderCubit.get(context).getData();
       }
       AwesomeNotifications().createNotification(
         content: NotificationContent(
@@ -98,6 +103,9 @@ void openNotification(RemoteMessage event, BuildContext context) {
     }
     if (event.data['subType'] == 'gym') {
       navigateTo(context, const GymOwnerScreen());
+    }
+    if (event.data['subType'] == 'order') {
+      navigateTo(context, OrderDetailsScreen(orderId: event.data['uid']));
     }
   }
 }

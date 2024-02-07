@@ -620,10 +620,10 @@ class S {
     );
   }
 
-  /// `Dinar`
+  /// `D.I`
   String get dinar {
     return Intl.message(
-      'Dinar',
+      'D.I',
       name: 'dinar',
       desc: '',
       args: [],
@@ -3875,6 +3875,126 @@ class S {
     return Intl.message(
       'Order Date',
       name: 'order_date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `فى الإنتظار`
+  String get pending {
+    return Intl.message(
+      'فى الإنتظار',
+      name: 'pending',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `طلبك لم يتم تسليمه بعد`
+  String get pending_message {
+    return Intl.message(
+      'طلبك لم يتم تسليمه بعد',
+      name: 'pending_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مكتمل`
+  String get compeleted {
+    return Intl.message(
+      'مكتمل',
+      name: 'compeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تسليم طلبك ,أنت لم توقع بعد`
+  String get compeleted_message {
+    return Intl.message(
+      'تم تسليم طلبك ,أنت لم توقع بعد',
+      name: 'compeleted_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مستلم`
+  String get delivered {
+    return Intl.message(
+      'مستلم',
+      name: 'delivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم تسليم طلبك ,أنت وقعت عليه`
+  String get delivered_message {
+    return Intl.message(
+      'تم تسليم طلبك ,أنت وقعت عليه',
+      name: 'delivered_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم`
+  String get done {
+    return Intl.message(
+      'تم',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم التسليم`
+  String get deliverd {
+    return Intl.message(
+      'تم التسليم',
+      name: 'deliverd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حدث خطأ`
+  String get error {
+    return Intl.message(
+      'حدث خطأ',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم استلام الطلب واضافت الارباح`
+  String get order_delivered {
+    return Intl.message(
+      'تم استلام الطلب واضافت الارباح',
+      name: 'order_delivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أعطى من 1 إلي 5 لهذا المنتج`
+  String get rating_hint {
+    return Intl.message(
+      'أعطى من 1 إلي 5 لهذا المنتج',
+      name: 'rating_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `العودة الى الرئيسية`
+  String get back_to_home {
+    return Intl.message(
+      'العودة الى الرئيسية',
+      name: 'back_to_home',
       desc: '',
       args: [],
     );
