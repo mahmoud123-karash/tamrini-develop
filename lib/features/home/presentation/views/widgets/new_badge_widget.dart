@@ -11,7 +11,7 @@ class NewBadgeWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: const Padding(
-        padding: EdgeInsets.all(3.0),
+        padding: EdgeInsets.all(5.0),
         child: Text(
           'new',
           style: TextStyle(

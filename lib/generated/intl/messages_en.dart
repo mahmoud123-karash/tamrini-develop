@@ -119,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "best_seller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "build_store": MessageLookupByLibrary.simpleMessage("Build Store"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
+        "buy_orders": MessageLookupByLibrary.simpleMessage("طلبات الشراء"),
         "by": MessageLookupByLibrary.simpleMessage("By"),
         "calories": MessageLookupByLibrary.simpleMessage("Calories"),
         "calory": MessageLookupByLibrary.simpleMessage("Calorie"),
@@ -225,6 +226,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_owners": MessageLookupByLibrary.simpleMessage("Gym Owners"),
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("This gym has been removed"),
+        "gym_remove_question": MessageLookupByLibrary.simpleMessage(
+            "هل تريد حذف هذه الصالة الرياضية ؟"),
         "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove this gym?"),
         "gyms_banned": MessageLookupByLibrary.simpleMessage("Banned Gyms"),
@@ -377,6 +380,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("Your Profile"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("None"),
         "profits": MessageLookupByLibrary.simpleMessage("Profits"),
+        "profits_request":
+            MessageLookupByLibrary.simpleMessage("طلبات سحلب الارباح"),
         "promotion": MessageLookupByLibrary.simpleMessage("Promotion Requests"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),

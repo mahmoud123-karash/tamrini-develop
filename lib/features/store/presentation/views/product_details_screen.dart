@@ -89,9 +89,10 @@ class ProductDetailsScreen extends StatelessWidget {
                                 child: customButton(
                                   onPressed: () {
                                     navigateTo(
-                                        context,
-                                        NewProductScreen(
-                                            model: model, store: sModel!));
+                                      context,
+                                      NewProductScreen(
+                                          model: model, store: sModel!),
+                                    );
                                   },
                                   lable: S.of(context).edit,
                                 ),

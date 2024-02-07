@@ -40,7 +40,10 @@ class HomeProductItemWidget extends StatelessWidget {
               width: width,
             ),
             calculateAverageRating(model.rating) == 0
-                ? const NewBadgeWidget()
+                ? const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: NewBadgeWidget(),
+                  )
                 : model.bestSeller
                     ? const Padding(
                         padding: EdgeInsets.all(5),

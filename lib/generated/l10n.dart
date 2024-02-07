@@ -4009,6 +4009,36 @@ class S {
       args: [],
     );
   }
+
+  /// `طلبات سحلب الارباح`
+  String get profits_request {
+    return Intl.message(
+      'طلبات سحلب الارباح',
+      name: 'profits_request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذه الصالة الرياضية ؟`
+  String get gym_remove_question {
+    return Intl.message(
+      'هل تريد حذف هذه الصالة الرياضية ؟',
+      name: 'gym_remove_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `طلبات الشراء`
+  String get buy_orders {
+    return Intl.message(
+      'طلبات الشراء',
+      name: 'buy_orders',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

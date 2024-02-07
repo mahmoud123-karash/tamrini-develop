@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
@@ -22,8 +23,7 @@ class GymDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
-    String userType = CacheHelper.getData(key: 'usertype');
-    String uid = CacheHelper.getData(key: 'uid');
+
     log(gymId);
     return Scaffold(
       appBar: myAppBar(S.of(context).gym_details),
@@ -59,33 +59,48 @@ class GymDetailsScreen extends StatelessWidget {
                             child: GymDetailsContentWidget(model: model),
                           ),
                         ),
-                        if (userType == 'admin' || userType == 'gym owner')
-                          model.ownerUid == uid
-                              ? Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: customButton(
-                                    onPressed: () {
-                                      navigateTo(
-                                          context, NewGymScreen(model: model));
-                                    },
-                                    lable: S.of(context).edit,
-                                  ),
-                                )
-                              : Container(),
-                        SubGymBuilderWidget(model: model),
-                        if (userType == 'admin' && model.ownerUid != uid)
-                          BanGymCustomButtonWidget(
-                            uid: model.id,
-                            title: model.name,
-                            ownerId: model.ownerUid,
-                            isBanned: model.isBanned,
-                          ),
+                        SubAndEditCustomWidget(model: model),
                       ],
                     ),
                   ),
                 );
         },
       ),
+    );
+  }
+}
+
+class SubAndEditCustomWidget extends StatelessWidget {
+  const SubAndEditCustomWidget({super.key, required this.model});
+  final GymModel model;
+  @override
+  Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid');
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        if (userType == 'admin' || userType == 'gym owner')
+          model.ownerUid == uid
+              ? Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: customButton(
+                    onPressed: () {
+                      navigateTo(context, NewGymScreen(model: model));
+                    },
+                    lable: S.of(context).edit,
+                  ),
+                )
+              : Container(),
+        if (model.ownerUid != adminUid) SubGymBuilderWidget(model: model),
+        if (userType == 'admin' && model.ownerUid != uid)
+          BanGymCustomButtonWidget(
+            uid: model.id,
+            title: model.name,
+            ownerId: model.ownerUid,
+            isBanned: model.isBanned,
+          ),
+      ],
     );
   }
 }

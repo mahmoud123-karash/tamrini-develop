@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -13,6 +14,8 @@ class ContactAndBuyProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String usertype = CacheHelper.getData(key: 'usertype');
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -21,13 +24,14 @@ class ContactAndBuyProductWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomBuyNowButtonWidget(
-            onPressed: () {
-              navigateTo(context, AddressScreen(model: model));
-            },
-            lable: S.of(context).buyNow,
-            color: appColor,
-          ),
+          if (usertype != 'admin' && usertype != 'store onwer')
+            CustomBuyNowButtonWidget(
+              onPressed: () {
+                navigateTo(context, AddressScreen(model: model));
+              },
+              lable: S.of(context).buyNow,
+              color: appColor,
+            ),
           const SizedBox(
             width: 10,
           ),

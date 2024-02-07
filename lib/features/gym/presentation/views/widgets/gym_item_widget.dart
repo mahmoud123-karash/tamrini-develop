@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_details_screen.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/gym/presentation/views/widgets/remove_icon_gym_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
 import '../../../../gym/presentation/views/widgets/gym_distance_price_widget.dart';
@@ -95,6 +97,8 @@ class GymItemWidget extends StatelessWidget {
                 ),
               ),
             ),
+            if (!isHome)
+              if (model.ownerUid == adminUid) RemoveiconGymWidget(model: model),
           ],
         ),
       ),

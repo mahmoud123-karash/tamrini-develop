@@ -117,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "best_seller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "build_store": MessageLookupByLibrary.simpleMessage("انشاء متجر"),
         "buyNow": MessageLookupByLibrary.simpleMessage("شراء الآن"),
+        "buy_orders": MessageLookupByLibrary.simpleMessage("طلبات الشراء"),
         "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
         "calories": MessageLookupByLibrary.simpleMessage("سعرات"),
         "calory": MessageLookupByLibrary.simpleMessage("سعرة"),
@@ -221,6 +222,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_owners": MessageLookupByLibrary.simpleMessage("أصحاب الصالات"),
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("تم حذف هذه الصالة"),
+        "gym_remove_question": MessageLookupByLibrary.simpleMessage(
+            "هل تريد حذف هذه الصالة الرياضية ؟"),
         "gym_removed_hint":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الصالة ؟"),
         "gyms_banned":
@@ -376,6 +379,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("ملفك الشخصي"),
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("لا يوجد"),
         "profits": MessageLookupByLibrary.simpleMessage("الأرباح"),
+        "profits_request":
+            MessageLookupByLibrary.simpleMessage("طلبات سحلب الارباح"),
         "promotion": MessageLookupByLibrary.simpleMessage("طلبات الترقية"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),

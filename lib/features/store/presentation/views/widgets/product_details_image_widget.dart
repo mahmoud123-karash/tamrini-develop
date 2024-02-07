@@ -11,29 +11,25 @@ class ProductDetailsImageWidget extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
     final getHieght = mediaQuery.size.height;
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 20,
-      ),
-      child: Container(
-        width: getWidht,
-        height: getHieght / 4,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: whiteColor,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 20,
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Image(
+        child: Container(
+          width: getWidht / 1.8,
+          height: getHieght / 4,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: whiteColor,
+            image: DecorationImage(
+              fit: BoxFit.cover,
               image: FirebaseImageProvider(
                 FirebaseUrl(image),
                 options: const CacheOptions(
                   checkForMetadataChange: false,
                 ),
               ),
-              fit: BoxFit.contain,
             ),
           ),
         ),

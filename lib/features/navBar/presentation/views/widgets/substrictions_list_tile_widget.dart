@@ -17,13 +17,17 @@ class SubstrictionsListTileWidget extends StatelessWidget {
       child: BlocBuilder<UserCubit, UserStates>(
         builder: (context, state) {
           if (state is SucessGetUserSubState) {
-            return DrawerListTileWidget(
-              onPressed: () {
-                navigateTo(context, SubscriptionsScreen(list: state.list));
-              },
-              icon: Icons.subscriptions_outlined,
-              lable: S.of(context).Subscriptions,
-            );
+            if (state.list.isEmpty) {
+              return Container();
+            } else {
+              return DrawerListTileWidget(
+                onPressed: () {
+                  navigateTo(context, SubscriptionsScreen(list: state.list));
+                },
+                icon: Icons.subscriptions_outlined,
+                lable: S.of(context).Subscriptions,
+              );
+            }
           } else {
             return Container();
           }

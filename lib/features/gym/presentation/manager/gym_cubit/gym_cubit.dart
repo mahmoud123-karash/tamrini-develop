@@ -152,4 +152,28 @@ class GymCubit extends Cubit<GymStates> {
       },
     );
   }
+
+  void removeGym({
+    required String id,
+    required String message,
+    required List<String> assets,
+  }) async {
+    var result = await gymRepo.removeGym(
+      gymId: id,
+      assets: assets,
+    );
+    result.fold(
+      (message) {
+        log(message);
+        getData(update: false);
+        emit(ErrorGetGymsState(message));
+      },
+      (list) {
+        gyms = list;
+        showToast(message);
+        List<GymModel> models = clearBannedGym(list);
+        emit(SucessGetGymsState(models));
+      },
+    );
+  }
 }

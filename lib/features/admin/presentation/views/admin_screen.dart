@@ -23,51 +23,59 @@ class AdminScreen extends StatelessWidget {
           horizontal: 20,
           vertical: 15,
         ),
-        child: Column(
-          children: [
-            const HelloAdminWidget(),
-            const SizedBox(
-              height: 15,
-            ),
-            const AdminUserRowWidget(),
-            const SizedBox(
-              height: 25,
-            ),
-            AdminListTileWidget(
-              lable: S.of(context).all_users,
-              icon: Ionicons.person,
-              onPressed: () {
-                navigateTo(context,
-                    UsersScreen(title: S.of(context).all_users, usrType: ''));
-              },
-            ),
-            AdminListTileWidget(
-              icon: Icons.fitness_center_outlined,
-              lable: S.of(context).suggested_exercises,
-              onPressed: () {
-                navigateTo(context, const SuggestedExerciseScreen());
-              },
-            ),
-            AdminListTileWidget(
-              icon: Icons.store_sharp,
-              lable: S.of(context).store_banned,
-              onPressed: () {
-                navigateTo(context, const BannedStoreScreen());
-              },
-            ),
-            AdminListTileWidget(
-              icon: Icons.fitness_center,
-              lable: S.of(context).gyms_banned,
-              onPressed: () {
-                navigateTo(context, const BannedGymsScreen());
-              },
-            ),
-            AdminListTileWidget(
-              icon: Icons.star,
-              lable: S.of(context).promotion,
-              onPressed: () {},
-            ),
-          ],
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const HelloAdminWidget(),
+              const SizedBox(
+                height: 15,
+              ),
+              const AdminUserRowWidget(),
+              const SizedBox(
+                height: 25,
+              ),
+              AdminListTileWidget(
+                lable: S.of(context).all_users,
+                icon: Ionicons.person,
+                onPressed: () {
+                  navigateTo(context,
+                      UsersScreen(title: S.of(context).all_users, usrType: ''));
+                },
+              ),
+              AdminListTileWidget(
+                icon: Icons.fitness_center_outlined,
+                lable: S.of(context).suggested_exercises,
+                onPressed: () {
+                  navigateTo(context, const SuggestedExerciseScreen());
+                },
+              ),
+              AdminListTileWidget(
+                icon: Icons.store_sharp,
+                lable: S.of(context).store_banned,
+                onPressed: () {
+                  navigateTo(context, const BannedStoreScreen());
+                },
+              ),
+              AdminListTileWidget(
+                icon: Icons.fitness_center,
+                lable: S.of(context).gyms_banned,
+                onPressed: () {
+                  navigateTo(context, const BannedGymsScreen());
+                },
+              ),
+              AdminListTileWidget(
+                icon: Icons.star,
+                lable: S.of(context).promotion,
+                onPressed: () {},
+              ),
+              AdminListTileWidget(
+                icon: Icons.attach_money_rounded,
+                lable: S.of(context).profits_request,
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );

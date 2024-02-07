@@ -36,7 +36,7 @@ class HomeProductPriceWidget extends StatelessWidget {
           Container(
             constraints: const BoxConstraints(maxWidth: 60),
             child: Text(
-              oldPrice,
+              '$oldPrice ${S.of(context).dinar}',
               style: TextStyles.style13.copyWith(
                 color: Colors.red,
                 fontWeight: FontWeight.bold,

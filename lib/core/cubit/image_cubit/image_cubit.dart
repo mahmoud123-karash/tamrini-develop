@@ -48,16 +48,17 @@ class ImageCubit extends Cubit<ImageStates> {
     emit(SucessRemoveImageState());
   }
 
-  void clearPaths() {
-    paths.clear();
-    emit(SucessRemoveImageState());
-  }
-
   List<String> images = [];
   void removeOldImage(int index) {
     List<String> updatedImages = List.from(images);
     updatedImages.removeAt(index);
     images = updatedImages;
     emit(SucessRemoveOldImageState());
+  }
+
+  void clearPaths() {
+    paths.clear();
+    images.clear();
+    emit(SucessRemoveImageState());
   }
 }

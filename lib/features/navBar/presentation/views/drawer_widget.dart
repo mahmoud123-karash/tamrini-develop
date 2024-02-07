@@ -82,14 +82,14 @@ class MyDrawer extends StatelessWidget {
             if (usertype == 'gym owner') const GymOwnerListTileWidget(),
             if (usertype != 'admin' && usertype != 'gym owner')
               const SubstrictionsListTileWidget(),
-            // if (usertype != 'admin' && usertype != 'store owner')
-            DrawerListTileWidget(
-              onPressed: () {
-                navigateTo(context, const OrdersScreen(isUser: true));
-              },
-              icon: Icons.shopping_bag_outlined,
-              lable: S.of(context).orders,
-            ),
+            if (usertype != 'admin' && usertype != 'store owner')
+              DrawerListTileWidget(
+                onPressed: () {
+                  navigateTo(context, const OrdersScreen(isUser: true));
+                },
+                icon: Icons.shopping_bag_outlined,
+                lable: S.of(context).buy_orders,
+              ),
             DrawerListTileWidget(
               onPressed: () {
                 navigateTo(context, const MyDayScreen());

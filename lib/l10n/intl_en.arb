@@ -394,7 +394,13 @@
     "order_delivered":"تم استلام الطلب واضافت الارباح",
     "rating_hint":"أعطى من 1 إلي 5 لهذا المنتج",
     "back_to_home":"العودة الى الرئيسية",
-    "rating_prodyct_hint":"من فضلك قم بتقييم المنتج"
+    "rating_prodyct_hint":"من فضلك قم بتقييم المنتج",
+    "profits_request":"طلبات سحلب الارباح",
+    "gym_remove_question":"هل تريد حذف هذه الصالة الرياضية ؟",
+    "buy_orders":"طلبات الشراء"
+
+
+
 
 
 

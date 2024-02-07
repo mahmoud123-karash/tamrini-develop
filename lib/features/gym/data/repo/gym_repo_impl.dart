@@ -125,6 +125,26 @@ class GymRepoImpl extends GymRepo {
     }
   }
 
+  @override
+  Future<Either<String, List<GymModel>>> removeGym({
+    required String gymId,
+    required List<String> assets,
+  }) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('gyms')
+          .doc('data')
+          .collection('data')
+          .doc(gymId)
+          .delete();
+
+      await deleteOldImages(newImages: [], oldImages: assets);
+      return await gymRemoteDataSource.getGyms(update: false);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
   Future<List<String>> uploadGymImages(List<String> paths) async {
     List files = [];
     for (var element in paths) {
@@ -313,7 +333,7 @@ class GymRepoImpl extends GymRepo {
           .doc(gymId)
           .collection('subscribers')
           .doc(subId)
-          .set(
+          .update(
             model.toJson(),
           );
 

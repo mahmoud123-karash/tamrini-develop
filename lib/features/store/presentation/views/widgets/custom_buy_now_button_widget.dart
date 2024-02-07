@@ -15,30 +15,23 @@ class CustomBuyNowButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: GestureDetector(
-        onTap: onPressed,
-        child: Container(
-          height: 50,
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(5),
-            border: Border.all(
-              color: color != appColor ? blackColor : appColor,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                lable,
-                style: TextStyles.style20.copyWith(
-                  color: color == appColor ? whiteColor : blackColor,
-                ),
-              ),
-            ),
+        child: MaterialButton(
+      color: color,
+      shape: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: appColor,
+        ),
+      ),
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          lable,
+          style: TextStyles.style20.copyWith(
+            color: color == appColor ? whiteColor : blackColor,
           ),
         ),
       ),
-    );
+    ));
   }
 }
