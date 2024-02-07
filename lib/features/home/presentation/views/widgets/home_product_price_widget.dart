@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 class HomeProductPriceWidget extends StatelessWidget {
   const HomeProductPriceWidget(
@@ -20,7 +21,7 @@ class HomeProductPriceWidget extends StatelessWidget {
         Container(
           constraints: const BoxConstraints(maxWidth: 60),
           child: Text(
-            price,
+            '$price ${S.of(context).dinar}',
             style: TextStyles.style13.copyWith(
               color: whiteColor,
               fontWeight: FontWeight.bold,

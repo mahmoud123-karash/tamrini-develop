@@ -35,6 +35,7 @@ import 'package:tamrini/features/questions/data/data_sources/remote_data_source/
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/ban_question_use_case.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
+import 'package:tamrini/features/rating/data/repo/rating_repo_impl.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
@@ -204,5 +205,8 @@ void setLocator() {
     AdminRepoImpl(
       AdminRemoteDataSourceImpl(),
     ),
+  );
+  getIt.registerSingleton<RatingRepoImpl>(
+    RatingRepoImpl(),
   );
 }

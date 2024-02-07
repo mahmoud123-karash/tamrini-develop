@@ -15,6 +15,10 @@ class OrderRemoteDataSourceImpl extends OrderRemoteDataSource {
     var result = await FirebaseFirestore.instance
         .collection('orders')
         .where('storeId', isEqualTo: uid)
+        .orderBy(
+          'createdAt',
+          descending: true,
+        )
         .get();
 
     for (var element in result.docs) {
@@ -31,6 +35,10 @@ class OrderRemoteDataSourceImpl extends OrderRemoteDataSource {
     var result = await FirebaseFirestore.instance
         .collection('orders')
         .where('userId', isEqualTo: uid)
+        .orderBy(
+          'createdAt',
+          descending: true,
+        )
         .get();
 
     for (var element in result.docs) {

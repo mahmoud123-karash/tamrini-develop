@@ -18,6 +18,7 @@ class UserOrderCubit extends Cubit<UserOrderStates> {
     emit(LoadingGetUserOrderState());
     var result = await orderRepo.getUserOrders();
     result.fold((message) {
+      log(message);
       emit(ErrorGetUserOrderState(message));
     }, (list) {
       emit(SuccessGetUserOrderState(list));
@@ -63,7 +64,8 @@ class UserOrderCubit extends Cubit<UserOrderStates> {
       log(message);
       emit(ErrorGetUserOrderState(message));
     }, (list) {
-      navigateToAndReplace(context, ProductRatingScreen(model: model));
+      navigateToAndReplace(
+          context, ProductRatingScreen(model: model, storeId: stroreId));
       emit(SuccessGetUserOrderState(list));
     });
   }

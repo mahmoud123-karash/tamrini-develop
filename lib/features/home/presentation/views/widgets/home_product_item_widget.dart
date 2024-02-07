@@ -43,13 +43,9 @@ class HomeProductItemWidget extends StatelessWidget {
                 ? const NewBadgeWidget()
                 : model.bestSeller
                     ? const Padding(
-                        padding: EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                          top: 5,
-                        ),
+                        padding: EdgeInsets.all(5),
                         child: Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.topLeft,
                           child: Icon(
                             Icons.stars_rounded,
                             color: Colors.amber,

@@ -3999,6 +3999,16 @@ class S {
       args: [],
     );
   }
+
+  /// `من فضلك قم بتقييم المنتج`
+  String get rating_prodyct_hint {
+    return Intl.message(
+      'من فضلك قم بتقييم المنتج',
+      name: 'rating_prodyct_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -38,7 +38,7 @@ class OrderStepperDetailsWidget extends StatelessWidget {
                       return;
                     } else {
                       OrderCubit.get(context).updateOrder(
-                        status: getStatus(step: getStep(status: status)),
+                        status: status == 'Pending' ? 'Completed' : 'Received',
                         orderId: orderId,
                       );
                     }
@@ -51,7 +51,7 @@ class OrderStepperDetailsWidget extends StatelessWidget {
                           return;
                         } else {
                           UserOrderCubit.get(context).updateOrder(
-                            status: getStatus(step: getStep(status: status)),
+                            status: 'Delivered',
                             orderId: orderId,
                             stroreId: storeId,
                             model: model,

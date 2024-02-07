@@ -13,33 +13,46 @@ class RatingContentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          height: 150,
-          width: width / 2,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: FirebaseImageProvider(
-                FirebaseUrl(image),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 10,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 150,
+            width: width / 2,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: FirebaseImageProvider(
+                  FirebaseUrl(image),
+                ),
               ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          name,
-          style: TextStyles.style16Bold.copyWith(
-            color: appColor,
-            fontWeight: FontWeight.bold,
+          const SizedBox(
+            height: 5,
           ),
-        ),
-        const RatingContainerWidget(),
-      ],
+          Text(
+            name,
+            style: TextStyles.style16Bold.copyWith(
+              color: appColor,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const RatingContainerWidget(),
+          const SizedBox(
+            height: 30,
+          ),
+        ],
+      ),
     );
   }
 }

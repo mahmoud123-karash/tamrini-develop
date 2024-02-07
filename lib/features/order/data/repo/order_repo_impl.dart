@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/order/data/data_sources/remote_data_source/order_remote_data_source.dart';
 import 'package:tamrini/features/order/data/models/order_model/order_model.dart';
@@ -123,10 +122,12 @@ class OrederRepoImpl extends OrderRepo {
     required String owneruid,
     required String orderUid,
   }) async {
+    String uid = CacheHelper.getData(key: 'uid');
+
     NotificationModel notification = NotificationModel(
       isReaden: false,
       subType: 'order',
-      senderUid: adminUid,
+      senderUid: uid,
       title: 'order',
       body: '',
       type: 'notification',

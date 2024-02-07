@@ -394,6 +394,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "rating_hint":
             MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المنتج"),
+        "rating_prodyct_hint":
+            MessageLookupByLibrary.simpleMessage("من فضلك قم بتقييم المنتج"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
         "refuse_your_article":
