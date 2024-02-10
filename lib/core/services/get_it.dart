@@ -31,6 +31,8 @@ import 'package:tamrini/features/profile/data/data_sources/local_data_source/pro
 import 'package:tamrini/features/profile/data/data_sources/remote_data_source/profile_remote_data_source.dart';
 import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
 import 'package:tamrini/features/profile/domain/use_cases/update_profile_use_case.dart';
+import 'package:tamrini/features/promotion/data/data_source/remote_data_source/promotion_remote_data_source.dart';
+import 'package:tamrini/features/promotion/data/repo/promotion_repo_impl.dart';
 import 'package:tamrini/features/questions/data/data_sources/remote_data_source/remote_question_data_source.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
 import 'package:tamrini/features/questions/domain/use_cases/ban_question_use_case.dart';
@@ -41,6 +43,8 @@ import 'package:tamrini/features/store/data/data_sources/remote_data_source/stor
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/suggest_exercise/data/data_sources/remote_data_source/suggest_remote_data_source.dart';
 import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
+import 'package:tamrini/features/trainee/data/data_sources/remote_data_source/trainee_remote_data_source.dart';
+import 'package:tamrini/features/trainee/data/repo/trainee_repo_impl.dart';
 import 'package:tamrini/features/trainer/data/data_sources/remote_data_source/trainer_remote_data_source.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 
@@ -206,7 +210,21 @@ void setLocator() {
       AdminRemoteDataSourceImpl(),
     ),
   );
+
   getIt.registerSingleton<RatingRepoImpl>(
     RatingRepoImpl(),
+  );
+
+  getIt.registerSingleton<TraineeRepoImpl>(
+    TraineeRepoImpl(
+      TraineeRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<PromotionRepoImpl>(
+    PromotionRepoImpl(
+      PromotionRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
+    ),
   );
 }

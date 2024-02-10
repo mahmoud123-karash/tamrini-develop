@@ -17,6 +17,8 @@ import 'package:tamrini/features/navBar/presentation/views/widgets/badge_notific
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/user_order_cubit/user_order_cubit.dart';
+import 'package:tamrini/features/promotion/presentation/manager/promotion_cubit/promotion_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'widgets/curved_nav_bar_widget.dart';
 import 'drawer_widget.dart';
 
@@ -30,18 +32,28 @@ class NavBarScreen extends StatefulWidget {
 class _NavBarScreenState extends State<NavBarScreen> {
   @override
   void initState() {
-    OrderCubit.get(context).getData();
-    UserOrderCubit.get(context).getData();
-    UpdateCubit.get(context).update();
-    NotificationCubit.get(context).getData();
-    DayCubit.get(context).getData();
-    OrderCubit.get(context).getData();
-    log(CacheHelper.getData(key: 'deviceToken') ?? '');
-    initiGetprofile(context);
-    getintil(context);
-    onMessageOpenedApp(context: context);
-    onMessage(context: context);
-    listenNotification();
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
+    if (userType == 'trainer') {
+      TraineeCubit.get(context).getData();
+    }
+    if (userType == 'admin' || userType == 'user') {
+      PromotionCubit.get(context).getData();
+    }
+    if (userType != '') {
+      OrderCubit.get(context).getData();
+      UserOrderCubit.get(context).getData();
+      UpdateCubit.get(context).update();
+      NotificationCubit.get(context).getData();
+      DayCubit.get(context).getData();
+      OrderCubit.get(context).getData();
+      log(CacheHelper.getData(key: 'deviceToken') ?? '');
+      initiGetprofile(context);
+      getintil(context);
+      onMessageOpenedApp(context: context);
+      onMessage(context: context);
+      listenNotification();
+    }
+
     super.initState();
   }
 

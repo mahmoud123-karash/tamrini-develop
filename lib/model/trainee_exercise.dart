@@ -29,7 +29,7 @@ class TraineeExercise {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['exercise'] = exercise?.id;
     data['setsNo'] = setsNo;
     data['repeatNo'] = repeatNo;

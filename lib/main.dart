@@ -36,6 +36,8 @@ import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/ex
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/order/data/repo/order_repo_impl.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
+import 'package:tamrini/features/promotion/data/repo/promotion_repo_impl.dart';
+import 'package:tamrini/features/promotion/presentation/manager/promotion_cubit/promotion_cubit.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
@@ -64,6 +66,8 @@ import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/store/presentation/manager/category_cubit/category_cubit.dart';
 import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
 import 'package:tamrini/features/suggest_exercise/presentation/manager/suggest_cubit/suggest_cubit.dart';
+import 'package:tamrini/features/trainee/data/repo/trainee_repo_impl.dart';
+import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
@@ -251,6 +255,16 @@ void main() async {
           create: (context) => UsersCubit(
             getIt.get<AdminRepoImpl>(),
           )..getUsers(),
+        ),
+        BlocProvider(
+          create: (context) => TraineeCubit(
+            getIt.get<TraineeRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => PromotionCubit(
+            getIt.get<PromotionRepoImpl>(),
+          ),
         ),
         BlocProvider(
           create: (context) => ManageCubit()

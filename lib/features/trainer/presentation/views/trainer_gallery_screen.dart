@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/achievement_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -14,9 +15,8 @@ class TrainerGallerySreen extends StatelessWidget {
       (a, b) => a.createdAt.compareTo(b.createdAt),
     );
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).trainer_gallery),
-        centerTitle: true,
+      appBar: myAppBar(
+        S.of(context).trainer_gallery,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(

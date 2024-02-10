@@ -396,7 +396,17 @@
     "rating_prodyct_hint":"من فضلك قم بتقييم المنتج",
     "profits_request":"طلبات سحلب الارباح",
     "gym_remove_question":"هل تريد حذف هذه الصالة الرياضية ؟",
-    "buy_orders":"طلبات الشراء"
+    "buy_orders":"طلبات الشراء",
+    "promotion_to":"ترقية الحساب الى",
+    "trainer_acount":"حساب مدرب",
+    "writer_acount":"حساب كاتب",
+    "gym_owner_acount":"حساب صاحب صالة رياصية",
+    "store_owner_acount":"حساب صاحب متجر",
+    "promotion_request":"طلب ترقية",
+    "new_promtion_request":"طلب ترقية جديد",
+    "request_promotion_done":"لقد تم طلب ترقية لحسابك",
+    "promotion_reqiest_review":"الطلب قيد المراجعة",
+    "promotion_request_question":"هل تريد طلب ترقية لحسابك ؟"
 
 
 

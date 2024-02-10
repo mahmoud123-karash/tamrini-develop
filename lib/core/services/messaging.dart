@@ -14,6 +14,7 @@ import 'package:tamrini/features/notification/presentation/manager/notification_
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
+import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 
@@ -106,6 +107,10 @@ void openNotification(RemoteMessage event, BuildContext context) {
     }
     if (event.data['subType'] == 'order') {
       navigateTo(context, OrderDetailsScreen(orderId: event.data['uid']));
+    }
+
+    if (event.data['subType'] == 'promotion') {
+      navigateTo(context, const PromotionScreen());
     }
   }
 }

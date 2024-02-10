@@ -79,17 +79,17 @@ class Trainee {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['phone'] = this.number;
-    data['username'] = this.username;
-    data['dateOfSubscription'] = this.dateOfSubscription;
-    data['uid'] = this.uid;
-    data['food'] = this.food?.map((v) => v.toJson()).toList();
-    data['age'] = this.age;
-    data['gender'] = this.gender;
-    data['courses'] = this.courses?.map((v) => v.toJson()).toList();
-    data['followUpList'] = this.followUpList?.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['phone'] = number;
+    data['username'] = username;
+    data['dateOfSubscription'] = dateOfSubscription;
+    data['uid'] = uid;
+    data['food'] = food?.map((v) => v.toJson()).toList();
+    data['age'] = age;
+    data['gender'] = gender;
+    data['courses'] = courses?.map((v) => v.toJson()).toList();
+    data['followUpList'] = followUpList?.map((v) => v.toJson()).toList();
     data['supplements'] = supplements?.map((v) => v.id).toList();
 
     return data;
@@ -121,14 +121,14 @@ class Course {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.dayWeekExercises != null) {
-      data['dayWeekExercises'] = this.dayWeekExercises?.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (dayWeekExercises != null) {
+      data['dayWeekExercises'] = dayWeekExercises?.toJson();
     }
-    data['duration'] = this.duration;
-    data['notes'] = this.notes;
-    data['title'] = this.title;
-    data['createdAt'] = this.createdAt;
+    data['duration'] = duration;
+    data['notes'] = notes;
+    data['title'] = title;
+    data['createdAt'] = createdAt;
     return data;
   }
 }
@@ -186,14 +186,14 @@ class DayWeekExercises {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['sat'] = this.sat?.map((e) => e.toJson()).toList();
-    data['sun'] = this.sun?.map((e) => e.toJson()).toList();
-    data['mon'] = this.mon?.map((e) => e.toJson()).toList();
-    data['tue'] = this.tue?.map((e) => e.toJson()).toList();
-    data['wed'] = this.wed?.map((e) => e.toJson()).toList();
-    data['thurs'] = this.thurs?.map((e) => e.toJson()).toList();
-    data['fri'] = this.fri?.map((e) => e.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['sat'] = sat?.map((e) => e.toJson()).toList();
+    data['sun'] = sun?.map((e) => e.toJson()).toList();
+    data['mon'] = mon?.map((e) => e.toJson()).toList();
+    data['tue'] = tue?.map((e) => e.toJson()).toList();
+    data['wed'] = wed?.map((e) => e.toJson()).toList();
+    data['thurs'] = thurs?.map((e) => e.toJson()).toList();
+    data['fri'] = fri?.map((e) => e.toJson()).toList();
     return data;
   }
 }
@@ -214,11 +214,11 @@ class Food {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['duration'] = this.duration;
-    data['foodData'] = this.foodData;
-    data['title'] = this.title;
-    data['createdAt'] = this.createdAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['duration'] = duration;
+    data['foodData'] = foodData;
+    data['title'] = title;
+    data['createdAt'] = createdAt;
     return data;
   }
 }
@@ -237,11 +237,11 @@ class FollowUpData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['createdAt'] = this.createdAt;
-    data['followUpData'] = this.followUpData;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['createdAt'] = createdAt;
+    data['followUpData'] = followUpData;
 
-    data['images'] = this.images;
+    data['images'] = images;
     return data;
   }
 }

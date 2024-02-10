@@ -221,6 +221,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_location": MessageLookupByLibrary.simpleMessage("Location"),
         "gym_name": MessageLookupByLibrary.simpleMessage("Gym Name"),
         "gym_owner": MessageLookupByLibrary.simpleMessage("Gym owner"),
+        "gym_owner_acount":
+            MessageLookupByLibrary.simpleMessage("حساب صاحب صالة رياصية"),
         "gym_owners": MessageLookupByLibrary.simpleMessage("Gym Owners"),
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("This gym has been removed"),
@@ -285,6 +287,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "New comment on your question"),
         "new_images": MessageLookupByLibrary.simpleMessage("New Images"),
         "new_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
+        "new_promtion_request":
+            MessageLookupByLibrary.simpleMessage("طلب ترقية جديد"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
         "noExer": MessageLookupByLibrary.simpleMessage(
@@ -381,6 +385,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "profits_request":
             MessageLookupByLibrary.simpleMessage("Profits Request"),
         "promotion": MessageLookupByLibrary.simpleMessage("Promotion Requests"),
+        "promotion_reqiest_review":
+            MessageLookupByLibrary.simpleMessage("الطلب قيد المراجعة"),
+        "promotion_request": MessageLookupByLibrary.simpleMessage("طلب ترقية"),
+        "promotion_request_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد طلب ترقية لحسابك ؟"),
+        "promotion_to":
+            MessageLookupByLibrary.simpleMessage("ترقية الحساب الى"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),
         "protien": MessageLookupByLibrary.simpleMessage("Protein"),
@@ -423,6 +434,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "renew_sub": MessageLookupByLibrary.simpleMessage("Renew Subscription"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
+        "request_promotion_done":
+            MessageLookupByLibrary.simpleMessage("لقد تم طلب ترقية لحسابك"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("Type Email Address"),
@@ -449,6 +462,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "store_banned": MessageLookupByLibrary.simpleMessage("Banned Stores"),
         "store_contact": MessageLookupByLibrary.simpleMessage("Contact Number"),
         "store_name": MessageLookupByLibrary.simpleMessage("Store Name"),
+        "store_owner_acount":
+            MessageLookupByLibrary.simpleMessage("حساب صاحب متجر"),
         "store_owner_products":
             MessageLookupByLibrary.simpleMessage("Products"),
         "store_owners": MessageLookupByLibrary.simpleMessage("Store Owners"),
@@ -527,6 +542,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tracking": MessageLookupByLibrary.simpleMessage("Tracking"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
         "trainer": MessageLookupByLibrary.simpleMessage("Trainers"),
+        "trainer_acount": MessageLookupByLibrary.simpleMessage("حساب مدرب"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
@@ -565,6 +581,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("Write a new question..."),
+        "writer_acount": MessageLookupByLibrary.simpleMessage("حساب كاتب"),
         "writer_articles":
             MessageLookupByLibrary.simpleMessage("Writer\'s Articles"),
         "writers": MessageLookupByLibrary.simpleMessage("Writers"),

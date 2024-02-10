@@ -13,6 +13,7 @@ import 'package:tamrini/features/order/presentation/views/order_details_screen.d
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
+import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_screen.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
@@ -55,7 +56,7 @@ class NotificationItemWidget extends StatelessWidget {
                   if (model.user.role == 'admin') {
                     showSnackBar(context, S.of(context).admin_hint);
                   } else {
-                    if (model.user.role == 'captain') {
+                    if (model.user.role == 'trainer') {
                       navigateTo(
                         context,
                         TrainerProfileScreen(
@@ -131,6 +132,10 @@ class NotificationItemWidget extends StatelessWidget {
       }
       if (model.subType == 'order') {
         navigateTo(context, OrderDetailsScreen(orderId: model.uid));
+      }
+
+      if (model.subType == 'promotion') {
+        navigateTo(context, const PromotionScreen());
       }
     }
   }

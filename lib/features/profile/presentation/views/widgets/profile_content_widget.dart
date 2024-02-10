@@ -7,7 +7,7 @@ import 'package:tamrini/features/auth/presentation/views/reset_password_screen.d
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/edit_profile_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/settings_screen.dart';
-import 'package:tamrini/features/settings/presentation/views/upgrade_account_screen.dart';
+import 'package:tamrini/features/promotion/presentation/views/upgrade_account_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'profile_content_sliver_box_widget.dart';
 import 'profile_list_tile_widget.dart';

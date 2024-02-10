@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 List<String> catgoryName = [
@@ -40,3 +41,17 @@ List<String> times(context) => [
       '4 ${S.of(context).hours}',
       '5 ${S.of(context).hours}',
     ];
+
+List<String> promotionList(context) => [
+      S.of(context).trainer_acount,
+      S.of(context).gym_owner_acount,
+      S.of(context).store_owner_acount,
+      S.of(context).writer_acount,
+    ];
+
+List<IconData> icons = [
+  Icons.person_outline_outlined,
+  Icons.fitness_center_outlined,
+  Icons.store_outlined,
+  Icons.document_scanner_outlined
+];

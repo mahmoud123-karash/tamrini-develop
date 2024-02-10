@@ -4039,6 +4039,106 @@ class S {
       args: [],
     );
   }
+
+  /// `ترقية الحساب الى`
+  String get promotion_to {
+    return Intl.message(
+      'ترقية الحساب الى',
+      name: 'promotion_to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حساب مدرب`
+  String get trainer_acount {
+    return Intl.message(
+      'حساب مدرب',
+      name: 'trainer_acount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حساب كاتب`
+  String get writer_acount {
+    return Intl.message(
+      'حساب كاتب',
+      name: 'writer_acount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حساب صاحب صالة رياصية`
+  String get gym_owner_acount {
+    return Intl.message(
+      'حساب صاحب صالة رياصية',
+      name: 'gym_owner_acount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حساب صاحب متجر`
+  String get store_owner_acount {
+    return Intl.message(
+      'حساب صاحب متجر',
+      name: 'store_owner_acount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `طلب ترقية`
+  String get promotion_request {
+    return Intl.message(
+      'طلب ترقية',
+      name: 'promotion_request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `طلب ترقية جديد`
+  String get new_promtion_request {
+    return Intl.message(
+      'طلب ترقية جديد',
+      name: 'new_promtion_request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لقد تم طلب ترقية لحسابك`
+  String get request_promotion_done {
+    return Intl.message(
+      'لقد تم طلب ترقية لحسابك',
+      name: 'request_promotion_done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الطلب قيد المراجعة`
+  String get promotion_reqiest_review {
+    return Intl.message(
+      'الطلب قيد المراجعة',
+      name: 'promotion_reqiest_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد طلب ترقية لحسابك ؟`
+  String get promotion_request_question {
+    return Intl.message(
+      'هل تريد طلب ترقية لحسابك ؟',
+      name: 'promotion_request_question',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

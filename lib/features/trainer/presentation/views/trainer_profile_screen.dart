@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/sub_button_with_trainer_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_content_widget.dart';
@@ -13,10 +14,7 @@ class TrainerProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).trainer_profile),
-        centerTitle: true,
-      ),
+      appBar: myAppBar(S.of(context).trainer_profile),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

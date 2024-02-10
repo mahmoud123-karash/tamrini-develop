@@ -40,7 +40,7 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
               if (user.role == 'admin') {
                 showSnackBar(context, S.of(context).admin_hint);
               } else {
-                if (user.role == 'captain') {
+                if (user.role == 'trainer') {
                   navigateTo(
                     context,
                     TrainerProfileScreen(

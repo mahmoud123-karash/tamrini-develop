@@ -214,6 +214,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_location": MessageLookupByLibrary.simpleMessage("الموقع"),
         "gym_name": MessageLookupByLibrary.simpleMessage("اسم الصالة الرياضية"),
         "gym_owner": MessageLookupByLibrary.simpleMessage("الصالة الرياضية"),
+        "gym_owner_acount":
+            MessageLookupByLibrary.simpleMessage("حساب صاحب صالة رياصية"),
         "gym_owners": MessageLookupByLibrary.simpleMessage("أصحاب الصالات"),
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("تم حذف هذه الصالة"),
@@ -279,6 +281,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تعليق جديد على سؤالك"),
         "new_images": MessageLookupByLibrary.simpleMessage("الصور الجديدة"),
         "new_meal": MessageLookupByLibrary.simpleMessage("إضافة وجبة "),
+        "new_promtion_request":
+            MessageLookupByLibrary.simpleMessage("طلب ترقية جديد"),
         "noArticles":
             MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
         "noExer":
@@ -377,6 +381,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "profits_request":
             MessageLookupByLibrary.simpleMessage("طلبات سحلب الارباح"),
         "promotion": MessageLookupByLibrary.simpleMessage("طلبات الترقية"),
+        "promotion_reqiest_review":
+            MessageLookupByLibrary.simpleMessage("الطلب قيد المراجعة"),
+        "promotion_request": MessageLookupByLibrary.simpleMessage("طلب ترقية"),
+        "promotion_request_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد طلب ترقية لحسابك ؟"),
+        "promotion_to":
+            MessageLookupByLibrary.simpleMessage("ترقية الحساب الى"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
         "protien": MessageLookupByLibrary.simpleMessage("بروتين"),
@@ -415,6 +426,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
         "renew_sub": MessageLookupByLibrary.simpleMessage("تجديد الاشتراك"),
         "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
+        "request_promotion_done":
+            MessageLookupByLibrary.simpleMessage("لقد تم طلب ترقية لحسابك"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
@@ -441,6 +454,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "store_banned": MessageLookupByLibrary.simpleMessage("المتاجر المقيدة"),
         "store_contact": MessageLookupByLibrary.simpleMessage("رقم التواصل"),
         "store_name": MessageLookupByLibrary.simpleMessage("اسم المتجر"),
+        "store_owner_acount":
+            MessageLookupByLibrary.simpleMessage("حساب صاحب متجر"),
         "store_owner_products":
             MessageLookupByLibrary.simpleMessage("المنتجات"),
         "store_owners": MessageLookupByLibrary.simpleMessage("أصحاب المتاجر"),
@@ -514,6 +529,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tracking": MessageLookupByLibrary.simpleMessage("تتبع"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
         "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
+        "trainer_acount": MessageLookupByLibrary.simpleMessage("حساب مدرب"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("معرض الأعمال"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("ملف المدرب الشخصي"),
@@ -548,6 +564,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "work_hour": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("كتابة سؤال جديد..."),
+        "writer_acount": MessageLookupByLibrary.simpleMessage("حساب كاتب"),
         "writer_articles":
             MessageLookupByLibrary.simpleMessage("مقالات الكاتب"),
         "writers": MessageLookupByLibrary.simpleMessage("الناشرين"),
