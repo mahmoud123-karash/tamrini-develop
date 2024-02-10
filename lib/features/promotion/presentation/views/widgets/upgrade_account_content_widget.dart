@@ -4,7 +4,7 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/promotion/presentation/manager/promotion_cubit/promotion_cubit.dart';
-import 'package:tamrini/features/promotion/presentation/views/widgets/promotion_item_widget.dart';
+import 'package:tamrini/features/promotion/presentation/views/widgets/request_promotion_item_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class UpgradeAccountContentWidget extends StatelessWidget {
@@ -15,7 +15,7 @@ class UpgradeAccountContentWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: ListView.separated(
-        itemBuilder: (context, index) => PromotiomItemWidget(
+        itemBuilder: (context, index) => RequestPromotiomItemWidget(
           onPressed: () {
             AwesomeDialog(
               padding: const EdgeInsets.symmetric(
@@ -29,17 +29,17 @@ class UpgradeAccountContentWidget extends StatelessWidget {
               context: context,
               dialogType: DialogType.warning,
               animType: AnimType.bottomSlide,
-              title: promotionList(context)[index],
+              title: promotionList[index],
               desc: S.of(context).promotion_request_question,
               btnCancelOnPress: () {},
               btnOkOnPress: () {
                 PromotionCubit.get(context).requestpromotion(
-                  promotionType: promotionList(context)[index],
+                  promotionType: promotionList[index],
                 );
               },
             ).show();
           },
-          lable: promotionList(context)[index],
+          lable: promotionList[index],
           icon: icons[index],
         ),
         separatorBuilder: (context, index) => const SizedBox(

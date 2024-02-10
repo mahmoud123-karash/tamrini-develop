@@ -22,7 +22,9 @@ class SubscribtionsItemWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: appColor.withOpacity(0.2),
+          color: model.endDate.toDate().isBefore(DateTime.now())
+              ? Colors.red.withOpacity(0.3)
+              : appColor.withOpacity(0.2),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

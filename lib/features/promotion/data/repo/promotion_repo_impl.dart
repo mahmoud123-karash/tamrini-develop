@@ -95,4 +95,79 @@ class PromotionRepoImpl extends PromotionRepo {
       );
     }
   }
+
+  @override
+  Future<Either<String, List<PromotionModel>>> acceptRefuseRequestpromotion({
+    required PromotionModel model,
+    required bool isAccept,
+  }) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(adminUid)
+          .collection('promotions')
+          .doc(model.uid)
+          .delete();
+      if (isAccept == true) {
+        await updateUserRole(model);
+        await sendUserNotification(
+          promotionType: model.promotionType,
+          userId: model.userId,
+        );
+      }
+      List<PromotionModel> list = await promotionRemoteDataSource.get();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  Future<void> updateUserRole(PromotionModel model) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(model.userId)
+        .update(
+      {
+        "role": model.promotionType,
+      },
+    );
+  }
+
+  Future<void> sendUserNotification({
+    required String promotionType,
+    required String userId,
+  }) async {
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'promotion_accept',
+      senderUid: adminUid,
+      title: 'promotion_accept',
+      body: promotionType,
+      type: 'notification',
+      uid: '',
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(userId)
+        .collection('data')
+        .add(
+          notification.toJson(),
+        );
+    var data =
+        await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: 'تم ترقية حسابك إلي',
+        body: promotionType,
+        data: {
+          "type": "notification",
+          "subType": "promotion_accept",
+          "promotionType": promotionType,
+        },
+      );
+    }
+  }
 }

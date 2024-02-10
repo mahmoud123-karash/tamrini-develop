@@ -65,6 +65,8 @@ class NotificationBodyWidget extends StatelessWidget {
                                 ? S.of(context).order_delivered
                                 : title == 'promotion'
                                     ? S.of(context).new_promtion_request
-                                    : title;
+                                    : title == 'promotion_accept'
+                                        ? S.of(context).accept_request_promotion
+                                        : title;
   }
 }

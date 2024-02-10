@@ -20,7 +20,7 @@ class NotificationRemoteDataSourceImpl extends NotificationRemoteDataSource {
         .orderBy('time', descending: true)
         .get();
     for (var element in result.docs) {
-      UserModel? user = await getAsker(element);
+      UserModel? user = await getUser(element);
       NotificationModel model =
           NotificationModel.fromJson(element.data(), element.id, user);
       list.add(model);
@@ -28,7 +28,7 @@ class NotificationRemoteDataSourceImpl extends NotificationRemoteDataSource {
     return list;
   }
 
-  Future<UserModel> getAsker(
+  Future<UserModel> getUser(
     QueryDocumentSnapshot<Map<String, dynamic>> element,
   ) async {
     String senderUid = element.data()['senderUid'] ?? '';

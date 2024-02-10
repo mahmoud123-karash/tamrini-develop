@@ -42,12 +42,12 @@ List<String> times(context) => [
       '5 ${S.of(context).hours}',
     ];
 
-List<String> promotionList(context) => [
-      S.of(context).trainer_acount,
-      S.of(context).gym_owner_acount,
-      S.of(context).store_owner_acount,
-      S.of(context).writer_acount,
-    ];
+List<String> promotionList = [
+  'trainer',
+  'gym owner',
+  'store owner',
+  'writer',
+];
 
 List<IconData> icons = [
   Icons.person_outline_outlined,

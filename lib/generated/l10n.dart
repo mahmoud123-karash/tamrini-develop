@@ -4040,10 +4040,10 @@ class S {
     );
   }
 
-  /// `ترقية الحساب الى`
+  /// `طلب ترقية الحساب الى`
   String get promotion_to {
     return Intl.message(
-      'ترقية الحساب الى',
+      'طلب ترقية الحساب الى',
       name: 'promotion_to',
       desc: '',
       args: [],
@@ -4135,6 +4135,66 @@ class S {
     return Intl.message(
       'هل تريد طلب ترقية لحسابك ؟',
       name: 'promotion_request_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم قبول طلب الترقية`
+  String get accept_request_promotion {
+    return Intl.message(
+      'تم قبول طلب الترقية',
+      name: 'accept_request_promotion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم رفض طلب الترقية`
+  String get refuse_request_promotion {
+    return Intl.message(
+      'تم رفض طلب الترقية',
+      name: 'refuse_request_promotion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة.`
+  String get logout_and_login_again {
+    return Intl.message(
+      'يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة.',
+      name: 'logout_and_login_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تهانينا`
+  String get congratulation {
+    return Intl.message(
+      'تهانينا',
+      name: 'congratulation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مفعل`
+  String get subed {
+    return Intl.message(
+      'مفعل',
+      name: 'subed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منتهي`
+  String get ended {
+    return Intl.message(
+      'منتهي',
+      name: 'ended',
       desc: '',
       args: [],
     );

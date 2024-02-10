@@ -6,4 +6,9 @@ abstract class PromotionRepo {
   Future<Either<String, List<PromotionModel>>> requestpromotion({
     required String promotionType,
   });
+
+  Future<Either<String, List<PromotionModel>>> acceptRefuseRequestpromotion({
+    required PromotionModel model,
+    required bool isAccept,
+  });
 }

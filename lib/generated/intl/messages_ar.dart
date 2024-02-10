@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
         "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "accept": MessageLookupByLibrary.simpleMessage("قبول"),
+        "accept_request_promotion":
+            MessageLookupByLibrary.simpleMessage("تم قبول طلب الترقية"),
         "accept_your_article":
             MessageLookupByLibrary.simpleMessage("تم قبول المقال الخاص بك"),
         "account_details":
@@ -146,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm_lang": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "confirmpass":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
+        "congratulation": MessageLookupByLibrary.simpleMessage("تهانينا"),
         "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "contact_u": MessageLookupByLibrary.simpleMessage("تواصل معانا"),
         "contact_us_hint": MessageLookupByLibrary.simpleMessage(
@@ -182,6 +185,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "من فضلك قم بتفعيل الايميل الخاص"),
         "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
         "end_date": MessageLookupByLibrary.simpleMessage("تاريخ الإنتهاء"),
+        "ended": MessageLookupByLibrary.simpleMessage("منتهي"),
         "english_language":
             MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("أدخل الرقم"),
@@ -258,6 +262,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "log_out_question":
             MessageLookupByLibrary.simpleMessage("هل تريد تسجيل الخروج ؟"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "logout_and_login_again": MessageLookupByLibrary.simpleMessage(
+            "يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة."),
         "lowPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرا"),
         "low_activity":
             MessageLookupByLibrary.simpleMessage("نشاط منخفض في العمل والنادي"),
@@ -387,7 +393,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "promotion_request_question":
             MessageLookupByLibrary.simpleMessage("هل تريد طلب ترقية لحسابك ؟"),
         "promotion_to":
-            MessageLookupByLibrary.simpleMessage("ترقية الحساب الى"),
+            MessageLookupByLibrary.simpleMessage("طلب ترقية الحساب الى"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("حاسبة البروتينات"),
         "protien": MessageLookupByLibrary.simpleMessage("بروتين"),
@@ -408,6 +414,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "received": MessageLookupByLibrary.simpleMessage("مستلم"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
+        "refuse_request_promotion":
+            MessageLookupByLibrary.simpleMessage("تم رفض طلب الترقية"),
         "refuse_your_article":
             MessageLookupByLibrary.simpleMessage("تم رفض المقال الخاص بك"),
         "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
@@ -465,6 +473,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub_hint": MessageLookupByLibrary.simpleMessage(
             "انت مشترك بالفعل فى هذه الصالة"),
         "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
+        "subed": MessageLookupByLibrary.simpleMessage("مفعل"),
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
         "submit_order": MessageLookupByLibrary.simpleMessage("اتمام الشراء"),
         "success_add": MessageLookupByLibrary.simpleMessage("تم إضافة السؤال"),

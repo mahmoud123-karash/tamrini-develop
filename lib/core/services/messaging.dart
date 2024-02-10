@@ -4,6 +4,7 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
@@ -11,6 +12,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
+import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
@@ -35,6 +37,10 @@ void onMessage({
       if (message.data['subType'] == 'order') {
         OrderCubit.get(context).getData();
       }
+      if (message.data['subType'] == 'promotion_accept') {
+        log(message.data['promotionType']);
+        saveUserType(message.data['promotionType'] ?? '');
+      }
       AwesomeNotifications().createNotification(
         content: NotificationContent(
           id: message.notification.hashCode,
@@ -49,6 +55,10 @@ void onMessage({
 }
 
 Future<void> onBackgroundMessageHandler(RemoteMessage message) async {
+  if (message.data['subType'] == 'promotion_accept') {
+    await CacheHelper.init();
+    saveUserType(message.data['promotionType'] ?? '');
+  }
   log('onBackgroundMessage');
 }
 
@@ -111,6 +121,10 @@ void openNotification(RemoteMessage event, BuildContext context) {
 
     if (event.data['subType'] == 'promotion') {
       navigateTo(context, const PromotionScreen());
+    }
+
+    if (event.data['subType'] == 'promotion_accept') {
+      navigateTo(context, const NotificationScreen());
     }
   }
 }

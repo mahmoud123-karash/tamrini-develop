@@ -3,6 +3,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/admin/presentation/views/banned_stores_screen.dart';
 import 'package:tamrini/features/admin/presentation/views/gyms_banned_screen.dart';
+import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/suggest_exercise/presentation/views/suggested_exercises_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -67,7 +68,9 @@ class AdminScreen extends StatelessWidget {
               AdminListTileWidget(
                 icon: Icons.star,
                 lable: S.of(context).promotion,
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(context, const PromotionScreen());
+                },
               ),
               AdminListTileWidget(
                 icon: Icons.attach_money_rounded,

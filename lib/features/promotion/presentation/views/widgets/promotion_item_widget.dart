@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/promotion/presentation/views/widgets/promotion_name_row_widget.dart';
-import 'package:tamrini/generated/l10n.dart';
+import 'package:tamrini/core/services/services.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/promotion/data/models/promotion_model/promotion_model.dart';
+import 'accept_refuse_buttons_widget.dart';
+import 'promotion_type_widget.dart';
+import 'promotion_user_image_name_widget.dart';
 
-import 'promotion_type_row_widget.dart';
-
-class PromotiomItemWidget extends StatelessWidget {
-  const PromotiomItemWidget({
-    super.key,
-    required this.onPressed,
-    required this.lable,
-    required this.icon,
-  });
-  final VoidCallback onPressed;
-  final String lable;
-  final IconData icon;
+class PromotionItemWidget extends StatelessWidget {
+  const PromotionItemWidget({super.key, required this.model});
+  final PromotionModel model;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: appColor.withOpacity(0.2),
         borderRadius: BorderRadius.circular(10),
+        color: appColor.withOpacity(0.2),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -32,19 +27,33 @@ class PromotiomItemWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const PromotionNameRowWidget(),
             const SizedBox(
               height: 10,
             ),
-            PromotionTypeRowWidget(lable: lable, icon: icon),
+            Align(
+              alignment: Intl.getCurrentLocale() == 'ar'
+                  ? Alignment.bottomLeft
+                  : Alignment.bottomRight,
+              child: Text(
+                Intl.getCurrentLocale() == 'ar'
+                    ? formatTimeDifferenceInArabic(model.requestTime.toDate())
+                    : formatTimeDifference(model.requestTime.toDate()),
+                style: TextStyles.style14,
+              ),
+            ),
+            model.user == null
+                ? Container()
+                : PromotionUserImageNameWidget(
+                    user: model.user!,
+                  ),
+            const SizedBox(
+              height: 10,
+            ),
+            PromotionTypeWidget(promotionType: model.promotionType),
             const SizedBox(
               height: 20,
             ),
-            customButton(
-              onPressed: onPressed,
-              lable: S.of(context).promotion_request,
-              color: Colors.amber.withOpacity(0.7),
-            )
+            AcceptRefuseButtonWidget(model: model),
           ],
         ),
       ),

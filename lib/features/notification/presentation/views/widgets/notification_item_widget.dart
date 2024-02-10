@@ -9,6 +9,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
+import 'package:tamrini/features/notification/presentation/views/widgets/promotion_dialog_widget.dart';
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
@@ -29,9 +30,12 @@ class NotificationItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        NotificationCubit.get(context).updateNotification(
-          model: model,
-        );
+        if (!model.isReaden) {
+          NotificationCubit.get(context).updateNotification(
+            model: model,
+          );
+        }
+
         notificationNavigate(context);
       },
       child: Padding(
@@ -136,6 +140,15 @@ class NotificationItemWidget extends StatelessWidget {
 
       if (model.subType == 'promotion') {
         navigateTo(context, const PromotionScreen());
+      }
+
+      if (model.subType == 'promotion_accept') {
+        if (type == 'trainer') {
+          showDialog(
+            context: context,
+            builder: (context) => PromotionDialogWidget(type: model.body),
+          );
+        }
       }
     }
   }

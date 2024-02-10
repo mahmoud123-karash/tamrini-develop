@@ -19,9 +19,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
       appBar: myAppBar(
         S.of(context).notification,
       ),
-      body: const Expanded(
-        child: NotificationsListViewBuilderWidget(),
-      ),
+      body: const NotificationsListViewBuilderWidget(),
     );
   }
 }
