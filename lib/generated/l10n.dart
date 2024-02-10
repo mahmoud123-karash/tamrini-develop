@@ -4040,160 +4040,160 @@ class S {
     );
   }
 
-  /// `طلب ترقية الحساب الى`
+  /// `Promotion to`
   String get promotion_to {
     return Intl.message(
-      'طلب ترقية الحساب الى',
+      'Promotion to',
       name: 'promotion_to',
       desc: '',
       args: [],
     );
   }
 
-  /// `حساب مدرب`
+  /// `Trainer account`
   String get trainer_acount {
     return Intl.message(
-      'حساب مدرب',
+      'Trainer account',
       name: 'trainer_acount',
       desc: '',
       args: [],
     );
   }
 
-  /// `حساب كاتب`
+  /// `Writer account`
   String get writer_acount {
     return Intl.message(
-      'حساب كاتب',
+      'Writer account',
       name: 'writer_acount',
       desc: '',
       args: [],
     );
   }
 
-  /// `حساب صاحب صالة رياصية`
+  /// `Gym owner account`
   String get gym_owner_acount {
     return Intl.message(
-      'حساب صاحب صالة رياصية',
+      'Gym owner account',
       name: 'gym_owner_acount',
       desc: '',
       args: [],
     );
   }
 
-  /// `حساب صاحب متجر`
+  /// `Store owner account`
   String get store_owner_acount {
     return Intl.message(
-      'حساب صاحب متجر',
+      'Store owner account',
       name: 'store_owner_acount',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلب ترقية`
+  /// `Promotion request`
   String get promotion_request {
     return Intl.message(
-      'طلب ترقية',
+      'Promotion request',
       name: 'promotion_request',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلب ترقية جديد`
+  /// `New promotion request`
   String get new_promtion_request {
     return Intl.message(
-      'طلب ترقية جديد',
+      'New promotion request',
       name: 'new_promtion_request',
       desc: '',
       args: [],
     );
   }
 
-  /// `لقد تم طلب ترقية لحسابك`
+  /// `Your promotion request has been submitted`
   String get request_promotion_done {
     return Intl.message(
-      'لقد تم طلب ترقية لحسابك',
+      'Your promotion request has been submitted',
       name: 'request_promotion_done',
       desc: '',
       args: [],
     );
   }
 
-  /// `الطلب قيد المراجعة`
+  /// `Request under review`
   String get promotion_reqiest_review {
     return Intl.message(
-      'الطلب قيد المراجعة',
+      'Request under review',
       name: 'promotion_reqiest_review',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد طلب ترقية لحسابك ؟`
+  /// `Do you want to request a promotion for your account ?`
   String get promotion_request_question {
     return Intl.message(
-      'هل تريد طلب ترقية لحسابك ؟',
+      'Do you want to request a promotion for your account ?',
       name: 'promotion_request_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم قبول طلب الترقية`
+  /// `Promotion request accepted`
   String get accept_request_promotion {
     return Intl.message(
-      'تم قبول طلب الترقية',
+      'Promotion request accepted',
       name: 'accept_request_promotion',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم رفض طلب الترقية`
+  /// `Promotion request refused`
   String get refuse_request_promotion {
     return Intl.message(
-      'تم رفض طلب الترقية',
+      'Promotion request refused',
       name: 'refuse_request_promotion',
       desc: '',
       args: [],
     );
   }
 
-  /// `يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة.`
+  /// `Please log out and log in again to access the new features and available promotions.`
   String get logout_and_login_again {
     return Intl.message(
-      'يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة.',
+      'Please log out and log in again to access the new features and available promotions.',
       name: 'logout_and_login_again',
       desc: '',
       args: [],
     );
   }
 
-  /// `تهانينا`
+  /// `Congratulations`
   String get congratulation {
     return Intl.message(
-      'تهانينا',
+      'Congratulations',
       name: 'congratulation',
       desc: '',
       args: [],
     );
   }
 
-  /// `مفعل`
+  /// `Activated`
   String get subed {
     return Intl.message(
-      'مفعل',
+      'Activated',
       name: 'subed',
       desc: '',
       args: [],
     );
   }
 
-  /// `منتهي`
+  /// `Ended`
   String get ended {
     return Intl.message(
-      'منتهي',
+      'Ended',
       name: 'ended',
       desc: '',
       args: [],

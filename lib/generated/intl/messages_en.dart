@@ -28,7 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_app": MessageLookupByLibrary.simpleMessage("About the App"),
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
         "accept_request_promotion":
-            MessageLookupByLibrary.simpleMessage("تم قبول طلب الترقية"),
+            MessageLookupByLibrary.simpleMessage("Promotion request accepted"),
         "accept_your_article": MessageLookupByLibrary.simpleMessage(
             "Your article has been accepted"),
         "account_details":
@@ -151,7 +151,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your order has been delivered, you are yet to sign."),
         "confirm_lang": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmpass": MessageLookupByLibrary.simpleMessage("Confirm Password"),
-        "congratulation": MessageLookupByLibrary.simpleMessage("تهانينا"),
+        "congratulation":
+            MessageLookupByLibrary.simpleMessage("Congratulations"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "contact_u": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "contact_us_hint": MessageLookupByLibrary.simpleMessage(
@@ -191,7 +192,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
         "emptyList": MessageLookupByLibrary.simpleMessage("No Exercises"),
         "end_date": MessageLookupByLibrary.simpleMessage("End Date"),
-        "ended": MessageLookupByLibrary.simpleMessage("منتهي"),
+        "ended": MessageLookupByLibrary.simpleMessage("Ended"),
         "english_language": MessageLookupByLibrary.simpleMessage("English"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("Enter the number"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("Enter the link"),
@@ -226,7 +227,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_name": MessageLookupByLibrary.simpleMessage("Gym Name"),
         "gym_owner": MessageLookupByLibrary.simpleMessage("Gym owner"),
         "gym_owner_acount":
-            MessageLookupByLibrary.simpleMessage("حساب صاحب صالة رياصية"),
+            MessageLookupByLibrary.simpleMessage("Gym owner account"),
         "gym_owners": MessageLookupByLibrary.simpleMessage("Gym Owners"),
         "gym_remove_hint":
             MessageLookupByLibrary.simpleMessage("This gym has been removed"),
@@ -269,7 +270,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Do you want to log out?"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "logout_and_login_again": MessageLookupByLibrary.simpleMessage(
-            "يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة."),
+            "Please log out and log in again to access the new features and available promotions."),
         "lowPrice": MessageLookupByLibrary.simpleMessage("Lowest Price"),
         "low_activity": MessageLookupByLibrary.simpleMessage(
             "Low Activity in Work and Club"),
@@ -294,7 +295,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_images": MessageLookupByLibrary.simpleMessage("New Images"),
         "new_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
         "new_promtion_request":
-            MessageLookupByLibrary.simpleMessage("طلب ترقية جديد"),
+            MessageLookupByLibrary.simpleMessage("New promotion request"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
         "noExer": MessageLookupByLibrary.simpleMessage(
@@ -392,12 +393,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Profits Request"),
         "promotion": MessageLookupByLibrary.simpleMessage("Promotion Requests"),
         "promotion_reqiest_review":
-            MessageLookupByLibrary.simpleMessage("الطلب قيد المراجعة"),
-        "promotion_request": MessageLookupByLibrary.simpleMessage("طلب ترقية"),
-        "promotion_request_question":
-            MessageLookupByLibrary.simpleMessage("هل تريد طلب ترقية لحسابك ؟"),
-        "promotion_to":
-            MessageLookupByLibrary.simpleMessage("طلب ترقية الحساب الى"),
+            MessageLookupByLibrary.simpleMessage("Request under review"),
+        "promotion_request":
+            MessageLookupByLibrary.simpleMessage("Promotion request"),
+        "promotion_request_question": MessageLookupByLibrary.simpleMessage(
+            "Do you want to request a promotion for your account ?"),
+        "promotion_to": MessageLookupByLibrary.simpleMessage("Promotion to"),
         "protein_calculator":
             MessageLookupByLibrary.simpleMessage("Protein calculator"),
         "protien": MessageLookupByLibrary.simpleMessage("Protein"),
@@ -422,7 +423,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "received": MessageLookupByLibrary.simpleMessage("Received"),
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
         "refuse_request_promotion":
-            MessageLookupByLibrary.simpleMessage("تم رفض طلب الترقية"),
+            MessageLookupByLibrary.simpleMessage("Promotion request refused"),
         "refuse_your_article": MessageLookupByLibrary.simpleMessage(
             "Your article has been refused"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
@@ -442,8 +443,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
         "renew_sub": MessageLookupByLibrary.simpleMessage("Renew Subscription"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
-        "request_promotion_done":
-            MessageLookupByLibrary.simpleMessage("لقد تم طلب ترقية لحسابك"),
+        "request_promotion_done": MessageLookupByLibrary.simpleMessage(
+            "Your promotion request has been submitted"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
         "resetEmail":
             MessageLookupByLibrary.simpleMessage("Type Email Address"),
@@ -471,7 +472,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "store_contact": MessageLookupByLibrary.simpleMessage("Contact Number"),
         "store_name": MessageLookupByLibrary.simpleMessage("Store Name"),
         "store_owner_acount":
-            MessageLookupByLibrary.simpleMessage("حساب صاحب متجر"),
+            MessageLookupByLibrary.simpleMessage("Store owner account"),
         "store_owner_products":
             MessageLookupByLibrary.simpleMessage("Products"),
         "store_owners": MessageLookupByLibrary.simpleMessage("Store Owners"),
@@ -481,7 +482,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub_hint": MessageLookupByLibrary.simpleMessage(
             "You are already subscribed to this gym"),
         "subcribers": MessageLookupByLibrary.simpleMessage("Subscribers"),
-        "subed": MessageLookupByLibrary.simpleMessage("مفعل"),
+        "subed": MessageLookupByLibrary.simpleMessage("Activated"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "submit_order": MessageLookupByLibrary.simpleMessage("Submit Order"),
         "success_add":
@@ -551,7 +552,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tracking": MessageLookupByLibrary.simpleMessage("Tracking"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
         "trainer": MessageLookupByLibrary.simpleMessage("Trainers"),
-        "trainer_acount": MessageLookupByLibrary.simpleMessage("حساب مدرب"),
+        "trainer_acount":
+            MessageLookupByLibrary.simpleMessage("Trainer account"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
@@ -590,7 +592,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "work_hour": MessageLookupByLibrary.simpleMessage("Working Hours"),
         "write_question":
             MessageLookupByLibrary.simpleMessage("Write a new question..."),
-        "writer_acount": MessageLookupByLibrary.simpleMessage("حساب كاتب"),
+        "writer_acount": MessageLookupByLibrary.simpleMessage("Writer account"),
         "writer_articles":
             MessageLookupByLibrary.simpleMessage("Writer\'s Articles"),
         "writers": MessageLookupByLibrary.simpleMessage("Writers"),
