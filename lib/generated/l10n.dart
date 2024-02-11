@@ -4359,6 +4359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `المدربيين المقيدين`
+  String get banned_trainers {
+    return Intl.message(
+      'المدربيين المقيدين',
+      name: 'banned_trainers',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

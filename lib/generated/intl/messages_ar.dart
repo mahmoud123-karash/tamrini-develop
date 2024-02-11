@@ -122,6 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تقييد سؤالك"),
         "banned_gym_hint": MessageLookupByLibrary.simpleMessage(
             "لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات"),
+        "banned_trainers":
+            MessageLookupByLibrary.simpleMessage("المدربيين المقيدين"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "best_seller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),

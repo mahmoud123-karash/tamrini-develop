@@ -7,6 +7,7 @@ import 'package:tamrini/features/promotion/presentation/views/promotion_screen.d
 import 'package:tamrini/features/suggest_exercise/presentation/views/suggested_exercises_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import 'banned_trainers_screen.dart';
 import 'users_screen.dart';
 import 'widgets/admin_list_tile_widget.dart';
 import 'widgets/admin_user_row_widget.dart';
@@ -63,6 +64,13 @@ class AdminScreen extends StatelessWidget {
                 lable: S.of(context).gyms_banned,
                 onPressed: () {
                   navigateTo(context, const BannedGymsScreen());
+                },
+              ),
+              AdminListTileWidget(
+                icon: Icons.block_flipped,
+                lable: S.of(context).banned_trainers,
+                onPressed: () {
+                  navigateTo(context, const BannedTrainersScreen());
                 },
               ),
               AdminListTileWidget(

@@ -12,7 +12,7 @@ class SubButtonWithTrainerWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: MaterialButton(
         minWidth: double.infinity,
-        height: 50,
+        height: 35,
         color: appColor,
         shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
