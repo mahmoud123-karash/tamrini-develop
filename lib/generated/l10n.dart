@@ -2590,10 +2590,10 @@ class S {
     );
   }
 
-  /// `Do you want to remove the article?`
+  /// `Do you want to remove the article ?`
   String get q_remove_article {
     return Intl.message(
-      'Do you want to remove the article?',
+      'Do you want to remove the article ?',
       name: 'q_remove_article',
       desc: '',
       args: [],
@@ -3130,10 +3130,10 @@ class S {
     );
   }
 
-  /// `Do you want to remove this gym?`
+  /// `Do you want to remove this gym ?`
   String get gym_removed_hint {
     return Intl.message(
-      'Do you want to remove this gym?',
+      'Do you want to remove this gym ?',
       name: 'gym_removed_hint',
       desc: '',
       args: [],
@@ -3230,10 +3230,10 @@ class S {
     );
   }
 
-  /// `Do you want to ban this gym?`
+  /// `Do you want to ban this gym ?`
   String get ban_gym_q {
     return Intl.message(
-      'Do you want to ban this gym?',
+      'Do you want to ban this gym ?',
       name: 'ban_gym_q',
       desc: '',
       args: [],
@@ -3270,10 +3270,10 @@ class S {
     );
   }
 
-  /// `Do you want to remove the ban?`
+  /// `Do you want to remove the ban ?`
   String get no_ban_question {
     return Intl.message(
-      'Do you want to remove the ban?',
+      'Do you want to remove the ban ?',
       name: 'no_ban_question',
       desc: '',
       args: [],
@@ -3370,10 +3370,10 @@ class S {
     );
   }
 
-  /// `Do you want to delete this meal?`
+  /// `Do you want to delete this meal ?`
   String get remove_meal_q {
     return Intl.message(
-      'Do you want to delete this meal?',
+      'Do you want to delete this meal ?',
       name: 'remove_meal_q',
       desc: '',
       args: [],
@@ -3510,10 +3510,10 @@ class S {
     );
   }
 
-  /// `Do you want to delete this category?`
+  /// `Do you want to delete this category ?`
   String get category_remove_question {
     return Intl.message(
-      'Do you want to delete this category?',
+      'Do you want to delete this category ?',
       name: 'category_remove_question',
       desc: '',
       args: [],
@@ -3560,10 +3560,10 @@ class S {
     );
   }
 
-  /// `Do you want to delete this supplement?`
+  /// `Do you want to delete this supplement ?`
   String get supplement_remove_question {
     return Intl.message(
-      'Do you want to delete this supplement?',
+      'Do you want to delete this supplement ?',
       name: 'supplement_remove_question',
       desc: '',
       args: [],
@@ -3600,10 +3600,10 @@ class S {
     );
   }
 
-  /// `Do you want to delete this exercise?`
+  /// `Do you want to delete this exercise ?`
   String get remove_exercise_question {
     return Intl.message(
-      'Do you want to delete this exercise?',
+      'Do you want to delete this exercise ?',
       name: 'remove_exercise_question',
       desc: '',
       args: [],
@@ -3640,10 +3640,10 @@ class S {
     );
   }
 
-  /// `Do you want to remove the ban from this store?`
+  /// `Do you want to remove the ban from this store ?`
   String get no_ban_store_question {
     return Intl.message(
-      'Do you want to remove the ban from this store?',
+      'Do you want to remove the ban from this store ?',
       name: 'no_ban_store_question',
       desc: '',
       args: [],
@@ -4200,190 +4200,190 @@ class S {
     );
   }
 
-  /// `تعديل تفاصيل المدرب`
+  /// `Edit Trainer Details`
   String get edit_trainer {
     return Intl.message(
-      'تعديل تفاصيل المدرب',
+      'Edit Trainer Details',
       name: 'edit_trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `إنجازات المدرب`
+  /// `Trainer Achievements`
   String get trainer_description {
     return Intl.message(
-      'إنجازات المدرب',
+      'Trainer Achievements',
       name: 'trainer_description',
       desc: '',
       args: [],
     );
   }
 
-  /// `سعر الإشتراك`
+  /// `Subscription Price`
   String get traiber_price {
     return Intl.message(
-      'سعر الإشتراك',
+      'Subscription Price',
       name: 'traiber_price',
       desc: '',
       args: [],
     );
   }
 
-  /// `من الساعة`
+  /// `From Hour`
   String get from_w_h {
     return Intl.message(
-      'من الساعة',
+      'From Hour',
       name: 'from_w_h',
       desc: '',
       args: [],
     );
   }
 
-  /// `الى الساعة`
+  /// `To Hour`
   String get to_w_h {
     return Intl.message(
-      'الى الساعة',
+      'To Hour',
       name: 'to_w_h',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد مدرب`
+  /// `No Trainer`
   String get no_trainer {
     return Intl.message(
-      'لا يوجد مدرب',
+      'No Trainer',
       name: 'no_trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة عمل جديد`
+  /// `Add New Work`
   String get add_new_gallery {
     return Intl.message(
-      'إضافة عمل جديد',
+      'Add New Work',
       name: 'add_new_gallery',
       desc: '',
       args: [],
     );
   }
 
-  /// `الصورة قبل`
+  /// `Before Image`
   String get image_before {
     return Intl.message(
-      'الصورة قبل',
+      'Before Image',
       name: 'image_before',
       desc: '',
       args: [],
     );
   }
 
-  /// `الصورة بعد`
+  /// `After Image`
   String get image_after {
     return Intl.message(
-      'الصورة بعد',
+      'After Image',
       name: 'image_after',
       desc: '',
       args: [],
     );
   }
 
-  /// `من فضلك قم باختيار الصور`
+  /// `Please select images`
   String get image_hint {
     return Intl.message(
-      'من فضلك قم باختيار الصور',
+      'Please select images',
       name: 'image_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذا العرض ؟`
+  /// `Do you want to delete this work ?`
   String get remove_gallery_hint {
     return Intl.message(
-      'هل تريد حذف هذا العرض ؟',
+      'Do you want to delete this work ?',
       name: 'remove_gallery_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حظر هذا المدرب ؟`
+  /// `Do you want to ban this trainer ?`
   String get ban_trainer_question {
     return Intl.message(
-      'هل تريد حظر هذا المدرب ؟',
+      'Do you want to ban this trainer ?',
       name: 'ban_trainer_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد رفع الحظر عن هذا المدرب ؟`
+  /// `Do you want to unban this trainer ?`
   String get no_ban_trainer_question {
     return Intl.message(
-      'هل تريد رفع الحظر عن هذا المدرب ؟',
+      'Do you want to unban this trainer ?',
       name: 'no_ban_trainer_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة`
+  /// `Dear trainer, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance.`
   String get ban_title_trainer {
     return Intl.message(
-      'عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة',
+      'Dear trainer, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance.',
       name: 'ban_title_trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `عزيزي المدرب، تم  رفع الحظر من قبل المدير.`
+  /// `Dear trainer, your ban has been lifted by the administrator.`
   String get no_ban_title_trainer {
     return Intl.message(
-      'عزيزي المدرب، تم  رفع الحظر من قبل المدير.',
+      'Dear trainer, your ban has been lifted by the administrator.',
       name: 'no_ban_title_trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حظر هذا المدرب!`
+  /// `This trainer has been banned !`
   String get ban_hint_admin {
     return Intl.message(
-      'تم حظر هذا المدرب!',
+      'This trainer has been banned !',
       name: 'ban_hint_admin',
       desc: '',
       args: [],
     );
   }
 
-  /// `المدربيين المقيدين`
+  /// `Banned Trainers`
   String get banned_trainers {
     return Intl.message(
-      'المدربيين المقيدين',
+      'Banned Trainers',
       name: 'banned_trainers',
       desc: '',
       args: [],
     );
   }
 
-  /// `انت مشترك بالفعل مع هذا المدرب`
+  /// `You are already subscribed to this trainer.`
   String get you_sub_with_trainer {
     return Intl.message(
-      'انت مشترك بالفعل مع هذا المدرب',
+      'You are already subscribed to this trainer.',
       name: 'you_sub_with_trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `انضم متدرب جديد الى فريقك`
+  /// `A new trainee has joined your team.`
   String get new_trainee_joined {
     return Intl.message(
-      'انضم متدرب جديد الى فريقك',
+      'A new trainee has joined your team.',
       name: 'new_trainee_joined',
       desc: '',
       args: [],

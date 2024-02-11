@@ -46,8 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No meal selected"),
         "add_new_exercise":
             MessageLookupByLibrary.simpleMessage("Add New Exercise"),
-        "add_new_gallery":
-            MessageLookupByLibrary.simpleMessage("إضافة عمل جديد"),
+        "add_new_gallery": MessageLookupByLibrary.simpleMessage("Add New Work"),
         "add_new_nutirtion":
             MessageLookupByLibrary.simpleMessage("Add New Value"),
         "add_new_section":
@@ -96,9 +95,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "ban_food_hint": MessageLookupByLibrary.simpleMessage(
             "This article has been banned"),
         "ban_gym_q": MessageLookupByLibrary.simpleMessage(
-            "Do you want to ban this gym?"),
-        "ban_hint_admin":
-            MessageLookupByLibrary.simpleMessage("تم حظر هذا المدرب!"),
+            "Do you want to ban this gym ?"),
+        "ban_hint_admin": MessageLookupByLibrary.simpleMessage(
+            "This trainer has been banned !"),
         "ban_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to ban this article?"),
         "ban_store_hint": MessageLookupByLibrary.simpleMessage(
@@ -114,9 +113,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "ban_title_food": MessageLookupByLibrary.simpleMessage(
             "Your article has been banned"),
         "ban_title_trainer": MessageLookupByLibrary.simpleMessage(
-            "عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة"),
-        "ban_trainer_question":
-            MessageLookupByLibrary.simpleMessage("هل تريد حظر هذا المدرب ؟"),
+            "Dear trainer, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance."),
+        "ban_trainer_question": MessageLookupByLibrary.simpleMessage(
+            "Do you want to ban this trainer ?"),
         "ban_your_article": MessageLookupByLibrary.simpleMessage(
             "Your article has been banned"),
         "ban_your_question": MessageLookupByLibrary.simpleMessage(
@@ -124,7 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "banned_gym_hint": MessageLookupByLibrary.simpleMessage(
             "Your gym has been banned. Please contact the administrator for more information."),
         "banned_trainers":
-            MessageLookupByLibrary.simpleMessage("المدربيين المقيدين"),
+            MessageLookupByLibrary.simpleMessage("Banned Trainers"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "best_seller": MessageLookupByLibrary.simpleMessage("Best Seller"),
@@ -139,7 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
         "category_remove_question": MessageLookupByLibrary.simpleMessage(
-            "Do you want to delete this category?"),
+            "Do you want to delete this category ?"),
         "category_removed":
             MessageLookupByLibrary.simpleMessage("Category deleted"),
         "change_image": MessageLookupByLibrary.simpleMessage("Change Image"),
@@ -198,7 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_supplememt":
             MessageLookupByLibrary.simpleMessage("Edit Supplement"),
         "edit_trainer":
-            MessageLookupByLibrary.simpleMessage("تعديل تفاصيل المدرب"),
+            MessageLookupByLibrary.simpleMessage("Edit Trainer Details"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
@@ -227,7 +226,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue without login"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
-        "from_w_h": MessageLookupByLibrary.simpleMessage("من الساعة"),
+        "from_w_h": MessageLookupByLibrary.simpleMessage("From Hour"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "g": MessageLookupByLibrary.simpleMessage("g"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
@@ -247,7 +246,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_remove_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this gym?"),
         "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
-            "Do you want to remove this gym?"),
+            "Do you want to remove this gym ?"),
         "gyms_banned": MessageLookupByLibrary.simpleMessage("Banned Gyms"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
@@ -265,12 +264,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "house_noum": MessageLookupByLibrary.simpleMessage("House Number"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("App Instructions"),
-        "image_after": MessageLookupByLibrary.simpleMessage("الصورة بعد"),
-        "image_before": MessageLookupByLibrary.simpleMessage("الصورة قبل"),
+        "image_after": MessageLookupByLibrary.simpleMessage("After Image"),
+        "image_before": MessageLookupByLibrary.simpleMessage("Before Image"),
         "image_error":
             MessageLookupByLibrary.simpleMessage("No image selected"),
         "image_hint":
-            MessageLookupByLibrary.simpleMessage("من فضلك قم باختيار الصور"),
+            MessageLookupByLibrary.simpleMessage("Please select images"),
         "instgram": MessageLookupByLibrary.simpleMessage("Instagram"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "internet_connection": MessageLookupByLibrary.simpleMessage(
@@ -313,8 +312,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
         "new_promtion_request":
             MessageLookupByLibrary.simpleMessage("New promotion request"),
-        "new_trainee_joined":
-            MessageLookupByLibrary.simpleMessage("انضم متدرب جديد الى فريقك"),
+        "new_trainee_joined": MessageLookupByLibrary.simpleMessage(
+            "A new trainee has joined your team."),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
         "noExer": MessageLookupByLibrary.simpleMessage(
@@ -326,11 +325,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_answers": MessageLookupByLibrary.simpleMessage("No answers yet"),
         "no_ban": MessageLookupByLibrary.simpleMessage("Remove Ban"),
         "no_ban_question": MessageLookupByLibrary.simpleMessage(
-            "Do you want to remove the ban?"),
+            "Do you want to remove the ban ?"),
         "no_ban_scucess":
             MessageLookupByLibrary.simpleMessage("Ban lifted successfully"),
         "no_ban_store_question": MessageLookupByLibrary.simpleMessage(
-            "Do you want to remove the ban from this store?"),
+            "Do you want to remove the ban from this store ?"),
         "no_ban_success_gym": MessageLookupByLibrary.simpleMessage(
             "The ban on the gym has been lifted"),
         "no_ban_titile_store": MessageLookupByLibrary.simpleMessage(
@@ -338,9 +337,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_ban_title_food": MessageLookupByLibrary.simpleMessage(
             "The ban on your article has been lifted"),
         "no_ban_title_trainer": MessageLookupByLibrary.simpleMessage(
-            "عزيزي المدرب، تم  رفع الحظر من قبل المدير."),
+            "Dear trainer, your ban has been lifted by the administrator."),
         "no_ban_trainer_question": MessageLookupByLibrary.simpleMessage(
-            "هل تريد رفع الحظر عن هذا المدرب ؟"),
+            "Do you want to unban this trainer ?"),
         "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
             "The ban on your gym has been lifted"),
         "no_exercises_yet":
@@ -354,7 +353,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No products yet"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
         "no_sub": MessageLookupByLibrary.simpleMessage("No subscriptions yet"),
-        "no_trainer": MessageLookupByLibrary.simpleMessage("لا يوجد مدرب"),
+        "no_trainer": MessageLookupByLibrary.simpleMessage("No Trainer"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "no_users": MessageLookupByLibrary.simpleMessage("No users"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
@@ -431,7 +430,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "purchase_details":
             MessageLookupByLibrary.simpleMessage("Purchase Details"),
         "q_remove_article": MessageLookupByLibrary.simpleMessage(
-            "Do you want to remove the article?"),
+            "Do you want to remove the article ?"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "question_error": MessageLookupByLibrary.simpleMessage(
             "This question has been deleted"),
@@ -457,11 +456,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_article":
             MessageLookupByLibrary.simpleMessage("Remove Article"),
         "remove_exercise_question": MessageLookupByLibrary.simpleMessage(
-            "Do you want to delete this exercise?"),
-        "remove_gallery_hint":
-            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا العرض ؟"),
+            "Do you want to delete this exercise ?"),
+        "remove_gallery_hint": MessageLookupByLibrary.simpleMessage(
+            "Do you want to delete this work ?"),
         "remove_meal_q": MessageLookupByLibrary.simpleMessage(
-            "Do you want to delete this meal?"),
+            "Do you want to delete this meal ?"),
         "remove_nutirtion": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this value?"),
         "remove_product_q": MessageLookupByLibrary.simpleMessage(
@@ -560,7 +559,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "supplement_name":
             MessageLookupByLibrary.simpleMessage("Supplement Name"),
         "supplement_remove_question": MessageLookupByLibrary.simpleMessage(
-            "Do you want to delete this supplement?"),
+            "Do you want to delete this supplement ?"),
         "supplement_removed":
             MessageLookupByLibrary.simpleMessage("Supplement deleted"),
         "supplemment_description":
@@ -573,17 +572,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "time_to_drink": MessageLookupByLibrary.simpleMessage(
             "It\'s time to drink your water"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
-        "to_w_h": MessageLookupByLibrary.simpleMessage("الى الساعة"),
+        "to_w_h": MessageLookupByLibrary.simpleMessage("To Hour"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "total_price": MessageLookupByLibrary.simpleMessage("Total Price"),
         "tracking": MessageLookupByLibrary.simpleMessage("Tracking"),
-        "traiber_price": MessageLookupByLibrary.simpleMessage("سعر الإشتراك"),
+        "traiber_price":
+            MessageLookupByLibrary.simpleMessage("Subscription Price"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
         "trainer": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainer_acount":
             MessageLookupByLibrary.simpleMessage("Trainer account"),
         "trainer_description":
-            MessageLookupByLibrary.simpleMessage("إنجازات المدرب"),
+            MessageLookupByLibrary.simpleMessage("Trainer Achievements"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
@@ -628,7 +628,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "writers": MessageLookupByLibrary.simpleMessage("Writers"),
         "years": MessageLookupByLibrary.simpleMessage("years old"),
         "you_sub_with_trainer": MessageLookupByLibrary.simpleMessage(
-            "انت مشترك بالفعل مع هذا المدرب"),
+            "You are already subscribed to this trainer."),
         "your_articles": MessageLookupByLibrary.simpleMessage("My Articles"),
         "your_meals": MessageLookupByLibrary.simpleMessage("Your Meals"),
         "your_need": MessageLookupByLibrary.simpleMessage("Your Need"),
