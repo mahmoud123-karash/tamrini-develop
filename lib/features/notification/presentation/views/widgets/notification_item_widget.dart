@@ -146,6 +146,9 @@ class NotificationItemWidget extends StatelessWidget {
           );
         }
       }
+      if (model.subType == 'trainer') {
+        navigateTo(context, TrainerProfileScreen(id: model.uid));
+      }
     }
   }
 }

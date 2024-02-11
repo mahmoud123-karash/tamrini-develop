@@ -2,6 +2,9 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:tamrini/core/api/dio_helper.dart';
+import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/trainer/data/data_sources/remote_data_source/trainer_remote_data_source.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/gallery_model.dart';
@@ -10,8 +13,9 @@ import 'package:tamrini/features/trainer/domain/repo/trainer_repo.dart';
 
 class TrainerRepoImpl extends TrainerRepo {
   final TrainerRemoteDataSource trainerRemoteDataSource;
+  final DioHelper dioHelper;
 
-  TrainerRepoImpl(this.trainerRemoteDataSource);
+  TrainerRepoImpl(this.trainerRemoteDataSource, this.dioHelper);
   @override
   Future<Either<String, List<TrainerModel>>> get() async {
     try {
@@ -36,6 +40,8 @@ class TrainerRepoImpl extends TrainerRepo {
           .update({
         "isBanned": isBanned,
       });
+
+      await sendNotification(isBanned: isBanned, trainerId: trainerId);
       List<TrainerModel> list = await trainerRemoteDataSource.get();
       return right(list);
     } catch (e) {
@@ -155,6 +161,48 @@ class TrainerRepoImpl extends TrainerRepo {
       return right(list);
     } catch (e) {
       return left(e.toString());
+    }
+  }
+
+  Future<void> sendNotification({
+    required bool isBanned,
+    required String trainerId,
+  }) async {
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'trainer',
+      senderUid: adminUid,
+      title: isBanned == true ? 'ban_trainer' : 'no_ban_trainer',
+      body: '',
+      type: 'notification',
+      uid: trainerId,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(trainerId)
+        .collection('data')
+        .add(
+          notification.toJson(),
+        );
+    var data = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(trainerId)
+        .get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: 'مرحبا كوتش',
+        body: isBanned == false
+            ? 'عزيزي المدرب، تم رفع الحظر من قبل المدير'
+            : 'عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة',
+        data: {
+          "type": "notification",
+          "subType": "trainer",
+          "uid": trainerId,
+        },
+      );
     }
   }
 }

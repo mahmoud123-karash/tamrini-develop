@@ -97,6 +97,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "This article has been banned"),
         "ban_gym_q": MessageLookupByLibrary.simpleMessage(
             "Do you want to ban this gym?"),
+        "ban_hint_admin":
+            MessageLookupByLibrary.simpleMessage("تم حظر هذا المدرب!"),
         "ban_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to ban this article?"),
         "ban_store_hint": MessageLookupByLibrary.simpleMessage(
@@ -111,6 +113,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Your store has been banned"),
         "ban_title_food": MessageLookupByLibrary.simpleMessage(
             "Your article has been banned"),
+        "ban_title_trainer": MessageLookupByLibrary.simpleMessage(
+            "عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة"),
+        "ban_trainer_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حظر هذا المدرب ؟"),
         "ban_your_article": MessageLookupByLibrary.simpleMessage(
             "Your article has been banned"),
         "ban_your_question": MessageLookupByLibrary.simpleMessage(
@@ -327,6 +333,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "The ban on your store has been lifted"),
         "no_ban_title_food": MessageLookupByLibrary.simpleMessage(
             "The ban on your article has been lifted"),
+        "no_ban_title_trainer": MessageLookupByLibrary.simpleMessage(
+            "عزيزي المدرب، تم  رفع الحظر من قبل المدير."),
+        "no_ban_trainer_question": MessageLookupByLibrary.simpleMessage(
+            "هل تريد رفع الحظر عن هذا المدرب ؟"),
         "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
             "The ban on your gym has been lifted"),
         "no_exercises_yet":

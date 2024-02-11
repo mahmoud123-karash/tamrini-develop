@@ -20,6 +20,7 @@ import 'package:tamrini/features/promotion/presentation/views/promotion_screen.d
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
+import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 
 import '../../features/store/presentation/views/store_owner_screen.dart';
 
@@ -44,6 +45,9 @@ void onMessage({
         if (message.data['promotionType'] == 'trainer') {
           TrainersCubit.get(context).getData();
         }
+      }
+      if (message.data['subType'] == 'trainer') {
+        TrainersCubit.get(context).getData();
       }
       AwesomeNotifications().createNotification(
         content: NotificationContent(
@@ -129,6 +133,10 @@ void openNotification(RemoteMessage event, BuildContext context) {
 
     if (event.data['subType'] == 'promotion_accept') {
       navigateTo(context, const NotificationScreen());
+    }
+
+    if (event.data['subType'] == 'trainer') {
+      navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
     }
   }
 }

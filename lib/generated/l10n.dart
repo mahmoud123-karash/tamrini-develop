@@ -4309,6 +4309,56 @@ class S {
       args: [],
     );
   }
+
+  /// `هل تريد حظر هذا المدرب ؟`
+  String get ban_trainer_question {
+    return Intl.message(
+      'هل تريد حظر هذا المدرب ؟',
+      name: 'ban_trainer_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد رفع الحظر عن هذا المدرب ؟`
+  String get no_ban_trainer_question {
+    return Intl.message(
+      'هل تريد رفع الحظر عن هذا المدرب ؟',
+      name: 'no_ban_trainer_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة`
+  String get ban_title_trainer {
+    return Intl.message(
+      'عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة',
+      name: 'ban_title_trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عزيزي المدرب، تم  رفع الحظر من قبل المدير.`
+  String get no_ban_title_trainer {
+    return Intl.message(
+      'عزيزي المدرب، تم  رفع الحظر من قبل المدير.',
+      name: 'no_ban_title_trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم حظر هذا المدرب!`
+  String get ban_hint_admin {
+    return Intl.message(
+      'تم حظر هذا المدرب!',
+      name: 'ban_hint_admin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

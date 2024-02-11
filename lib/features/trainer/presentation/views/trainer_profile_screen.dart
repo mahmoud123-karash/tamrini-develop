@@ -11,6 +11,8 @@ import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_cont
 
 import 'package:tamrini/generated/l10n.dart';
 
+import 'widgets/ban_custom_builder_widget.dart';
+
 class TrainerProfileScreen extends StatelessWidget {
   const TrainerProfileScreen({Key? key, required this.id}) : super(key: key);
   final String id;
@@ -56,18 +58,7 @@ class TrainerProfileScreen extends StatelessWidget {
                               ),
                             ),
                           if (userType == 'admin')
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                              ),
-                              child: customButton(
-                                color: Colors.red,
-                                onPressed: () {},
-                                lable: trainer.isBanned
-                                    ? S.of(context).no_ban
-                                    : S.of(context).ban,
-                              ),
-                            ),
+                            BanCustomBuilderWidget(trainer: trainer),
                         ],
                       ),
                     )

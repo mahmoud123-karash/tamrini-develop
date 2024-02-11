@@ -98,6 +98,7 @@ void setLocator() {
   getIt.registerSingleton<TrainerRepoImpl>(
     TrainerRepoImpl(
       TrainerRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 
