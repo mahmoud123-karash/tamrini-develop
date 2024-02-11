@@ -13,7 +13,7 @@ class HomeTrainerItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateTo(context, TrainerProfileScreen(trainer: model));
+        navigateTo(context, TrainerProfileScreen(id: model.uid));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -21,7 +21,7 @@ class HomeTrainerItemWidget extends StatelessWidget {
           CircleAvatar(
             radius: 30,
             backgroundImage: FirebaseImageProvider(
-              FirebaseUrl(model.image),
+              FirebaseUrl(model.user!.image),
             ),
           ),
           const SizedBox(
@@ -30,10 +30,11 @@ class HomeTrainerItemWidget extends StatelessWidget {
           Container(
             constraints: const BoxConstraints(maxWidth: 100),
             child: Text(
-              model.name,
+              model.user!.name,
               style: TextStyles.style14.copyWith(
                 fontWeight: FontWeight.w700,
               ),
+              textAlign: TextAlign.center,
               maxLines: 1,
             ),
           ),

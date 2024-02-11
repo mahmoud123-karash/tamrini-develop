@@ -185,8 +185,10 @@ Widget addTextField({
   required BuildContext context,
   TextInputType? keyboardType,
   required AutovalidateMode autovalidateMode,
+  VoidCallback? onTap,
 }) =>
     TextFormField(
+      onTap: onTap,
       maxLines: null,
       autovalidateMode: autovalidateMode,
       validator: (value) {

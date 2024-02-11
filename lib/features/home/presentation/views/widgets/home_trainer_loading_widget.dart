@@ -14,7 +14,9 @@ class LoadingTrainerHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer(
-      gradient: LinearGradient(colors: [appColor.withOpacity(0.4), greyColor]),
+      gradient: LinearGradient(
+        colors: [appColor.withOpacity(0.2), greyColor],
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

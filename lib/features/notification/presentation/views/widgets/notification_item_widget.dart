@@ -17,7 +17,6 @@ import 'package:tamrini/features/profile/presentation/views/user_profile_screen.
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_screen.dart';
-import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'notification_body_widget.dart';
@@ -63,10 +62,7 @@ class NotificationItemWidget extends StatelessWidget {
                     if (model.user.role == 'trainer') {
                       navigateTo(
                         context,
-                        TrainerProfileScreen(
-                          trainer: TrainersCubit.get(context)
-                              .getTrainer(uid: model.user.uid),
-                        ),
+                        TrainerProfileScreen(id: model.user.uid),
                       );
                     } else {
                       navigateTo(context, UserProfileScreen(model: model.user));

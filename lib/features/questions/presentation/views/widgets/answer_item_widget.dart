@@ -11,7 +11,6 @@ import 'package:tamrini/features/questions/data/models/question_model/answer_mod
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/answer_options_bottom_sheet_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/name_type_answer_user_widget.dart';
-import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 
 import '../../../../../generated/l10n.dart';
@@ -45,14 +44,9 @@ class AnswerItemWidgt extends StatelessWidget {
                 if (user.role == 'admin') {
                   showSnackBar(context, S.of(context).admin_hint);
                 } else {
-                  if (user.role == 'captain') {
+                  if (user.role == 'trainer') {
                     navigateTo(
-                      context,
-                      TrainerProfileScreen(
-                        trainer: TrainersCubit.get(context)
-                            .getTrainer(uid: model.userUid),
-                      ),
-                    );
+                        context, TrainerProfileScreen(id: model.userUid));
                   } else {
                     navigateTo(context, UserProfileScreen(model: user));
                   }

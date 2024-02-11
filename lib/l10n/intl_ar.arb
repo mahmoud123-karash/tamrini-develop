@@ -412,7 +412,18 @@
     "logout_and_login_again":"يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة.",
     "congratulation":"تهانينا",
     "subed":"مفعل",
-    "ended":"منتهي"
+    "ended":"منتهي",
+    "edit_trainer":"تعديل تفاصيل المدرب",
+    "trainer_description":"إنجازات المدرب",
+    "traiber_price":"سعر الإشتراك",
+    "from_w_h":"من الساعة",
+    "to_w_h":"الى الساعة",
+    "no_trainer":"لا يوجد مدرب",
+    "add_new_gallery":"إضافة عمل جديد",
+    "image_before":"الصورة قبل",
+    "image_after":"الصورة بعد",
+    "image_hint":"من فضلك قم باختيار الصور",
+    "remove_gallery_hint":"هل تريد حذف هذا العرض ؟"
 
 
 

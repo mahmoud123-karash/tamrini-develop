@@ -7,6 +7,7 @@ import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/promotion/data/data_source/remote_data_source/promotion_remote_data_source.dart';
 
 import 'package:tamrini/features/promotion/data/models/promotion_model/promotion_model.dart';
+import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../domain/repo/promotion_repo.dart';
@@ -114,12 +115,36 @@ class PromotionRepoImpl extends PromotionRepo {
           promotionType: model.promotionType,
           userId: model.userId,
         );
+        if (model.promotionType == 'trainer') {
+          await addNewtrainer(model);
+        }
       }
       List<PromotionModel> list = await promotionRemoteDataSource.get();
       return right(list);
     } catch (e) {
       return left(e.toString());
     }
+  }
+
+  Future<void> addNewtrainer(PromotionModel model) async {
+    TrainerModel trainer = TrainerModel(
+      isBanned: false,
+      description: '',
+      uid: model.userId,
+      price: 0,
+      traineesCount: 0,
+      gallery: [],
+      fromH: '',
+      toH: '',
+    );
+    await FirebaseFirestore.instance
+        .collection('trainers')
+        .doc('data')
+        .collection('data')
+        .doc(model.userId)
+        .set(
+          trainer.toJson(),
+        );
   }
 
   Future<void> updateUserRole(PromotionModel model) async {

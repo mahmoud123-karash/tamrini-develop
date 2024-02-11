@@ -19,6 +19,7 @@ import 'package:tamrini/features/profile/data/models/profile_model/profile_model
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 
 import '../../features/store/presentation/views/store_owner_screen.dart';
 
@@ -40,6 +41,9 @@ void onMessage({
       if (message.data['subType'] == 'promotion_accept') {
         log(message.data['promotionType']);
         saveUserType(message.data['promotionType'] ?? '');
+        if (message.data['promotionType'] == 'trainer') {
+          TrainersCubit.get(context).getData();
+        }
       }
       AwesomeNotifications().createNotification(
         content: NotificationContent(

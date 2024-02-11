@@ -14,7 +14,6 @@ import 'package:tamrini/features/trainer/presentation/views/trainer_profile_scre
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../../../../core/shared/components.dart';
-import '../../../../trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 
 class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
   const QuestionOwnerNameImageTypeWidget({
@@ -43,10 +42,7 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
                 if (user.role == 'trainer') {
                   navigateTo(
                     context,
-                    TrainerProfileScreen(
-                      trainer: TrainersCubit.get(context)
-                          .getTrainer(uid: model.askerUid),
-                    ),
+                    TrainerProfileScreen(id: model.askerUid),
                   );
                 } else {
                   navigateTo(context, UserProfileScreen(model: user));

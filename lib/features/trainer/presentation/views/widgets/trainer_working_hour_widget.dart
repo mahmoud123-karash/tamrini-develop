@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/title_text_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -14,18 +16,27 @@ class TrainerWorkingHourWidget extends StatelessWidget {
       children: [
         TitleTextWidget(lable: S.of(context).work_hour),
         Text(S.of(context).from),
-        const SizedBox(
-          width: 10,
+        const Spacer(),
+        Text(
+          from,
+          style: TextStyles.style16Bold.copyWith(
+            color: appColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        Text(from),
+        const Spacer(),
+        Text(S.of(context).to),
+        const Spacer(),
+        Text(
+          to,
+          style: TextStyles.style16Bold.copyWith(
+            color: appColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         const SizedBox(
           width: 20,
         ),
-        Text(S.of(context).to),
-        const SizedBox(
-          width: 10,
-        ),
-        Text(to),
       ],
     );
   }

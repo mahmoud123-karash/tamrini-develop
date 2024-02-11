@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No meal selected"),
         "add_new_exercise":
             MessageLookupByLibrary.simpleMessage("Add New Exercise"),
+        "add_new_gallery":
+            MessageLookupByLibrary.simpleMessage("إضافة عمل جديد"),
         "add_new_nutirtion":
             MessageLookupByLibrary.simpleMessage("Add New Value"),
         "add_new_section":
@@ -187,6 +189,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_store": MessageLookupByLibrary.simpleMessage("Edit Store"),
         "edit_supplememt":
             MessageLookupByLibrary.simpleMessage("Edit Supplement"),
+        "edit_trainer":
+            MessageLookupByLibrary.simpleMessage("تعديل تفاصيل المدرب"),
         "email": MessageLookupByLibrary.simpleMessage("Email Address"),
         "emailverify":
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
@@ -215,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Continue without login"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
+        "from_w_h": MessageLookupByLibrary.simpleMessage("من الساعة"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "g": MessageLookupByLibrary.simpleMessage("g"),
         "gender": MessageLookupByLibrary.simpleMessage("Gender"),
@@ -252,8 +257,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "house_noum": MessageLookupByLibrary.simpleMessage("House Number"),
         "how_to_use_app":
             MessageLookupByLibrary.simpleMessage("App Instructions"),
+        "image_after": MessageLookupByLibrary.simpleMessage("الصورة بعد"),
+        "image_before": MessageLookupByLibrary.simpleMessage("الصورة قبل"),
         "image_error":
             MessageLookupByLibrary.simpleMessage("No image selected"),
+        "image_hint":
+            MessageLookupByLibrary.simpleMessage("من فضلك قم باختيار الصور"),
         "instgram": MessageLookupByLibrary.simpleMessage("Instagram"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "internet_connection": MessageLookupByLibrary.simpleMessage(
@@ -331,6 +340,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No products yet"),
         "no_results": MessageLookupByLibrary.simpleMessage("No Results"),
         "no_sub": MessageLookupByLibrary.simpleMessage("No subscriptions yet"),
+        "no_trainer": MessageLookupByLibrary.simpleMessage("لا يوجد مدرب"),
         "no_trainers": MessageLookupByLibrary.simpleMessage("No Trainers"),
         "no_users": MessageLookupByLibrary.simpleMessage("No users"),
         "nocProducts": MessageLookupByLibrary.simpleMessage(
@@ -434,6 +444,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Remove Article"),
         "remove_exercise_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this exercise?"),
+        "remove_gallery_hint":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا العرض ؟"),
         "remove_meal_q": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this meal?"),
         "remove_nutirtion": MessageLookupByLibrary.simpleMessage(
@@ -547,13 +559,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "time_to_drink": MessageLookupByLibrary.simpleMessage(
             "It\'s time to drink your water"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
+        "to_w_h": MessageLookupByLibrary.simpleMessage("الى الساعة"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "total_price": MessageLookupByLibrary.simpleMessage("Total Price"),
         "tracking": MessageLookupByLibrary.simpleMessage("Tracking"),
+        "traiber_price": MessageLookupByLibrary.simpleMessage("سعر الإشتراك"),
         "trainee": MessageLookupByLibrary.simpleMessage("Trainee"),
         "trainer": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainer_acount":
             MessageLookupByLibrary.simpleMessage("Trainer account"),
+        "trainer_description":
+            MessageLookupByLibrary.simpleMessage("إنجازات المدرب"),
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),

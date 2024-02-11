@@ -8,6 +8,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/substrictions_list_tile_widget.dart';
+import 'package:tamrini/features/navBar/presentation/views/widgets/trainer_widget.dart';
 import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/settings/presentation/views/app_settings_screen.dart';
@@ -16,7 +17,6 @@ import 'package:tamrini/features/settings/presentation/views/settings_screen.dar
 import 'package:tamrini/features/water_reminder/presentaion/views/water_reminder_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../../../trainee/presentation/views/trainer_subscribers_screen.dart';
 import 'widgets/admin_list_tile_widget.dart';
 import 'widgets/drawer_list_tile_widget.dart';
 import 'widgets/store_owner_widget.dart';
@@ -77,14 +77,7 @@ class MyDrawer extends StatelessWidget {
               icon: Ionicons.person_outline,
               lable: S.of(context).profile,
             ),
-            if (usertype == 'trainer')
-              DrawerListTileWidget(
-                onPressed: () {
-                  navigateTo(context, const TrainerSubscribersScreen());
-                },
-                icon: Icons.people_alt_outlined,
-                lable: S.of(context).subcribers,
-              ),
+            if (usertype == 'trainer') const TrainerWidget(),
             if (usertype == 'admin') const AdminListTileWidget(),
             if (usertype == 'admin' || usertype == 'store owner')
               const StoreOwnerWidget(),

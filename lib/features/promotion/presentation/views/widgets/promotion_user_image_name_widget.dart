@@ -5,7 +5,6 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
-import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -22,14 +21,8 @@ class PromotionUserImageNameWidget extends StatelessWidget {
             if (user.role == 'admin') {
               showSnackBar(context, S.of(context).admin_hint);
             } else {
-              if (user.role == 'captain') {
-                navigateTo(
-                  context,
-                  TrainerProfileScreen(
-                    trainer:
-                        TrainersCubit.get(context).getTrainer(uid: user.uid),
-                  ),
-                );
+              if (user.role == 'trainer') {
+                navigateTo(context, TrainerProfileScreen(id: user.uid));
               } else {
                 navigateTo(context, UserProfileScreen(model: user));
               }

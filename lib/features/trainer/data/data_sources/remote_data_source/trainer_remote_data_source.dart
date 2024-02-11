@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
@@ -16,18 +17,16 @@ class TrainerRemoteDataSourceImpl extends TrainerRemoteDataSource {
         .collection('trainers')
         .doc('data')
         .collection('data')
-        .where('isBanned', isEqualTo: false)
         .get();
 
     for (var element in result.docs) {
-      GeoPoint location =
-          element.data()['location'] ?? const GeoPoint(33.312805, 44.361488);
-
-      String address = await getAddress(location: location);
       double rating = await getRating(uid: element.id);
-      TrainerModel model =
-          TrainerModel.fromJson(element.data(), address, rating);
-      list.add(model);
+      UserModel? user = await getUser(element);
+      if (user != null) {
+        TrainerModel model =
+            TrainerModel.fromJson(element.data(), rating, user);
+        list.add(model);
+      }
     }
     list.sort(
       (a, b) => b.traineesCount.compareTo(a.traineesCount),
@@ -50,5 +49,28 @@ class TrainerRemoteDataSourceImpl extends TrainerRemoteDataSource {
       rating.add(model);
     }
     return calculateAverageRating(rating);
+  }
+
+  Future<UserModel?> getUser(
+    QueryDocumentSnapshot<Map<String, dynamic>> element,
+  ) async {
+    String askerUid = element.data()['uid'] ?? '';
+    if (askerUid != '') {
+      var result = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(askerUid)
+          .get();
+      if (result.data() == null) {
+        return null;
+      } else {
+        GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
+        GeoPoint location = result.data()!['location'] ?? defultLocation;
+        String address = await getAddress(location: location);
+        UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+        return user;
+      }
+    } else {
+      return null;
+    }
   }
 }

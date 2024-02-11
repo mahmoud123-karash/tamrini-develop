@@ -22,7 +22,7 @@ class TrainerRowInfoWIdget extends StatelessWidget {
           const Spacer(),
           TrainerInfoWidget(
             icon: Ionicons.star,
-            value: trainer.rating.toStringAsFixed(1),
+            value: trainer.rating!.toStringAsFixed(1),
             text: S.of(context).rating,
           ),
           const Spacer(),

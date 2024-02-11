@@ -9,6 +9,7 @@ class NameLocationTrainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,13 +35,13 @@ class NameLocationTrainerWidget extends StatelessWidget {
               width: 5,
             ),
             Container(
-              constraints: const BoxConstraints(
-                maxWidth: 150,
+              constraints: BoxConstraints(
+                maxWidth: width - (90 + 60 + 30),
               ),
               child: Text(
                 address,
                 style: TextStyles.style14,
-                maxLines: 2,
+                maxLines: 1,
               ),
             ),
           ],

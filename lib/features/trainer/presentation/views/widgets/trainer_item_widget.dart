@@ -22,11 +22,11 @@ class TrainerItemWidget extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(15),
           onTap: () {
-            navigateTo(context, TrainerProfileScreen(trainer: model));
+            navigateTo(context, TrainerProfileScreen(id: model.uid));
           },
           child: Stack(
             children: [
-              TarinerImageWidget(image: model.image),
+              TarinerImageWidget(image: model.user!.image),
               Positioned(
                 bottom: 0,
                 right: 0,
@@ -66,7 +66,7 @@ class TrainerItemWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          model.name,
+                          model.user!.name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class TrainerSocialMediaWidget extends StatelessWidget {
-  const TrainerSocialMediaWidget({super.key, required this.contacts});
-  final List<String> contacts;
+  const TrainerSocialMediaWidget({super.key, required this.user});
+  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +19,12 @@ class TrainerSocialMediaWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              List<String> list =
-                  contacts.where((element) => element.contains('+')).toList();
-              if (list.isEmpty) {
+              if (user.whatsApp == '') {
                 showSnackBar(context, S.of(context).tranier_hint_social);
               } else {
                 Uri uri = Uri(
                   scheme: 'sms',
-                  path: list.first,
+                  path: user.whatsApp,
                 );
                 openUri(url: uri);
               }
@@ -39,13 +38,10 @@ class TrainerSocialMediaWidget extends StatelessWidget {
           const Spacer(),
           InkWell(
             onTap: () {
-              List<String> list = contacts
-                  .where((element) => element.contains('facebook.com'))
-                  .toList();
-              if (list.isEmpty) {
+              if (user.facebookUri == '') {
                 showSnackBar(context, S.of(context).tranier_hint_social);
               } else {
-                Uri uri = Uri.parse(list.first);
+                Uri uri = Uri.parse(user.facebookUri);
                 openUri(url: uri);
               }
             },
@@ -58,13 +54,10 @@ class TrainerSocialMediaWidget extends StatelessWidget {
           const Spacer(),
           InkWell(
             onTap: () {
-              List<String> list = contacts
-                  .where((element) => element.contains('twitter.com'))
-                  .toList();
-              if (list.isEmpty) {
+              if (user.twiterUri == '') {
                 showSnackBar(context, S.of(context).tranier_hint_social);
               } else {
-                Uri uri = Uri.parse(list.first);
+                Uri uri = Uri.parse(user.twiterUri);
                 openUri(url: uri);
               }
             },
@@ -77,13 +70,10 @@ class TrainerSocialMediaWidget extends StatelessWidget {
           const Spacer(),
           InkWell(
             onTap: () {
-              List<String> list = contacts
-                  .where((element) => element.contains('instagram.com'))
-                  .toList();
-              if (list.isEmpty) {
+              if (user.instgramUri == '') {
                 showSnackBar(context, S.of(context).tranier_hint_social);
               } else {
-                Uri uri = Uri.parse(list.first);
+                Uri uri = Uri.parse(user.instgramUri);
                 openUri(url: uri);
               }
             },

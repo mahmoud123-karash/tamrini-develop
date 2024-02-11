@@ -49,10 +49,10 @@ List<Data> searchHomeExercise(value, List<Data> data) {
 }
 
 List<TrainerModel> searchTariner(value, List<TrainerModel> data) {
-  final options = [for (var element in data) element.name];
+  final options = [for (var element in data) element.user!.name];
   final fuse = Fuzzy(options);
   final results = fuse.search(value).map((result) => result.item).toList();
-  return data.where((element) => results.contains(element.name)).toList();
+  return data.where((element) => results.contains(element.user!.name)).toList();
 }
 
 List<DietFoodModel> searchDietFood(value, List<DietFoodModel> data) {

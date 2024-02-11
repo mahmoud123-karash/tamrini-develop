@@ -1,14 +1,16 @@
 import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/shared/assets.dart';
 
 import 'name_location_trainer_widget.dart';
 
 class TrainerNameLoactionImageWidget extends StatelessWidget {
-  const TrainerNameLoactionImageWidget(
-      {super.key,
-      required this.address,
-      required this.name,
-      required this.image});
+  const TrainerNameLoactionImageWidget({
+    super.key,
+    required this.address,
+    required this.name,
+    required this.image,
+  });
   final String address, name, image;
 
   @override
@@ -18,10 +20,12 @@ class TrainerNameLoactionImageWidget extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            radius: 55,
-            backgroundImage: FirebaseImageProvider(
-              FirebaseUrl(image),
-            ),
+            radius: 45,
+            backgroundImage: image == ''
+                ? const AssetImage(Assets.imagesProfile) as ImageProvider
+                : FirebaseImageProvider(
+                    FirebaseUrl(image),
+                  ),
           ),
           const SizedBox(
             width: 30,

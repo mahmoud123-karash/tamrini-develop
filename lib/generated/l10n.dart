@@ -4199,6 +4199,116 @@ class S {
       args: [],
     );
   }
+
+  /// `تعديل تفاصيل المدرب`
+  String get edit_trainer {
+    return Intl.message(
+      'تعديل تفاصيل المدرب',
+      name: 'edit_trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إنجازات المدرب`
+  String get trainer_description {
+    return Intl.message(
+      'إنجازات المدرب',
+      name: 'trainer_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `سعر الإشتراك`
+  String get traiber_price {
+    return Intl.message(
+      'سعر الإشتراك',
+      name: 'traiber_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `من الساعة`
+  String get from_w_h {
+    return Intl.message(
+      'من الساعة',
+      name: 'from_w_h',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الى الساعة`
+  String get to_w_h {
+    return Intl.message(
+      'الى الساعة',
+      name: 'to_w_h',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد مدرب`
+  String get no_trainer {
+    return Intl.message(
+      'لا يوجد مدرب',
+      name: 'no_trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة عمل جديد`
+  String get add_new_gallery {
+    return Intl.message(
+      'إضافة عمل جديد',
+      name: 'add_new_gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الصورة قبل`
+  String get image_before {
+    return Intl.message(
+      'الصورة قبل',
+      name: 'image_before',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الصورة بعد`
+  String get image_after {
+    return Intl.message(
+      'الصورة بعد',
+      name: 'image_after',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `من فضلك قم باختيار الصور`
+  String get image_hint {
+    return Intl.message(
+      'من فضلك قم باختيار الصور',
+      name: 'image_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذا العرض ؟`
+  String get remove_gallery_hint {
+    return Intl.message(
+      'هل تريد حذف هذا العرض ؟',
+      name: 'remove_gallery_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

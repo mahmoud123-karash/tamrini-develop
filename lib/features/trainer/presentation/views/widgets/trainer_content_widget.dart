@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
+import 'package:tamrini/features/trainer/presentation/views/trainer_gallery_screen.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_gallery_example_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_name_image_location_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_row_info_widget.dart';
@@ -16,17 +19,29 @@ class TrainerContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid');
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (trainer.gallery.isEmpty)
+            if (trainer.uid == uid)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: customButton(
+                  onPressed: () {
+                    navigateTo(context, TrainerGallerySreen(id: trainer.uid));
+                  },
+                  lable: S.of(context).trainer_gallery,
+                ),
+              ),
           const SizedBox(
-            height: 25,
+            height: 10,
           ),
           TrainerNameLoactionImageWidget(
-            address: trainer.address,
-            name: trainer.name,
-            image: trainer.image,
+            address: trainer.user!.address,
+            name: trainer.user!.name,
+            image: trainer.user!.image,
           ),
           const Divider(
             height: 50,
@@ -42,7 +57,7 @@ class TrainerContentWidget extends StatelessWidget {
             height: 25,
           ),
           TrainerSocialMediaWidget(
-            contacts: trainer.contacts,
+            user: trainer.user!,
           ),
           if (trainer.description != '')
             TarinerDescriptionWidget(
@@ -61,7 +76,7 @@ class TrainerContentWidget extends StatelessWidget {
               height: 50,
             ),
           if (trainer.gallery.isNotEmpty)
-            TrainerGalleryExampleWidget(gallery: trainer.gallery),
+            TrainerGalleryExampleWidget(model: trainer),
         ],
       ),
     );

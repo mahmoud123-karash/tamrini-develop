@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/features/trainer/data/models/trainer_model/gallery_model.dart';
+import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
+import 'package:tamrini/features/trainer/presentation/views/widgets/remove_gallery_icon_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'image_slide_show_widget.dart';
 
 class TrainerGalleryItemWidget extends StatelessWidget {
-  const TrainerGalleryItemWidget(
-      {super.key, required this.imageBefore, required this.imageAfter});
-  final String imageBefore, imageAfter;
+  const TrainerGalleryItemWidget({
+    super.key,
+    required this.trainer,
+    required this.model,
+    this.isExample = false,
+  });
+  final TrainerModel trainer;
+  final GalleryModel model;
+  final bool isExample;
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype');
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: GestureDetector(
@@ -45,12 +58,12 @@ class TrainerGalleryItemWidget extends StatelessWidget {
                             height: 1.sh,
                             children: [
                               ImageSlideShowWidget(
-                                image: imageBefore,
+                                image: model.before,
                                 fit: BoxFit.contain,
                                 text: S.of(context).before,
                               ),
                               ImageSlideShowWidget(
-                                image: imageAfter,
+                                image: model.after,
                                 fit: BoxFit.contain,
                                 text: S.of(context).after,
                               ),
@@ -65,24 +78,34 @@ class TrainerGalleryItemWidget extends StatelessWidget {
             },
           );
         },
-        child: ImageSlideshow(
-          width: double.infinity,
-          height: 200,
-          indicatorColor: Colors.blue,
-          indicatorBackgroundColor: Colors.grey,
-          autoPlayInterval: 0,
-          isLoop: false,
+        child: Stack(
+          alignment: Intl.getCurrentLocale() == 'ar'
+              ? Alignment.topRight
+              : Alignment.topLeft,
           children: [
-            ImageSlideShowWidget(
-              image: imageBefore,
-              fit: BoxFit.cover,
-              text: S.of(context).before,
+            ImageSlideshow(
+              width: double.infinity,
+              height: 200,
+              indicatorColor: Colors.blue,
+              indicatorBackgroundColor: Colors.grey,
+              autoPlayInterval: 0,
+              isLoop: false,
+              children: [
+                ImageSlideShowWidget(
+                  image: model.before,
+                  fit: BoxFit.cover,
+                  text: S.of(context).before,
+                ),
+                ImageSlideShowWidget(
+                  image: model.after,
+                  fit: BoxFit.cover,
+                  text: S.of(context).after,
+                ),
+              ],
             ),
-            ImageSlideShowWidget(
-              image: imageAfter,
-              fit: BoxFit.cover,
-              text: S.of(context).after,
-            ),
+            if (!isExample)
+              if (trainer.uid == uid && userType == 'trainer')
+                RemoveGalleryIconWidget(trainer: trainer, model: model),
           ],
         ),
       ),
