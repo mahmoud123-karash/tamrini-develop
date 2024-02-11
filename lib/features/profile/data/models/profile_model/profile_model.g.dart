@@ -29,6 +29,7 @@ class ProfileModelAdapter extends TypeAdapter<ProfileModel> {
       image: fields[15] as String,
       age: fields[13] as int,
       isBanned: fields[16] as bool,
+      trainerId: fields[22] as String?,
     );
   }
 

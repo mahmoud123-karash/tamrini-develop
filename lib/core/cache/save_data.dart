@@ -25,11 +25,6 @@ void saveDeviceToken(value) => CacheHelper.saveData(
       value: value,
     );
 
-void saveSwiperIndex(value) => CacheHelper.saveData(
-      key: 'index',
-      value: value,
-    );
-
 void saveTheme(value) => CacheHelper.saveData(
       key: 'isdark',
       value: value,
@@ -81,5 +76,10 @@ void saveLatMap(value) => CacheHelper.saveData(
     );
 void saveLongMap(value) => CacheHelper.saveData(
       key: 'langmap',
+      value: value,
+    );
+
+void saveTrainerId(value) => CacheHelper.saveData(
+      key: 'trainerId',
       value: value,
     );

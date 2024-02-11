@@ -40,8 +40,8 @@ class TraineeModel {
 
     return TraineeModel(
       user: user,
-      uid: json['uid'],
-      dateOfSubscription: json['dateOfSubscription'],
+      uid: json['uid'] ?? '',
+      dateOfSubscription: json['dateOfSubscription'] ?? Timestamp.now(),
       supplements: supplementsList,
       food: foodList,
       followUpList: followUpList,

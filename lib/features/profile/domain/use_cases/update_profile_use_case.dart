@@ -22,6 +22,7 @@ abstract class UseCase {
     required String whatsApp,
     required String address,
     required String path,
+    required String trainerId,
   });
 }
 
@@ -44,6 +45,7 @@ class UpdateUseCase extends UseCase {
     required String whatsApp,
     required String address,
     required String path,
+    required String trainerId,
   }) async {
     try {
       var box = Hive.box<ProfileModel>(profileBox);
@@ -61,6 +63,7 @@ class UpdateUseCase extends UseCase {
             image: img,
             age: age,
             isBanned: isBanned,
+            trainerId: trainerId,
             address: address,
           );
       if (path == '') {

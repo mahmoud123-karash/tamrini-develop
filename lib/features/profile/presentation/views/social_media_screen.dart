@@ -74,6 +74,7 @@ class _SocilaMediaScreenState extends State<SocilaMediaScreen> {
                       gender: widget.model.gender,
                       age: widget.model.age,
                       phone: widget.model.phone,
+                      trainerId: widget.model.trainerId ?? '',
                       image: widget.model.image,
                       whatsApp: whatsAppController.text.contains('+')
                           ? whatsAppController.text

@@ -18,20 +18,20 @@ class WriterRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return model.isBanned
         ? Container()
-        : GestureDetector(
-            onTap: () {
-              String uid = CacheHelper.getData(key: 'uid') ?? '';
-              if (model.uid == uid) {
-                navigateTo(context, const ProfileScreen());
-              } else if (model.role == 'admin') {
-                showSnackBar(context, S.of(context).admin_hint);
-              } else {
-                navigateTo(context, UserProfileScreen(model: model));
-              }
-            },
-            child: Row(
-              children: [
-                CircleAvatar(
+        : Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  String uid = CacheHelper.getData(key: 'uid') ?? '';
+                  if (model.uid == uid) {
+                    navigateTo(context, const ProfileScreen());
+                  } else if (model.role == 'admin') {
+                    showSnackBar(context, S.of(context).admin_hint);
+                  } else {
+                    navigateTo(context, UserProfileScreen(model: model));
+                  }
+                },
+                child: CircleAvatar(
                   radius: 40,
                   backgroundImage: model.image != ''
                       ? FirebaseImageProvider(
@@ -39,21 +39,21 @@ class WriterRowWidget extends StatelessWidget {
                         ) as ImageProvider
                       : const AssetImage(Assets.imagesProfile),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
-                PublisherNameAndRoleWidget(
-                  role: model.role,
-                  name: model.name,
-                ),
-                const Spacer(),
-                if (model.role == 'admin')
-                  const Icon(
-                    Icons.stars_rounded,
-                    color: Colors.amber,
-                  )
-              ],
-            ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              PublisherNameAndRoleWidget(
+                role: model.role,
+                name: model.name,
+              ),
+              const Spacer(),
+              if (model.role == 'admin')
+                const Icon(
+                  Icons.stars_rounded,
+                  color: Colors.amber,
+                )
+            ],
           );
   }
 }

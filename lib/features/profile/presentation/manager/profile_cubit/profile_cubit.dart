@@ -42,6 +42,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
     required String address,
     required String whatsApp,
     required String path,
+    required String trainerId,
   }) async {
     emit(LoadingGetProfileState());
     var result = await updateUseCase.update(
@@ -50,6 +51,7 @@ class ProfileCubit extends Cubit<ProfileStates> {
       gender: gender,
       age: age,
       whatsApp: whatsApp,
+      trainerId: trainerId,
       phone: phone,
       image: image,
       isBanned: isBanned,

@@ -4369,6 +4369,26 @@ class S {
       args: [],
     );
   }
+
+  /// `انت مشترك بالفعل مع هذا المدرب`
+  String get you_sub_with_trainer {
+    return Intl.message(
+      'انت مشترك بالفعل مع هذا المدرب',
+      name: 'you_sub_with_trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `انضم متدرب جديد الى فريقك`
+  String get new_trainee_joined {
+    return Intl.message(
+      'انضم متدرب جديد الى فريقك',
+      name: 'new_trainee_joined',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

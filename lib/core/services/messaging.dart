@@ -19,6 +19,7 @@ import 'package:tamrini/features/profile/data/models/profile_model/profile_model
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 
@@ -48,6 +49,10 @@ void onMessage({
       }
       if (message.data['subType'] == 'trainer') {
         TrainersCubit.get(context).getData();
+      }
+      if (message.data['subType'] == 'trainee') {
+        String uid = CacheHelper.getData(key: 'uid') ?? '';
+        TraineeCubit.get(context).getData(trainerId: uid);
       }
       AwesomeNotifications().createNotification(
         content: NotificationContent(
@@ -137,6 +142,10 @@ void openNotification(RemoteMessage event, BuildContext context) {
 
     if (event.data['subType'] == 'trainer') {
       navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
+    }
+
+    if (event.data['subType'] == 'trainee') {
+      // navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
     }
   }
 }

@@ -73,6 +73,10 @@ class NotificationBodyWidget extends StatelessWidget {
                                                 ? S
                                                     .of(context)
                                                     .no_ban_title_trainer
-                                                : title;
+                                                : title == 'new_trainee'
+                                                    ? S
+                                                        .of(context)
+                                                        .new_trainee_joined
+                                                    : title;
   }
 }

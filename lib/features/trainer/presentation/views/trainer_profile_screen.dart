@@ -43,7 +43,11 @@ class TrainerProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           if (userType != 'admin' && userType != 'trainer')
-                            const SubButtonWithTrainerWidget(),
+                            SubButtonWithTrainerWidget(
+                              trainerId: trainer.uid,
+                              traineesCount: trainer.traineesCount,
+                              profits: trainer.profits + trainer.price,
+                            ),
                           if (trainer.uid == uid && userType == 'trainer')
                             Padding(
                               padding: const EdgeInsets.symmetric(

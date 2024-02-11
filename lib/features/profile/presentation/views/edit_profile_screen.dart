@@ -104,6 +104,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           whatsApp: widget.model.whatsApp ?? '',
           isBanned: widget.model.isBanned,
           facebookUri: widget.model.facebookUri,
+          trainerId: widget.model.trainerId ?? '',
           instgramUri: widget.model.instgramUri,
           twiterUri: widget.model.twiterUri,
           address: widget.model.address,

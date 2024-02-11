@@ -7,7 +7,7 @@ import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
-import 'package:tamrini/features/trainee/data/models/sub_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 
 import '../../features/food/data/models/supplement_model/supplement_data.dart';

@@ -33,8 +33,9 @@ class _NavBarScreenState extends State<NavBarScreen> {
   @override
   void initState() {
     String userType = CacheHelper.getData(key: 'usertype') ?? "";
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
     if (userType == 'trainer') {
-      TraineeCubit.get(context).getData();
+      TraineeCubit.get(context).getData(trainerId: uid);
     }
     if (userType == 'admin' || userType == 'user') {
       PromotionCubit.get(context).getData();

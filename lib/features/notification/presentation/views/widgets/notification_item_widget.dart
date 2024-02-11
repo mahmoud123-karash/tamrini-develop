@@ -149,6 +149,10 @@ class NotificationItemWidget extends StatelessWidget {
       if (model.subType == 'trainer') {
         navigateTo(context, TrainerProfileScreen(id: model.uid));
       }
+
+      if (model.subType == 'trainee') {
+        // navigateTo(context, TrainerProfileScreen(id: model.uid));
+      }
     }
   }
 }

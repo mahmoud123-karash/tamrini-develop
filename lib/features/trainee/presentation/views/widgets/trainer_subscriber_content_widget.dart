@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/trainee/data/models/sub_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'subscriber_list_view_widget.dart';
 

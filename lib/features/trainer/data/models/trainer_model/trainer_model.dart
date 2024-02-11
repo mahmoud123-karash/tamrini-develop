@@ -9,6 +9,7 @@ class TrainerModel {
   final String uid;
   final String fromH;
   final String toH;
+  final num profits;
   final List<GalleryModel> gallery;
   double? rating;
   UserModel? user;
@@ -20,6 +21,7 @@ class TrainerModel {
     required this.uid,
     required this.price,
     required this.traineesCount,
+    required this.profits,
     this.user,
     required this.gallery,
     required this.fromH,
@@ -46,6 +48,7 @@ class TrainerModel {
       traineesCount: json['traineesCount'] ?? 0,
       uid: json['uid'] ?? '',
       fromH: json['fromH'] ?? '',
+      profits: json['profits'] ?? 0,
       toH: json['toH'] ?? '',
       gallery: list,
     );
@@ -59,6 +62,7 @@ class TrainerModel {
     data['price'] = price;
     data['fromH'] = fromH;
     data['toH'] = toH;
+    data['profits'] = profits;
     data['traineesCount'] = traineesCount;
     data['gallery'] = gallery.map((e) => e.toJson());
     return data;

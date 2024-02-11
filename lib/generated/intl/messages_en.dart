@@ -313,6 +313,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
         "new_promtion_request":
             MessageLookupByLibrary.simpleMessage("New promotion request"),
+        "new_trainee_joined":
+            MessageLookupByLibrary.simpleMessage("انضم متدرب جديد الى فريقك"),
         "noArticles": MessageLookupByLibrary.simpleMessage(
             "No articles found with this name"),
         "noExer": MessageLookupByLibrary.simpleMessage(
@@ -625,6 +627,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Writer\'s Articles"),
         "writers": MessageLookupByLibrary.simpleMessage("Writers"),
         "years": MessageLookupByLibrary.simpleMessage("years old"),
+        "you_sub_with_trainer": MessageLookupByLibrary.simpleMessage(
+            "انت مشترك بالفعل مع هذا المدرب"),
         "your_articles": MessageLookupByLibrary.simpleMessage("My Articles"),
         "your_meals": MessageLookupByLibrary.simpleMessage("Your Meals"),
         "your_need": MessageLookupByLibrary.simpleMessage("Your Need"),

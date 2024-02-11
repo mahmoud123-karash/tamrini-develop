@@ -132,6 +132,7 @@ class PromotionRepoImpl extends PromotionRepo {
       description: '',
       uid: model.userId,
       price: 0,
+      profits: 0,
       traineesCount: 0,
       gallery: [],
       fromH: '',

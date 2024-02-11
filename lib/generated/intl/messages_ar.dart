@@ -306,6 +306,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_meal": MessageLookupByLibrary.simpleMessage("إضافة وجبة "),
         "new_promtion_request":
             MessageLookupByLibrary.simpleMessage("طلب ترقية جديد"),
+        "new_trainee_joined":
+            MessageLookupByLibrary.simpleMessage("انضم متدرب جديد الى فريقك"),
         "noArticles":
             MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
         "noExer":
@@ -606,6 +608,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مقالات الكاتب"),
         "writers": MessageLookupByLibrary.simpleMessage("الناشرين"),
         "years": MessageLookupByLibrary.simpleMessage("سنوات"),
+        "you_sub_with_trainer": MessageLookupByLibrary.simpleMessage(
+            "انت مشترك بالفعل مع هذا المدرب"),
         "your_articles": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
         "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),

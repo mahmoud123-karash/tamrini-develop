@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/location.dart';
-import 'package:tamrini/features/trainee/data/models/sub_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 abstract class TraineeRemoteDataSource {
   Future<List<TraineeModel>> get({required String trainerId});

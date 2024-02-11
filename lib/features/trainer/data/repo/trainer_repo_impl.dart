@@ -62,6 +62,7 @@ class TrainerRepoImpl extends TrainerRepo {
         isBanned: trainer.isBanned,
         description: description,
         uid: trainer.uid,
+        profits: trainer.profits,
         price: price,
         traineesCount: trainer.traineesCount,
         gallery: trainer.gallery,
@@ -106,6 +107,7 @@ class TrainerRepoImpl extends TrainerRepo {
         isBanned: trainer.isBanned,
         description: trainer.description,
         uid: trainer.uid,
+        profits: trainer.profits,
         price: trainer.price,
         traineesCount: trainer.traineesCount,
         gallery: gallery,
@@ -142,6 +144,7 @@ class TrainerRepoImpl extends TrainerRepo {
       TrainerModel newmodel = TrainerModel(
         isBanned: trainer.isBanned,
         description: trainer.description,
+        profits: trainer.profits,
         uid: trainer.uid,
         price: trainer.price,
         traineesCount: trainer.traineesCount,

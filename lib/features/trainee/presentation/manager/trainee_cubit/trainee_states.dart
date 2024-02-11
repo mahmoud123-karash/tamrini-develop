@@ -1,4 +1,4 @@
-import 'package:tamrini/features/trainee/data/models/sub_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 abstract class TraineeStates {}
 

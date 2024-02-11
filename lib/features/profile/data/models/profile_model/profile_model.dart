@@ -27,6 +27,8 @@ class ProfileModel {
   final String address;
   @HiveField(21)
   final String? whatsApp;
+  @HiveField(22)
+  final String? trainerId;
 
   ProfileModel({
     required this.name,
@@ -41,6 +43,7 @@ class ProfileModel {
     required this.image,
     required this.age,
     required this.isBanned,
+    required this.trainerId,
   });
 
   factory ProfileModel.fromMap(Map<String, dynamic> map, String address) {
@@ -56,6 +59,7 @@ class ProfileModel {
       twiterUri: map['twiterUri'] ?? '',
       address: address,
       age: map['age'] ?? 0,
+      trainerId: map['trainerId'] ?? '',
       isBanned: map['isBanned'] ?? false,
     );
   }
@@ -73,6 +77,7 @@ class ProfileModel {
       'facebookUri': facebookUri,
       'twiterUri': twiterUri,
       'isBanned': isBanned,
+      'trainerId': trainerId,
     };
   }
 }

@@ -219,6 +219,7 @@ void setLocator() {
   getIt.registerSingleton<TraineeRepoImpl>(
     TraineeRepoImpl(
       TraineeRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 

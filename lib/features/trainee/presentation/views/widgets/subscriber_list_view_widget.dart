@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
-import 'package:tamrini/features/trainee/data/models/sub_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
+
+import 'subscriber_item_widget.dart';
 
 class SubscriberListViewWidget extends StatelessWidget {
-  const SubscriberListViewWidget(
-      {super.key,
-      required this.list,
-      required this.length,
-      required this.controller});
+  const SubscriberListViewWidget({
+    super.key,
+    required this.list,
+    required this.length,
+    required this.controller,
+  });
   final List<TraineeModel> list;
   final int length;
   final ScrollController controller;
@@ -17,7 +19,7 @@ class SubscriberListViewWidget extends StatelessWidget {
       controller: controller,
       itemBuilder: (context, index) {
         if (index < length) {
-          return WriterRowWidget(
+          return SubscriberItemWidget(
             model: list[index].user!,
           );
         } else {
