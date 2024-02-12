@@ -1,8 +1,10 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class CourseNameDurationColumWidget extends StatelessWidget {
+class CourseNameDurationColumWidget extends StatefulWidget {
   const CourseNameDurationColumWidget({
     super.key,
     required this.titleController,
@@ -19,9 +21,17 @@ class CourseNameDurationColumWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
 
   @override
+  State<CourseNameDurationColumWidget> createState() =>
+      _CourseNameDurationColumWidgetState();
+}
+
+class _CourseNameDurationColumWidgetState
+    extends State<CourseNameDurationColumWidget> {
+  bool isNote = false;
+  @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: widget.formKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 15,
@@ -31,9 +41,9 @@ class CourseNameDurationColumWidget extends StatelessWidget {
           children: [
             addTextField(
               lable: S.of(context).course_name,
-              controller: titleController,
+              controller: widget.titleController,
               context: context,
-              autovalidateMode: autovalidateMode,
+              autovalidateMode: widget.autovalidateMode,
             ),
             const SizedBox(
               height: 15,
@@ -41,19 +51,37 @@ class CourseNameDurationColumWidget extends StatelessWidget {
             addTextField(
               keyboardType: TextInputType.number,
               lable: S.of(context).course_duration,
-              controller: durationController,
+              controller: widget.durationController,
               context: context,
-              autovalidateMode: autovalidateMode,
+              autovalidateMode: widget.autovalidateMode,
             ),
             const SizedBox(
               height: 15,
             ),
-            addTextField(
-              lable: S.of(context).course_notes,
-              controller: notesController,
-              context: context,
-              autovalidateMode: autovalidateMode,
-            )
+            CheckboxListTile(
+              title: Text(
+                S.of(context).course_notes,
+                style: TextStyles.style14.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: appColor,
+                ),
+              ),
+              value: isNote,
+              onChanged: (value) {
+                isNote = value ?? false;
+                setState(() {});
+              },
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            if (isNote)
+              addTextField(
+                lable: S.of(context).course_notes,
+                controller: widget.notesController,
+                context: context,
+                autovalidateMode: widget.autovalidateMode,
+              )
           ],
         ),
       ),

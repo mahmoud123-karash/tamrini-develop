@@ -4390,280 +4390,280 @@ class S {
     );
   }
 
-  /// `ملف المتدرب`
+  /// `Trainee Profile`
   String get trainee_profile {
     return Intl.message(
-      'ملف المتدرب',
+      'Trainee Profile',
       name: 'trainee_profile',
       desc: '',
       args: [],
     );
   }
 
-  /// `الكورسات`
+  /// `Courses`
   String get courses {
     return Intl.message(
-      'الكورسات',
+      'Courses',
       name: 'courses',
       desc: '',
       args: [],
     );
   }
 
-  /// `المتابعة والبيانات`
+  /// `Follow-up and Data`
   String get follow_and_data {
     return Intl.message(
-      'المتابعة والبيانات',
+      'Follow-up and Data',
       name: 'follow_and_data',
       desc: '',
       args: [],
     );
   }
 
-  /// `النظام الغذائى`
+  /// `Diet`
   String get diet {
     return Intl.message(
-      'النظام الغذائى',
+      'Diet',
       name: 'diet',
       desc: '',
       args: [],
     );
   }
 
-  /// `الكورس التدريبي`
+  /// `Training Course`
   String get training_course {
     return Intl.message(
-      'الكورس التدريبي',
+      'Training Course',
       name: 'training_course',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة كورس جديد`
+  /// `Add New Course`
   String get add_new_course {
     return Intl.message(
-      'إضافة كورس جديد',
+      'Add New Course',
       name: 'add_new_course',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة نظام غذائي`
+  /// `Add New Diet Course`
   String get add_new_diet_course {
     return Intl.message(
-      'إضافة نظام غذائي',
+      'Add New Diet Course',
       name: 'add_new_diet_course',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة مكمل غذائي`
+  /// `Add New Supplement`
   String get add_new_supplemnet {
     return Intl.message(
-      'إضافة مكمل غذائي',
+      'Add New Supplement',
       name: 'add_new_supplemnet',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة متابعة`
+  /// `Add New Follow-up`
   String get add_new_folow {
     return Intl.message(
-      'إضافة متابعة',
+      'Add New Follow-up',
       name: 'add_new_folow',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم الكورس`
+  /// `Course Name`
   String get course_name {
     return Intl.message(
-      'اسم الكورس',
+      'Course Name',
       name: 'course_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `مدة الكورس بالأسابيع`
+  /// `Course Duration in Weeks`
   String get course_duration {
     return Intl.message(
-      'مدة الكورس بالأسابيع',
+      'Course Duration in Weeks',
       name: 'course_duration',
       desc: '',
       args: [],
     );
   }
 
-  /// `ملاحظات`
+  /// `Notes`
   String get course_notes {
     return Intl.message(
-      'ملاحظات',
+      'Notes',
       name: 'course_notes',
       desc: '',
       args: [],
     );
   }
 
-  /// `التالى`
+  /// `Next`
   String get next {
     return Intl.message(
-      'التالى',
+      'Next',
       name: 'next',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم السبت`
+  /// `Saturday`
   String get sut {
     return Intl.message(
-      'يوم السبت',
+      'Saturday',
       name: 'sut',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم الأحد`
+  /// `Sunday`
   String get sun {
     return Intl.message(
-      'يوم الأحد',
+      'Sunday',
       name: 'sun',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم الإثنين`
+  /// `Monday`
   String get mon {
     return Intl.message(
-      'يوم الإثنين',
+      'Monday',
       name: 'mon',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم الثلاثاء`
+  /// `Tuesday`
   String get tue {
     return Intl.message(
-      'يوم الثلاثاء',
+      'Tuesday',
       name: 'tue',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم الأربعاء`
+  /// `Wednesday`
   String get wed {
     return Intl.message(
-      'يوم الأربعاء',
+      'Wednesday',
       name: 'wed',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم الخميس`
+  /// `Thursday`
   String get thurs {
     return Intl.message(
-      'يوم الخميس',
+      'Thursday',
       name: 'thurs',
       desc: '',
       args: [],
     );
   }
 
-  /// `يوم الجمعة`
+  /// `Friday`
   String get fri {
     return Intl.message(
-      'يوم الجمعة',
+      'Friday',
       name: 'fri',
       desc: '',
       args: [],
     );
   }
 
-  /// `التكرار`
+  /// `Repeats`
   String get num_of_repeat {
     return Intl.message(
-      'التكرار',
+      'Repeats',
       name: 'num_of_repeat',
       desc: '',
       args: [],
     );
   }
 
-  /// `المجموعات`
+  /// `Sets`
   String get num_of_reps {
     return Intl.message(
-      'المجموعات',
+      'Sets',
       name: 'num_of_reps',
       desc: '',
       args: [],
     );
   }
 
-  /// `من فضلك قم باستكمال بيانات ثلاثة أيام على الأقل`
+  /// `Please complete data for at least three days`
   String get complete_lists {
     return Intl.message(
-      'من فضلك قم باستكمال بيانات ثلاثة أيام على الأقل',
+      'Please complete data for at least three days',
       name: 'complete_lists',
       desc: '',
       args: [],
     );
   }
 
-  /// `أسابيع`
+  /// `Weeks`
   String get weeks {
     return Intl.message(
-      'أسابيع',
+      'Weeks',
       name: 'weeks',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل الكورس`
+  /// `Course Details`
   String get course_details {
     return Intl.message(
-      'تفاصيل الكورس',
+      'Course Details',
       name: 'course_details',
       desc: '',
       args: [],
     );
   }
 
-  /// `مدة الكورس`
+  /// `Course Duration`
   String get duration_course {
     return Intl.message(
-      'مدة الكورس',
+      'Course Duration',
       name: 'duration_course',
       desc: '',
       args: [],
     );
   }
 
-  /// `الأيام`
+  /// `Days`
   String get days {
     return Intl.message(
-      'الأيام',
+      'Days',
       name: 'days',
       desc: '',
       args: [],
     );
   }
 
-  /// `تاريخ انشاء الكورس`
+  /// `Course Creation Date`
   String get course_date {
     return Intl.message(
-      'تاريخ انشاء الكورس',
+      'Course Creation Date',
       name: 'course_date',
       desc: '',
       args: [],

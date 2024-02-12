@@ -52,10 +52,12 @@ class CourseDetailsScreen extends StatelessWidget {
                 lable: S.of(context).course_date,
                 icon: Icons.calendar_month_outlined,
               ),
-              const SizedBox(
-                height: 25,
-              ),
-              CourseNotesContainerWidget(notes: model.notes),
+              if (model.notes != '')
+                const SizedBox(
+                  height: 25,
+                ),
+              if (model.notes != '')
+                CourseNotesContainerWidget(notes: model.notes),
               const SizedBox(
                 height: 25,
               ),
