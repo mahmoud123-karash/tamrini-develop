@@ -7,14 +7,17 @@ import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_screen.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_without_vedio_screen.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
+import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
 
 class ExerciseItemWidget extends StatelessWidget {
-  const ExerciseItemWidget({super.key, required this.model});
+  const ExerciseItemWidget(
+      {super.key, required this.model, required this.width, required this.num});
   final DataModel model;
+  final double width;
+  final int num;
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       onTap: () {
@@ -50,40 +53,60 @@ class ExerciseItemWidget extends StatelessWidget {
           }
         }
       },
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        elevation: 7,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              ImageViewWidget(
-                width: width / 1.5,
-                image: checkImageformat(
-                  model.assets ?? [],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0, right: 10),
-                child: SizedBox(
-                  width: width / 1.5,
-                  child: Text(
-                    model.title ?? '',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold,
-                      color: blackColor,
+      child: Stack(
+        alignment: Alignment.topLeft,
+        children: [
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            elevation: 7,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  ImageViewWidget(
+                    width: width,
+                    image: checkImageformat(
+                      model.assets ?? [],
                     ),
-                    maxLines: 1,
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0, right: 10),
+                    child: SizedBox(
+                      width: width,
+                      child: Text(
+                        model.title ?? '',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                          color: blackColor,
+                        ),
+                        maxLines: 1,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: IconButton(
+              onPressed: () {
+                CourseCubit.get(context).removeExercise(
+                  id: model.id ?? '',
+                  index: num,
+                );
+              },
+              icon: const Icon(
+                Icons.delete,
+                color: Colors.red,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

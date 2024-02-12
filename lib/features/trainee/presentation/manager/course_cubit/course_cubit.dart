@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_exercises_model.dart';
 import 'course_states.dart';
 
 class CourseCubit extends Cubit<CourseStates> {
@@ -7,44 +7,91 @@ class CourseCubit extends Cubit<CourseStates> {
 
   static CourseCubit get(context) => BlocProvider.of(context);
 
-  List<CourseModel> sutList = [];
-  List<CourseModel> sunList = [];
-  List<CourseModel> monList = [];
-  List<CourseModel> tueList = [];
-  List<CourseModel> wenList = [];
-  List<CourseModel> thrueList = [];
-  List<CourseModel> friList = [];
+  List<TraineeExerciseModel> sutList = [];
+  List<TraineeExerciseModel> sunList = [];
+  List<TraineeExerciseModel> monList = [];
+  List<TraineeExerciseModel> tueList = [];
+  List<TraineeExerciseModel> wenList = [];
+  List<TraineeExerciseModel> thrueList = [];
+  List<TraineeExerciseModel> friList = [];
 
   int num = 0;
-  List<CourseModel> list = [];
+  List<TraineeExerciseModel> list = [];
 
-  void selectExercise({required CourseModel model}) {
+  void selectExercise({required TraineeExerciseModel model}) {
     list.add(model);
-    selectList(num, list);
+    fillList(model);
     emit(SuccessSelectExerciseState());
   }
 
-  void unSelectExercise({required CourseModel model}) {
+  void unSelectExercise({required String id}) {
+    TraineeExerciseModel model =
+        list.firstWhere((element) => element.exerciseId == id);
     list.remove(model);
-    selectList(num, list);
+    emptyList(model, num);
     emit(SuccessUnSelectExerciseState());
   }
 
-  void selectList(int num, List<CourseModel> list) {
-    if (num == 1) {
-      sutList = list;
-    } else if (num == 2) {
-      sunList = list;
-    } else if (num == 3) {
-      monList = list;
-    } else if (num == 4) {
-      tueList = list;
-    } else if (num == 5) {
-      wenList = list;
-    } else if (num == 6) {
-      thrueList = list;
-    } else {
-      friList = list;
+  void removeExercise({required String id, required int index}) {
+    TraineeExerciseModel model =
+        list.firstWhere((element) => element.exerciseId == id);
+    emptyList(model, index);
+    emit(SuccessUnSelectExerciseState());
+  }
+
+  void fillList(TraineeExerciseModel model) {
+    switch (num) {
+      case 0:
+        sutList.add(model);
+        break;
+      case 1:
+        sunList.add(model);
+        break;
+      case 2:
+        monList.add(model);
+        break;
+      case 3:
+        tueList.add(model);
+        break;
+      case 4:
+        wenList.add(model);
+        break;
+      case 5:
+        thrueList.add(model);
+        break;
+      case 6:
+        friList.add(model);
+        break;
+      default:
+        break;
+    }
+  }
+
+  void emptyList(TraineeExerciseModel model, int num) {
+    switch (num) {
+      case 0:
+        sutList.remove(model);
+        break;
+      case 1:
+        sunList.remove(model);
+        break;
+      case 2:
+        monList.remove(model);
+        break;
+      case 3:
+        tueList.remove(model);
+        break;
+      case 4:
+        wenList.remove(model);
+        break;
+      case 5:
+        thrueList.remove(model);
+        break;
+      case 6:
+        friList.remove(model);
+        break;
+      default:
+        break;
     }
   }
 }

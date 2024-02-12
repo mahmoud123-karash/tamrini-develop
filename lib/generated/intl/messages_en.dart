@@ -162,6 +162,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "compelteHint":
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
+        "complete_lists": MessageLookupByLibrary.simpleMessage(
+            "من فضلك قم باستكمال جميع البيانات"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
         "completed_message": MessageLookupByLibrary.simpleMessage(
             "Your order has been delivered, you are yet to sign."),
@@ -377,6 +379,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "nocProducts": MessageLookupByLibrary.simpleMessage(
             "No products in this category"),
         "notification": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "num_of_repeat": MessageLookupByLibrary.simpleMessage("التكرار"),
+        "num_of_reps": MessageLookupByLibrary.simpleMessage("المجموعات"),
         "nutrients": MessageLookupByLibrary.simpleMessage("Nutrients"),
         "nuttritions":
             MessageLookupByLibrary.simpleMessage("Nutritional supplements"),

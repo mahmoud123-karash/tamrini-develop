@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/views/widgets/days_course_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -57,15 +58,27 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
                 ),
                 child: customButton(
                   onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                      if (page == 0) {
+                    var cubit = CourseCubit.get(context);
+                    if (page == 0) {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
                         page++;
                         setState(() {});
-                      } else {}
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
                     } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
+                      if (cubit.sutList.isNotEmpty &&
+                          cubit.sunList.isNotEmpty &&
+                          cubit.monList.isNotEmpty &&
+                          cubit.tueList.isNotEmpty &&
+                          cubit.wenList.isNotEmpty &&
+                          cubit.thrueList.isEmpty &&
+                          cubit.friList.isNotEmpty) {
+                      } else {
+                        showSnackBar(context, S.of(context).complete_lists);
+                      }
                     }
                   },
                   lable: page == 0 ? S.of(context).next : S.of(context).add,

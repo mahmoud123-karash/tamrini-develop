@@ -4589,6 +4589,36 @@ class S {
       args: [],
     );
   }
+
+  /// `التكرار`
+  String get num_of_repeat {
+    return Intl.message(
+      'التكرار',
+      name: 'num_of_repeat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المجموعات`
+  String get num_of_reps {
+    return Intl.message(
+      'المجموعات',
+      name: 'num_of_reps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `من فضلك قم باستكمال جميع البيانات`
+  String get complete_lists {
+    return Intl.message(
+      'من فضلك قم باستكمال جميع البيانات',
+      name: 'complete_lists',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

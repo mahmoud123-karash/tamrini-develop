@@ -8,6 +8,7 @@ import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercis
 import 'package:tamrini/features/exercise/presentation/views/widgets/category_grid_view_widget.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
+import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'all_exercises_category_screen.dart';
@@ -21,6 +22,7 @@ class CategoryExercisesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CourseCubit.get(context).list.clear();
     String userType = CacheHelper.getData(key: 'usertype');
 
     return Scaffold(
