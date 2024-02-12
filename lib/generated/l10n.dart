@@ -4389,6 +4389,206 @@ class S {
       args: [],
     );
   }
+
+  /// `ملف المتدرب`
+  String get trainee_profile {
+    return Intl.message(
+      'ملف المتدرب',
+      name: 'trainee_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الكورسات`
+  String get courses {
+    return Intl.message(
+      'الكورسات',
+      name: 'courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المتابعة والبيانات`
+  String get follow_and_data {
+    return Intl.message(
+      'المتابعة والبيانات',
+      name: 'follow_and_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `النظام الغذائى`
+  String get diet {
+    return Intl.message(
+      'النظام الغذائى',
+      name: 'diet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الكورس التدريبي`
+  String get training_course {
+    return Intl.message(
+      'الكورس التدريبي',
+      name: 'training_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة كورس جديد`
+  String get add_new_course {
+    return Intl.message(
+      'إضافة كورس جديد',
+      name: 'add_new_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة نظام غذائي`
+  String get add_new_diet_course {
+    return Intl.message(
+      'إضافة نظام غذائي',
+      name: 'add_new_diet_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة مكمل غذائي`
+  String get add_new_supplemnet {
+    return Intl.message(
+      'إضافة مكمل غذائي',
+      name: 'add_new_supplemnet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة متابعة`
+  String get add_new_folow {
+    return Intl.message(
+      'إضافة متابعة',
+      name: 'add_new_folow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم الكورس`
+  String get course_name {
+    return Intl.message(
+      'اسم الكورس',
+      name: 'course_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مدة الكورس بالأسابيع`
+  String get course_duration {
+    return Intl.message(
+      'مدة الكورس بالأسابيع',
+      name: 'course_duration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ملاحظات`
+  String get course_notes {
+    return Intl.message(
+      'ملاحظات',
+      name: 'course_notes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `التالى`
+  String get next {
+    return Intl.message(
+      'التالى',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم السبت`
+  String get sut {
+    return Intl.message(
+      'يوم السبت',
+      name: 'sut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم الأحد`
+  String get sun {
+    return Intl.message(
+      'يوم الأحد',
+      name: 'sun',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم الإثنين`
+  String get mon {
+    return Intl.message(
+      'يوم الإثنين',
+      name: 'mon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم الثلاثاء`
+  String get tue {
+    return Intl.message(
+      'يوم الثلاثاء',
+      name: 'tue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم الأربعاء`
+  String get wed {
+    return Intl.message(
+      'يوم الأربعاء',
+      name: 'wed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم الخميس`
+  String get thurs {
+    return Intl.message(
+      'يوم الخميس',
+      name: 'thurs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يوم الجمعة`
+  String get fri {
+    return Intl.message(
+      'يوم الجمعة',
+      name: 'fri',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

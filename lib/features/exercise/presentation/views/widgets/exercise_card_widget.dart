@@ -20,10 +20,12 @@ class ExerciseCardWidget extends StatefulWidget {
     required this.isAll,
     required this.id,
     this.isHome = false,
+    required this.isCourse,
   }) : super(key: key);
   final DataModel exercise;
   final bool isAll, isHome;
   final String id;
+  final bool isCourse;
 
   @override
   State<ExerciseCardWidget> createState() => _ExerciseCardWidgetState();
@@ -44,27 +46,10 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       onTap: () {
-        if (widget.exercise.assets == null || widget.exercise.assets!.isEmpty) {
-          navigateTo(
-            context,
-            DetailsWithoutVedioScreen(
-              id: widget.exercise.id!,
-              isAll: widget.isAll,
-              isHome: widget.isHome,
-            ),
-          );
+        if (widget.isCourse) {
         } else {
-          if (checkVedioformat(widget.exercise.assets ?? []) != '') {
-            navigateTo(
-              context,
-              DetailsScreen(
-                id: widget.exercise.id!,
-                vedio: checkVedioformat(widget.exercise.assets ?? []),
-                isAll: widget.isAll,
-                isHome: widget.isHome,
-              ),
-            );
-          } else {
+          if (widget.exercise.assets == null ||
+              widget.exercise.assets!.isEmpty) {
             navigateTo(
               context,
               DetailsWithoutVedioScreen(
@@ -73,6 +58,27 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                 isHome: widget.isHome,
               ),
             );
+          } else {
+            if (checkVedioformat(widget.exercise.assets ?? []) != '') {
+              navigateTo(
+                context,
+                DetailsScreen(
+                  id: widget.exercise.id!,
+                  vedio: checkVedioformat(widget.exercise.assets ?? []),
+                  isAll: widget.isAll,
+                  isHome: widget.isHome,
+                ),
+              );
+            } else {
+              navigateTo(
+                context,
+                DetailsWithoutVedioScreen(
+                  id: widget.exercise.id!,
+                  isAll: widget.isAll,
+                  isHome: widget.isHome,
+                ),
+              );
+            }
           }
         }
       },

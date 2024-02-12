@@ -5,8 +5,10 @@ import 'package:tamrini/features/exercise/data/models/exercise_model/exercise_mo
 import 'category_item_widget.dart';
 
 class CategoryGridViewWidget extends StatelessWidget {
-  const CategoryGridViewWidget({super.key, required this.models});
+  const CategoryGridViewWidget(
+      {super.key, required this.models, required this.isCourse});
   final List<ExerciseModel> models;
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class CategoryGridViewWidget extends StatelessWidget {
           models.sort((a, b) => a.order!.compareTo(b.order!));
           return CategoryItemWidget(
             model: models[index],
+            isCourse: isCourse,
           );
         },
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(

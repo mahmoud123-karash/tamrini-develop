@@ -13,10 +13,12 @@ class AllExercisesCategoryScreen extends StatelessWidget {
     required this.title,
     this.list,
     this.isAll = false,
+    required this.isCourse,
   });
   final String title;
   final List<DataModel>? list;
   final bool isAll;
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,7 @@ class AllExercisesCategoryScreen extends StatelessWidget {
           return AllExercisesCategoryContentWidget(
             list: isAll ? list! : cubit.getExercise(id: id).data ?? [],
             isAll: isAll,
+            isCourse: isCourse,
           );
         },
       ),

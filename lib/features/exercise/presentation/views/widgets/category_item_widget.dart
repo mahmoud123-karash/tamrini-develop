@@ -14,8 +14,10 @@ class CategoryItemWidget extends StatelessWidget {
   const CategoryItemWidget({
     super.key,
     required this.model,
+    required this.isCourse,
   });
   final ExerciseModel model;
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class CategoryItemWidget extends StatelessWidget {
           context,
           AllExercisesCategoryScreen(
             title: model.title ?? '',
+            isCourse: isCourse,
           ),
         );
       },

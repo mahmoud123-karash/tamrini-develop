@@ -13,9 +13,11 @@ class AllExercisesCategoryContentWidget extends StatefulWidget {
     Key? key,
     required this.list,
     this.isAll = false,
+    required this.isCourse,
   }) : super(key: key);
   final List<DataModel> list;
   final bool isAll;
+  final bool isCourse;
 
   @override
   State<AllExercisesCategoryContentWidget> createState() =>
@@ -93,6 +95,7 @@ class _AllExercisesCategoryContentWidget
                   list: searchController.text == '' ? widget.list : searchList,
                   length: length,
                   isAll: widget.isAll,
+                  isCourse: widget.isCourse,
                 ),
               )
             : Expanded(

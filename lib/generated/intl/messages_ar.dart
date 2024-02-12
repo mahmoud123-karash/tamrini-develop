@@ -43,14 +43,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
+        "add_new_course":
+            MessageLookupByLibrary.simpleMessage("إضافة كورس جديد"),
+        "add_new_diet_course":
+            MessageLookupByLibrary.simpleMessage("إضافة نظام غذائي"),
         "add_new_exercise":
             MessageLookupByLibrary.simpleMessage("إضافة تمرين جديد"),
+        "add_new_folow": MessageLookupByLibrary.simpleMessage("إضافة متابعة"),
         "add_new_gallery":
             MessageLookupByLibrary.simpleMessage("إضافة عمل جديد"),
         "add_new_nutirtion":
             MessageLookupByLibrary.simpleMessage("اضافة قيمة جديدة"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("إضافة قسم جديد"),
+        "add_new_supplemnet":
+            MessageLookupByLibrary.simpleMessage("إضافة مكمل غذائي"),
         "add_nutrition_classification":
             MessageLookupByLibrary.simpleMessage("إضافة فئة جديدة"),
         "add_product": MessageLookupByLibrary.simpleMessage("إضافة منتج"),
@@ -164,6 +171,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us_hint": MessageLookupByLibrary.simpleMessage(
             "للإستفسار او اي تساؤل تواصل معنا على :"),
         "country": MessageLookupByLibrary.simpleMessage("البلد"),
+        "course_duration":
+            MessageLookupByLibrary.simpleMessage("مدة الكورس بالأسابيع"),
+        "course_name": MessageLookupByLibrary.simpleMessage("اسم الكورس"),
+        "course_notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
+        "courses": MessageLookupByLibrary.simpleMessage("الكورسات"),
         "create": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
@@ -172,6 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم تسليم طلبك ,أنت وقعت عليه"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "device_language": MessageLookupByLibrary.simpleMessage("لغة الجهاز"),
+        "diet": MessageLookupByLibrary.simpleMessage("النظام الغذائى"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
         "dinar": MessageLookupByLibrary.simpleMessage("د.ع"),
         "done": MessageLookupByLibrary.simpleMessage("تم"),
@@ -217,7 +230,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "fat": MessageLookupByLibrary.simpleMessage("دهون"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
+        "follow_and_data":
+            MessageLookupByLibrary.simpleMessage("المتابعة والبيانات"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "fri": MessageLookupByLibrary.simpleMessage("يوم الجمعة"),
         "from": MessageLookupByLibrary.simpleMessage("من"),
         "from_w_h": MessageLookupByLibrary.simpleMessage("من الساعة"),
         "full_name": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
@@ -296,6 +312,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ml": MessageLookupByLibrary.simpleMessage("ملي"),
         "moderate_activity":
             MessageLookupByLibrary.simpleMessage("نشاط معتدل في العمل والنادي"),
+        "mon": MessageLookupByLibrary.simpleMessage("يوم الإثنين"),
         "money": MessageLookupByLibrary.simpleMessage("السعر"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
         "my_day": MessageLookupByLibrary.simpleMessage("يومي"),
@@ -308,6 +325,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("طلب ترقية جديد"),
         "new_trainee_joined":
             MessageLookupByLibrary.simpleMessage("انضم متدرب جديد الى فريقك"),
+        "next": MessageLookupByLibrary.simpleMessage("التالى"),
         "noArticles":
             MessageLookupByLibrary.simpleMessage("لا يوجد مقالات بهذا الإسم"),
         "noExer":
@@ -542,6 +560,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التمارين المقترحة"),
         "summary_deatils":
             MessageLookupByLibrary.simpleMessage("تفاصيل الطلب "),
+        "sun": MessageLookupByLibrary.simpleMessage("يوم الأحد"),
         "supplement_details":
             MessageLookupByLibrary.simpleMessage("تفاصيل المكمل"),
         "supplement_name": MessageLookupByLibrary.simpleMessage("اسم المكمل"),
@@ -551,8 +570,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم حذف هذا المكمل"),
         "supplemment_description":
             MessageLookupByLibrary.simpleMessage("وصف المكمل"),
+        "sut": MessageLookupByLibrary.simpleMessage("يوم السبت"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
         "theme": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
+        "thurs": MessageLookupByLibrary.simpleMessage("يوم الخميس"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),
         "time_is_after_error": MessageLookupByLibrary.simpleMessage(
             "لابد أن يكون الوقت في المستقبل"),
@@ -565,6 +586,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tracking": MessageLookupByLibrary.simpleMessage("تتبع"),
         "traiber_price": MessageLookupByLibrary.simpleMessage("سعر الإشتراك"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
+        "trainee_profile": MessageLookupByLibrary.simpleMessage("ملف المتدرب"),
         "trainer": MessageLookupByLibrary.simpleMessage("المدربين"),
         "trainer_acount": MessageLookupByLibrary.simpleMessage("حساب مدرب"),
         "trainer_description":
@@ -574,9 +596,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ملف المدرب الشخصي"),
         "trainers": MessageLookupByLibrary.simpleMessage("المدربين"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("صفحة المدربين"),
+        "training_course":
+            MessageLookupByLibrary.simpleMessage("الكورس التدريبي"),
         "tranier_hint_social": MessageLookupByLibrary.simpleMessage(
             "هذا المستخدم ليس لديه حساب في هذا الموقع"),
         "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
+        "tue": MessageLookupByLibrary.simpleMessage("يوم الثلاثاء"),
         "twiter": MessageLookupByLibrary.simpleMessage("تويتر"),
         "unavailable": MessageLookupByLibrary.simpleMessage("غير متوفر"),
         "update": MessageLookupByLibrary.simpleMessage("تحديث الموقع"),
@@ -592,6 +617,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "view_rder_details":
             MessageLookupByLibrary.simpleMessage("معاينة تفاصيل الطلب"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
+        "wed": MessageLookupByLibrary.simpleMessage("يوم الأربعاء"),
         "weight": MessageLookupByLibrary.simpleMessage("الوزن"),
         "weight_gain": MessageLookupByLibrary.simpleMessage("زيادة في الوزن"),
         "weight_loss": MessageLookupByLibrary.simpleMessage("خسارة الوزن"),

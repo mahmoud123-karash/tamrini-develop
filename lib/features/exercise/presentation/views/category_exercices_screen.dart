@@ -13,7 +13,11 @@ import 'package:tamrini/generated/l10n.dart';
 import 'all_exercises_category_screen.dart';
 
 class CategoryExercisesScreen extends StatelessWidget {
-  const CategoryExercisesScreen({Key? key}) : super(key: key);
+  const CategoryExercisesScreen({
+    Key? key,
+    this.isCourse = false,
+  }) : super(key: key);
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +59,7 @@ class CategoryExercisesScreen extends StatelessWidget {
                               list: exercises,
                               title: S.of(context).allEx,
                               isAll: true,
+                              isCourse: isCourse,
                             ),
                           );
                         }
@@ -63,7 +68,8 @@ class CategoryExercisesScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    CategoryGridViewWidget(models: state.exercises),
+                    CategoryGridViewWidget(
+                        models: state.exercises, isCourse: isCourse),
                   ],
                 ),
               ),

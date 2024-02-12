@@ -432,7 +432,28 @@
     "ban_hint_admin": "This trainer has been banned !",
     "banned_trainers": "Banned Trainers",
     "you_sub_with_trainer": "You are already subscribed to this trainer.",
-    "new_trainee_joined": "A new trainee has joined your team."
+    "new_trainee_joined": "A new trainee has joined your team.",
+    "trainee_profile":"ملف المتدرب",
+    "courses":"الكورسات",
+    "follow_and_data":"المتابعة والبيانات",
+    "diet":"النظام الغذائى",
+    "training_course":"الكورس التدريبي",
+    "add_new_course":"إضافة كورس جديد",
+    "add_new_diet_course":"إضافة نظام غذائي",
+    "add_new_supplemnet":"إضافة مكمل غذائي",
+    "add_new_folow":"إضافة متابعة",
+    "course_name":"اسم الكورس",
+    "course_duration":"مدة الكورس بالأسابيع",
+    "course_notes":"ملاحظات",
+    "next":"التالى",
+    "sut":"يوم السبت",
+    "sun":"يوم الأحد",
+    "mon":"يوم الإثنين",
+    "tue":"يوم الثلاثاء",
+    "wed":"يوم الأربعاء",
+    "thurs":"يوم الخميس",
+    "fri":"يوم الجمعة"
+
 
 
 }

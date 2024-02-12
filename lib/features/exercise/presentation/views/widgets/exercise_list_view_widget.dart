@@ -8,11 +8,13 @@ class ExerciseListViewWidget extends StatelessWidget {
       required this.list,
       required this.length,
       required this.scrollController,
-      required this.isAll});
+      required this.isAll,
+      required this.isCourse});
   final List<DataModel> list;
   final int length;
   final ScrollController scrollController;
   final bool isAll;
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class ExerciseListViewWidget extends StatelessWidget {
             exercise: list[index],
             isAll: isAll,
             id: list[index].id ?? '',
+            isCourse: isCourse,
           );
         } else {
           return const Center(
