@@ -19,7 +19,7 @@ class CourseModel {
 
   factory CourseModel.fromJson(Map<String, dynamic> json) {
     DayWeekExercises dayWeekExercises = DayWeekExercises();
-    if (json['followUpData'] != null) {
+    if (json['dayWeekExercises'] != null) {
       dayWeekExercises = DayWeekExercises.fromJson(json['dayWeekExercises']);
     }
     return CourseModel(

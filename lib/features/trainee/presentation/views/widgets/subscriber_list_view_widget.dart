@@ -20,7 +20,7 @@ class SubscriberListViewWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         if (index < length) {
           return SubscriberItemWidget(
-            model: list[index].user!,
+            model: list[index],
           );
         } else {
           return const Center(

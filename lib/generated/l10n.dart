@@ -4610,11 +4610,31 @@ class S {
     );
   }
 
-  /// `من فضلك قم باستكمال جميع البيانات`
+  /// `من فضلك قم باستكمال بيانات ثلاثة أيام على الأقل`
   String get complete_lists {
     return Intl.message(
-      'من فضلك قم باستكمال جميع البيانات',
+      'من فضلك قم باستكمال بيانات ثلاثة أيام على الأقل',
       name: 'complete_lists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أسابيع`
+  String get weeks {
+    return Intl.message(
+      'أسابيع',
+      name: 'weeks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل الكورس`
+  String get course_details {
+    return Intl.message(
+      'تفاصيل الكورس',
+      name: 'course_details',
       desc: '',
       args: [],
     );

@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
+import 'package:tamrini/features/trainee/presentation/views/course_details_screen.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 class CourseItemWidget extends StatelessWidget {
-  const CourseItemWidget({super.key});
+  const CourseItemWidget({super.key, required this.model});
+  final CourseModel model;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
-      onTap: () {},
+      onTap: () {
+        navigateTo(context, CourseDetailsScreen(model: model));
+      },
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(8),
           color: greyColor.withOpacity(0.2),
         ),
         child: Padding(
@@ -24,21 +31,25 @@ class CourseItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'course name',
+                    model.title,
                     style: TextStyles.style16Bold.copyWith(
                       color: appColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  const SizedBox(
+                    height: 4,
+                  ),
                   Text(
-                    '10/12/2024',
+                    DateFormat('EEE, M/d/y', 'en')
+                        .format(model.createdAt.toDate()),
                     style: TextStyles.style14,
                   )
                 ],
               ),
               const Spacer(),
               Text(
-                '4 weeks',
+                '${model.duration} ${S.of(context).weeks}',
                 style: TextStyles.style14.copyWith(
                   color: appColor,
                 ),

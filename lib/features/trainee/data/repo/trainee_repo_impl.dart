@@ -5,6 +5,7 @@ import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/trainee/data/data_sources/remote_data_source/trainee_remote_data_source.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/domain/repo/trainee_repo.dart';
 
@@ -130,6 +131,49 @@ class TraineeRepoImpl extends TraineeRepo {
           "uid": userId,
         },
       );
+    }
+  }
+
+  @override
+  Future<Either<String, List<TraineeModel>>> addNewCource({
+    required TraineeModel model,
+    required DayWeekExercises dayWeekExercises,
+    required String duration,
+    required String notes,
+    required String title,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      CourseModel courseModel = CourseModel(
+        dayWeekExercises: dayWeekExercises,
+        duration: duration,
+        notes: notes,
+        title: title,
+        createdAt: Timestamp.now(),
+      );
+      List<CourseModel> courses = model.courses;
+      courses.add(courseModel);
+      TraineeModel newModel = TraineeModel(
+        uid: model.uid,
+        dateOfSubscription: model.dateOfSubscription,
+        supplements: model.supplements,
+        food: model.food,
+        followUpList: model.followUpList,
+        courses: courses,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(uid)
+          .collection('data')
+          .doc(model.uid)
+          .set(
+            newModel.toJson(),
+          );
+      List<TraineeModel> list =
+          await traineeRemoteDataSource.get(trainerId: uid);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
     }
   }
 }

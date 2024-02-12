@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 import '../trainee_screen.dart';
 import 'chat_icon_widget.dart';
 
 class SubscriberItemWidget extends StatelessWidget {
   const SubscriberItemWidget({super.key, required this.model});
-  final UserModel model;
+
+  final TraineeModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class SubscriberItemWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         onTap: () {
-          navigateTo(context, TraineeScreen(user: model));
+          navigateTo(context, TraineeScreen(user: model.user!, model: model));
         },
         child: Container(
           decoration: BoxDecoration(
@@ -35,7 +36,7 @@ class SubscriberItemWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: WriterRowWidget(
-                    model: model,
+                    model: model.user!,
                   ),
                 ),
                 InkWell(

@@ -7,6 +7,7 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/views/courses_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -16,8 +17,9 @@ import 'trainee_supplement_screen.dart';
 import 'widgets/trainee_list_tile_widget.dart';
 
 class TraineeScreen extends StatelessWidget {
-  const TraineeScreen({super.key, required this.user});
+  const TraineeScreen({super.key, required this.user, required this.model});
   final UserModel user;
+  final TraineeModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +97,7 @@ class TraineeScreen extends StatelessWidget {
               lable: S.of(context).courses,
               icon: Icons.golf_course_outlined,
               onTap: () {
-                navigateTo(context, const CourcesScreen());
+                navigateTo(context, CourcesScreen(traineeId: model.uid));
               },
             ),
             const SizedBox(

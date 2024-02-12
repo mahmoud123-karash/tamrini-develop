@@ -163,7 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("من فضلك أكمل التسجيل"),
         "complete": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
         "complete_lists": MessageLookupByLibrary.simpleMessage(
-            "من فضلك قم باستكمال جميع البيانات"),
+            "من فضلك قم باستكمال بيانات ثلاثة أيام على الأقل"),
         "confirm_lang": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "confirmpass":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
@@ -173,6 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us_hint": MessageLookupByLibrary.simpleMessage(
             "للإستفسار او اي تساؤل تواصل معنا على :"),
         "country": MessageLookupByLibrary.simpleMessage("البلد"),
+        "course_details": MessageLookupByLibrary.simpleMessage("تفاصيل الكورس"),
         "course_duration":
             MessageLookupByLibrary.simpleMessage("مدة الكورس بالأسابيع"),
         "course_name": MessageLookupByLibrary.simpleMessage("اسم الكورس"),
@@ -622,6 +623,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("معاينة تفاصيل الطلب"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
         "wed": MessageLookupByLibrary.simpleMessage("يوم الأربعاء"),
+        "weeks": MessageLookupByLibrary.simpleMessage("أسابيع"),
         "weight": MessageLookupByLibrary.simpleMessage("الوزن"),
         "weight_gain": MessageLookupByLibrary.simpleMessage("زيادة في الوزن"),
         "weight_loss": MessageLookupByLibrary.simpleMessage("خسارة الوزن"),

@@ -94,4 +94,38 @@ class CourseCubit extends Cubit<CourseStates> {
         break;
     }
   }
+
+  bool checkThreeListsNotEmpty() {
+    int count = 0;
+
+    if (sutList.isNotEmpty) {
+      count++;
+    }
+
+    if (sunList.isNotEmpty) {
+      count++;
+    }
+
+    if (monList.isNotEmpty) {
+      count++;
+    }
+
+    if (tueList.isNotEmpty) {
+      count++;
+    }
+
+    if (wenList.isNotEmpty) {
+      count++;
+    }
+
+    if (thrueList.isNotEmpty) {
+      count++;
+    }
+
+    if (friList.isNotEmpty) {
+      count++;
+    }
+
+    return count >= 3;
+  }
 }

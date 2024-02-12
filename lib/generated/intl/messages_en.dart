@@ -163,7 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please complete Register"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete Register"),
         "complete_lists": MessageLookupByLibrary.simpleMessage(
-            "من فضلك قم باستكمال جميع البيانات"),
+            "من فضلك قم باستكمال بيانات ثلاثة أيام على الأقل"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
         "completed_message": MessageLookupByLibrary.simpleMessage(
             "Your order has been delivered, you are yet to sign."),
@@ -176,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us_hint": MessageLookupByLibrary.simpleMessage(
             "To inquire or ask any question, please contact us:"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
+        "course_details": MessageLookupByLibrary.simpleMessage("تفاصيل الكورس"),
         "course_duration":
             MessageLookupByLibrary.simpleMessage("مدة الكورس بالأسابيع"),
         "course_name": MessageLookupByLibrary.simpleMessage("اسم الكورس"),
@@ -641,6 +642,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("View Order Details"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("Water alarm"),
         "wed": MessageLookupByLibrary.simpleMessage("يوم الأربعاء"),
+        "weeks": MessageLookupByLibrary.simpleMessage("أسابيع"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight"),
         "weight_gain": MessageLookupByLibrary.simpleMessage("Weight Gain"),
         "weight_loss": MessageLookupByLibrary.simpleMessage("Weight Loss"),

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 abstract class TraineeRepo {
@@ -15,5 +16,13 @@ abstract class TraineeRepo {
   Future<Either<String, List<TraineeModel>>> reNewSubUser({
     required String trainerId,
     required TraineeModel model,
+  });
+
+  Future<Either<String, List<TraineeModel>>> addNewCource({
+    required TraineeModel model,
+    required DayWeekExercises dayWeekExercises,
+    required String duration,
+    required String notes,
+    required String title,
   });
 }
