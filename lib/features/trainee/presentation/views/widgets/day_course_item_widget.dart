@@ -21,9 +21,11 @@ class DayCourseItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<DataModel> exercises = [];
     for (var element in list) {
-      exercises.add(
-        ExerciseCubit.get(context).getExerciseData(dataId: element.exerciseId),
-      );
+      DataModel? model = ExerciseCubit.get(context)
+          .getExerciseData(dataId: element.exerciseId);
+      if (model != null) {
+        exercises.add(model);
+      }
     }
 
     var width = MediaQuery.of(context).size.width;

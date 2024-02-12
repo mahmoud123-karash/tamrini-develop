@@ -55,3 +55,13 @@ List<IconData> icons = [
   Icons.store_outlined,
   Icons.document_scanner_outlined
 ];
+
+List<String> daysWeek(context) => [
+      S.of(context).sut,
+      S.of(context).sun,
+      S.of(context).mon,
+      S.of(context).tue,
+      S.of(context).wed,
+      S.of(context).thurs,
+      S.of(context).fri,
+    ];

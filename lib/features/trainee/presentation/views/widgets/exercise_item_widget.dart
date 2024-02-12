@@ -91,21 +91,22 @@ class ExerciseItemWidget extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: IconButton(
-              onPressed: () {
-                CourseCubit.get(context).removeExercise(
-                  id: model.id ?? '',
-                  index: num,
-                );
-              },
-              icon: const Icon(
-                Icons.delete,
-                color: Colors.red,
+          if (num != 100)
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: IconButton(
+                onPressed: () {
+                  CourseCubit.get(context).removeExercise(
+                    id: model.id ?? '',
+                    index: num,
+                  );
+                },
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
               ),
             ),
-          ),
         ],
       ),
     );

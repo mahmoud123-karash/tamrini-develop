@@ -456,7 +456,10 @@
     "num_of_reps":"المجموعات",
     "complete_lists":"من فضلك قم باستكمال بيانات ثلاثة أيام على الأقل",
     "weeks":"أسابيع",
-    "course_details":"تفاصيل الكورس"
+    "course_details":"تفاصيل الكورس",
+    "duration_course":"مدة الكورس",
+    "days":"الأيام",
+    "course_date":"تاريخ انشاء الكورس"
 
 
 

@@ -25,14 +25,19 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
     return list.first;
   }
 
-  DataModel getExerciseData({
+  DataModel? getExerciseData({
     required String dataId,
   }) {
     List<DataModel> models = [];
     for (var element in exercises) {
       models.addAll(element.data!);
     }
-    return models.where((element) => element.id == dataId).toList().first;
+    List<DataModel> finalList =
+        models.where((element) => element.id == dataId).toList();
+    if (finalList.isEmpty) {
+      return null;
+    }
+    return finalList.first;
   }
 
   void getData() async {

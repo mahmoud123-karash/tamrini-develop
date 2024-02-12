@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_exercises_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_states.dart';
-import 'package:tamrini/generated/l10n.dart';
 
 import 'day_course_item_widget.dart';
 
@@ -50,10 +50,10 @@ class _DaysCourseWidgetState extends State<DaysCourseWidget> {
           child: ListView.separated(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: daysCourse(context).length,
+            itemCount: daysWeek(context).length,
             itemBuilder: (context, index) {
               return DayCourseItemWidget(
-                lable: daysCourse(context)[index],
+                lable: daysWeek(context)[index],
                 num: index,
                 list: list[index],
               );
@@ -67,13 +67,3 @@ class _DaysCourseWidgetState extends State<DaysCourseWidget> {
     );
   }
 }
-
-List<String> daysCourse(context) => [
-      S.of(context).sut,
-      S.of(context).sun,
-      S.of(context).mon,
-      S.of(context).tue,
-      S.of(context).wed,
-      S.of(context).thurs,
-      S.of(context).fri,
-    ];

@@ -4639,6 +4639,36 @@ class S {
       args: [],
     );
   }
+
+  /// `مدة الكورس`
+  String get duration_course {
+    return Intl.message(
+      'مدة الكورس',
+      name: 'duration_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الأيام`
+  String get days {
+    return Intl.message(
+      'الأيام',
+      name: 'days',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تاريخ انشاء الكورس`
+  String get course_date {
+    return Intl.message(
+      'تاريخ انشاء الكورس',
+      name: 'course_date',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

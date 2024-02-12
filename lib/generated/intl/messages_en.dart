@@ -176,6 +176,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact_us_hint": MessageLookupByLibrary.simpleMessage(
             "To inquire or ask any question, please contact us:"),
         "country": MessageLookupByLibrary.simpleMessage("Country"),
+        "course_date":
+            MessageLookupByLibrary.simpleMessage("تاريخ انشاء الكورس"),
         "course_details": MessageLookupByLibrary.simpleMessage("تفاصيل الكورس"),
         "course_duration":
             MessageLookupByLibrary.simpleMessage("مدة الكورس بالأسابيع"),
@@ -187,6 +189,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "create1": MessageLookupByLibrary.simpleMessage("Create acount"),
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "days": MessageLookupByLibrary.simpleMessage("الأيام"),
         "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
         "delivered_message": MessageLookupByLibrary.simpleMessage(
             "Your order has been delivered and signed by you"),
@@ -197,6 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
         "dinar": MessageLookupByLibrary.simpleMessage("D.I"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
+        "duration_course": MessageLookupByLibrary.simpleMessage("مدة الكورس"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
         "edit_article": MessageLookupByLibrary.simpleMessage("Edit Article"),
