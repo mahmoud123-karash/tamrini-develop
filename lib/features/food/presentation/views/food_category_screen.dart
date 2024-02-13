@@ -45,7 +45,8 @@ class _FoodCategoryScreenState extends State<FoodCategoryScreen> {
         ),
         FoodCategoryItemWidget(
           onPressed: () {
-            navigateTo(context, const SupplementsCategoryScreen());
+            navigateTo(
+                context, const SupplementsCategoryScreen(isCourse: false));
           },
           image: Assets.imagesWhey,
           lable: S.of(context).nuttritions,

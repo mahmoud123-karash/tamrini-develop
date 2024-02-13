@@ -135,7 +135,7 @@ class TraineeRepoImpl extends TraineeRepo {
   }
 
   @override
-  Future<Either<String, List<TraineeModel>>> addNewCource({
+  Future<Either<String, List<TraineeModel>>> addNewCourse({
     required TraineeModel model,
     required DayWeekExercises dayWeekExercises,
     required String duration,
@@ -160,6 +160,40 @@ class TraineeRepoImpl extends TraineeRepo {
         food: model.food,
         followUpList: model.followUpList,
         courses: courses,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(uid)
+          .collection('data')
+          .doc(model.uid)
+          .set(
+            newModel.toJson(),
+          );
+      List<TraineeModel> list =
+          await traineeRemoteDataSource.get(trainerId: uid);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<TraineeModel>>> addSupplements({
+    required TraineeModel model,
+    required List<String> supplements,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+
+      List<String> newList = model.supplements;
+      newList.addAll(supplements);
+      TraineeModel newModel = TraineeModel(
+        uid: model.uid,
+        dateOfSubscription: model.dateOfSubscription,
+        supplements: newList,
+        food: model.food,
+        followUpList: model.followUpList,
+        courses: model.courses,
       );
       await FirebaseFirestore.instance
           .collection('trainees')

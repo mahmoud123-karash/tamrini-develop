@@ -21,7 +21,7 @@ class CourseCubit extends Cubit<CourseStates> {
   void selectExercise({required TraineeExerciseModel model}) {
     list.add(model);
     fillList(model);
-    emit(SuccessSelectExerciseState());
+    emit(SuccessSelectState());
   }
 
   void unSelectExercise({required String id}) {
@@ -29,14 +29,14 @@ class CourseCubit extends Cubit<CourseStates> {
         list.firstWhere((element) => element.exerciseId == id);
     list.remove(model);
     emptyList(model, num);
-    emit(SuccessUnSelectExerciseState());
+    emit(SuccessUnSelectState());
   }
 
   void removeExercise({required String id, required int index}) {
     TraineeExerciseModel model =
         list.firstWhere((element) => element.exerciseId == id);
     emptyList(model, index);
-    emit(SuccessUnSelectExerciseState());
+    emit(SuccessUnSelectState());
   }
 
   void fillList(TraineeExerciseModel model) {
@@ -127,5 +127,22 @@ class CourseCubit extends Cubit<CourseStates> {
     }
 
     return count >= 3;
+  }
+
+  List<String> supplements = [];
+
+  void putSupplement({required String supplementId}) {
+    supplements.add(supplementId);
+    emit(SuccessSelectState());
+  }
+
+  void removeSupplement({required String supplementId}) {
+    supplements.remove(supplementId);
+    emit(SuccessUnSelectState());
+  }
+
+  void clearSupplement() {
+    supplements.clear();
+    emit(SuccessClearState());
   }
 }

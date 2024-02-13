@@ -2,6 +2,9 @@ abstract class CourseStates {}
 
 class InitialCourseState extends CourseStates {}
 
-class SuccessSelectExerciseState extends CourseStates {}
+class SuccessSelectState extends CourseStates {}
 
-class SuccessUnSelectExerciseState extends CourseStates {}
+class SuccessUnSelectState extends CourseStates {}
+
+class SuccessClearState extends CourseStates {}
+

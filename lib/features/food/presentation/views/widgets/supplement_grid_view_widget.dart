@@ -3,8 +3,10 @@ import 'package:tamrini/features/food/data/models/supplement_model/supplement_mo
 import 'package:tamrini/features/food/presentation/views/widgets/supplement_category_item_widget.dart';
 
 class SupplementGridViewWidget extends StatelessWidget {
-  const SupplementGridViewWidget({super.key, required this.list});
+  const SupplementGridViewWidget(
+      {super.key, required this.list, required this.isCourse});
   final List<SupplementModel> list;
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class SupplementGridViewWidget extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return SupplementCategoryItemWidget(
               model: list[index],
+              isCourse: isCourse,
             );
           },
         ),

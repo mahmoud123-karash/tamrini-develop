@@ -57,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Add New Value"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("Add New Section"),
+        "add_new_supplement":
+            MessageLookupByLibrary.simpleMessage("إضافة مكمل غذائي"),
         "add_new_supplemnet":
             MessageLookupByLibrary.simpleMessage("Add New Supplement"),
         "add_nutrition_classification":

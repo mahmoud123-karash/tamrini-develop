@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import '../../../../food/data/models/supplement_model/supplement_data.dart';
 import 'course_model.dart';
 import 'follow_up_model.dart';
 import 'food_model.dart';
@@ -8,7 +7,7 @@ import 'food_model.dart';
 class TraineeModel {
   final String uid;
   final Timestamp dateOfSubscription;
-  final List<SupplementData> supplements;
+  final List<String> supplements;
   final List<FoodModel> food;
   final List<FollowUpModel> followUpList;
   final List<CourseModel> courses;
@@ -24,10 +23,6 @@ class TraineeModel {
     this.user,
   });
   factory TraineeModel.fromJson(Map<String, dynamic> json, user) {
-    List<SupplementData> supplementsList =
-        (json['supplements'] as List<dynamic>)
-            .map((data) => SupplementData.fromJson(data))
-            .toList();
     List<FoodModel> foodList = (json['food'] as List<dynamic>)
         .map((data) => FoodModel.fromJson(data))
         .toList();
@@ -42,7 +37,7 @@ class TraineeModel {
       user: user,
       uid: json['uid'] ?? '',
       dateOfSubscription: json['dateOfSubscription'] ?? Timestamp.now(),
-      supplements: supplementsList,
+      supplements: List<String>.from(json['supplements'] ?? []),
       food: foodList,
       followUpList: followUpList,
       courses: coursesList,
@@ -50,8 +45,6 @@ class TraineeModel {
   }
 
   Map<String, dynamic> toJson() {
-    List<Map<String, dynamic>> supplementsJson =
-        supplements.map((data) => data.toJson()).toList();
     List<Map<String, dynamic>> foodJson =
         food.map((data) => data.toJson()).toList();
     List<Map<String, dynamic>> followUpListJson =
@@ -62,7 +55,7 @@ class TraineeModel {
     return {
       'uid': uid,
       'dateOfSubscription': dateOfSubscription,
-      'supplements': supplementsJson,
+      'supplements': supplements,
       'food': foodJson,
       'followUpList': followUpListJson,
       'courses': coursesJson,

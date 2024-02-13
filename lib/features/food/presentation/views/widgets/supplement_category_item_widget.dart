@@ -12,8 +12,10 @@ import '../supplement_articles_screen.dart';
 import 'remove_category_custom_button_widget.dart';
 
 class SupplementCategoryItemWidget extends StatelessWidget {
-  const SupplementCategoryItemWidget({super.key, required this.model});
+  const SupplementCategoryItemWidget(
+      {super.key, required this.model, required this.isCourse});
   final SupplementModel model;
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,8 @@ class SupplementCategoryItemWidget extends StatelessWidget {
       onTap: () {
         navigateTo(
           context,
-          SupplementArticlesScreen(id: model.id ?? '', title: model.title),
+          SupplementArticlesScreen(
+              id: model.id ?? '', title: model.title, isCourse: isCourse),
         );
       },
       child: Container(

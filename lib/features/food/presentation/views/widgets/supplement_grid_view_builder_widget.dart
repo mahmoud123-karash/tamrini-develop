@@ -8,7 +8,8 @@ import 'package:tamrini/features/food/presentation/views/widgets/message_builder
 import 'package:tamrini/generated/l10n.dart';
 
 class SupplementGridViewBuilderWidget extends StatelessWidget {
-  const SupplementGridViewBuilderWidget({super.key});
+  const SupplementGridViewBuilderWidget({super.key, required this.isCourse});
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,10 @@ class SupplementGridViewBuilderWidget extends StatelessWidget {
               message: S.of(context).no_results,
             );
           }
-          return SupplementGridViewWidget(list: state.list);
+          return SupplementGridViewWidget(
+            list: state.list,
+            isCourse: isCourse,
+          );
         } else if (state is ErrorGetSupplementState) {
           return MessageBuilderWidget(message: state.message);
         } else {

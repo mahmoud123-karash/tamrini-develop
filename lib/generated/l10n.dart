@@ -4669,6 +4669,16 @@ class S {
       args: [],
     );
   }
+
+  /// `إضافة مكمل غذائي`
+  String get add_new_supplement {
+    return Intl.message(
+      'إضافة مكمل غذائي',
+      name: 'add_new_supplement',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

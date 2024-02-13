@@ -12,9 +12,11 @@ class SupplementArticlesScreen extends StatefulWidget {
     super.key,
     required this.title,
     required this.id,
+    required this.isCourse,
   });
   final String title;
   final String id;
+  final bool isCourse;
 
   @override
   State<SupplementArticlesScreen> createState() =>
@@ -36,7 +38,10 @@ class _SupplementArticlesScreenState extends State<SupplementArticlesScreen> {
                     S.of(context).category_removed,
                   ),
                 )
-              : SupplementArticlesContextWidget(category: category);
+              : SupplementArticlesContentWidget(
+                  category: category,
+                  isCourse: widget.isCourse,
+                );
         },
       ),
     );

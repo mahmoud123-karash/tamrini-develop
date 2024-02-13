@@ -18,11 +18,16 @@ abstract class TraineeRepo {
     required TraineeModel model,
   });
 
-  Future<Either<String, List<TraineeModel>>> addNewCource({
+  Future<Either<String, List<TraineeModel>>> addNewCourse({
     required TraineeModel model,
     required DayWeekExercises dayWeekExercises,
     required String duration,
     required String notes,
     required String title,
+  });
+
+  Future<Either<String, List<TraineeModel>>> addSupplements({
+    required TraineeModel model,
+    required List<String> supplements,
   });
 }

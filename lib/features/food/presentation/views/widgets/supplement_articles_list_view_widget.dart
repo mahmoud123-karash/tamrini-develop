@@ -9,11 +9,13 @@ class SupplementAriclesListViewWidget extends StatelessWidget {
       required this.length,
       required this.list,
       required this.scrollController,
-      required this.categoryId});
+      required this.categoryId,
+      required this.isCourse});
   final int length;
   final List<SupplementData> list;
   final ScrollController scrollController;
   final String categoryId;
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class SupplementAriclesListViewWidget extends StatelessWidget {
           return SupplementArticleItemWidget(
             model: list[index],
             categoryId: categoryId,
+            isCourse: isCourse,
           );
         }
         return const Center(

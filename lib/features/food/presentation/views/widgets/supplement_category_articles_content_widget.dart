@@ -10,19 +10,22 @@ import 'package:tamrini/features/food/presentation/views/new_supplement_screen.d
 import 'package:tamrini/features/food/presentation/views/widgets/supplement_articles_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class SupplementArticlesContextWidget extends StatefulWidget {
-  const SupplementArticlesContextWidget({
+class SupplementArticlesContentWidget extends StatefulWidget {
+  const SupplementArticlesContentWidget({
     Key? key,
     required this.category,
+    required this.isCourse,
   }) : super(key: key);
   final SupplementModel category;
+  final bool isCourse;
+
   @override
-  State<SupplementArticlesContextWidget> createState() =>
-      _SupplementArticlesContextWidgetState();
+  State<SupplementArticlesContentWidget> createState() =>
+      _SupplementArticlesContentWidgetState();
 }
 
-class _SupplementArticlesContextWidgetState
-    extends State<SupplementArticlesContextWidget> {
+class _SupplementArticlesContentWidgetState
+    extends State<SupplementArticlesContentWidget> {
   final TextEditingController searchController = TextEditingController();
   ScrollController scrollController = ScrollController();
   List<SupplementData> searchList = [];
@@ -98,6 +101,7 @@ class _SupplementArticlesContextWidgetState
                   ),
                 )
               : SupplementAriclesListViewWidget(
+                  isCourse: widget.isCourse,
                   scrollController: scrollController,
                   length: length,
                   list: searchController.text == ''

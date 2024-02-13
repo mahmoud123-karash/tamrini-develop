@@ -58,12 +58,32 @@ class TraineeCubit extends Cubit<TraineeStates> {
     required String title,
   }) async {
     emit(LoadingGetTraineesState());
-    var result = await traineeRepo.addNewCource(
+    var result = await traineeRepo.addNewCourse(
         model: model,
         dayWeekExercises: dayWeekExercises,
         duration: duration,
         notes: notes,
         title: title);
+    result.fold(
+      (message) {
+        emit(ErrorGetTraineesState(message));
+      },
+      (list) {
+        trainees = list;
+        emit(SucessGetTraineesState(list));
+      },
+    );
+  }
+
+  void addSupplements({
+    required TraineeModel model,
+    required List<String> supplements,
+  }) async {
+    emit(LoadingGetTraineesState());
+    var result = await traineeRepo.addSupplements(
+      model: model,
+      supplements: supplements,
+    );
     result.fold(
       (message) {
         emit(ErrorGetTraineesState(message));

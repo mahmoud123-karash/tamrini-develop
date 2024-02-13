@@ -6,7 +6,9 @@ import 'package:tamrini/features/food/presentation/views/widgets/supplement_grid
 import 'package:tamrini/generated/l10n.dart';
 
 class SupplementsCategoryScreen extends StatelessWidget {
-  const SupplementsCategoryScreen({Key? key}) : super(key: key);
+  const SupplementsCategoryScreen({Key? key, required this.isCourse})
+      : super(key: key);
+  final bool isCourse;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +32,8 @@ class SupplementsCategoryScreen extends StatelessWidget {
                 lable: S.of(context).add_nutrition_classification,
               ),
             ),
-          const Expanded(
-            child: SupplementGridViewBuilderWidget(),
+          Expanded(
+            child: SupplementGridViewBuilderWidget(isCourse: isCourse),
           ),
         ],
       ),
