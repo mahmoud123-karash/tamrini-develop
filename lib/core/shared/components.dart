@@ -114,7 +114,7 @@ Widget addCustomButton({
   required VoidCallback onPressed,
   required String lable,
   IconData icon = Icons.add_circle,
-  double fontSize = 20,
+  double fontSize = 18,
 }) =>
     MaterialButton(
       color: appColor,

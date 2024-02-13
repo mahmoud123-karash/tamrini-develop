@@ -56,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إضافة عمل جديد"),
         "add_new_nutirtion":
             MessageLookupByLibrary.simpleMessage("اضافة قيمة جديدة"),
+        "add_new_question":
+            MessageLookupByLibrary.simpleMessage("اضافة سؤال جديد"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("إضافة قسم جديد"),
         "add_new_supplement":
@@ -463,8 +465,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "q_remove_article":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف المقال ؟"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "question": MessageLookupByLibrary.simpleMessage("سؤال"),
         "question_error":
             MessageLookupByLibrary.simpleMessage("تم حذف هذا السؤال"),
+        "question_remove_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا السؤال ؟"),
+        "questions_trainee":
+            MessageLookupByLibrary.simpleMessage("أسئلة المتدربين"),
+        "questions_trainee_hint": MessageLookupByLibrary.simpleMessage(
+            "الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة "),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
         "qunatity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),

@@ -4739,6 +4739,56 @@ class S {
       args: [],
     );
   }
+
+  /// `أسئلة المتدربين`
+  String get questions_trainee {
+    return Intl.message(
+      'أسئلة المتدربين',
+      name: 'questions_trainee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة `
+  String get questions_trainee_hint {
+    return Intl.message(
+      'الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة ',
+      name: 'questions_trainee_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اضافة سؤال جديد`
+  String get add_new_question {
+    return Intl.message(
+      'اضافة سؤال جديد',
+      name: 'add_new_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Q`
+  String get question {
+    return Intl.message(
+      'Q',
+      name: 'question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذا السؤال ؟`
+  String get question_remove_question {
+    return Intl.message(
+      'هل تريد حذف هذا السؤال ؟',
+      name: 'question_remove_question',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -140,4 +140,44 @@ class TrainersCubit extends Cubit<TrainersStates> {
     }
     return models;
   }
+
+  void addNewQuestion({
+    required TrainerModel trainer,
+    required String question,
+    required String message,
+  }) async {
+    emit(LoadingGetTrainersState());
+    var result =
+        await trainerRepo.addNewQuestion(trainer: trainer, question: question);
+    result.fold(
+      (message) {
+        emit(ErrorGetTrainersState(message));
+      },
+      (list) {
+        List<TrainerModel> models = clearBannedTrainers(list);
+        trainers = list;
+        showToast(message);
+        emit(SucessGetTrainersState(models));
+      },
+    );
+  }
+
+  void removeQuestion({
+    required TrainerModel trainer,
+    required String question,
+  }) async {
+    emit(LoadingGetTrainersState());
+    var result =
+        await trainerRepo.removeQuestion(trainer: trainer, question: question);
+    result.fold(
+      (message) {
+        emit(ErrorGetTrainersState(message));
+      },
+      (list) {
+        List<TrainerModel> models = clearBannedTrainers(list);
+        trainers = list;
+        emit(SucessGetTrainersState(models));
+      },
+    );
+  }
 }

@@ -62,6 +62,7 @@ class TrainerRepoImpl extends TrainerRepo {
         isBanned: trainer.isBanned,
         description: description,
         uid: trainer.uid,
+        questionsTrainees: trainer.questionsTrainees,
         profits: trainer.profits,
         price: price,
         traineesCount: trainer.traineesCount,
@@ -108,6 +109,7 @@ class TrainerRepoImpl extends TrainerRepo {
         description: trainer.description,
         uid: trainer.uid,
         profits: trainer.profits,
+        questionsTrainees: trainer.questionsTrainees,
         price: trainer.price,
         traineesCount: trainer.traineesCount,
         gallery: gallery,
@@ -145,6 +147,7 @@ class TrainerRepoImpl extends TrainerRepo {
         isBanned: trainer.isBanned,
         description: trainer.description,
         profits: trainer.profits,
+        questionsTrainees: trainer.questionsTrainees,
         uid: trainer.uid,
         price: trainer.price,
         traineesCount: trainer.traineesCount,
@@ -206,6 +209,76 @@ class TrainerRepoImpl extends TrainerRepo {
           "uid": trainerId,
         },
       );
+    }
+  }
+
+  @override
+  Future<Either<String, List<TrainerModel>>> addNewQuestion({
+    required TrainerModel trainer,
+    required String question,
+  }) async {
+    try {
+      List<String> questions = trainer.questionsTrainees;
+      questions.add(question);
+      TrainerModel newmodel = TrainerModel(
+        isBanned: trainer.isBanned,
+        description: trainer.description,
+        uid: trainer.uid,
+        profits: trainer.profits,
+        questionsTrainees: questions,
+        price: trainer.price,
+        traineesCount: trainer.traineesCount,
+        gallery: trainer.gallery,
+        fromH: trainer.fromH,
+        toH: trainer.toH,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainers')
+          .doc('data')
+          .collection('data')
+          .doc(trainer.uid)
+          .update(
+            newmodel.toJson(),
+          );
+      List<TrainerModel> list = await trainerRemoteDataSource.get();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<TrainerModel>>> removeQuestion({
+    required TrainerModel trainer,
+    required String question,
+  }) async {
+    try {
+      List<String> questions = trainer.questionsTrainees;
+      questions.remove(question);
+      TrainerModel newmodel = TrainerModel(
+        isBanned: trainer.isBanned,
+        description: trainer.description,
+        uid: trainer.uid,
+        profits: trainer.profits,
+        questionsTrainees: questions,
+        price: trainer.price,
+        traineesCount: trainer.traineesCount,
+        gallery: trainer.gallery,
+        fromH: trainer.fromH,
+        toH: trainer.toH,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainers')
+          .doc('data')
+          .collection('data')
+          .doc(trainer.uid)
+          .update(
+            newmodel.toJson(),
+          );
+      List<TrainerModel> list = await trainerRemoteDataSource.get();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
     }
   }
 }

@@ -21,7 +21,7 @@ class FollowUpModel {
     return FollowUpModel(
       createdAt: json['createdAt'] ?? Timestamp.now(),
       followUpData: dataList,
-      images: List<String>.from(json['createdAt'] ?? []),
+      images: List<String>.from(json['images'] ?? []),
     );
   }
 

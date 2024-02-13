@@ -57,7 +57,7 @@ class DietCourseDetailsScreen extends StatelessWidget {
                   ListView.separated(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) => DatDataColumItemWidget(
+                    itemBuilder: (context, index) => DayDataColumItemWidget(
                       day: daysWeek(context)[index],
                       data: daysData[index],
                     ),

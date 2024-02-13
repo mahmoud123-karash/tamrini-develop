@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 
-class DatDataColumItemWidget extends StatelessWidget {
-  const DatDataColumItemWidget(
-      {super.key, required this.day, required this.data});
+class DayDataColumItemWidget extends StatelessWidget {
+  const DayDataColumItemWidget({
+    super.key,
+    required this.day,
+    required this.data,
+  });
   final String day, data;
 
   @override
@@ -32,6 +35,7 @@ class DatDataColumItemWidget extends StatelessWidget {
               style: TextStyles.style13.copyWith(
                 fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.right,
             ),
           ),
         ),

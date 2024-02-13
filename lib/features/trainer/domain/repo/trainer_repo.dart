@@ -26,4 +26,14 @@ abstract class TrainerRepo {
     required TrainerModel trainer,
     required GalleryModel model,
   });
+
+  Future<Either<String, List<TrainerModel>>> addNewQuestion({
+    required TrainerModel trainer,
+    required String question,
+  });
+
+  Future<Either<String, List<TrainerModel>>> removeQuestion({
+    required TrainerModel trainer,
+    required String question,
+  });
 }

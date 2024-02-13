@@ -13,6 +13,7 @@ class TrainerModel {
   final List<GalleryModel> gallery;
   double? rating;
   UserModel? user;
+  final List<String> questionsTrainees;
 
   TrainerModel({
     this.rating,
@@ -22,6 +23,7 @@ class TrainerModel {
     required this.price,
     required this.traineesCount,
     required this.profits,
+    required this.questionsTrainees,
     this.user,
     required this.gallery,
     required this.fromH,
@@ -43,6 +45,7 @@ class TrainerModel {
       isBanned: json['isBanned'] ?? false,
       rating: rating,
       description: json['achievements'] ?? "",
+      questionsTrainees: List<String>.from(json['questionsTrainees'] ?? []),
       price: json['price'] ?? 0,
       user: user,
       traineesCount: json['traineesCount'] ?? 0,
@@ -62,6 +65,7 @@ class TrainerModel {
     data['price'] = price;
     data['fromH'] = fromH;
     data['toH'] = toH;
+    data['questionsTrainees'] = questionsTrainees;
     data['profits'] = profits;
     data['traineesCount'] = traineesCount;
     data['gallery'] = gallery.map((e) => e.toJson());

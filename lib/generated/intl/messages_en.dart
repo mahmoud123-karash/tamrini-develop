@@ -57,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_new_gallery": MessageLookupByLibrary.simpleMessage("Add New Work"),
         "add_new_nutirtion":
             MessageLookupByLibrary.simpleMessage("Add New Value"),
+        "add_new_question":
+            MessageLookupByLibrary.simpleMessage("اضافة سؤال جديد"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("Add New Section"),
         "add_new_supplement":
@@ -471,8 +473,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "q_remove_article": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove the article ?"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "question": MessageLookupByLibrary.simpleMessage("Q"),
         "question_error": MessageLookupByLibrary.simpleMessage(
             "This question has been deleted"),
+        "question_remove_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا السؤال ؟"),
+        "questions_trainee":
+            MessageLookupByLibrary.simpleMessage("أسئلة المتدربين"),
+        "questions_trainee_hint": MessageLookupByLibrary.simpleMessage(
+            "الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة "),
         "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
         "qunatity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),

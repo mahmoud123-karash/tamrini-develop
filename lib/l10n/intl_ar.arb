@@ -466,7 +466,12 @@
     "diet_name":"اسم النظام الغذائى",
     "diet_duration":"مدة النظام الغذائى بالأسابيع",
     "remove_diet_question":"هل تريد حذف هذا النظام الغذائى ؟",
-    "diet_course_details":"تفاصيل النظام الغذائى"
+    "diet_course_details":"تفاصيل النظام الغذائى",
+    "questions_trainee":"أسئلة المتدربين",
+    "questions_trainee_hint":"الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة ",
+    "add_new_question":"اضافة سؤال جديد",
+    "question":"سؤال",
+    "question_remove_question":"هل تريد حذف هذا السؤال ؟"
 
 
 

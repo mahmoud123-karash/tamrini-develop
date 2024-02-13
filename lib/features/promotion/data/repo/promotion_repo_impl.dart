@@ -130,6 +130,7 @@ class PromotionRepoImpl extends PromotionRepo {
     TrainerModel trainer = TrainerModel(
       isBanned: false,
       description: '',
+      questionsTrainees: [],
       uid: model.userId,
       price: 0,
       profits: 0,

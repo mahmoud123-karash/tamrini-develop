@@ -3,13 +3,13 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_container_widget.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
-import 'package:tamrini/features/trainer/presentation/views/trainer_gallery_screen.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_gallery_example_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_name_image_location_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_row_info_widget.dart';
 
 import '../../../../../generated/l10n.dart';
 import 'title_text_widget.dart';
+import 'trainer_buttons_row_widget.dart';
 import 'trainer_social_medial_widget.dart';
 import 'trainer_working_hour_widget.dart';
 import 'trainner_description_widget.dart';
@@ -34,17 +34,8 @@ class TrainerContentWidget extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          if (trainer.gallery.isEmpty)
-            if (trainer.uid == uid)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: customButton(
-                  onPressed: () {
-                    navigateTo(context, TrainerGallerySreen(id: trainer.uid));
-                  },
-                  lable: S.of(context).trainer_gallery,
-                ),
-              ),
+          if (trainer.uid == uid)
+            TrainerButtonsRowWidget(trainerId: trainer.uid),
           const SizedBox(
             height: 10,
           ),
