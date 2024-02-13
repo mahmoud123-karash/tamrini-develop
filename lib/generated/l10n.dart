@@ -4670,180 +4670,180 @@ class S {
     );
   }
 
-  /// `إضافة مكمل غذائي`
+  /// `Add New Supplement`
   String get add_new_supplement {
     return Intl.message(
-      'إضافة مكمل غذائي',
+      'Add New Supplement',
       name: 'add_new_supplement',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذا المكمل ؟`
+  /// `Do you want to delete this supplement?`
   String get remove_supplement_question {
     return Intl.message(
-      'هل تريد حذف هذا المكمل ؟',
+      'Do you want to delete this supplement?',
       name: 'remove_supplement_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `اضافة نظام غذائي`
+  /// `Add Diet Course`
   String get add_diet_course {
     return Intl.message(
-      'اضافة نظام غذائي',
+      'Add Diet Course',
       name: 'add_diet_course',
       desc: '',
       args: [],
     );
   }
 
-  /// `اسم النظام الغذائى`
+  /// `Diet Name`
   String get diet_name {
     return Intl.message(
-      'اسم النظام الغذائى',
+      'Diet Name',
       name: 'diet_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `مدة النظام الغذائى بالأسابيع`
+  /// `Diet Duration in Weeks`
   String get diet_duration {
     return Intl.message(
-      'مدة النظام الغذائى بالأسابيع',
+      'Diet Duration in Weeks',
       name: 'diet_duration',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذا النظام الغذائى ؟`
+  /// `Do you want to delete this diet course?`
   String get remove_diet_question {
     return Intl.message(
-      'هل تريد حذف هذا النظام الغذائى ؟',
+      'Do you want to delete this diet course?',
       name: 'remove_diet_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل النظام الغذائى`
+  /// `Diet Course Details`
   String get diet_course_details {
     return Intl.message(
-      'تفاصيل النظام الغذائى',
+      'Diet Course Details',
       name: 'diet_course_details',
       desc: '',
       args: [],
     );
   }
 
-  /// `أسئلة المتدربين`
+  /// `Trainee Questions`
   String get questions_trainee {
     return Intl.message(
-      'أسئلة المتدربين',
+      'Trainee Questions',
       name: 'questions_trainee',
       desc: '',
       args: [],
     );
   }
 
-  /// `الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة `
+  /// `The questions that trainees under your supervision should answer during the program.`
   String get questions_trainee_hint {
     return Intl.message(
-      'الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة ',
+      'The questions that trainees under your supervision should answer during the program.',
       name: 'questions_trainee_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `اضافة سؤال جديد`
+  /// `Add New Question`
   String get add_new_question {
     return Intl.message(
-      'اضافة سؤال جديد',
+      'Add New Question',
       name: 'add_new_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `Q`
+  /// `Question`
   String get question {
     return Intl.message(
-      'Q',
+      'Question',
       name: 'question',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذا السؤال ؟`
+  /// `Do you want to delete this question?`
   String get question_remove_question {
     return Intl.message(
-      'هل تريد حذف هذا السؤال ؟',
+      'Do you want to delete this question?',
       name: 'question_remove_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة متابعة جديدة`
+  /// `Add New Follow-up`
   String get add_new_follow {
     return Intl.message(
-      'إضافة متابعة جديدة',
+      'Add New Follow-up',
       name: 'add_new_follow',
       desc: '',
       args: [],
     );
   }
 
-  /// `تفاصيل المتابعة`
+  /// `Follow-up Details`
   String get follow_details {
     return Intl.message(
-      'تفاصيل المتابعة',
+      'Follow-up Details',
       name: 'follow_details',
       desc: '',
       args: [],
     );
   }
 
-  /// `الاجابة`
+  /// `Answer`
   String get answer_question {
     return Intl.message(
-      'الاجابة',
+      'Answer',
       name: 'answer_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `أنت غير مشترك مع مدرب`
+  /// `You are unsubscribed from the trainer.`
   String get you_unsub_with_trainer {
     return Intl.message(
-      'أنت غير مشترك مع مدرب',
+      'You are unsubscribed from the trainer.',
       name: 'you_unsub_with_trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `اشترك مع مدرب وحاول مرة ثانية`
+  /// `Subscribe to a trainer and try again.`
   String get sub_with_trainer_and_try_again {
     return Intl.message(
-      'اشترك مع مدرب وحاول مرة ثانية',
+      'Subscribe to a trainer and try again.',
       name: 'sub_with_trainer_and_try_again',
       desc: '',
       args: [],
     );
   }
 
-  /// `بالرجاء تحميل صورة جسمك الحالي للمدرب، حيث ستساعده في تقييم تطورك وتقديم الإرشادات الشخصية الملائمة بشكل أفضل. ستكون هذه الصورة مرجعًا هامًا للمدرب لفهم تفاصيل جسمك واحتياجاتك الفردية`
+  /// `Please upload a current body image for the trainer. It will help them assess your progress and provide more personalized guidance. This image will serve as an important reference for the trainer to understand your body details and individual needs.`
   String get image_tariner_hint {
     return Intl.message(
-      'بالرجاء تحميل صورة جسمك الحالي للمدرب، حيث ستساعده في تقييم تطورك وتقديم الإرشادات الشخصية الملائمة بشكل أفضل. ستكون هذه الصورة مرجعًا هامًا للمدرب لفهم تفاصيل جسمك واحتياجاتك الفردية',
+      'Please upload a current body image for the trainer. It will help them assess your progress and provide more personalized guidance. This image will serve as an important reference for the trainer to understand your body details and individual needs.',
       name: 'image_tariner_hint',
       desc: '',
       args: [],

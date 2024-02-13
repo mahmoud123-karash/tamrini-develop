@@ -38,7 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_answer": MessageLookupByLibrary.simpleMessage("Add Answer"),
         "add_article": MessageLookupByLibrary.simpleMessage("Add Article"),
         "add_diet_course":
-            MessageLookupByLibrary.simpleMessage("اضافة نظام غذائي"),
+            MessageLookupByLibrary.simpleMessage("Add Diet Course"),
         "add_exercise": MessageLookupByLibrary.simpleMessage("Add Exercise"),
         "add_gym": MessageLookupByLibrary.simpleMessage("Add Gym"),
         "add_image": MessageLookupByLibrary.simpleMessage("Add Image"),
@@ -53,18 +53,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_new_exercise":
             MessageLookupByLibrary.simpleMessage("Add New Exercise"),
         "add_new_follow":
-            MessageLookupByLibrary.simpleMessage("إضافة متابعة جديدة"),
+            MessageLookupByLibrary.simpleMessage("Add New Follow-up"),
         "add_new_folow":
             MessageLookupByLibrary.simpleMessage("Add New Follow-up"),
         "add_new_gallery": MessageLookupByLibrary.simpleMessage("Add New Work"),
         "add_new_nutirtion":
             MessageLookupByLibrary.simpleMessage("Add New Value"),
         "add_new_question":
-            MessageLookupByLibrary.simpleMessage("اضافة سؤال جديد"),
+            MessageLookupByLibrary.simpleMessage("Add New Question"),
         "add_new_section":
             MessageLookupByLibrary.simpleMessage("Add New Section"),
         "add_new_supplement":
-            MessageLookupByLibrary.simpleMessage("إضافة مكمل غذائي"),
+            MessageLookupByLibrary.simpleMessage("Add New Supplement"),
         "add_new_supplemnet":
             MessageLookupByLibrary.simpleMessage("Add New Supplement"),
         "add_nutrition_classification":
@@ -92,7 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("All rights reserved"),
         "all_users": MessageLookupByLibrary.simpleMessage("All Users"),
         "answer": MessageLookupByLibrary.simpleMessage("Answer"),
-        "answer_question": MessageLookupByLibrary.simpleMessage("الاجابة"),
+        "answer_question": MessageLookupByLibrary.simpleMessage("Answer"),
         "answers": MessageLookupByLibrary.simpleMessage("Answers"),
         "app": MessageLookupByLibrary.simpleMessage("App"),
         "arDetails": MessageLookupByLibrary.simpleMessage("Article Details"),
@@ -209,11 +209,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Device Language"),
         "diet": MessageLookupByLibrary.simpleMessage("Diet"),
         "diet_course_details":
-            MessageLookupByLibrary.simpleMessage("تفاصيل النظام الغذائى"),
-        "diet_duration": MessageLookupByLibrary.simpleMessage(
-            "مدة النظام الغذائى بالأسابيع"),
+            MessageLookupByLibrary.simpleMessage("Diet Course Details"),
+        "diet_duration":
+            MessageLookupByLibrary.simpleMessage("Diet Duration in Weeks"),
         "diet_food": MessageLookupByLibrary.simpleMessage("Diet Food"),
-        "diet_name": MessageLookupByLibrary.simpleMessage("اسم النظام الغذائى"),
+        "diet_name": MessageLookupByLibrary.simpleMessage("Diet Name"),
         "dinar": MessageLookupByLibrary.simpleMessage("D.I"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "duration_course":
@@ -264,7 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "follow_and_data":
             MessageLookupByLibrary.simpleMessage("Follow-up and Data"),
         "follow_details":
-            MessageLookupByLibrary.simpleMessage("تفاصيل المتابعة"),
+            MessageLookupByLibrary.simpleMessage("Follow-up Details"),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
         "fri": MessageLookupByLibrary.simpleMessage("Friday"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
@@ -313,7 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "image_hint":
             MessageLookupByLibrary.simpleMessage("Please select images"),
         "image_tariner_hint": MessageLookupByLibrary.simpleMessage(
-            "بالرجاء تحميل صورة جسمك الحالي للمدرب، حيث ستساعده في تقييم تطورك وتقديم الإرشادات الشخصية الملائمة بشكل أفضل. ستكون هذه الصورة مرجعًا هامًا للمدرب لفهم تفاصيل جسمك واحتياجاتك الفردية"),
+            "Please upload a current body image for the trainer. It will help them assess your progress and provide more personalized guidance. This image will serve as an important reference for the trainer to understand your body details and individual needs."),
         "instgram": MessageLookupByLibrary.simpleMessage("Instagram"),
         "internet": MessageLookupByLibrary.simpleMessage("No Connection"),
         "internet_connection": MessageLookupByLibrary.simpleMessage(
@@ -480,15 +480,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "q_remove_article": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove the article ?"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
-        "question": MessageLookupByLibrary.simpleMessage("Q"),
+        "question": MessageLookupByLibrary.simpleMessage("Question"),
         "question_error": MessageLookupByLibrary.simpleMessage(
             "This question has been deleted"),
-        "question_remove_question":
-            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا السؤال ؟"),
+        "question_remove_question": MessageLookupByLibrary.simpleMessage(
+            "Do you want to delete this question?"),
         "questions_trainee":
-            MessageLookupByLibrary.simpleMessage("أسئلة المتدربين"),
+            MessageLookupByLibrary.simpleMessage("Trainee Questions"),
         "questions_trainee_hint": MessageLookupByLibrary.simpleMessage(
-            "الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة "),
+            "The questions that trainees under your supervision should answer during the program."),
         "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
         "qunatity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),
@@ -511,7 +511,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_article":
             MessageLookupByLibrary.simpleMessage("Remove Article"),
         "remove_diet_question": MessageLookupByLibrary.simpleMessage(
-            "هل تريد حذف هذا النظام الغذائى ؟"),
+            "Do you want to delete this diet course?"),
         "remove_exercise_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this exercise ?"),
         "remove_gallery_hint": MessageLookupByLibrary.simpleMessage(
@@ -523,8 +523,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_product_q": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove the product?"),
         "remove_question": MessageLookupByLibrary.simpleMessage("Delete"),
-        "remove_supplement_question":
-            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا المكمل ؟"),
+        "remove_supplement_question": MessageLookupByLibrary.simpleMessage(
+            "Do you want to delete this supplement?"),
         "renew_sub": MessageLookupByLibrary.simpleMessage("Renew Subscription"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "request_promotion_done": MessageLookupByLibrary.simpleMessage(
@@ -566,7 +566,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub_hint": MessageLookupByLibrary.simpleMessage(
             "You are already subscribed to this gym"),
         "sub_with_trainer_and_try_again": MessageLookupByLibrary.simpleMessage(
-            "اشترك مع مدرب وحاول مرة ثانية"),
+            "Subscribe to a trainer and try again."),
         "subcribers": MessageLookupByLibrary.simpleMessage("Subscribers"),
         "subed": MessageLookupByLibrary.simpleMessage("Activated"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
@@ -700,8 +700,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "years": MessageLookupByLibrary.simpleMessage("years old"),
         "you_sub_with_trainer": MessageLookupByLibrary.simpleMessage(
             "You are already subscribed to this trainer."),
-        "you_unsub_with_trainer":
-            MessageLookupByLibrary.simpleMessage("أنت غير مشترك مع مدرب"),
+        "you_unsub_with_trainer": MessageLookupByLibrary.simpleMessage(
+            "You are unsubscribed from the trainer."),
         "your_articles": MessageLookupByLibrary.simpleMessage("My Articles"),
         "your_meals": MessageLookupByLibrary.simpleMessage("Your Meals"),
         "your_need": MessageLookupByLibrary.simpleMessage("Your Need"),

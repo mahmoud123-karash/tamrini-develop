@@ -461,40 +461,23 @@
     "duration_course": "Course Duration",
     "days": "Days",
     "course_date": "Course Creation Date",
-    "add_new_supplement":"إضافة مكمل غذائي",
-    "remove_supplement_question":"هل تريد حذف هذا المكمل ؟",
-    "add_diet_course":"اضافة نظام غذائي",
-    "diet_name":"اسم النظام الغذائى",
-    "diet_duration":"مدة النظام الغذائى بالأسابيع",
-    "remove_diet_question":"هل تريد حذف هذا النظام الغذائى ؟",
-    "diet_course_details":"تفاصيل النظام الغذائى",
-    "questions_trainee":"أسئلة المتدربين",
-    "questions_trainee_hint":"الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة ",
-    "add_new_question":"اضافة سؤال جديد",
-    "question":"Q",
-    "question_remove_question":"هل تريد حذف هذا السؤال ؟",
-    "add_new_follow":"إضافة متابعة جديدة",
-    "follow_details":"تفاصيل المتابعة",
-    "answer_question":"الاجابة",
-    "you_unsub_with_trainer":"أنت غير مشترك مع مدرب",
-    "sub_with_trainer_and_try_again":"اشترك مع مدرب وحاول مرة ثانية",
-    "image_tariner_hint":"بالرجاء تحميل صورة جسمك الحالي للمدرب، حيث ستساعده في تقييم تطورك وتقديم الإرشادات الشخصية الملائمة بشكل أفضل. ستكون هذه الصورة مرجعًا هامًا للمدرب لفهم تفاصيل جسمك واحتياجاتك الفردية"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "add_new_supplement": "Add New Supplement",
+    "remove_supplement_question": "Do you want to delete this supplement?",
+    "add_diet_course": "Add Diet Course",
+    "diet_name": "Diet Name",
+    "diet_duration": "Diet Duration in Weeks",
+    "remove_diet_question": "Do you want to delete this diet course?",
+    "diet_course_details": "Diet Course Details",
+    "questions_trainee": "Trainee Questions",
+    "questions_trainee_hint": "The questions that trainees under your supervision should answer during the program.",
+    "add_new_question": "Add New Question",
+    "question": "Question",
+    "question_remove_question": "Do you want to delete this question?",
+    "add_new_follow": "Add New Follow-up",
+    "follow_details": "Follow-up Details",
+    "answer_question": "Answer",
+    "you_unsub_with_trainer": "You are unsubscribed from the trainer.",
+    "sub_with_trainer_and_try_again": "Subscribe to a trainer and try again.",
+    "image_tariner_hint": "Please upload a current body image for the trainer. It will help them assess your progress and provide more personalized guidance. This image will serve as an important reference for the trainer to understand your body details and individual needs."
 
 }
