@@ -54,4 +54,6 @@ abstract class TraineeRepo {
     required TraineeModel model,
     required FoodModel foodModel,
   });
+
+  Future<Either<String, TraineeModel>> getUserCourse();
 }

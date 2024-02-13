@@ -87,7 +87,7 @@ class TraineeScreen extends StatelessWidget {
               lable: S.of(context).follow_and_data,
               icon: Icons.follow_the_signs_rounded,
               onTap: () {
-                navigateTo(context, const FollowScreen());
+                navigateTo(context, FollowScreen(list: model.followUpList));
               },
             ),
             const SizedBox(

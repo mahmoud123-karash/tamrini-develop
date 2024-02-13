@@ -13,7 +13,7 @@ import '../diet_course_details_screen.dart';
 class DietCourseItemWidget extends StatelessWidget {
   const DietCourseItemWidget(
       {super.key, required this.model, required this.food});
-  final TraineeModel model;
+  final TraineeModel? model;
   final FoodModel food;
 
   @override
@@ -62,11 +62,12 @@ class DietCourseItemWidget extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                if (userType == 'trainer')
-                  RemoveDietCourseWidget(
-                    food: food,
-                    model: model,
-                  )
+                if (model != null)
+                  if (userType == 'trainer')
+                    RemoveDietCourseWidget(
+                      food: food,
+                      model: model!,
+                    )
               ],
             ),
           ),

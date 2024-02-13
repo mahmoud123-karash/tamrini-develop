@@ -69,6 +69,7 @@ import 'package:tamrini/features/suggest_exercise/presentation/manager/suggest_c
 import 'package:tamrini/features/trainee/data/repo/trainee_repo_impl.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
 import 'package:tamrini/features/trainer/data/repo/trainer_repo_impl.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
@@ -259,6 +260,11 @@ void main() async {
         ),
         BlocProvider(
           create: (context) => TraineeCubit(
+            getIt.get<TraineeRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => UserCourseCubit(
             getIt.get<TraineeRepoImpl>(),
           ),
         ),

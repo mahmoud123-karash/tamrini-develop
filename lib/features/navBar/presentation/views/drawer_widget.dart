@@ -20,6 +20,7 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/admin_list_tile_widget.dart';
 import 'widgets/drawer_list_tile_widget.dart';
 import 'widgets/store_owner_widget.dart';
+import 'widgets/trainering_course_list_tile_widget.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -77,6 +78,7 @@ class MyDrawer extends StatelessWidget {
               icon: Ionicons.person_outline,
               lable: S.of(context).profile,
             ),
+            if (usertype == 'user') const TrainingCourseListTileWidget(),
             if (usertype == 'trainer') const TrainerWidget(),
             if (usertype == 'admin') const AdminListTileWidget(),
             if (usertype == 'admin' || usertype == 'store owner')

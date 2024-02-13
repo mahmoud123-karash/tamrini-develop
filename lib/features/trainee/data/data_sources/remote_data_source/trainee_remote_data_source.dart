@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 abstract class TraineeRemoteDataSource {
   Future<List<TraineeModel>> get({required String trainerId});
+  Future<TraineeModel> getUserCourse();
 }
 
 class TraineeRemoteDataSourceImpl extends TraineeRemoteDataSource {
@@ -39,5 +41,20 @@ class TraineeRemoteDataSourceImpl extends TraineeRemoteDataSource {
     String address = await getAddress(location: location);
     UserModel user = UserModel.fromMap(result.data()!, result.id, address);
     return user;
+  }
+
+  @override
+  Future<TraineeModel> getUserCourse() async {
+    String uid = CacheHelper.getData(key: 'uid');
+    String trainerId = CacheHelper.getData(key: 'trainerId');
+    var result = await FirebaseFirestore.instance
+        .collection('trainees')
+        .doc(trainerId)
+        .collection('data')
+        .doc(uid)
+        .get();
+
+    TraineeModel model = TraineeModel.fromJson(result.data()!, null);
+    return model;
   }
 }

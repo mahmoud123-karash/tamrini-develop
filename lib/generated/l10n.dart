@@ -4789,6 +4789,66 @@ class S {
       args: [],
     );
   }
+
+  /// `إضافة متابعة جديدة`
+  String get add_new_follow {
+    return Intl.message(
+      'إضافة متابعة جديدة',
+      name: 'add_new_follow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل المتابعة`
+  String get follow_details {
+    return Intl.message(
+      'تفاصيل المتابعة',
+      name: 'follow_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاجابة`
+  String get answer_question {
+    return Intl.message(
+      'الاجابة',
+      name: 'answer_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أنت غير مشترك مع مدرب`
+  String get you_unsub_with_trainer {
+    return Intl.message(
+      'أنت غير مشترك مع مدرب',
+      name: 'you_unsub_with_trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اشترك مع مدرب وحاول مرة ثانية`
+  String get sub_with_trainer_and_try_again {
+    return Intl.message(
+      'اشترك مع مدرب وحاول مرة ثانية',
+      name: 'sub_with_trainer_and_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `بالرجاء تحميل صورة جسمك الحالي للمدرب، حيث ستساعده في تقييم تطورك وتقديم الإرشادات الشخصية الملائمة بشكل أفضل. ستكون هذه الصورة مرجعًا هامًا للمدرب لفهم تفاصيل جسمك واحتياجاتك الفردية`
+  String get image_tariner_hint {
+    return Intl.message(
+      'بالرجاء تحميل صورة جسمك الحالي للمدرب، حيث ستساعده في تقييم تطورك وتقديم الإرشادات الشخصية الملائمة بشكل أفضل. ستكون هذه الصورة مرجعًا هامًا للمدرب لفهم تفاصيل جسمك واحتياجاتك الفردية',
+      name: 'image_tariner_hint',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

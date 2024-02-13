@@ -334,4 +334,14 @@ class TraineeRepoImpl extends TraineeRepo {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, TraineeModel>> getUserCourse() async {
+    try {
+      TraineeModel model = await traineeRemoteDataSource.getUserCourse();
+      return right(model);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

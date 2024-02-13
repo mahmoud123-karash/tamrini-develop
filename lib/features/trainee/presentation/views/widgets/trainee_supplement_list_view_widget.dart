@@ -10,17 +10,21 @@ import 'package:tamrini/generated/l10n.dart';
 import 'remove_supplement_icon_widget.dart';
 
 class SupplementListViewWidget extends StatelessWidget {
-  const SupplementListViewWidget({super.key, required this.model});
-  final TraineeModel model;
+  const SupplementListViewWidget(
+      {super.key, required this.model, required this.supplements});
+  final TraineeModel? model;
+  final List<String> supplements;
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+
+    List<String> list = model != null ? model!.supplements : supplements;
     return BlocBuilder<SupplementCubit, SupplementStates>(
       builder: (context, state) {
         if (state is SucessGetSupplementState) {
           List<SupplementData> finalList = [];
-          for (var element in model.supplements) {
+          for (var element in list) {
             SupplementData? model =
                 SupplementCubit.get(context).getSupplementData(element);
             if (model != null) {
@@ -54,11 +58,12 @@ class SupplementListViewWidget extends StatelessWidget {
                         categoryId: '',
                         isCourse: false,
                       ),
-                      RemoveSupplementIconWidget(
-                        model: model,
-                        supplementId: finalList[index].id,
-                        name: finalList[index].title,
-                      ),
+                      if (model != null)
+                        RemoveSupplementIconWidget(
+                          model: model!,
+                          supplementId: finalList[index].id,
+                          name: finalList[index].title,
+                        ),
                     ],
                   ),
                   separatorBuilder: (context, index) => const SizedBox(

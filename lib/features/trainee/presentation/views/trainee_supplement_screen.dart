@@ -12,8 +12,10 @@ import 'widgets/add_supplement_widget.dart';
 import 'widgets/trainee_supplement_list_view_widget.dart';
 
 class TraineeSupplementsScreen extends StatelessWidget {
-  const TraineeSupplementsScreen({super.key, required this.traineeId});
+  const TraineeSupplementsScreen(
+      {super.key, required this.traineeId, this.supplements});
   final String traineeId;
+  final List<String>? supplements;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,9 @@ class TraineeSupplementsScreen extends StatelessWidget {
       appBar: myAppBar(S.of(context).nuttritions),
       body: BlocBuilder<TraineeCubit, TraineeStates>(
         builder: (context, state) {
-          TraineeModel model =
-              TraineeCubit.get(context).getTrainee(id: traineeId);
+          TraineeModel? model = supplements != null
+              ? null
+              : TraineeCubit.get(context).getTrainee(id: traineeId);
           return ListView(
             children: [
               if (userType == 'trainer')
@@ -40,8 +43,11 @@ class TraineeSupplementsScreen extends StatelessWidget {
                     lable: S.of(context).add_new_supplement,
                   ),
                 ),
-              AddSupplementWidget(model: model),
-              SupplementListViewWidget(model: model),
+              if (model != null) AddSupplementWidget(model: model),
+              SupplementListViewWidget(
+                model: model,
+                supplements: supplements ?? [],
+              ),
             ],
           );
         },

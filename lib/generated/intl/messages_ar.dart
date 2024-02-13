@@ -51,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إضافة نظام غذائي"),
         "add_new_exercise":
             MessageLookupByLibrary.simpleMessage("إضافة تمرين جديد"),
+        "add_new_follow":
+            MessageLookupByLibrary.simpleMessage("إضافة متابعة جديدة"),
         "add_new_folow": MessageLookupByLibrary.simpleMessage("إضافة متابعة"),
         "add_new_gallery":
             MessageLookupByLibrary.simpleMessage("إضافة عمل جديد"),
@@ -87,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("جميع الحقوق محفوظة"),
         "all_users": MessageLookupByLibrary.simpleMessage("جميع المستخدمين"),
         "answer": MessageLookupByLibrary.simpleMessage("إجابة"),
+        "answer_question": MessageLookupByLibrary.simpleMessage("الاجابة"),
         "answers": MessageLookupByLibrary.simpleMessage("الأجوبة"),
         "app": MessageLookupByLibrary.simpleMessage("التطبيق"),
         "arDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المقال"),
@@ -250,6 +253,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
         "follow_and_data":
             MessageLookupByLibrary.simpleMessage("المتابعة والبيانات"),
+        "follow_details":
+            MessageLookupByLibrary.simpleMessage("تفاصيل المتابعة"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "fri": MessageLookupByLibrary.simpleMessage("يوم الجمعة"),
         "from": MessageLookupByLibrary.simpleMessage("من"),
@@ -298,6 +303,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لم يتم إختيار صورة "),
         "image_hint":
             MessageLookupByLibrary.simpleMessage("من فضلك قم باختيار الصور"),
+        "image_tariner_hint": MessageLookupByLibrary.simpleMessage(
+            "بالرجاء تحميل صورة جسمك الحالي للمدرب، حيث ستساعده في تقييم تطورك وتقديم الإرشادات الشخصية الملائمة بشكل أفضل. ستكون هذه الصورة مرجعًا هامًا للمدرب لفهم تفاصيل جسمك واحتياجاتك الفردية"),
         "instgram": MessageLookupByLibrary.simpleMessage("انستجرام"),
         "internet": MessageLookupByLibrary.simpleMessage("لا يوجد اتصال"),
         "internet_connection":
@@ -547,6 +554,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub_date": MessageLookupByLibrary.simpleMessage("تاريخ الإشتراك"),
         "sub_hint": MessageLookupByLibrary.simpleMessage(
             "انت مشترك بالفعل فى هذه الصالة"),
+        "sub_with_trainer_and_try_again": MessageLookupByLibrary.simpleMessage(
+            "اشترك مع مدرب وحاول مرة ثانية"),
         "subcribers": MessageLookupByLibrary.simpleMessage("المشتركين"),
         "subed": MessageLookupByLibrary.simpleMessage("مفعل"),
         "submit": MessageLookupByLibrary.simpleMessage("تفعيل"),
@@ -668,6 +677,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "years": MessageLookupByLibrary.simpleMessage("سنوات"),
         "you_sub_with_trainer": MessageLookupByLibrary.simpleMessage(
             "انت مشترك بالفعل مع هذا المدرب"),
+        "you_unsub_with_trainer":
+            MessageLookupByLibrary.simpleMessage("أنت غير مشترك مع مدرب"),
         "your_articles": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
         "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),

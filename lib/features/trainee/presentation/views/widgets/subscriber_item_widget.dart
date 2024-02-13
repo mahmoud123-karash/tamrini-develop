@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
-import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 import '../trainee_screen.dart';
@@ -39,12 +38,7 @@ class SubscriberItemWidget extends StatelessWidget {
                     model: model.user!,
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    navigateTo(context, const ChatScreen());
-                  },
-                  child: const ChatIconWidget(),
-                )
+                const ChatIconBadgeWidget()
               ],
             ),
           ),

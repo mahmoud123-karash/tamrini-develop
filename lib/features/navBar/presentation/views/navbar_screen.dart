@@ -19,6 +19,7 @@ import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cu
 import 'package:tamrini/features/order/presentation/manager/user_order_cubit/user_order_cubit.dart';
 import 'package:tamrini/features/promotion/presentation/manager/promotion_cubit/promotion_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
 import 'widgets/curved_nav_bar_widget.dart';
 import 'drawer_widget.dart';
 
@@ -34,6 +35,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
   void initState() {
     String userType = CacheHelper.getData(key: 'usertype') ?? "";
     String uid = CacheHelper.getData(key: 'uid') ?? "";
+    String trainerId = CacheHelper.getData(key: 'trainerId') ?? "";
     if (userType == 'trainer') {
       TraineeCubit.get(context).getData(trainerId: uid);
     }
@@ -53,6 +55,9 @@ class _NavBarScreenState extends State<NavBarScreen> {
       onMessageOpenedApp(context: context);
       onMessage(context: context);
       listenNotification();
+    }
+    if (trainerId != '') {
+      UserCourseCubit.get(context).getCourse();
     }
 
     super.initState();

@@ -12,8 +12,9 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/diet_course_item_widget.dart';
 
 class DietCourseScreen extends StatelessWidget {
-  const DietCourseScreen({super.key, required this.traineeId});
+  const DietCourseScreen({super.key, required this.traineeId, this.list});
   final String traineeId;
+  final List<FoodModel>? list;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,10 @@ class DietCourseScreen extends StatelessWidget {
       appBar: myAppBar(S.of(context).diet),
       body: BlocBuilder<TraineeCubit, TraineeStates>(
         builder: (context, state) {
-          TraineeModel model =
-              TraineeCubit.get(context).getTrainee(id: traineeId);
-          List<FoodModel> food = model.food;
+          TraineeModel? model = list != null
+              ? null
+              : TraineeCubit.get(context).getTrainee(id: traineeId);
+          List<FoodModel> food = list ?? model!.food;
           food.sort((a, b) => b.createdAt.compareTo(a.createdAt));
           return Column(
             children: [
@@ -34,7 +36,7 @@ class DietCourseScreen extends StatelessWidget {
                   child: addCustomButton(
                     fontSize: 15,
                     onPressed: () {
-                      navigateTo(context, NewDietCourseScreen(model: model));
+                      navigateTo(context, NewDietCourseScreen(model: model!));
                     },
                     lable: S.of(context).add_new_diet_course,
                   ),
@@ -54,7 +56,7 @@ class DietCourseScreen extends StatelessWidget {
                           model: model,
                           food: food[index],
                         ),
-                        itemCount: model.food.length,
+                        itemCount: food.length,
                       ),
               ),
             ],
