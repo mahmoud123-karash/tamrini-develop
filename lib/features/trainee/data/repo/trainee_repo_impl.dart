@@ -6,6 +6,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/trainee/data/data_sources/remote_data_source/trainee_remote_data_source.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/domain/repo/trainee_repo.dart';
 
@@ -226,6 +227,95 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: model.dateOfSubscription,
         supplements: newList,
         food: model.food,
+        followUpList: model.followUpList,
+        courses: model.courses,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(uid)
+          .collection('data')
+          .doc(model.uid)
+          .set(
+            newModel.toJson(),
+          );
+      List<TraineeModel> list =
+          await traineeRemoteDataSource.get(trainerId: uid);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<TraineeModel>>> addDietCourse({
+    required TraineeModel model,
+    required String name,
+    required String duration,
+    required String satData,
+    required String sunData,
+    required String monData,
+    required String wenData,
+    required String tueData,
+    required String thrusData,
+    required String friData,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+
+      List<FoodModel> newList = model.food;
+
+      FoodModel foodModel = FoodModel(
+        duration: duration,
+        title: name,
+        createdAt: Timestamp.now(),
+        satData: satData,
+        sunData: sunData,
+        monData: monData,
+        tueData: tueData,
+        wedData: wenData,
+        thursData: thrusData,
+        friData: friData,
+      );
+      newList.add(foodModel);
+      TraineeModel newModel = TraineeModel(
+        uid: model.uid,
+        dateOfSubscription: model.dateOfSubscription,
+        supplements: model.supplements,
+        food: newList,
+        followUpList: model.followUpList,
+        courses: model.courses,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(uid)
+          .collection('data')
+          .doc(model.uid)
+          .set(
+            newModel.toJson(),
+          );
+      List<TraineeModel> list =
+          await traineeRemoteDataSource.get(trainerId: uid);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<TraineeModel>>> removeDietCourse({
+    required TraineeModel model,
+    required FoodModel foodModel,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+
+      List<FoodModel> newList = model.food;
+      newList.remove(foodModel);
+      TraineeModel newModel = TraineeModel(
+        uid: model.uid,
+        dateOfSubscription: model.dateOfSubscription,
+        supplements: model.supplements,
+        food: newList,
         followUpList: model.followUpList,
         courses: model.courses,
       );

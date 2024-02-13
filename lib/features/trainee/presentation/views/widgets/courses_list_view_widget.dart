@@ -8,6 +8,7 @@ class CoursesListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    list.sort((a, b) => b.createdAt.compareTo(a.createdAt));
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,

@@ -4689,6 +4689,56 @@ class S {
       args: [],
     );
   }
+
+  /// `اضافة نظام غذائي`
+  String get add_diet_course {
+    return Intl.message(
+      'اضافة نظام غذائي',
+      name: 'add_diet_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اسم النظام الغذائى`
+  String get diet_name {
+    return Intl.message(
+      'اسم النظام الغذائى',
+      name: 'diet_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `مدة النظام الغذائى بالأسابيع`
+  String get diet_duration {
+    return Intl.message(
+      'مدة النظام الغذائى بالأسابيع',
+      name: 'diet_duration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذا النظام الغذائى ؟`
+  String get remove_diet_question {
+    return Intl.message(
+      'هل تريد حذف هذا النظام الغذائى ؟',
+      name: 'remove_diet_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تفاصيل النظام الغذائى`
+  String get diet_course_details {
+    return Intl.message(
+      'تفاصيل النظام الغذائى',
+      name: 'diet_course_details',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

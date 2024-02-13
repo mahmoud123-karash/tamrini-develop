@@ -36,6 +36,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "add": MessageLookupByLibrary.simpleMessage("إضافة"),
         "add_answer": MessageLookupByLibrary.simpleMessage("إضافة إجابة"),
         "add_article": MessageLookupByLibrary.simpleMessage("إضافة مقال"),
+        "add_diet_course":
+            MessageLookupByLibrary.simpleMessage("اضافة نظام غذائي"),
         "add_exercise": MessageLookupByLibrary.simpleMessage("إضافة تمرين"),
         "add_gym": MessageLookupByLibrary.simpleMessage("إضافة صالة رياصية"),
         "add_image": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
@@ -193,7 +195,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
         "device_language": MessageLookupByLibrary.simpleMessage("لغة الجهاز"),
         "diet": MessageLookupByLibrary.simpleMessage("النظام الغذائى"),
+        "diet_course_details":
+            MessageLookupByLibrary.simpleMessage("تفاصيل النظام الغذائى"),
+        "diet_duration": MessageLookupByLibrary.simpleMessage(
+            "مدة النظام الغذائى بالأسابيع"),
         "diet_food": MessageLookupByLibrary.simpleMessage("أكــلات دايــت"),
+        "diet_name": MessageLookupByLibrary.simpleMessage("اسم النظام الغذائى"),
         "dinar": MessageLookupByLibrary.simpleMessage("د.ع"),
         "done": MessageLookupByLibrary.simpleMessage("تم"),
         "duration_course": MessageLookupByLibrary.simpleMessage("مدة الكورس"),
@@ -476,6 +483,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_to_drink":
             MessageLookupByLibrary.simpleMessage("تذكير لشرب الماء"),
         "remove_article": MessageLookupByLibrary.simpleMessage("حذف المقال"),
+        "remove_diet_question": MessageLookupByLibrary.simpleMessage(
+            "هل تريد حذف هذا النظام الغذائى ؟"),
         "remove_exercise_question":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا التمرين ؟"),
         "remove_gallery_hint":

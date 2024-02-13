@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/domain/repo/trainee_repo.dart';
 
@@ -103,6 +104,62 @@ class TraineeCubit extends Cubit<TraineeStates> {
     var result = await traineeRepo.removeSupplement(
       model: model,
       supplementId: supplementId,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetTraineesState(message));
+      },
+      (list) {
+        trainees = list;
+        emit(SucessGetTraineesState(list));
+      },
+    );
+  }
+
+  void addDietCourse({
+    required TraineeModel model,
+    required String name,
+    required String duration,
+    required String satData,
+    required String sunData,
+    required String monData,
+    required String wenData,
+    required String tueData,
+    required String thrusData,
+    required String friData,
+  }) async {
+    emit(LoadingGetTraineesState());
+    var result = await traineeRepo.addDietCourse(
+      model: model,
+      name: name,
+      duration: duration,
+      satData: satData,
+      sunData: sunData,
+      monData: monData,
+      wenData: wenData,
+      tueData: tueData,
+      thrusData: thrusData,
+      friData: friData,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetTraineesState(message));
+      },
+      (list) {
+        trainees = list;
+        emit(SucessGetTraineesState(list));
+      },
+    );
+  }
+
+  void removeDietCourse({
+    required TraineeModel model,
+    required FoodModel foodModel,
+  }) async {
+    emit(LoadingGetTraineesState());
+    var result = await traineeRepo.removeDietCourse(
+      model: model,
+      foodModel: foodModel,
     );
     result.fold(
       (message) {

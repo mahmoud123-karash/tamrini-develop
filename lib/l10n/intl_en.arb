@@ -462,7 +462,14 @@
     "days": "Days",
     "course_date": "Course Creation Date",
     "add_new_supplement":"إضافة مكمل غذائي",
-    "remove_supplement_question":"هل تريد حذف هذا المكمل ؟"
+    "remove_supplement_question":"هل تريد حذف هذا المكمل ؟",
+    "add_diet_course":"اضافة نظام غذائي",
+    "diet_name":"اسم النظام الغذائى",
+    "diet_duration":"مدة النظام الغذائى بالأسابيع",
+    "remove_diet_question":"هل تريد حذف هذا النظام الغذائى ؟",
+    "diet_course_details":"تفاصيل النظام الغذائى"
+
+
 
 
 

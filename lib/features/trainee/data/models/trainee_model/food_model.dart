@@ -12,22 +12,23 @@ class FoodModel {
   final String thursData;
   final String friData;
 
-  FoodModel(
-      {required this.duration,
-      required this.title,
-      required this.createdAt,
-      required this.satData,
-      required this.sunData,
-      required this.monData,
-      required this.tueData,
-      required this.wedData,
-      required this.thursData,
-      required this.friData});
+  FoodModel({
+    required this.duration,
+    required this.title,
+    required this.createdAt,
+    required this.satData,
+    required this.sunData,
+    required this.monData,
+    required this.tueData,
+    required this.wedData,
+    required this.thursData,
+    required this.friData,
+  });
 
   factory FoodModel.fromJson(Map<String, dynamic> json) {
     return FoodModel(
       duration: json['duration'] ?? '',
-      title: json['title:'] ?? '',
+      title: json['title'] ?? '',
       createdAt: json['createdAt'] ?? Timestamp.now(),
       satData: json['satData'] ?? '',
       sunData: json['sunData'] ?? '',

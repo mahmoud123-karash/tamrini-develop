@@ -107,7 +107,7 @@ class TraineeScreen extends StatelessWidget {
               lable: S.of(context).diet,
               icon: Icons.fastfood_outlined,
               onTap: () {
-                navigateTo(context, const DietCourseScreen());
+                navigateTo(context, DietCourseScreen(traineeId: model.uid));
               },
             ),
             const SizedBox(

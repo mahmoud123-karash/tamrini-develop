@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_states.dart';
@@ -20,6 +21,7 @@ class CourcesScreen extends StatelessWidget {
         builder: (context, state) {
           TraineeModel model =
               TraineeCubit.get(context).getTrainee(id: traineeId);
+          List<CourseModel> courses = model.courses;
           return Column(
             children: [
               Padding(
@@ -35,13 +37,13 @@ class CourcesScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: model.courses.isEmpty
+                child: courses.isEmpty
                     ? Center(
                         child: Text(
                           S.of(context).emptyList,
                         ),
                       )
-                    : CoursesListViewWidget(list: model.courses),
+                    : CoursesListViewWidget(list: courses),
               ),
             ],
           );
