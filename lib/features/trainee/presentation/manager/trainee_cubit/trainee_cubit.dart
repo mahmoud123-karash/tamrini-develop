@@ -94,4 +94,24 @@ class TraineeCubit extends Cubit<TraineeStates> {
       },
     );
   }
+
+  void removeSupplements({
+    required TraineeModel model,
+    required String supplementId,
+  }) async {
+    emit(LoadingGetTraineesState());
+    var result = await traineeRepo.removeSupplement(
+      model: model,
+      supplementId: supplementId,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetTraineesState(message));
+      },
+      (list) {
+        trainees = list;
+        emit(SucessGetTraineesState(list));
+      },
+    );
+  }
 }

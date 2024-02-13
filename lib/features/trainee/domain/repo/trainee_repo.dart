@@ -30,4 +30,9 @@ abstract class TraineeRepo {
     required TraineeModel model,
     required List<String> supplements,
   });
+
+  Future<Either<String, List<TraineeModel>>> removeSupplement({
+    required TraineeModel model,
+    required String supplementId,
+  });
 }

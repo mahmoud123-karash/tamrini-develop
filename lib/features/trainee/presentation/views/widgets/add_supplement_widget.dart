@@ -41,7 +41,9 @@ class AddSupplementWidget extends StatelessWidget {
                 ),
                 if (list.isNotEmpty)
                   AddSupplementRowButtonsWidget(
-                      supplememnts: list, model: model),
+                    supplememnts: list,
+                    model: model,
+                  ),
               ],
             ),
           ),

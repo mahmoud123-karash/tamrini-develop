@@ -460,7 +460,8 @@
     "duration_course":"مدة الكورس",
     "days":"الأيام",
     "course_date":"تاريخ انشاء الكورس",
-    "add_new_supplement":"إضافة مكمل غذائي"
+    "add_new_supplement":"إضافة مكمل غذائي",
+    "remove_supplement_question":"هل تريد حذف هذا المكمل ؟"
 
 
 

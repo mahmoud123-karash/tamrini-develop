@@ -487,6 +487,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_product_q":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف المنتج ؟"),
         "remove_question": MessageLookupByLibrary.simpleMessage("حذف"),
+        "remove_supplement_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا المكمل ؟"),
         "renew_sub": MessageLookupByLibrary.simpleMessage("تجديد الاشتراك"),
         "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
         "request_promotion_done":

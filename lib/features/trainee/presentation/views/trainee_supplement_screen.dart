@@ -24,7 +24,6 @@ class TraineeSupplementsScreen extends StatelessWidget {
         builder: (context, state) {
           TraineeModel model =
               TraineeCubit.get(context).getTrainee(id: traineeId);
-          List<String> supplements = model.supplements;
           return ListView(
             children: [
               if (userType == 'trainer')
@@ -42,7 +41,7 @@ class TraineeSupplementsScreen extends StatelessWidget {
                   ),
                 ),
               AddSupplementWidget(model: model),
-              SupplementListViewWidget(list: supplements),
+              SupplementListViewWidget(model: model),
             ],
           );
         },

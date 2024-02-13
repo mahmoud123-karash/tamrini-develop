@@ -461,7 +461,9 @@
     "duration_course": "Course Duration",
     "days": "Days",
     "course_date": "Course Creation Date",
-    "add_new_supplement":"إضافة مكمل غذائي"
+    "add_new_supplement":"إضافة مكمل غذائي",
+    "remove_supplement_question":"هل تريد حذف هذا المكمل ؟"
+
 
 
 

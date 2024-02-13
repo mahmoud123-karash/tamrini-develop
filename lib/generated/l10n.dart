@@ -4679,6 +4679,16 @@ class S {
       args: [],
     );
   }
+
+  /// `هل تريد حذف هذا المكمل ؟`
+  String get remove_supplement_question {
+    return Intl.message(
+      'هل تريد حذف هذا المكمل ؟',
+      name: 'remove_supplement_question',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

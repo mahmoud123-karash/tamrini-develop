@@ -210,4 +210,38 @@ class TraineeRepoImpl extends TraineeRepo {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, List<TraineeModel>>> removeSupplement({
+    required TraineeModel model,
+    required String supplementId,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+
+      List<String> newList = model.supplements;
+      newList.remove(supplementId);
+      TraineeModel newModel = TraineeModel(
+        uid: model.uid,
+        dateOfSubscription: model.dateOfSubscription,
+        supplements: newList,
+        food: model.food,
+        followUpList: model.followUpList,
+        courses: model.courses,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(uid)
+          .collection('data')
+          .doc(model.uid)
+          .set(
+            newModel.toJson(),
+          );
+      List<TraineeModel> list =
+          await traineeRemoteDataSource.get(trainerId: uid);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }
