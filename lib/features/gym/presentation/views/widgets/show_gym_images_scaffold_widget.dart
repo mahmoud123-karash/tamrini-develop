@@ -2,6 +2,7 @@ import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:photo_view/photo_view.dart';
 
 class ShowGymImagesScaffoldWidget extends StatelessWidget {
   const ShowGymImagesScaffoldWidget(
@@ -37,29 +38,30 @@ class ShowGymImagesScaffoldWidget extends StatelessWidget {
           height: 1.sh,
           children: List.generate(
             assets.length,
-            (index) => Image(
-              image: FirebaseImageProvider(
-                FirebaseUrl(assets[index]),
+            (index) => PhotoView(
+              backgroundDecoration: BoxDecoration(
+                  image: DecorationImage(
+                fit: BoxFit.cover,
+                opacity: 0.3,
+                image: FirebaseImageProvider(
+                  FirebaseUrl(
+                    assets[index],
+                  ),
+                  options: const CacheOptions(
+                    checkForMetadataChange: false,
+                  ),
+                ),
+              )),
+              minScale: PhotoViewComputedScale.contained * 0.8,
+              maxScale: PhotoViewComputedScale.covered * 2,
+              imageProvider: FirebaseImageProvider(
+                FirebaseUrl(
+                  assets[index],
+                ),
                 options: const CacheOptions(
                   checkForMetadataChange: false,
                 ),
               ),
-              fit: BoxFit.contain,
-              loadingBuilder:
-                  (_, Widget child, ImageChunkEvent? loadingProgress) {
-                if (loadingProgress == null) {
-                  return child;
-                } else {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      value: loadingProgress.expectedTotalBytes != null
-                          ? loadingProgress.cumulativeBytesLoaded /
-                              (loadingProgress.expectedTotalBytes ?? 1)
-                          : null,
-                    ),
-                  );
-                }
-              },
             ),
           ),
         ),

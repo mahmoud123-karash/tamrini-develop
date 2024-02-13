@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import 'widgets/add_follow_custom_button_widget.dart';
 import 'widgets/follow_question_list_view_widget.dart';
 import 'widgets/follow_up_images_widget.dart';
 
 class NewFollowScreen extends StatefulWidget {
-  const NewFollowScreen({super.key, required this.questions});
+  const NewFollowScreen(
+      {super.key, required this.questions, required this.model});
   final List<String> questions;
+  final TraineeModel model;
 
   @override
   State<NewFollowScreen> createState() => _NewFollowScreenState();
@@ -71,7 +77,7 @@ class _NewFollowScreenState extends State<NewFollowScreen> {
                   horizontal: 15,
                   vertical: 10,
                 ),
-                child: customButton(
+                child: AddFollowCustomWidget(
                   onPressed: () {
                     List<String> paths = ImageCubit.get(context).paths;
                     if (page == 0) {
@@ -86,7 +92,14 @@ class _NewFollowScreenState extends State<NewFollowScreen> {
                     } else {
                       if (paths.isEmpty) {
                         showSnackBar(context, S.of(context).image_hint);
-                      } else {}
+                      } else {
+                        List<FollowUpData> followList = getAnswers();
+                        UserCourseCubit.get(context).addNewFollow(
+                          traineeModel: widget.model,
+                          paths: paths,
+                          followUpData: followList,
+                        );
+                      }
                     }
                   },
                   lable: page == 0 ? S.of(context).next : S.of(context).add,
@@ -97,5 +110,17 @@ class _NewFollowScreenState extends State<NewFollowScreen> {
         ],
       ),
     );
+  }
+
+  List<FollowUpData> getAnswers() {
+    List<FollowUpData> followList = [];
+    for (int i = 0; i < controllers.length; i++) {
+      String answer = controllers[i].text;
+      String question = widget.questions[i];
+      followList.add(
+        FollowUpData(answer: answer, question: question),
+      );
+    }
+    return followList;
   }
 }

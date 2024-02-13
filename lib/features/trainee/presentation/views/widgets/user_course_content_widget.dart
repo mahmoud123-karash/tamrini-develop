@@ -17,8 +17,8 @@ import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trai
 import 'package:tamrini/generated/l10n.dart';
 
 class UserCourseContentWidget extends StatelessWidget {
-  const UserCourseContentWidget({super.key, required this.model});
-  final TraineeModel model;
+  const UserCourseContentWidget({super.key, required this.traineeModel});
+  final TraineeModel traineeModel;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class UserCourseContentWidget extends StatelessWidget {
                           navigateTo(
                             context,
                             FollowScreen(
-                              list: const [],
+                              model: traineeModel,
                               questions: model.questionsTrainees,
                             ),
                           );
@@ -98,7 +98,7 @@ class UserCourseContentWidget extends StatelessWidget {
                 context,
                 CourcesScreen(
                   traineeId: '',
-                  list: model.courses,
+                  list: traineeModel.courses,
                 ),
               );
             },
@@ -114,7 +114,7 @@ class UserCourseContentWidget extends StatelessWidget {
                 context,
                 DietCourseScreen(
                   traineeId: '',
-                  list: model.food,
+                  list: traineeModel.food,
                 ),
               );
             },
@@ -129,7 +129,7 @@ class UserCourseContentWidget extends StatelessWidget {
               navigateTo(
                 context,
                 TraineeSupplementsScreen(
-                    traineeId: '', supplements: model.supplements),
+                    traineeId: '', supplements: traineeModel.supplements),
               );
             },
           ),

@@ -1,11 +1,15 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/notification_model/notification_model.dart';
+import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/features/trainee/data/data_sources/remote_data_source/trainee_remote_data_source.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/domain/repo/trainee_repo.dart';
@@ -338,6 +342,51 @@ class TraineeRepoImpl extends TraineeRepo {
   @override
   Future<Either<String, TraineeModel>> getUserCourse() async {
     try {
+      TraineeModel model = await traineeRemoteDataSource.getUserCourse();
+      return right(model);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, TraineeModel>> addNewFollow({
+    required TraineeModel traineeModel,
+    required List<String> paths,
+    required List<FollowUpData> followUpData,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      String trainerId = CacheHelper.getData(key: 'trainerId');
+      List files = [];
+      for (var element in paths) {
+        files.add(File(element));
+      }
+      List<String> images = await uploadFiles(files: files);
+      FollowUpModel followUpModel = FollowUpModel(
+        createdAt: Timestamp.now(),
+        followUpData: followUpData,
+        images: images,
+      );
+
+      List<FollowUpModel> list = traineeModel.followUpList;
+      list.add(followUpModel);
+      TraineeModel trainee = TraineeModel(
+        uid: traineeModel.uid,
+        dateOfSubscription: traineeModel.dateOfSubscription,
+        supplements: traineeModel.supplements,
+        food: traineeModel.food,
+        followUpList: list,
+        courses: traineeModel.courses,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(trainerId)
+          .collection('data')
+          .doc(uid)
+          .update(
+            trainee.toJson(),
+          );
       TraineeModel model = await traineeRemoteDataSource.getUserCourse();
       return right(model);
     } catch (e) {

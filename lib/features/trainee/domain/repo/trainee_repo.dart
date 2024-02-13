@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
@@ -56,4 +57,10 @@ abstract class TraineeRepo {
   });
 
   Future<Either<String, TraineeModel>> getUserCourse();
+
+  Future<Either<String, TraineeModel>> addNewFollow({
+    required TraineeModel traineeModel,
+    required List<String> paths,
+    required List<FollowUpData> followUpData,
+  });
 }

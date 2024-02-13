@@ -16,7 +16,7 @@ class TrainingCourseScreen extends StatelessWidget {
       body: BlocBuilder<UserCourseCubit, UserCourseStates>(
         builder: (context, state) {
           if (state is SuccessGetCourseState) {
-            return UserCourseContentWidget(model: state.model);
+            return UserCourseContentWidget(traineeModel: state.model);
           } else if (state is ErrorGetCourseState) {
             return Center(
               child: Padding(

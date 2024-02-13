@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_model.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_states.dart';
 import 'package:tamrini/features/trainee/presentation/views/new_follow_screen.dart';
@@ -12,9 +12,9 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/follow_up_list_view_widget.dart';
 
 class FollowScreen extends StatelessWidget {
-  const FollowScreen({super.key, required this.list, this.questions});
-  final List<FollowUpModel> list;
+  const FollowScreen({super.key, this.questions, required this.model});
   final List<String>? questions;
+  final TraineeModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,11 @@ class FollowScreen extends StatelessWidget {
                 fontSize: 15,
                 onPressed: () {
                   navigateTo(
-                      context, NewFollowScreen(questions: questions ?? []));
+                      context,
+                      NewFollowScreen(
+                        questions: questions ?? [],
+                        model: model,
+                      ));
                 },
                 lable: S.of(context).add_new_follow,
               ),
@@ -45,7 +49,7 @@ class FollowScreen extends StatelessWidget {
                 if (state is SuccessGetCourseState) {
                   return FollowUpListViewWidget(list: state.model.followUpList);
                 } else {
-                  return FollowUpListViewWidget(list: list);
+                  return FollowUpListViewWidget(list: model.followUpList);
                 }
               },
             ),

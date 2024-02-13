@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/core/utils/distripute_assets.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/custom_image_slide_show.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_model.dart';
+
+import '../../../../gym/presentation/views/widgets/gym_slide_show_images_widget.dart';
+import '../follow_details_screen.dart';
 
 class FollowUpItemWidget extends StatelessWidget {
   const FollowUpItemWidget({super.key, required this.model});
@@ -13,7 +15,9 @@ class FollowUpItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        navigateTo(context, FollowDetailsScreen(model: model));
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -32,14 +36,15 @@ class FollowUpItemWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 5,
+                height: 10,
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: CustomImageSlideShow(
-                  height: 150,
+                child: GymSlideShowImagesWidget(
                   assets: model.images,
-                  children: distributeAssets(model.images),
+                  name: DateFormat('EEE, M/d/y').format(
+                    model.createdAt.toDate(),
+                  ),
                 ),
               )
             ],
