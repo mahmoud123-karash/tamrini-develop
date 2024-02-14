@@ -34,7 +34,7 @@ class TrainerContentWidget extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          if (trainer.uid == uid)
+          if (trainer.uid == uid && userType == 'trainer')
             TrainerButtonsRowWidget(trainerId: trainer.uid),
           const SizedBox(
             height: 10,

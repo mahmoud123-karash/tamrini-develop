@@ -30,7 +30,10 @@ class UserCourseCubit extends Cubit<UserCourseStates> {
   }) async {
     emit(LoadingGetCourseState());
     var result = await traineeRepo.addNewFollow(
-        traineeModel: traineeModel, paths: paths, followUpData: followUpData);
+      traineeModel: traineeModel,
+      paths: paths,
+      followUpData: followUpData,
+    );
     result.fold(
       (message) {
         emit(ErrorGetCourseState(message));

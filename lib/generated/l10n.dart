@@ -4849,6 +4849,56 @@ class S {
       args: [],
     );
   }
+
+  /// `لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به`
+  String get sub_end_waring_trainer {
+    return Intl.message(
+      'لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به',
+      name: 'sub_end_waring_trainer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب`
+  String get sub_end_waring_trainee {
+    return Intl.message(
+      'لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب',
+      name: 'sub_end_waring_trainee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قام المتدرب بإضافة متابعة جديدة`
+  String get follow_title {
+    return Intl.message(
+      'قام المتدرب بإضافة متابعة جديدة',
+      name: 'follow_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قام مدربك بتحديث الكورس التدريبي`
+  String get course_title {
+    return Intl.message(
+      'قام مدربك بتحديث الكورس التدريبي',
+      name: 'course_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قام المتدرب بتجديد الاشتراك`
+  String get renew_trainee_title {
+    return Intl.message(
+      'قام المتدرب بتجديد الاشتراك',
+      name: 'renew_trainee_title',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -17,7 +17,8 @@ abstract class TraineeRepo {
 
   Future<Either<String, List<TraineeModel>>> reNewSubUser({
     required String trainerId,
-    required TraineeModel model,
+    required int traineesCount,
+    required num profits,
   });
 
   Future<Either<String, List<TraineeModel>>> addNewCourse({

@@ -47,7 +47,7 @@ class CourcesScreen extends StatelessWidget {
                 child: courses.isEmpty
                     ? Center(
                         child: Text(
-                          S.of(context).emptyList,
+                          S.of(context).no_results,
                         ),
                       )
                     : CoursesListViewWidget(list: courses),

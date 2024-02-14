@@ -189,6 +189,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مدة الكورس بالأسابيع"),
         "course_name": MessageLookupByLibrary.simpleMessage("اسم الكورس"),
         "course_notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
+        "course_title": MessageLookupByLibrary.simpleMessage(
+            "قام مدربك بتحديث الكورس التدريبي"),
         "courses": MessageLookupByLibrary.simpleMessage("الكورسات"),
         "create": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
@@ -255,6 +257,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("المتابعة والبيانات"),
         "follow_details":
             MessageLookupByLibrary.simpleMessage("تفاصيل المتابعة"),
+        "follow_title": MessageLookupByLibrary.simpleMessage(
+            "قام المتدرب بإضافة متابعة جديدة"),
         "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "fri": MessageLookupByLibrary.simpleMessage("يوم الجمعة"),
         "from": MessageLookupByLibrary.simpleMessage("من"),
@@ -515,6 +519,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_supplement_question":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا المكمل ؟"),
         "renew_sub": MessageLookupByLibrary.simpleMessage("تجديد الاشتراك"),
+        "renew_trainee_title":
+            MessageLookupByLibrary.simpleMessage("قام المتدرب بتجديد الاشتراك"),
         "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
         "request_promotion_done":
             MessageLookupByLibrary.simpleMessage("لقد تم طلب ترقية لحسابك"),
@@ -552,6 +558,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "sub": MessageLookupByLibrary.simpleMessage("اشتراك"),
         "sub_date": MessageLookupByLibrary.simpleMessage("تاريخ الإشتراك"),
+        "sub_end_waring_trainee": MessageLookupByLibrary.simpleMessage(
+            "لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب"),
+        "sub_end_waring_trainer": MessageLookupByLibrary.simpleMessage(
+            "لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به"),
         "sub_hint": MessageLookupByLibrary.simpleMessage(
             "انت مشترك بالفعل فى هذه الصالة"),
         "sub_with_trainer_and_try_again": MessageLookupByLibrary.simpleMessage(

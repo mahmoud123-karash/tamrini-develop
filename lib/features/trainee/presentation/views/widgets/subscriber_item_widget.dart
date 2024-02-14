@@ -14,6 +14,10 @@ class SubscriberItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isEnd = model.dateOfSubscription
+        .toDate()
+        .add(const Duration(days: 30))
+        .isAfter(DateTime.now());
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -27,7 +31,9 @@ class SubscriberItemWidget extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: appColor.withOpacity(0.2),
+            color: !isEnd
+                ? Colors.red.withOpacity(0.3)
+                : appColor.withOpacity(0.2),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -38,7 +44,7 @@ class SubscriberItemWidget extends StatelessWidget {
                     model: model.user!,
                   ),
                 ),
-                const ChatIconBadgeWidget()
+                if (isEnd) const ChatIconBadgeWidget()
               ],
             ),
           ),

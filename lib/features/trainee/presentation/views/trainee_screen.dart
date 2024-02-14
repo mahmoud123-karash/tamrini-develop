@@ -15,6 +15,7 @@ import 'diet_course_screen.dart';
 import 'follow_screen.dart';
 import 'trainee_supplement_screen.dart';
 import 'widgets/trainee_list_tile_widget.dart';
+import 'widgets/waring_end_sub_container_widget.dart';
 
 class TraineeScreen extends StatelessWidget {
   const TraineeScreen({super.key, required this.user, required this.model});
@@ -23,6 +24,9 @@ class TraineeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime endDate =
+        model.dateOfSubscription.toDate().add(const Duration(days: 30));
+    bool isEnd = endDate.isBefore(DateTime.now());
     return Scaffold(
       appBar: myAppBar(S.of(context).trainee_profile),
       body: SingleChildScrollView(
@@ -30,8 +34,12 @@ class TraineeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            if (isEnd)
+              WarningEndSubContainerWidget(
+                message: S.of(context).sub_end_waring_trainer,
+              ),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
             Center(
               child: CircleAvatar(
@@ -61,6 +69,25 @@ class TraineeScreen extends StatelessWidget {
                 navigateTo(context, UserProfileScreen(model: user));
               },
               child: Text(S.of(context).user_profile),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              S.of(context).sub_date,
+              style: TextStyles.style14.copyWith(
+                fontWeight: FontWeight.bold,
+                color: appColor,
+              ),
+            ),
+            Text(
+              DateFormat('EEE, M/d/y', 'en').format(
+                model.dateOfSubscription.toDate(),
+              ),
+              style: TextStyles.style13.copyWith(
+                color: Colors.amber,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -97,7 +124,9 @@ class TraineeScreen extends StatelessWidget {
               lable: S.of(context).courses,
               icon: Icons.golf_course_outlined,
               onTap: () {
-                navigateTo(context, CourcesScreen(traineeId: model.uid));
+                if (!isEnd) {
+                  navigateTo(context, CourcesScreen(traineeId: model.uid));
+                }
               },
             ),
             const SizedBox(
@@ -107,7 +136,9 @@ class TraineeScreen extends StatelessWidget {
               lable: S.of(context).diet,
               icon: Icons.fastfood_outlined,
               onTap: () {
-                navigateTo(context, DietCourseScreen(traineeId: model.uid));
+                if (!isEnd) {
+                  navigateTo(context, DietCourseScreen(traineeId: model.uid));
+                }
               },
             ),
             const SizedBox(
@@ -117,8 +148,10 @@ class TraineeScreen extends StatelessWidget {
               lable: S.of(context).nuttritions,
               icon: Icons.local_drink_outlined,
               onTap: () {
-                navigateTo(
-                    context, TraineeSupplementsScreen(traineeId: model.uid));
+                if (!isEnd) {
+                  navigateTo(
+                      context, TraineeSupplementsScreen(traineeId: model.uid));
+                }
               },
             ),
           ],

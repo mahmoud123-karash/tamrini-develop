@@ -9,6 +9,7 @@ class FollowUpListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    list.sort((a, b) => b.createdAt.compareTo(a.createdAt));
     return Expanded(
       child: list.isEmpty
           ? Center(

@@ -36,6 +36,7 @@ class DietFoodItemWidget extends StatelessWidget {
                       DietFoodSlideImageWidget(
                         images: model.assets,
                         title: model.title,
+                        isNavigate: false,
                       ),
                       RemoveDietFoodWidget(model: model),
                     ],

@@ -16,18 +16,27 @@ import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trai
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import 'waring_end_sub_container_widget.dart';
+
 class UserCourseContentWidget extends StatelessWidget {
   const UserCourseContentWidget({super.key, required this.traineeModel});
   final TraineeModel traineeModel;
 
   @override
   Widget build(BuildContext context) {
+    DateTime endDate =
+        traineeModel.dateOfSubscription.toDate().add(const Duration(days: 30));
+    bool isEnd = endDate.isBefore(DateTime.now());
     String trainerId = CacheHelper.getData(key: 'trainerId');
 
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          if (isEnd)
+            WarningEndSubContainerWidget(
+              message: S.of(context).sub_end_waring_trainee,
+            ),
           BlocBuilder<TrainersCubit, TrainersStates>(
             builder: (context, state) {
               TrainerModel? model =
@@ -35,7 +44,7 @@ class UserCourseContentWidget extends StatelessWidget {
               if (state is SucessGetTrainersState) {
                 return model == null
                     ? Container()
-                    : TrainerCourseWidget(model: model);
+                    : TrainerCourseWidget(model: model, isEnd: isEnd);
               } else {
                 return Container();
               }
@@ -73,13 +82,15 @@ class UserCourseContentWidget extends StatelessWidget {
                         lable: S.of(context).follow_and_data,
                         icon: Icons.follow_the_signs_rounded,
                         onTap: () {
-                          navigateTo(
-                            context,
-                            FollowScreen(
-                              model: traineeModel,
-                              questions: model.questionsTrainees,
-                            ),
-                          );
+                          if (!isEnd) {
+                            navigateTo(
+                              context,
+                              FollowScreen(
+                                model: traineeModel,
+                                questions: model.questionsTrainees,
+                              ),
+                            );
+                          }
                         },
                       );
               } else {
@@ -94,13 +105,15 @@ class UserCourseContentWidget extends StatelessWidget {
             lable: S.of(context).courses,
             icon: Icons.golf_course_outlined,
             onTap: () {
-              navigateTo(
-                context,
-                CourcesScreen(
-                  traineeId: '',
-                  list: traineeModel.courses,
-                ),
-              );
+              if (!isEnd) {
+                navigateTo(
+                  context,
+                  CourcesScreen(
+                    traineeId: '',
+                    list: traineeModel.courses,
+                  ),
+                );
+              }
             },
           ),
           const SizedBox(
@@ -110,13 +123,15 @@ class UserCourseContentWidget extends StatelessWidget {
             lable: S.of(context).diet,
             icon: Icons.fastfood_outlined,
             onTap: () {
-              navigateTo(
-                context,
-                DietCourseScreen(
-                  traineeId: '',
-                  list: traineeModel.food,
-                ),
-              );
+              if (!isEnd) {
+                navigateTo(
+                  context,
+                  DietCourseScreen(
+                    traineeId: '',
+                    list: traineeModel.food,
+                  ),
+                );
+              }
             },
           ),
           const SizedBox(
@@ -126,11 +141,13 @@ class UserCourseContentWidget extends StatelessWidget {
             lable: S.of(context).nuttritions,
             icon: Icons.local_drink_outlined,
             onTap: () {
-              navigateTo(
-                context,
-                TraineeSupplementsScreen(
-                    traineeId: '', supplements: traineeModel.supplements),
-              );
+              if (!isEnd) {
+                navigateTo(
+                  context,
+                  TraineeSupplementsScreen(
+                      traineeId: '', supplements: traineeModel.supplements),
+                );
+              }
             },
           ),
         ],

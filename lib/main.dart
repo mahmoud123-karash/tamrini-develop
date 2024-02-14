@@ -266,7 +266,7 @@ void main() async {
         BlocProvider(
           create: (context) => UserCourseCubit(
             getIt.get<TraineeRepoImpl>(),
-          ),
+          )..getCourse(),
         ),
         BlocProvider(
           create: (context) => PromotionCubit(

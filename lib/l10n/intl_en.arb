@@ -478,6 +478,12 @@
     "answer_question": "Answer",
     "you_unsub_with_trainer": "You are unsubscribed from the trainer.",
     "sub_with_trainer_and_try_again": "Subscribe to a trainer and try again.",
-    "image_tariner_hint": "Please upload a current body image for the trainer. It will help them assess your progress and provide more personalized guidance. This image will serve as an important reference for the trainer to understand your body details and individual needs."
+    "image_tariner_hint": "Please upload a current body image for the trainer. It will help them assess your progress and provide more personalized guidance. This image will serve as an important reference for the trainer to understand your body details and individual needs.",
+    "sub_end_waring_trainer":"لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به",
+    "sub_end_waring_trainee":"لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب",
+    "follow_title":"قام المتدرب بإضافة متابعة جديدة",
+    "course_title":"قام مدربك بتحديث الكورس التدريبي",
+    "renew_trainee_title":"قام المتدرب بتجديد الاشتراك"
+
 
 }

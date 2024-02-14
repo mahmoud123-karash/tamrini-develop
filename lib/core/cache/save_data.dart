@@ -83,3 +83,8 @@ void saveTrainerId(value) => CacheHelper.saveData(
       key: 'trainerId',
       value: value,
     );
+
+void saveisEnd(value) => CacheHelper.saveData(
+      key: 'isEnd',
+      value: value,
+    );

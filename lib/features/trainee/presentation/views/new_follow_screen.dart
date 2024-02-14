@@ -25,10 +25,11 @@ class _NewFollowScreenState extends State<NewFollowScreen> {
   List<TextEditingController> controllers = [];
   var formKey = GlobalKey<FormState>();
 
-  int page = 0;
+  late int page;
 
   @override
   void initState() {
+    page = widget.questions.isEmpty ? 1 : 0;
     ImageCubit.get(context).clearPaths();
     super.initState();
     for (int i = 0; i < widget.questions.length; i++) {

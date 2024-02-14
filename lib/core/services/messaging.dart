@@ -20,6 +20,9 @@ import 'package:tamrini/features/promotion/presentation/views/promotion_screen.d
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/views/trainer_subscribers_screen.dart';
+import 'package:tamrini/features/trainee/presentation/views/training_course_screen.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 
@@ -50,10 +53,20 @@ void onMessage({
       if (message.data['subType'] == 'trainer') {
         TrainersCubit.get(context).getData();
       }
-      if (message.data['subType'] == 'trainee') {
+      if (message.data['subType'] == 'trainee' ||
+          message.data['subType'] == 'renew_trainee') {
         String uid = CacheHelper.getData(key: 'uid') ?? '';
         TraineeCubit.get(context).getData(trainerId: uid);
       }
+      if (message.data['subType'] == 'course') {
+        UserCourseCubit.get(context).getCourse();
+      }
+
+      if (message.data['subType'] == 'follow') {
+        String uid = CacheHelper.getData(key: 'uid') ?? '';
+        TraineeCubit.get(context).getData(trainerId: uid);
+      }
+
       AwesomeNotifications().createNotification(
         content: NotificationContent(
           id: message.notification.hashCode,
@@ -144,8 +157,17 @@ void openNotification(RemoteMessage event, BuildContext context) {
       navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
     }
 
-    if (event.data['subType'] == 'trainee') {
-      // navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
+    if (event.data['subType'] == 'trainee' ||
+        event.data['subType'] == 'renew_trainee') {
+      navigateTo(context, const TrainerSubscribersScreen());
+    }
+
+    if (event.data['subType'] == 'course') {
+      navigateTo(context, const TrainingCourseScreen());
+    }
+
+    if (event.data['subType'] == 'follow') {
+      navigateTo(context, const TrainerSubscribersScreen());
     }
   }
 }

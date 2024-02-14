@@ -7,8 +7,10 @@ import 'package:tamrini/features/trainee/presentation/views/widgets/trainer_opti
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 
 class TrainerCourseWidget extends StatelessWidget {
-  const TrainerCourseWidget({super.key, required this.model});
+  const TrainerCourseWidget(
+      {super.key, required this.model, required this.isEnd});
   final TrainerModel model;
+  final bool isEnd;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class TrainerCourseWidget extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        TrainerOptionsRowWidget(trainerId: model.uid),
+        TrainerOptionsRowWidget(trainerId: model.uid, isEnd: isEnd),
         const SizedBox(
           height: 15,
         ),

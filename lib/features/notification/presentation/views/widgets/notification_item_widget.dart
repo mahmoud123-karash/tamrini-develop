@@ -17,6 +17,11 @@ import 'package:tamrini/features/profile/presentation/views/user_profile_screen.
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_screen.dart';
+import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/views/trainee_screen.dart';
+import 'package:tamrini/features/trainee/presentation/views/trainer_subscribers_screen.dart';
+import 'package:tamrini/features/trainee/presentation/views/training_course_screen.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'notification_body_widget.dart';
@@ -149,9 +154,16 @@ class NotificationItemWidget extends StatelessWidget {
       if (model.subType == 'trainer') {
         navigateTo(context, TrainerProfileScreen(id: model.uid));
       }
-
-      if (model.subType == 'trainee') {
-        // navigateTo(context, TrainerProfileScreen(id: model.uid));
+      if (model.subType == 'trainee' || model.subType == 'renew_trainee') {
+        TraineeModel trainee =
+            TraineeCubit.get(context).getTrainee(id: model.uid);
+        navigateTo(context, TraineeScreen(user: model.user, model: trainee));
+      }
+      if (model.subType == 'course') {
+        navigateTo(context, const TrainingCourseScreen());
+      }
+      if (model.subType == 'follow') {
+        navigateTo(context, const TrainerSubscribersScreen());
       }
     }
   }

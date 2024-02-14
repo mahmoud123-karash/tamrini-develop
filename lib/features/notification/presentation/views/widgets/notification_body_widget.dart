@@ -49,34 +49,58 @@ class NotificationBodyWidget extends StatelessWidget {
   }
 
   String getNotificationTitle(BuildContext context) {
-    return title == 'answer'
-        ? S.of(context).new_comment_question
-        : title == 'ban_question'
-            ? S.of(context).ban_your_question
-            : title == 'ban_gym'
-                ? S.of(context).banned_gym_hint
-                : title == 'no_ban_gym'
-                    ? S.of(context).no_banned_gym_hint
-                    : title == 'ban_store'
-                        ? S.of(context).ban_titile_store
-                        : title == 'no_ban_store'
-                            ? S.of(context).no_ban_titile_store
-                            : title == 'order'
-                                ? S.of(context).order_delivered
-                                : title == 'promotion'
-                                    ? S.of(context).new_promtion_request
-                                    : title == 'promotion_accept'
-                                        ? S.of(context).accept_request_promotion
-                                        : title == 'ban_trainer'
-                                            ? S.of(context).ban_title_trainer
-                                            : title == 'no_ban_trainer'
-                                                ? S
-                                                    .of(context)
-                                                    .no_ban_title_trainer
-                                                : title == 'new_trainee'
-                                                    ? S
-                                                        .of(context)
-                                                        .new_trainee_joined
-                                                    : title;
+    String result;
+    switch (title) {
+      case 'answer':
+        result = S.of(context).new_comment_question;
+        break;
+      case 'ban_question':
+        result = S.of(context).ban_your_question;
+        break;
+      case 'ban_gym':
+        result = S.of(context).banned_gym_hint;
+        break;
+      case 'no_ban_gym':
+        result = S.of(context).no_banned_gym_hint;
+        break;
+      case 'ban_store':
+        result = S.of(context).ban_titile_store;
+        break;
+      case 'no_ban_store':
+        result = S.of(context).no_ban_titile_store;
+        break;
+      case 'order':
+        result = S.of(context).order_delivered;
+        break;
+      case 'promotion':
+        result = S.of(context).new_promtion_request;
+        break;
+      case 'promotion_accept':
+        result = S.of(context).accept_request_promotion;
+        break;
+      case 'ban_trainer':
+        result = S.of(context).ban_title_trainer;
+        break;
+      case 'no_ban_trainer':
+        result = S.of(context).no_ban_title_trainer;
+        break;
+      case 'new_trainee':
+        result = S.of(context).new_trainee_joined;
+        break;
+      case 'follow':
+        result = S.of(context).follow_title;
+        break;
+      case 'course':
+        result = S.of(context).course_title;
+        break;
+
+      case 'renew_trainee':
+        result = S.of(context).renew_trainee_title;
+        break;
+      default:
+        result = title;
+        break;
+    }
+    return result;
   }
 }

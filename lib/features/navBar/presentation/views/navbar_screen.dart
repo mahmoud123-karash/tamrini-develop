@@ -55,9 +55,9 @@ class _NavBarScreenState extends State<NavBarScreen> {
       onMessageOpenedApp(context: context);
       onMessage(context: context);
       listenNotification();
-    }
-    if (trainerId != '') {
-      UserCourseCubit.get(context).getCourse();
+      if (trainerId != '') {
+        UserCourseCubit.get(context).getCourse();
+      }
     }
 
     super.initState();

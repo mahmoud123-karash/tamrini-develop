@@ -41,6 +41,7 @@ class FollowUpItemWidget extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: GymSlideShowImagesWidget(
+                  isNavige: false,
                   assets: model.images,
                   name: DateFormat('EEE, M/d/y').format(
                     model.createdAt.toDate(),

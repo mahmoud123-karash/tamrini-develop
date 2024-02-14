@@ -5,9 +5,13 @@ import 'show_gym_images_scaffold_widget.dart';
 
 class GymSlideShowImagesWidget extends StatefulWidget {
   const GymSlideShowImagesWidget(
-      {super.key, required this.assets, required this.name});
+      {super.key,
+      required this.assets,
+      required this.name,
+      this.isNavige = true});
   final List<String> assets;
   final String name;
+  final bool isNavige;
 
   @override
   State<GymSlideShowImagesWidget> createState() =>
@@ -28,30 +32,32 @@ class _GymSlideShowImagesWidgetState extends State<GymSlideShowImagesWidget> {
         children: [
           for (var i = 0; i < widget.assets.length; i++)
             InkWell(
-              onTap: () {
-                if (widget.assets[i].contains(RegExp(
-                    "[^\\s]+(.*?)\\.(jpg|jpeg|png|JPG|JPEG|PNG|WEBP|webp|tiff|Tiff|TIFF|GIF|gif|bmp|BMP|svg|SVG)"))) {
-                  showDialog<dynamic>(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (BuildContext context) {
-                      return OrientationBuilder(
-                        builder: (context, orientation) {
-                          return StatefulBuilder(
-                            builder: (context, setState) {
-                              return ShowGymImagesScaffoldWidget(
-                                assets: widget.assets,
-                                name: widget.name,
-                                imgIndex: imgIndex,
-                              );
-                            },
-                          );
-                        },
-                      );
+              onTap: !widget.isNavige
+                  ? null
+                  : () {
+                      if (widget.assets[i].contains(RegExp(
+                          "[^\\s]+(.*?)\\.(jpg|jpeg|png|JPG|JPEG|PNG|WEBP|webp|tiff|Tiff|TIFF|GIF|gif|bmp|BMP|svg|SVG)"))) {
+                        showDialog<dynamic>(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (BuildContext context) {
+                            return OrientationBuilder(
+                              builder: (context, orientation) {
+                                return StatefulBuilder(
+                                  builder: (context, setState) {
+                                    return ShowGymImagesScaffoldWidget(
+                                      assets: widget.assets,
+                                      name: widget.name,
+                                      imgIndex: imgIndex,
+                                    );
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        );
+                      }
                     },
-                  );
-                }
-              },
               child: Image(
                 image: FirebaseImageProvider(
                   FirebaseUrl(widget.assets[i]),

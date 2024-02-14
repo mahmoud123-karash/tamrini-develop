@@ -46,10 +46,22 @@ class FollowScreen extends StatelessWidget {
             ),
             BlocBuilder<UserCourseCubit, UserCourseStates>(
               builder: (context, state) {
-                if (state is SuccessGetCourseState) {
-                  return FollowUpListViewWidget(list: state.model.followUpList);
-                } else {
+                if (userType == 'trainer') {
                   return FollowUpListViewWidget(list: model.followUpList);
+                } else {
+                  if (state is SuccessGetCourseState) {
+                    return FollowUpListViewWidget(
+                        list: state.model.followUpList);
+                  } else if (state is ErrorGetCourseState) {
+                    return Center(
+                      child: Text(
+                        state.message,
+                        textAlign: TextAlign.center,
+                      ),
+                    );
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
                 }
               },
             ),

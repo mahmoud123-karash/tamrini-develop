@@ -32,10 +32,72 @@ class TraineeRepoImpl extends TraineeRepo {
   }
 
   @override
-  Future<Either<String, List<TraineeModel>>> reNewSubUser(
-      {required String trainerId, required TraineeModel model}) {
-    // TODO: implement reNewSubUser
-    throw UnimplementedError();
+  Future<Either<String, List<TraineeModel>>> reNewSubUser({
+    required String trainerId,
+    required int traineesCount,
+    required num profits,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(trainerId)
+          .collection('data')
+          .doc(uid)
+          .update(
+        {
+          "dateOfSubscription": Timestamp.now(),
+        },
+      );
+      await updateTrainer(trainerId, traineesCount, profits);
+      updateUser(uid, trainerId);
+      sendReNewNotification(userId: uid, trainerId: trainerId);
+      List<TraineeModel> list =
+          await traineeRemoteDataSource.get(trainerId: trainerId);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  Future<void> sendReNewNotification({
+    required String userId,
+    required String trainerId,
+  }) async {
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'trainee',
+      senderUid: userId,
+      title: 'renew_trainee',
+      body: '',
+      type: 'notification',
+      uid: userId,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(trainerId)
+        .collection('data')
+        .add(
+          notification.toJson(),
+        );
+    var data = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(trainerId)
+        .get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: 'قام المتدرب يتجديد الإشتراك',
+        body: 'تهانينا لقد قام المتدرب يتجديد الإشتراك',
+        data: {
+          "type": "notification",
+          "subType": "trainee",
+          "uid": userId,
+        },
+      );
+    }
   }
 
   @override
@@ -63,7 +125,7 @@ class TraineeRepoImpl extends TraineeRepo {
             model.toJson(),
           );
 
-      await updateTrainer(trainerId, traineesCount, profits);
+      await updateTrainer(trainerId, traineesCount + 1, profits);
       updateUser(uid, trainerId);
       sendNotification(userId: uid, trainerId: trainerId);
       List<TraineeModel> list =
@@ -94,7 +156,7 @@ class TraineeRepoImpl extends TraineeRepo {
         .collection('data')
         .doc(trainerId)
         .update({
-      "traineesCount": traineesCount + 1,
+      "traineesCount": traineesCount,
       "profits": profits,
     });
   }
@@ -174,6 +236,7 @@ class TraineeRepoImpl extends TraineeRepo {
           .set(
             newModel.toJson(),
           );
+      await sendUpdateCourseNotification(userId: model.uid, trainerId: uid);
       List<TraineeModel> list =
           await traineeRemoteDataSource.get(trainerId: uid);
       return right(list);
@@ -208,6 +271,8 @@ class TraineeRepoImpl extends TraineeRepo {
           .set(
             newModel.toJson(),
           );
+
+      await sendUpdateCourseNotification(userId: model.uid, trainerId: uid);
       List<TraineeModel> list =
           await traineeRemoteDataSource.get(trainerId: uid);
       return right(list);
@@ -297,6 +362,7 @@ class TraineeRepoImpl extends TraineeRepo {
           .set(
             newModel.toJson(),
           );
+      await sendUpdateCourseNotification(userId: model.uid, trainerId: uid);
       List<TraineeModel> list =
           await traineeRemoteDataSource.get(trainerId: uid);
       return right(list);
@@ -343,6 +409,11 @@ class TraineeRepoImpl extends TraineeRepo {
   Future<Either<String, TraineeModel>> getUserCourse() async {
     try {
       TraineeModel model = await traineeRemoteDataSource.getUserCourse();
+      bool isEnd = model.dateOfSubscription
+          .toDate()
+          .add(const Duration(days: 30))
+          .isBefore(DateTime.now());
+      saveisEnd(isEnd);
       return right(model);
     } catch (e) {
       return left(e.toString());
@@ -387,10 +458,90 @@ class TraineeRepoImpl extends TraineeRepo {
           .update(
             trainee.toJson(),
           );
+      await sendFollowNotification(userId: uid, trainerId: trainerId);
       TraineeModel model = await traineeRemoteDataSource.getUserCourse();
       return right(model);
     } catch (e) {
       return left(e.toString());
+    }
+  }
+
+  Future<void> sendUpdateCourseNotification({
+    required String userId,
+    required String trainerId,
+  }) async {
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'course',
+      senderUid: trainerId,
+      title: 'course',
+      body: '',
+      type: 'notification',
+      uid: '',
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(userId)
+        .collection('data')
+        .doc(userId)
+        .set(
+          notification.toJson(),
+        );
+    var data =
+        await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: "الكورس التدريبي",
+        body: 'قام مدربك بتحديث الكورس التدريبي',
+        data: {
+          "type": "notification",
+          "subType": "course",
+        },
+      );
+    }
+  }
+
+  Future<void> sendFollowNotification({
+    required String userId,
+    required String trainerId,
+  }) async {
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'follow',
+      senderUid: userId,
+      title: 'follow',
+      body: '',
+      type: 'notification',
+      uid: userId,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(trainerId)
+        .collection('data')
+        .doc(userId)
+        .set(
+          notification.toJson(),
+        );
+    var data = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(trainerId)
+        .get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: "المتابعة",
+        body: 'قام المتدرب بإضافة متابعة جديدة',
+        data: {
+          "type": "notification",
+          "subType": "follow",
+          "uid": userId,
+        },
+      );
     }
   }
 }

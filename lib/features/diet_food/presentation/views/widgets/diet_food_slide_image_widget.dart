@@ -5,9 +5,13 @@ import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_
 
 class DietFoodSlideImageWidget extends StatelessWidget {
   const DietFoodSlideImageWidget(
-      {super.key, required this.images, required this.title});
+      {super.key,
+      required this.images,
+      required this.title,
+      this.isNavigate = true});
   final List<String> images;
   final String title;
+  final bool isNavigate;
 
   @override
   Widget build(BuildContext context) {
@@ -17,55 +21,57 @@ class DietFoodSlideImageWidget extends StatelessWidget {
         children: List.generate(
           images.length,
           (index) => InkWell(
-            onTap: () {
-              if (images[index].contains(RegExp(
-                  "[^\\s]+(.*?)\\.(jpg|jpeg|png|JPG|JPEG|PNG|WEBP|webp|tiff|Tiff|TIFF|GIF|gif|bmp|BMP|svg|SVG)"))) {
-                showDialog<dynamic>(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return OrientationBuilder(
-                      builder: (context, orientation) {
-                        return StatefulBuilder(
-                          builder: (context, setState) {
-                            return Scaffold(
-                              appBar: AppBar(
-                                backgroundColor: const Color(0xFFEFF2F7),
-                                elevation: 0,
-                                iconTheme: const IconThemeData(
-                                    color: Color(0xFF003E4F)),
-                                centerTitle: false,
-                                title: Text(
-                                  title,
-                                  style: TextStyle(
-                                    fontSize: 20.sp,
-                                    color: const Color(0xff007c9d),
-                                  ),
-                                ),
-                              ),
-                              body: Container(
-                                alignment: Alignment.center,
-                                child: ImageSlideshow(
-                                  initialPage: 0,
-                                  height: 1.sh,
-                                  children: List.generate(
-                                    images.length,
-                                    (index) => DietFoodImageWidget(
-                                      image: images[index],
-                                      fit: BoxFit.contain,
+            onTap: !isNavigate
+                ? null
+                : () {
+                    if (images[index].contains(RegExp(
+                        "[^\\s]+(.*?)\\.(jpg|jpeg|png|JPG|JPEG|PNG|WEBP|webp|tiff|Tiff|TIFF|GIF|gif|bmp|BMP|svg|SVG)"))) {
+                      showDialog<dynamic>(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (BuildContext context) {
+                          return OrientationBuilder(
+                            builder: (context, orientation) {
+                              return StatefulBuilder(
+                                builder: (context, setState) {
+                                  return Scaffold(
+                                    appBar: AppBar(
+                                      backgroundColor: const Color(0xFFEFF2F7),
+                                      elevation: 0,
+                                      iconTheme: const IconThemeData(
+                                          color: Color(0xFF003E4F)),
+                                      centerTitle: false,
+                                      title: Text(
+                                        title,
+                                        style: TextStyle(
+                                          fontSize: 20.sp,
+                                          color: const Color(0xff007c9d),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                    );
+                                    body: Container(
+                                      alignment: Alignment.center,
+                                      child: ImageSlideshow(
+                                        initialPage: 0,
+                                        height: 1.sh,
+                                        children: List.generate(
+                                          images.length,
+                                          (index) => DietFoodImageWidget(
+                                            image: images[index],
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          );
+                        },
+                      );
+                    }
                   },
-                );
-              }
-            },
             child: DietFoodImageWidget(
               image: images[index],
               fit: BoxFit.cover,

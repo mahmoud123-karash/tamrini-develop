@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
@@ -39,13 +40,41 @@ class TraineeCubit extends Cubit<TraineeStates> {
   }) async {
     emit(LoadingGetTraineesState());
     var result = await traineeRepo.subUser(
-        trainerId: trainerId, traineesCount: traineesCount, profits: profits);
+      trainerId: trainerId,
+      traineesCount: traineesCount,
+      profits: profits,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetTraineesState(message));
+      },
+      (list) {
+        saveTrainerId(trainerId);
+        trainees = list;
+        saveisEnd(false);
+        emit(SucessGetTraineesState(list));
+      },
+    );
+  }
+
+  void reNewSubUser({
+    required String trainerId,
+    required int traineesCount,
+    required num profits,
+  }) async {
+    emit(LoadingGetTraineesState());
+    var result = await traineeRepo.reNewSubUser(
+      trainerId: trainerId,
+      traineesCount: traineesCount,
+      profits: profits,
+    );
     result.fold(
       (message) {
         emit(ErrorGetTraineesState(message));
       },
       (list) {
         trainees = list;
+        saveisEnd(false);
         emit(SucessGetTraineesState(list));
       },
     );
