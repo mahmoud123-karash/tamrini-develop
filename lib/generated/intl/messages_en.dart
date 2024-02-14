@@ -359,6 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "New comment on your question"),
         "new_images": MessageLookupByLibrary.simpleMessage("New Images"),
         "new_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
+        "new_message": MessageLookupByLibrary.simpleMessage("رسالة جديدة"),
         "new_promtion_request":
             MessageLookupByLibrary.simpleMessage("New promotion request"),
         "new_trainee_joined": MessageLookupByLibrary.simpleMessage(
@@ -397,6 +398,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. Some App Features May Not Work"),
         "no_meals": MessageLookupByLibrary.simpleMessage("No Meals"),
+        "no_messages_yet":
+            MessageLookupByLibrary.simpleMessage("لا يوجد رسائل حتى الأن"),
         "no_pending_articles":
             MessageLookupByLibrary.simpleMessage("No Pending Articles"),
         "no_products_yet":
@@ -672,6 +675,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "tue": MessageLookupByLibrary.simpleMessage("Tuesday"),
         "twiter": MessageLookupByLibrary.simpleMessage("Twitter"),
+        "type_a_message": MessageLookupByLibrary.simpleMessage("اكتب رسالة"),
         "unavailable": MessageLookupByLibrary.simpleMessage("Unavailable"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "update_profile":

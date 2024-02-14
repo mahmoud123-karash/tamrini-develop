@@ -143,6 +143,8 @@ void logOut(context) async {
   await FirebaseAuth.instance.signOut();
   CacheHelper.removeData(key: 'uid');
   CacheHelper.removeData(key: 'deviceToken');
+  CacheHelper.removeData(key: 'trainerId');
+  CacheHelper.removeData(key: 'address');
   navigateToAndFinish(context, const LoginScreen());
 }
 

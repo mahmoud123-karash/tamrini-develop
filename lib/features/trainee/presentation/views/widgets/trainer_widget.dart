@@ -8,9 +8,13 @@ import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model
 
 class TrainerCourseWidget extends StatelessWidget {
   const TrainerCourseWidget(
-      {super.key, required this.model, required this.isEnd});
+      {super.key,
+      required this.model,
+      required this.isEnd,
+      required this.chatId});
   final TrainerModel model;
   final bool isEnd;
+  final String chatId;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,14 @@ class TrainerCourseWidget extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        TrainerOptionsRowWidget(trainerId: model.uid, isEnd: isEnd),
+        TrainerOptionsRowWidget(
+          trainerId: model.uid,
+          isEnd: isEnd,
+          image: model.user!.image,
+          name: model.user!.name,
+          recieverUid: model.uid,
+          chatId: chatId,
+        ),
         const SizedBox(
           height: 15,
         ),

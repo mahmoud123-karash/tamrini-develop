@@ -6,6 +6,7 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
@@ -164,6 +165,18 @@ class NotificationItemWidget extends StatelessWidget {
       }
       if (model.subType == 'follow') {
         navigateTo(context, const TrainerSubscribersScreen());
+      }
+
+      if (model.subType == 'message') {
+        navigateTo(
+          context,
+          ChatScreen(
+            name: model.user.name,
+            image: model.user.image,
+            chatId: model.uid,
+            recieverUid: model.user.uid,
+          ),
+        );
       }
     }
   }

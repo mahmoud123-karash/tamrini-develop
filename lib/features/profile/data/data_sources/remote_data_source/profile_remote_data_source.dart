@@ -15,8 +15,10 @@ class ProfileRemotedataSourceImpl extends ProfileRemotedataSource {
     String uid = CacheHelper.getData(key: 'uid');
     var result =
         await FirebaseFirestore.instance.collection('users').doc(uid).get();
-    GeoPoint location =
-        result.data()!['location'] ?? const GeoPoint(33.312805, 44.361488);
+    GeoPoint defaultPoint = const GeoPoint(33.312805, 44.361488);
+    GeoPoint location = result.data() == null
+        ? defaultPoint
+        : result.data()!['location'] ?? defaultPoint;
     String address = await getAddress(location: location);
     ProfileModel model = ProfileModel.fromMap(result.data()!, address);
     var box = Hive.box<ProfileModel>(profileBox);

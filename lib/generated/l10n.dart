@@ -4899,6 +4899,36 @@ class S {
       args: [],
     );
   }
+
+  /// `اكتب رسالة`
+  String get type_a_message {
+    return Intl.message(
+      'اكتب رسالة',
+      name: 'type_a_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رسالة جديدة`
+  String get new_message {
+    return Intl.message(
+      'رسالة جديدة',
+      name: 'new_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد رسائل حتى الأن`
+  String get no_messages_yet {
+    return Intl.message(
+      'لا يوجد رسائل حتى الأن',
+      name: 'no_messages_yet',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

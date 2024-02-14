@@ -17,6 +17,7 @@ import 'package:tamrini/features/navBar/presentation/views/widgets/badge_notific
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/user_order_cubit/user_order_cubit.dart';
+import 'package:tamrini/features/profile/presentation/manager/location_cubit/location_cubit.dart';
 import 'package:tamrini/features/promotion/presentation/manager/promotion_cubit/promotion_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
@@ -46,6 +47,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
       OrderCubit.get(context).getData();
       UserOrderCubit.get(context).getData();
       UpdateCubit.get(context).update();
+      LocationCubit.get(context).getLocationAddress();
       NotificationCubit.get(context).getData();
       DayCubit.get(context).getData();
       OrderCubit.get(context).getData();
@@ -55,8 +57,10 @@ class _NavBarScreenState extends State<NavBarScreen> {
       onMessageOpenedApp(context: context);
       onMessage(context: context);
       listenNotification();
-      if (trainerId != '') {
-        UserCourseCubit.get(context).getCourse();
+      if (userType != 'admin' && userType == 'trainer') {
+        if (trainerId != '') {
+          UserCourseCubit.get(context).getCourse();
+        }
       }
     }
 

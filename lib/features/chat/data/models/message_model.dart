@@ -6,6 +6,7 @@ class MessageModel {
   final String recieverUid;
   final Timestamp time;
   final String uid;
+  final String image;
 
   MessageModel({
     required this.message,
@@ -13,6 +14,7 @@ class MessageModel {
     required this.recieverUid,
     required this.time,
     required this.uid,
+    required this.image,
   });
   factory MessageModel.fromJson(Map<String, dynamic> json) => MessageModel(
         message: json['message'] ?? '',
@@ -20,6 +22,7 @@ class MessageModel {
         recieverUid: json['recieverUid'] ?? '',
         time: json['time'] ?? Timestamp.now(),
         uid: json['uid'] ?? '',
+        image: json['image'] ?? '',
       );
 
   Map<String, dynamic> toJson() => {
@@ -28,5 +31,6 @@ class MessageModel {
         'recieverUid': recieverUid,
         'time': time,
         'uid': uid,
+        'image': image,
       };
 }

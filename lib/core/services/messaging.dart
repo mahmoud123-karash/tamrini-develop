@@ -169,5 +169,9 @@ void openNotification(RemoteMessage event, BuildContext context) {
     if (event.data['subType'] == 'follow') {
       navigateTo(context, const TrainerSubscribersScreen());
     }
+
+    if (event.data['subType'] == 'message') {
+      navigateTo(context, const NotificationScreen());
+    }
   }
 }

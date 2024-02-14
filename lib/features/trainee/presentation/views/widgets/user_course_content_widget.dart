@@ -44,7 +44,11 @@ class UserCourseContentWidget extends StatelessWidget {
               if (state is SucessGetTrainersState) {
                 return model == null
                     ? Container()
-                    : TrainerCourseWidget(model: model, isEnd: isEnd);
+                    : TrainerCourseWidget(
+                        model: model,
+                        isEnd: isEnd,
+                        chatId: traineeModel.chatId,
+                      );
               } else {
                 return Container();
               }

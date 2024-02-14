@@ -6,9 +6,16 @@ import 'package:tamrini/features/trainer/presentation/views/trainer_profile_scre
 import 'trainer_icon_options_widget.dart';
 
 class TrainerOptionsRowWidget extends StatelessWidget {
-  const TrainerOptionsRowWidget(
-      {super.key, required this.trainerId, required this.isEnd});
-  final String trainerId;
+  const TrainerOptionsRowWidget({
+    super.key,
+    required this.trainerId,
+    required this.isEnd,
+    required this.name,
+    required this.image,
+    required this.chatId,
+    required this.recieverUid,
+  });
+  final String trainerId, name, image, chatId, recieverUid;
   final bool isEnd;
 
   @override
@@ -22,7 +29,13 @@ class TrainerOptionsRowWidget extends StatelessWidget {
           },
           icon: Icons.person_outlined,
         ),
-        if (!isEnd) const ChatIconBadgeWidget(),
+        if (!isEnd)
+          ChatIconBadgeWidget(
+            name: name,
+            image: image,
+            chatId: chatId,
+            recieverUid: recieverUid,
+          ),
       ],
     );
   }

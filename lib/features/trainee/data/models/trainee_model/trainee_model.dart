@@ -11,10 +11,12 @@ class TraineeModel {
   final List<FoodModel> food;
   final List<FollowUpModel> followUpList;
   final List<CourseModel> courses;
+  final String chatId;
   UserModel? user;
 
   TraineeModel({
     required this.uid,
+    required this.chatId,
     required this.dateOfSubscription,
     required this.supplements,
     required this.food,
@@ -36,6 +38,7 @@ class TraineeModel {
     return TraineeModel(
       user: user,
       uid: json['uid'] ?? '',
+      chatId: json['chatId'] ?? '',
       dateOfSubscription: json['dateOfSubscription'] ?? Timestamp.now(),
       supplements: List<String>.from(json['supplements'] ?? []),
       food: foodList,

@@ -17,6 +17,7 @@ class ProfileRepoImpl extends ProfileRepo {
     try {
       List<ProfileModel> list = profileLocalDataSource.get();
       if (list.isNotEmpty) {
+        saveTrainerId(list.first.trainerId);
         return right(list.first);
       } else {
         ProfileModel model = await profileRemotedataSource.get();

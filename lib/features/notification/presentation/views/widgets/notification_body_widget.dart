@@ -93,9 +93,11 @@ class NotificationBodyWidget extends StatelessWidget {
       case 'course':
         result = S.of(context).course_title;
         break;
-
       case 'renew_trainee':
         result = S.of(context).renew_trainee_title;
+        break;
+      case 'message':
+        result = S.of(context).new_message;
         break;
       default:
         result = title;

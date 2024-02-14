@@ -44,7 +44,13 @@ class SubscriberItemWidget extends StatelessWidget {
                     model: model.user!,
                   ),
                 ),
-                if (isEnd) const ChatIconBadgeWidget()
+                if (isEnd)
+                  ChatIconBadgeWidget(
+                    name: model.user!.name,
+                    image: model.user!.image,
+                    chatId: model.chatId,
+                    recieverUid: model.uid,
+                  )
               ],
             ),
           ),

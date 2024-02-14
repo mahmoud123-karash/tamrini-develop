@@ -1,13 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_states.dart';
 import 'package:tamrini/features/trainee/presentation/views/widgets/user_course_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class TrainingCourseScreen extends StatelessWidget {
+class TrainingCourseScreen extends StatefulWidget {
   const TrainingCourseScreen({super.key});
+
+  @override
+  State<TrainingCourseScreen> createState() => _TrainingCourseScreenState();
+}
+
+class _TrainingCourseScreenState extends State<TrainingCourseScreen> {
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +29,20 @@ class TrainingCourseScreen extends StatelessWidget {
             return UserCourseContentWidget(traineeModel: state.model);
           } else if (state is ErrorGetCourseState) {
             return Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                ),
-                child: Text(
-                  state.message,
-                  textAlign: TextAlign.center,
+              child: GestureDetector(
+                onTap: () {
+                  String trainerId =
+                      CacheHelper.getData(key: 'trainerId') ?? '';
+                  log(trainerId);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                  ),
+                  child: Text(
+                    state.message,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             );

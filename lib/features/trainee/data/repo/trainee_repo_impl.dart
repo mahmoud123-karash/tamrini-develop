@@ -13,6 +13,7 @@ import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_mod
 import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/domain/repo/trainee_repo.dart';
+import 'package:uuid/uuid.dart';
 
 class TraineeRepoImpl extends TraineeRepo {
   final TraineeRemoteDataSource traineeRemoteDataSource;
@@ -50,7 +51,6 @@ class TraineeRepoImpl extends TraineeRepo {
         },
       );
       await updateTrainer(trainerId, traineesCount, profits);
-      updateUser(uid, trainerId);
       sendReNewNotification(userId: uid, trainerId: trainerId);
       List<TraineeModel> list =
           await traineeRemoteDataSource.get(trainerId: trainerId);
@@ -107,9 +107,11 @@ class TraineeRepoImpl extends TraineeRepo {
     required num profits,
   }) async {
     try {
+      var uuid = const Uuid().v4();
       String uid = CacheHelper.getData(key: 'uid');
       TraineeModel model = TraineeModel(
         uid: uid,
+        chatId: uuid,
         dateOfSubscription: Timestamp.now(),
         supplements: [],
         food: [],
@@ -224,6 +226,7 @@ class TraineeRepoImpl extends TraineeRepo {
         uid: model.uid,
         dateOfSubscription: model.dateOfSubscription,
         supplements: model.supplements,
+        chatId: model.chatId,
         food: model.food,
         followUpList: model.followUpList,
         courses: courses,
@@ -259,6 +262,7 @@ class TraineeRepoImpl extends TraineeRepo {
         uid: model.uid,
         dateOfSubscription: model.dateOfSubscription,
         supplements: newList,
+        chatId: model.chatId,
         food: model.food,
         followUpList: model.followUpList,
         courses: model.courses,
@@ -296,6 +300,7 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: model.dateOfSubscription,
         supplements: newList,
         food: model.food,
+        chatId: model.chatId,
         followUpList: model.followUpList,
         courses: model.courses,
       );
@@ -351,6 +356,7 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: model.dateOfSubscription,
         supplements: model.supplements,
         food: newList,
+        chatId: model.chatId,
         followUpList: model.followUpList,
         courses: model.courses,
       );
@@ -387,6 +393,7 @@ class TraineeRepoImpl extends TraineeRepo {
         supplements: model.supplements,
         food: newList,
         followUpList: model.followUpList,
+        chatId: model.chatId,
         courses: model.courses,
       );
       await FirebaseFirestore.instance
@@ -447,6 +454,7 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: traineeModel.dateOfSubscription,
         supplements: traineeModel.supplements,
         food: traineeModel.food,
+        chatId: traineeModel.chatId,
         followUpList: list,
         courses: traineeModel.courses,
       );

@@ -21,6 +21,7 @@ class ChatListViewWidget extends StatelessWidget {
             isSender:
                 CacheHelper.getData(key: 'uid') == messages[index].senderUid,
             message: messages[index].message,
+            time: messages[index].time.toDate(),
           ),
           separatorBuilder: (context, index) => const SizedBox(
             height: 15,
