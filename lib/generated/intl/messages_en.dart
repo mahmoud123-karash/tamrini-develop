@@ -195,7 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "course_name": MessageLookupByLibrary.simpleMessage("Course Name"),
         "course_notes": MessageLookupByLibrary.simpleMessage("Notes"),
         "course_title": MessageLookupByLibrary.simpleMessage(
-            "قام مدربك بتحديث الكورس التدريبي"),
+            "Your trainer has updated the training course."),
         "courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "create":
             MessageLookupByLibrary.simpleMessage("Don/\'t have an acount?"),
@@ -268,7 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "follow_details":
             MessageLookupByLibrary.simpleMessage("Follow-up Details"),
         "follow_title": MessageLookupByLibrary.simpleMessage(
-            "قام المتدرب بإضافة متابعة جديدة"),
+            "The trainee has added a new follow-up."),
         "forget": MessageLookupByLibrary.simpleMessage("Forget Password"),
         "fri": MessageLookupByLibrary.simpleMessage("Friday"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
@@ -359,7 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "New comment on your question"),
         "new_images": MessageLookupByLibrary.simpleMessage("New Images"),
         "new_meal": MessageLookupByLibrary.simpleMessage("Add Meal"),
-        "new_message": MessageLookupByLibrary.simpleMessage("رسالة جديدة"),
+        "new_message": MessageLookupByLibrary.simpleMessage("New message"),
         "new_promtion_request":
             MessageLookupByLibrary.simpleMessage("New promotion request"),
         "new_trainee_joined": MessageLookupByLibrary.simpleMessage(
@@ -399,7 +399,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "No Internet Connection. Some App Features May Not Work"),
         "no_meals": MessageLookupByLibrary.simpleMessage("No Meals"),
         "no_messages_yet":
-            MessageLookupByLibrary.simpleMessage("لا يوجد رسائل حتى الأن"),
+            MessageLookupByLibrary.simpleMessage("No messages yet"),
         "no_pending_articles":
             MessageLookupByLibrary.simpleMessage("No Pending Articles"),
         "no_products_yet":
@@ -533,8 +533,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove_supplement_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this supplement?"),
         "renew_sub": MessageLookupByLibrary.simpleMessage("Renew Subscription"),
-        "renew_trainee_title":
-            MessageLookupByLibrary.simpleMessage("قام المتدرب بتجديد الاشتراك"),
+        "renew_trainee_title": MessageLookupByLibrary.simpleMessage(
+            "The trainee has renewed the subscription."),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "request_promotion_done": MessageLookupByLibrary.simpleMessage(
             "Your promotion request has been submitted"),
@@ -573,9 +573,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub": MessageLookupByLibrary.simpleMessage("Subscribe"),
         "sub_date": MessageLookupByLibrary.simpleMessage("Subscription Date"),
         "sub_end_waring_trainee": MessageLookupByLibrary.simpleMessage(
-            "لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب"),
+            "Your subscription has expired, and you need to renew the subscription to continue with this trainer\'s training course."),
         "sub_end_waring_trainer": MessageLookupByLibrary.simpleMessage(
-            "لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به"),
+            "This trainee\'s subscription has expired, and they need to renew the subscription first to be able to update their training course."),
         "sub_hint": MessageLookupByLibrary.simpleMessage(
             "You are already subscribed to this gym"),
         "sub_with_trainer_and_try_again": MessageLookupByLibrary.simpleMessage(
@@ -675,7 +675,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
         "tue": MessageLookupByLibrary.simpleMessage("Tuesday"),
         "twiter": MessageLookupByLibrary.simpleMessage("Twitter"),
-        "type_a_message": MessageLookupByLibrary.simpleMessage("اكتب رسالة"),
+        "type_a_message":
+            MessageLookupByLibrary.simpleMessage("Type a message"),
         "unavailable": MessageLookupByLibrary.simpleMessage("Unavailable"),
         "update": MessageLookupByLibrary.simpleMessage("Update"),
         "update_profile":

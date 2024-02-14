@@ -4850,80 +4850,80 @@ class S {
     );
   }
 
-  /// `لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به`
+  /// `This trainee's subscription has expired, and they need to renew the subscription first to be able to update their training course.`
   String get sub_end_waring_trainer {
     return Intl.message(
-      'لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به',
+      'This trainee\'s subscription has expired, and they need to renew the subscription first to be able to update their training course.',
       name: 'sub_end_waring_trainer',
       desc: '',
       args: [],
     );
   }
 
-  /// `لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب`
+  /// `Your subscription has expired, and you need to renew the subscription to continue with this trainer's training course.`
   String get sub_end_waring_trainee {
     return Intl.message(
-      'لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب',
+      'Your subscription has expired, and you need to renew the subscription to continue with this trainer\'s training course.',
       name: 'sub_end_waring_trainee',
       desc: '',
       args: [],
     );
   }
 
-  /// `قام المتدرب بإضافة متابعة جديدة`
+  /// `The trainee has added a new follow-up.`
   String get follow_title {
     return Intl.message(
-      'قام المتدرب بإضافة متابعة جديدة',
+      'The trainee has added a new follow-up.',
       name: 'follow_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `قام مدربك بتحديث الكورس التدريبي`
+  /// `Your trainer has updated the training course.`
   String get course_title {
     return Intl.message(
-      'قام مدربك بتحديث الكورس التدريبي',
+      'Your trainer has updated the training course.',
       name: 'course_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `قام المتدرب بتجديد الاشتراك`
+  /// `The trainee has renewed the subscription.`
   String get renew_trainee_title {
     return Intl.message(
-      'قام المتدرب بتجديد الاشتراك',
+      'The trainee has renewed the subscription.',
       name: 'renew_trainee_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `اكتب رسالة`
+  /// `Type a message`
   String get type_a_message {
     return Intl.message(
-      'اكتب رسالة',
+      'Type a message',
       name: 'type_a_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `رسالة جديدة`
+  /// `New message`
   String get new_message {
     return Intl.message(
-      'رسالة جديدة',
+      'New message',
       name: 'new_message',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد رسائل حتى الأن`
+  /// `No messages yet`
   String get no_messages_yet {
     return Intl.message(
-      'لا يوجد رسائل حتى الأن',
+      'No messages yet',
       name: 'no_messages_yet',
       desc: '',
       args: [],

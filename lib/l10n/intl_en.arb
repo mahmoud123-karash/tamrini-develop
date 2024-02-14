@@ -479,14 +479,14 @@
     "you_unsub_with_trainer": "You are unsubscribed from the trainer.",
     "sub_with_trainer_and_try_again": "Subscribe to a trainer and try again.",
     "image_tariner_hint": "Please upload a current body image for the trainer. It will help them assess your progress and provide more personalized guidance. This image will serve as an important reference for the trainer to understand your body details and individual needs.",
-    "sub_end_waring_trainer":"لقد انتهى اشتراك هذا المتدرب ويجب عليه تجديد الاشتراك اولا لكى تتمكن من تحديث الكورس التدريبي الخاص به",
-    "sub_end_waring_trainee":"لقد انتهى اشتراكك  ويجب تجديد الاشترااك حتى تتمكن من متابعة الكورس التدريبي مع هذا المدرب",
-    "follow_title":"قام المتدرب بإضافة متابعة جديدة",
-    "course_title":"قام مدربك بتحديث الكورس التدريبي",
-    "renew_trainee_title":"قام المتدرب بتجديد الاشتراك",
-    "type_a_message":"اكتب رسالة",
-    "new_message":"رسالة جديدة",
-    "no_messages_yet":"لا يوجد رسائل حتى الأن"
+    "sub_end_waring_trainer": "This trainee's subscription has expired, and they need to renew the subscription first to be able to update their training course.",
+    "sub_end_waring_trainee": "Your subscription has expired, and you need to renew the subscription to continue with this trainer's training course.",
+    "follow_title": "The trainee has added a new follow-up.",
+    "course_title": "Your trainer has updated the training course.",
+    "renew_trainee_title": "The trainee has renewed the subscription.",
+    "type_a_message": "Type a message",
+    "new_message": "New message",
+    "no_messages_yet": "No messages yet"
 
 
 
