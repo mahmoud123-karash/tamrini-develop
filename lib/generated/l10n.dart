@@ -4929,6 +4929,16 @@ class S {
       args: [],
     );
   }
+
+  /// `الأكلات المفضلة`
+  String get favorite_meals {
+    return Intl.message(
+      'الأكلات المفضلة',
+      name: 'favorite_meals',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

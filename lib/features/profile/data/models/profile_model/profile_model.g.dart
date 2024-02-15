@@ -36,7 +36,7 @@ class ProfileModelAdapter extends TypeAdapter<ProfileModel> {
   @override
   void write(BinaryWriter writer, ProfileModel obj) {
     writer
-      ..writeByte(12)
+      ..writeByte(13)
       ..writeByte(10)
       ..write(obj.name)
       ..writeByte(11)
@@ -60,7 +60,9 @@ class ProfileModelAdapter extends TypeAdapter<ProfileModel> {
       ..writeByte(20)
       ..write(obj.address)
       ..writeByte(21)
-      ..write(obj.whatsApp);
+      ..write(obj.whatsApp)
+      ..writeByte(22)
+      ..write(obj.trainerId);
   }
 
   @override

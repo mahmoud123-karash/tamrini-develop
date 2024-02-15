@@ -9,6 +9,7 @@ import 'package:tamrini/core/services/messaging.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
+import 'package:tamrini/features/favourite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
@@ -44,6 +45,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
       PromotionCubit.get(context).getData();
     }
     if (userType != '') {
+      FavoriteCubit.get(context).getData();
       OrderCubit.get(context).getData();
       UserOrderCubit.get(context).getData();
       UpdateCubit.get(context).update();

@@ -260,6 +260,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Exercises and Fitness"),
         "facebooh": MessageLookupByLibrary.simpleMessage("Facebook"),
         "fat": MessageLookupByLibrary.simpleMessage("Fat"),
+        "favorite_meals":
+            MessageLookupByLibrary.simpleMessage("الأكلات المفضلة"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "follow":
             MessageLookupByLibrary.simpleMessage("Continue without login"),

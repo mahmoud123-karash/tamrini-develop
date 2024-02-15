@@ -10,10 +10,15 @@ import 'package:tamrini/generated/l10n.dart';
 import 'remove_supplement_icon_widget.dart';
 
 class SupplementListViewWidget extends StatelessWidget {
-  const SupplementListViewWidget(
-      {super.key, required this.model, required this.supplements});
+  const SupplementListViewWidget({
+    super.key,
+    required this.model,
+    required this.supplements,
+    required this.length,
+  });
   final TraineeModel? model;
   final List<String> supplements;
+  final int length;
 
   @override
   Widget build(BuildContext context) {
@@ -50,26 +55,39 @@ class SupplementListViewWidget extends StatelessWidget {
               : ListView.separated(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => Stack(
-                    alignment: Alignment.topLeft,
-                    children: [
-                      SupplementArticleItemWidget(
-                        model: finalList[index],
-                        categoryId: '',
-                        isCourse: false,
-                      ),
-                      if (model != null)
-                        RemoveSupplementIconWidget(
-                          model: model!,
-                          supplementId: finalList[index].id,
-                          name: finalList[index].title,
+                  itemBuilder: (context, index) {
+                    if (index < length) {
+                      return Stack(
+                        alignment: Alignment.topLeft,
+                        children: [
+                          SupplementArticleItemWidget(
+                            model: finalList[index],
+                            categoryId: '',
+                            isCourse: false,
+                          ),
+                          if (model != null)
+                            RemoveSupplementIconWidget(
+                              model: model!,
+                              supplementId: finalList[index].id,
+                              name: finalList[index].title,
+                            ),
+                        ],
+                      );
+                    } else {
+                      return const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CircularProgressIndicator(),
                         ),
-                    ],
-                  ),
+                      );
+                    }
+                  },
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 0,
                   ),
-                  itemCount: finalList.length,
+                  itemCount: length >= finalList.length
+                      ? finalList.length
+                      : length + 1,
                 );
         } else if (state is ErrorGetSupplementState) {
           return Stack(

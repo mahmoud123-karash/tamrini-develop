@@ -5,6 +5,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/favourite/presentation/views/favorite_screen.dart';
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/substrictions_list_tile_widget.dart';
@@ -94,6 +95,13 @@ class MyDrawer extends StatelessWidget {
                 icon: Icons.shopping_bag_outlined,
                 lable: S.of(context).buy_orders,
               ),
+            DrawerListTileWidget(
+              onPressed: () {
+                navigateTo(context, const FavoriteScreen());
+              },
+              icon: Ionicons.heart_outline,
+              lable: S.of(context).favorite_meals,
+            ),
             DrawerListTileWidget(
               onPressed: () {
                 navigateTo(context, const MyDayScreen());

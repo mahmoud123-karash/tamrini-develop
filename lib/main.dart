@@ -21,6 +21,9 @@ import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_cub
 import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
 
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
+import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
+import 'package:tamrini/features/favourite/data/repo/favorite_meal_repo_impl.dart';
+import 'package:tamrini/features/favourite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:tamrini/features/gym/presentation/manager/subscriber_cubit/subscriber_cubit.dart';
 import 'package:tamrini/features/home_exercise/data/repo/home_exercise_repo_impl.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
@@ -107,6 +110,8 @@ void main() async {
   Hive.registerAdapter(ReminderModelAdapter());
   Hive.registerAdapter(DateTimeAdapter());
   await Hive.openBox<ReminderModel>(reminderBox);
+  Hive.registerAdapter(MealModelAdapter());
+  await Hive.openBox<MealModel>(favoriteBox);
 
   determinePosition();
   setLocator();
@@ -275,6 +280,11 @@ void main() async {
         ),
         BlocProvider(
           create: (context) => CourseCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FavoriteCubit(
+            getIt.get<FavoriteRepoImpl>(),
+          ),
         ),
         BlocProvider(
           create: (context) => ManageCubit()

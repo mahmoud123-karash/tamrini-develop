@@ -12,6 +12,9 @@ import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:tamrini/features/chat/data/repo/chat_repo_impl.dart';
 import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
+import 'package:tamrini/features/favourite/data/data_sources/local_data_source/favorite_local_data_source.dart';
+import 'package:tamrini/features/favourite/data/data_sources/remote_data_source/favorite_remote_data_source.dart';
+import 'package:tamrini/features/favourite/data/repo/favorite_meal_repo_impl.dart';
 import 'package:tamrini/features/food/data/data_sources/remote_data_source/supplement_remote_data_source.dart';
 import 'package:tamrini/features/food/data/repo/food_repo_impl.dart';
 import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';
@@ -233,5 +236,12 @@ void setLocator() {
 
   getIt.registerSingleton<ChatRepoImpl>(
     ChatRepoImpl(getIt.get<DioHelper>()),
+  );
+
+  getIt.registerSingleton(
+    FavoriteRepoImpl(
+      FavoriteRemoteDataSourceImpl(),
+      FavoriteLocalDataSourceImpl(),
+    ),
   );
 }
