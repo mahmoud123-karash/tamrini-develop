@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
@@ -126,6 +127,12 @@ void initiGetprofile(context) {
 }
 
 void logOut(context) async {
+  GoogleSignIn googleSignIn = GoogleSignIn();
+  if (await googleSignIn.isSignedIn()) {
+    googleSignIn.disconnect();
+  }
+  await FirebaseAuth.instance.signOut();
+  CacheHelper.removeData(key: 'uid');
   String uid = CacheHelper.getData(key: 'uid');
   await FirebaseFirestore.instance.collection('users').doc(uid).update(
     {
@@ -136,12 +143,8 @@ void logOut(context) async {
   await box.clear();
   var box1 = Hive.box<DayModel>(dayBox);
   await box1.clear();
-  GoogleSignIn googleSignIn = GoogleSignIn();
-  if (await googleSignIn.isSignedIn()) {
-    googleSignIn.disconnect();
-  }
-  await FirebaseAuth.instance.signOut();
-  CacheHelper.removeData(key: 'uid');
+  var box2 = Hive.box<MealModel>(favoriteBox);
+  await box2.clear();
   CacheHelper.removeData(key: 'deviceToken');
   CacheHelper.removeData(key: 'trainerId');
   CacheHelper.removeData(key: 'address');

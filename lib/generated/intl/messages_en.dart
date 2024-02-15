@@ -300,6 +300,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello"),
+        "hello_in_tamrimni": MessageLookupByLibrary.simpleMessage(
+            "Welcome to the Tamreny application"),
         "highPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
         "high_activity": MessageLookupByLibrary.simpleMessage(
             "High Activity in Work and Club"),
@@ -612,6 +614,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Meal removed successfully"),
         "success_remove_reminder":
             MessageLookupByLibrary.simpleMessage("Successfully removed"),
+        "success_save_excel_sheet":
+            MessageLookupByLibrary.simpleMessage("تم حفظ الملف بنجاح"),
         "success_suggest_exercise": MessageLookupByLibrary.simpleMessage(
             "Exercise suggested successfully"),
         "success_update": MessageLookupByLibrary.simpleMessage(

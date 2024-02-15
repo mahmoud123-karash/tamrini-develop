@@ -291,6 +291,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "health": MessageLookupByLibrary.simpleMessage("الصحة والتغذية"),
         "height": MessageLookupByLibrary.simpleMessage("الطول"),
         "hello": MessageLookupByLibrary.simpleMessage("مرحبا"),
+        "hello_in_tamrimni":
+            MessageLookupByLibrary.simpleMessage("مرحبا بك في تطبيق تمريني "),
         "highPrice": MessageLookupByLibrary.simpleMessage("الأعلى سعرا"),
         "high_activity":
             MessageLookupByLibrary.simpleMessage("نشاط عالي في العمل والنادي"),
@@ -598,6 +600,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تمت حذف الوجبة بنجاح"),
         "success_remove_reminder":
             MessageLookupByLibrary.simpleMessage("تم الحذف بنجاح"),
+        "success_save_excel_sheet":
+            MessageLookupByLibrary.simpleMessage("تم حفظ الملف بنجاح"),
         "success_suggest_exercise":
             MessageLookupByLibrary.simpleMessage("تم اقتراح التمرين بنجاح"),
         "success_update":

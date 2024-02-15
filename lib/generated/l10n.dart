@@ -4939,6 +4939,26 @@ class S {
       args: [],
     );
   }
+
+  /// `تم حفظ الملف بنجاح`
+  String get success_save_excel_sheet {
+    return Intl.message(
+      'تم حفظ الملف بنجاح',
+      name: 'success_save_excel_sheet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to the Tamreny application`
+  String get hello_in_tamrimni {
+    return Intl.message(
+      'Welcome to the Tamreny application',
+      name: 'hello_in_tamrimni',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

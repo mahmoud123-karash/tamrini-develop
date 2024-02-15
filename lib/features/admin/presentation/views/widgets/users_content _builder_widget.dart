@@ -8,10 +8,8 @@ import 'package:tamrini/features/admin/presentation/views/widgets/users_content_
 import 'package:tamrini/generated/l10n.dart';
 
 class UsersContentBuilderWidget extends StatelessWidget {
-  const UsersContentBuilderWidget(
-      {super.key, required this.userType, required this.title});
+  const UsersContentBuilderWidget({super.key, required this.userType});
   final String userType;
-  final String title;
 
   @override
   Widget build(BuildContext context) {

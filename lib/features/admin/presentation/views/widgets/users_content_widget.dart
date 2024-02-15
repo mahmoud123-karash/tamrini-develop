@@ -5,6 +5,8 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/admin/presentation/views/widgets/users_list_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import 'create_excel_sheet_button_widget.dart';
+
 class UsersContentWidget extends StatefulWidget {
   const UsersContentWidget({super.key, required this.list});
   final List<UserModel> list;
@@ -76,6 +78,8 @@ class _UsersContentWidgetState extends State<UsersContentWidget> {
               child: Text(S.of(context).no_results),
             ),
           ),
+        if (widget.list.isNotEmpty)
+          CreateExcelSheetButtonWidget(list: widget.list),
       ],
     );
   }

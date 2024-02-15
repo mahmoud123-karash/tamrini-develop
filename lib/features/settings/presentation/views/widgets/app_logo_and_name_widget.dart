@@ -8,6 +8,7 @@ class ApplogoAndNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Image.asset(
           "assets/icon/icon.png",

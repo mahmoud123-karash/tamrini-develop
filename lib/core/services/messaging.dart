@@ -66,16 +66,17 @@ void onMessage({
         String uid = CacheHelper.getData(key: 'uid') ?? '';
         TraineeCubit.get(context).getData(trainerId: uid);
       }
-
-      AwesomeNotifications().createNotification(
-        content: NotificationContent(
-          id: message.notification.hashCode,
-          channelKey: 'basic_channel',
-          actionType: ActionType.Default,
-          title: message.notification!.title,
-          body: message.notification!.body,
-        ),
-      );
+      if (message.data['subType'] != 'message') {
+        AwesomeNotifications().createNotification(
+          content: NotificationContent(
+            id: message.notification.hashCode,
+            channelKey: 'basic_channel',
+            actionType: ActionType.Default,
+            title: message.notification!.title,
+            body: message.notification!.body,
+          ),
+        );
+      }
     },
   );
 }
@@ -119,6 +120,7 @@ void openNotification(RemoteMessage event, BuildContext context) {
         AnswersScreen(
           uid: event.data['uid'],
           model: UserModel(
+            email: model.email,
             role: type,
             whatsApp: model.whatsApp ?? '',
             name: model.name,

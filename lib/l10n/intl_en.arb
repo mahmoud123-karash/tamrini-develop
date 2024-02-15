@@ -487,7 +487,11 @@
     "type_a_message": "Type a message",
     "new_message": "New message",
     "no_messages_yet": "No messages yet",
-    "favorite_meals":"الأكلات المفضلة"
+    "favorite_meals":"الأكلات المفضلة",
+    "success_save_excel_sheet":"تم حفظ الملف بنجاح",
+    "hello_in_tamrimni":"Welcome to the Tamreny application"
+
+
 
 
 

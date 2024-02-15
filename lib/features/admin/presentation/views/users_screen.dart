@@ -14,7 +14,7 @@ class UsersScreen extends StatelessWidget {
       appBar: myAppBar(title),
       body: UsersContentBuilderWidget(
         userType: usrType,
-        title: title,
+      
       ),
     );
   }

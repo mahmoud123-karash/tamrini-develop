@@ -8,6 +8,7 @@ import 'package:tamrini/features/profile/presentation/views/user_profile_screen.
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../../../../trainer/presentation/views/trainer_profile_screen.dart';
 import 'publisher_name_and_role_widget.dart';
 
 class WriterRowWidget extends StatelessWidget {
@@ -27,6 +28,8 @@ class WriterRowWidget extends StatelessWidget {
                     navigateTo(context, const ProfileScreen());
                   } else if (model.role == 'admin') {
                     showSnackBar(context, S.of(context).admin_hint);
+                  } else if (model.role == 'trainer') {
+                    navigateTo(context, TrainerProfileScreen(id: model.uid));
                   } else {
                     navigateTo(context, UserProfileScreen(model: model));
                   }

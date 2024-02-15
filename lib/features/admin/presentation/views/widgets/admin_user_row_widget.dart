@@ -18,11 +18,12 @@ class AdminUserRowWidget extends StatelessWidget {
           color: appColor,
           onPressed: () {
             navigateTo(
-                context,
-                UsersScreen(
-                  title: S.of(context).writers,
-                  usrType: 'writer',
-                ));
+              context,
+              UsersScreen(
+                title: S.of(context).writers,
+                usrType: 'writer',
+              ),
+            );
           },
         ),
         const Spacer(),
@@ -31,11 +32,12 @@ class AdminUserRowWidget extends StatelessWidget {
           color: appColor,
           onPressed: () {
             navigateTo(
-                context,
-                UsersScreen(
-                  title: S.of(context).trainers,
-                  usrType: 'captain',
-                ));
+              context,
+              UsersScreen(
+                title: S.of(context).trainers,
+                usrType: 'trainer',
+              ),
+            );
           },
           icon: Icons.sports_gymnastics_outlined,
         ),
@@ -57,9 +59,10 @@ class AdminUserRowWidget extends StatelessWidget {
           color: appColor,
           onPressed: () {
             navigateTo(
-                context,
-                UsersScreen(
-                    title: S.of(context).store_owners, usrType: 'store owner'));
+              context,
+              UsersScreen(
+                  title: S.of(context).store_owners, usrType: 'store owner'),
+            );
           },
           icon: Icons.storefront_outlined,
         ),

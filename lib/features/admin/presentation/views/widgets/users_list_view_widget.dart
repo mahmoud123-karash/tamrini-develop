@@ -7,7 +7,7 @@ class UsersListViewWidget extends StatelessWidget {
       {super.key,
       required this.list,
       required this.length,
-      required this.controller});
+      required this.controller,});
   final List<UserModel> list;
   final int length;
   final ScrollController controller;

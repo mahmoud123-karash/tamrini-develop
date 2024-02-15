@@ -9,14 +9,19 @@ class PublisherNameAndRoleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          name,
-          style: TextStyles.style17.copyWith(
-            color: appColor,
-            fontWeight: FontWeight.bold,
+        Container(
+          constraints: BoxConstraints(maxWidth: width / 2),
+          child: Text(
+            name,
+            style: TextStyles.style17.copyWith(
+              color: appColor,
+              fontWeight: FontWeight.bold,
+            ),
+            maxLines: 1,
           ),
         ),
         Text(

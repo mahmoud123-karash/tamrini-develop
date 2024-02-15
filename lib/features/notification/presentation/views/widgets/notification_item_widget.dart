@@ -113,6 +113,7 @@ class NotificationItemWidget extends StatelessWidget {
           AnswersScreen(
             uid: model.uid,
             model: UserModel(
+              email: profile.email,
               role: type,
               whatsApp: profile.whatsApp ?? '',
               name: profile.name,
