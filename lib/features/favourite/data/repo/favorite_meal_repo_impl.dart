@@ -31,37 +31,25 @@ class FavoriteRepoImpl extends FavoriteRepo {
 
   @override
   Future<Either<String, List<MealModel>>> addFavoriteMeal({
-    required num carbs,
-    required num protein,
-    required num fat,
-    required num calories,
-    required String id,
-    required String name,
+    required MealModel meal,
   }) async {
     try {
       String uid = CacheHelper.getData(key: 'uid');
 
-      MealModel model = MealModel(
-        carbs: carbs,
-        protein: protein,
-        fat: fat,
-        calories: calories,
-        name: name,
-        id: id,
-      );
       await FirebaseFirestore.instance
           .collection('users')
           .doc(uid)
           .collection('favorite')
           .doc('data')
           .collection('meals')
-          .doc(id)
+          .doc(meal.id)
           .set(
-            model.toJson(),
+            meal.toJson(),
           );
       var box = Hive.box<MealModel>(favoriteBox);
-      List<MealModel> list = box.values.toList();
-      list.add(model);
+      List<MealModel> list = [];
+      list = box.values.toList();
+      list.add(meal);
       return right(list);
     } catch (e) {
       return left(e.toString());

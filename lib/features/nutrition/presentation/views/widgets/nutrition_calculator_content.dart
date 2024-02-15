@@ -5,6 +5,7 @@ import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
+import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/select_cubit.dart/select_cubit.dart';
@@ -12,6 +13,7 @@ import 'package:tamrini/features/nutrition/presentation/manager/select_cubit.dar
 import 'package:tamrini/features/nutrition/presentation/views/widgets/add_meal_custom_button_builder_widget.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/wieght_list_view_widget.dart';
 import 'edit_remove_nutrition_row_buttons_widget.dart';
+import 'favourite_icon_widget.dart';
 import 'nutrition_buttons_row_widget.dart';
 import 'nutrition_list_view_widget.dart';
 import 'nutrition_values_colum_widget.dart';
@@ -82,6 +84,17 @@ class _NutritionCalCulatorContentWidgetState
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                if (cubit.model.title != '')
+                  FavoriteIconWidget(
+                    model: MealModel(
+                      carbs: cubit.model.carbs,
+                      protein: cubit.model.proteins,
+                      fat: cubit.model.fats,
+                      calories: cubit.model.calories,
+                      id: cubit.model.id ?? '',
+                      name: cubit.model.title,
+                    ),
+                  ),
                 NutritionButtonsRowWidget(
                   onPressedOne: () {
                     List<NutritionModel> finalList = searchController.text == ''

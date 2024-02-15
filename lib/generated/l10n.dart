@@ -1790,10 +1790,10 @@ class S {
     );
   }
 
-  /// `Carbohydrates`
+  /// `Carbs`
   String get carb {
     return Intl.message(
-      'Carbohydrates',
+      'Carbs',
       name: 'carb',
       desc: '',
       args: [],

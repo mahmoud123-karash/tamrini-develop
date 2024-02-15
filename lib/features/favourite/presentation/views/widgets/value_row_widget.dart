@@ -3,12 +3,13 @@ import 'package:tamrini/features/favourite/presentation/views/widgets/container_
 import 'package:tamrini/generated/l10n.dart';
 
 class ValuesRowWidget extends StatelessWidget {
-  const ValuesRowWidget(
-      {super.key,
-      required this.calories,
-      required this.protien,
-      required this.fat,
-      required this.carb});
+  const ValuesRowWidget({
+    super.key,
+    required this.calories,
+    required this.protien,
+    required this.fat,
+    required this.carb,
+  });
   final String calories, protien, fat, carb;
 
   @override

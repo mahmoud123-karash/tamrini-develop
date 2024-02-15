@@ -24,7 +24,7 @@ class MealItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MealNameIconRowWidget(
-              name: model.name,
+              meal: model,
             ),
             const SizedBox(
               height: 10,

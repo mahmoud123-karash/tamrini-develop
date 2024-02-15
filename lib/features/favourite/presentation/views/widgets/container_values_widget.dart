@@ -12,12 +12,13 @@ class ContainerValuesWidget extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 5,
+          horizontal: 3,
         ),
         child: Container(
           height: 85,
           decoration: BoxDecoration(
-            color: whiteColor,
+            color: Theme.of(context).scaffoldBackgroundColor,
+            border: Border.all(),
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
@@ -47,7 +48,7 @@ class ContainerValuesWidget extends StatelessWidget {
                   lable,
                   style: TextStyles.style14.copyWith(
                     fontWeight: FontWeight.bold,
-                    fontSize: lable.length > 8 ? 11 : 14,
+                    fontSize: lable.length > 8 ? 10 : 13,
                   ),
                   maxLines: 1,
                 )

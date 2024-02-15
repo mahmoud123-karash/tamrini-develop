@@ -151,7 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "calories": MessageLookupByLibrary.simpleMessage("Calories"),
         "calory": MessageLookupByLibrary.simpleMessage("Calorie"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-        "carb": MessageLookupByLibrary.simpleMessage("Carbohydrates"),
+        "carb": MessageLookupByLibrary.simpleMessage("Carbs"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
         "category_remove_question": MessageLookupByLibrary.simpleMessage(

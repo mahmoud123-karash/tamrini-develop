@@ -10,8 +10,8 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
   final FavoriteRepo favoriteRepo;
 
   void getData() async {
+    emit(LoadingGetFavoritesState());
     var result = await favoriteRepo.getFavoriteMeals();
-
     result.fold(
       (message) {
         emit(ErrorGetFavoritesState(message));
@@ -23,20 +23,10 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
   }
 
   void addFavoriteMeal({
-    required num carbs,
-    required num protein,
-    required num fat,
-    required num calories,
-    required String id,
-    required String name,
+    required MealModel meal,
   }) async {
     var result = await favoriteRepo.addFavoriteMeal(
-      carbs: carbs,
-      protein: protein,
-      fat: fat,
-      name: name,
-      calories: calories,
-      id: id,
+      meal: meal,
     );
 
     result.fold(
