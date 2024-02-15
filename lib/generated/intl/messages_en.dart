@@ -261,7 +261,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "facebooh": MessageLookupByLibrary.simpleMessage("Facebook"),
         "fat": MessageLookupByLibrary.simpleMessage("Fat"),
         "favorite_meals":
-            MessageLookupByLibrary.simpleMessage("الأكلات المفضلة"),
+            MessageLookupByLibrary.simpleMessage("Favorite Meals"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "follow":
             MessageLookupByLibrary.simpleMessage("Continue without login"),
@@ -301,7 +301,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "height": MessageLookupByLibrary.simpleMessage("Height"),
         "hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "hello_in_tamrimni": MessageLookupByLibrary.simpleMessage(
-            "Welcome to the Tamreny application"),
+            "Welcome to the Tamrini application"),
         "highPrice": MessageLookupByLibrary.simpleMessage("Highest Price"),
         "high_activity": MessageLookupByLibrary.simpleMessage(
             "High Activity in Work and Club"),
@@ -502,15 +502,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "The questions that trainees under your supervision should answer during the program."),
         "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
         "qunatity": MessageLookupByLibrary.simpleMessage("Quantity"),
-        "rate": MessageLookupByLibrary.simpleMessage("تقييم"),
+        "rate": MessageLookupByLibrary.simpleMessage("Rate"),
         "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),
         "rating": MessageLookupByLibrary.simpleMessage("Rating"),
         "rating_hint": MessageLookupByLibrary.simpleMessage(
             "Rate this product from 1 to 5"),
         "rating_product_hint":
             MessageLookupByLibrary.simpleMessage("Please rate the product"),
-        "rating_trainer_hint":
-            MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المدرب"),
+        "rating_trainer_hint": MessageLookupByLibrary.simpleMessage(
+            "Rate this trainer from 1 to 5"),
         "recalculate": MessageLookupByLibrary.simpleMessage("Recalculate"),
         "received": MessageLookupByLibrary.simpleMessage("Received"),
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
@@ -618,7 +618,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_remove_reminder":
             MessageLookupByLibrary.simpleMessage("Successfully removed"),
         "success_save_excel_sheet":
-            MessageLookupByLibrary.simpleMessage("تم حفظ الملف بنجاح"),
+            MessageLookupByLibrary.simpleMessage("File saved successfully"),
         "success_suggest_exercise": MessageLookupByLibrary.simpleMessage(
             "Exercise suggested successfully"),
         "success_update": MessageLookupByLibrary.simpleMessage(
@@ -651,7 +651,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sut": MessageLookupByLibrary.simpleMessage("Saturday"),
         "system": MessageLookupByLibrary.simpleMessage("System"),
         "thanks_for_rating":
-            MessageLookupByLibrary.simpleMessage("نشكركم على التقييم"),
+            MessageLookupByLibrary.simpleMessage("Thank you for your rating"),
         "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "thurs": MessageLookupByLibrary.simpleMessage("Thursday"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),

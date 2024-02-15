@@ -4930,60 +4930,60 @@ class S {
     );
   }
 
-  /// `الأكلات المفضلة`
+  /// `Favorite Meals`
   String get favorite_meals {
     return Intl.message(
-      'الأكلات المفضلة',
+      'Favorite Meals',
       name: 'favorite_meals',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم حفظ الملف بنجاح`
+  /// `File saved successfully`
   String get success_save_excel_sheet {
     return Intl.message(
-      'تم حفظ الملف بنجاح',
+      'File saved successfully',
       name: 'success_save_excel_sheet',
       desc: '',
       args: [],
     );
   }
 
-  /// `Welcome to the Tamreny application`
+  /// `Welcome to the Tamrini application`
   String get hello_in_tamrimni {
     return Intl.message(
-      'Welcome to the Tamreny application',
+      'Welcome to the Tamrini application',
       name: 'hello_in_tamrimni',
       desc: '',
       args: [],
     );
   }
 
-  /// `أعطى من 1 إلي 5 لهذا المدرب`
+  /// `Rate this trainer from 1 to 5`
   String get rating_trainer_hint {
     return Intl.message(
-      'أعطى من 1 إلي 5 لهذا المدرب',
+      'Rate this trainer from 1 to 5',
       name: 'rating_trainer_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `تقييم`
+  /// `Rate`
   String get rate {
     return Intl.message(
-      'تقييم',
+      'Rate',
       name: 'rate',
       desc: '',
       args: [],
     );
   }
 
-  /// `نشكركم على التقييم`
+  /// `Thank you for your rating`
   String get thanks_for_rating {
     return Intl.message(
-      'نشكركم على التقييم',
+      'Thank you for your rating',
       name: 'thanks_for_rating',
       desc: '',
       args: [],

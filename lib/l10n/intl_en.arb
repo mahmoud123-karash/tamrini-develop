@@ -487,12 +487,12 @@
     "type_a_message": "Type a message",
     "new_message": "New message",
     "no_messages_yet": "No messages yet",
-    "favorite_meals":"الأكلات المفضلة",
-    "success_save_excel_sheet":"تم حفظ الملف بنجاح",
-    "hello_in_tamrimni":"Welcome to the Tamreny application",
-    "rating_trainer_hint":"أعطى من 1 إلي 5 لهذا المدرب",
-    "rate":"تقييم",
-    "thanks_for_rating":"نشكركم على التقييم"
+    "favorite_meals": "Favorite Meals",
+    "success_save_excel_sheet": "File saved successfully",
+    "hello_in_tamrimni": "Welcome to the Tamrini application",
+    "rating_trainer_hint": "Rate this trainer from 1 to 5",
+    "rate": "Rate",
+    "thanks_for_rating": "Thank you for your rating"
 
 
 
