@@ -12,6 +12,7 @@ class TraineeModel {
   final List<FollowUpModel> followUpList;
   final List<CourseModel> courses;
   final String chatId;
+  final bool isRating;
   UserModel? user;
 
   TraineeModel({
@@ -20,6 +21,7 @@ class TraineeModel {
     required this.dateOfSubscription,
     required this.supplements,
     required this.food,
+    required this.isRating,
     required this.followUpList,
     required this.courses,
     this.user,
@@ -39,6 +41,7 @@ class TraineeModel {
       user: user,
       uid: json['uid'] ?? '',
       chatId: json['chatId'] ?? '',
+      isRating: json['isRating'] ?? false,
       dateOfSubscription: json['dateOfSubscription'] ?? Timestamp.now(),
       supplements: List<String>.from(json['supplements'] ?? []),
       food: foodList,
@@ -57,6 +60,7 @@ class TraineeModel {
 
     return {
       'uid': uid,
+      'isRating': isRating,
       'dateOfSubscription': dateOfSubscription,
       'supplements': supplements,
       'food': foodJson,

@@ -62,4 +62,27 @@ class RatingRepoImpl extends RatingRepo {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, String>> rateTrainer({
+    required String trainerId,
+    required double rating,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      Rating rate = Rating(userid: uid, rating: rating);
+      await FirebaseFirestore.instance
+          .collection('rating')
+          .doc('data')
+          .collection('trainers')
+          .doc(trainerId)
+          .collection('rates')
+          .add(
+            rate.toMap(),
+          );
+      return right('');
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

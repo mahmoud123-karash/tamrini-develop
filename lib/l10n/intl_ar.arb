@@ -488,25 +488,10 @@
     "no_messages_yet":"لا يوجد رسائل حتى الأن",
     "favorite_meals":"الأكلات المفضلة",
     "success_save_excel_sheet":"تم حفظ الملف بنجاح",
-    "hello_in_tamrimni":"مرحبا بك في تطبيق تمريني "
-
-
-
-
-
-    
-   
-
-
-
-
-
-
-
-
-
-
-
+    "hello_in_tamrimni":"مرحبا بك في تطبيق تمريني ",
+    "rating_trainer_hint":"أعطى من 1 إلي 5 لهذا المدرب",
+    "rate":"تقييم",
+    "thanks_for_rating":"نشكركم على التقييم"
 
 
 

@@ -112,6 +112,7 @@ class TraineeRepoImpl extends TraineeRepo {
       TraineeModel model = TraineeModel(
         uid: uid,
         chatId: uuid,
+        isRating: false,
         dateOfSubscription: Timestamp.now(),
         supplements: [],
         food: [],
@@ -227,6 +228,7 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: model.dateOfSubscription,
         supplements: model.supplements,
         chatId: model.chatId,
+        isRating: model.isRating,
         food: model.food,
         followUpList: model.followUpList,
         courses: courses,
@@ -263,6 +265,7 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: model.dateOfSubscription,
         supplements: newList,
         chatId: model.chatId,
+        isRating: model.isRating,
         food: model.food,
         followUpList: model.followUpList,
         courses: model.courses,
@@ -300,6 +303,7 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: model.dateOfSubscription,
         supplements: newList,
         food: model.food,
+        isRating: model.isRating,
         chatId: model.chatId,
         followUpList: model.followUpList,
         courses: model.courses,
@@ -356,6 +360,7 @@ class TraineeRepoImpl extends TraineeRepo {
         dateOfSubscription: model.dateOfSubscription,
         supplements: model.supplements,
         food: newList,
+        isRating: model.isRating,
         chatId: model.chatId,
         followUpList: model.followUpList,
         courses: model.courses,
@@ -389,6 +394,7 @@ class TraineeRepoImpl extends TraineeRepo {
       newList.remove(foodModel);
       TraineeModel newModel = TraineeModel(
         uid: model.uid,
+        isRating: model.isRating,
         dateOfSubscription: model.dateOfSubscription,
         supplements: model.supplements,
         food: newList,
@@ -451,6 +457,7 @@ class TraineeRepoImpl extends TraineeRepo {
       list.add(followUpModel);
       TraineeModel trainee = TraineeModel(
         uid: traineeModel.uid,
+        isRating: traineeModel.isRating,
         dateOfSubscription: traineeModel.dateOfSubscription,
         supplements: traineeModel.supplements,
         food: traineeModel.food,
@@ -550,6 +557,38 @@ class TraineeRepoImpl extends TraineeRepo {
           "uid": userId,
         },
       );
+    }
+  }
+
+  @override
+  Future<Either<String, TraineeModel>> rateTrainer({
+    required TraineeModel traineeModel,
+  }) async {
+    try {
+      String uid = CacheHelper.getData(key: 'uid');
+      String trainerId = CacheHelper.getData(key: 'trainerId');
+      TraineeModel trainee = TraineeModel(
+        uid: traineeModel.uid,
+        isRating: true,
+        dateOfSubscription: traineeModel.dateOfSubscription,
+        supplements: traineeModel.supplements,
+        food: traineeModel.food,
+        chatId: traineeModel.chatId,
+        followUpList: traineeModel.followUpList,
+        courses: traineeModel.courses,
+      );
+      await FirebaseFirestore.instance
+          .collection('trainees')
+          .doc(trainerId)
+          .collection('data')
+          .doc(uid)
+          .update(
+            trainee.toJson(),
+          );
+      TraineeModel model = await traineeRemoteDataSource.getUserCourse();
+      return right(model);
+    } catch (e) {
+      return left(e.toString());
     }
   }
 }

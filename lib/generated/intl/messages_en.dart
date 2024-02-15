@@ -502,12 +502,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "The questions that trainees under your supervision should answer during the program."),
         "questtion": MessageLookupByLibrary.simpleMessage("Questions"),
         "qunatity": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "rate": MessageLookupByLibrary.simpleMessage("تقييم"),
         "rate_app": MessageLookupByLibrary.simpleMessage("Rate the App"),
         "rating": MessageLookupByLibrary.simpleMessage("Rating"),
         "rating_hint": MessageLookupByLibrary.simpleMessage(
             "Rate this product from 1 to 5"),
         "rating_product_hint":
             MessageLookupByLibrary.simpleMessage("Please rate the product"),
+        "rating_trainer_hint":
+            MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المدرب"),
         "recalculate": MessageLookupByLibrary.simpleMessage("Recalculate"),
         "received": MessageLookupByLibrary.simpleMessage("Received"),
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),
@@ -647,6 +650,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Supplement Description"),
         "sut": MessageLookupByLibrary.simpleMessage("Saturday"),
         "system": MessageLookupByLibrary.simpleMessage("System"),
+        "thanks_for_rating":
+            MessageLookupByLibrary.simpleMessage("نشكركم على التقييم"),
         "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "thurs": MessageLookupByLibrary.simpleMessage("Thursday"),
         "time": MessageLookupByLibrary.simpleMessage("Time"),

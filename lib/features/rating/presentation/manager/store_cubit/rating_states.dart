@@ -11,3 +11,12 @@ class ErrorRateProductState extends RatingStates {
 
   ErrorRateProductState(this.message);
 }
+
+class LoadingRateTrainerState extends RatingStates {}
+
+class SucessRateTrainerState extends RatingStates {}
+
+class ErrorRateTrainerState extends RatingStates {
+  final String message;
+  ErrorRateTrainerState(this.message);
+}

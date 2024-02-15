@@ -4959,6 +4959,36 @@ class S {
       args: [],
     );
   }
+
+  /// `أعطى من 1 إلي 5 لهذا المدرب`
+  String get rating_trainer_hint {
+    return Intl.message(
+      'أعطى من 1 إلي 5 لهذا المدرب',
+      name: 'rating_trainer_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تقييم`
+  String get rate {
+    return Intl.message(
+      'تقييم',
+      name: 'rate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نشكركم على التقييم`
+  String get thanks_for_rating {
+    return Intl.message(
+      'نشكركم على التقييم',
+      name: 'thanks_for_rating',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

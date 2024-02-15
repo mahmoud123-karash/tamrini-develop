@@ -132,13 +132,15 @@ void logOut(context) async {
     googleSignIn.disconnect();
   }
   await FirebaseAuth.instance.signOut();
-  CacheHelper.removeData(key: 'uid');
-  String uid = CacheHelper.getData(key: 'uid');
-  await FirebaseFirestore.instance.collection('users').doc(uid).update(
-    {
-      'token': "",
-    },
-  );
+  navigateToAndFinish(context, const LoginScreen());
+  String uid = CacheHelper.getData(key: 'uid') ?? '';
+  if (uid != '') {
+    await FirebaseFirestore.instance.collection('users').doc(uid).update(
+      {
+        'token': "",
+      },
+    );
+  }
   var box = Hive.box<ProfileModel>(profileBox);
   await box.clear();
   var box1 = Hive.box<DayModel>(dayBox);
@@ -148,7 +150,7 @@ void logOut(context) async {
   CacheHelper.removeData(key: 'deviceToken');
   CacheHelper.removeData(key: 'trainerId');
   CacheHelper.removeData(key: 'address');
-  navigateToAndFinish(context, const LoginScreen());
+  CacheHelper.removeData(key: 'uid');
 }
 
 void showReminderBottomSheet(BuildContext context, Widget widget) {

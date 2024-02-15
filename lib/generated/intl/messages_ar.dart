@@ -494,10 +494,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "الاسئلة التى يجب علي المتدربين التابعين لك الاجابة عنها اثناء المتابعة "),
         "questtion": MessageLookupByLibrary.simpleMessage("الأسئلة"),
         "qunatity": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "rate": MessageLookupByLibrary.simpleMessage("تقييم"),
         "rate_app": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
         "rating_hint":
             MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المنتج"),
+        "rating_trainer_hint":
+            MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المدرب"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "received": MessageLookupByLibrary.simpleMessage("مستلم"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
@@ -631,6 +634,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("وصف المكمل"),
         "sut": MessageLookupByLibrary.simpleMessage("يوم السبت"),
         "system": MessageLookupByLibrary.simpleMessage("النظام"),
+        "thanks_for_rating":
+            MessageLookupByLibrary.simpleMessage("نشكركم على التقييم"),
         "theme": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "thurs": MessageLookupByLibrary.simpleMessage("يوم الخميس"),
         "time": MessageLookupByLibrary.simpleMessage("الوقت"),

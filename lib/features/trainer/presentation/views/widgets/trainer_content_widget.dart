@@ -8,6 +8,7 @@ import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_name
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_row_info_widget.dart';
 
 import '../../../../../generated/l10n.dart';
+import 'rating_trainer_builder_widget.dart';
 import 'title_text_widget.dart';
 import 'trainer_buttons_row_widget.dart';
 import 'trainer_social_medial_widget.dart';
@@ -22,6 +23,7 @@ class TrainerContentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
     String userType = CacheHelper.getData(key: 'usertype');
+    String trainerId = CacheHelper.getData(key: 'trainerId') ?? '';
 
     return SingleChildScrollView(
       child: Column(
@@ -38,6 +40,11 @@ class TrainerContentWidget extends StatelessWidget {
             TrainerButtonsRowWidget(trainerId: trainer.uid),
           const SizedBox(
             height: 10,
+          ),
+          if (trainer.uid == trainerId)
+            RatingTrainerBuilderWidget(trainerId: trainer.uid),
+          const SizedBox(
+            height: 15,
           ),
           TrainerNameLoactionImageWidget(
             address: trainer.user!.address,

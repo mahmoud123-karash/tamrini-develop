@@ -28,4 +28,20 @@ class RatingCubit extends Cubit<RatingStates> {
       emit(SucessRateProductState());
     });
   }
+
+  void rateTrainer({
+    required String trainerId,
+  }) async {
+    emit(LoadingRateTrainerState());
+    var result = await ratingRepo.rateTrainer(
+      trainerId: trainerId,
+      rating: rating,
+    );
+    result.fold((message) {
+      log(message);
+      emit(ErrorRateTrainerState(message));
+    }, (r) {
+      emit(SucessRateTrainerState());
+    });
+  }
 }

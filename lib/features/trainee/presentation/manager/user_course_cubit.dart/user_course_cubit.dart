@@ -43,4 +43,21 @@ class UserCourseCubit extends Cubit<UserCourseStates> {
       },
     );
   }
+
+  void rateTrainer({
+    required TraineeModel traineeModel,
+  }) async {
+    emit(LoadingGetCourseState());
+    var result = await traineeRepo.rateTrainer(
+      traineeModel: traineeModel,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetCourseState(message));
+      },
+      (model) {
+        emit(SuccessGetCourseState(model));
+      },
+    );
+  }
 }

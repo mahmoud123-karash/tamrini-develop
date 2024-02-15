@@ -41,6 +41,8 @@ import 'package:tamrini/features/order/data/repo/order_repo_impl.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/promotion/data/repo/promotion_repo_impl.dart';
 import 'package:tamrini/features/promotion/presentation/manager/promotion_cubit/promotion_cubit.dart';
+import 'package:tamrini/features/rating/data/repo/rating_repo_impl.dart';
+import 'package:tamrini/features/rating/presentation/manager/store_cubit/rating_cubit.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/calculator_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
@@ -280,6 +282,11 @@ void main() async {
         ),
         BlocProvider(
           create: (context) => CourseCubit(),
+        ),
+        BlocProvider(
+          create: (context) => RatingCubit(
+            RatingRepoImpl(),
+          ),
         ),
         BlocProvider(
           create: (context) => FavoriteCubit(

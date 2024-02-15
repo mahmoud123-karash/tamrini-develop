@@ -64,4 +64,8 @@ abstract class TraineeRepo {
     required List<String> paths,
     required List<FollowUpData> followUpData,
   });
+
+  Future<Either<String, TraineeModel>> rateTrainer({
+    required TraineeModel traineeModel,
+  });
 }
