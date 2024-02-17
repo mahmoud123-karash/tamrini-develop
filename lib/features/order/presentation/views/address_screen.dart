@@ -4,11 +4,11 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/order/data/models/order_model/product.dart';
 import 'package:tamrini/features/order/presentation/manager/address_cubit/address_states.dart';
 import 'package:tamrini/features/order/presentation/views/widgets/address_content_widget.dart';
+import 'package:tamrini/features/payment/presentation/views/payment_screen.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../manager/address_cubit/address_cubit.dart';
-import 'summary_order_screen.dart';
 
 class AddressScreen extends StatefulWidget {
   const AddressScreen({super.key, required this.model});
@@ -79,7 +79,7 @@ class _AddressScreenState extends State<AddressScreen> {
                             formkey.currentState!.save();
                             navigateTo(
                               context,
-                              SummaryOrderScreen(
+                              PaymentScreen(
                                 storeId: widget.model.ownerUid,
                                 model: Product(
                                   title: widget.model.title,

@@ -32,6 +32,7 @@ import 'package:tamrini/features/nutrition/data/data_source/remote_data_source/n
 import 'package:tamrini/features/nutrition/data/repo/nutrition_repo_impl.dart';
 import 'package:tamrini/features/order/data/data_sources/remote_data_source/order_remote_data_source.dart';
 import 'package:tamrini/features/order/data/repo/order_repo_impl.dart';
+import 'package:tamrini/features/payment/domain/repo/payment_repo.dart';
 import 'package:tamrini/features/profile/data/data_sources/local_data_source/profile_local_data_source.dart';
 import 'package:tamrini/features/profile/data/data_sources/remote_data_source/profile_remote_data_source.dart';
 import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
@@ -59,6 +60,7 @@ import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dar
 import '../../features/auth/data/repo/login_repo_impl.dart';
 import '../../features/banner/data/repo/banner_repo_impl.dart';
 import '../../features/home_exercise/data/repo/home_exercise_repo_impl.dart';
+import '../../features/payment/domain/user_cases/create_transaction_id_use_case.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -250,6 +252,12 @@ void setLocator() {
   getIt.registerSingleton(
     BannerRepoImpl(
       BannerRemoteDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton(
+    CreateTranscationIdUseCase(
+      PaymentRepo(),
     ),
   );
 }

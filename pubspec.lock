@@ -345,6 +345,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.3"
+  dart_jwt_token:
+    dependency: "direct main"
+    description:
+      name: dart_jwt_token
+      sha256: "1fb173100d1fe1ddbb156cb258677df660373566966c8e5ec62e9a7d16546481"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.3"
   dart_style:
     dependency: transitive
     description:
@@ -1301,6 +1309,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
+  logger:
+    dependency: "direct main"
+    description:
+      name: logger
+      sha256: "6bbb9d6f7056729537a4309bda2e74e18e5d9f14302489cc1e93f33b3fe32cac"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.2+1"
   logging:
     dependency: transitive
     description:
@@ -2162,6 +2178,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "8.1.2"
+  zaincash:
+    dependency: "direct main"
+    description:
+      name: zaincash
+      sha256: "216a44e540d9cc9ddfb8b68fac455863958a8b6be714887d73e928849f8ee490"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.5"
 sdks:
   dart: ">=3.2.0 <4.0.0"
   flutter: ">=3.16.0"
