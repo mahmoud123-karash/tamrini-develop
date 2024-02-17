@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_states.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/message_question_builder_widget.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/questions_content_widget.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 import 'loading_question_widget.dart';
 

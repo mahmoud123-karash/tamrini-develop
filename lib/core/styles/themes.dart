@@ -4,9 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/utils/constants.dart';
-
-import '../../styles/styles.dart';
 
 ThemeData lightTheme = ThemeData(
   dialogTheme: DialogTheme(
@@ -77,24 +74,23 @@ ThemeData lightTheme = ThemeData(
     backgroundColor: appColor,
     foregroundColor: Colors.white,
   ),
-  textTheme: TextTheme(
-    titleMedium: const TextStyle(
+  textTheme: const TextTheme(
+    titleMedium: TextStyle(
       fontFamily: "cairo",
       color: Colors.black,
       fontSize: 16.0,
     ),
-    headlineSmall: bigTitles.headlineSmall,
-    bodyMedium: const TextStyle(
+    bodyMedium: TextStyle(
       fontFamily: "cairo",
       fontWeight: FontWeight.bold,
       color: Colors.black87,
     ),
-    bodyLarge: const TextStyle(
+    bodyLarge: TextStyle(
       fontFamily: "cairo",
       fontWeight: FontWeight.w400,
       color: Colors.black87,
     ),
-    bodySmall: const TextStyle(
+    bodySmall: TextStyle(
       fontFamily: "cairo",
       color: Colors.black54,
     ),
@@ -144,9 +140,9 @@ ThemeData darkTheme = ThemeData(
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
-    selectedItemColor: kSecondaryColor!,
+    selectedItemColor: appColor,
     elevation: 10.0,
-    backgroundColor: kSecondaryColor!,
+    backgroundColor: appColor,
     unselectedItemColor: Colors.grey,
   ),
   inputDecorationTheme: InputDecorationTheme(

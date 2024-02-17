@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_states.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 class WriteAnswerWidget extends StatefulWidget {
   const WriteAnswerWidget(

@@ -9,10 +9,9 @@ import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/core/utils/navigation_route.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
-// GlobalKey<NavigatorState> _navigationKey = GlobalKey<NavigatorState>();
-// GlobalKey<NavigatorState> get navigationKey => _navigationKey;
+GlobalKey<NavigatorState> _navigationKey = GlobalKey<NavigatorState>();
+GlobalKey<NavigatorState> get navigationKey => _navigationKey;
 
 void navigateTo(context, route) => Navigator.push(
       context,

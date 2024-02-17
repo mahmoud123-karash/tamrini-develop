@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 void checkInternet() {
   bool internetdisconnected = false;

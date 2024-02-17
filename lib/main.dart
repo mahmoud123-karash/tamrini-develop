@@ -15,6 +15,7 @@ import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/core/services/messaging.dart';
 import 'package:tamrini/core/services/request_premission.dart';
 import 'package:tamrini/core/shared/bloc_observer.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/features/admin/data/repo/admin_repo_impl.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_cubit.dart';
@@ -83,7 +84,6 @@ import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dar
 import 'package:tamrini/features/water_reminder/presentaion/manager/reminder_cubit/reminder_cubit.dart';
 import 'package:tamrini/firebase_options.dart';
 import 'package:tamrini/core/styles/themes.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 import 'features/auth/presentation/views/login_screen.dart';
 import 'features/my_day/data/models/day_model/times_model.g.dart';
 import 'features/order/presentation/manager/user_order_cubit/user_order_cubit.dart';

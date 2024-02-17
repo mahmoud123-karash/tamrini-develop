@@ -6,7 +6,6 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 import 'package:tamrini/features/water_reminder/presentaion/manager/reminder_cubit/reminder_cubit.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 import '../../features/water_reminder/presentaion/views/water_reminder_screen.dart';
 

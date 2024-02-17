@@ -2,12 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/features/water_reminder/data/data_sources/local_data_source/reminder_local_data_source.dart';
 import 'package:tamrini/features/water_reminder/data/models/reminder_model/reminder_model.dart';
 import 'package:tamrini/features/water_reminder/domain/repo/reminder_repo.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:tamrini/utils/widgets/global%20Widgets.dart';
 
 class ReminderRepoImpl extends ReminderRepo {
   final ReminderLocalDataSource reminderLocalDataSource;
