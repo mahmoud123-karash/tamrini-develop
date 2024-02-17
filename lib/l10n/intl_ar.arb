@@ -491,7 +491,12 @@
     "hello_in_tamrimni":"مرحبا بك في تطبيق تمريني ",
     "rating_trainer_hint":"أعطى من 1 إلي 5 لهذا المدرب",
     "rate":"تقييم",
-    "thanks_for_rating":"نشكركم على التقييم"
+    "thanks_for_rating":"نشكركم على التقييم",
+    "banners":"الإعلانات",
+    "add_new_banner":"إضافة إعلان جديد",
+    "edit_banner":"تعديل الإعلان",
+    "remove_banner":"حذف الإعلان",
+    "remove_banner_question":"هل تريد حذف هذا الإعلان ؟"
 
 
 

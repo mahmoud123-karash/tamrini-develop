@@ -9,6 +9,7 @@ import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_r
 import 'package:tamrini/features/auth/data/repo/register_repo_impl.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
+import 'package:tamrini/features/banner/data/data_sources/remote_data_source/banner_remote_data_source.dart';
 import 'package:tamrini/features/chat/data/repo/chat_repo_impl.dart';
 import 'package:tamrini/features/exercise/data/data_sources/remote_data_source/exercise_remote_data_source.dart';
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
@@ -56,6 +57,7 @@ import 'package:tamrini/features/water_reminder/data/data_sources/local_data_sou
 import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dart';
 
 import '../../features/auth/data/repo/login_repo_impl.dart';
+import '../../features/banner/data/repo/banner_repo_impl.dart';
 import '../../features/home_exercise/data/repo/home_exercise_repo_impl.dart';
 
 GetIt getIt = GetIt.instance;
@@ -242,6 +244,12 @@ void setLocator() {
     FavoriteRepoImpl(
       FavoriteRemoteDataSourceImpl(),
       FavoriteLocalDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton(
+    BannerRepoImpl(
+      BannerRemoteDataSourceImpl(),
     ),
   );
 }

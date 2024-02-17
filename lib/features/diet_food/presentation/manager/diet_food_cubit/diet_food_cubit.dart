@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/domain/repo/diet_food_repo.dart';
-import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_states.dart';
+import 'package:tamrini/features/diet_food/presentation/manager/diet_food_cubit/diet_food_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class DietFoodCubit extends Cubit<DietFoodStates> {

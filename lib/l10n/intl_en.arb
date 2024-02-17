@@ -492,7 +492,13 @@
     "hello_in_tamrimni": "Welcome to the Tamrini application",
     "rating_trainer_hint": "Rate this trainer from 1 to 5",
     "rate": "Rate",
-    "thanks_for_rating": "Thank you for your rating"
+    "thanks_for_rating": "Thank you for your rating",
+    "banners":"الإعلانات",
+    "add_new_banner":"إضافة إعلان جديد",
+    "edit_banner":"تعديل الإعلان",
+    "remove_banner":"حذف الإعلان",
+    "remove_banner_question":"هل تريد حذف هذا الإعلان ؟"
+
 
 
 

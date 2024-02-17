@@ -3,7 +3,7 @@ import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
-import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_cubit.dart';
+import 'package:tamrini/features/diet_food/presentation/manager/diet_food_cubit/diet_food_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/food_custom_button_widget.dart';

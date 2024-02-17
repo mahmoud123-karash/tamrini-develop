@@ -42,12 +42,13 @@ class TrainerProfileScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          if (userType != 'admin' && userType != 'trainer')
-                            SubButtonWithTrainerWidget(
-                              trainerId: trainer.uid,
-                              traineesCount: trainer.traineesCount,
-                              profits: trainer.profits + trainer.price,
-                            ),
+                          if (trainer.isBanned == false)
+                            if (userType != 'admin' && userType != 'trainer')
+                              SubButtonWithTrainerWidget(
+                                trainerId: trainer.uid,
+                                traineesCount: trainer.traineesCount,
+                                profits: trainer.profits + trainer.price,
+                              ),
                           if (trainer.uid == uid && userType == 'trainer')
                             Padding(
                               padding: const EdgeInsets.symmetric(
@@ -61,8 +62,9 @@ class TrainerProfileScreen extends StatelessWidget {
                                 lable: S.of(context).edit,
                               ),
                             ),
-                          if (userType == 'admin')
-                            BanCustomBuilderWidget(trainer: trainer),
+                          if (trainer.isBanned == false)
+                            if (userType == 'admin')
+                              BanCustomBuilderWidget(trainer: trainer),
                         ],
                       ),
                     )

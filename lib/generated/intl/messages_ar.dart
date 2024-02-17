@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_meal": MessageLookupByLibrary.simpleMessage("اضافة وجبة"),
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("لم يتم اختيار وجبة"),
+        "add_new_banner":
+            MessageLookupByLibrary.simpleMessage("إضافة إعلان جديد"),
         "add_new_course":
             MessageLookupByLibrary.simpleMessage("إضافة كورس جديد"),
         "add_new_diet_course":
@@ -140,6 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات"),
         "banned_trainers":
             MessageLookupByLibrary.simpleMessage("المدربيين المقيدين"),
+        "banners": MessageLookupByLibrary.simpleMessage("الإعلانات"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
         "best_seller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),
@@ -214,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الإجابة"),
         "edit_article": MessageLookupByLibrary.simpleMessage("تعديل المقال"),
+        "edit_banner": MessageLookupByLibrary.simpleMessage("تعديل الإعلان"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("تعديل التمرين"),
         "edit_gym": MessageLookupByLibrary.simpleMessage("تعديل الصالة"),
         "edit_meal": MessageLookupByLibrary.simpleMessage("تعديل الوجبة"),
@@ -513,6 +517,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_to_drink":
             MessageLookupByLibrary.simpleMessage("تذكير لشرب الماء"),
         "remove_article": MessageLookupByLibrary.simpleMessage("حذف المقال"),
+        "remove_banner": MessageLookupByLibrary.simpleMessage("حذف الإعلان"),
+        "remove_banner_question":
+            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا الإعلان ؟"),
         "remove_diet_question": MessageLookupByLibrary.simpleMessage(
             "هل تريد حذف هذا النظام الغذائى ؟"),
         "remove_exercise_question":

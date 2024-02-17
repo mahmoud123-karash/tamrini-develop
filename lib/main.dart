@@ -19,6 +19,8 @@ import 'package:tamrini/core/utils/awesome_notification.dart';
 import 'package:tamrini/features/admin/data/repo/admin_repo_impl.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_cubit.dart';
 import 'package:tamrini/features/atricle/data/repo/article_repo_impl.dart';
+import 'package:tamrini/features/banner/data/repo/banner_repo_impl.dart';
+import 'package:tamrini/features/banner/presentation/manager/banner_cubit/banner_cubit.dart';
 
 import 'package:tamrini/features/exercise/data/repo/exercise_repo_impl.dart';
 import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
@@ -56,7 +58,7 @@ import 'package:tamrini/features/settings/presentation/manager/manage_cubit/mana
 import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
 import 'package:tamrini/features/navBar/presentation/views/navbar_screen.dart';
 import 'package:tamrini/features/diet_food/data/repo/diet_food_repo_impl.dart';
-import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_cubit.dart';
+import 'package:tamrini/features/diet_food/presentation/manager/diet_food_cubit/diet_food_cubit.dart';
 import 'package:tamrini/features/notification/data/repo/notification_repo_impl.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
@@ -291,6 +293,11 @@ void main() async {
         BlocProvider(
           create: (context) => FavoriteCubit(
             getIt.get<FavoriteRepoImpl>(),
+          ),
+        ),
+         BlocProvider(
+          create: (context) => BannerCubit(
+            getIt.get<BannerRepoImpl>(),
           ),
         ),
         BlocProvider(

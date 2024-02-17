@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
-import 'package:tamrini/features/diet_food/presentation/manager/article_cubit/diet_food_cubit.dart';
+import 'package:tamrini/features/diet_food/presentation/manager/diet_food_cubit/diet_food_cubit.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/food_diet_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-import '../manager/article_cubit/diet_food_states.dart';
+import '../manager/diet_food_cubit/diet_food_states.dart';
 import 'widgets/edit_custom_button_widget.dart';
 
 class DietFoodDetailsScreen extends StatelessWidget {

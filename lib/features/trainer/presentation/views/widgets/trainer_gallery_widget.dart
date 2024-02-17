@@ -18,10 +18,12 @@ class TrainerGalleryWidget extends StatelessWidget {
         const Spacer(),
         TextButton(
           onPressed: () {
-            navigateTo(
-              context,
-              TrainerGallerySreen(id: model.uid),
-            );
+            if (model.isBanned == false) {
+              navigateTo(
+                context,
+                TrainerGallerySreen(id: model.uid),
+              );
+            }
           },
           child: Text(S.of(context).more),
         ),

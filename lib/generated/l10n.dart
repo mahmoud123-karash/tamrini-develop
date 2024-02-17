@@ -4989,6 +4989,56 @@ class S {
       args: [],
     );
   }
+
+  /// `الإعلانات`
+  String get banners {
+    return Intl.message(
+      'الإعلانات',
+      name: 'banners',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة إعلان جديد`
+  String get add_new_banner {
+    return Intl.message(
+      'إضافة إعلان جديد',
+      name: 'add_new_banner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تعديل الإعلان`
+  String get edit_banner {
+    return Intl.message(
+      'تعديل الإعلان',
+      name: 'edit_banner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `حذف الإعلان`
+  String get remove_banner {
+    return Intl.message(
+      'حذف الإعلان',
+      name: 'remove_banner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد حذف هذا الإعلان ؟`
+  String get remove_banner_question {
+    return Intl.message(
+      'هل تريد حذف هذا الإعلان ؟',
+      name: 'remove_banner_question',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

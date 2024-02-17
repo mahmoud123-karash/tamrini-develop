@@ -3,6 +3,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/admin/presentation/views/banned_stores_screen.dart';
 import 'package:tamrini/features/admin/presentation/views/gyms_banned_screen.dart';
+import 'package:tamrini/features/banner/presentation/views/banner_screen.dart';
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/suggest_exercise/presentation/views/suggested_exercises_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -43,6 +44,13 @@ class AdminScreen extends StatelessWidget {
                 onPressed: () {
                   navigateTo(context,
                       UsersScreen(title: S.of(context).all_users, usrType: ''));
+                },
+              ),
+              AdminListTileWidget(
+                lable: S.of(context).banners,
+                icon: Icons.airplay_sharp,
+                onPressed: () {
+                  navigateTo(context, const BannerScreen());
                 },
               ),
               AdminListTileWidget(
