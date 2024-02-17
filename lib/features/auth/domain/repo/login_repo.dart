@@ -8,5 +8,4 @@ abstract class LoginRepo {
   });
 
   Future<UserCredential> loginWithGoogle();
-  Future<UserCredential> loginUserWithApple();
 }
