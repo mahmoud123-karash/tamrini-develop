@@ -9,5 +9,6 @@ abstract class BannerRepo {
   });
   Future<Either<String, List<BannerModel>>> removeBanner({
     required String id,
+    required String image,
   });
 }

@@ -38,9 +38,11 @@ class BannerCubit extends Cubit<BannerStates> {
     );
   }
 
-  void removeBanner({required String id}) async {
-    emit(LoadingGetBannersState());
-    var result = await bannerRepo.removeBanner(id: id);
+  void removeBanner({
+    required String id,
+    required String image,
+  }) async {
+    var result = await bannerRepo.removeBanner(id: id, image: image);
     result.fold(
       (message) {
         emit(ErrorGetBannersState(message));

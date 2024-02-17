@@ -142,6 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "لقد تم حظر صالة الألعاب الرياضية الخاصة بك. يرجى الاتصال بالمسؤول لمزيد من المعلومات"),
         "banned_trainers":
             MessageLookupByLibrary.simpleMessage("المدربيين المقيدين"),
+        "banner_uri": MessageLookupByLibrary.simpleMessage("الرابط"),
         "banners": MessageLookupByLibrary.simpleMessage("الإعلانات"),
         "before": MessageLookupByLibrary.simpleMessage("قبل"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("الأفضل مبيعا"),

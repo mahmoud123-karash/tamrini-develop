@@ -497,7 +497,9 @@
     "add_new_banner":"إضافة إعلان جديد",
     "edit_banner":"تعديل الإعلان",
     "remove_banner":"حذف الإعلان",
-    "remove_banner_question":"هل تريد حذف هذا الإعلان ؟"
+    "remove_banner_question":"هل تريد حذف هذا الإعلان ؟",
+    "banner_uri":"الرابط"
+
 
 
 

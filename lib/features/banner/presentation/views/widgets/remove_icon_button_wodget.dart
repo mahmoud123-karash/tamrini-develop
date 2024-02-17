@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/banner/data/models/banner_model/banner_model.dart';
+import 'package:tamrini/features/banner/presentation/manager/banner_cubit/banner_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class RemoveiconButtonWidget extends StatelessWidget {
@@ -28,7 +29,12 @@ class RemoveiconButtonWidget extends StatelessWidget {
           title: S.of(context).remove_banner,
           desc: S.of(context).remove_banner_question,
           btnCancelOnPress: () {},
-          btnOkOnPress: () {},
+          btnOkOnPress: () {
+            BannerCubit.get(context).removeBanner(
+              id: model.id,
+              image: model.image,
+            );
+          },
         ).show();
       },
       icon: const Icon(

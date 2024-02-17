@@ -9,7 +9,13 @@ class BannerRemoteDataSourceImpl extends BannerRemoteDataSource {
   @override
   Future<List<BannerModel>> get() async {
     List<BannerModel> list = [];
-    var data = await FirebaseFirestore.instance.collection('banners').get();
+    var data = await FirebaseFirestore.instance
+        .collection('banners')
+        .orderBy(
+          'addedAt',
+          descending: true,
+        )
+        .get();
 
     for (var element in data.docs) {
       list.add(BannerModel.fromjson(element.data()));

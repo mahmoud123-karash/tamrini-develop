@@ -51,10 +51,14 @@ class BannerRepoImpl extends BannerRepo {
   @override
   Future<Either<String, List<BannerModel>>> removeBanner({
     required String id,
+    required String image,
   }) async {
     try {
       await FirebaseFirestore.instance.collection('banners').doc(id).delete();
       List<BannerModel> list = await bannerRemoteDataSource.get();
+      List<String> oldImages = [];
+      oldImages.add(image);
+      await deleteOldImages(newImages: [], oldImages: oldImages);
       return right(list);
     } catch (e) {
       return left(e.toString());

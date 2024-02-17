@@ -295,10 +295,10 @@ void main() async {
             getIt.get<FavoriteRepoImpl>(),
           ),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => BannerCubit(
             getIt.get<BannerRepoImpl>(),
-          ),
+          )..getData(),
         ),
         BlocProvider(
           create: (context) => ManageCubit()

@@ -143,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your gym has been banned. Please contact the administrator for more information."),
         "banned_trainers":
             MessageLookupByLibrary.simpleMessage("Banned Trainers"),
+        "banner_uri": MessageLookupByLibrary.simpleMessage("الرابط"),
         "banners": MessageLookupByLibrary.simpleMessage("الإعلانات"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),

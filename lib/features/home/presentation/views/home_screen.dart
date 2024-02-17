@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/atricle/presentation/manager/article_cubit/articles_cubit.dart';
+import 'package:tamrini/features/banner/presentation/manager/banner_cubit/banner_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_articles_widget_builder.dart';
@@ -8,6 +9,7 @@ import 'package:tamrini/features/home/presentation/views/widgets/home_gym_builde
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 
+import 'widgets/home_banner_swiper_widget.dart';
 import 'widgets/home_product_widget_builder.dart';
 import 'widgets/trainer_home_widget_builder.dart';
 
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
       onRefresh: () async {
         await Future.delayed(const Duration(milliseconds: 1500)).then((value) {
           if (mounted) {
+            BannerCubit.get(context).getData();
             TrainersCubit.get(context).getData();
             ArticlesCubit.get(context).getData();
             ExerciseCubit.get(context).getData();
@@ -36,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: const SingleChildScrollView(
         child: Column(
           children: [
+            BannerSwiperWidget(),
             TrainerHomeWidgetBuilder(),
             HomeExerciseWidgetBuilder(),
             HomeArticlesWidgetBuilder(),

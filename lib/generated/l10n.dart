@@ -5039,6 +5039,16 @@ class S {
       args: [],
     );
   }
+
+  /// `الرابط`
+  String get banner_uri {
+    return Intl.message(
+      'الرابط',
+      name: 'banner_uri',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
