@@ -48,6 +48,7 @@ class TrainerProfileScreen extends StatelessWidget {
                                 trainerId: trainer.uid,
                                 traineesCount: trainer.traineesCount,
                                 profits: trainer.profits + trainer.price,
+                                price: trainer.profits,
                               ),
                           if (trainer.uid == uid && userType == 'trainer')
                             Padding(

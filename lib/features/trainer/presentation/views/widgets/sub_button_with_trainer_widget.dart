@@ -17,10 +17,11 @@ class SubButtonWithTrainerWidget extends StatefulWidget {
     required this.trainerId,
     required this.traineesCount,
     required this.profits,
+    required this.price,
   });
   final String trainerId;
   final int traineesCount;
-  final num profits;
+  final num profits, price;
 
   @override
   State<SubButtonWithTrainerWidget> createState() =>
@@ -58,6 +59,7 @@ class _SubButtonWithTrainerWidgetState
                             trainerId: widget.trainerId,
                             traineesCount: widget.traineesCount,
                             profits: widget.profits,
+                            price: widget.price,
                           )
                         : Padding(
                             padding: const EdgeInsets.only(bottom: 12.0),
@@ -75,12 +77,14 @@ class _SubButtonWithTrainerWidgetState
                       trainerId: widget.trainerId,
                       traineesCount: widget.traineesCount,
                       profits: widget.profits,
+                      price: widget.price,
                     ),
                 if (trainerId == '')
                   SubCustomBuilderButtonWidget(
                     trainerId: widget.trainerId,
                     traineesCount: widget.traineesCount,
                     profits: widget.profits,
+                    price: widget.price,
                   ),
               ],
             ),

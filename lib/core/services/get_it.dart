@@ -41,7 +41,6 @@ import 'package:tamrini/features/promotion/data/data_source/remote_data_source/p
 import 'package:tamrini/features/promotion/data/repo/promotion_repo_impl.dart';
 import 'package:tamrini/features/questions/data/data_sources/remote_data_source/remote_question_data_source.dart';
 import 'package:tamrini/features/questions/data/repo/question_repo_impl.dart';
-import 'package:tamrini/features/questions/domain/use_cases/ban_question_use_case.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import 'package:tamrini/features/rating/data/repo/rating_repo_impl.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
@@ -63,7 +62,7 @@ import 'package:tamrini/features/water_reminder/data/repo/reminder_repo_impl.dar
 import '../../features/auth/data/repo/login_repo_impl.dart';
 import '../../features/banner/data/repo/banner_repo_impl.dart';
 import '../../features/home_exercise/data/repo/home_exercise_repo_impl.dart';
-import '../../features/payment/domain/user_cases/create_transaction_id_use_case.dart';
+import '../../features/payment/domain/use_cases/create_transaction_id_use_case.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -199,14 +198,6 @@ void setLocator() {
     ArticleRepoImpl(
       ArticleRemoteDataSourceImpl(),
       getIt.get<DioHelper>(),
-    ),
-  );
-
-  getIt.registerSingleton<BanQuestionUseCase>(
-    BanQuestionUseCase(
-      getIt.get<QuestionRepoImpl>(),
-      getIt.get<DioHelper>(),
-      QuestionRemoteDataSourceImpl(),
     ),
   );
 

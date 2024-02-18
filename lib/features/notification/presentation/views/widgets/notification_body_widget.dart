@@ -54,9 +54,6 @@ class NotificationBodyWidget extends StatelessWidget {
       case 'answer':
         result = S.of(context).new_comment_question;
         break;
-      case 'ban_question':
-        result = S.of(context).ban_your_question;
-        break;
       case 'ban_gym':
         result = S.of(context).banned_gym_hint;
         break;

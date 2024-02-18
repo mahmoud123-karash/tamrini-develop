@@ -88,33 +88,6 @@ class OptionsBottomSheetWidget extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              if (isAdmin)
-                ListTile(
-                  tileColor: Colors.red.withOpacity(0.1),
-                  shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
-                  ),
-                  onTap: () {
-                    QuestionCubit.get(context).banQuestion(
-                      model: QuestionModel(
-                        date: model.date,
-                        body: model.body,
-                        askerUid: model.askerUid,
-                        answersCount: model.answersCount,
-                        answers: model.answers,
-                        isBanned: true,
-                      ),
-                      context: context,
-                      id: model.id!,
-                      token: token,
-                    );
-                  },
-                  title: Text(S.of(context).ban),
-                  leading: const Icon(
-                    Icons.remove_circle,
-                  ),
-                ),
             ],
           ),
         ),

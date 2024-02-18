@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/payment/domain/user_cases/create_transaction_id_use_case.dart';
+import 'package:tamrini/features/payment/domain/use_cases/create_transaction_id_use_case.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_states.dart';
 
 class PaymentCubit extends Cubit<PaymentStates> {

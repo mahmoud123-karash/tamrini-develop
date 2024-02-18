@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/order/data/models/order_model/product.dart';
-import 'package:tamrini/features/payment/domain/user_cases/create_transaction_id_use_case.dart';
+import 'package:tamrini/features/payment/domain/use_cases/create_transaction_id_use_case.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_cubit.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_states.dart';
 import 'package:tamrini/features/payment/presentation/views/widgets/payment_custom_button_widget.dart';

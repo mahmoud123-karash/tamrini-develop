@@ -36,7 +36,7 @@ class PaymentRepo {
   Future<String?> createId({
     required String token,
   }) async {
-    const String merchantId = "654b2c939788a73a94a637bf";
+    const String merchantId = "5ffacf6612b5777c6d44266f";
     const String initUrl = 'https://test.zaincash.iq/transaction/init';
     final Map<String, dynamic> postData = {
       'token': token,

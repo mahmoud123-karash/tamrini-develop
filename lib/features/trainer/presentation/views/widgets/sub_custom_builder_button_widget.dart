@@ -6,16 +6,19 @@ import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trai
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../../../../payment/presentation/views/trainer_sub_payment_screen.dart';
+
 class SubCustomBuilderButtonWidget extends StatelessWidget {
   const SubCustomBuilderButtonWidget({
     super.key,
     required this.trainerId,
     required this.traineesCount,
     required this.profits,
+    required this.price,
   });
   final String trainerId;
   final int traineesCount;
-  final num profits;
+  final num profits, price;
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +41,20 @@ class SubCustomBuilderButtonWidget extends StatelessWidget {
         } else {
           return customButton(
             onPressed: () {
-              TraineeCubit.get(context).subUser(
-                trainerId: trainerId,
-                traineesCount: traineesCount,
-                profits: profits,
+              navigateTo(
+                context,
+                TrainerSubPaymentScreen(
+                  trainerId: trainerId,
+                  traineesCount: traineesCount,
+                  profits: profits,
+                  price: price,
+                ),
               );
+              // TraineeCubit.get(context).subUser(
+              //   trainerId: trainerId,
+              //   traineesCount: traineesCount,
+              //   profits: profits,
+              // );
             },
             lable: S.of(context).sub,
           );

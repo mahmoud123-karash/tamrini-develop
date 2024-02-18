@@ -11,18 +11,17 @@ import 'package:zaincash/zaincash.dart';
 
 import 'widgets/payment_content_widget.dart';
 
-class GymSubPaymentScreen extends StatelessWidget {
-  const GymSubPaymentScreen({
+class TrainerSubPaymentScreen extends StatelessWidget {
+  const TrainerSubPaymentScreen({
     Key? key,
-    required this.gymId,
-    required this.count,
-    required this.price,
+    required this.trainerId,
+    required this.traineesCount,
     required this.profits,
-    required this.subId,
+    required this.price,
   }) : super(key: key);
-  final String gymId, subId;
-  final int count;
-  final num price, profits;
+  final String trainerId;
+  final int traineesCount;
+  final num profits, price;
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +30,13 @@ class GymSubPaymentScreen extends StatelessWidget {
       if (state['success'] == 0) {}
     });
 
+    num amount = price;
     return BlocProvider(
       create: (context) => PaymentCubit(
         getIt.get<CreateTranscationIdUseCase>(),
       )..createTransactionId(
-          amount: price,
-          orderId: gymId,
+          amount: amount,
+          orderId: trainerId,
         ),
       child: Scaffold(
         appBar: myAppBar(S.of(context).payment),
@@ -45,8 +45,8 @@ class GymSubPaymentScreen extends StatelessWidget {
             if (state is SucessCreateTransactionIdState) {
               return PaymentContentWidget(
                 transactionId: state.token,
-                amount: price,
-                id: gymId,
+                amount: amount,
+                id: trainerId,
               );
             } else if (state is ErrorCreateTransactionIdState) {
               return Padding(
@@ -64,8 +64,8 @@ class GymSubPaymentScreen extends StatelessWidget {
                       height: 15,
                     ),
                     PaymentCustomButtonWidget(
-                      amount: price,
-                      id: gymId,
+                      amount: amount,
+                      id: trainerId,
                     ),
                   ],
                 ),

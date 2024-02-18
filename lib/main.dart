@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +88,6 @@ import 'package:tamrini/core/styles/themes.dart';
 import 'features/auth/presentation/views/login_screen.dart';
 import 'features/my_day/data/models/day_model/times_model.g.dart';
 import 'features/order/presentation/manager/user_order_cubit/user_order_cubit.dart';
-import 'features/questions/domain/use_cases/ban_question_use_case.dart';
 import 'features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
 import 'features/water_reminder/data/models/reminder_model/reminder_model.dart';
 import 'features/water_reminder/data/models/reminder_model/date_time.g.dart';
@@ -98,7 +95,7 @@ import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  unawaited(MobileAds.instance.initialize());
+  MobileAds.instance.initialize();
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
   await Firebase.initializeApp(
@@ -203,7 +200,6 @@ void main() async {
         BlocProvider(
           create: (context) => QuestionCubit(
             getIt.get<QuestionRepoImpl>(),
-            getIt.get<BanQuestionUseCase>(),
           )..getQuestions(),
         ),
         BlocProvider(
