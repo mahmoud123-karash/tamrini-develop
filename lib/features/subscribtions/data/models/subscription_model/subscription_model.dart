@@ -1,11 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hive/hive.dart';
 
+part 'subscription_model.g.dart';
+
+@HiveType(typeId: 8)
 class SubscriptionModel {
+  @HiveField(0)
   final String gymId;
+  @HiveField(1)
   final Timestamp subDate;
+  @HiveField(2)
   final Timestamp endDate;
+  @HiveField(3)
   final String uid;
+  @HiveField(4)
   final num price;
+  @HiveField(5)
   final String paymentMethod;
 
   SubscriptionModel({

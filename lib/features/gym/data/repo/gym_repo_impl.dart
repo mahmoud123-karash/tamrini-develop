@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
+import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';

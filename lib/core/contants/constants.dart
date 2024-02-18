@@ -22,6 +22,7 @@ String profileBox = 'profile_box';
 String dayBox = 'day_box';
 String reminderBox = 'reminderbox';
 String favoriteBox = 'favorite_box';
+String subBox = 'sub_box';
 
 String adminUid = '7JGTeYMv6yfQrUwABPHibDJrot82';
 String apiKey = 'AIzaSyBufaYHAy80nTHvhEjS8ABOwBlSK_3HCnQ';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
+import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
-import 'package:tamrini/features/gym/presentation/views/widgets/subscriptions_item_widget.dart';
+import 'package:tamrini/features/subscribtions/presentation/views/widgets/subscriptions_item_widget.dart';
 
 class SubscriptionItemBuilderWidget extends StatelessWidget {
   const SubscriptionItemBuilderWidget({super.key, required this.model});

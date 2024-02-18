@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +7,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
+import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/services/internet_connection.dart';
 import 'package:tamrini/core/services/location.dart';
@@ -95,6 +99,7 @@ import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  unawaited(MobileAds.instance.initialize());
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
   await Firebase.initializeApp(
@@ -116,6 +121,8 @@ void main() async {
   await Hive.openBox<ReminderModel>(reminderBox);
   Hive.registerAdapter(MealModelAdapter());
   await Hive.openBox<MealModel>(favoriteBox);
+  Hive.registerAdapter(SubscriptionModelAdapter());
+  await Hive.openBox<SubscriptionModel>(subBox);
 
   determinePosition();
   setLocator();

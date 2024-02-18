@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
+import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/gym/presentation/views/widgets/subscription_gym_details_widget.dart';
-import 'gym_slide_show_images_widget.dart';
-import 'payment_method_and_price_widget.dart';
-import 'sub_end_date_row_widget.dart';
+import 'package:tamrini/features/subscribtions/presentation/views/widgets/subscription_gym_details_widget.dart';
+import '../../../../gym/presentation/views/widgets/gym_slide_show_images_widget.dart';
+import '../../../../gym/presentation/views/widgets/payment_method_and_price_widget.dart';
+import '../../../../gym/presentation/views/widgets/sub_end_date_row_widget.dart';
 
 class SubscribtionsItemWidget extends StatelessWidget {
   const SubscribtionsItemWidget(

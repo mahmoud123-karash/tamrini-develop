@@ -1,5 +1,9 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
@@ -13,7 +17,7 @@ import 'package:tamrini/generated/l10n.dart';
 
 import 'all_exercises_category_screen.dart';
 
-class CategoryExercisesScreen extends StatelessWidget {
+class CategoryExercisesScreen extends StatefulWidget {
   const CategoryExercisesScreen({
     Key? key,
     this.isCourse = false,
@@ -21,14 +25,55 @@ class CategoryExercisesScreen extends StatelessWidget {
   final bool isCourse;
 
   @override
+  State<CategoryExercisesScreen> createState() =>
+      _CategoryExercisesScreenState();
+}
+
+class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
+  BannerAd? _bannerAd;
+  bool _isLoaded = false;
+
+  final adUnitId = Platform.isAndroid
+      ? 'ca-app-pub-7552807490163247~3569054859'
+      : 'ca-app-pub-3940256099942544/2934735716';
+
+  /// Loads a banner ad.
+  void loadAd() {
+    _bannerAd = BannerAd(
+      adUnitId: adUnitId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        // Called when an ad is successfully received.
+        onAdLoaded: (ad) {
+          debugPrint('$ad loaded.');
+          setState(() {
+            _isLoaded = true;
+          });
+        },
+        // Called when an ad request failed.
+        onAdFailedToLoad: (ad, err) {
+          log('BannerAd failed to load: $err');
+          // Dispose the ad here to free resources.
+          ad.dispose();
+        },
+      ),
+    )..load();
+  }
+
+  @override
+  void initState() {
+    loadAd();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     CourseCubit.get(context).list.clear();
     String userType = CacheHelper.getData(key: 'usertype');
 
     return Scaffold(
-      appBar: myAppBar(
-        S.of(context).categoryEx,
-      ),
+      appBar: myAppBar(S.of(context).categoryEx),
       body: BlocBuilder<ExerciseCubit, ExerciseStates>(
         builder: (context, state) {
           if (state is SucessGetExerciseState) {
@@ -38,6 +83,12 @@ class CategoryExercisesScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
+                    if (_bannerAd != null)
+                      SizedBox(
+                        width: _bannerAd!.size.width.toDouble(),
+                        height: _bannerAd!.size.height.toDouble(),
+                        child: AdWidget(ad: _bannerAd!),
+                      ),
                     if (userType == 'admin')
                       addCustomButton(
                         onPressed: () {
@@ -61,7 +112,7 @@ class CategoryExercisesScreen extends StatelessWidget {
                               list: exercises,
                               title: S.of(context).allEx,
                               isAll: true,
-                              isCourse: isCourse,
+                              isCourse: widget.isCourse,
                             ),
                           );
                         }
@@ -71,7 +122,7 @@ class CategoryExercisesScreen extends StatelessWidget {
                       height: 20,
                     ),
                     CategoryGridViewWidget(
-                        models: state.exercises, isCourse: isCourse),
+                        models: state.exercises, isCourse: widget.isCourse),
                   ],
                 ),
               ),

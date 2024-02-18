@@ -47,6 +47,9 @@ import 'package:tamrini/features/rating/data/repo/rating_repo_impl.dart';
 import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
+import 'package:tamrini/features/subscribtions/data/data_sources/local_data_source/subscribtion_local_data_source.dart';
+import 'package:tamrini/features/subscribtions/data/data_sources/remote_data_source/subscribtion_remote_data_source.dart';
+import 'package:tamrini/features/subscribtions/data/repo/subscription_repo_impl.dart';
 import 'package:tamrini/features/suggest_exercise/data/data_sources/remote_data_source/suggest_remote_data_source.dart';
 import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
 import 'package:tamrini/features/trainee/data/data_sources/remote_data_source/trainee_remote_data_source.dart';
@@ -258,6 +261,13 @@ void setLocator() {
   getIt.registerSingleton(
     CreateTranscationIdUseCase(
       PaymentRepo(),
+    ),
+  );
+
+  getIt.registerSingleton(
+    SubscriptionRepoImpl(
+      SubscriptionRemoteDataSourceImpl(),
+      SubscribtionLocalDataSourceImpl(),
     ),
   );
 }

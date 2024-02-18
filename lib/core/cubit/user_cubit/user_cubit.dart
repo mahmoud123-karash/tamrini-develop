@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/core/cubit/user_cubit/user_states.dart';
@@ -25,29 +23,6 @@ class UserCubit extends Cubit<UserStates> {
       }
     } catch (e) {
       emit(ErrorGetUserState(e.toString()));
-    }
-  }
-
-  void getSubscriptions() async {
-    emit(LoadingGetUserSubState());
-    try {
-      List<SubscriptionModel> list = [];
-      String uid = CacheHelper.getData(key: 'uid');
-      var result = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(uid)
-          .collection('Subscriptions')
-          .orderBy('subDate', descending: true)
-          .get();
-      for (var element in result.docs) {
-        SubscriptionModel model = SubscriptionModel.fromJson(element.data());
-        list.add(model);
-      }
-      if (!isClosed) {
-        emit(SucessGetUserSubState(list));
-      }
-    } catch (e) {
-      emit(ErrorGetUserSubState(e.toString()));
     }
   }
 }

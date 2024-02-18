@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/models/subscription_model/subscription_model.dart';
+import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/ended_subed_row_widget.dart';
-import 'package:tamrini/features/gym/presentation/views/widgets/subscription_item_builder_widget.dart';
+import 'package:tamrini/features/subscribtions/presentation/views/widgets/subscription_item_builder_widget.dart';
 
 class SubscriptionsListViewWidget extends StatelessWidget {
   const SubscriptionsListViewWidget({super.key, required this.list});
