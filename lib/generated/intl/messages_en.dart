@@ -553,6 +553,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "renew_trainee_title": MessageLookupByLibrary.simpleMessage(
             "The trainee has renewed the subscription."),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
+        "request_profits": MessageLookupByLibrary.simpleMessage("طلب سحب"),
+        "request_profits_hint": MessageLookupByLibrary.simpleMessage(
+            "لا يمكنك سحب مبلغ اقل من 7 آلف دينار"),
         "request_promotion_done": MessageLookupByLibrary.simpleMessage(
             "Your promotion request has been submitted"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
@@ -715,6 +718,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Very Intense Activity in Work and Club"),
         "view_rder_details":
             MessageLookupByLibrary.simpleMessage("View Order Details"),
+        "warning_the_user_profits": MessageLookupByLibrary.simpleMessage(
+            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 7000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("Water alarm"),
         "wed": MessageLookupByLibrary.simpleMessage("Wednesday"),
         "weeks": MessageLookupByLibrary.simpleMessage("Weeks"),

@@ -10,6 +10,7 @@ import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.d
 import 'package:tamrini/features/gym/presentation/views/widgets/gym_row_info_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../../../profits/presentation/views/profits_screen.dart';
 import 'widgets/ban_gym_container_widget.dart';
 import 'widgets/edit_gym_row_widget.dart';
 import 'widgets/gym_slide_show_images_widget.dart';
@@ -54,7 +55,10 @@ class GymOwnerScreen extends StatelessWidget {
                         vertical: 10,
                       ),
                       child: ListTile(
-                        onTap: () {},
+                        onTap: () {
+                          navigateTo(
+                              context, ProfitsScreen(profits: model.profits));
+                        },
                         shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(

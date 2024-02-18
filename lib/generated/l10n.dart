@@ -5059,6 +5059,36 @@ class S {
       args: [],
     );
   }
+
+  /// `طلب سحب`
+  String get request_profits {
+    return Intl.message(
+      'طلب سحب',
+      name: 'request_profits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يمكنك سحب مبلغ اقل من 7 آلف دينار`
+  String get request_profits_hint {
+    return Intl.message(
+      'لا يمكنك سحب مبلغ اقل من 7 آلف دينار',
+      name: 'request_profits_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 7000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!`
+  String get warning_the_user_profits {
+    return Intl.message(
+      'يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 7000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!',
+      name: 'warning_the_user_profits',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

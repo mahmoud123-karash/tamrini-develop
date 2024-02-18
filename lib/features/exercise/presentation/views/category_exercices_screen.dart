@@ -34,7 +34,7 @@ class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
   bool _isLoaded = false;
 
   final adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-7552807490163247/3569054859'
+      ? 'ca-app-pub-7552807490163247~3569054859'
       : 'ca-app-pub-3940256099942544/2934735716';
 
   /// Loads a banner ad.
