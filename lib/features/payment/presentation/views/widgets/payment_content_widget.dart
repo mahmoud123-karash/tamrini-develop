@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:tamrini/features/payment/presentation/views/widgets/payment_custom_button_widget.dart';
 import 'package:zaincash/zaincash.dart';
 
@@ -16,8 +15,6 @@ class PaymentContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      scrollDirection:
-          Intl.getCurrentLocale() == 'ar' ? Axis.horizontal : Axis.vertical,
       child: Column(
         children: [
           if (transactionId != null)

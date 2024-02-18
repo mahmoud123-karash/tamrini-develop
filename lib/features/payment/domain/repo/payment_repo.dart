@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dart_jwt_token/dart_jwt_token.dart';
-import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
 class PaymentRepo {
@@ -10,9 +9,9 @@ class PaymentRepo {
     required num amount,
     required String orderId,
   }) {
-    const String msisdn = "9647711211318";
+    const String msisdn = "9647835077893";
     const String secret =
-        "\$2y\$10\$pAuCAB9OtkkHGPjff.joz.JjGK88esa77I889HW4OnRueI4yD3x4O";
+        "\$2y\$10\$hBbAZo2GfSSvyqAyV2SaqOfYewgYpfR1O19gIh4SqyGWdmySZYPuS";
     const String redirectUrl = "redirection_url";
 
     Map<String, dynamic> data = {
@@ -41,7 +40,7 @@ class PaymentRepo {
     final Map<String, dynamic> postData = {
       'token': token,
       'merchantId': merchantId,
-      'lang': Intl.getCurrentLocale(),
+      'lang': 'en',
     };
     final Map<String, String> headers = {'Content-Type': 'application/json'};
 
