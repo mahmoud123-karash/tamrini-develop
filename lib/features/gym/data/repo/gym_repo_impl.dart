@@ -5,14 +5,12 @@ import 'package:dartz/dartz.dart';
 import 'package:tamrini/core/api/dio_helper.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
 import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/features/gym/data/data_sources/remote_data_source/gym_remote_data_source.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
 import 'package:tamrini/features/gym/domain/repo/gym_repo.dart';
-import 'package:uuid/uuid.dart';
 
 class GymRepoImpl extends GymRepo {
   final GymRemoteDataSource gymRemoteDataSource;
@@ -41,6 +39,7 @@ class GymRepoImpl extends GymRepo {
       List<String> assets = await uploadGymImages(paths);
       GymModel model = GymModel(
         assets: assets,
+        profits: 0,
         name: name,
         location: GeoPoint(lat, long),
         price: price,
@@ -84,6 +83,7 @@ class GymRepoImpl extends GymRepo {
           name: name,
           location: GeoPoint(lat, long),
           price: price,
+          profits: oldModel.profits,
           id: '',
           description: description,
           subcribersCount: oldModel.subcribersCount,
@@ -100,6 +100,7 @@ class GymRepoImpl extends GymRepo {
         model = GymModel(
           assets: newImages,
           name: name,
+          profits: oldModel.profits,
           location: GeoPoint(lat, long),
           subcribersCount: oldModel.subcribersCount,
           price: price,
@@ -229,119 +230,9 @@ class GymRepoImpl extends GymRepo {
     }
   }
 
-  @override
-  Future<Either<String, List<SubscriberModel>>> subUser({
-    required String gymId,
-    required int count,
-    required num price,
-  }) async {
-    try {
-      String uid = CacheHelper.getData(key: 'uid');
-      Timestamp endDate = Timestamp.fromDate(
-        Timestamp.now().toDate().add(
-              const Duration(days: 30),
-            ),
-      );
-      var uuid = const Uuid().v4();
-      SubscriberModel model = SubscriberModel(
-        uid: uuid,
-        userId: uid,
-        subDate: Timestamp.now(),
-        endDate: endDate,
-        paymentMethod: 'Zain Cash',
-        price: price,
-      );
-      await FirebaseFirestore.instance
-          .collection('gyms')
-          .doc('data')
-          .collection('data')
-          .doc(gymId)
-          .collection('subscribers')
-          .doc(uuid)
-          .set(
-            model.toJson(),
-          );
+ 
 
-      await updateGymSubCount(gymId: gymId, count: count);
-      await addSubUser(uuid, endDate, gymId, price, uid);
-      List<SubscriberModel> list = await gymRemoteDataSource.get(gymId: gymId);
-      return right(list);
-    } catch (e) {
-      return left(e.toString());
-    }
-  }
+  
 
-  Future<void> addSubUser(String uuid, Timestamp endDate, String gymId,
-      num price, String uid) async {
-    SubscriptionModel sModel = SubscriptionModel(
-      uid: uuid,
-      subDate: Timestamp.now(),
-      endDate: endDate,
-      gymId: gymId,
-      paymentMethod: 'Zain Cash',
-      price: price,
-    );
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(uid)
-        .collection('Subscriptions')
-        .doc(uuid)
-        .set(
-          sModel.toJson(),
-        );
-  }
-
-  Future<void> updateGymSubCount(
-      {required String gymId, required int count}) async {
-    await FirebaseFirestore.instance
-        .collection('gyms')
-        .doc('data')
-        .collection('data')
-        .doc(gymId)
-        .update(
-      {
-        "subcribersCount": count,
-      },
-    );
-  }
-
-  @override
-  Future<Either<String, List<SubscriberModel>>> renewSub({
-    required String gymId,
-    required String subId,
-    required num price,
-  }) async {
-    try {
-      String uid = CacheHelper.getData(key: 'uid');
-      Timestamp endDate = Timestamp.fromDate(
-        Timestamp.now().toDate().add(
-              const Duration(days: 30),
-            ),
-      );
-      SubscriberModel model = SubscriberModel(
-        uid: subId,
-        userId: uid,
-        subDate: Timestamp.now(),
-        endDate: endDate,
-        paymentMethod: 'Zain Cash',
-        price: price,
-      );
-      await FirebaseFirestore.instance
-          .collection('gyms')
-          .doc('data')
-          .collection('data')
-          .doc(gymId)
-          .collection('subscribers')
-          .doc(subId)
-          .update(
-            model.toJson(),
-          );
-
-      await addSubUser(subId, endDate, gymId, price, uid);
-      List<SubscriberModel> list = await gymRemoteDataSource.get(gymId: gymId);
-      return right(list);
-    } catch (e) {
-      return left(e.toString());
-    }
-  }
+ 
 }

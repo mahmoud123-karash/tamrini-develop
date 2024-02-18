@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/services/get_it.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
-import 'package:tamrini/features/gym/data/models/subscriber_model/subscriber_model.dart';
-import 'package:tamrini/features/gym/presentation/manager/subscriber_cubit/subscriber_cubit.dart';
-import 'package:tamrini/features/gym/presentation/manager/subscriber_cubit/subscriber_states.dart';
+import 'package:tamrini/features/payment/presentation/views/gym_sub_payment_screen.dart';
+import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
+import 'package:tamrini/features/subscribtions/data/repo/subscription_repo_impl.dart';
+import 'package:tamrini/features/subscribtions/presentation/manager/subscribtion_cubit/subscription_cubit.dart';
+import 'package:tamrini/features/subscribtions/presentation/manager/subscribtion_cubit/substription_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'gym_custom_buttons_widget.dart';
@@ -21,61 +24,70 @@ class SubGymBuilderWidget extends StatefulWidget {
 
 class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
   @override
-  void initState() {
-    if (mounted) {
-      SubscriberCubit.get(context).getSubscribers(gymId: widget.model.id);
-    }
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
     String userType = CacheHelper.getData(key: 'usertype');
-
-    return BlocBuilder<SubscriberCubit, SubscriberStates>(
-      builder: (context, state) {
-        if (state is SucessGetSubscribersState) {
-          bool isSub = state.list.any((element) => element.userId == uid);
-          if (isSub) {
-            SubscriberModel model = state.list
-                .where((element) => element.userId == uid)
-                .toList()
-                .first;
-            if (model.endDate.toDate().isBefore(DateTime.now())) {
-              return userType == 'gym owner'
-                  ? Container()
-                  : Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: customButton(
-                        onPressed: () {},
-                        lable: S.of(context).renew_sub,
-                      ),
-                    );
+    return BlocProvider(
+      create: (context) => SubscriptionCubit(
+        getIt.get<SubscriptionRepoImpl>(),
+      )..getSubscriptions(),
+      child: BlocBuilder<SubscriptionCubit, SubscriptionStates>(
+        builder: (context, state) {
+          if (state is SucessGetUserSubState) {
+            bool isSub =
+                state.list.any((element) => element.gymId == widget.model.id);
+            if (isSub) {
+              SubscriptionModel model = state.list
+                  .where((element) => element.gymId == widget.model.id)
+                  .toList()
+                  .first;
+              if (model.endDate.toDate().isBefore(DateTime.now())) {
+                return userType == 'gym owner'
+                    ? Container()
+                    : Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: customButton(
+                          onPressed: () {
+                            navigateTo(
+                              context,
+                              GymSubPaymentScreen(
+                                gymId: widget.model.id,
+                                subId: model.uid,
+                                price: widget.model.price,
+                                count: widget.model.subcribersCount,
+                                profits:
+                                    widget.model.profits + widget.model.price,
+                              ),
+                            );
+                          },
+                          lable: S.of(context).renew_sub,
+                        ),
+                      );
+              } else {
+                return userType == 'gym owner'
+                    ? Container()
+                    : SizedBox(
+                        height: 50,
+                        child: SubscriberMessageBuilderWidget(
+                          message: S.of(context).sub_hint,
+                          isSub: true,
+                        ),
+                      );
+              }
             } else {
-              return userType == 'gym owner'
-                  ? Container()
-                  : SizedBox(
-                      height: 50,
-                      child: SubscriberMessageBuilderWidget(
-                        message: S.of(context).sub_hint,
-                        isSub: true,
-                      ),
-                    );
+              return GymCustomButtonsWidget(
+                lat: widget.model.location.latitude,
+                long: widget.model.location.longitude,
+                gymId: widget.model.id,
+                count: widget.model.subcribersCount + 1,
+                price: widget.model.price,
+                profits: widget.model.profits + widget.model.price,
+              );
             }
           } else {
-            return GymCustomButtonsWidget(
-              lat: widget.model.location.latitude,
-              long: widget.model.location.longitude,
-              gymId: widget.model.id,
-              count: widget.model.subcribersCount + 1,
-              price: widget.model.price,
-            );
+            return Container();
           }
-        } else {
-          return Container();
-        }
-      },
+        },
+      ),
     );
   }
 }

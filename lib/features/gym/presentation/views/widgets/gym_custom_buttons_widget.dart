@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/location.dart';
+import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/gym/presentation/manager/subscriber_cubit/subscriber_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../../../../payment/presentation/views/gym_sub_payment_screen.dart';
 import 'show_gym_on_map_widget.dart';
 
 class GymCustomButtonsWidget extends StatelessWidget {
@@ -16,11 +17,12 @@ class GymCustomButtonsWidget extends StatelessWidget {
     required this.gymId,
     required this.count,
     required this.price,
+    required this.profits,
   });
   final double lat, long;
   final String gymId;
   final int count;
-  final num price;
+  final num price, profits;
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +66,15 @@ class GymCustomButtonsWidget extends StatelessWidget {
                     borderSide: BorderSide.none,
                   ),
                   onPressed: () {
-                    SubscriberCubit.get(context).subUser(
-                      gymId: gymId,
-                      count: count,
-                      price: price,
+                    navigateTo(
+                      context,
+                      GymSubPaymentScreen(
+                        subId: '',
+                        gymId: gymId,
+                        count: count,
+                        price: price,
+                        profits: profits,
+                      ),
                     );
                   },
                   child: Text(

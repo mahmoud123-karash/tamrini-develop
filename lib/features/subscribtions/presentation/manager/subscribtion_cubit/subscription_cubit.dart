@@ -19,4 +19,54 @@ class SubscriptionCubit extends Cubit<SubscriptionStates> {
       emit(SucessGetUserSubState(list));
     });
   }
+
+  void subUser({
+    required String gymId,
+    required int count,
+    required num price,
+    required num profits,
+  }) async {
+    var result = await subscriptionRepo.subUser(
+      gymId: gymId,
+      count: count,
+      price: price,
+      profits: profits,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetUserSubState(message));
+      },
+      (list) {
+        if (!isClosed) {
+          emit(SucessGetUserSubState(list));
+        }
+      },
+    );
+  }
+
+  void renewSub({
+    required String gymId,
+    required String subId,
+    required num price,
+    required int count,
+    required num profits,
+  }) async {
+    var result = await subscriptionRepo.renewSub(
+      gymId: gymId,
+      subId: subId,
+      count: count,
+      profits: profits,
+      price: price,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetUserSubState(message));
+      },
+      (list) {
+        if (!isClosed) {
+          emit(SucessGetUserSubState(list));
+        }
+      },
+    );
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_details_screen.dart';
@@ -23,6 +24,7 @@ class GymItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
+    String userType = CacheHelper.getData(key: 'usertype');
     return Padding(
       padding: const EdgeInsets.only(
         left: 15,
@@ -98,7 +100,9 @@ class GymItemWidget extends StatelessWidget {
               ),
             ),
             if (!isHome)
-              if (model.ownerUid == adminUid) RemoveiconGymWidget(model: model),
+              if (userType == 'admin')
+                if (model.ownerUid == adminUid)
+                  RemoveiconGymWidget(model: model),
           ],
         ),
       ),

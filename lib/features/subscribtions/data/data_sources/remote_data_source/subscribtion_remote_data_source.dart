@@ -11,6 +11,8 @@ abstract class SubscriptionRemoteDataSource {
 class SubscriptionRemoteDataSourceImpl extends SubscriptionRemoteDataSource {
   @override
   Future<List<SubscriptionModel>> get() async {
+    var box = Hive.box<SubscriptionModel>(subBox);
+    box.clear();
     List<SubscriptionModel> list = [];
     String uid = CacheHelper.getData(key: 'uid');
     var result = await FirebaseFirestore.instance
@@ -23,7 +25,6 @@ class SubscriptionRemoteDataSourceImpl extends SubscriptionRemoteDataSource {
       SubscriptionModel model = SubscriptionModel.fromJson(element.data());
       list.add(model);
     }
-    var box = Hive.box<SubscriptionModel>(subBox);
     await box.addAll(list);
     return list;
   }

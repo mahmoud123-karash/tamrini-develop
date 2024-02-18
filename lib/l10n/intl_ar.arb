@@ -497,7 +497,8 @@
     "edit_banner":"تعديل الإعلان",
     "remove_banner":"حذف الإعلان",
     "remove_banner_question":"هل تريد حذف هذا الإعلان ؟",
-    "banner_uri":"الرابط"
+    "banner_uri":"الرابط",
+    "no_edit_ban":"لا يمكنك التعديل بسبب الحظر"
 
 
 

@@ -12,6 +12,7 @@ import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dar
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
+import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_share/flutter_share.dart';
@@ -147,6 +148,7 @@ void logOut(context) async {
   await box1.clear();
   var box2 = Hive.box<MealModel>(favoriteBox);
   await box2.clear();
+  clearSubBox();
   CacheHelper.removeData(key: 'deviceToken');
   CacheHelper.removeData(key: 'trainerId');
   CacheHelper.removeData(key: 'address');
@@ -194,4 +196,9 @@ String formatNumber(int number) {
     locale: Intl.getCurrentLocale(),
   );
   return formatter.format(number);
+}
+
+void clearSubBox() async {
+  var box = Hive.box<SubscriptionModel>(subBox);
+  await box.clear();
 }

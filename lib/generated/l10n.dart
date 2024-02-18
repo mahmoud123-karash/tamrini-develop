@@ -5049,6 +5049,16 @@ class S {
       args: [],
     );
   }
+
+  /// `لا يمكنك التعديل بسبب الحظر`
+  String get no_edit_ban {
+    return Intl.message(
+      'لا يمكنك التعديل بسبب الحظر',
+      name: 'no_edit_ban',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

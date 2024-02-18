@@ -402,6 +402,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Do you want to unban this trainer ?"),
         "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
             "The ban on your gym has been lifted"),
+        "no_edit_ban":
+            MessageLookupByLibrary.simpleMessage("لا يمكنك التعديل بسبب الحظر"),
         "no_exercises_yet":
             MessageLookupByLibrary.simpleMessage("No exercises suggested yet"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
