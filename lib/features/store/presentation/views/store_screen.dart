@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/custom_group_buttons_widget.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/product_grid_view_widget.dart';
@@ -21,6 +22,7 @@ class _StoreScreenState extends State<StoreScreen> {
     final EdgeInsets systemPadding = MediaQuery.of(context).padding;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       body: Column(
         children: [
           SizedBox(

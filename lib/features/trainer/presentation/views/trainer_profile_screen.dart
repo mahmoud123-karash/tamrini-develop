@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/cubit/admob_cubit/admob_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
@@ -13,9 +14,22 @@ import 'package:tamrini/generated/l10n.dart';
 
 import 'widgets/ban_custom_builder_widget.dart';
 
-class TrainerProfileScreen extends StatelessWidget {
+class TrainerProfileScreen extends StatefulWidget {
   const TrainerProfileScreen({Key? key, required this.id}) : super(key: key);
   final String id;
+
+  @override
+  State<TrainerProfileScreen> createState() => _TrainerProfileScreenState();
+}
+
+class _TrainerProfileScreenState extends State<TrainerProfileScreen> {
+  @override
+  void initState() {
+    if (mounted) {
+      AdMobCubit.get(context).createInterstitialAd();
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +41,7 @@ class TrainerProfileScreen extends StatelessWidget {
       body: BlocBuilder<TrainersCubit, TrainersStates>(
         builder: (context, state) {
           TrainerModel? trainer =
-              TrainersCubit.get(context).getTrainer(uid: id);
+              TrainersCubit.get(context).getTrainer(uid: widget.id);
           return trainer == null
               ? Center(
                   child: Text(S.of(context).no_trainer),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/food/presentation/views/new_category_screen.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/supplement_grid_view_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -14,6 +15,7 @@ class SupplementsCategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String userType = CacheHelper.getData(key: 'usertype');
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       appBar: myAppBar(S.of(context).nuttritions),
       body: Column(
         children: [

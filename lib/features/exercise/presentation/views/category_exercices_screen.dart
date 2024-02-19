@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_container_widget.dart';
@@ -27,6 +28,7 @@ class CategoryExercisesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: myAppBar(S.of(context).categoryEx),
+      bottomNavigationBar: const BannerAdWidget(),
       body: BlocBuilder<ExerciseCubit, ExerciseStates>(
         builder: (context, state) {
           if (state is SucessGetExerciseState) {
