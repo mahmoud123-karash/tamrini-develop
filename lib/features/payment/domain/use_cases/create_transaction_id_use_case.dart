@@ -19,7 +19,8 @@ class CreateTranscationIdUseCase extends UserCase {
     required String orderId,
   }) async {
     try {
-      String token = paymentRepo.createToken(amount: amount, orderId: orderId);
+      String token =
+          paymentRepo.createToken(amount: amount.toInt(), orderId: orderId);
       String? transactionId = await paymentRepo.createId(token: token);
       return right(transactionId);
     } catch (e) {

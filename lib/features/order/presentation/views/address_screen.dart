@@ -4,7 +4,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/order/data/models/order_model/product.dart';
 import 'package:tamrini/features/order/presentation/manager/address_cubit/address_states.dart';
 import 'package:tamrini/features/order/presentation/views/widgets/address_content_widget.dart';
-import 'package:tamrini/features/payment/presentation/views/payment_screen.dart';
+import 'package:tamrini/features/payment/presentation/views/buy_payment_screen.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -79,7 +79,7 @@ class _AddressScreenState extends State<AddressScreen> {
                             formkey.currentState!.save();
                             navigateTo(
                               context,
-                              PaymentScreen(
+                              BuyPaymentScreen(
                                 storeId: widget.model.ownerUid,
                                 model: Product(
                                   title: widget.model.title,

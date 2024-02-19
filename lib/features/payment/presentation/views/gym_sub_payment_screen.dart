@@ -9,6 +9,7 @@ import 'package:tamrini/features/payment/presentation/views/widgets/payment_cust
 import 'package:tamrini/generated/l10n.dart';
 import 'package:zaincash/zaincash.dart';
 
+import 'widgets/gym_success_payment_widget.dart';
 import 'widgets/payment_content_widget.dart';
 
 class GymSubPaymentScreen extends StatelessWidget {
@@ -48,6 +49,8 @@ class GymSubPaymentScreen extends StatelessWidget {
                 amount: price,
                 id: gymId,
               );
+            } else if (state is SucessPaymentState) {
+              return const GymPaymentSuccessWidget();
             } else if (state is ErrorCreateTransactionIdState) {
               return Padding(
                 padding: const EdgeInsets.symmetric(

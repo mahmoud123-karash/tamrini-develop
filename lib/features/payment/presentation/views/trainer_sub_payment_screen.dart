@@ -6,6 +6,7 @@ import 'package:tamrini/features/payment/domain/use_cases/create_transaction_id_
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_cubit.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_states.dart';
 import 'package:tamrini/features/payment/presentation/views/widgets/payment_custom_button_widget.dart';
+import 'package:tamrini/features/payment/presentation/views/widgets/trainer_payment_success_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:zaincash/zaincash.dart';
 
@@ -48,6 +49,8 @@ class TrainerSubPaymentScreen extends StatelessWidget {
                 amount: amount,
                 id: trainerId,
               );
+            } else if (state is SucessPaymentState) {
+              return const TrainerPaymentSuccessWidget();
             } else if (state is ErrorCreateTransactionIdState) {
               return Padding(
                 padding: const EdgeInsets.symmetric(

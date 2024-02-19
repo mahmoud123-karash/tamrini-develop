@@ -242,12 +242,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "من فضلك قم بتفعيل الايميل الخاص"),
         "emptyList": MessageLookupByLibrary.simpleMessage("لا يوجد تمارين"),
         "end_date": MessageLookupByLibrary.simpleMessage("تاريخ الإنتهاء"),
+        "end_progress": MessageLookupByLibrary.simpleMessage("انهاء العملية"),
         "ended": MessageLookupByLibrary.simpleMessage("منتهي"),
         "english_language":
             MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("أدخل الرقم"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
         "error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
+        "error_payment":
+            MessageLookupByLibrary.simpleMessage("حدث خطأ يرجى المحاولة"),
         "exDetails": MessageLookupByLibrary.simpleMessage("تفاصيل التمرين"),
         "exercise": MessageLookupByLibrary.simpleMessage("تمارين متنوعة"),
         "exercise_description":
@@ -294,6 +297,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل تريد حذف هذه الصالة الرياضية ؟"),
         "gym_removed_hint":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الصالة ؟"),
+        "gym_success_payment": MessageLookupByLibrary.simpleMessage(
+            "تمت معالجة دفع اشتراكك بنجاح. أنت الآن قادر على متابعة اشتراكك .أنت الآن عضو رسمي في صالة الألعاب الرياضية لدينا. استعد للشروع في رحلة لياقة بدنية مثيرة مع إمكانية الوصول إلى أحدث المرافق والمدربين الخبراء والمجتمع النابض بالحياة. ابدأ العمل من أجل أن تصبح أكثر صحة وقوة اليوم!"),
         "gyms_banned":
             MessageLookupByLibrary.simpleMessage("الصالات الرياضية المقيدة"),
         "haveacount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
@@ -444,6 +449,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passConfirm": MessageLookupByLibrary.simpleMessage(
             "الرجاء التأكد من كلمة المرور "),
         "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
+        "payment_success": MessageLookupByLibrary.simpleMessage(
+            "تم الدفع بنجاح يمكنك استكمال العملية الآن"),
         "pending": MessageLookupByLibrary.simpleMessage("فى الإنتظار"),
         "pending_message":
             MessageLookupByLibrary.simpleMessage("طلبك لم يتم تسليمه بعد"),
@@ -677,6 +684,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("معرض الأعمال"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("ملف المدرب الشخصي"),
+        "trainer_success_payment": MessageLookupByLibrary.simpleMessage(
+            "تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!"),
         "trainers": MessageLookupByLibrary.simpleMessage("المدربين"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("صفحة المدربين"),
         "training_course":

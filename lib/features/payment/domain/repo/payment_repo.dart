@@ -6,10 +6,10 @@ import 'package:http/http.dart' as http;
 
 class PaymentRepo {
   String createToken({
-    required num amount,
+    required int amount,
     required String orderId,
   }) {
-    const String msisdn = "9647835077893";
+    const int msisdn = 9647835077893;
     const String secret =
         "\$2y\$10\$hBbAZo2GfSSvyqAyV2SaqOfYewgYpfR1O19gIh4SqyGWdmySZYPuS";
     const String redirectUrl = "redirection_url";

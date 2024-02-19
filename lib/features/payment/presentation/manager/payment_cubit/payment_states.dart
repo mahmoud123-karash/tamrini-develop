@@ -9,6 +9,8 @@ class SucessCreateTransactionIdState extends PaymentStates {
   SucessCreateTransactionIdState(this.token);
 }
 
+class SucessPaymentState extends PaymentStates {}
+
 class ErrorCreateTransactionIdState extends PaymentStates {
   final String message;
 

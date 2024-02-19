@@ -10,10 +10,11 @@ import 'package:tamrini/features/payment/presentation/views/widgets/payment_cust
 import 'package:tamrini/generated/l10n.dart';
 import 'package:zaincash/zaincash.dart';
 
+import 'widgets/buy_success_payment_widget.dart';
 import 'widgets/payment_content_widget.dart';
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({
+class BuyPaymentScreen extends StatelessWidget {
+  const BuyPaymentScreen({
     Key? key,
     required this.model,
     required this.name,
@@ -48,6 +49,14 @@ class PaymentScreen extends StatelessWidget {
                 transactionId: state.token,
                 amount: amount,
                 id: model.id,
+              );
+            } else if (state is SucessPaymentState) {
+              return BuySuccessPaymentWidget(
+                model: model,
+                name: name,
+                phone: phone,
+                address: address,
+                storeId: storeId,
               );
             } else if (state is ErrorCreateTransactionIdState) {
               return Padding(
