@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Subscriptions": MessageLookupByLibrary.simpleMessage("Subscriptions"),
         "about_app": MessageLookupByLibrary.simpleMessage("About the App"),
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
+        "accept_profits": MessageLookupByLibrary.simpleMessage(
+            "تم قبول طلب سحب الارباح وارسال الارباح الى حسابك بنجاح"),
         "accept_request_promotion":
             MessageLookupByLibrary.simpleMessage("Promotion request accepted"),
         "accept_your_article": MessageLookupByLibrary.simpleMessage(
@@ -85,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "You cannot access the admin file"),
         "after": MessageLookupByLibrary.simpleMessage("After"),
+        "after_request_profits_hint": MessageLookupByLibrary.simpleMessage(
+            "تم ارسال طلب سحب الأرباح الي الأدمن والطلب قيد المراجعة يرجى الانتظار لحين قبول طلبك"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
         "ago": MessageLookupByLibrary.simpleMessage("Ago"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
@@ -555,7 +559,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "request_profits": MessageLookupByLibrary.simpleMessage("طلب سحب"),
         "request_profits_hint": MessageLookupByLibrary.simpleMessage(
-            "لا يمكنك سحب مبلغ اقل من 7 آلف دينار"),
+            "لا يمكنك سحب مبلغ اقل من 5 آلف دينار"),
+        "request_profits_title":
+            MessageLookupByLibrary.simpleMessage("طلب سحب ارباح جديد"),
         "request_promotion_done": MessageLookupByLibrary.simpleMessage(
             "Your promotion request has been submitted"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
@@ -719,7 +725,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "view_rder_details":
             MessageLookupByLibrary.simpleMessage("View Order Details"),
         "warning_the_user_profits": MessageLookupByLibrary.simpleMessage(
-            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 7000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
+            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("Water alarm"),
         "wed": MessageLookupByLibrary.simpleMessage("Wednesday"),
         "weeks": MessageLookupByLibrary.simpleMessage("Weeks"),

@@ -3,6 +3,7 @@ import 'package:tamrini/features/trainer/data/models/trainer_model/gallery_model
 
 class TrainerModel {
   final bool isBanned;
+  final bool isRequestProfits;
   final String description;
   final int price;
   final int traineesCount;
@@ -18,6 +19,7 @@ class TrainerModel {
   TrainerModel({
     this.rating,
     required this.isBanned,
+    required this.isRequestProfits,
     required this.description,
     required this.uid,
     required this.price,
@@ -43,6 +45,7 @@ class TrainerModel {
     }
     return TrainerModel(
       isBanned: json['isBanned'] ?? false,
+      isRequestProfits: json['isRequestProfits'] ?? false,
       rating: rating,
       description: json['achievements'] ?? "",
       questionsTrainees: List<String>.from(json['questionsTrainees'] ?? []),
@@ -60,6 +63,7 @@ class TrainerModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['isBanned'] = isBanned;
+    data['isRequestProfits'] = isRequestProfits;
     data['achievements'] = description;
     data['uid'] = uid;
     data['price'] = price;

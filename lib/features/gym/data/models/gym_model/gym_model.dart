@@ -11,6 +11,7 @@ class GymModel {
   final double distance;
   final String ownerUid;
   final bool isBanned;
+  final bool isRequestProfits;
   final int subcribersCount;
   final num profits;
 
@@ -24,6 +25,7 @@ class GymModel {
     required this.distance,
     required this.ownerUid,
     required this.isBanned,
+    required this.isRequestProfits,
     required this.subcribersCount,
     required this.profits,
   });
@@ -42,6 +44,7 @@ class GymModel {
         description: json['description'] ?? '',
         ownerUid: json['gymOwnerId'] ?? adminUid,
         isBanned: json['isBanned'] ?? false,
+        isRequestProfits: json['isRequestProfits'] ?? false,
         subcribersCount: json['subcribersCount'] ?? 0,
         profits: json['profits'] ?? 0,
         distance: distance,
@@ -54,6 +57,7 @@ class GymModel {
         'price': price,
         'gymOwnerId': ownerUid,
         'isBanned': isBanned,
+        'isRequestProfits': isRequestProfits,
         'profits': profits,
         'subcribersCount': subcribersCount,
         'description': description,

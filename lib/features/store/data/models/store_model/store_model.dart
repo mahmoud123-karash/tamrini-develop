@@ -6,6 +6,7 @@ class StoreModel {
   final String image;
   final String storeOwnerUid;
   final bool isBanned;
+  final bool isRequestProfits;
   final num profits;
   List<ProductModel>? products;
 
@@ -15,6 +16,7 @@ class StoreModel {
     required this.storeOwnerUid,
     required this.contact,
     required this.isBanned,
+    required this.isRequestProfits,
     required this.products,
     required this.profits,
   });
@@ -29,6 +31,7 @@ class StoreModel {
       name: map['name'] ?? '',
       image: map['image'] ?? '',
       isBanned: map['isBanned'] ?? false,
+      isRequestProfits: map['isRequestProfits'] ?? false,
       storeOwnerUid: map['storeOwnerUid'] ?? '',
       contact: map['contact'] ?? '',
       profits: map['profits'] ?? 0,
@@ -42,6 +45,7 @@ class StoreModel {
       'name': name,
       'image': image,
       'isBanned': isBanned,
+      'isRequestProfits': isRequestProfits,
       'contact': contact,
       'profits': profits,
       'products': products!.map((product) => product.toMap()).toList(),

@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Subscriptions": MessageLookupByLibrary.simpleMessage("الاشتراكات"),
         "about_app": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "accept": MessageLookupByLibrary.simpleMessage("قبول"),
+        "accept_profits": MessageLookupByLibrary.simpleMessage(
+            "تم قبول طلب سحب الارباح وارسال الارباح الى حسابك بنجاح"),
         "accept_request_promotion":
             MessageLookupByLibrary.simpleMessage("تم قبول طلب الترقية"),
         "accept_your_article":
@@ -83,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "لا تستطيع الوصول لملف الأدمن"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
+        "after_request_profits_hint": MessageLookupByLibrary.simpleMessage(
+            "تم ارسال طلب سحب الأرباح الي الأدمن والطلب قيد المراجعة يرجى الانتظار لحين قبول طلبك"),
         "age": MessageLookupByLibrary.simpleMessage("العمر"),
         "agree": MessageLookupByLibrary.simpleMessage("أوافق على"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
@@ -545,6 +549,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "request_profits": MessageLookupByLibrary.simpleMessage("طلب سحب"),
         "request_profits_hint": MessageLookupByLibrary.simpleMessage(
             "لا يمكنك سحب مبلغ اقل من 5 آلف دينار"),
+        "request_profits_title":
+            MessageLookupByLibrary.simpleMessage("طلب سحب ارباح جديد"),
         "request_promotion_done":
             MessageLookupByLibrary.simpleMessage("لقد تم طلب ترقية لحسابك"),
         "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
@@ -695,7 +701,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "view_rder_details":
             MessageLookupByLibrary.simpleMessage("معاينة تفاصيل الطلب"),
         "warning_the_user_profits": MessageLookupByLibrary.simpleMessage(
-            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 7000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
+            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
         "wed": MessageLookupByLibrary.simpleMessage("يوم الأربعاء"),
         "weeks": MessageLookupByLibrary.simpleMessage("أسابيع"),

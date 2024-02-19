@@ -6,6 +6,7 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
@@ -115,6 +116,7 @@ class NotificationItemWidget extends StatelessWidget {
             model: UserModel(
               email: profile.email,
               role: type,
+              gender: profile.gender,
               whatsApp: profile.whatsApp ?? '',
               name: profile.name,
               image: profile.image,
@@ -167,7 +169,6 @@ class NotificationItemWidget extends StatelessWidget {
       if (model.subType == 'follow') {
         navigateTo(context, const TrainerSubscribersScreen());
       }
-
       if (model.subType == 'message') {
         navigateTo(
           context,
@@ -178,6 +179,19 @@ class NotificationItemWidget extends StatelessWidget {
             recieverUid: model.user.uid,
           ),
         );
+      }
+      if (model.subType == 'request_profits') {
+        navigateTo(context, const AdminProfitsScreen());
+      }
+
+      if (model.subType == 'accept_profits') {
+        if (model.subType == 'trainer') {
+          navigateTo(context, TrainerProfileScreen(id: model.uid));
+        } else if (model.subType == 'gym owner') {
+          navigateTo(context, const GymOwnerScreen());
+        } else if (model.subType == 'store owner') {
+          navigateTo(context, const StoreOwnerScreen());
+        }
       }
     }
   }

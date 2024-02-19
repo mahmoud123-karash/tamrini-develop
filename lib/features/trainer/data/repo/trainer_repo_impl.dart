@@ -61,6 +61,7 @@ class TrainerRepoImpl extends TrainerRepo {
       TrainerModel model = TrainerModel(
         isBanned: trainer.isBanned,
         description: description,
+        isRequestProfits: trainer.isRequestProfits,
         uid: trainer.uid,
         questionsTrainees: trainer.questionsTrainees,
         profits: trainer.profits,
@@ -107,6 +108,7 @@ class TrainerRepoImpl extends TrainerRepo {
       TrainerModel newmodel = TrainerModel(
         isBanned: trainer.isBanned,
         description: trainer.description,
+        isRequestProfits: trainer.isRequestProfits,
         uid: trainer.uid,
         profits: trainer.profits,
         questionsTrainees: trainer.questionsTrainees,
@@ -145,6 +147,7 @@ class TrainerRepoImpl extends TrainerRepo {
       await deleteOldImages(newImages: [], oldImages: oldImages);
       TrainerModel newmodel = TrainerModel(
         isBanned: trainer.isBanned,
+        isRequestProfits: trainer.isRequestProfits,
         description: trainer.description,
         profits: trainer.profits,
         questionsTrainees: trainer.questionsTrainees,
@@ -223,6 +226,7 @@ class TrainerRepoImpl extends TrainerRepo {
       TrainerModel newmodel = TrainerModel(
         isBanned: trainer.isBanned,
         description: trainer.description,
+        isRequestProfits: trainer.isRequestProfits,
         uid: trainer.uid,
         profits: trainer.profits,
         questionsTrainees: questions,
@@ -259,6 +263,7 @@ class TrainerRepoImpl extends TrainerRepo {
         isBanned: trainer.isBanned,
         description: trainer.description,
         uid: trainer.uid,
+        isRequestProfits: trainer.isRequestProfits,
         profits: trainer.profits,
         questionsTrainees: questions,
         price: trainer.price,

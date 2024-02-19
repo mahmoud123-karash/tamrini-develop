@@ -9,6 +9,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
@@ -16,6 +17,7 @@ import 'package:tamrini/features/notification/presentation/views/notification_sc
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
+import 'package:tamrini/features/profits/presentation/manager/profits_cubit/profits_cubit.dart';
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
@@ -65,6 +67,20 @@ void onMessage({
       if (message.data['subType'] == 'follow') {
         String uid = CacheHelper.getData(key: 'uid') ?? '';
         TraineeCubit.get(context).getData(trainerId: uid);
+      }
+
+      if (message.data['subType'] == 'request_profits') {
+        ProfitsCubit.get(context).getData();
+      }
+
+      if (message.data['subType'] == 'accept_profits') {
+        if (message.data['user_role'] == 'trainer') {
+          TrainersCubit.get(context).getData();
+        } else if (message.data['user_role'] == 'gym owner') {
+          GymCubit.get(context).getData(update: false);
+        } else if (message.data['user_role'] == 'store owner') {
+          StoreCubit.get(context).getData();
+        }
       }
       if (message.data['subType'] != 'message') {
         AwesomeNotifications().createNotification(
@@ -122,6 +138,7 @@ void openNotification(RemoteMessage event, BuildContext context) {
           model: UserModel(
             email: model.email,
             role: type,
+            gender: model.gender,
             whatsApp: model.whatsApp ?? '',
             name: model.name,
             image: model.image,
@@ -174,6 +191,19 @@ void openNotification(RemoteMessage event, BuildContext context) {
 
     if (event.data['subType'] == 'message') {
       navigateTo(context, const NotificationScreen());
+    }
+    if (event.data['subType'] == 'request_profits') {
+      navigateTo(context, const AdminProfitsScreen());
+    }
+
+    if (event.data['subType'] == 'accept_profits') {
+      if (event.data['user_role'] == 'trainer') {
+        navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
+      } else if (event.data['user_role'] == 'gym owner') {
+        navigateTo(context, const GymOwnerScreen());
+      } else if (event.data['user_role'] == 'store owner') {
+        navigateTo(context, const StoreOwnerScreen());
+      }
     }
   }
 }

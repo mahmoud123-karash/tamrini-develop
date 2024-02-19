@@ -12,6 +12,7 @@ class UserModel {
   final String address;
   final String email;
   final bool isBanned;
+  final String gender;
 
   UserModel({
     required this.name,
@@ -27,6 +28,7 @@ class UserModel {
     required this.twiterUri,
     required this.address,
     required this.email,
+    required this.gender,
   });
 
   factory UserModel.fromMap(
@@ -43,6 +45,7 @@ class UserModel {
       twiterUri: map['twiterUri'] ?? '',
       email: map['email'] ?? '',
       role: map['role'] ?? 'user',
+      gender: map['gender'] ?? '',
       address: address,
       isBanned: map['isBanned'] ?? false,
     );

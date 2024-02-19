@@ -96,6 +96,12 @@ class NotificationBodyWidget extends StatelessWidget {
       case 'message':
         result = S.of(context).new_message;
         break;
+      case 'request_profits':
+        result = S.of(context).request_profits_title;
+        break;
+      case 'accept_profits':
+        result = S.of(context).accept_profits;
+        break;
       default:
         result = title;
         break;

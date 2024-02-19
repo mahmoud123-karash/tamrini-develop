@@ -57,7 +57,12 @@ class GymOwnerScreen extends StatelessWidget {
                       child: ListTile(
                         onTap: () {
                           navigateTo(
-                              context, ProfitsScreen(profits: model.profits));
+                              context,
+                              ProfitsScreen(
+                                profits: model.profits,
+                                id: model.id,
+                                isRequestProfits: model.isRequestProfits,
+                              ));
                         },
                         shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),

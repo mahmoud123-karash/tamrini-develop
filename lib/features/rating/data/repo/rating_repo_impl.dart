@@ -47,6 +47,7 @@ class RatingRepoImpl extends RatingRepo {
       StoreModel sModel = StoreModel(
         image: store.image,
         name: store.name,
+        isRequestProfits: store.isRequestProfits,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
         isBanned: store.isBanned,

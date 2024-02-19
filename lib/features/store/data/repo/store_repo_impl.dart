@@ -59,6 +59,7 @@ class StoreRepoImpl extends StoreRepo {
       StoreModel model = StoreModel(
         image: images.isEmpty ? '' : images.first,
         name: name,
+        isRequestProfits: false,
         storeOwnerUid: uid,
         profits: 0,
         contact: contact,
@@ -91,6 +92,7 @@ class StoreRepoImpl extends StoreRepo {
           name: name,
           storeOwnerUid: store.storeOwnerUid,
           contact: contact,
+          isRequestProfits: store.isRequestProfits,
           isBanned: false,
           profits: store.profits,
           products: store.products,
@@ -106,6 +108,7 @@ class StoreRepoImpl extends StoreRepo {
           image: images.isEmpty ? '' : images.first,
           name: name,
           storeOwnerUid: store.storeOwnerUid,
+          isRequestProfits: store.isRequestProfits,
           contact: contact,
           isBanned: false,
           profits: store.profits,
@@ -163,6 +166,7 @@ class StoreRepoImpl extends StoreRepo {
       StoreModel model = StoreModel(
         image: store.image,
         name: store.name,
+        isRequestProfits: store.isRequestProfits,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
         profits: store.profits,
@@ -238,6 +242,7 @@ class StoreRepoImpl extends StoreRepo {
       StoreModel model = StoreModel(
         image: store.image,
         name: store.name,
+        isRequestProfits: store.isRequestProfits,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
         profits: store.profits,
@@ -266,6 +271,7 @@ class StoreRepoImpl extends StoreRepo {
       StoreModel model = StoreModel(
         image: store.image,
         name: store.name,
+        isRequestProfits: store.isRequestProfits,
         storeOwnerUid: store.storeOwnerUid,
         contact: store.contact,
         profits: store.profits,

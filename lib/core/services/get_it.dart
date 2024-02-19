@@ -37,6 +37,8 @@ import 'package:tamrini/features/profile/data/data_sources/local_data_source/pro
 import 'package:tamrini/features/profile/data/data_sources/remote_data_source/profile_remote_data_source.dart';
 import 'package:tamrini/features/profile/data/repo/profile_repo_impl.dart';
 import 'package:tamrini/features/profile/domain/use_cases/update_profile_use_case.dart';
+import 'package:tamrini/features/profits/data/data_sources/remote_data_source/profits_remote_data_source.dart';
+import 'package:tamrini/features/profits/data/repo/profits_repo_impl.dart';
 import 'package:tamrini/features/promotion/data/data_source/remote_data_source/promotion_remote_data_source.dart';
 import 'package:tamrini/features/promotion/data/repo/promotion_repo_impl.dart';
 import 'package:tamrini/features/questions/data/data_sources/remote_data_source/remote_question_data_source.dart';
@@ -236,29 +238,36 @@ void setLocator() {
     ChatRepoImpl(getIt.get<DioHelper>()),
   );
 
-  getIt.registerSingleton(
+  getIt.registerSingleton<FavoriteRepoImpl>(
     FavoriteRepoImpl(
       FavoriteRemoteDataSourceImpl(),
       FavoriteLocalDataSourceImpl(),
     ),
   );
 
-  getIt.registerSingleton(
+  getIt.registerSingleton<BannerRepoImpl>(
     BannerRepoImpl(
       BannerRemoteDataSourceImpl(),
     ),
   );
 
-  getIt.registerSingleton(
+  getIt.registerSingleton<CreateTranscationIdUseCase>(
     CreateTranscationIdUseCase(
       PaymentRepo(),
     ),
   );
 
-  getIt.registerSingleton(
+  getIt.registerSingleton<SubscriptionRepoImpl>(
     SubscriptionRepoImpl(
       SubscriptionRemoteDataSourceImpl(),
       SubscribtionLocalDataSourceImpl(),
+    ),
+  );
+
+  getIt.registerSingleton<ProfitsRepoImpl>(
+    ProfitsRepoImpl(
+      ProfitsRemoteDataSourceImpl(),
+      getIt.get<DioHelper>(),
     ),
   );
 }

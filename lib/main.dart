@@ -9,6 +9,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/cubit/admob_cubit/admob_cubit.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
 import 'package:tamrini/core/services/get_it.dart';
@@ -296,6 +297,9 @@ void main() async {
           create: (context) => BannerCubit(
             getIt.get<BannerRepoImpl>(),
           )..getData(),
+        ),
+        BlocProvider(
+          create: (context) => AdMobCubit(),
         ),
         BlocProvider(
           create: (context) => ManageCubit()

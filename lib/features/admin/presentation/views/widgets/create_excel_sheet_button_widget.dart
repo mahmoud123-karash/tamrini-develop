@@ -39,13 +39,15 @@ class _CreateExcelSheetButtonWidgetState
             sheet.getRangeByIndex(1, 1).setText("Title");
             sheet.getRangeByIndex(1, 2).setText("Phone");
             sheet.getRangeByIndex(1, 3).setText("Email");
-            sheet.getRangeByIndex(1, 4).setText("Role");
+            sheet.getRangeByIndex(1, 4).setText("Email");
+            sheet.getRangeByIndex(1, 5).setText("Role");
             for (var i = 0; i < widget.list.length; i++) {
               final item = widget.list[i];
               sheet.getRangeByIndex(i + 2, 1).setText(item.name);
               sheet.getRangeByIndex(i + 2, 2).setText(item.phone);
               sheet.getRangeByIndex(i + 2, 3).setText(item.email);
-              sheet.getRangeByIndex(i + 2, 4).setText(item.role);
+              sheet.getRangeByIndex(i + 2, 4).setText(item.gender);
+              sheet.getRangeByIndex(i + 2, 5).setText(item.role);
             }
             final List<int> bytes = workbook.saveAsStream();
             FileStorage.writeCounter(bytes, "users.xlsx");
