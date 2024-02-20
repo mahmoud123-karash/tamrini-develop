@@ -112,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "articlesT": MessageLookupByLibrary.simpleMessage("Articles"),
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
         "available": MessageLookupByLibrary.simpleMessage("Available"),
+        "back": MessageLookupByLibrary.simpleMessage("عودة"),
         "back_to_home": MessageLookupByLibrary.simpleMessage("Back to Home"),
         "ban": MessageLookupByLibrary.simpleMessage("Ban"),
         "ban_article": MessageLookupByLibrary.simpleMessage("Ban Article"),
@@ -208,6 +209,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "create":
             MessageLookupByLibrary.simpleMessage("Don/\'t have an acount?"),
         "create1": MessageLookupByLibrary.simpleMessage("Create acount"),
+        "create_payment_uri_success": MessageLookupByLibrary.simpleMessage(
+            "تم انشاء رابط الدفع بنجاح يمكنك استكمال عملية الدفع والعودة مرة أخري لإتمام العملية "),
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "days": MessageLookupByLibrary.simpleMessage("Days"),
@@ -274,6 +277,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fat": MessageLookupByLibrary.simpleMessage("Fat"),
         "favorite_meals":
             MessageLookupByLibrary.simpleMessage("Favorite Meals"),
+        "fees": MessageLookupByLibrary.simpleMessage("الرسوم"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "follow":
             MessageLookupByLibrary.simpleMessage("Continue without login"),
@@ -458,7 +462,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "payment_success": MessageLookupByLibrary.simpleMessage(
             "تم الدفع بنجاح يمكنك استكمال العملية الآن"),
+        "payment_success_button":
+            MessageLookupByLibrary.simpleMessage("تم الدفع"),
+        "payment_uri": MessageLookupByLibrary.simpleMessage("رابط الدفع"),
         "pending": MessageLookupByLibrary.simpleMessage("Pending"),
+        "pending_hint_payment": MessageLookupByLibrary.simpleMessage(
+            "من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة"),
         "pending_message": MessageLookupByLibrary.simpleMessage(
             "Your order is yet to be delivered"),
         "penging_articles":
@@ -469,6 +478,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneLenght": MessageLookupByLibrary.simpleMessage(
             "please Confirm your phone number"),
         "pincode": MessageLookupByLibrary.simpleMessage("Pincode"),
+        "please_try_again":
+            MessageLookupByLibrary.simpleMessage("يرجي اعادة المحاولة"),
+        "price": MessageLookupByLibrary.simpleMessage("المبلغ"),
         "price_sub": MessageLookupByLibrary.simpleMessage("Subscription Price"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
         "privacyConfirm":
@@ -689,6 +701,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "to_w_h": MessageLookupByLibrary.simpleMessage("To Hour"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "total_price": MessageLookupByLibrary.simpleMessage("Total Price"),
+        "total_price_payment":
+            MessageLookupByLibrary.simpleMessage("المبلغ الكلي"),
         "tracking": MessageLookupByLibrary.simpleMessage("Tracking"),
         "traiber_price":
             MessageLookupByLibrary.simpleMessage("Subscription Price"),
@@ -758,6 +772,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "You are already subscribed to this trainer."),
         "you_unsub_with_trainer": MessageLookupByLibrary.simpleMessage(
             "You are unsubscribed from the trainer."),
+        "you_will_pay_with_zain_cash": MessageLookupByLibrary.simpleMessage(
+            "ستقوم بدفع المبلغ عن طريق محفظة زين كاش"),
         "your_articles": MessageLookupByLibrary.simpleMessage("My Articles"),
         "your_meals": MessageLookupByLibrary.simpleMessage("Your Meals"),
         "your_need": MessageLookupByLibrary.simpleMessage("Your Need"),

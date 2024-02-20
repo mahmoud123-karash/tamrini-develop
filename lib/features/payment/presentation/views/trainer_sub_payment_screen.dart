@@ -5,12 +5,10 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/payment/domain/use_cases/create_transaction_id_use_case.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_cubit.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_states.dart';
-import 'package:tamrini/features/payment/presentation/views/widgets/payment_custom_button_widget.dart';
-import 'package:tamrini/features/payment/presentation/views/widgets/trainer_payment_success_widget.dart';
+import 'package:tamrini/features/payment/presentation/manager/status_cubit/status_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:zaincash/zaincash.dart';
-
 import 'widgets/payment_content_widget.dart';
+import 'widgets/payment_error_builder_widget.dart';
 
 class TrainerSubPaymentScreen extends StatelessWidget {
   const TrainerSubPaymentScreen({
@@ -26,11 +24,6 @@ class TrainerSubPaymentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ZaincashService.paymentStateListener.listen((state) {
-      if (state['success'] == 1) {}
-      if (state['success'] == 0) {}
-    });
-
     num amount = price;
     return BlocProvider(
       create: (context) => PaymentCubit(
@@ -39,46 +32,42 @@ class TrainerSubPaymentScreen extends StatelessWidget {
           amount: amount,
           orderId: trainerId,
         ),
-      child: Scaffold(
-        appBar: myAppBar(S.of(context).payment),
-        body: BlocBuilder<PaymentCubit, PaymentStates>(
-          builder: (context, state) {
-            if (state is SucessCreateTransactionIdState) {
-              return PaymentContentWidget(
-                transactionId: state.token,
-                amount: amount,
-                id: trainerId,
-              );
-            } else if (state is SucessPaymentState) {
-              return const TrainerPaymentSuccessWidget();
-            } else if (state is ErrorCreateTransactionIdState) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      state.message,
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    PaymentCustomButtonWidget(
-                      amount: amount,
-                      id: trainerId,
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
+      child: BlocProvider(
+        create: (context) => StatusCubit(
+          getIt.get<CreateTranscationIdUseCase>(),
+        ),
+        child: Scaffold(
+          appBar: myAppBar(S.of(context).payment),
+          body: BlocBuilder<PaymentCubit, PaymentStates>(
+            builder: (context, state) {
+              if (state is SucessCreateTransactionIdState) {
+                if (state.id != null) {
+                  return PaymentContentWidget(
+                    transactionId: state.id!,
+                    amount: amount,
+                    id: trainerId,
+                    onSuccess: () {},
+                  );
+                } else {
+                  return PaymentErrorBuilderWidget(
+                    message: S.of(context).error_payment,
+                    id: trainerId,
+                    amount: amount,
+                  );
+                }
+              } else if (state is ErrorCreateTransactionIdState) {
+                return PaymentErrorBuilderWidget(
+                  message: state.message,
+                  id: trainerId,
+                  amount: amount,
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          ),
         ),
       ),
     );

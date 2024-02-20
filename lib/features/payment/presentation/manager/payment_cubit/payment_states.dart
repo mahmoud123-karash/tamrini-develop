@@ -5,11 +5,9 @@ class InitialPaymentState extends PaymentStates {}
 class LoadingCreateTransactionIdState extends PaymentStates {}
 
 class SucessCreateTransactionIdState extends PaymentStates {
-  final String? token;
-  SucessCreateTransactionIdState(this.token);
+  final String? id;
+  SucessCreateTransactionIdState(this.id);
 }
-
-class SucessPaymentState extends PaymentStates {}
 
 class ErrorCreateTransactionIdState extends PaymentStates {
   final String message;

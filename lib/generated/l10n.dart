@@ -5169,6 +5169,106 @@ class S {
       args: [],
     );
   }
+
+  /// `تم انشاء رابط الدفع بنجاح يمكنك استكمال عملية الدفع والعودة مرة أخري لإتمام العملية `
+  String get create_payment_uri_success {
+    return Intl.message(
+      'تم انشاء رابط الدفع بنجاح يمكنك استكمال عملية الدفع والعودة مرة أخري لإتمام العملية ',
+      name: 'create_payment_uri_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رابط الدفع`
+  String get payment_uri {
+    return Intl.message(
+      'رابط الدفع',
+      name: 'payment_uri',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المبلغ`
+  String get price {
+    return Intl.message(
+      'المبلغ',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المبلغ الكلي`
+  String get total_price_payment {
+    return Intl.message(
+      'المبلغ الكلي',
+      name: 'total_price_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الرسوم`
+  String get fees {
+    return Intl.message(
+      'الرسوم',
+      name: 'fees',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ستقوم بدفع المبلغ عن طريق محفظة زين كاش`
+  String get you_will_pay_with_zain_cash {
+    return Intl.message(
+      'ستقوم بدفع المبلغ عن طريق محفظة زين كاش',
+      name: 'you_will_pay_with_zain_cash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة`
+  String get pending_hint_payment {
+    return Intl.message(
+      'من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة',
+      name: 'pending_hint_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `عودة`
+  String get back {
+    return Intl.message(
+      'عودة',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يرجي اعادة المحاولة`
+  String get please_try_again {
+    return Intl.message(
+      'يرجي اعادة المحاولة',
+      name: 'please_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تم الدفع`
+  String get payment_success_button {
+    return Intl.message(
+      'تم الدفع',
+      name: 'payment_success_button',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -111,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "auto_reminder":
             MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
         "available": MessageLookupByLibrary.simpleMessage("متوفر"),
+        "back": MessageLookupByLibrary.simpleMessage("عودة"),
         "back_to_home":
             MessageLookupByLibrary.simpleMessage("العودة الى الرئيسية"),
         "ban": MessageLookupByLibrary.simpleMessage("تقييد"),
@@ -202,6 +203,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "courses": MessageLookupByLibrary.simpleMessage("الكورسات"),
         "create": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
         "create1": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+        "create_payment_uri_success": MessageLookupByLibrary.simpleMessage(
+            "تم انشاء رابط الدفع بنجاح يمكنك استكمال عملية الدفع والعودة مرة أخري لإتمام العملية "),
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "days": MessageLookupByLibrary.simpleMessage("الأيام"),
@@ -265,6 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fat": MessageLookupByLibrary.simpleMessage("دهون"),
         "favorite_meals":
             MessageLookupByLibrary.simpleMessage("الأكلات المفضلة"),
+        "fees": MessageLookupByLibrary.simpleMessage("الرسوم"),
         "female": MessageLookupByLibrary.simpleMessage("أنثى"),
         "follow": MessageLookupByLibrary.simpleMessage("المتابعه بدون تسجيل"),
         "follow_and_data":
@@ -451,7 +455,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
         "payment_success": MessageLookupByLibrary.simpleMessage(
             "تم الدفع بنجاح يمكنك استكمال العملية الآن"),
+        "payment_success_button":
+            MessageLookupByLibrary.simpleMessage("تم الدفع"),
+        "payment_uri": MessageLookupByLibrary.simpleMessage("رابط الدفع"),
         "pending": MessageLookupByLibrary.simpleMessage("فى الإنتظار"),
+        "pending_hint_payment": MessageLookupByLibrary.simpleMessage(
+            "من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة"),
         "pending_message":
             MessageLookupByLibrary.simpleMessage("طلبك لم يتم تسليمه بعد"),
         "penging_articles":
@@ -462,6 +471,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneLenght":
             MessageLookupByLibrary.simpleMessage("الرجاء التأكد من رقم الهاتف"),
         "pincode": MessageLookupByLibrary.simpleMessage("الرمز السري"),
+        "please_try_again":
+            MessageLookupByLibrary.simpleMessage("يرجي اعادة المحاولة"),
+        "price": MessageLookupByLibrary.simpleMessage("المبلغ"),
         "price_sub": MessageLookupByLibrary.simpleMessage("سعر الاشتراك"),
         "privacy": MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
         "privacyConfirm":
@@ -673,6 +685,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "to_w_h": MessageLookupByLibrary.simpleMessage("الى الساعة"),
         "top_trainers": MessageLookupByLibrary.simpleMessage("أشهر المدربين"),
         "total_price": MessageLookupByLibrary.simpleMessage("السعر الكلى"),
+        "total_price_payment":
+            MessageLookupByLibrary.simpleMessage("المبلغ الكلي"),
         "tracking": MessageLookupByLibrary.simpleMessage("تتبع"),
         "traiber_price": MessageLookupByLibrary.simpleMessage("سعر الإشتراك"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
@@ -692,7 +706,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الكورس التدريبي"),
         "tranier_hint_social": MessageLookupByLibrary.simpleMessage(
             "هذا المستخدم ليس لديه حساب في هذا الموقع"),
-        "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة ألمحاولة"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
         "tue": MessageLookupByLibrary.simpleMessage("يوم الثلاثاء"),
         "twiter": MessageLookupByLibrary.simpleMessage("تويتر"),
         "type_a_message": MessageLookupByLibrary.simpleMessage("اكتب رسالة"),
@@ -734,6 +748,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "انت مشترك بالفعل مع هذا المدرب"),
         "you_unsub_with_trainer":
             MessageLookupByLibrary.simpleMessage("أنت غير مشترك مع مدرب"),
+        "you_will_pay_with_zain_cash": MessageLookupByLibrary.simpleMessage(
+            "ستقوم بدفع المبلغ عن طريق محفظة زين كاش"),
         "your_articles": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
         "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),

@@ -114,9 +114,10 @@ Widget addCustomButton({
   required String lable,
   IconData icon = Icons.add_circle,
   double fontSize = 18,
+  Color? color,
 }) =>
     MaterialButton(
-      color: appColor,
+      color: color ?? appColor,
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
         borderSide: BorderSide.none,

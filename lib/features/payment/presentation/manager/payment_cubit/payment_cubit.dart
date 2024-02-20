@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/features/payment/domain/use_cases/create_transaction_id_use_case.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_states.dart';
-import 'package:zaincash/zaincash.dart';
 
 class PaymentCubit extends Cubit<PaymentStates> {
   PaymentCubit(this.createTranscationIdUseCase) : super(InitialPaymentState());
@@ -25,22 +22,9 @@ class PaymentCubit extends Cubit<PaymentStates> {
       (message) {
         emit(ErrorCreateTransactionIdState(message));
       },
-      (token) {
-        emit(SucessCreateTransactionIdState(token));
+      (id) {
+        emit(SucessCreateTransactionIdState(id));
       },
     );
-  }
-
-  void listenState(message) {
-    ZaincashService.paymentStateListener.listen((state) {
-      if (state['success'] == 1) {
-        log('success');
-        emit(SucessPaymentState());
-      }
-      if (state['success'] == 0) {
-        log('error');
-        emit(ErrorCreateTransactionIdState(message));
-      }
-    });
   }
 }

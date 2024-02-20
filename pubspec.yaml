@@ -86,8 +86,8 @@ dependencies:
   url_launcher: ^6.1.7
   uuid: 3.0.7
   video_player: ^2.5.2
+  webview_flutter: 4.5.0
   youtube_player_flutter: ^8.1.1
-  zaincash: ^0.0.5
 
 flutter_native_splash:
   color: "#D2FFF4"
