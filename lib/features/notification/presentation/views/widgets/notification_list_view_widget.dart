@@ -67,7 +67,7 @@ class _NotificationListViewWidgetState
         separatorBuilder: (context, index) => const SizedBox(
           height: 30,
         ),
-        itemCount: length > widget.notifications.length
+        itemCount: length >= widget.notifications.length
             ? widget.notifications.length
             : length + 1,
       ),

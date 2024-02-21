@@ -1,6 +1,5 @@
-import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 
 import 'profile_name_type_widget.dart';
 
@@ -19,13 +18,9 @@ class ProfileImageNameTypeWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Row(
         children: [
-          CircleAvatar(
+          CirclarImageWidget(
             radius: 50,
-            backgroundImage: image == ''
-                ? const AssetImage(
-                    Assets.imagesProfile,
-                  )
-                : FirebaseImageProvider(FirebaseUrl(image)) as ImageProvider,
+            image: image,
           ),
           const SizedBox(
             width: 10,

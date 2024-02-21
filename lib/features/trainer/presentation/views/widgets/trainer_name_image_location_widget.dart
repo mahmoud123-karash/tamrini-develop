@@ -1,6 +1,5 @@
-import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 
 import 'name_location_trainer_widget.dart';
 
@@ -19,13 +18,9 @@ class TrainerNameLoactionImageWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Row(
         children: [
-          CircleAvatar(
+          CirclarImageWidget(
             radius: 45,
-            backgroundImage: image == ''
-                ? const AssetImage(Assets.imagesProfile) as ImageProvider
-                : FirebaseImageProvider(
-                    FirebaseUrl(image),
-                  ),
+            image: image,
           ),
           const SizedBox(
             width: 30,

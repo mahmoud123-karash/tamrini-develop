@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
+import 'package:tamrini/core/widgets/writer_row_widget.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 import '../trainee_screen.dart';

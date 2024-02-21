@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
+import 'package:tamrini/core/widgets/writer_row_widget.dart';
 
 class UsersListViewWidget extends StatelessWidget {
-  const UsersListViewWidget(
-      {super.key,
-      required this.list,
-      required this.length,
-      required this.controller,});
+  const UsersListViewWidget({
+    super.key,
+    required this.list,
+    required this.length,
+    required this.controller,
+  });
   final List<UserModel> list;
   final int length;
   final ScrollController controller;

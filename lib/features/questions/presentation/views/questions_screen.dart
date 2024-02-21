@@ -39,9 +39,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           await Future.delayed(const Duration(milliseconds: 1500))
               .then((value) {
             if (mounted) {
-              QuestionCubit.get(context).getQuestions(
-                message: S.of(context).update_success,
-              );
+              QuestionCubit.get(context).getQuestions();
             }
           });
         },

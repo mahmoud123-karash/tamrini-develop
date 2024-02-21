@@ -8,8 +8,8 @@ import 'package:tamrini/features/atricle/data/models/article_model/article_model
 import 'package:tamrini/features/atricle/presentation/views/widgets/edit_article_custom_button_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class ArticlesDetailsScreen extends StatelessWidget {
-  const ArticlesDetailsScreen({Key? key, required this.id}) : super(key: key);
+class ArticleDetailsScreen extends StatelessWidget {
+  const ArticleDetailsScreen({Key? key, required this.id}) : super(key: key);
   final String id;
   @override
   Widget build(BuildContext context) {

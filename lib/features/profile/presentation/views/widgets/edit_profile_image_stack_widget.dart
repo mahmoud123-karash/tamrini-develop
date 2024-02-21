@@ -1,13 +1,11 @@
 import 'dart:io';
-
-import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_states.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 
 class EditProfileImageStackWidget extends StatelessWidget {
   const EditProfileImageStackWidget({super.key, required this.image});
@@ -30,12 +28,9 @@ class EditProfileImageStackWidget extends StatelessWidget {
                   ),
                 );
               } else {
-                return CircleAvatar(
+                return CirclarImageWidget(
                   radius: 50,
-                  backgroundImage: image == ''
-                      ? const AssetImage(Assets.imagesProfile)
-                      : FirebaseImageProvider(FirebaseUrl(image))
-                          as ImageProvider,
+                  image: image,
                 );
               }
             },

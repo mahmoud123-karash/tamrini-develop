@@ -1,10 +1,9 @@
 // ignore_for_file: file_names
 
-import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
@@ -50,15 +49,9 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
               }
             }
           },
-          child: CircleAvatar(
+          child: CirclarImageWidget(
             radius: 30,
-            backgroundImage: user.image != ''
-                ? FirebaseImageProvider(
-                    FirebaseUrl(user.image),
-                  ) as ImageProvider
-                : const AssetImage(
-                    Assets.imagesProfile,
-                  ),
+            image: user.image,
           ),
         ),
         const SizedBox(

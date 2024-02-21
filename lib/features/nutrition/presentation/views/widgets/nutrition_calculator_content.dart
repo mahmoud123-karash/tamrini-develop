@@ -4,7 +4,7 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/writer_row_widget.dart';
+import 'package:tamrini/core/widgets/writer_row_widget.dart';
 import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';

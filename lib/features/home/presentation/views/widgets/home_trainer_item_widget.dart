@@ -1,7 +1,7 @@
-import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 
@@ -18,11 +18,9 @@ class HomeTrainerItemWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircleAvatar(
+          CirclarImageWidget(
             radius: 30,
-            backgroundImage: FirebaseImageProvider(
-              FirebaseUrl(model.user!.image),
-            ),
+            image: model.user!.image,
           ),
           const SizedBox(
             height: 5,

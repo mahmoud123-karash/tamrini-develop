@@ -9,6 +9,8 @@ import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
 import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
@@ -216,4 +218,18 @@ String getEnlish() {
   } else {
     return 'ar';
   }
+}
+
+Future<UserModel> getUser(
+  String uid,
+) async {
+  var result =
+      await FirebaseFirestore.instance.collection('users').doc(uid).get();
+  GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
+  GeoPoint location = result.data() == null
+      ? defultLocation
+      : result.data()!['location'] ?? defultLocation;
+  String address = await getAddress(location: location);
+  UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+  return user;
 }

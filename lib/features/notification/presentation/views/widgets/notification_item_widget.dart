@@ -1,11 +1,10 @@
-import 'package:firebase_cached_image/firebase_cached_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
@@ -77,13 +76,9 @@ class NotificationItemWidget extends StatelessWidget {
                   }
                 }
               },
-              child: CircleAvatar(
+              child: CirclarImageWidget(
+                image: model.user.image,
                 radius: 35,
-                backgroundImage: model.user.image == ""
-                    ? const AssetImage(Assets.imagesProfile) as ImageProvider
-                    : FirebaseImageProvider(
-                        FirebaseUrl(model.user.image),
-                      ),
               ),
             ),
             const SizedBox(

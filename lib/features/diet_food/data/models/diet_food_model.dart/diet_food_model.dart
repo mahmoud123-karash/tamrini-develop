@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 
 class DietFoodModel {
   final List<String> assets;
@@ -10,6 +11,7 @@ class DietFoodModel {
   final String writerUid;
   final bool isRefused;
   final bool isPending;
+  UserModel? user;
 
   DietFoodModel({
     required this.assets,
@@ -20,9 +22,11 @@ class DietFoodModel {
     required this.writerUid,
     required this.isRefused,
     required this.isPending,
+    this.user,
   });
 
-  factory DietFoodModel.fromJson(Map<String, dynamic> json, String id) {
+  factory DietFoodModel.fromJson(
+      Map<String, dynamic> json, String id, UserModel user) {
     return DietFoodModel(
       assets: json['assets'].cast<String>(),
       description: json['description'],
@@ -32,6 +36,7 @@ class DietFoodModel {
       isRefused: json['isRefused'] ?? false,
       isPending: json['isPending'] ?? false,
       id: id,
+      user: user,
     );
   }
 

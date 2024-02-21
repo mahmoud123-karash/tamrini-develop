@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/domain/repo/question_repo.dart';
@@ -17,16 +16,14 @@ class QuestionCubit extends Cubit<QuestionStates> {
   final QuestionRepo questionRepo;
 
   List<QuestionModel> questions = [];
-  void getQuestions({String? message}) async {
+  void getQuestions() async {
     var result = await questionRepo.getQuestons();
     result.fold((message) {
       emit(ErrorGetQuestionsState(message));
     }, (list) {
       List<QuestionModel> models = clearBannedQuestions(list);
       questions = models;
-      if (message != null) {
-        showToast(message, gravity: ToastGravity.BOTTOM);
-      }
+
       emit(SucessGetQuestionsState(models));
     });
   }

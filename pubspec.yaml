@@ -43,7 +43,7 @@ dependencies:
   dartz: ^0.10.1
   dio: ^4.0.6
   firebase_auth: ^4.4.1
-  firebase_cached_image: ^0.4.2
+  firebase_cached_image: ^0.5.3
   firebase_core: ^2.9.0
   firebase_messaging: ^14.2.0
   firebase_storage: ^11.1.0
