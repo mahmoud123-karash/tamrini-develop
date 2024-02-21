@@ -12,8 +12,9 @@ class AdMobCubit extends Cubit<AdMobStates> {
 
   String userType = CacheHelper.getData(key: 'usertype');
 
+  late BannerAd bannerAd;
   void createBannerAd() {
-    final bannerAd = BannerAd(
+    bannerAd = BannerAd(
       adUnitId: AdModService.adBannerId,
       request: const AdRequest(),
       size: AdSize.banner,

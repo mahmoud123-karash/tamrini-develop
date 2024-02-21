@@ -27,11 +27,16 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     return BlocBuilder<AdMobCubit, AdMobStates>(
       builder: (context, state) {
         if (state is SucessLoadBannerAdState) {
-          if (userType != 'admin') {
-            return SizedBox(
-              width: AdSize.banner.width.toDouble(),
-              height: AdSize.banner.height.toDouble(),
-              child: AdWidget(ad: state.ad),
+          if (userType != 'admin' && userType != 'trainer') {
+            return StatefulBuilder(
+              builder: (context, snapshot) => SizedBox(
+                width: AdSize.banner.width.toDouble(),
+                height: AdSize.banner.height.toDouble(),
+                child: AdWidget(
+                  ad: state.ad,
+                  key: UniqueKey(),
+                ),
+              ),
             );
           } else {
             return Container(

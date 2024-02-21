@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:dart_jwt_token/dart_jwt_token.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:tamrini/core/utils/zain_cash.dart';
 import 'package:tamrini/features/payment/data/models/payment_model.dart';
 
@@ -25,7 +26,7 @@ class PaymentRepo {
     final Map<String, dynamic> postData = {
       'token': token,
       'merchantId': ZainCash.merchantId,
-      'lang': 'en',
+      'lang': Intl.getCurrentLocale(),
     };
     final Map<String, String> headers = {'Content-Type': 'application/json'};
     final http.Response response = await http.post(
@@ -34,10 +35,10 @@ class PaymentRepo {
       body: jsonEncode(postData),
     );
 
+    final String responseBody = response.body;
+    log(response.body);
     if (response.statusCode == 200) {
-      final String responseBody = response.body;
       final String? operationId = jsonDecode(responseBody)['id'];
-      log(response.body);
       if (operationId != null) {
         return operationId;
       } else {
