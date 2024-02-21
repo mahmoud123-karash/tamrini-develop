@@ -28,8 +28,8 @@ class LoginRepoImpl extends LoginRepo {
         await FirebaseAuth.instance.currentUser!.sendEmailVerification();
         return left('Not');
       }
-    } catch (e) {
-      return left(e.toString());
+    } on FirebaseAuthException catch (e) {
+      return left(e.code);
     }
   }
 

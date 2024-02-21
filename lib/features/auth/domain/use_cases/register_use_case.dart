@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tamrini/features/auth/domain/repo/register_repo.dart';
 
 abstract class UseCase {
@@ -34,8 +35,8 @@ class RegisterUseCase extends UseCase {
       );
 
       return right('created');
-    } catch (e) {
-      return left(e.toString());
+    } on FirebaseAuthException catch (e) {
+      return left(e.code);
     }
   }
 }
