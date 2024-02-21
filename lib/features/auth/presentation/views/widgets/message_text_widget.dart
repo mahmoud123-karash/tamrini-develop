@@ -16,7 +16,6 @@ class MessageTextWidget extends StatelessWidget {
         style: TextStyle(
           decoration: TextDecoration.underline,
           decorationColor: appColor,
-          decorationStyle: TextDecorationStyle.solid,
           fontSize: 15,
           fontWeight: FontWeight.w600,
           color: Colors.white,

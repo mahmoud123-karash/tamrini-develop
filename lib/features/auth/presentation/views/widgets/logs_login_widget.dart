@@ -1,14 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/services/get_it.dart';
-
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/presentation/manager/google_cubit/google_cubit.dart';
-
-import 'package:tamrini/features/auth/presentation/views/widgets/sign_in_with_apple_widget.dart';
-
 import 'sign_in_with_google_icon_widget.dart';
 
 class LogsLoginWidget extends StatelessWidget {
@@ -27,7 +21,6 @@ class LogsLoginWidget extends StatelessWidget {
             ),
             child: const SignInWithGoogleIconWidget(),
           ),
-          if (Platform.isIOS) const SignInWithAppleIconWidget(),
         ],
       ),
     );

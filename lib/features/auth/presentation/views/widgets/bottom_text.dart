@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 
-class BottomText extends StatefulWidget {
+class BottomText extends StatelessWidget {
   const BottomText(
       {super.key,
       required this.text1,
@@ -12,43 +12,34 @@ class BottomText extends StatefulWidget {
   final VoidCallback onPressed;
 
   @override
-  State<BottomText> createState() => _BottomTextState();
-}
-
-class _BottomTextState extends State<BottomText> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapUp: (details) {},
-      onTap: widget.onPressed,
-      behavior: HitTestBehavior.opaque,
-      child: RichText(
-        text: TextSpan(
-          style: const TextStyle(
-            fontSize: 12,
-            fontFamily: 'Montserrat',
+    return TextButton(
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: RichText(
+          text: TextSpan(
+            style: const TextStyle(
+              fontSize: 15,
+              fontFamily: 'Montserrat',
+            ),
+            children: [
+              TextSpan(
+                text: text1,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              TextSpan(
+                text: text2,
+                style: TextStyle(
+                  color: appColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-          children: [
-            TextSpan(
-              text: widget.text1,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            TextSpan(
-              text: widget.text2,
-              style: TextStyle(
-                color: appColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
         ),
       ),
     );

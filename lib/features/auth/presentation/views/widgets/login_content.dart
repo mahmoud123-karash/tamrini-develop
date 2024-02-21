@@ -100,6 +100,9 @@ class _LoginContentState extends State<LoginContent>
                             },
                           ),
                         ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         MessageTextWidget(
                           label: S.of(context).forget,
                           onPressed: () {
