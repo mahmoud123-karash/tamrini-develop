@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -60,9 +59,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
               setState(() {});
             },
             isSelected: lang == '',
-            image: Platform.localeName == 'en_US'
-                ? Assets.imagesEn
-                : Assets.imagesLang,
+            image: getEnlish() == 'en' ? Assets.imagesEn : Assets.imagesLang,
           ),
           Expanded(
             child: SizedBox(

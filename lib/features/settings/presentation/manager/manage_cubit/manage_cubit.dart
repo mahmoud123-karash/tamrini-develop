@@ -1,8 +1,8 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/save_data.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/settings/presentation/manager/manage_cubit/manage_states.dart';
 
 class ManageCubit extends Cubit<ManageStates> {
@@ -21,10 +21,10 @@ class ManageCubit extends Cubit<ManageStates> {
     }
   }
 
-  String lang = Platform.localeName;
+  String lang = getEnlish();
   void changeLanguage({required String language}) async {
     if (language == '') {
-      lang = Platform.localeName;
+      lang = getEnlish();
       saveLanguage('');
       emit(ChangeLanguageState());
     } else {

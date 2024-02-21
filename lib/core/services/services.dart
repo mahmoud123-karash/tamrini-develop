@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -201,4 +203,17 @@ String formatNumber(int number) {
 void clearSubBox() async {
   var box = Hive.box<SubscriptionModel>(subBox);
   await box.clear();
+}
+
+String getEnlish() {
+  String lang = Platform.localeName;
+  if (lang == 'en_US' ||
+      lang == 'en_I' ||
+      lang == 'en_NZ' ||
+      lang == 'en_UK' ||
+      lang == 'en_A') {
+    return 'en';
+  } else {
+    return 'ar';
+  }
 }
