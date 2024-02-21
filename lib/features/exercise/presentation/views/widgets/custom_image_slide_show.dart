@@ -74,13 +74,10 @@ class _CustomImageSlideShowState extends State<CustomImageSlideShow> {
           const SizedBox(
             height: 10,
           ),
-          Positioned.fill(
-            bottom: 5,
-            child: ImageSlideShowNavigation(
-              assets: widget.assets,
-              currentIndex: _currentIndex,
-              onSliderChanged: onSliderIconClicked,
-            ),
+          ImageSlideShowNavigation(
+            assets: widget.assets,
+            currentIndex: _currentIndex,
+            onSliderChanged: onSliderIconClicked,
           )
         ]
       ],

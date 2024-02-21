@@ -30,6 +30,7 @@ class TrainerRowInfoWIdget extends StatelessWidget {
             icon: Icons.attach_money_outlined,
             value: trainer.price.toString(),
             text: S.of(context).money,
+            isPrice: true,
           )
         ],
       ),

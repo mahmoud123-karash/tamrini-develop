@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/generated/l10n.dart';
 
 class TrainerInfoWidget extends StatelessWidget {
-  const TrainerInfoWidget(
-      {super.key, required this.icon, required this.value, required this.text});
+  const TrainerInfoWidget({
+    super.key,
+    required this.icon,
+    required this.value,
+    required this.text,
+    this.isPrice = false,
+  });
   final IconData icon;
   final String value, text;
+  final bool isPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class TrainerInfoWidget extends StatelessWidget {
           ),
         ),
         Text(
-          "+ ${value.toString()}",
+          "${isPrice ? '' : '+'} ${value.toString()} ${isPrice ? S.of(context).dinar : ''}",
           style: TextStyles.style14,
         ),
         Text(

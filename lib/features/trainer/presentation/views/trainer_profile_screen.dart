@@ -77,9 +77,8 @@ class _TrainerProfileScreenState extends State<TrainerProfileScreen> {
                                 lable: S.of(context).edit,
                               ),
                             ),
-                          if (trainer.isBanned == false)
-                            if (userType == 'admin')
-                              BanCustomBuilderWidget(trainer: trainer),
+                          if (userType == 'admin')
+                            BanCustomBuilderWidget(trainer: trainer),
                         ],
                       ),
                     )
