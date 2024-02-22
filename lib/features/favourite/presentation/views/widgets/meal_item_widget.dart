@@ -95,7 +95,7 @@ class _MealItemWidgetState extends State<MealItemWidget> {
                   model: widget.model,
                   weight: weight,
                   cancel: () {
-                    weight = 50;
+                    weight = widget.model.wieght;
                     setState(() {});
                   },
                 )
