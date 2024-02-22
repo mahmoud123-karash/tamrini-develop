@@ -47,9 +47,9 @@ class FavoriteRepoImpl extends FavoriteRepo {
             meal.toJson(),
           );
       var box = Hive.box<MealModel>(favoriteBox);
+      await box.add(meal);
       List<MealModel> list = [];
       list = box.values.toList();
-      list.add(meal);
       return right(list);
     } catch (e) {
       return left(e.toString());
@@ -73,6 +73,8 @@ class FavoriteRepoImpl extends FavoriteRepo {
       var box = Hive.box<MealModel>(favoriteBox);
       List<MealModel> list = box.values.toList();
       list.remove(meal);
+      await box.clear();
+      await box.addAll(list);
       return right(list);
     } catch (e) {
       return left(e.toString());
@@ -107,6 +109,8 @@ class FavoriteRepoImpl extends FavoriteRepo {
       List<MealModel> list = box.values.toList();
       list.remove(meal);
       list.add(model);
+      await box.clear();
+      await box.addAll(list);
       return right(list);
     } catch (e) {
       return left(e.toString());

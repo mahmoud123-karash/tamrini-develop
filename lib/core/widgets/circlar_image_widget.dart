@@ -37,6 +37,7 @@ class CirclarImageWidget extends StatelessWidget {
           if (frame != null) return child;
           return CircleAvatar(
             radius: radius,
+            backgroundImage: const AssetImage(Assets.imagesProfile),
           );
         },
       ),

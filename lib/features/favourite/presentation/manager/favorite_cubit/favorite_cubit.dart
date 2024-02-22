@@ -17,6 +17,7 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
         emit(ErrorGetFavoritesState(message));
       },
       (list) {
+        list.sort((a, b) => a.name.compareTo(b.name));
         emit(SucessGetFavoritesState(list));
       },
     );
@@ -34,6 +35,7 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
         emit(ErrorGetFavoritesState(message));
       },
       (list) {
+        list.sort((a, b) => a.name.compareTo(b.name));
         emit(SucessGetFavoritesState(list));
       },
     );
@@ -50,6 +52,7 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
         emit(ErrorGetFavoritesState(message));
       },
       (list) {
+        list.sort((a, b) => a.name.compareTo(b.name));
         emit(SucessGetFavoritesState(list));
       },
     );
@@ -66,6 +69,7 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
         emit(ErrorGetFavoritesState(message));
       },
       (list) {
+        list.sort((a, b) => a.name.compareTo(b.name));
         emit(SucessGetFavoritesState(list));
       },
     );

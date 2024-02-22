@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
+import 'package:tamrini/features/favourite/presentation/manager/favorite_cubit/favorite_cubit.dart';
 import 'package:tamrini/features/favourite/presentation/views/widgets/meal_name_icon_row_widget.dart';
 import 'package:tamrini/features/favourite/presentation/views/widgets/value_row_widget.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/wieght_list_view_widget.dart';
@@ -74,7 +75,14 @@ class _MealItemWidgetState extends State<MealItemWidget> {
                 height: 5,
               ),
               MealNameIconRowWidget(
-                meal: widget.model,
+                name: widget.model.name,
+                remove: () {
+                  weight = widget.model.wieght;
+                  setState(() {});
+                  FavoriteCubit.get(context).removeFavoriteMeal(
+                    meal: widget.model,
+                  );
+                },
               ),
               const SizedBox(
                 height: 10,
