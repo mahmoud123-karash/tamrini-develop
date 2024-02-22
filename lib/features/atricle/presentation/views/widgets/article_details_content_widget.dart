@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/user_builder_widget.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../../../../home/presentation/views/widgets/image_view_widget.dart';
-import '../../../../../core/widgets/writer_row_widget.dart';
 
 class ArticleDetailsContentWidget extends StatelessWidget {
   const ArticleDetailsContentWidget({super.key, required this.model});
@@ -77,7 +76,8 @@ class ArticleDetailsContentWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (model.writerUid != uid) WriterWidget(user: model.user!)
+                if (model.writerUid != uid)
+                  WriterWidget(uid: model.writerUid ?? '')
               ],
             ),
           ),
@@ -88,8 +88,8 @@ class ArticleDetailsContentWidget extends StatelessWidget {
 }
 
 class WriterWidget extends StatelessWidget {
-  const WriterWidget({super.key, required this.user});
-  final UserModel user;
+  const WriterWidget({super.key, required this.uid});
+  final String uid;
 
   @override
   Widget build(BuildContext context) {
@@ -99,8 +99,8 @@ class WriterWidget extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        WriterRowWidget(
-          model: user,
+        UserBuilderWidget(
+          uid: uid,
         ),
       ],
     );

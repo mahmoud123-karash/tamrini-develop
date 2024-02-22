@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/utils/distripute_assets.dart';
+import 'package:tamrini/core/widgets/user_builder_widget.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import '../../../../atricle/presentation/views/widgets/article_writer_builder_widget.dart';
 import 'custom_image_slide_show.dart';
 import 'edit_exercise_custom_button_widget.dart';
 
@@ -110,7 +110,7 @@ class ExerciseDetailsBodyWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               const Divider(),
-                              ArticlWriterBuilderWidget(
+                              UserBuilderWidget(
                                 uid: model.writerUid ?? adminUid,
                               ),
                               if (!isHome && !isAll)

@@ -4,8 +4,8 @@ import 'package:tamrini/core/cubit/user_cubit/user_cubit.dart';
 import 'package:tamrini/core/cubit/user_cubit/user_states.dart';
 import 'package:tamrini/core/widgets/writer_row_widget.dart';
 
-class ArticlWriterBuilderWidget extends StatelessWidget {
-  const ArticlWriterBuilderWidget({
+class UserBuilderWidget extends StatelessWidget {
+  const UserBuilderWidget({
     super.key,
     required this.uid,
   });

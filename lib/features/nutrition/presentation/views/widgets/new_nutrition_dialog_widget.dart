@@ -140,7 +140,7 @@ class _NewNutritionDialogWidgetState extends State<NewNutritionDialogWidget> {
                     formKey.currentState!.save();
                     if (widget.model != null) {
                       NutritionCubit.get(context).editNutrition(
-                        id: widget.model!.id ?? '',
+                        oldModel: widget.model!,
                         categoryId: widget.categoryId,
                         name: nameController.text,
                         protien: double.parse(proteinController.text),

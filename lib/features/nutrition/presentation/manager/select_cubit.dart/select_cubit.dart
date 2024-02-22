@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
@@ -11,6 +13,7 @@ class SelectCubit extends Cubit<SelectStates> {
 
   void search(value, List<NutritionModel> list) {
     searchList = searchNutrition(value, list);
+    log(searchList.length.toString());
     emit(SearchNutritionState());
   }
 

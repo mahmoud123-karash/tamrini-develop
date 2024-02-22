@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/services/location.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 
 abstract class QuestionRemoteDataSource {
@@ -19,7 +19,8 @@ class QuestionRemoteDataSourceImpl extends QuestionRemoteDataSource {
         .get();
 
     for (var element in result.docs) {
-      UserModel? user = await getAsker(element);
+      String askerUid = element.data()['askerUid'] ?? '';
+      UserModel? user = askerUid == '' ? null : await getUser(askerUid);
       if (user != null) {
         QuestionModel model =
             QuestionModel.fromJson(element.data(), element.id, user);
@@ -29,26 +30,5 @@ class QuestionRemoteDataSourceImpl extends QuestionRemoteDataSource {
       }
     }
     return list;
-  }
-
-  Future<UserModel?> getAsker(
-    QueryDocumentSnapshot<Map<String, dynamic>> element,
-  ) async {
-    String askerUid = element.data()['askerUid'] ?? '';
-    if (askerUid != '') {
-      var result = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(askerUid)
-          .get();
-      GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
-      GeoPoint location = result.data() == null
-          ? defultLocation
-          : result.data()!['location'] ?? defultLocation;
-      String address = await getAddress(location: location);
-      UserModel user = UserModel.fromMap(result.data()!, result.id, address);
-      return user;
-    } else {
-      return null;
-    }
   }
 }

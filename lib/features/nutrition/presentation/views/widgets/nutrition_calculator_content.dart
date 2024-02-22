@@ -87,6 +87,7 @@ class _NutritionCalCulatorContentWidgetState
                 if (cubit.model.title != '')
                   FavoriteIconWidget(
                     model: MealModel(
+                      wieght: cubit.selectedWieght,
                       carbs: cubit.model.carbs,
                       protein: cubit.model.proteins,
                       fat: cubit.model.fats,
@@ -115,12 +116,16 @@ class _NutritionCalCulatorContentWidgetState
                       ),
                       child: BlocBuilder<SelectCubit, SelectStates>(
                         builder: (context, state) {
+                          List<NutritionModel> list =
+                              searchController.text == ''
+                                  ? widget.list
+                                  : cubit.searchList;
                           return NutritionlistViewWidget(
                             scrollController: _mealController!,
-                            list: finalList,
+                            list: list,
                             onSelectedItemChanged: (selectedItem) {
                               cubit.selctedMeal = selectedItem;
-                              cubit.selectmeal(finalList[selectedItem]);
+                              cubit.selectmeal(list[selectedItem]);
                             },
                           );
                         },
@@ -154,16 +159,14 @@ class _NutritionCalCulatorContentWidgetState
                     grams: cubit.selectedWieght,
                     name: cubit.model.title,
                   ),
-                const SizedBox(
-                  height: 10,
-                ),
                 if (cubit.model.user != null)
                   WriterWidget(user: cubit.model.user!),
                 const SizedBox(
                   height: 10,
                 ),
                 if (!widget.isMyday)
-                  EditRemoveNutritionRowButtonsWidget(model: cubit.model),
+                  if (cubit.model.title != '')
+                    EditRemoveNutritionRowButtonsWidget(model: cubit.model),
               ],
             ),
           ),
@@ -185,6 +188,9 @@ class WriterWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
+          const SizedBox(
+            height: 10,
+          ),
           const Divider(),
           WriterRowWidget(
             model: user,

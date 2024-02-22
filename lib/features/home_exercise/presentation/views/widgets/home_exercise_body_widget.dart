@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_builder_widget.dart';
+import 'package:tamrini/core/widgets/user_builder_widget.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_states.dart';
@@ -54,7 +54,7 @@ class HomeExerciseBodyWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               const Divider(),
-                              ArticlWriterBuilderWidget(uid: model.writerUid),
+                              UserBuilderWidget(uid: model.writerUid),
                               const SizedBox(
                                 height: 10,
                               ),

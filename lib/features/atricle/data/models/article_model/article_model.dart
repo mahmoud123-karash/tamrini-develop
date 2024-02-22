@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
 
 class ArticleModel {
   late Timestamp? date;
@@ -11,7 +10,6 @@ class ArticleModel {
   late String? id;
   late bool? isPending;
   late bool? isRefused;
-  UserModel? user;
 
   ArticleModel({
     required this.date,
@@ -22,14 +20,9 @@ class ArticleModel {
     required this.title,
     required this.isPending,
     required this.isRefused,
-    this.user,
   });
 
-  factory ArticleModel.fromJson(
-    Map<String, dynamic> data,
-    String id,
-    UserModel user,
-  ) {
+  factory ArticleModel.fromJson(Map<String, dynamic> data, String id) {
     return ArticleModel(
       date: data['date'],
       id: id,
@@ -39,7 +32,6 @@ class ArticleModel {
       isRefused: data['isRefused'] ?? false,
       body: data['body'],
       title: data['title'],
-      user: user,
     );
   }
 

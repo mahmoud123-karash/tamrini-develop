@@ -78,4 +78,38 @@ class FavoriteRepoImpl extends FavoriteRepo {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, List<MealModel>>> editFavoriteMeal({
+    required MealModel meal,
+    required num wieght,
+  }) async {
+    try {
+      MealModel model = MealModel(
+        carbs: meal.carbs,
+        protein: meal.protein,
+        fat: meal.fat,
+        calories: meal.calories,
+        id: meal.id,
+        name: meal.name,
+        wieght: wieght,
+      );
+      String uid = CacheHelper.getData(key: 'uid');
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('favorite')
+          .doc('data')
+          .collection('meals')
+          .doc(meal.id)
+          .update(model.toJson());
+      var box = Hive.box<MealModel>(favoriteBox);
+      List<MealModel> list = box.values.toList();
+      list.remove(meal);
+      list.add(model);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

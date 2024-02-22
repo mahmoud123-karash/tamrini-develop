@@ -599,6 +599,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Search for Your Exercise"),
         "section_name": MessageLookupByLibrary.simpleMessage("Section Name"),
         "section_order": MessageLookupByLibrary.simpleMessage("Section Order"),
+        "select_meal_wieght":
+            MessageLookupByLibrary.simpleMessage("اختر حجم الوجبة الذى تريده"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
@@ -688,6 +690,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Supplement Description"),
         "sut": MessageLookupByLibrary.simpleMessage("Saturday"),
         "system": MessageLookupByLibrary.simpleMessage("System"),
+        "tap_to_cahnge_meal_wieght":
+            MessageLookupByLibrary.simpleMessage("اضعط لتعيير حجم الوجبة"),
         "thanks_for_rating":
             MessageLookupByLibrary.simpleMessage("Thank you for your rating"),
         "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),

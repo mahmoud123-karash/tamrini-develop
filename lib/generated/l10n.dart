@@ -5269,6 +5269,26 @@ class S {
       args: [],
     );
   }
+
+  /// `اختر حجم الوجبة الذى تريده`
+  String get select_meal_wieght {
+    return Intl.message(
+      'اختر حجم الوجبة الذى تريده',
+      name: 'select_meal_wieght',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اضعط لتعيير حجم الوجبة`
+  String get tap_to_cahnge_meal_wieght {
+    return Intl.message(
+      'اضعط لتعيير حجم الوجبة',
+      name: 'tap_to_cahnge_meal_wieght',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

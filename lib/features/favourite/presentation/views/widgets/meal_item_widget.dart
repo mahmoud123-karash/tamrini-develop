@@ -1,44 +1,106 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
 import 'package:tamrini/features/favourite/presentation/views/widgets/meal_name_icon_row_widget.dart';
 import 'package:tamrini/features/favourite/presentation/views/widgets/value_row_widget.dart';
+import 'package:tamrini/features/nutrition/presentation/views/widgets/wieght_list_view_widget.dart';
 
-class MealItemWidget extends StatelessWidget {
+import 'meal_wieght_row_widget.dart';
+import 'save_cancel_buttons_row_widget.dart';
+
+class MealItemWidget extends StatefulWidget {
   const MealItemWidget({super.key, required this.model});
   final MealModel model;
 
   @override
+  State<MealItemWidget> createState() => _MealItemWidgetState();
+}
+
+class _MealItemWidgetState extends State<MealItemWidget> {
+  FixedExtentScrollController? _weightController;
+  late num weight;
+
+  @override
+  void initState() {
+    weight = widget.model.wieght;
+    super.initState();
+    _weightController = FixedExtentScrollController();
+  }
+
+  @override
+  void dispose() {
+    _weightController!.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: appColor,
-          width: 0.5,
+    return InkWell(
+      onTap: () {
+        showWeightDialog(
+          controller: _weightController!,
+          context: context,
+          selectedWeight: weight.toInt(),
+          child: WeightListViewWidget(
+            onSelectedItemChanged: (selctedWieght) {
+              weight = selctedWieght;
+              setState(() {});
+            },
+            scrollController: _weightController!,
+          ),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(
+            color: appColor,
+            width: 0.5,
+          ),
         ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            MealNameIconRowWidget(
-              meal: model,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            ValuesRowWidget(
-              calories: model.calories.toStringAsFixed(0),
-              protien: model.protein.toStringAsFixed(0),
-              fat: model.fat.toStringAsFixed(0),
-              carb: model.carbs.toStringAsFixed(0),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 5,
+              ),
+              MealWieghtRowWidget(weight: weight),
+              const SizedBox(
+                height: 5,
+              ),
+              MealNameIconRowWidget(
+                meal: widget.model,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ValuesRowWidget(
+                calories:
+                    (widget.model.calories * weight / 50).toStringAsFixed(0),
+                protien:
+                    (widget.model.protein * weight / 50).toStringAsFixed(0),
+                fat: (widget.model.fat * weight / 50).toStringAsFixed(0),
+                carb: (widget.model.carbs * weight / 50).toStringAsFixed(0),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              if (widget.model.wieght != weight)
+                SaveCancelButtonsRowWidget(
+                  model: widget.model,
+                  weight: weight,
+                  cancel: () {
+                    weight = 50;
+                    setState(() {});
+                  },
+                )
+            ],
+          ),
         ),
       ),
     );

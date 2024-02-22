@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 void showLoaderDialog(BuildContext context) {
@@ -83,19 +84,47 @@ void showWeightDialog({
           selectedWeight,
         ),
       );
-
-      return Container(
-        width: double.infinity,
-        height: 300.sp,
-        padding: const EdgeInsets.only(top: 6.0),
-        margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-        ),
-        color: CupertinoColors.systemBackground.resolveFrom(context),
-        child: SafeArea(
-          top: false,
-          child: child,
-        ),
+      return ListView(
+        shrinkWrap: true,
+        children: [
+          Material(
+            child: SizedBox(
+              height: 70.h,
+              child: Row(
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(S.of(context).ok),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        S.of(context).select_meal_wieght,
+                        style: TextStyles.style15.copyWith(
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: 300.sp,
+            padding: const EdgeInsets.only(top: 6.0),
+            margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
+            color: CupertinoColors.systemBackground.resolveFrom(context),
+            child: SafeArea(
+              top: false,
+              child: child,
+            ),
+          ),
+        ],
       );
     },
   );

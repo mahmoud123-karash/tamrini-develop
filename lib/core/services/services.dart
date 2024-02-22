@@ -220,9 +220,7 @@ String getEnlish() {
   }
 }
 
-Future<UserModel> getUser(
-  String uid,
-) async {
+Future<UserModel> getUser(String uid) async {
   var result =
       await FirebaseFirestore.instance.collection('users').doc(uid).get();
   GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
@@ -231,5 +229,31 @@ Future<UserModel> getUser(
       : result.data()!['location'] ?? defultLocation;
   String address = await getAddress(location: location);
   UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+
+  return user;
+}
+
+UserModel getUserFromProfile() {
+  var box = Hive.box<ProfileModel>(profileBox);
+  ProfileModel model = box.values.toList().first;
+  String type = CacheHelper.getData(key: 'usertype') ?? '';
+  String token = CacheHelper.getData(key: 'deviceToken') ?? '';
+  String uid = CacheHelper.getData(key: 'uid') ?? '';
+  UserModel user = UserModel(
+    email: model.email,
+    role: type,
+    gender: model.gender,
+    whatsApp: model.whatsApp ?? '',
+    name: model.name,
+    image: model.image,
+    token: token,
+    facebookUri: model.facebookUri,
+    uid: uid,
+    instgramUri: model.instgramUri,
+    isBanned: model.isBanned,
+    address: model.address,
+    twiterUri: model.twiterUri,
+    phone: model.phone,
+  );
   return user;
 }

@@ -29,6 +29,7 @@ class ClassificationCubit extends Cubit<ClassificationStates> {
     required String name,
     required BuildContext context,
   }) async {
+    emit(LoadingGetClassificationState());
     var result = await nuritionRepo.addClassifications(name: name);
     result.fold(
       (message) {
@@ -47,6 +48,7 @@ class ClassificationCubit extends Cubit<ClassificationStates> {
     required String id,
     required BuildContext context,
   }) async {
+    emit(LoadingGetClassificationState());
     var result = await nuritionRepo.editClassifications(name: name, id: id);
     result.fold(
       (message) {

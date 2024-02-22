@@ -54,4 +54,20 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
       },
     );
   }
+
+  void editFavoriteMeal({
+    required MealModel meal,
+    required num wieght,
+  }) async {
+    var result =
+        await favoriteRepo.editFavoriteMeal(meal: meal, wieght: wieght);
+    result.fold(
+      (message) {
+        emit(ErrorGetFavoritesState(message));
+      },
+      (list) {
+        emit(SucessGetFavoritesState(list));
+      },
+    );
+  }
 }

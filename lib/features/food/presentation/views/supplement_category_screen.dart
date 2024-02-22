@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/widgets/banner_ad_widget.dart';
+import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/views/new_category_screen.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/supplement_grid_view_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -17,27 +18,36 @@ class SupplementsCategoryScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: const BannerAdWidget(),
       appBar: myAppBar(S.of(context).nuttritions),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 5,
-          ),
-          if (userType == 'admin')
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              child: addCustomButton(
-                onPressed: () {
-                  navigateTo(context, const NewCategoryScreen());
-                },
-                lable: S.of(context).add_nutrition_classification,
-              ),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(milliseconds: 1500)).then(
+            (value) {
+              SupplementCubit.get(context).getData();
+            },
+          );
+        },
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 5,
             ),
-          Expanded(
-            child: SupplementGridViewBuilderWidget(isCourse: isCourse),
-          ),
-        ],
+            if (userType == 'admin')
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: addCustomButton(
+                  onPressed: () {
+                    navigateTo(context, const NewCategoryScreen());
+                  },
+                  lable: S.of(context).add_nutrition_classification,
+                ),
+              ),
+            Expanded(
+              child: SupplementGridViewBuilderWidget(isCourse: isCourse),
+            ),
+          ],
+        ),
       ),
     );
   }

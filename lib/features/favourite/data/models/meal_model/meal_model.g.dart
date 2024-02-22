@@ -23,6 +23,7 @@ class MealModelAdapter extends TypeAdapter<MealModel> {
       calories: fields[3] as num,
       id: fields[4] as String,
       name: fields[5] as String,
+      wieght: fields[6] ?? 50,
     );
   }
 

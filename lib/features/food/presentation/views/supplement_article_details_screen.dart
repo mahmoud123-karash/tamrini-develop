@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/atricle/presentation/views/widgets/article_writer_builder_widget.dart';
+import 'package:tamrini/core/widgets/user_builder_widget.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
 import 'package:tamrini/features/food/presentation/views/new_supplement_screen.dart';
@@ -66,7 +66,7 @@ class SupplementArticlesDetailsScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   const Divider(),
-                                  ArticlWriterBuilderWidget(
+                                  UserBuilderWidget(
                                     uid: model.writerUid,
                                   ),
                                   const SizedBox(

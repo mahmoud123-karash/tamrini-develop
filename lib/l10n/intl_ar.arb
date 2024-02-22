@@ -519,7 +519,9 @@
     "pending_hint_payment":"من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة",
     "back":"عودة",
     "please_try_again":"يرجي اعادة المحاولة",
-    "payment_success_button":"تم الدفع"
+    "payment_success_button":"تم الدفع",
+    "select_meal_wieght":"اختر حجم الوجبة الذى تريده",
+    "tap_to_cahnge_meal_wieght":"اضعط لتعيير حجم الوجبة"
 
 
 

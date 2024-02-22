@@ -64,12 +64,13 @@ class NutritionClassificationItemWidget extends StatelessWidget {
                   ),
             onTap: () {
               navigateTo(
-                  context,
-                  NutritionCalculatorScreen(
-                    model: model,
-                    isMyday: isMyday,
-                    id: id,
-                  ));
+                context,
+                NutritionCalculatorScreen(
+                  model: model,
+                  isMyday: isMyday,
+                  id: id,
+                ),
+              );
             },
             title: Text(
               model.classification,

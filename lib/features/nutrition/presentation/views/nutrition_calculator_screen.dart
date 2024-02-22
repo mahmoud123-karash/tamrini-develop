@@ -39,35 +39,47 @@ class _NutritionCalculatorScreenState extends State<NutritionCalculatorScreen> {
       appBar: myAppBar(
         widget.model.classification,
       ),
-      body: ListView(
-        children: [
-          const SizedBox(
-            height: 15,
-          ),
-          if (userType == 'admin' || userType == 'writer')
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              child: addCustomButton(
-                fontSize: 18,
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    barrierDismissible: false,
-                    builder: (context) =>
-                        NewNutritionDialogWidget(categoryId: widget.model.id),
-                  );
-                },
-                lable: S.of(context).add,
-              ),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(milliseconds: 1500)).then(
+            (value) {
+              NutritionCubit.get(context).getData(
+                id: widget.model.id,
+                isUpate: true,
+              );
+            },
+          );
+        },
+        child: ListView(
+          children: [
+            const SizedBox(
+              height: 15,
             ),
-          NutritionCalculatorContentBuilderWidget(
-            model: widget.model,
-            isMyday: widget.isMyday,
-            id: widget.id,
-          ),
-        ],
+            if (userType == 'admin' || userType == 'writer')
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                ),
+                child: addCustomButton(
+                  fontSize: 18,
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) =>
+                          NewNutritionDialogWidget(categoryId: widget.model.id),
+                    );
+                  },
+                  lable: S.of(context).add,
+                ),
+              ),
+            NutritionCalculatorContentBuilderWidget(
+              model: widget.model,
+              isMyday: widget.isMyday,
+              id: widget.id,
+            ),
+          ],
+        ),
       ),
     );
   }

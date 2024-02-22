@@ -11,10 +11,13 @@ abstract class NuritionRepo {
     required String name,
     required String id,
   });
+
   Future<Either<String, List<NutritionModel>>> getNutritions({
     required String id,
   });
+
   Future<Either<String, List<NutritionModel>>> addNutrition({
+    required List<NutritionModel> list,
     required String categoryId,
     required String name,
     required double protien,
@@ -23,8 +26,9 @@ abstract class NuritionRepo {
     required double calories,
   });
   Future<Either<String, List<NutritionModel>>> editNutrition({
+    required List<NutritionModel> list,
+    required NutritionModel oldModel,
     required String categoryId,
-    required String id,
     required String name,
     required double protien,
     required double fat,
@@ -32,6 +36,7 @@ abstract class NuritionRepo {
     required double calories,
   });
   Future<Either<String, List<NutritionModel>>> removeNutrition({
+    required List<NutritionModel> list,
     required String categoryId,
     required String id,
   });

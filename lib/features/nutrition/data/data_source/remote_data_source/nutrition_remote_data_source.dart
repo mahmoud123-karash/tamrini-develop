@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/services/location.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
 
@@ -33,30 +33,18 @@ class NutritionRemoteDataSourceImpl extends NutritionRemoteDataSource {
         .collection('data')
         .orderBy('title', descending: false)
         .get();
-
     for (var element in result.docs) {
-      UserModel userModel = await getAsker(element);
+      String writerUid = element.data()['writerUid'] ?? adminUid;
+      UserModel? user;
+      if (writerUid != adminUid) {
+        user = await getUser(writerUid);
+      } else {
+        user = null;
+      }
       NutritionModel model =
-          NutritionModel.fromJson(element.data(), element.id, id, userModel);
+          NutritionModel.fromJson(element.data(), element.id, id, user);
       list.add(model);
     }
     return list;
-  }
-
-  Future<UserModel> getAsker(
-    QueryDocumentSnapshot<Map<String, dynamic>> element,
-  ) async {
-    String askerUid = element.data()['writerUid'] ?? adminUid;
-    var result = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(askerUid)
-        .get();
-    GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
-    GeoPoint location = result.data() == null
-        ? defultLocation
-        : result.data()!['location'] ?? defultLocation;
-    String address = await getAddress(location: location);
-    UserModel user = UserModel.fromMap(result.data()!, result.id, address);
-    return user;
   }
 }

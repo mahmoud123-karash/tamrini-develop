@@ -13,6 +13,11 @@ abstract class TextStyles {
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
   );
+
+  static TextStyle style15 = TextStyle(
+    fontSize: 15.h,
+    fontFamily: 'cairo',
+  );
   static TextStyle style13 = TextStyle(
     fontSize: 13.h,
     fontWeight: FontWeight.w500,
@@ -23,11 +28,15 @@ abstract class TextStyles {
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
   );
+
+
   static TextStyle style16Bold = TextStyle(
     fontSize: 16.h,
     fontWeight: FontWeight.w500,
     fontFamily: 'cairo',
   );
+
+  
 
   static TextStyle style19 = TextStyle(
     fontSize: 19.sp,

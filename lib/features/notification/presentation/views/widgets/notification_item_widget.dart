@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
@@ -12,7 +11,6 @@ import 'package:tamrini/features/notification/data/models/notification_model/not
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/notification/presentation/views/widgets/promotion_dialog_widget.dart';
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
-import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
@@ -98,33 +96,11 @@ class NotificationItemWidget extends StatelessWidget {
 
   void notificationNavigate(BuildContext context) {
     if (model.type == 'notification') {
-      var box = Hive.box<ProfileModel>(profileBox);
-      ProfileModel profile = box.values.toList().first;
       String type = CacheHelper.getData(key: 'usertype') ?? '';
-      String token = CacheHelper.getData(key: 'deviceToken') ?? '';
-      String uid = CacheHelper.getData(key: 'uid') ?? '';
       if (model.subType == 'question') {
         navigateTo(
           context,
-          AnswersScreen(
-            uid: model.uid,
-            model: UserModel(
-              email: profile.email,
-              role: type,
-              gender: profile.gender,
-              whatsApp: profile.whatsApp ?? '',
-              name: profile.name,
-              image: profile.image,
-              token: token,
-              facebookUri: profile.facebookUri,
-              uid: uid,
-              instgramUri: profile.instgramUri,
-              isBanned: profile.isBanned,
-              address: profile.address,
-              twiterUri: profile.twiterUri,
-              phone: profile.phone,
-            ),
-          ),
+          AnswersScreen(uid: model.uid, model: getUserFromProfile()),
         );
       }
       if (model.subType == 'store') {

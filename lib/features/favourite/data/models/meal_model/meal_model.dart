@@ -15,6 +15,8 @@ class MealModel {
   final String id;
   @HiveField(5)
   final String name;
+  @HiveField(6)
+  final num wieght;
 
   MealModel({
     required this.carbs,
@@ -23,6 +25,7 @@ class MealModel {
     required this.calories,
     required this.id,
     required this.name,
+    required this.wieght,
   });
 
   factory MealModel.fromJson(Map<String, dynamic> json) {
@@ -33,6 +36,7 @@ class MealModel {
       calories: json['calories'] ?? 0.0,
       id: json['id'] ?? '',
       name: json['name'] ?? '',
+      wieght: json['wieght'] ?? 50,
     );
   }
 
@@ -44,6 +48,7 @@ class MealModel {
       'calories': calories,
       'id': id,
       'name': name,
+      'wieght': wieght,
     };
   }
 }

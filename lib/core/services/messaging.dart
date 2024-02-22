@@ -3,11 +3,9 @@ import 'dart:developer';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
@@ -16,7 +14,6 @@ import 'package:tamrini/features/notification/presentation/manager/notification_
 import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
-import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:tamrini/features/profits/presentation/manager/profits_cubit/profits_cubit.dart';
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
@@ -125,33 +122,10 @@ void getintil(context) async {
 
 void openNotification(RemoteMessage event, BuildContext context) {
   if (event.data['type'] == 'notification') {
-    var box = Hive.box<ProfileModel>(profileBox);
-    ProfileModel model = box.values.toList().first;
-    String type = CacheHelper.getData(key: 'usertype') ?? '';
-    String token = CacheHelper.getData(key: 'deviceToken') ?? '';
-    String uid = CacheHelper.getData(key: 'uid') ?? '';
     if (event.data['subType'] == 'question') {
       navigateTo(
         context,
-        AnswersScreen(
-          uid: event.data['uid'],
-          model: UserModel(
-            email: model.email,
-            role: type,
-            gender: model.gender,
-            whatsApp: model.whatsApp ?? '',
-            name: model.name,
-            image: model.image,
-            token: token,
-            facebookUri: model.facebookUri,
-            uid: uid,
-            instgramUri: model.instgramUri,
-            isBanned: model.isBanned,
-            address: model.address,
-            twiterUri: model.twiterUri,
-            phone: model.phone,
-          ),
-        ),
+        AnswersScreen(uid: event.data['uid'], model: getUserFromProfile()),
       );
     }
     if (event.data['subType'] == 'store') {

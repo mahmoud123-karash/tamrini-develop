@@ -1,7 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/services/services.dart';
 
 import '../../models/article_model/article_model.dart';
 
@@ -21,9 +18,7 @@ class ArticleRemoteDataSourceImpl extends ArticleRemoteDataSource {
         .get();
 
     for (var element in result.docs) {
-      UserModel? user = await getUser(element.data()['writerUid'] ?? adminUid);
-      ArticleModel model =
-          ArticleModel.fromJson(element.data(), element.id, user);
+      ArticleModel model = ArticleModel.fromJson(element.data(), element.id);
       list.add(model);
     }
     return list;

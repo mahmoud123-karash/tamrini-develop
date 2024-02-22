@@ -10,4 +10,9 @@ abstract class FavoriteRepo {
   Future<Either<String, List<MealModel>>> removeFavoriteMeal({
     required MealModel meal,
   });
+
+  Future<Either<String, List<MealModel>>> editFavoriteMeal({
+    required MealModel meal,
+    required num wieght,
+  });
 }
