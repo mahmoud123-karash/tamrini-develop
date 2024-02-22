@@ -1,10 +1,12 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/cubit/admob_cubit/admob_cubit.dart';
 import 'package:tamrini/core/services/messaging.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -45,6 +47,12 @@ class _NavBarScreenState extends State<NavBarScreen> {
       PromotionCubit.get(context).getData();
     }
     if (userType != '') {
+      Timer.periodic(
+        const Duration(minutes: 5),
+        (timer) {
+          AdMobCubit.get(context).createInterstitialAd();
+        },
+      );
       FavoriteCubit.get(context).getData();
       OrderCubit.get(context).getData();
       UserOrderCubit.get(context).getData();

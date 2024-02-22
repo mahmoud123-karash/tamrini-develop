@@ -12,9 +12,8 @@ class AdMobCubit extends Cubit<AdMobStates> {
 
   String userType = CacheHelper.getData(key: 'usertype');
 
-  late BannerAd bannerAd;
   void createBannerAd() {
-    bannerAd = BannerAd(
+    final bannerAd = BannerAd(
       adUnitId: AdModService.adBannerId,
       request: const AdRequest(),
       size: AdSize.banner,
@@ -38,7 +37,7 @@ class AdMobCubit extends Cubit<AdMobStates> {
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
-          if (userType != 'admin') {
+          if (userType != 'admin' && userType != 'trainer') {
             ad.show();
           }
           emit(SucessLoadInterstitialAdState(ad));

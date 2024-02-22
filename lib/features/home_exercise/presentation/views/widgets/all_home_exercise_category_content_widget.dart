@@ -30,12 +30,12 @@ class _AllHomeExercisesCategoryContentWidget
   ScrollController scrollController = ScrollController();
   List<Data> searchList = [];
 
-  int length = 3;
+  int length = 10;
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
     scrollController.addListener(_loadMoreData);
+    super.didChangeDependencies();
   }
 
   void _loadMoreData() {

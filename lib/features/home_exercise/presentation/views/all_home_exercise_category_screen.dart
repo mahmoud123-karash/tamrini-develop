@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/home_exercise_model.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
@@ -23,6 +24,7 @@ class AllHomeExerciseCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       appBar: myAppBar(title),
       body: RefreshIndicator(
         onRefresh: () async {

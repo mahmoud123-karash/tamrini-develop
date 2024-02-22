@@ -27,29 +27,20 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     return BlocBuilder<AdMobCubit, AdMobStates>(
       builder: (context, state) {
         if (state is SucessLoadBannerAdState) {
-          return Container(
-            height: 1,
-          );
-          // if (userType != 'admin' && userType != 'trainer') {
-          //   return StatefulBuilder(
-          //     builder: (context, snapshot) => SizedBox(
-          //       width: AdSize.banner.width.toDouble(),
-          //       height: AdSize.banner.height.toDouble(),
-          //       child: AdWidget(
-          //         ad: state.ad,
-          //         key: UniqueKey(),
-          //       ),
-          //     ),
-          //   );
-          // } else {
-          //   return Container(
-          //     height: 1,
-          //   );
-          // }
+          if (userType != 'admin' && userType != 'trainer') {
+            return SizedBox(
+              width: AdSize.banner.width.toDouble(),
+              height: AdSize.banner.height.toDouble(),
+              child: AdWidget(
+                ad: state.ad,
+                key: UniqueKey(),
+              ),
+            );
+          } else {
+            return const SizedBox();
+          }
         } else {
-          return Container(
-            height: 1,
-          );
+          return const SizedBox();
         }
       },
     );

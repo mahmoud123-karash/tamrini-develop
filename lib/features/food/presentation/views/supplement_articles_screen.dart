@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
@@ -27,6 +28,7 @@ class _SupplementArticlesScreenState extends State<SupplementArticlesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       appBar: myAppBar(widget.title),
       body: RefreshIndicator(
         onRefresh: () async {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/all_gym_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -14,6 +15,7 @@ class AllGymsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       appBar: myAppBar(S.of(context).slatGym),
       body: RefreshIndicator(
         onRefresh: () async {

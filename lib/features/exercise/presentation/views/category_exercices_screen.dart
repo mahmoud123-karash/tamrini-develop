@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/widgets/banner_ad_widget.dart';
+import 'package:tamrini/core/utils/admod_id.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_container_widget.dart';
@@ -14,7 +15,7 @@ import 'package:tamrini/generated/l10n.dart';
 
 import 'all_exercises_category_screen.dart';
 
-class CategoryExercisesScreen extends StatelessWidget {
+class CategoryExercisesScreen extends StatefulWidget {
   const CategoryExercisesScreen({
     Key? key,
     this.isCourse = false,
@@ -22,13 +23,49 @@ class CategoryExercisesScreen extends StatelessWidget {
   final bool isCourse;
 
   @override
+  State<CategoryExercisesScreen> createState() =>
+      _CategoryExercisesScreenState();
+}
+
+class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
+  @override
+  void initState() {
+    String userType = CacheHelper.getData(key: 'usertype');
+    if (userType != 'admin' && userType != 'trainer') {
+      createBannerAd();
+    }
+    super.initState();
+  }
+
+  BannerAd? bannerAd;
+  void createBannerAd() {
+    bannerAd = BannerAd(
+      adUnitId: AdModService.adBannerId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {},
+        onAdFailedToLoad: (ad, error) {
+          ad.dispose();
+        },
+      ),
+    );
+    bannerAd!.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     CourseCubit.get(context).list.clear();
     String userType = CacheHelper.getData(key: 'usertype');
-
     return Scaffold(
       appBar: myAppBar(S.of(context).categoryEx),
-      bottomNavigationBar: const BannerAdWidget(),
+      bottomNavigationBar: bannerAd != null
+          ? SizedBox(
+              width: AdSize.banner.width.toDouble(),
+              height: AdSize.banner.height.toDouble(),
+              child: AdWidget(ad: bannerAd!),
+            )
+          : const SizedBox(),
       body: RefreshIndicator(
         onRefresh: () async {
           await Future.delayed(const Duration(milliseconds: 1500)).then(
@@ -69,7 +106,7 @@ class CategoryExercisesScreen extends StatelessWidget {
                                 list: exercises,
                                 title: S.of(context).allEx,
                                 isAll: true,
-                                isCourse: isCourse,
+                                isCourse: widget.isCourse,
                               ),
                             );
                           }
@@ -79,7 +116,7 @@ class CategoryExercisesScreen extends StatelessWidget {
                         height: 20,
                       ),
                       CategoryGridViewWidget(
-                          models: state.exercises, isCourse: isCourse),
+                          models: state.exercises, isCourse: widget.isCourse),
                     ],
                   ),
                 ),

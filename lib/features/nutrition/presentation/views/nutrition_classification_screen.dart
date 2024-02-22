@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/cubit/admob_cubit/admob_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/classification_cubit/classification_cubit.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/new_classification_dialog_widget.dart';
 
@@ -25,18 +25,10 @@ class NutritionClassificationScreen extends StatefulWidget {
 class _NutritionClassificationScreenState
     extends State<NutritionClassificationScreen> {
   @override
-  void initState() {
-    if (mounted) {
-      AdMobCubit.get(context).createRewardAd();
-    }
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     String userType = CacheHelper.getData(key: 'usertype');
-
     return Scaffold(
+      bottomNavigationBar: const BannerAdWidget(),
       appBar: myAppBar(S.of(context).values_food),
       body: RefreshIndicator(
         onRefresh: () async {
