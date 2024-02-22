@@ -19,7 +19,7 @@ class StatusCubit extends Cubit<StatusStates> {
         emit(ErrorGetStatusState(message));
       },
       (model) {
-        if (model.status == 'success') {
+        if (model.status == 'completed') {
           emit(SucessStatusState());
         } else if (model.status == 'failed') {
           emit(FailedStatusState(model.msg));

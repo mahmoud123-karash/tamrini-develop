@@ -313,8 +313,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Do you want to delete this gym?"),
         "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove this gym ?"),
-        "gym_success_payment": MessageLookupByLibrary.simpleMessage(
-            "تمت معالجة دفع اشتراكك بنجاح. أنت الآن قادر على متابعة اشتراكك .أنت الآن عضو رسمي في صالة الألعاب الرياضية لدينا. استعد للشروع في رحلة لياقة بدنية مثيرة مع إمكانية الوصول إلى أحدث المرافق والمدربين الخبراء والمجتمع النابض بالحياة. ابدأ العمل من أجل أن تصبح أكثر صحة وقوة اليوم!"),
         "gyms_banned": MessageLookupByLibrary.simpleMessage("Banned Gyms"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
@@ -723,8 +721,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
-        "trainer_success_payment": MessageLookupByLibrary.simpleMessage(
-            "تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!"),
         "trainers": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("Trainers Page"),
         "training_course":

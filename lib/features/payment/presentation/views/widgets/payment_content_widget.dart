@@ -58,6 +58,15 @@ class _PaymentContentWidgetState extends State<PaymentContentWidget> {
                   builder: (context, state) {
                     return Column(
                       children: [
+                        if (state is SucessStatusState)
+                          Text(
+                            S.of(context).payment_success,
+                            style: const TextStyle(
+                              color: Colors.amber,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
                         if (state is FailedStatusState)
                           Text(
                             state.message,
