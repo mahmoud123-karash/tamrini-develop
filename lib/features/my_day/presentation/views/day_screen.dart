@@ -44,7 +44,10 @@ class DayScreen extends StatelessWidget {
                   const SizedBox(
                     height: 15,
                   ),
-                  DayAddMealWidget(id: model.id),
+                  DayAddMealWidget(
+                    id: model.id,
+                    calories: model.model.calories,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),

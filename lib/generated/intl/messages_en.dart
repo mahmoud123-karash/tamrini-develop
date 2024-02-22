@@ -172,6 +172,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "choose_meal": MessageLookupByLibrary.simpleMessage("Choose a meal"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("Choose weight"),
         "city": MessageLookupByLibrary.simpleMessage("City"),
+        "claculate_your_calories_before": MessageLookupByLibrary.simpleMessage(
+            "من فضلك قم بحساب احتياجك قبل اختيار الوجبات"),
         "classification_name":
             MessageLookupByLibrary.simpleMessage("Category Name"),
         "cm": MessageLookupByLibrary.simpleMessage("cm"),

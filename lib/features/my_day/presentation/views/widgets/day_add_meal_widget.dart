@@ -6,15 +6,20 @@ import 'package:tamrini/features/nutrition/presentation/views/nutrition_classifi
 import 'package:tamrini/generated/l10n.dart';
 
 class DayAddMealWidget extends StatelessWidget {
-  const DayAddMealWidget({super.key, required this.id});
+  const DayAddMealWidget({super.key, required this.id, required this.calories});
   final String id;
+  final num calories;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        navigateTo(
-            context, NutritionClassificationScreen(isMyday: true, id: id));
+        if (calories != 0) {
+          navigateTo(
+              context, NutritionClassificationScreen(isMyday: true, id: id));
+        } else {
+          showSnackBar(context, S.of(context).claculate_your_calories_before);
+        }
       },
       child: Container(
         decoration: BoxDecoration(

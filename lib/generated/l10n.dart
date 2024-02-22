@@ -5289,6 +5289,16 @@ class S {
       args: [],
     );
   }
+
+  /// `من فضلك قم بحساب احتياجك قبل اختيار الوجبات`
+  String get claculate_your_calories_before {
+    return Intl.message(
+      'من فضلك قم بحساب احتياجك قبل اختيار الوجبات',
+      name: 'claculate_your_calories_before',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
