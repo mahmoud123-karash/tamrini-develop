@@ -9,11 +9,10 @@ class StatusBuilderWidget extends StatefulWidget {
   const StatusBuilderWidget({
     super.key,
     required this.trasactionId,
-    required this.id,
     required this.amount,
     required this.onSuccess,
   });
-  final String trasactionId, id;
+  final String trasactionId;
   final num amount;
   final VoidCallback onSuccess;
 

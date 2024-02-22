@@ -45,7 +45,6 @@ class TrainerSubPaymentScreen extends StatelessWidget {
                   return PaymentContentWidget(
                     transactionId: state.id!,
                     amount: amount,
-                    id: trainerId,
                     onSuccess: () {},
                   );
                 } else {

@@ -26,6 +26,7 @@ class SubscriptionCubit extends Cubit<SubscriptionStates> {
     required num price,
     required num profits,
   }) async {
+    emit(LoadingGetUserSubState());
     var result = await subscriptionRepo.subUser(
       gymId: gymId,
       count: count,
@@ -51,6 +52,7 @@ class SubscriptionCubit extends Cubit<SubscriptionStates> {
     required int count,
     required num profits,
   }) async {
+    emit(LoadingGetUserSubState());
     var result = await subscriptionRepo.renewSub(
       gymId: gymId,
       subId: subId,

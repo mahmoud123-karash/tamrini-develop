@@ -313,6 +313,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Do you want to delete this gym?"),
         "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove this gym ?"),
+        "gym_success_payment": MessageLookupByLibrary.simpleMessage(
+            "تمت معالجة دفع اشتراكك بنجاح. أنت الآن قادر على متابعة اشتراكك .أنت الآن عضو رسمي في صالة الألعاب الرياضية لدينا. استعد للشروع في رحلة لياقة بدنية مثيرة مع إمكانية الوصول إلى أحدث المرافق والمدربين الخبراء والمجتمع النابض بالحياة. ابدأ العمل من أجل أن تصبح أكثر صحة وقوة اليوم!"),
         "gyms_banned": MessageLookupByLibrary.simpleMessage("Banned Gyms"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
@@ -478,6 +480,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneLenght": MessageLookupByLibrary.simpleMessage(
             "please Confirm your phone number"),
         "pincode": MessageLookupByLibrary.simpleMessage("Pincode"),
+        "please_end_to_sub": MessageLookupByLibrary.simpleMessage(
+            "من فضلك قم بإنهاء العملية لتأكيد الاشتراك"),
         "please_try_again":
             MessageLookupByLibrary.simpleMessage("يرجي اعادة المحاولة"),
         "price": MessageLookupByLibrary.simpleMessage("المبلغ"),
@@ -659,6 +663,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Successfully removed"),
         "success_save_excel_sheet":
             MessageLookupByLibrary.simpleMessage("File saved successfully"),
+        "success_sub":
+            MessageLookupByLibrary.simpleMessage("تم الاشتراك بنجاح"),
         "success_suggest_exercise": MessageLookupByLibrary.simpleMessage(
             "Exercise suggested successfully"),
         "success_update": MessageLookupByLibrary.simpleMessage(
@@ -721,6 +727,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
+        "trainer_success_payment": MessageLookupByLibrary.simpleMessage(
+            "تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!"),
         "trainers": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("Trainers Page"),
         "training_course":

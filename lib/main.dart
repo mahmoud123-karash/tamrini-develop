@@ -74,6 +74,8 @@ import 'package:tamrini/features/questions/presentation/manager/question_cubit/q
 import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
 import 'package:tamrini/features/store/data/repo/store_repo_impl.dart';
 import 'package:tamrini/features/store/presentation/manager/category_cubit/category_cubit.dart';
+import 'package:tamrini/features/subscribtions/data/repo/subscription_repo_impl.dart';
+import 'package:tamrini/features/subscribtions/presentation/manager/subscribtion_cubit/subscription_cubit.dart';
 import 'package:tamrini/features/suggest_exercise/data/repo/suggest_repo_impl.dart';
 import 'package:tamrini/features/suggest_exercise/presentation/manager/suggest_cubit/suggest_cubit.dart';
 import 'package:tamrini/features/trainee/data/repo/trainee_repo_impl.dart';
@@ -300,6 +302,11 @@ void main() async {
         ),
         BlocProvider(
           create: (context) => AdMobCubit(),
+        ),
+        BlocProvider(
+          create: (context) => SubscriptionCubit(
+            getIt.get<SubscriptionRepoImpl>(),
+          )..getSubscriptions(),
         ),
         BlocProvider(
           create: (context) => ManageCubit()

@@ -15,10 +15,9 @@ class PaymentContentWidget extends StatefulWidget {
     super.key,
     required this.transactionId,
     required this.amount,
-    required this.id,
     required this.onSuccess,
   });
-  final String transactionId, id;
+  final String transactionId;
   final num amount;
   final VoidCallback onSuccess;
 
@@ -118,7 +117,6 @@ class _PaymentContentWidgetState extends State<PaymentContentWidget> {
                   ? StatusBuilderWidget(
                       trasactionId: widget.transactionId,
                       amount: widget.amount,
-                      id: widget.id,
                       onSuccess: widget.onSuccess,
                     )
                   : Container(),

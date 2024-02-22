@@ -6,8 +6,8 @@ import 'package:tamrini/features/payment/domain/use_cases/create_transaction_id_
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_cubit.dart';
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_states.dart';
 import 'package:tamrini/features/payment/presentation/manager/status_cubit/status_cubit.dart';
+import 'package:tamrini/features/payment/presentation/views/widgets/gym_sub_content_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'widgets/payment_content_widget.dart';
 import 'widgets/payment_error_builder_widget.dart';
 
 class GymSubPaymentScreen extends StatelessWidget {
@@ -25,12 +25,11 @@ class GymSubPaymentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    num amount = price;
     return BlocProvider(
       create: (context) => PaymentCubit(
         getIt.get<CreateTranscationIdUseCase>(),
       )..createTransactionId(
-          amount: amount,
+          amount: price,
           orderId: gymId,
         ),
       child: BlocProvider(
@@ -43,24 +42,26 @@ class GymSubPaymentScreen extends StatelessWidget {
             builder: (context, state) {
               if (state is SucessCreateTransactionIdState) {
                 if (state.id != null) {
-                  return PaymentContentWidget(
+                  return GymSubPaymentContentBuilderWidget(
                     transactionId: state.id!,
-                    amount: amount,
-                    id: gymId,
-                    onSuccess: () {},
+                    gymId: gymId,
+                    subId: subId,
+                    count: count,
+                    price: price,
+                    profits: profits,
                   );
                 } else {
                   return PaymentErrorBuilderWidget(
                     message: S.of(context).error_payment,
                     id: gymId,
-                    amount: amount,
+                    amount: price,
                   );
                 }
               } else if (state is ErrorCreateTransactionIdState) {
                 return PaymentErrorBuilderWidget(
                   message: state.message,
                   id: gymId,
-                  amount: amount,
+                  amount: price,
                 );
               } else {
                 return const Center(

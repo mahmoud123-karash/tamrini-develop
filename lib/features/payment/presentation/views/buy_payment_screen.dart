@@ -47,7 +47,6 @@ class BuyPaymentScreen extends StatelessWidget {
                   return PaymentContentWidget(
                     transactionId: state.id!,
                     amount: amount,
-                    id: model.id,
                     onSuccess: () {
                       navigateTo(
                         context,

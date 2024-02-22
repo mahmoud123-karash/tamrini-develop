@@ -64,12 +64,7 @@ class SubscriptionRepoImpl extends SubscriptionRepo {
           .set(
             model.toJson(),
           );
-
-      await updateGym(
-        gymId: gymId,
-        count: count,
-        profits: profits,
-      );
+      await updateGym(gymId: gymId, count: count, profits: profits);
       await addSubUser(uuid, endDate, gymId, price, uid);
       List<SubscriptionModel> list = await subscriptionRemoteDataSource.get();
       return right(list);
@@ -120,8 +115,13 @@ class SubscriptionRepoImpl extends SubscriptionRepo {
     }
   }
 
-  Future<void> addSubUser(String uuid, Timestamp endDate, String gymId,
-      num price, String uid) async {
+  Future<void> addSubUser(
+    String uuid,
+    Timestamp endDate,
+    String gymId,
+    num price,
+    String uid,
+  ) async {
     SubscriptionModel sModel = SubscriptionModel(
       uid: uuid,
       subDate: Timestamp.now(),

@@ -303,6 +303,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل تريد حذف هذه الصالة الرياضية ؟"),
         "gym_removed_hint":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذه الصالة ؟"),
+        "gym_success_payment": MessageLookupByLibrary.simpleMessage(
+            "تمت معالجة دفع اشتراكك بنجاح. أنت الآن قادر على متابعة اشتراكك .أنت الآن عضو رسمي في صالة الألعاب الرياضية لدينا. استعد للشروع في رحلة لياقة بدنية مثيرة مع إمكانية الوصول إلى أحدث المرافق والمدربين الخبراء والمجتمع النابض بالحياة. ابدأ العمل من أجل أن تصبح أكثر صحة وقوة اليوم!"),
         "gyms_banned":
             MessageLookupByLibrary.simpleMessage("الصالات الرياضية المقيدة"),
         "haveacount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
@@ -471,6 +473,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phoneLenght":
             MessageLookupByLibrary.simpleMessage("الرجاء التأكد من رقم الهاتف"),
         "pincode": MessageLookupByLibrary.simpleMessage("الرمز السري"),
+        "please_end_to_sub": MessageLookupByLibrary.simpleMessage(
+            "من فضلك قم بإنهاء العملية لتأكيد الاشتراك"),
         "please_try_again":
             MessageLookupByLibrary.simpleMessage("يرجي اعادة المحاولة"),
         "price": MessageLookupByLibrary.simpleMessage("المبلغ"),
@@ -645,6 +649,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم الحذف بنجاح"),
         "success_save_excel_sheet":
             MessageLookupByLibrary.simpleMessage("تم حفظ الملف بنجاح"),
+        "success_sub":
+            MessageLookupByLibrary.simpleMessage("تم الاشتراك بنجاح"),
         "success_suggest_exercise":
             MessageLookupByLibrary.simpleMessage("تم اقتراح التمرين بنجاح"),
         "success_update":
@@ -702,6 +708,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainer_gallery": MessageLookupByLibrary.simpleMessage("معرض الأعمال"),
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("ملف المدرب الشخصي"),
+        "trainer_success_payment": MessageLookupByLibrary.simpleMessage(
+            "تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!"),
         "trainers": MessageLookupByLibrary.simpleMessage("المدربين"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("صفحة المدربين"),
         "training_course":
