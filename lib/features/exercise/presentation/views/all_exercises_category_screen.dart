@@ -26,16 +26,25 @@ class AllExercisesCategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: myAppBar(title),
       bottomNavigationBar: const BannerAdWidget(),
-      body: BlocBuilder<ExerciseCubit, ExerciseStates>(
-        builder: (context, state) {
-          var cubit = ExerciseCubit.get(context);
-          String id = CacheHelper.getData(key: 'exerciseId') ?? '';
-          return AllExercisesCategoryContentWidget(
-            list: isAll ? list! : cubit.getExercise(id: id).data ?? [],
-            isAll: isAll,
-            isCourse: isCourse,
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(milliseconds: 1500)).then(
+            (value) {
+              ExerciseCubit.get(context).getData();
+            },
           );
         },
+        child: BlocBuilder<ExerciseCubit, ExerciseStates>(
+          builder: (context, state) {
+            var cubit = ExerciseCubit.get(context);
+            String id = CacheHelper.getData(key: 'exerciseId') ?? '';
+            return AllExercisesCategoryContentWidget(
+              list: isAll ? list! : cubit.getExercise(id: id).data ?? [],
+              isAll: isAll,
+              isCourse: isCourse,
+            );
+          },
+        ),
       ),
     );
   }

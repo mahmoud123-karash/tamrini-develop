@@ -24,16 +24,25 @@ class AllHomeExerciseCategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(title),
-      body: BlocBuilder<HomeExerciseCubit, HomeExerciseStates>(
-        builder: (context, state) {
-          HomeExerciseModel? model =
-              id != '' ? HomeExerciseCubit.get(context).getSection(id) : null;
-          return AllHomeExercisesCategoryContentWidget(
-            models: list != null ? list ?? [] : model!.data ?? [],
-            id: id,
-            isAll: isAll,
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(milliseconds: 1500)).then(
+            (value) {
+              HomeExerciseCubit.get(context).getData();
+            },
           );
         },
+        child: BlocBuilder<HomeExerciseCubit, HomeExerciseStates>(
+          builder: (context, state) {
+            HomeExerciseModel? model =
+                id != '' ? HomeExerciseCubit.get(context).getSection(id) : null;
+            return AllHomeExercisesCategoryContentWidget(
+              models: list != null ? list ?? [] : model!.data ?? [],
+              id: id,
+              isAll: isAll,
+            );
+          },
+        ),
       ),
     );
   }

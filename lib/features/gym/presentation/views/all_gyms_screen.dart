@@ -15,16 +15,25 @@ class AllGymsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(S.of(context).slatGym),
-      body: BlocBuilder<GymCubit, GymStates>(
-        builder: (context, state) {
-          if (state is SucessGetGymsState) {
-            return AllGymsContentWidget(models: state.list);
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(milliseconds: 1500)).then(
+            (value) {
+              GymCubit.get(context).getData(update: false);
+            },
+          );
         },
+        child: BlocBuilder<GymCubit, GymStates>(
+          builder: (context, state) {
+            if (state is SucessGetGymsState) {
+              return AllGymsContentWidget(models: state.list);
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        ),
       ),
     );
   }

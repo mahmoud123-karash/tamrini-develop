@@ -29,59 +29,68 @@ class CategoryExercisesScreen extends StatelessWidget {
     return Scaffold(
       appBar: myAppBar(S.of(context).categoryEx),
       bottomNavigationBar: const BannerAdWidget(),
-      body: BlocBuilder<ExerciseCubit, ExerciseStates>(
-        builder: (context, state) {
-          if (state is SucessGetExerciseState) {
-            return SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    if (userType == 'admin')
-                      addCustomButton(
-                        onPressed: () {
-                          navigateTo(context, const NewSectionScreen());
-                        },
-                        lable: S.of(context).add_new_section,
-                      ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    AllExercisesContainerWidget(
-                      onPressed: () {
-                        List<DataModel> exercises = [];
-                        for (var element in state.exercises) {
-                          exercises.addAll(element.data!);
-                        }
-                        if (exercises.isNotEmpty) {
-                          navigateTo(
-                            context,
-                            AllExercisesCategoryScreen(
-                              list: exercises,
-                              title: S.of(context).allEx,
-                              isAll: true,
-                              isCourse: isCourse,
-                            ),
-                          );
-                        }
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CategoryGridViewWidget(
-                        models: state.exercises, isCourse: isCourse),
-                  ],
-                ),
-              ),
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(milliseconds: 1500)).then(
+            (value) {
+              ExerciseCubit.get(context).getData();
+            },
+          );
         },
+        child: BlocBuilder<ExerciseCubit, ExerciseStates>(
+          builder: (context, state) {
+            if (state is SucessGetExerciseState) {
+              return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      if (userType == 'admin')
+                        addCustomButton(
+                          onPressed: () {
+                            navigateTo(context, const NewSectionScreen());
+                          },
+                          lable: S.of(context).add_new_section,
+                        ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      AllExercisesContainerWidget(
+                        onPressed: () {
+                          List<DataModel> exercises = [];
+                          for (var element in state.exercises) {
+                            exercises.addAll(element.data!);
+                          }
+                          if (exercises.isNotEmpty) {
+                            navigateTo(
+                              context,
+                              AllExercisesCategoryScreen(
+                                list: exercises,
+                                title: S.of(context).allEx,
+                                isAll: true,
+                                isCourse: isCourse,
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      CategoryGridViewWidget(
+                          models: state.exercises, isCourse: isCourse),
+                    ],
+                  ),
+                ),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        ),
       ),
     );
   }

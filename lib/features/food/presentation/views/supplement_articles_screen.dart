@@ -28,21 +28,30 @@ class _SupplementArticlesScreenState extends State<SupplementArticlesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(widget.title),
-      body: BlocBuilder<SupplementCubit, SupplementStates>(
-        builder: (context, state) {
-          SupplementModel? category =
-              SupplementCubit.get(context).getSupplement(widget.id);
-          return category == null
-              ? Center(
-                  child: Text(
-                    S.of(context).category_removed,
-                  ),
-                )
-              : SupplementArticlesContentWidget(
-                  category: category,
-                  isCourse: widget.isCourse,
-                );
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(milliseconds: 1500)).then(
+            (value) {
+              SupplementCubit.get(context).getData();
+            },
+          );
         },
+        child: BlocBuilder<SupplementCubit, SupplementStates>(
+          builder: (context, state) {
+            SupplementModel? category =
+                SupplementCubit.get(context).getSupplement(widget.id);
+            return category == null
+                ? Center(
+                    child: Text(
+                      S.of(context).category_removed,
+                    ),
+                  )
+                : SupplementArticlesContentWidget(
+                    category: category,
+                    isCourse: widget.isCourse,
+                  );
+          },
+        ),
       ),
     );
   }
