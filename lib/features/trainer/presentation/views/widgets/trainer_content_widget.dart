@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_container_widget.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_gallery_example_widget.dart';
@@ -29,15 +30,15 @@ class TrainerContentWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (trainer.isBanned && userType == 'trainer')
+          if (trainer.isBanned && userType == UserType.trainer)
             BanGymContainerWidget(message: S.of(context).ban_title_trainer),
-          if (trainer.isBanned && userType == 'admin')
+          if (trainer.isBanned && userType == UserType.admin)
             banWidget(lable: S.of(context).ban_hint_admin),
           const SizedBox(
             height: 10,
           ),
           if (trainer.isBanned == false)
-            if (trainer.uid == uid && userType == 'trainer')
+            if (trainer.uid == uid && userType == UserType.trainer)
               TrainerButtonsRowWidget(trainerId: trainer.uid),
           const SizedBox(
             height: 10,

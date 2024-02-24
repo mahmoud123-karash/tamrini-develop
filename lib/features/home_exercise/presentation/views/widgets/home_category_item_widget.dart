@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/home_exercise_model.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/all_home_exercise_category_screen.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/new_home_section_screen.dart';
@@ -66,7 +67,7 @@ class HomeCategoryItemWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              if (userType == 'admin')
+              if (userType == UserType.admin)
                 GestureDetector(
                   onTap: () {
                     navigateTo(context, NewHomeSectionScreen(model: model));

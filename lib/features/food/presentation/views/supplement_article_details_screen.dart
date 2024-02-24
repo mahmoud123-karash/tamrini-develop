@@ -1,4 +1,5 @@
 import 'package:tamrini/core/utils/improts.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/user_builder_widget.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
 import 'package:tamrini/features/food/presentation/views/new_supplement_screen.dart';
@@ -69,18 +70,18 @@ class SupplementArticlesDetailsScreen extends StatelessWidget {
                                 const SizedBox(
                                   height: 15,
                                 ),
-                                if (userType == 'admin')
+                                if (userType == UserType.admin)
                                   EditCustomButtomWidget(
                                     categoryId: categoryId,
                                     model: model,
                                   ),
                                 if (model.writerUid == uid &&
-                                    userType == 'writer')
+                                    userType == UserType.trainer)
                                   EditCustomButtomWidget(
                                     categoryId: categoryId,
                                     model: model,
                                   ),
-                                if (userType == 'store owner')
+                                if (userType == UserType.storeOwner)
                                   customButton(
                                     onPressed: () {
                                       navigateTo(

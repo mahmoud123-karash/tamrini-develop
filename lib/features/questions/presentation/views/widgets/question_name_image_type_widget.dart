@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
@@ -63,7 +64,7 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
         ),
         const Spacer(),
         if (user.uid == CacheHelper.getData(key: 'uid') ||
-            CacheHelper.getData(key: 'usertype') == 'admin')
+            CacheHelper.getData(key: 'usertype') == UserType.admin)
           InkWell(
             borderRadius: BorderRadius.circular(5),
             onTap: () {
@@ -72,7 +73,8 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
                 context: context,
                 builder: (context) => OptionsBottomSheetWidget(
                   model: model,
-                  isAdmin: CacheHelper.getData(key: 'usertype') == 'admin',
+                  isAdmin:
+                      CacheHelper.getData(key: 'usertype') == UserType.admin,
                   isDetails: isDetails,
                   token: user.token,
                 ),

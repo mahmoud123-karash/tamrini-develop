@@ -4,6 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/home_exercise_details_with_youtub_screen.dart';
@@ -120,8 +121,9 @@ class RemoveWidget extends StatelessWidget {
     String uid = CacheHelper.getData(key: 'uid');
     return Column(
       children: [
-        if (userType == 'admin') RemoveHomeExerciseIconWidget(model: model),
-        if (userType == 'writer' && model.writerUid == uid)
+        if (userType == UserType.admin)
+          RemoveHomeExerciseIconWidget(model: model),
+        if (userType == UserType.writer && model.writerUid == uid)
           RemoveHomeExerciseIconWidget(model: model),
       ],
     );

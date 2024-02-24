@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/views/new_course_screen.dart';
@@ -24,7 +25,7 @@ class CoursesContentWidget extends StatelessWidget {
     String userType = CacheHelper.getData(key: 'usertype');
     return Column(
       children: [
-        if (userType == 'trainer')
+        if (userType == UserType.trainer)
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 15,

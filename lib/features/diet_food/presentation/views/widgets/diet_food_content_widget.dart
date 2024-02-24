@@ -3,6 +3,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/views/new_diet_food_screen.dart';
 import 'package:tamrini/features/diet_food/presentation/views/widgets/diet_food_list_view_widget.dart';
@@ -69,7 +70,7 @@ class _DietFoodContentWidgetState extends State<DietFoodContentWidget> {
             setState(() {});
           },
         ),
-        if (userType == 'admin' || userType == 'writer')
+        if (userType == UserType.admin || userType == UserType.writer)
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 15,

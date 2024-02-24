@@ -4,6 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/assets.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_chat_icon_widget.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_name_num_widget.dart';
 
@@ -49,7 +50,7 @@ class StoreCoverImageWidget extends StatelessWidget {
             height: getHeight / 3.8,
             width: double.infinity,
           ),
-          if (userType == 'admin' && uid != id)
+          if (userType == UserType.admin && uid != id)
             Positioned(
               top: 0,
               left: 0,

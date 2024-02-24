@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_states.dart';
@@ -28,7 +29,7 @@ class FollowScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            if (userType != 'trainer')
+            if (userType != UserType.trainer)
               addCustomButton(
                 fontSize: 15,
                 onPressed: () {
@@ -46,7 +47,7 @@ class FollowScreen extends StatelessWidget {
             ),
             BlocBuilder<UserCourseCubit, UserCourseStates>(
               builder: (context, state) {
-                if (userType == 'trainer') {
+                if (userType == UserType.trainer) {
                   return FollowUpListViewWidget(list: model.followUpList);
                 } else {
                   if (state is SuccessGetCourseState) {

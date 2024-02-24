@@ -4,6 +4,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/cubit/admob_cubit/admob_cubit.dart';
 import 'package:tamrini/core/cubit/admob_cubit/admob_states.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 
 class BannerAdWidget extends StatefulWidget {
   const BannerAdWidget({super.key});
@@ -27,7 +28,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     return BlocBuilder<AdMobCubit, AdMobStates>(
       builder: (context, state) {
         if (state is SucessLoadBannerAdState) {
-          if (userType != 'admin' && userType != 'trainer') {
+          if (userType != UserType.admin && userType != UserType.trainer) {
             return SizedBox(
               width: AdSize.banner.width.toDouble(),
               height: AdSize.banner.height.toDouble(),

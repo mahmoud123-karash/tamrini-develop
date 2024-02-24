@@ -3,6 +3,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/admod_id.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/widgets/home_category_exercise_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -20,7 +21,7 @@ class _HomeCategoryExercisesScreenState
   @override
   void initState() {
     String userType = CacheHelper.getData(key: 'usertype');
-    if (userType != 'admin' && userType != 'trainer') {
+    if (userType != UserType.admin && userType != UserType.trainer) {
       createBannerAd();
     }
     super.initState();

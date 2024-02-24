@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 List<String> catgoryName = [
@@ -43,10 +44,10 @@ List<String> times(context) => [
     ];
 
 List<String> promotionList = [
-  'trainer',
-  'gym owner',
-  'store owner',
-  'writer',
+  UserType.trainer,
+  UserType.gymOwner,
+  UserType.storeOwner,
+  UserType.writer,
 ];
 
 List<IconData> icons = [

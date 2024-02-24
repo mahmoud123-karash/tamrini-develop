@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/classification_cubit/classification_cubit.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/new_classification_dialog_widget.dart';
 
@@ -38,7 +39,7 @@ class _NutritionClassificationScreenState
         },
         child: Column(
           children: [
-            if (userType == 'admin')
+            if (userType == UserType.admin)
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,

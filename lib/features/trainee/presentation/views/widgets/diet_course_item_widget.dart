@@ -4,6 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/views/widgets/remove_diet_course_widget.dart';
@@ -63,7 +64,7 @@ class DietCourseItemWidget extends StatelessWidget {
                 ),
                 const Spacer(),
                 if (model != null)
-                  if (userType == 'trainer')
+                  if (userType == UserType.trainer)
                     RemoveDietCourseWidget(
                       food: food,
                       model: model!,

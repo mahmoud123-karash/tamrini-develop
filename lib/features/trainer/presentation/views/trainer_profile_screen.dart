@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_states.dart';
@@ -43,14 +44,16 @@ class TrainerProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           if (trainer.isBanned == false)
-                            if (userType != 'admin' && userType != 'trainer')
+                            if (userType != UserType.admin &&
+                                userType != UserType.trainer)
                               SubButtonWithTrainerWidget(
                                 trainerId: trainer.uid,
                                 traineesCount: trainer.traineesCount,
                                 profits: trainer.profits + trainer.price,
                                 price: trainer.profits,
                               ),
-                          if (trainer.uid == uid && userType == 'trainer')
+                          if (trainer.uid == uid &&
+                              userType == UserType.trainer)
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 15,
@@ -63,7 +66,7 @@ class TrainerProfileScreen extends StatelessWidget {
                                 lable: S.of(context).edit,
                               ),
                             ),
-                          if (userType == 'admin')
+                          if (userType == UserType.admin)
                             BanCustomBuilderWidget(trainer: trainer),
                         ],
                       ),

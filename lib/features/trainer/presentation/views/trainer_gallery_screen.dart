@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_states.dart';
@@ -39,7 +40,7 @@ class TrainerGallerySreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        if (model.uid == uid && userType == 'trainer')
+                        if (model.uid == uid && userType == UserType.trainer)
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 15),
                             child: addCustomButton(

@@ -1,4 +1,6 @@
 import 'dart:developer';
+import 'package:tamrini/core/utils/user_type.dart';
+
 import 'widgets/curved_nav_bar_widget.dart';
 import 'drawer_widget.dart';
 import 'package:tamrini/core/utils/improts.dart';
@@ -19,11 +21,11 @@ class _NavBarScreenState extends State<NavBarScreen> {
     if (userType == 'trainer') {
       TraineeCubit.get(context).getData(trainerId: uid);
     }
-    if (userType == 'admin' || userType == 'user') {
+    if (userType == UserType.admin || userType == UserType.user) {
       PromotionCubit.get(context).getData();
     }
     if (userType != '') {
-      if (userType != 'admin' || userType != 'trainer') {
+      if (userType != UserType.admin || userType != UserType.trainer) {
         Timer.periodic(
           const Duration(minutes: 5),
           (timer) {
@@ -45,7 +47,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
       onMessageOpenedApp(context: context);
       onMessage(context: context);
       listenNotification();
-      if (userType != 'admin' && userType == 'trainer') {
+      if (userType != UserType.admin && userType != UserType.trainer) {
         if (trainerId != '') {
           UserCourseCubit.get(context).getCourse();
         }

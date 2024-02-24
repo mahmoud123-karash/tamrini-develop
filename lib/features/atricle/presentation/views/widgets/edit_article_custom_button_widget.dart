@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/atricle/data/models/article_model/article_model.dart';
 import 'package:tamrini/features/atricle/presentation/views/new_article_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -32,7 +33,7 @@ class EditArticleCustomButtonWidget extends StatelessWidget {
               lable: S.of(context).edit,
             ),
           ),
-        if (userType == 'writer' && model.writerUid == uid)
+        if (userType == UserType.writer && model.writerUid == uid)
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 15,

@@ -3,6 +3,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
@@ -119,14 +120,14 @@ class NotificationItemWidget extends StatelessWidget {
       }
 
       if (model.subType == 'promotion_accept') {
-        if (type == 'trainer') {
+        if (type == UserType.trainer) {
           showDialog(
             context: context,
             builder: (context) => PromotionDialogWidget(type: model.body),
           );
         }
       }
-      if (model.subType == 'trainer') {
+      if (model.subType == UserType.trainer) {
         navigateTo(context, TrainerProfileScreen(id: model.uid));
       }
       if (model.subType == 'trainee' || model.subType == 'renew_trainee') {
@@ -156,11 +157,11 @@ class NotificationItemWidget extends StatelessWidget {
       }
 
       if (model.subType == 'accept_profits') {
-        if (model.subType == 'trainer') {
+        if (model.subType == UserType.trainer) {
           navigateTo(context, TrainerProfileScreen(id: model.uid));
-        } else if (model.subType == 'gym owner') {
+        } else if (model.subType == UserType.gymOwner) {
           navigateTo(context, const GymOwnerScreen());
-        } else if (model.subType == 'store owner') {
+        } else if (model.subType == UserType.storeOwner) {
           navigateTo(context, const StoreOwnerScreen());
         }
       }

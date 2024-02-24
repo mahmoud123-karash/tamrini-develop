@@ -3,6 +3,7 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/gallery_model.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/remove_gallery_icon_widget.dart';
@@ -104,7 +105,7 @@ class TrainerGalleryItemWidget extends StatelessWidget {
               ],
             ),
             if (!isExample)
-              if (trainer.uid == uid && userType == 'trainer')
+              if (trainer.uid == uid && userType == UserType.trainer)
                 RemoveGalleryIconWidget(trainer: trainer, model: model),
           ],
         ),

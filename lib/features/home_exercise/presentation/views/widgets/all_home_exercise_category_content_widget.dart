@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/new_home_exercise_screen.dart';
 import 'package:tamrini/features/suggest_exercise/presentation/views/widgets/suggest_exercise_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -78,7 +79,7 @@ class _AllHomeExercisesCategoryContentWidget
           },
         ),
         if (!widget.isAll)
-          if (userType == 'admin' || userType == 'writer')
+          if (userType == UserType.admin || userType == UserType.writer)
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 15,

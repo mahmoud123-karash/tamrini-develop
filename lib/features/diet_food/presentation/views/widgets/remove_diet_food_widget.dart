@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/diet_food/data/models/diet_food_model.dart/diet_food_model.dart';
 import 'package:tamrini/features/diet_food/presentation/manager/diet_food_cubit/diet_food_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -18,8 +19,8 @@ class RemoveDietFoodWidget extends StatelessWidget {
 
     return Column(
       children: [
-        if (userType == 'admin') RemoveWidget(model: model),
-        if (userType == 'writer' && model.writerUid == uid)
+        if (userType == UserType.admin) RemoveWidget(model: model),
+        if (userType == UserType.writer && model.writerUid == uid)
           RemoveWidget(model: model),
       ],
     );

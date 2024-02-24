@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/food/presentation/views/supplement_category_screen.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/views/widgets/add_supplement_widget.dart';
@@ -58,7 +59,7 @@ class _TraineeSupplementContentWidgetState
     return ListView(
       controller: scrollController,
       children: [
-        if (userType == 'trainer')
+        if (userType == UserType.trainer)
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 10,

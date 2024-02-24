@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
@@ -30,7 +31,7 @@ class DietCourseScreen extends StatelessWidget {
           food.sort((a, b) => b.createdAt.compareTo(a.createdAt));
           return Column(
             children: [
-              if (userType == 'trainer')
+              if (userType == UserType.trainer)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: addCustomButton(

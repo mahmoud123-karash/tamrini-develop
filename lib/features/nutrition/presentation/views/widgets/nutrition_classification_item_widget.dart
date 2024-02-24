@@ -3,6 +3,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/classification_model.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/new_classification_dialog_widget.dart';
 
@@ -46,7 +47,7 @@ class NutritionClassificationItemWidget extends StatelessWidget {
         ),
         child: Center(
           child: ListTile(
-            leading: userType == 'admin'
+            leading: userType == UserType.admin
                 ? IconButton(
                     onPressed: () {
                       showDialog(

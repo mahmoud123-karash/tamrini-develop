@@ -5,6 +5,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/favourite/presentation/views/favorite_screen.dart';
 import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
 import 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
@@ -79,15 +80,15 @@ class MyDrawer extends StatelessWidget {
               icon: Ionicons.person_outline,
               lable: S.of(context).profile,
             ),
-            if (usertype == 'user') const TrainingCourseListTileWidget(),
-            if (usertype == 'trainer') const TrainerWidget(),
-            if (usertype == 'admin') const AdminListTileWidget(),
-            if (usertype == 'admin' || usertype == 'store owner')
+            if (usertype == UserType.user) const TrainingCourseListTileWidget(),
+            if (usertype == UserType.trainer) const TrainerWidget(),
+            if (usertype == UserType.admin) const AdminListTileWidget(),
+            if (usertype == UserType.admin || usertype == UserType.storeOwner)
               const StoreOwnerWidget(),
-            if (usertype == 'gym owner') const GymOwnerListTileWidget(),
-            if (usertype != 'admin' && usertype != 'gym owner')
+            if (usertype == UserType.gymOwner) const GymOwnerListTileWidget(),
+            if (usertype != UserType.admin && usertype != UserType.gymOwner)
               const SubstrictionsListTileWidget(),
-            if (usertype != 'admin' && usertype != 'store owner')
+            if (usertype != UserType.admin && usertype != UserType.storeOwner)
               DrawerListTileWidget(
                 onPressed: () {
                   navigateTo(context, const OrdersScreen(isUser: true));

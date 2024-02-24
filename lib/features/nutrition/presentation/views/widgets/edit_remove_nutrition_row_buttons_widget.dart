@@ -4,6 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/nutrition/data/models/nutrition_model/nutrition_model.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/select_cubit.dart/select_cubit.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/new_nutrition_dialog_widget.dart';
@@ -22,8 +23,8 @@ class EditRemoveNutritionRowButtonsWidget extends StatelessWidget {
 
     return Column(
       children: [
-        if (userType == 'admin') RemoveEditNutritionWidget(model: model),
-        if (userType == 'writer' && model.writerUid == uid)
+        if (userType == UserType.admin) RemoveEditNutritionWidget(model: model),
+        if (userType == UserType.writer && model.writerUid == uid)
           RemoveEditNutritionWidget(model: model)
       ],
     );

@@ -3,6 +3,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/admod_id.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/views/new_category_screen.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/supplement_grid_view_builder_widget.dart';
@@ -22,7 +23,7 @@ class _SupplementsCategoryScreenState extends State<SupplementsCategoryScreen> {
   @override
   void initState() {
     String userType = CacheHelper.getData(key: 'usertype');
-    if (userType != 'admin' && userType != 'trainer') {
+    if (userType != UserType.admin && userType != UserType.trainer) {
       createBannerAd();
     }
     super.initState();

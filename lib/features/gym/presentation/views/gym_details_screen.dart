@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_states.dart';
@@ -80,7 +81,7 @@ class SubAndEditCustomWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        if (userType == 'admin' || userType == 'gym owner')
+        if (userType == UserType.admin || userType == UserType.gymOwner)
           model.ownerUid == uid
               ? Padding(
                   padding: const EdgeInsets.all(8.0),

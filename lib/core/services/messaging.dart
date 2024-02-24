@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:tamrini/core/utils/improts.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 
 void onMessage({
   required BuildContext context,
@@ -20,11 +21,11 @@ void onMessage({
       if (message.data['subType'] == 'promotion_accept') {
         log(message.data['promotionType']);
         saveUserType(message.data['promotionType'] ?? '');
-        if (message.data['promotionType'] == 'trainer') {
+        if (message.data['promotionType'] == UserType.trainer) {
           TrainersCubit.get(context).getData();
         }
       }
-      if (message.data['subType'] == 'trainer') {
+      if (message.data['subType'] == UserType.trainer) {
         TrainersCubit.get(context).getData();
       }
       if (message.data['subType'] == 'trainee' ||
@@ -46,11 +47,11 @@ void onMessage({
       }
 
       if (message.data['subType'] == 'accept_profits') {
-        if (message.data['user_role'] == 'trainer') {
+        if (message.data['user_role'] == UserType.trainer) {
           TrainersCubit.get(context).getData();
-        } else if (message.data['user_role'] == 'gym owner') {
+        } else if (message.data['user_role'] == UserType.gymOwner) {
           GymCubit.get(context).getData(update: false);
-        } else if (message.data['user_role'] == 'store owner') {
+        } else if (message.data['user_role'] == UserType.storeOwner) {
           StoreCubit.get(context).getData();
         }
       }
@@ -121,7 +122,7 @@ void openNotification(RemoteMessage event, BuildContext context) {
       navigateTo(context, const NotificationScreen());
     }
 
-    if (event.data['subType'] == 'trainer') {
+    if (event.data['subType'] == UserType.trainer) {
       navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
     }
 
@@ -146,11 +147,11 @@ void openNotification(RemoteMessage event, BuildContext context) {
     }
 
     if (event.data['subType'] == 'accept_profits') {
-      if (event.data['user_role'] == 'trainer') {
+      if (event.data['user_role'] == UserType.trainer) {
         navigateTo(context, TrainerProfileScreen(id: event.data['uid']));
-      } else if (event.data['user_role'] == 'gym owner') {
+      } else if (event.data['user_role'] == UserType.gymOwner) {
         navigateTo(context, const GymOwnerScreen());
-      } else if (event.data['user_role'] == 'store owner') {
+      } else if (event.data['user_role'] == UserType.storeOwner) {
         navigateTo(context, const StoreOwnerScreen());
       }
     }
