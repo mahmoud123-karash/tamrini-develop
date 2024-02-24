@@ -14,7 +14,7 @@ import 'package:tamrini/generated/l10n.dart';
 
 import '../manager/store_cubit/store_cubit.dart';
 import 'widgets/store_cover_image_widget.dart';
-import 'widgets/store_onwer_buttons_row_widget.dart';
+import 'widgets/store_owner_buttons_row_widget.dart';
 import 'widgets/store_owner_list_tile_widget.dart';
 
 class StoreOwnerScreen extends StatelessWidget {
@@ -24,7 +24,6 @@ class StoreOwnerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid');
     final EdgeInsets systemPadding = MediaQuery.of(context).padding;
-
     return Scaffold(
       body: BlocBuilder<StoreCubit, StoreStates>(
         builder: (context, state) {
@@ -44,9 +43,7 @@ class StoreOwnerScreen extends StatelessWidget {
               ),
               if (model.isBanned == true)
                 BanGymContainerWidget(message: S.of(context).ban_store_hint),
-              StoreOwnerButtonsRowWidget(
-                model: model,
-              ),
+              StoreOwnerButtonsRowWidget(store: model),
               const SizedBox(
                 height: 10,
               ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/home_product_price_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 import 'package:tamrini/features/home/presentation/views/widgets/new_badge_widget.dart';
@@ -15,11 +14,9 @@ class HomeProductItemWidget extends StatelessWidget {
     super.key,
     required this.model,
     required this.width,
-    required this.smodel,
   });
   final ProductModel model;
   final double width;
-  final StoreModel smodel;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,11 @@ class HomeProductItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         onTap: () {
           navigateTo(
-              context, ProductDetailsScreen(id: model.id, sModel: smodel));
+            context,
+            ProductDetailsScreen(
+              id: model.id,
+            ),
+          );
         },
         child: Stack(
           children: [

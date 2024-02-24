@@ -3,6 +3,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/order/presentation/views/address_screen.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/custom_buy_now_button_widget.dart';
@@ -24,7 +25,7 @@ class ContactAndBuyProductWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if (usertype != 'admin' && usertype != 'store onwer')
+          if (usertype != UserType.admin && usertype != UserType.storeOwner)
             CustomBuyNowButtonWidget(
               onPressed: () {
                 navigateTo(context, AddressScreen(model: model));

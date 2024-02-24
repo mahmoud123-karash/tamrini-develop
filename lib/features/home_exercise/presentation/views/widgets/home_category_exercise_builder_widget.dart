@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/all_container_widget.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_states.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/all_home_exercise_category_screen.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_container_widget.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/new_home_section_screen.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/widgets/home_category_grid_view_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -43,7 +44,9 @@ class HomeCategoryExerciseBuilderWidget extends StatelessWidget {
                     const SizedBox(
                       height: 5,
                     ),
-                    AllExercisesContainerWidget(
+                    AllContainerWidget(
+                      image: Assets.imagesAllExer,
+                      lable: S.of(context).allEx,
                       onPressed: () {
                         List<Data> list = [];
                         for (var element in state.list) {

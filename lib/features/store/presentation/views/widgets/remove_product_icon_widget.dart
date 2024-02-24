@@ -1,23 +1,18 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/material.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/improts.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
-import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
-import 'package:tamrini/generated/l10n.dart';
 
 class RemoveProductIconWidget extends StatelessWidget {
   const RemoveProductIconWidget({
     super.key,
-    required this.store,
     required this.model,
   });
-  final StoreModel store;
   final ProductModel model;
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid');
     return GestureDetector(
       onTap: () {
         AwesomeDialog(
@@ -37,7 +32,7 @@ class RemoveProductIconWidget extends StatelessWidget {
           btnCancelOnPress: () {},
           btnOkOnPress: () {
             StoreCubit.get(context).removeProduct(
-              store: store,
+              store: StoreCubit.get(context).getStore(uid).first,
               oldModel: model,
               context: context,
             );

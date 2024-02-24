@@ -5319,6 +5319,36 @@ class S {
       args: [],
     );
   }
+
+  /// `يمكنك إضافة منتج مباشرة من قسم المكملات الغذائية الموجود فى قسم الصحة والتغذية`
+  String get add_product_note {
+    return Intl.message(
+      'يمكنك إضافة منتج مباشرة من قسم المكملات الغذائية الموجود فى قسم الصحة والتغذية',
+      name: 'add_product_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `إضافة إلى المتجر`
+  String get add_to_your_store {
+    return Intl.message(
+      'إضافة إلى المتجر',
+      name: 'add_to_your_store',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يمكن ان يكون السعر يساوي صفر`
+  String get price_cant_be_zero {
+    return Intl.message(
+      'لا يمكن ان يكون السعر يساوي صفر',
+      name: 'price_cant_be_zero',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

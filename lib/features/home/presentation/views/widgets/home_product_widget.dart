@@ -20,7 +20,12 @@ class HomeProductWidget extends StatelessWidget {
         TitleAndMoreButtonRowWidget(
           lable: S.of(context).products,
           onPressed: () {
-            navigateTo(context, CategoryProductScreen(list: allProducts));
+            navigateTo(
+              context,
+              CategoryProductScreen(
+                list: allProducts,
+              ),
+            );
           },
         ),
         const SizedBox(

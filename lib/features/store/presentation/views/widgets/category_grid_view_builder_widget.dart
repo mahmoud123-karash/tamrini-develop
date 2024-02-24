@@ -7,7 +7,10 @@ import 'package:tamrini/features/store/presentation/manager/category_cubit/categ
 import 'package:tamrini/features/store/presentation/views/widgets/category_grid_view_widget.dart';
 
 class CategoryGridViewBuilderWidget extends StatelessWidget {
-  const CategoryGridViewBuilderWidget({super.key, required this.products});
+  const CategoryGridViewBuilderWidget({
+    super.key,
+    required this.products,
+  });
   final List<ProductModel> products;
 
   @override

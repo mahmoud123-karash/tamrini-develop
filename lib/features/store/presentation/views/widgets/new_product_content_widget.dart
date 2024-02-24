@@ -8,6 +8,7 @@ import 'package:tamrini/features/store/presentation/views/widgets/product_add_te
 import 'package:tamrini/features/store/presentation/views/widgets/product_type_list_view_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import 'add_product_container_widget.dart';
 import 'add_product_price_widget.dart';
 import 'available_checkbox_widget.dart';
 import 'best_seller_checkbox_widget.dart';
@@ -46,6 +47,7 @@ class NewProductContentWidget extends StatelessWidget {
           key: formKey,
           child: Column(
             children: [
+              if (!isEdit) const AddProductContainerWidget(),
               SectionImageWidget(
                 image: image,
               ),

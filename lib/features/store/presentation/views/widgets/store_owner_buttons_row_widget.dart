@@ -6,8 +6,8 @@ import 'package:tamrini/features/store/presentation/views/new_store_screen.dart'
 import 'package:tamrini/generated/l10n.dart';
 
 class StoreOwnerButtonsRowWidget extends StatelessWidget {
-  const StoreOwnerButtonsRowWidget({super.key, required this.model});
-  final StoreModel model;
+  const StoreOwnerButtonsRowWidget({super.key, required this.store});
+  final StoreModel store;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class StoreOwnerButtonsRowWidget extends StatelessWidget {
               lable: S.of(context).edit_store,
               fontSize: 15,
               onPressed: () {
-                navigateTo(context, NewStoreScreen(model: model));
+                navigateTo(context, NewStoreScreen(model: store));
               },
             ),
           ),
@@ -35,7 +35,7 @@ class StoreOwnerButtonsRowWidget extends StatelessWidget {
               fontSize: 15,
               lable: S.of(context).add_product,
               onPressed: () {
-                navigateTo(context, NewProductScreen(store: model));
+                navigateTo(context, const NewProductScreen());
               },
             ),
           )

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/admod_id.dart';
+import 'package:tamrini/core/widgets/all_container_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/new_section_screen.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/all_exercises_container_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/category_grid_view_widget.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_cubit.dart';
 import 'package:tamrini/features/exercise/presentation/manager/exercise_cubit/exercise_states.dart';
@@ -93,7 +94,9 @@ class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      AllExercisesContainerWidget(
+                      AllContainerWidget(
+                        image: Assets.imagesAllExer,
+                        lable: S.of(context).allEx,
                         onPressed: () {
                           List<DataModel> exercises = [];
                           for (var element in state.exercises) {

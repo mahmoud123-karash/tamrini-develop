@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
-import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/product_item_widget.dart';
 
 class ProductListViewWidget extends StatelessWidget {
@@ -22,11 +21,6 @@ class ProductListViewWidget extends StatelessWidget {
         if (index < length) {
           return ProductItemWidget(
             model: list[index],
-            sModel: StoreCubit.get(context)
-                .getStore(
-                  list[index].ownerUid,
-                )
-                .first,
           );
         } else {
           return const Center(

@@ -188,6 +188,8 @@ class StoreCubit extends Cubit<StoreStates> {
     );
   }
 
+  List<ProductModel> displayedList = [];
+
   void removeProduct({
     required StoreModel store,
     required ProductModel oldModel,
@@ -203,6 +205,7 @@ class StoreCubit extends Cubit<StoreStates> {
         emit(ErrorGetStoresState(message));
       },
       (list) {
+        displayedList.remove(oldModel);
         stores = list;
         showSnackBar(context, S.of(context).success_remove);
         List<StoreModel> models = clearBannedStore(list);

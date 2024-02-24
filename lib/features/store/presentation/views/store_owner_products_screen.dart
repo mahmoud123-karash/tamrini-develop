@@ -4,8 +4,9 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
-import 'package:tamrini/features/store/presentation/views/widgets/store_owner_products_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
+
+import 'widgets/store_category_colum_widget.dart';
 
 class StoreOwnerProductScreen extends StatelessWidget {
   const StoreOwnerProductScreen({super.key, required this.uid});
@@ -18,8 +19,8 @@ class StoreOwnerProductScreen extends StatelessWidget {
       body: BlocBuilder<StoreCubit, StoreStates>(
         builder: (context, state) {
           StoreModel model = StoreCubit.get(context).getStore(uid).first;
-          return StoreOnwerProductsContentWidget(
-            model: model,
+          return StoreCategoryColumWidget(
+            list: model.products ?? [],
           );
         },
       ),

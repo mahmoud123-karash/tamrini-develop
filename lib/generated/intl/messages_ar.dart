@@ -73,8 +73,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_nutrition_classification":
             MessageLookupByLibrary.simpleMessage("إضافة فئة جديدة"),
         "add_product": MessageLookupByLibrary.simpleMessage("إضافة منتج"),
+        "add_product_note": MessageLookupByLibrary.simpleMessage(
+            "يمكنك إضافة منتج مباشرة من قسم المكملات الغذائية الموجود فى قسم الصحة والتغذية"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("إضافة تذكير"),
         "add_supplement": MessageLookupByLibrary.simpleMessage("إضافة مكمل"),
+        "add_to_your_store":
+            MessageLookupByLibrary.simpleMessage("إضافة إلى المتجر"),
         "add_today": MessageLookupByLibrary.simpleMessage("إضافة اليوم الحالي"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("اليوم الحالي مضاف بالفعل"),
@@ -478,6 +482,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_try_again":
             MessageLookupByLibrary.simpleMessage("يرجي اعادة المحاولة"),
         "price": MessageLookupByLibrary.simpleMessage("المبلغ"),
+        "price_cant_be_zero": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ان يكون السعر يساوي صفر"),
         "price_sub": MessageLookupByLibrary.simpleMessage("سعر الاشتراك"),
         "privacy": MessageLookupByLibrary.simpleMessage("الشروط والأحكام"),
         "privacyConfirm":

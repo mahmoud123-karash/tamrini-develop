@@ -17,44 +17,42 @@ class GategoryGridViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: GridView.builder(
-        controller: ScrollController(),
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
-          mainAxisSpacing: 20,
-          crossAxisSpacing: 10,
-        ),
-        itemCount: list.length + 1,
-        itemBuilder: (BuildContext context, int index) {
-          if (index < list.length) {
-            List<ProductModel> categoryList = products
-                .where((element) => element.type == list[index].title)
-                .toList();
-            return categoryList.isNotEmpty
-                ? CategoryProductItemWidget(
-                    model: list[index],
-                    list: categoryList,
-                    name: Intl.getCurrentLocale() == 'en'
-                        ? catgoryName[index]
-                        : list[index].title,
-                  )
-                : Container();
-          } else {
-            List<ProductModel> list = products
-                .where((element) => element.type == 'أخري')
-                .where((element) => element.available == true)
-                .toList();
-            return list.isNotEmpty
-                ? OtherCategoryItemWidget(
-                    list: list,
-                  )
-                : Container();
-          }
-        },
+    return GridView.builder(
+      padding: const EdgeInsets.only(top: 20),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 10,
       ),
+      itemCount: list.length + 1,
+      itemBuilder: (BuildContext context, int index) {
+        if (index < list.length) {
+          List<ProductModel> categoryList = products
+              .where((element) => element.type == list[index].title)
+              .toList();
+          return categoryList.isNotEmpty
+              ? CategoryProductItemWidget(
+                  model: list[index],
+                  list: categoryList,
+                  name: Intl.getCurrentLocale() == 'en'
+                      ? catgoryName[index]
+                      : list[index].title,
+                )
+              : Container();
+        } else {
+          List<ProductModel> list = products
+              .where((element) => element.type == 'أخري')
+              .where((element) => element.available == true)
+              .toList();
+          return list.isNotEmpty
+              ? OtherCategoryItemWidget(
+                  list: list,
+                )
+              : Container();
+        }
+      },
     );
   }
 }

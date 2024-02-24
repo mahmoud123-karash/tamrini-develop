@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
@@ -10,9 +11,8 @@ import '../manager/store_cubit/store_cubit.dart';
 import 'widgets/new_product_content_widget.dart';
 
 class NewProductScreen extends StatefulWidget {
-  const NewProductScreen({super.key, this.model, required this.store});
+  const NewProductScreen({super.key, this.model});
   final ProductModel? model;
-  final StoreModel store;
 
   @override
   State<NewProductScreen> createState() => _NewProductScreenState();
@@ -61,6 +61,7 @@ class _NewProductScreenState extends State<NewProductScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid');
     return Scaffold(
       appBar: myAppBar(
         widget.model != null
@@ -91,24 +92,40 @@ class _NewProductScreenState extends State<NewProductScreen> {
                     ? S.of(context).edit
                     : S.of(context).add,
                 onPressed: () {
+                  StoreModel store =
+                      StoreCubit.get(context).getStore(uid).first;
                   List<String> paths = ImageCubit.get(context).paths;
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (widget.model != null) {
-                      checkIsSale(cubit, context, () {
-                        cubit.editProduct(
-                          oldModel: widget.model!,
-                          title: nameController.text,
-                          description: descriptionController.text,
-                          price: int.parse(priceController.text),
-                          oldPrice: cubit.isSale
-                              ? int.parse(oldPriceController.text)
-                              : 0,
-                          imagePath: paths.isEmpty ? '' : paths.first,
-                          store: widget.store,
-                          context: context,
-                        );
-                      });
+                      checkIsSale(
+                        cubit,
+                        context,
+                        () {
+                          if (cubit.productType == '') {
+                            showSnackBar(
+                                context, S.of(context).product_type_hint);
+                          } else {
+                            if (int.parse(priceController.text) == 0) {
+                              showSnackBar(
+                                  context, S.of(context).price_cant_be_zero);
+                            } else {
+                              cubit.editProduct(
+                                oldModel: widget.model!,
+                                title: nameController.text,
+                                description: descriptionController.text,
+                                price: int.parse(priceController.text),
+                                oldPrice: cubit.isSale
+                                    ? int.parse(oldPriceController.text)
+                                    : 0,
+                                imagePath: paths.isEmpty ? '' : paths.first,
+                                store: store,
+                                context: context,
+                              );
+                            }
+                          }
+                        },
+                      );
                     } else {
                       if (paths.isNotEmpty) {
                         checkIsSale(cubit, context, () {
@@ -116,17 +133,22 @@ class _NewProductScreenState extends State<NewProductScreen> {
                             showSnackBar(
                                 context, S.of(context).product_type_hint);
                           } else {
-                            cubit.addProduct(
-                              title: nameController.text,
-                              description: descriptionController.text,
-                              price: int.parse(priceController.text),
-                              oldPrice: cubit.isSale
-                                  ? int.parse(oldPriceController.text)
-                                  : 0,
-                              imagePath: paths.first,
-                              store: widget.store,
-                              context: context,
-                            );
+                            if (int.parse(priceController.text) == 0) {
+                              showSnackBar(
+                                  context, S.of(context).price_cant_be_zero);
+                            } else {
+                              cubit.addProduct(
+                                title: nameController.text,
+                                description: descriptionController.text,
+                                price: int.parse(priceController.text),
+                                oldPrice: cubit.isSale
+                                    ? int.parse(oldPriceController.text)
+                                    : 0,
+                                imagePath: paths.first,
+                                store: store,
+                                context: context,
+                              );
+                            }
                           }
                         });
                       } else {
