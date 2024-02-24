@@ -1,31 +1,7 @@
-// ignore_for_file: deprecated_member_use
-
-import 'dart:async';
 import 'dart:developer';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/cubit/admob_cubit/admob_cubit.dart';
-import 'package:tamrini/core/services/messaging.dart';
-import 'package:tamrini/core/services/services.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/utils/awesome_notification.dart';
-import 'package:tamrini/features/favourite/presentation/manager/favorite_cubit/favorite_cubit.dart';
-import 'package:tamrini/features/my_day/presentation/manager/day_cubit/day_cubit.dart';
-import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_cubit.dart';
-import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
-import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_cubit.dart';
-import 'package:tamrini/features/navBar/presentation/views/widgets/badge_notification_icon_widget.dart';
-import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
-import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
-import 'package:tamrini/features/order/presentation/manager/user_order_cubit/user_order_cubit.dart';
-import 'package:tamrini/features/profile/presentation/manager/location_cubit/location_cubit.dart';
-import 'package:tamrini/features/promotion/presentation/manager/promotion_cubit/promotion_cubit.dart';
-import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
-import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
 import 'widgets/curved_nav_bar_widget.dart';
 import 'drawer_widget.dart';
+import 'package:tamrini/core/utils/improts.dart';
 
 class NavBarScreen extends StatefulWidget {
   const NavBarScreen({super.key});
@@ -47,12 +23,14 @@ class _NavBarScreenState extends State<NavBarScreen> {
       PromotionCubit.get(context).getData();
     }
     if (userType != '') {
-      Timer.periodic(
-        const Duration(minutes: 5),
-        (timer) {
-          AdMobCubit.get(context).createInterstitialAd();
-        },
-      );
+      if (userType != 'admin' || userType != 'trainer') {
+        Timer.periodic(
+          const Duration(minutes: 5),
+          (timer) {
+            AdMobCubit.get(context).createInterstitialAd();
+          },
+        );
+      }
       FavoriteCubit.get(context).getData();
       OrderCubit.get(context).getData();
       UserOrderCubit.get(context).getData();
@@ -84,13 +62,12 @@ class _NavBarScreenState extends State<NavBarScreen> {
       child: BlocBuilder<NavBarCubit, NavBarStates>(
         builder: (context, state) {
           NavBarCubit cubit = NavBarCubit.get(context);
-          return WillPopScope(
-            onWillPop: () async {
+          return PopScope(
+            canPop: cubit.currentIndex == 2 ? true : false,
+            onPopInvoked: (didPop) {
               if (cubit.currentIndex != 2) {
                 cubit.changeIndex(2);
-                return false;
               }
-              return true;
             },
             child: Scaffold(
               drawer: const MyDrawer(),

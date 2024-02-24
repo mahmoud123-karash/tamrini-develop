@@ -23,13 +23,3 @@ class ErrorLoadInterstitialAdState extends AdMobStates {
   final String message;
   ErrorLoadInterstitialAdState(this.message);
 }
-
-class SucessLoadRewardAdState extends AdMobStates {
-  final RewardedAd rewardedAd;
-  SucessLoadRewardAdState(this.rewardedAd);
-}
-
-class ErrorLoadRewardAdState extends AdMobStates {
-  final String message;
-  ErrorLoadRewardAdState(this.message);
-}

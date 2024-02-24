@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/exercise/presentation/views/widgets/exercise_type_widget.dart';
+import 'package:tamrini/core/widgets/category_item_widget.dart';
 import 'package:tamrini/features/exercise/presentation/views/widgets/loading_type_widget.dart';
 import 'package:tamrini/features/gym/presentation/views/all_gyms_screen.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
@@ -20,7 +20,7 @@ class GymTypeBuilderWidget extends StatelessWidget {
           if (state.list.isEmpty) {
             return Container();
           }
-          return ExerciseTypeWidget(
+          return CategoryItemWidget(
             image: Assets.imagesExercise,
             lable: S.of(context).slatGym,
             onPressed: () {

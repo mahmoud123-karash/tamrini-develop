@@ -49,35 +49,4 @@ class AdMobCubit extends Cubit<AdMobStates> {
       ),
     );
   }
-
-  void createRewardAd() {
-    RewardedAd.load(
-      adUnitId: AdModService.adRewardId,
-      request: const AdRequest(),
-      rewardedAdLoadCallback: RewardedAdLoadCallback(
-        onAdLoaded: (ad) {
-          ad.fullScreenContentCallback = FullScreenContentCallback(
-            onAdDismissedFullScreenContent: (ad) {
-              ad.dispose();
-            },
-            onAdFailedToShowFullScreenContent: (ad, error) {
-              ad.dispose();
-            },
-          );
-          if (userType != 'admin') {
-            ad.show(
-              onUserEarnedReward: (ad, reward) {
-                log('rewarded');
-              },
-            );
-          }
-          emit(SucessLoadRewardAdState(ad));
-        },
-        onAdFailedToLoad: (error) {
-          log('$error');
-          emit(ErrorLoadRewardAdState(error.toString()));
-        },
-      ),
-    );
-  }
 }

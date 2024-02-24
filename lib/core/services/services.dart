@@ -1,27 +1,5 @@
-import 'dart:io';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/services/location.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
-import 'package:tamrini/features/my_day/data/models/day_model/day_model.dart';
-import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
-import 'package:tamrini/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
-import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
-import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_share/flutter_share.dart';
-
-import '../../features/auth/presentation/views/login_screen.dart';
+import 'package:tamrini/core/utils/improts.dart';
 
 void openUri({required Uri url}) async {
   await launchUrl(url).then((value) {

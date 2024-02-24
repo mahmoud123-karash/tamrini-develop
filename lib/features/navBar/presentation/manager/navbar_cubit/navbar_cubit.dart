@@ -1,12 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/exercise/presentation/views/exercises_types_screen.dart';
+import 'package:tamrini/core/categories_screens/exercises_types_screen.dart';
 import 'package:tamrini/features/home/presentation/views/home_screen.dart';
 import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
-import 'package:tamrini/features/diet_food/presentation/views/educate_your_self_screen.dart';
+import 'package:tamrini/core/categories_screens/educate_your_self_screen.dart';
 import 'package:tamrini/features/store/presentation/views/stores_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'package:tamrini/features/food/presentation/views/food_category_screen.dart';
+import 'package:tamrini/core/categories_screens/food_category_screen.dart';
 
 class NavBarCubit extends Cubit<NavBarStates> {
   NavBarCubit() : super(InitailNavBarState());

@@ -6,13 +6,14 @@ import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/calculator_picker_widget.dart';
 
 class CalculatorTargetWidget extends StatelessWidget {
-  const CalculatorTargetWidget(
-      {super.key,
-      required this.controller,
-      required this.selectedItem,
-      required this.onSelectedItemChanged,
-      required this.list,
-      required this.selctedItem});
+  const CalculatorTargetWidget({
+    super.key,
+    required this.controller,
+    required this.selectedItem,
+    required this.onSelectedItemChanged,
+    required this.list,
+    required this.selctedItem,
+  });
   final FixedExtentScrollController controller;
   final String selectedItem;
   final Function(int) onSelectedItemChanged;

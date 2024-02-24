@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/admod_id.dart';
 import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart/calculator_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart/calculator_states.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/calculator_height_widget.dart';
@@ -42,96 +46,144 @@ class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
     super.dispose();
   }
 
+  RewardedAd? rewardedAd;
+
+  void createRewardAd() {
+    RewardedAd.load(
+      adUnitId: AdModService.adRewardId,
+      request: const AdRequest(),
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        onAdLoaded: (ad) {
+          rewardedAd = ad;
+          setState(() {});
+        },
+        onAdFailedToLoad: (error) {
+          rewardedAd = null;
+        },
+      ),
+    );
+  }
+
+  void showRewardedAd() {
+    if (rewardedAd != null) {
+      rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdShowedFullScreenContent: (ad) {
+          log('success show ad');
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) {
+          ad.dispose();
+          createRewardAd();
+        },
+        onAdDismissedFullScreenContent: (ad) {
+          ad.dispose();
+          createRewardAd();
+        },
+      );
+      rewardedAd!.show(
+        onUserEarnedReward: (ad, reward) {},
+      );
+      rewardedAd = null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CalculatorCubit(),
-      child: Scaffold(
-        appBar: myAppBar(S.of(context).protein_calculator),
-        body: BlocBuilder<CalculatorCubit, CalculatorStates>(
-          builder: (context, state) {
-            var cubit = CalculatorCubit.get(context);
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 15,
-                    ),
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).cardColor,
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          const CalCulatorGenderWidget(),
-                          const CalculatorHieghtWidget(),
-                          const CalculatorWieghtAndAgeWidget(),
-                          CalculatorTargetWidget(
-                            selctedItem: cubit.selectedPurpose,
-                            controller: purposeController!,
-                            selectedItem:
-                                cubit.names(context)[cubit.selectedPurpose],
-                            onSelectedItemChanged: (selectedItem) {
-                              cubit.selectedPurpose = selectedItem;
-                              cubit.target = Target.values[selectedItem];
-                              cubit.calculate();
-                            },
-                            list: cubit.names(context),
-                          ),
-                          CalculatorTargetWidget(
-                            selctedItem: cubit.selectedActivity,
-                            controller: activityController!,
-                            selectedItem: cubit
-                                .activities(context)[cubit.selectedActivity],
-                            onSelectedItemChanged: (selectedItem) {
-                              cubit.selectedActivity = selectedItem;
-                              cubit.activityLevel =
-                                  ActivityLevel.values[selectedItem];
-                              cubit.calculate();
-                            },
-                            list: cubit.activities(context),
-                          ),
-                          const CalculatorNumberCaloriesWidget(),
-                          const Divider(
-                            endIndent: 20,
-                            indent: 20,
-                          ),
-                          CalculatorValuesColumWidget(cubit: cubit)
-                        ],
-                      ),
-                    ),
-                  ),
-                  if (!widget.isMyday)
+    return PopScope(
+      onPopInvoked: (didPop) {
+        showRewardedAd();
+      },
+      child: BlocProvider(
+        create: (context) => CalculatorCubit(),
+        child: Scaffold(
+          appBar: myAppBar(S.of(context).protein_calculator),
+          body: BlocBuilder<CalculatorCubit, CalculatorStates>(
+            builder: (context, state) {
+              var cubit = CalculatorCubit.get(context);
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
                     const SizedBox(
                       height: 10,
                     ),
-                  if (widget.isMyday)
-                    MyDayRecalculateBuilderWidget(
-                      calories: cubit.calories,
-                      protein: cubit.protein,
-                      fat: cubit.fat,
-                      carbs: cubit.carbs,
-                      id: widget.id,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).cardColor,
+                          borderRadius: BorderRadius.circular(10.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            const CalCulatorGenderWidget(),
+                            const CalculatorHieghtWidget(),
+                            const CalculatorWieghtAndAgeWidget(),
+                            CalculatorTargetWidget(
+                              selctedItem: cubit.selectedPurpose,
+                              controller: purposeController!,
+                              selectedItem:
+                                  cubit.names(context)[cubit.selectedPurpose],
+                              onSelectedItemChanged: (selectedItem) {
+                                if (rewardedAd == null) {
+                                  createRewardAd();
+                                }
+                                cubit.selectedPurpose = selectedItem;
+                                cubit.target = Target.values[selectedItem];
+                                cubit.calculate();
+                              },
+                              list: cubit.names(context),
+                            ),
+                            CalculatorTargetWidget(
+                              selctedItem: cubit.selectedActivity,
+                              controller: activityController!,
+                              selectedItem: cubit
+                                  .activities(context)[cubit.selectedActivity],
+                              onSelectedItemChanged: (selectedItem) {
+                                cubit.selectedActivity = selectedItem;
+                                cubit.activityLevel =
+                                    ActivityLevel.values[selectedItem];
+                                cubit.calculate();
+                              },
+                              list: cubit.activities(context),
+                            ),
+                            const CalculatorNumberCaloriesWidget(),
+                            const Divider(
+                              endIndent: 20,
+                              indent: 20,
+                            ),
+                            CalculatorValuesColumWidget(cubit: cubit)
+                          ],
+                        ),
+                      ),
                     ),
-                ],
-              ),
-            );
-          },
+                    if (!widget.isMyday)
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    if (widget.isMyday)
+                      MyDayRecalculateBuilderWidget(
+                        calories: cubit.calories,
+                        protein: cubit.protein,
+                        fat: cubit.fat,
+                        carbs: cubit.carbs,
+                        id: widget.id,
+                      ),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

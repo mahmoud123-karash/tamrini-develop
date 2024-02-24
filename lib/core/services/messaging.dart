@@ -1,31 +1,6 @@
 import 'dart:developer';
 
-import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
-import 'package:tamrini/core/cache/save_data.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/services/services.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
-import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
-import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
-import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
-import 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
-import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
-import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
-import 'package:tamrini/features/profits/presentation/manager/profits_cubit/profits_cubit.dart';
-import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
-import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
-import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
-import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
-import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
-import 'package:tamrini/features/trainee/presentation/views/trainer_subscribers_screen.dart';
-import 'package:tamrini/features/trainee/presentation/views/training_course_screen.dart';
-import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
-import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
-
-import '../../features/store/presentation/views/store_owner_screen.dart';
+import 'package:tamrini/core/utils/improts.dart';
 
 void onMessage({
   required BuildContext context,
