@@ -25,11 +25,13 @@ class NutritionCalCulatorContentWidget extends StatefulWidget {
     required this.list,
     required this.isMyday,
     required this.id,
+    required this.createAd,
   });
   final ClassificationModel model;
   final List<NutritionModel> list;
   final bool isMyday;
   final String id;
+  final Function createAd;
 
   @override
   State<NutritionCalCulatorContentWidget> createState() =>
@@ -98,6 +100,7 @@ class _NutritionCalCulatorContentWidgetState
                   ),
                 NutritionButtonsRowWidget(
                   onPressedOne: () {
+                    widget.createAd();
                     List<NutritionModel> finalList = searchController.text == ''
                         ? widget.list
                         : cubit.searchList;

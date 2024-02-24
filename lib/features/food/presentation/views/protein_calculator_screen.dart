@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/admod_id.dart';
 import 'package:tamrini/features/food/presentation/manager/calculator_cubit.dart/calculator_cubit.dart';
@@ -31,9 +32,11 @@ class ProteinCalculatorScreen extends StatefulWidget {
 class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
   FixedExtentScrollController? activityController;
   FixedExtentScrollController? purposeController;
+  late String userType;
 
   @override
   void initState() {
+    userType = CacheHelper.getData(key: 'usertype');
     super.initState();
     activityController = FixedExtentScrollController();
     purposeController = FixedExtentScrollController();
@@ -59,13 +62,14 @@ class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
         },
         onAdFailedToLoad: (error) {
           rewardedAd = null;
+          log('Error:$error');
         },
       ),
     );
   }
 
   void showRewardedAd() {
-    if (rewardedAd != null) {
+    if (rewardedAd != null && userType != 'admin' && userType != 'trainer') {
       rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
         onAdShowedFullScreenContent: (ad) {
           log('success show ad');
@@ -130,14 +134,12 @@ class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
                             const CalculatorHieghtWidget(),
                             const CalculatorWieghtAndAgeWidget(),
                             CalculatorTargetWidget(
+                              createAd: createRewardAd,
                               selctedItem: cubit.selectedPurpose,
                               controller: purposeController!,
                               selectedItem:
                                   cubit.names(context)[cubit.selectedPurpose],
                               onSelectedItemChanged: (selectedItem) {
-                                if (rewardedAd == null) {
-                                  createRewardAd();
-                                }
                                 cubit.selectedPurpose = selectedItem;
                                 cubit.target = Target.values[selectedItem];
                                 cubit.calculate();
@@ -145,6 +147,7 @@ class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
                               list: cubit.names(context),
                             ),
                             CalculatorTargetWidget(
+                              createAd: createRewardAd,
                               selctedItem: cubit.selectedActivity,
                               controller: activityController!,
                               selectedItem: cubit

@@ -13,12 +13,14 @@ class CalculatorTargetWidget extends StatelessWidget {
     required this.onSelectedItemChanged,
     required this.list,
     required this.selctedItem,
+    required this.createAd,
   });
   final FixedExtentScrollController controller;
   final String selectedItem;
   final Function(int) onSelectedItemChanged;
   final List<String> list;
   final int selctedItem;
+  final Function createAd;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class CalculatorTargetWidget extends StatelessWidget {
             child: CupertinoButton(
               padding: const EdgeInsets.all(0),
               onPressed: () {
+                createAd();
                 showCalculatorDialog(
                   child: CalculatorPickerWidget(
                     scrollController: controller,

@@ -13,10 +13,12 @@ class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
     required this.model,
     required this.isMyday,
     required this.id,
+    required this.createAd,
   });
   final ClassificationModel model;
   final bool isMyday;
   final String id;
+  final Function createAd;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class NutritionCalculatorContentBuilderWidget extends StatelessWidget {
             list: state.list,
             isMyday: isMyday,
             id: id,
+            createAd: createAd,
           );
         } else if (state is ErrorGetNutritionState) {
           return MessageBuilderWidget(message: state.message);

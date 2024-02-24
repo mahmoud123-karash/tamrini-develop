@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/widgets/banner_ad_widget.dart';
 import 'package:tamrini/features/nutrition/presentation/manager/classification_cubit/classification_cubit.dart';
 import 'package:tamrini/features/nutrition/presentation/views/widgets/new_classification_dialog_widget.dart';
 
@@ -28,7 +27,6 @@ class _NutritionClassificationScreenState
   Widget build(BuildContext context) {
     String userType = CacheHelper.getData(key: 'usertype');
     return Scaffold(
-      bottomNavigationBar: const BannerAdWidget(),
       appBar: myAppBar(S.of(context).values_food),
       body: RefreshIndicator(
         onRefresh: () async {
