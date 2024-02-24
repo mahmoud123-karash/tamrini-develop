@@ -43,8 +43,8 @@ class GoogleSignInUseCase extends UseCase {
           ),
         );
       }
-    } on FirebaseAuthException catch (e) {
-      return left(e.code);
+    } catch (e) {
+      return left(e.toString());
     }
   }
 }
