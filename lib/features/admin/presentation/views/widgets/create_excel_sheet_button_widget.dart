@@ -33,13 +33,13 @@ class _CreateExcelSheetButtonWidgetState
       ),
       child: addCustomButton(
         icon: Icons.contact_page_outlined,
-        onPressed: () {
+        onPressed: () async {
           try {
             final xcel.Worksheet sheet = workbook.worksheets[0];
             sheet.getRangeByIndex(1, 1).setText("Title");
             sheet.getRangeByIndex(1, 2).setText("Phone");
             sheet.getRangeByIndex(1, 3).setText("Email");
-            sheet.getRangeByIndex(1, 4).setText("Email");
+            sheet.getRangeByIndex(1, 4).setText("Gender");
             sheet.getRangeByIndex(1, 5).setText("Role");
             for (var i = 0; i < widget.list.length; i++) {
               final item = widget.list[i];

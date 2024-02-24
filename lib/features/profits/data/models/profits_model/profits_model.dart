@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tamrini/core/models/user_model/user_model.dart';
 
 class ProfitsModel {
   final String userId;
@@ -8,6 +9,7 @@ class ProfitsModel {
   final num amount;
   final Timestamp requestedAt;
   final String requestuid;
+  UserModel? user;
 
   ProfitsModel({
     required this.userId,
@@ -17,9 +19,11 @@ class ProfitsModel {
     required this.amount,
     required this.requestedAt,
     required this.requestuid,
+    this.user,
   });
 
-  factory ProfitsModel.fromJson(Map<String, dynamic> json) => ProfitsModel(
+  factory ProfitsModel.fromJson(Map<String, dynamic> json, user) =>
+      ProfitsModel(
         userId: json['userId'] ?? '',
         userType: json['userType'] ?? '',
         status: json['status'] ?? '',
@@ -27,6 +31,7 @@ class ProfitsModel {
         requestuid: json['requestuid'] ?? '',
         amount: json['amount'] ?? 0,
         requestedAt: json['requestedAt'] ?? Timestamp.now(),
+        user: user,
       );
 
   Map<String, dynamic> toJson() => {

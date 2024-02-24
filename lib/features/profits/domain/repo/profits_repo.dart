@@ -12,4 +12,8 @@ abstract class ProfitsRepo {
     required num amount,
     required String id,
   });
+
+  Future<Either<String, List<ProfitsModel>>> removeRequest({
+    required String id,
+  });
 }

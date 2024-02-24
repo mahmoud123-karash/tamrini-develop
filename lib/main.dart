@@ -1,5 +1,4 @@
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
-
 import 'core/utils/improts.dart';
 
 void main() async {
@@ -213,6 +212,11 @@ void main() async {
           create: (context) => SubscriptionCubit(
             getIt.get<SubscriptionRepoImpl>(),
           )..getSubscriptions(),
+        ),
+        BlocProvider(
+          create: (context) => ProfitsCubit(
+            getIt.get<ProfitsRepoImpl>(),
+          )..getData(),
         ),
         BlocProvider(
           create: (context) => ManageCubit()

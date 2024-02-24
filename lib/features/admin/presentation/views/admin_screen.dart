@@ -9,6 +9,7 @@ import 'package:tamrini/features/promotion/presentation/views/promotion_screen.d
 import 'package:tamrini/features/suggest_exercise/presentation/views/suggested_exercises_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../../../profits/presentation/views/profits_requests_screen.dart';
 import 'banned_trainers_screen.dart';
 import 'users_screen.dart';
 import 'widgets/admin_list_tile_widget.dart';
@@ -97,7 +98,9 @@ class AdminScreen extends StatelessWidget {
               AdminListTileWidget(
                 icon: Icons.attach_money_rounded,
                 lable: S.of(context).profits_request,
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(context, const ProfitsRequestScreen());
+                },
               ),
             ],
           ),

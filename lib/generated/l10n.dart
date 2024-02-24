@@ -5349,6 +5349,16 @@ class S {
       args: [],
     );
   }
+
+  /// `قبول الطلب`
+  String get accept_reqest {
+    return Intl.message(
+      'قبول الطلب',
+      name: 'accept_reqest',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -31,4 +31,14 @@ class ProfitsCubit extends Cubit<ProfitsStates> {
       emit(SuccessGetProfitsRequestsState(list));
     });
   }
+
+  void removeRequest({required String id}) async {
+    emit(LoadingGetProfitsRequestsState());
+    var result = await profitsRepo.removeRequest(id: id);
+    result.fold((message) {
+      emit(ErrorGetProfitsRequestsState(message));
+    }, (list) {
+      emit(SuccessGetProfitsRequestsState(list));
+    });
+  }
 }

@@ -229,4 +229,16 @@ class ProfitsRepoImpl extends ProfitsRepo {
           model.toJson(),
         );
   }
+
+  @override
+  Future<Either<String, List<ProfitsModel>>> removeRequest(
+      {required String id}) async {
+    try {
+      await FirebaseFirestore.instance.collection('profits').doc(id).delete();
+      List<ProfitsModel> list = await profitsRemoteDataSource.get();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

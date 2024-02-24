@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "accept": MessageLookupByLibrary.simpleMessage("قبول"),
         "accept_profits": MessageLookupByLibrary.simpleMessage(
             "تم قبول طلب سحب الارباح وارسال الارباح الى حسابك بنجاح"),
+        "accept_reqest": MessageLookupByLibrary.simpleMessage("قبول الطلب"),
         "accept_request_promotion":
             MessageLookupByLibrary.simpleMessage("تم قبول طلب الترقية"),
         "accept_your_article":
