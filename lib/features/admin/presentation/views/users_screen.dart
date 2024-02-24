@@ -4,7 +4,11 @@ import 'package:tamrini/core/shared/components.dart';
 import 'widgets/users_content _builder_widget.dart';
 
 class UsersScreen extends StatelessWidget {
-  const UsersScreen({super.key, required this.title, required this.usrType});
+  const UsersScreen({
+    super.key,
+    required this.title,
+    required this.usrType,
+  });
   final String title;
   final String usrType;
 
@@ -14,7 +18,6 @@ class UsersScreen extends StatelessWidget {
       appBar: myAppBar(title),
       body: UsersContentBuilderWidget(
         userType: usrType,
-      
       ),
     );
   }

@@ -29,7 +29,9 @@ class _NavBarScreenState extends State<NavBarScreen> {
         Timer.periodic(
           const Duration(minutes: 5),
           (timer) {
-            AdMobCubit.get(context).createInterstitialAd();
+            if (mounted) {
+              AdMobCubit.get(context).createInterstitialAd();
+            }
           },
         );
       }

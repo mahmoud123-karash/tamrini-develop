@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import '../users_screen.dart';
@@ -21,7 +22,7 @@ class AdminUserRowWidget extends StatelessWidget {
               context,
               UsersScreen(
                 title: S.of(context).writers,
-                usrType: 'writer',
+                usrType: UserType.writer,
               ),
             );
           },
@@ -35,7 +36,7 @@ class AdminUserRowWidget extends StatelessWidget {
               context,
               UsersScreen(
                 title: S.of(context).trainers,
-                usrType: 'trainer',
+                usrType: UserType.trainer,
               ),
             );
           },
@@ -47,9 +48,12 @@ class AdminUserRowWidget extends StatelessWidget {
           color: appColor,
           onPressed: () {
             navigateTo(
-                context,
-                UsersScreen(
-                    title: S.of(context).gym_owners, usrType: 'gym owner'));
+              context,
+              UsersScreen(
+                title: S.of(context).gym_owners,
+                usrType: UserType.gymOwner,
+              ),
+            );
           },
           icon: Icons.fitness_center_sharp,
         ),
@@ -61,7 +65,9 @@ class AdminUserRowWidget extends StatelessWidget {
             navigateTo(
               context,
               UsersScreen(
-                  title: S.of(context).store_owners, usrType: 'store owner'),
+                title: S.of(context).store_owners,
+                usrType: UserType.storeOwner,
+              ),
             );
           },
           icon: Icons.storefront_outlined,

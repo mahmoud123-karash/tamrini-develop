@@ -171,7 +171,7 @@ void main() async {
         BlocProvider(
           create: (context) => UsersCubit(
             getIt.get<AdminRepoImpl>(),
-          )..getUsers(),
+          ),
         ),
         BlocProvider(
           create: (context) => TraineeCubit(

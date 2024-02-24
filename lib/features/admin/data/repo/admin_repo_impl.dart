@@ -8,9 +8,9 @@ class AdminRepoImpl extends AdminRepo {
 
   AdminRepoImpl(this.adminRemoteDataSource);
   @override
-  Future<Either<String, List<UserModel>>> getUsers() async {
+  Future<Either<String, List<UserModel>>> getUsers({required String userType}) async {
     try {
-      List<UserModel> list = await adminRemoteDataSource.getUsers();
+      List<UserModel> list = await adminRemoteDataSource.getUsers(userType: userType);
       return right(list);
     } catch (e) {
       return left(e.toString());

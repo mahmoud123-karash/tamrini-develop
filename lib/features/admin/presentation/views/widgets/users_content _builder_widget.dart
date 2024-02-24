@@ -1,29 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_cubit.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_states.dart';
 import 'package:tamrini/features/admin/presentation/views/widgets/users_content_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-class UsersContentBuilderWidget extends StatelessWidget {
+class UsersContentBuilderWidget extends StatefulWidget {
   const UsersContentBuilderWidget({super.key, required this.userType});
   final String userType;
+
+  @override
+  State<UsersContentBuilderWidget> createState() =>
+      _UsersContentBuilderWidgetState();
+}
+
+class _UsersContentBuilderWidgetState extends State<UsersContentBuilderWidget> {
+  @override
+  void initState() {
+    if (mounted) {
+      UsersCubit.get(context).getUsers(userType: widget.userType);
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UsersCubit, UsersStates>(
       builder: (context, state) {
         if (state is SucessGetUsersState) {
-          List<UserModel> finalList =
-              state.list.where((element) => element.role == userType).toList();
-
-          if (finalList.isEmpty && userType != '') {
+          if (state.list.isEmpty) {
             return MessageWidget(message: S.of(context).no_users);
           }
           return UsersContentWidget(
-              list: userType == '' ? state.list : finalList);
+            list: state.list,
+          );
         } else if (state is ErrorGetUsersState) {
           return MessageWidget(
             message: state.message,

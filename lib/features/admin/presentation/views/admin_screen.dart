@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/admin/presentation/views/banned_stores_screen.dart';
 import 'package:tamrini/features/admin/presentation/views/gyms_banned_screen.dart';
 import 'package:tamrini/features/banner/presentation/views/banner_screen.dart';
@@ -42,8 +43,13 @@ class AdminScreen extends StatelessWidget {
                 lable: S.of(context).all_users,
                 icon: Ionicons.person,
                 onPressed: () {
-                  navigateTo(context,
-                      UsersScreen(title: S.of(context).all_users, usrType: ''));
+                  navigateTo(
+                    context,
+                    UsersScreen(
+                      title: S.of(context).all_users,
+                      usrType: UserType.user,
+                    ),
+                  );
                 },
               ),
               AdminListTileWidget(
