@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/features/profits/presentation/manager/request_cubit/request_cubit.dart';
-import 'package:tamrini/features/profits/presentation/manager/request_cubit/request_states.dart';
-import 'package:tamrini/generated/l10n.dart';
+import 'package:tamrini/core/utils/improts.dart';
+import 'package:tamrini/features/profits/presentation/manager/profits_cubit/profits_states.dart';
 
 class RequestCustomButtonWidget extends StatelessWidget {
   const RequestCustomButtonWidget({super.key, required this.onPressed});
@@ -11,17 +7,15 @@ class RequestCustomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RequestCubit, RequestStates>(
+    return BlocConsumer<ProfitsCubit, ProfitsStates>(
       listener: (context, state) {
-        if (state is ErrorRequestState) {
+        if (state is ErrorGetProfitsRequestsState) {
           showSnackBar(context, state.message);
         }
-        if (state is SuccessRequestState) {
-          RequestCubit.get(context).isRequest = true;
-        }
+        if (state is SuccessGetProfitsRequestsState) {}
       },
       builder: (context, state) {
-        if (state is LoadingRequestState) {
+        if (state is LoadingGetProfitsRequestsState) {
           return const CircularProgressIndicator();
         } else {
           return customButton(

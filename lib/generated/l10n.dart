@@ -4010,10 +4010,10 @@ class S {
     );
   }
 
-  /// `Profits Request`
+  /// `Profits Requests`
   String get profits_request {
     return Intl.message(
-      'Profits Request',
+      'Profits Requests',
       name: 'profits_request',
       desc: '',
       args: [],
@@ -5110,16 +5110,6 @@ class S {
     );
   }
 
-  /// `تم ارسال طلب سحب الأرباح الي الأدمن والطلب قيد المراجعة يرجى الانتظار لحين قبول طلبك`
-  String get after_request_profits_hint {
-    return Intl.message(
-      'تم ارسال طلب سحب الأرباح الي الأدمن والطلب قيد المراجعة يرجى الانتظار لحين قبول طلبك',
-      name: 'after_request_profits_hint',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `حدث خطأ يرجى المحاولة`
   String get error_payment {
     return Intl.message(
@@ -5355,6 +5345,126 @@ class S {
     return Intl.message(
       'قبول الطلب',
       name: 'accept_reqest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الرصيد الكلي`
+  String get total_profits {
+    return Intl.message(
+      'الرصيد الكلي',
+      name: 'total_profits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الرصيد المتاح`
+  String get avaliabe_profits {
+    return Intl.message(
+      'الرصيد المتاح',
+      name: 'avaliabe_profits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الرصيد المعلق`
+  String get pendding_profits {
+    return Intl.message(
+      'الرصيد المعلق',
+      name: 'pendding_profits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أدخل القيمة التى تريدها`
+  String get enter_profits_value {
+    return Intl.message(
+      'أدخل القيمة التى تريدها',
+      name: 'enter_profits_value',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أدخل  رقم المحفظة الالكترونية`
+  String get enter_your_cash_number {
+    return Intl.message(
+      'أدخل  رقم المحفظة الالكترونية',
+      name: 'enter_your_cash_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `المحفظة الالكترونية`
+  String get cash_number {
+    return Intl.message(
+      'المحفظة الالكترونية',
+      name: 'cash_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `طلبات سحب الارباح`
+  String get your_profit_requests {
+    return Intl.message(
+      'طلبات سحب الارباح',
+      name: 'your_profit_requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الحالة`
+  String get status {
+    return Intl.message(
+      'الحالة',
+      name: 'status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قيد المراجعة`
+  String get waiting_status {
+    return Intl.message(
+      'قيد المراجعة',
+      name: 'waiting_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `منتهي`
+  String get ended_status {
+    return Intl.message(
+      'منتهي',
+      name: 'ended_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `لا يوجد رصيد كافي`
+  String get no_enough_profits {
+    return Intl.message(
+      'لا يوجد رصيد كافي',
+      name: 'no_enough_profits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `رقم المحفظة`
+  String get cash_num {
+    return Intl.message(
+      'رقم المحفظة',
+      name: 'cash_num',
       desc: '',
       args: [],
     );

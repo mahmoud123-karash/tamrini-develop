@@ -3,8 +3,13 @@ import 'package:tamrini/core/contants/constants.dart';
 import 'profits_colum_profits_widget.dart';
 
 class ProfitsContainerWidget extends StatelessWidget {
-  const ProfitsContainerWidget({super.key, required this.profits});
-  final num profits;
+  const ProfitsContainerWidget({
+    super.key,
+    required this.availableProfits,
+    required this.totalProfits,
+  });
+  final num availableProfits;
+  final num totalProfits;
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +21,9 @@ class ProfitsContainerWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Row(
-          children: [
-            ProfitsColumProfitsWidget(profits: profits),
-            const Spacer(),
-            const Icon(
-              Icons.attach_money,
-              size: 50,
-              color: Colors.amber,
-            ),
-          ],
+        child: ProfitsColumProfitsWidget(
+          availableProfits: availableProfits,
+          totalProfits: totalProfits,
         ),
       ),
     );

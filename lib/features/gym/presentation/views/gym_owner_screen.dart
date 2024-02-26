@@ -61,7 +61,6 @@ class GymOwnerScreen extends StatelessWidget {
                               ProfitsScreen(
                                 profits: model.profits,
                                 id: model.id,
-                                isRequestProfits: model.isRequestProfits,
                               ));
                         },
                         shape: OutlineInputBorder(

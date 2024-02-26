@@ -40,7 +40,6 @@ class GymRepoImpl extends GymRepo {
       GymModel model = GymModel(
         assets: assets,
         profits: 0,
-        isRequestProfits: false,
         name: name,
         location: GeoPoint(lat, long),
         price: price,
@@ -85,7 +84,6 @@ class GymRepoImpl extends GymRepo {
           location: GeoPoint(lat, long),
           price: price,
           profits: oldModel.profits,
-          isRequestProfits: oldModel.isRequestProfits,
           id: '',
           description: description,
           subcribersCount: oldModel.subcribersCount,
@@ -103,7 +101,6 @@ class GymRepoImpl extends GymRepo {
           assets: newImages,
           name: name,
           profits: oldModel.profits,
-          isRequestProfits: oldModel.isRequestProfits,
           location: GeoPoint(lat, long),
           subcribersCount: oldModel.subcribersCount,
           price: price,

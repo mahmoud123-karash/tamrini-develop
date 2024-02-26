@@ -395,7 +395,7 @@
     "rating_hint": "Rate this product from 1 to 5",
     "back_to_home": "Back to Home",
     "rating_product_hint": "Please rate the product",
-    "profits_request": "Profits Request",
+    "profits_request": "Profits Requests",
     "gym_remove_question": "Do you want to delete this gym?",
     "buy_orders": "Buy Orders",
     "promotion_to": "Promotion to",
@@ -505,7 +505,6 @@
     "warning_the_user_profits":"يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!",
     "request_profits_title":"طلب سحب ارباح جديد",
     "accept_profits":"تم قبول طلب سحب الارباح وارسال الارباح الى حسابك بنجاح",
-    "after_request_profits_hint":"تم ارسال طلب سحب الأرباح الي الأدمن والطلب قيد المراجعة يرجى الانتظار لحين قبول طلبك",
     "error_payment":"حدث خطأ يرجى المحاولة",
     "payment_success":"تم الدفع بنجاح يمكنك استكمال العملية الآن",
     "trainer_success_payment":"تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!",
@@ -529,7 +528,24 @@
     "add_product_note":"يمكنك إضافة منتج مباشرة من قسم المكملات الغذائية الموجود فى قسم الصحة والتغذية",
     "add_to_your_store":"إضافة إلى المتجر",
     "price_cant_be_zero":"لا يمكن ان يكون السعر يساوي صفر",
-    "accept_reqest":"قبول الطلب"
+    "accept_reqest":"قبول الطلب",
+    "total_profits":"الرصيد الكلي",
+    "avaliabe_profits":"الرصيد المتاح",
+    "pendding_profits":"الرصيد المعلق",
+    "enter_profits_value":"أدخل القيمة التى تريدها",
+    "enter_your_cash_number":"أدخل  رقم المحفظة الالكترونية",
+    "cash_number":"المحفظة الالكترونية",
+    "your_profit_requests":"طلبات سحب الارباح",
+    "status":"الحالة",
+    "waiting_status":"قيد المراجعة",
+    "ended_status":"منتهي",
+    "no_enough_profits":"لا يوجد رصيد كافي",
+    "cash_num":"رقم المحفظة"
+
+
+
+
+
 
 
 

@@ -93,5 +93,9 @@
     <string>en</string>
     <string>ar</string>
     </array>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+    <key>UIFileSharingEnabled</key>
+    <true/>
 </dict>
 </plist>

@@ -103,7 +103,6 @@ export 'package:tamrini/features/navBar/presentation/views/widgets/badge_notific
 export 'package:awesome_notifications/awesome_notifications.dart';
 export 'package:tamrini/core/cache/save_data.dart';
 
-export 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
 export 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 export 'package:tamrini/features/notification/presentation/views/notification_screen.dart';
 export 'package:tamrini/features/order/presentation/views/order_details_screen.dart';

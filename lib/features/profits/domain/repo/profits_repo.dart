@@ -4,16 +4,19 @@ import 'package:tamrini/features/profits/data/models/profits_model/profits_model
 abstract class ProfitsRepo {
   Future<Either<String, List<ProfitsModel>>> get();
   Future<Either<String, List<ProfitsModel>>> accept({
-    required num amount,
     required ProfitsModel model,
   });
-
-  Future<Either<String, String>> request({
-    required num amount,
+  Future<Either<String, List<ProfitsModel>>> removeRequest({
     required String id,
   });
 
-  Future<Either<String, List<ProfitsModel>>> removeRequest({
+  Future<Either<String, List<ProfitsModel>>> request({
+    required num amount,
+    required String cashNumber,
     required String id,
+  });
+
+  Future<Either<String, List<ProfitsModel>>> getMyRequests({
+    required String uid,
   });
 }

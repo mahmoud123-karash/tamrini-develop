@@ -7,6 +7,7 @@ import 'package:tamrini/features/navBar/presentation/views/widgets/badge_order_i
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_states.dart';
 import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
+import 'package:tamrini/features/profits/presentation/views/profits_screen.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_products_screen.dart';
@@ -88,7 +89,15 @@ class StoreOwnerScreen extends StatelessWidget {
                 height: 10,
               ),
               StoreOwnerListTileWidget(
-                onTap: () {},
+                onTap: () {
+                  navigateTo(
+                    context,
+                    ProfitsScreen(
+                      profits: model.profits,
+                      id: model.storeOwnerUid,
+                    ),
+                  );
+                },
                 icon: Icons.attach_money_rounded,
                 lable: S.of(context).profits,
               ),

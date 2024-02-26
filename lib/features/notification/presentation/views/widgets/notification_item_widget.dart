@@ -5,7 +5,6 @@ import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
-import 'package:tamrini/features/admin/presentation/views/admin_profits_screen.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 import 'package:tamrini/features/gym/presentation/views/gym_owner_screen.dart';
 import 'package:tamrini/features/notification/data/models/notification_model/notification_model.dart';
@@ -14,6 +13,7 @@ import 'package:tamrini/features/notification/presentation/views/widgets/promoti
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
+import 'package:tamrini/features/profits/presentation/views/profits_requests_screen.dart';
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_screen.dart';
@@ -153,7 +153,7 @@ class NotificationItemWidget extends StatelessWidget {
         );
       }
       if (model.subType == 'request_profits') {
-        navigateTo(context, const AdminProfitsScreen());
+        navigateTo(context, const ProfitsRequestScreen());
       }
 
       if (model.subType == 'accept_profits') {

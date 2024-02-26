@@ -25,7 +25,6 @@ class ProfitsRepoImpl extends ProfitsRepo {
 
   @override
   Future<Either<String, List<ProfitsModel>>> accept({
-    required num amount,
     required ProfitsModel model,
   }) async {
     try {
@@ -37,7 +36,10 @@ class ProfitsRepoImpl extends ProfitsRepo {
       });
       sendAcceptNotification(reciverId: model.userId, userRole: model.userType);
       await updateAData(
-          userType: model.userType, id: model.uid, amount: amount);
+        userType: model.userType,
+        id: model.uid,
+        amount: model.amount,
+      );
       List<ProfitsModel> list = await profitsRemoteDataSource.get();
       return right(list);
     } catch (e) {
@@ -129,11 +131,38 @@ class ProfitsRepoImpl extends ProfitsRepo {
         );
   }
 
-////////////////////////////////////////////////////////////////////////////////
   @override
-  Future<Either<String, String>> request({
+  Future<Either<String, List<ProfitsModel>>> removeRequest(
+      {required String id}) async {
+    try {
+      await FirebaseFirestore.instance.collection('profits').doc(id).delete();
+      List<ProfitsModel> list = await profitsRemoteDataSource.get();
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+////////////////////////////////////////////////////////////////////////////////
+
+  @override
+  Future<Either<String, List<ProfitsModel>>> getMyRequests({
+    required String uid,
+  }) async {
+    try {
+      List<ProfitsModel> list =
+          await profitsRemoteDataSource.getMyRequest(uid: uid);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
+
+  @override
+  Future<Either<String, List<ProfitsModel>>> request({
     required num amount,
     required String id,
+    required String cashNumber,
   }) async {
     try {
       String userType = CacheHelper.getData(key: 'usertype');
@@ -142,6 +171,7 @@ class ProfitsRepoImpl extends ProfitsRepo {
       ProfitsModel model = ProfitsModel(
         userId: uid,
         uid: id,
+        cashNumber: cashNumber,
         status: 'wating',
         userType: userType,
         requestuid: uuid,
@@ -153,7 +183,10 @@ class ProfitsRepoImpl extends ProfitsRepo {
           );
       await updateData(userType: userType, id: id, isRequestProfits: true);
       sendRequestNotification(uid);
-      return right('r');
+      List<ProfitsModel> list = await profitsRemoteDataSource.getMyRequest(
+        uid: id,
+      );
+      return right(list);
     } catch (e) {
       return left(e.toString());
     }
@@ -228,17 +261,5 @@ class ProfitsRepoImpl extends ProfitsRepo {
         .add(
           model.toJson(),
         );
-  }
-
-  @override
-  Future<Either<String, List<ProfitsModel>>> removeRequest(
-      {required String id}) async {
-    try {
-      await FirebaseFirestore.instance.collection('profits').doc(id).delete();
-      List<ProfitsModel> list = await profitsRemoteDataSource.get();
-      return right(list);
-    } catch (e) {
-      return left(e.toString());
-    }
   }
 }

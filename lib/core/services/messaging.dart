@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:tamrini/core/utils/improts.dart';
 import 'package:tamrini/core/utils/user_type.dart';
+import 'package:tamrini/features/profits/presentation/views/profits_requests_screen.dart';
 
 void onMessage({
   required BuildContext context,
@@ -143,7 +144,7 @@ void openNotification(RemoteMessage event, BuildContext context) {
       navigateTo(context, const NotificationScreen());
     }
     if (event.data['subType'] == 'request_profits') {
-      navigateTo(context, const AdminProfitsScreen());
+      navigateTo(context, const ProfitsRequestScreen());
     }
 
     if (event.data['subType'] == 'accept_profits') {

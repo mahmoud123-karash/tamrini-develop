@@ -9,7 +9,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   await Hive.initFlutter();
   Hive.registerAdapter(CategoryModelAdapter());
   await Hive.openBox<CategoryModel>(storeBox);
@@ -215,10 +214,9 @@ void main() async {
           )..getSubscriptions(),
         ),
         BlocProvider(
-          create: (context) => ProfitsCubit(
-            getIt.get<ProfitsRepoImpl>(),
-          )..getData(),
-        ),
+            create: (context) => ProfitsCubit(
+                  getIt.get<ProfitsRepoImpl>(),
+                )..getData()),
         BlocProvider(
           create: (context) => ManageCubit()
             ..changeAppTheme(

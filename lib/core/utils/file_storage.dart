@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
@@ -9,27 +10,21 @@ class FileStorage {
     if (!status.isGranted) {
       await Permission.storage.request();
     }
+    log(status.toString());
     Directory directory = Directory("");
     if (Platform.isAndroid) {
       directory = Directory("/storage/emulated/0/Download");
     } else {
       directory = await getApplicationDocumentsDirectory();
     }
-
-    final exPath = directory.path;
-    await Directory(exPath).create(recursive: true);
+    String exPath = directory.path;
+    //await Directory(exPath).create(recursive: true);
     return exPath;
   }
 
-  static Future<String> get _localPath async {
-    final String directory = await getExternalDocumentPath();
-    return directory;
-  }
-
-  static Future<File> writeCounter(List<int> bytes, String name) async {
-    final path = await _localPath;
+  static Future<void> writeCounter(List<int> bytes, String name) async {
+    final path = await getExternalDocumentPath();
     File file = File('$path/$name');
-    log(file.path);
-    return file.writeAsBytes(bytes);
+    await file.writeAsBytes(bytes);
   }
 }

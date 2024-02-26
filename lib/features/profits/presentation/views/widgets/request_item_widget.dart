@@ -4,6 +4,7 @@ import 'package:tamrini/core/utils/improts.dart';
 import 'package:tamrini/core/widgets/writer_row_widget.dart';
 import 'package:tamrini/features/profits/data/models/profits_model/profits_model.dart';
 
+import 'accept_custom_button_builder_widget.dart';
 import 'request_info_row_widget.dart';
 
 class RequestItemWidget extends StatelessWidget {
@@ -15,9 +16,9 @@ class RequestItemWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: model.status == 'waiting'
+        color: model.status == 'wating'
             ? appColor.withOpacity(0.3)
-            : Colors.red.withOpacity(0.3),
+            : greyColor.withOpacity(0.3),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -48,21 +49,32 @@ class RequestItemWidget extends StatelessWidget {
               color: blackColor,
             ),
             RequestInfoRowWidget(
+              value: model.cashNumber,
+              lable: S.of(context).cash_num,
+            ),
+            Divider(
+              color: blackColor,
+            ),
+            RequestInfoRowWidget(
               value: DateFormat('M/d/y').format(
                 model.requestedAt.toDate(),
               ),
               lable: S.of(context).date,
             ),
+            Divider(
+              color: blackColor,
+            ),
+            RequestInfoRowWidget(
+              value: model.status == 'wating'
+                  ? S.of(context).waiting_status
+                  : S.of(context).ended_status,
+              lable: S.of(context).status,
+            ),
             const SizedBox(
               height: 15,
             ),
-            customButton(
-              color: model.status == 'waiting' ? appColor : Colors.red,
-              onPressed: () {},
-              lable: model.status == 'waiting'
-                  ? S.of(context).accept_reqest
-                  : S.of(context).remove_question,
-            ),
+            if (model.status == 'wating')
+              AcceptCustomButtonBuilderWidget(model: model),
           ],
         ),
       ),

@@ -90,8 +90,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "admin_hint": MessageLookupByLibrary.simpleMessage(
             "لا تستطيع الوصول لملف الأدمن"),
         "after": MessageLookupByLibrary.simpleMessage("بعد"),
-        "after_request_profits_hint": MessageLookupByLibrary.simpleMessage(
-            "تم ارسال طلب سحب الأرباح الي الأدمن والطلب قيد المراجعة يرجى الانتظار لحين قبول طلبك"),
         "age": MessageLookupByLibrary.simpleMessage("العمر"),
         "agree": MessageLookupByLibrary.simpleMessage("أوافق على"),
         "allEx": MessageLookupByLibrary.simpleMessage("جميع التمارين"),
@@ -116,6 +114,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "auto_reminder":
             MessageLookupByLibrary.simpleMessage("التذكير التلقائي"),
         "available": MessageLookupByLibrary.simpleMessage("متوفر"),
+        "avaliabe_profits":
+            MessageLookupByLibrary.simpleMessage("الرصيد المتاح"),
         "back": MessageLookupByLibrary.simpleMessage("عودة"),
         "back_to_home":
             MessageLookupByLibrary.simpleMessage("العودة الى الرئيسية"),
@@ -165,6 +165,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "calory": MessageLookupByLibrary.simpleMessage("سعرة"),
         "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
         "carb": MessageLookupByLibrary.simpleMessage("كربوهيدرات"),
+        "cash_num": MessageLookupByLibrary.simpleMessage("رقم المحفظة"),
+        "cash_number":
+            MessageLookupByLibrary.simpleMessage("المحفظة الالكترونية"),
         "category": MessageLookupByLibrary.simpleMessage("الفئات"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("التمارين"),
         "category_remove_question":
@@ -254,10 +257,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "end_date": MessageLookupByLibrary.simpleMessage("تاريخ الإنتهاء"),
         "end_progress": MessageLookupByLibrary.simpleMessage("انهاء العملية"),
         "ended": MessageLookupByLibrary.simpleMessage("منتهي"),
+        "ended_status": MessageLookupByLibrary.simpleMessage("منتهي"),
         "english_language":
             MessageLookupByLibrary.simpleMessage("اللغة الإنجليزية"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("أدخل الرقم"),
+        "enter_profits_value":
+            MessageLookupByLibrary.simpleMessage("أدخل القيمة التى تريدها"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("أدخل الرابط"),
+        "enter_your_cash_number": MessageLookupByLibrary.simpleMessage(
+            "أدخل  رقم المحفظة الالكترونية"),
         "error": MessageLookupByLibrary.simpleMessage("حدث خطأ"),
         "error_payment":
             MessageLookupByLibrary.simpleMessage("حدث خطأ يرجى المحاولة"),
@@ -416,6 +424,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم رفع التقييد عن الصالة الخاصة بك"),
         "no_edit_ban":
             MessageLookupByLibrary.simpleMessage("لا يمكنك التعديل بسبب الحظر"),
+        "no_enough_profits":
+            MessageLookupByLibrary.simpleMessage("لا يوجد رصيد كافي"),
         "no_exercises_yet":
             MessageLookupByLibrary.simpleMessage("لا يوجد تمارين مقترحة بعد"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
@@ -465,6 +475,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "payment_success_button":
             MessageLookupByLibrary.simpleMessage("تم الدفع"),
         "payment_uri": MessageLookupByLibrary.simpleMessage("رابط الدفع"),
+        "pendding_profits":
+            MessageLookupByLibrary.simpleMessage("الرصيد المعلق"),
         "pending": MessageLookupByLibrary.simpleMessage("فى الإنتظار"),
         "pending_hint_payment": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة"),
@@ -506,7 +518,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile_hint_social": MessageLookupByLibrary.simpleMessage("لا يوجد"),
         "profits": MessageLookupByLibrary.simpleMessage("الأرباح"),
         "profits_request":
-            MessageLookupByLibrary.simpleMessage("طلبات سحلب الارباح"),
+            MessageLookupByLibrary.simpleMessage("طلبات سحب الارباح"),
         "promotion": MessageLookupByLibrary.simpleMessage("طلبات الترقية"),
         "promotion_reqiest_review":
             MessageLookupByLibrary.simpleMessage("الطلب قيد المراجعة"),
@@ -607,6 +619,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "share_app": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
         "show": MessageLookupByLibrary.simpleMessage("عرض على الخريطة"),
         "slatGym": MessageLookupByLibrary.simpleMessage("صالات الجيم"),
+        "status": MessageLookupByLibrary.simpleMessage("الحالة"),
         "store": MessageLookupByLibrary.simpleMessage("المتجر"),
         "store_banned": MessageLookupByLibrary.simpleMessage("المتاجر المقيدة"),
         "store_contact": MessageLookupByLibrary.simpleMessage("رقم التواصل"),
@@ -704,6 +717,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total_price": MessageLookupByLibrary.simpleMessage("السعر الكلى"),
         "total_price_payment":
             MessageLookupByLibrary.simpleMessage("المبلغ الكلي"),
+        "total_profits": MessageLookupByLibrary.simpleMessage("الرصيد الكلي"),
         "tracking": MessageLookupByLibrary.simpleMessage("تتبع"),
         "traiber_price": MessageLookupByLibrary.simpleMessage("سعر الإشتراك"),
         "trainee": MessageLookupByLibrary.simpleMessage("متدرب"),
@@ -740,6 +754,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "نشاط مكثف جدا في العمل والنادي"),
         "view_rder_details":
             MessageLookupByLibrary.simpleMessage("معاينة تفاصيل الطلب"),
+        "waiting_status": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
         "warning_the_user_profits": MessageLookupByLibrary.simpleMessage(
             "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
@@ -770,6 +785,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "your_articles": MessageLookupByLibrary.simpleMessage("مقالاتي"),
         "your_meals": MessageLookupByLibrary.simpleMessage("وجباتك"),
         "your_need": MessageLookupByLibrary.simpleMessage("باقي احتياجك"),
+        "your_profit_requests":
+            MessageLookupByLibrary.simpleMessage("طلبات سحب الارباح"),
         "youtub_uri": MessageLookupByLibrary.simpleMessage("رابط يوتيوب"),
         "youtub_uri_hint":
             MessageLookupByLibrary.simpleMessage("من فضلك أدخل رابط صحيح"),

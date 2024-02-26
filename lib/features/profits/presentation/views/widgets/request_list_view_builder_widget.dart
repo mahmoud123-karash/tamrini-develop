@@ -1,4 +1,5 @@
 import 'package:tamrini/core/utils/improts.dart';
+import 'package:tamrini/features/profits/data/models/profits_model/profits_model.dart';
 import 'package:tamrini/features/profits/presentation/manager/profits_cubit/profits_states.dart';
 import 'request_list_view_widget.dart';
 
@@ -19,9 +20,16 @@ class RequestListViewBuilderWidget extends StatelessWidget {
         } else if (state is ErrorGetProfitsRequestsState) {
           return MessageBuilderWidget(message: state.message);
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          List<ProfitsModel> list = ProfitsCubit.get(context).adminList;
+          if (list.isEmpty) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return RequestListViewWidget(
+              list: list,
+            );
+          }
         }
       },
     );

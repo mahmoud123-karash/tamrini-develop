@@ -3,6 +3,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_container_widget.dart';
+import 'package:tamrini/features/profits/presentation/views/profits_screen.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_gallery_example_widget.dart';
 import 'package:tamrini/features/trainer/presentation/views/widgets/trainer_name_image_location_widget.dart';
@@ -40,6 +41,21 @@ class TrainerContentWidget extends StatelessWidget {
           if (trainer.isBanned == false)
             if (trainer.uid == uid && userType == UserType.trainer)
               TrainerButtonsRowWidget(trainerId: trainer.uid),
+          if (trainer.isBanned == false)
+            if (trainer.uid == uid && userType == UserType.trainer)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: addCustomButton(
+                  icon: Icons.attach_money,
+                  onPressed: () {
+                    navigateTo(
+                      context,
+                      ProfitsScreen(profits: trainer.profits, id: trainer.uid),
+                    );
+                  },
+                  lable: S.of(context).profits,
+                ),
+              ),
           const SizedBox(
             height: 10,
           ),

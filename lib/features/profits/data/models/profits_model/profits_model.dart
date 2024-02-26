@@ -5,6 +5,7 @@ class ProfitsModel {
   final String userId;
   final String userType;
   final String status;
+  final String cashNumber;
   final String uid;
   final num amount;
   final Timestamp requestedAt;
@@ -17,6 +18,7 @@ class ProfitsModel {
     required this.status,
     required this.userType,
     required this.amount,
+    required this.cashNumber,
     required this.requestedAt,
     required this.requestuid,
     this.user,
@@ -29,6 +31,7 @@ class ProfitsModel {
         status: json['status'] ?? '',
         uid: json['uid'] ?? '',
         requestuid: json['requestuid'] ?? '',
+        cashNumber: json['cashNumber'] ?? '',
         amount: json['amount'] ?? 0,
         requestedAt: json['requestedAt'] ?? Timestamp.now(),
         user: user,
@@ -42,5 +45,6 @@ class ProfitsModel {
         "amount": amount,
         "requestedAt": requestedAt,
         "requestuid": requestuid,
+        "cashNumber": cashNumber,
       };
 }

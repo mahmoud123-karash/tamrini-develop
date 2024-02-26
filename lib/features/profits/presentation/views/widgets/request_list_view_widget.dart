@@ -17,7 +17,7 @@ class RequestListViewWidget extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(
           height: 15,
         ),
-        itemCount: 20,
+        itemCount: list.length,
       ),
     );
   }

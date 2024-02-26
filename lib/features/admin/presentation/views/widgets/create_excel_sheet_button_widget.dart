@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/utils/file_storage.dart';
+import 'dart:developer';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart' as xcel;
-import 'package:tamrini/generated/l10n.dart';
+import 'package:tamrini/core/utils/file_storage.dart';
+import 'package:tamrini/core/utils/improts.dart';
 
 class CreateExcelSheetButtonWidget extends StatefulWidget {
   const CreateExcelSheetButtonWidget({super.key, required this.list});
@@ -36,7 +34,7 @@ class _CreateExcelSheetButtonWidgetState
         onPressed: () async {
           try {
             final xcel.Worksheet sheet = workbook.worksheets[0];
-            sheet.getRangeByIndex(1, 1).setText("Title");
+            sheet.getRangeByIndex(1, 1).setText("Name");
             sheet.getRangeByIndex(1, 2).setText("Phone");
             sheet.getRangeByIndex(1, 3).setText("Email");
             sheet.getRangeByIndex(1, 4).setText("Gender");
@@ -50,9 +48,11 @@ class _CreateExcelSheetButtonWidgetState
               sheet.getRangeByIndex(i + 2, 5).setText(item.role);
             }
             final List<int> bytes = workbook.saveAsStream();
-            FileStorage.writeCounter(bytes, "users.xlsx");
+            await FileStorage.writeCounter(bytes, "users.csv");
+            workbook.dispose();
             showSnackBar(context, S.of(context).success_save_excel_sheet);
           } catch (e) {
+            log(e.toString());
             showSnackBar(context, e.toString());
           }
         },

@@ -35,7 +35,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
           }
         },
       );
-
+      ProfitsCubit.get(context).pList.clear();
       FavoriteCubit.get(context).getData();
       OrderCubit.get(context).getData();
       UserOrderCubit.get(context).getData();
