@@ -28,8 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_app": MessageLookupByLibrary.simpleMessage("About the App"),
         "accept": MessageLookupByLibrary.simpleMessage("Accept"),
         "accept_profits": MessageLookupByLibrary.simpleMessage(
-            "تم قبول طلب سحب الارباح وارسال الارباح الى حسابك بنجاح"),
-        "accept_reqest": MessageLookupByLibrary.simpleMessage("قبول الطلب"),
+            "Profit withdrawal request accepted and profits successfully sent to your account"),
+        "accept_reqest": MessageLookupByLibrary.simpleMessage("Accept Request"),
         "accept_request_promotion":
             MessageLookupByLibrary.simpleMessage("Promotion request accepted"),
         "accept_your_article": MessageLookupByLibrary.simpleMessage(
@@ -50,7 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_meal_hint":
             MessageLookupByLibrary.simpleMessage("No meal selected"),
         "add_new_banner":
-            MessageLookupByLibrary.simpleMessage("إضافة إعلان جديد"),
+            MessageLookupByLibrary.simpleMessage("Add New Banner"),
         "add_new_course":
             MessageLookupByLibrary.simpleMessage("Add New Course"),
         "add_new_diet_course":
@@ -76,12 +76,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Add New Category"),
         "add_product": MessageLookupByLibrary.simpleMessage("Add Product"),
         "add_product_note": MessageLookupByLibrary.simpleMessage(
-            "يمكنك إضافة منتج مباشرة من قسم المكملات الغذائية الموجود فى قسم الصحة والتغذية"),
+            "You can directly add a product from the nutritional supplements section in the Health and Nutrition category"),
         "add_reminder": MessageLookupByLibrary.simpleMessage("Add Reminder"),
         "add_supplement":
             MessageLookupByLibrary.simpleMessage("Add Supplement"),
         "add_to_your_store":
-            MessageLookupByLibrary.simpleMessage("إضافة إلى المتجر"),
+            MessageLookupByLibrary.simpleMessage("Add to your store"),
         "add_today": MessageLookupByLibrary.simpleMessage("Add Today"),
         "add_today_hint":
             MessageLookupByLibrary.simpleMessage("Current day already added"),
@@ -116,8 +116,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "auto_reminder": MessageLookupByLibrary.simpleMessage("Auto Reminder"),
         "available": MessageLookupByLibrary.simpleMessage("Available"),
         "avaliabe_profits":
-            MessageLookupByLibrary.simpleMessage("الرصيد المتاح"),
-        "back": MessageLookupByLibrary.simpleMessage("عودة"),
+            MessageLookupByLibrary.simpleMessage("Available Balance"),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
         "back_to_home": MessageLookupByLibrary.simpleMessage("Back to Home"),
         "ban": MessageLookupByLibrary.simpleMessage("Ban"),
         "ban_article": MessageLookupByLibrary.simpleMessage("Ban Article"),
@@ -153,8 +153,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your gym has been banned. Please contact the administrator for more information."),
         "banned_trainers":
             MessageLookupByLibrary.simpleMessage("Banned Trainers"),
-        "banner_uri": MessageLookupByLibrary.simpleMessage("الرابط"),
-        "banners": MessageLookupByLibrary.simpleMessage("الإعلانات"),
+        "banner_uri": MessageLookupByLibrary.simpleMessage("URL"),
+        "banners": MessageLookupByLibrary.simpleMessage("Banners"),
         "before": MessageLookupByLibrary.simpleMessage("Before"),
         "bestSeller": MessageLookupByLibrary.simpleMessage("Best Seller"),
         "best_seller": MessageLookupByLibrary.simpleMessage("Best Seller"),
@@ -166,9 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "calory": MessageLookupByLibrary.simpleMessage("Calorie"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "carb": MessageLookupByLibrary.simpleMessage("Carbs"),
-        "cash_num": MessageLookupByLibrary.simpleMessage("رقم المحفظة"),
-        "cash_number":
-            MessageLookupByLibrary.simpleMessage("المحفظة الالكترونية"),
+        "cash_num": MessageLookupByLibrary.simpleMessage("Wallet Number"),
+        "cash_number": MessageLookupByLibrary.simpleMessage("E-Wallet"),
         "category": MessageLookupByLibrary.simpleMessage("Categories"),
         "categoryEx": MessageLookupByLibrary.simpleMessage("Exercises"),
         "category_remove_question": MessageLookupByLibrary.simpleMessage(
@@ -181,7 +180,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "choose_weight": MessageLookupByLibrary.simpleMessage("Choose weight"),
         "city": MessageLookupByLibrary.simpleMessage("City"),
         "claculate_your_calories_before": MessageLookupByLibrary.simpleMessage(
-            "من فضلك قم بحساب احتياجك قبل اختيار الوجبات"),
+            "Please calculate your requirements before selecting meals"),
         "classification_name":
             MessageLookupByLibrary.simpleMessage("Category Name"),
         "cm": MessageLookupByLibrary.simpleMessage("cm"),
@@ -220,7 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don/\'t have an acount?"),
         "create1": MessageLookupByLibrary.simpleMessage("Create acount"),
         "create_payment_uri_success": MessageLookupByLibrary.simpleMessage(
-            "تم انشاء رابط الدفع بنجاح يمكنك استكمال عملية الدفع والعودة مرة أخري لإتمام العملية "),
+            "Payment link created successfully. You can complete the payment process and return to finalize the operation"),
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "days": MessageLookupByLibrary.simpleMessage("Days"),
@@ -244,7 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
         "edit_article": MessageLookupByLibrary.simpleMessage("Edit Article"),
-        "edit_banner": MessageLookupByLibrary.simpleMessage("تعديل الإعلان"),
+        "edit_banner": MessageLookupByLibrary.simpleMessage("Edit Banner"),
         "edit_exercise": MessageLookupByLibrary.simpleMessage("Edit Exercise"),
         "edit_gym": MessageLookupByLibrary.simpleMessage("Edit Gym"),
         "edit_meal": MessageLookupByLibrary.simpleMessage("Edit Meal"),
@@ -264,19 +263,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please Verify your email"),
         "emptyList": MessageLookupByLibrary.simpleMessage("No Exercises"),
         "end_date": MessageLookupByLibrary.simpleMessage("End Date"),
-        "end_progress": MessageLookupByLibrary.simpleMessage("انهاء العملية"),
+        "end_progress": MessageLookupByLibrary.simpleMessage("End Process"),
         "ended": MessageLookupByLibrary.simpleMessage("Ended"),
-        "ended_status": MessageLookupByLibrary.simpleMessage("منتهي"),
+        "ended_status": MessageLookupByLibrary.simpleMessage("Ended"),
         "english_language": MessageLookupByLibrary.simpleMessage("English"),
         "enter_phone": MessageLookupByLibrary.simpleMessage("Enter the number"),
         "enter_profits_value":
-            MessageLookupByLibrary.simpleMessage("أدخل القيمة التى تريدها"),
+            MessageLookupByLibrary.simpleMessage("Enter the desired value"),
         "enter_uri": MessageLookupByLibrary.simpleMessage("Enter the link"),
-        "enter_your_cash_number": MessageLookupByLibrary.simpleMessage(
-            "أدخل  رقم المحفظة الالكترونية"),
+        "enter_your_cash_number":
+            MessageLookupByLibrary.simpleMessage("Enter your e-wallet number"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
-        "error_payment":
-            MessageLookupByLibrary.simpleMessage("حدث خطأ يرجى المحاولة"),
+        "error_payment": MessageLookupByLibrary.simpleMessage(
+            "An error occurred. Please try again"),
         "exDetails": MessageLookupByLibrary.simpleMessage("Exercise Details"),
         "exercise": MessageLookupByLibrary.simpleMessage("Various Exercises"),
         "exercise_description":
@@ -292,7 +291,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fat": MessageLookupByLibrary.simpleMessage("Fat"),
         "favorite_meals":
             MessageLookupByLibrary.simpleMessage("Favorite Meals"),
-        "fees": MessageLookupByLibrary.simpleMessage("الرسوم"),
+        "fees": MessageLookupByLibrary.simpleMessage("Fees"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "follow":
             MessageLookupByLibrary.simpleMessage("Continue without login"),
@@ -327,7 +326,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gym_removed_hint": MessageLookupByLibrary.simpleMessage(
             "Do you want to remove this gym ?"),
         "gym_success_payment": MessageLookupByLibrary.simpleMessage(
-            "تمت معالجة دفع اشتراكك بنجاح. أنت الآن قادر على متابعة اشتراكك .أنت الآن عضو رسمي في صالة الألعاب الرياضية لدينا. استعد للشروع في رحلة لياقة بدنية مثيرة مع إمكانية الوصول إلى أحدث المرافق والمدربين الخبراء والمجتمع النابض بالحياة. ابدأ العمل من أجل أن تصبح أكثر صحة وقوة اليوم!"),
+            "Your subscription payment has been successfully processed. You are now able to continue your subscription. You are now an official member of our gym. Get ready to embark on an exciting fitness journey with access to state-of-the-art facilities, expert trainers, and a vibrant community. Start working towards a healthier and stronger you today!"),
         "gyms_banned": MessageLookupByLibrary.simpleMessage("Banned Gyms"),
         "haveacount": MessageLookupByLibrary.simpleMessage("Have an acount?"),
         "health": MessageLookupByLibrary.simpleMessage("Health and Nutrition"),
@@ -430,10 +429,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Do you want to unban this trainer ?"),
         "no_banned_gym_hint": MessageLookupByLibrary.simpleMessage(
             "The ban on your gym has been lifted"),
-        "no_edit_ban":
-            MessageLookupByLibrary.simpleMessage("لا يمكنك التعديل بسبب الحظر"),
+        "no_edit_ban": MessageLookupByLibrary.simpleMessage(
+            "You cannot edit due to a ban"),
         "no_enough_profits":
-            MessageLookupByLibrary.simpleMessage("لا يوجد رصيد كافي"),
+            MessageLookupByLibrary.simpleMessage("Insufficient balance"),
         "no_exercises_yet":
             MessageLookupByLibrary.simpleMessage("No exercises suggested yet"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
@@ -478,15 +477,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("please confirm the Password"),
         "payment": MessageLookupByLibrary.simpleMessage("Payment"),
         "payment_success": MessageLookupByLibrary.simpleMessage(
-            "تم الدفع بنجاح يمكنك استكمال العملية الآن"),
+            "Payment successful. You can now proceed with the operation"),
         "payment_success_button":
-            MessageLookupByLibrary.simpleMessage("تم الدفع"),
-        "payment_uri": MessageLookupByLibrary.simpleMessage("رابط الدفع"),
+            MessageLookupByLibrary.simpleMessage("Payment Successful"),
+        "payment_uri": MessageLookupByLibrary.simpleMessage("Payment Link"),
         "pendding_profits":
-            MessageLookupByLibrary.simpleMessage("الرصيد المعلق"),
+            MessageLookupByLibrary.simpleMessage("Pending Balance"),
         "pending": MessageLookupByLibrary.simpleMessage("Pending"),
         "pending_hint_payment": MessageLookupByLibrary.simpleMessage(
-            "من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة"),
+            "Please make the payment using the payment link first to proceed"),
         "pending_message": MessageLookupByLibrary.simpleMessage(
             "Your order is yet to be delivered"),
         "penging_articles":
@@ -498,12 +497,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "please Confirm your phone number"),
         "pincode": MessageLookupByLibrary.simpleMessage("Pincode"),
         "please_end_to_sub": MessageLookupByLibrary.simpleMessage(
-            "من فضلك قم بإنهاء العملية لتأكيد الاشتراك"),
+            "Please complete the process to confirm the subscription"),
         "please_try_again":
-            MessageLookupByLibrary.simpleMessage("يرجي اعادة المحاولة"),
-        "price": MessageLookupByLibrary.simpleMessage("المبلغ"),
-        "price_cant_be_zero": MessageLookupByLibrary.simpleMessage(
-            "لا يمكن ان يكون السعر يساوي صفر"),
+            MessageLookupByLibrary.simpleMessage("Please try again"),
+        "price": MessageLookupByLibrary.simpleMessage("Amount"),
+        "price_cant_be_zero":
+            MessageLookupByLibrary.simpleMessage("Price cannot be zero"),
         "price_sub": MessageLookupByLibrary.simpleMessage("Subscription Price"),
         "privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
         "privacyConfirm":
@@ -577,9 +576,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reminder to drink water"),
         "remove_article":
             MessageLookupByLibrary.simpleMessage("Remove Article"),
-        "remove_banner": MessageLookupByLibrary.simpleMessage("حذف الإعلان"),
-        "remove_banner_question":
-            MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا الإعلان ؟"),
+        "remove_banner": MessageLookupByLibrary.simpleMessage("Remove Banner"),
+        "remove_banner_question": MessageLookupByLibrary.simpleMessage(
+            "Do you want to remove this banner?"),
         "remove_diet_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this diet course?"),
         "remove_exercise_question": MessageLookupByLibrary.simpleMessage(
@@ -599,11 +598,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "renew_trainee_title": MessageLookupByLibrary.simpleMessage(
             "The trainee has renewed the subscription."),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
-        "request_profits": MessageLookupByLibrary.simpleMessage("طلب سحب"),
+        "request_profits":
+            MessageLookupByLibrary.simpleMessage("Request Profits"),
         "request_profits_hint": MessageLookupByLibrary.simpleMessage(
-            "لا يمكنك سحب مبلغ اقل من 5 آلف دينار"),
-        "request_profits_title":
-            MessageLookupByLibrary.simpleMessage("طلب سحب ارباح جديد"),
+            "You cannot withdraw an amount less than 5,000 dinars"),
+        "request_profits_title": MessageLookupByLibrary.simpleMessage(
+            "Request New Profit Withdrawal"),
         "request_promotion_done": MessageLookupByLibrary.simpleMessage(
             "Your promotion request has been submitted"),
         "reset": MessageLookupByLibrary.simpleMessage("Reset Email"),
@@ -622,15 +622,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Search for Your Exercise"),
         "section_name": MessageLookupByLibrary.simpleMessage("Section Name"),
         "section_order": MessageLookupByLibrary.simpleMessage("Section Order"),
-        "select_meal_wieght":
-            MessageLookupByLibrary.simpleMessage("اختر حجم الوجبة الذى تريده"),
+        "select_meal_wieght": MessageLookupByLibrary.simpleMessage(
+            "Select the meal size you want"),
         "self": MessageLookupByLibrary.simpleMessage("Self-Development"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
         "share_app": MessageLookupByLibrary.simpleMessage("Share the app"),
         "show": MessageLookupByLibrary.simpleMessage("Show on Map"),
         "slatGym": MessageLookupByLibrary.simpleMessage("Gyms"),
-        "status": MessageLookupByLibrary.simpleMessage("الحالة"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
         "store": MessageLookupByLibrary.simpleMessage("Store"),
         "store_banned": MessageLookupByLibrary.simpleMessage("Banned Stores"),
         "store_contact": MessageLookupByLibrary.simpleMessage("Contact Number"),
@@ -684,7 +684,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_save_excel_sheet":
             MessageLookupByLibrary.simpleMessage("File saved successfully"),
         "success_sub":
-            MessageLookupByLibrary.simpleMessage("تم الاشتراك بنجاح"),
+            MessageLookupByLibrary.simpleMessage("Subscription successful"),
         "success_suggest_exercise": MessageLookupByLibrary.simpleMessage(
             "Exercise suggested successfully"),
         "success_update": MessageLookupByLibrary.simpleMessage(
@@ -717,7 +717,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sut": MessageLookupByLibrary.simpleMessage("Saturday"),
         "system": MessageLookupByLibrary.simpleMessage("System"),
         "tap_to_cahnge_meal_wieght":
-            MessageLookupByLibrary.simpleMessage("اضعط لتعيير حجم الوجبة"),
+            MessageLookupByLibrary.simpleMessage("Tap to change the meal size"),
         "thanks_for_rating":
             MessageLookupByLibrary.simpleMessage("Thank you for your rating"),
         "theme": MessageLookupByLibrary.simpleMessage("Dark Mode"),
@@ -732,8 +732,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "top_trainers": MessageLookupByLibrary.simpleMessage("Top Trainers"),
         "total_price": MessageLookupByLibrary.simpleMessage("Total Price"),
         "total_price_payment":
-            MessageLookupByLibrary.simpleMessage("المبلغ الكلي"),
-        "total_profits": MessageLookupByLibrary.simpleMessage("الرصيد الكلي"),
+            MessageLookupByLibrary.simpleMessage("Total Amount"),
+        "total_profits": MessageLookupByLibrary.simpleMessage("Total Balance"),
         "tracking": MessageLookupByLibrary.simpleMessage("Tracking"),
         "traiber_price":
             MessageLookupByLibrary.simpleMessage("Subscription Price"),
@@ -749,7 +749,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "trainer_profile":
             MessageLookupByLibrary.simpleMessage("Trainer Profile"),
         "trainer_success_payment": MessageLookupByLibrary.simpleMessage(
-            "تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!"),
+            "Congratulations! Your payment has been successfully processed. You can now continue your subscription and enjoy personalized training sessions with your dedicated trainer. Get ready to achieve your fitness goals together!"),
         "trainers": MessageLookupByLibrary.simpleMessage("Trainers"),
         "trainersPage": MessageLookupByLibrary.simpleMessage("Trainers Page"),
         "training_course":
@@ -778,9 +778,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Very Intense Activity in Work and Club"),
         "view_rder_details":
             MessageLookupByLibrary.simpleMessage("View Order Details"),
-        "waiting_status": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
+        "waiting_status": MessageLookupByLibrary.simpleMessage("Under Review"),
         "warning_the_user_profits": MessageLookupByLibrary.simpleMessage(
-            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
+            "Please note that you can only withdraw your profits when they reach the minimum required amount, which is 5,000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("Water alarm"),
         "wed": MessageLookupByLibrary.simpleMessage("Wednesday"),
         "weeks": MessageLookupByLibrary.simpleMessage("Weeks"),
@@ -805,12 +805,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "you_unsub_with_trainer": MessageLookupByLibrary.simpleMessage(
             "You are unsubscribed from the trainer."),
         "you_will_pay_with_zain_cash": MessageLookupByLibrary.simpleMessage(
-            "ستقوم بدفع المبلغ عن طريق محفظة زين كاش"),
+            "You will pay with Zain Cash wallet"),
         "your_articles": MessageLookupByLibrary.simpleMessage("My Articles"),
         "your_meals": MessageLookupByLibrary.simpleMessage("Your Meals"),
         "your_need": MessageLookupByLibrary.simpleMessage("Your Need"),
         "your_profit_requests":
-            MessageLookupByLibrary.simpleMessage("طلبات سحب الارباح"),
+            MessageLookupByLibrary.simpleMessage("Profit Withdrawal Requests"),
         "youtub_uri": MessageLookupByLibrary.simpleMessage("YouTube Link"),
         "youtub_uri_hint":
             MessageLookupByLibrary.simpleMessage("Please enter a valid link"),

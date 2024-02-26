@@ -4990,480 +4990,480 @@ class S {
     );
   }
 
-  /// `الإعلانات`
+  /// `Banners`
   String get banners {
     return Intl.message(
-      'الإعلانات',
+      'Banners',
       name: 'banners',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة إعلان جديد`
+  /// `Add New Banner`
   String get add_new_banner {
     return Intl.message(
-      'إضافة إعلان جديد',
+      'Add New Banner',
       name: 'add_new_banner',
       desc: '',
       args: [],
     );
   }
 
-  /// `تعديل الإعلان`
+  /// `Edit Banner`
   String get edit_banner {
     return Intl.message(
-      'تعديل الإعلان',
+      'Edit Banner',
       name: 'edit_banner',
       desc: '',
       args: [],
     );
   }
 
-  /// `حذف الإعلان`
+  /// `Remove Banner`
   String get remove_banner {
     return Intl.message(
-      'حذف الإعلان',
+      'Remove Banner',
       name: 'remove_banner',
       desc: '',
       args: [],
     );
   }
 
-  /// `هل تريد حذف هذا الإعلان ؟`
+  /// `Do you want to remove this banner?`
   String get remove_banner_question {
     return Intl.message(
-      'هل تريد حذف هذا الإعلان ؟',
+      'Do you want to remove this banner?',
       name: 'remove_banner_question',
       desc: '',
       args: [],
     );
   }
 
-  /// `الرابط`
+  /// `URL`
   String get banner_uri {
     return Intl.message(
-      'الرابط',
+      'URL',
       name: 'banner_uri',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يمكنك التعديل بسبب الحظر`
+  /// `You cannot edit due to a ban`
   String get no_edit_ban {
     return Intl.message(
-      'لا يمكنك التعديل بسبب الحظر',
+      'You cannot edit due to a ban',
       name: 'no_edit_ban',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلب سحب`
+  /// `Request Profits`
   String get request_profits {
     return Intl.message(
-      'طلب سحب',
+      'Request Profits',
       name: 'request_profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يمكنك سحب مبلغ اقل من 5 آلف دينار`
+  /// `You cannot withdraw an amount less than 5,000 dinars`
   String get request_profits_hint {
     return Intl.message(
-      'لا يمكنك سحب مبلغ اقل من 5 آلف دينار',
+      'You cannot withdraw an amount less than 5,000 dinars',
       name: 'request_profits_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!`
+  /// `Please note that you can only withdraw your profits when they reach the minimum required amount, which is 5,000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!`
   String get warning_the_user_profits {
     return Intl.message(
-      'يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!',
+      'Please note that you can only withdraw your profits when they reach the minimum required amount, which is 5,000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!',
       name: 'warning_the_user_profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلب سحب ارباح جديد`
+  /// `Request New Profit Withdrawal`
   String get request_profits_title {
     return Intl.message(
-      'طلب سحب ارباح جديد',
+      'Request New Profit Withdrawal',
       name: 'request_profits_title',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم قبول طلب سحب الارباح وارسال الارباح الى حسابك بنجاح`
+  /// `Profit withdrawal request accepted and profits successfully sent to your account`
   String get accept_profits {
     return Intl.message(
-      'تم قبول طلب سحب الارباح وارسال الارباح الى حسابك بنجاح',
+      'Profit withdrawal request accepted and profits successfully sent to your account',
       name: 'accept_profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `حدث خطأ يرجى المحاولة`
+  /// `An error occurred. Please try again`
   String get error_payment {
     return Intl.message(
-      'حدث خطأ يرجى المحاولة',
+      'An error occurred. Please try again',
       name: 'error_payment',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم الدفع بنجاح يمكنك استكمال العملية الآن`
+  /// `Payment successful. You can now proceed with the operation`
   String get payment_success {
     return Intl.message(
-      'تم الدفع بنجاح يمكنك استكمال العملية الآن',
+      'Payment successful. You can now proceed with the operation',
       name: 'payment_success',
       desc: '',
       args: [],
     );
   }
 
-  /// `تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!`
+  /// `Congratulations! Your payment has been successfully processed. You can now continue your subscription and enjoy personalized training sessions with your dedicated trainer. Get ready to achieve your fitness goals together!`
   String get trainer_success_payment {
     return Intl.message(
-      'تهانينا! لقد تمت معالجة دفعتك بنجاح. أنت الآن قادر على متابعة اشتراكك والاستمتاع بجلسات تدريبية مخصصة مع مدربك المخصص. استعدوا لتحقيق أهداف اللياقة البدنية معًا!',
+      'Congratulations! Your payment has been successfully processed. You can now continue your subscription and enjoy personalized training sessions with your dedicated trainer. Get ready to achieve your fitness goals together!',
       name: 'trainer_success_payment',
       desc: '',
       args: [],
     );
   }
 
-  /// `تمت معالجة دفع اشتراكك بنجاح. أنت الآن قادر على متابعة اشتراكك .أنت الآن عضو رسمي في صالة الألعاب الرياضية لدينا. استعد للشروع في رحلة لياقة بدنية مثيرة مع إمكانية الوصول إلى أحدث المرافق والمدربين الخبراء والمجتمع النابض بالحياة. ابدأ العمل من أجل أن تصبح أكثر صحة وقوة اليوم!`
+  /// `Your subscription payment has been successfully processed. You are now able to continue your subscription. You are now an official member of our gym. Get ready to embark on an exciting fitness journey with access to state-of-the-art facilities, expert trainers, and a vibrant community. Start working towards a healthier and stronger you today!`
   String get gym_success_payment {
     return Intl.message(
-      'تمت معالجة دفع اشتراكك بنجاح. أنت الآن قادر على متابعة اشتراكك .أنت الآن عضو رسمي في صالة الألعاب الرياضية لدينا. استعد للشروع في رحلة لياقة بدنية مثيرة مع إمكانية الوصول إلى أحدث المرافق والمدربين الخبراء والمجتمع النابض بالحياة. ابدأ العمل من أجل أن تصبح أكثر صحة وقوة اليوم!',
+      'Your subscription payment has been successfully processed. You are now able to continue your subscription. You are now an official member of our gym. Get ready to embark on an exciting fitness journey with access to state-of-the-art facilities, expert trainers, and a vibrant community. Start working towards a healthier and stronger you today!',
       name: 'gym_success_payment',
       desc: '',
       args: [],
     );
   }
 
-  /// `انهاء العملية`
+  /// `End Process`
   String get end_progress {
     return Intl.message(
-      'انهاء العملية',
+      'End Process',
       name: 'end_progress',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم انشاء رابط الدفع بنجاح يمكنك استكمال عملية الدفع والعودة مرة أخري لإتمام العملية `
+  /// `Payment link created successfully. You can complete the payment process and return to finalize the operation`
   String get create_payment_uri_success {
     return Intl.message(
-      'تم انشاء رابط الدفع بنجاح يمكنك استكمال عملية الدفع والعودة مرة أخري لإتمام العملية ',
+      'Payment link created successfully. You can complete the payment process and return to finalize the operation',
       name: 'create_payment_uri_success',
       desc: '',
       args: [],
     );
   }
 
-  /// `رابط الدفع`
+  /// `Payment Link`
   String get payment_uri {
     return Intl.message(
-      'رابط الدفع',
+      'Payment Link',
       name: 'payment_uri',
       desc: '',
       args: [],
     );
   }
 
-  /// `المبلغ`
+  /// `Amount`
   String get price {
     return Intl.message(
-      'المبلغ',
+      'Amount',
       name: 'price',
       desc: '',
       args: [],
     );
   }
 
-  /// `المبلغ الكلي`
+  /// `Total Amount`
   String get total_price_payment {
     return Intl.message(
-      'المبلغ الكلي',
+      'Total Amount',
       name: 'total_price_payment',
       desc: '',
       args: [],
     );
   }
 
-  /// `الرسوم`
+  /// `Fees`
   String get fees {
     return Intl.message(
-      'الرسوم',
+      'Fees',
       name: 'fees',
       desc: '',
       args: [],
     );
   }
 
-  /// `ستقوم بدفع المبلغ عن طريق محفظة زين كاش`
+  /// `You will pay with Zain Cash wallet`
   String get you_will_pay_with_zain_cash {
     return Intl.message(
-      'ستقوم بدفع المبلغ عن طريق محفظة زين كاش',
+      'You will pay with Zain Cash wallet',
       name: 'you_will_pay_with_zain_cash',
       desc: '',
       args: [],
     );
   }
 
-  /// `من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة`
+  /// `Please make the payment using the payment link first to proceed`
   String get pending_hint_payment {
     return Intl.message(
-      'من فضلك قم بالدفع عن طريق رابط الدفع أولا للمتابعة',
+      'Please make the payment using the payment link first to proceed',
       name: 'pending_hint_payment',
       desc: '',
       args: [],
     );
   }
 
-  /// `عودة`
+  /// `Back`
   String get back {
     return Intl.message(
-      'عودة',
+      'Back',
       name: 'back',
       desc: '',
       args: [],
     );
   }
 
-  /// `يرجي اعادة المحاولة`
+  /// `Please try again`
   String get please_try_again {
     return Intl.message(
-      'يرجي اعادة المحاولة',
+      'Please try again',
       name: 'please_try_again',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم الدفع`
+  /// `Payment Successful`
   String get payment_success_button {
     return Intl.message(
-      'تم الدفع',
+      'Payment Successful',
       name: 'payment_success_button',
       desc: '',
       args: [],
     );
   }
 
-  /// `اختر حجم الوجبة الذى تريده`
+  /// `Select the meal size you want`
   String get select_meal_wieght {
     return Intl.message(
-      'اختر حجم الوجبة الذى تريده',
+      'Select the meal size you want',
       name: 'select_meal_wieght',
       desc: '',
       args: [],
     );
   }
 
-  /// `اضعط لتعيير حجم الوجبة`
+  /// `Tap to change the meal size`
   String get tap_to_cahnge_meal_wieght {
     return Intl.message(
-      'اضعط لتعيير حجم الوجبة',
+      'Tap to change the meal size',
       name: 'tap_to_cahnge_meal_wieght',
       desc: '',
       args: [],
     );
   }
 
-  /// `من فضلك قم بحساب احتياجك قبل اختيار الوجبات`
+  /// `Please calculate your requirements before selecting meals`
   String get claculate_your_calories_before {
     return Intl.message(
-      'من فضلك قم بحساب احتياجك قبل اختيار الوجبات',
+      'Please calculate your requirements before selecting meals',
       name: 'claculate_your_calories_before',
       desc: '',
       args: [],
     );
   }
 
-  /// `من فضلك قم بإنهاء العملية لتأكيد الاشتراك`
+  /// `Please complete the process to confirm the subscription`
   String get please_end_to_sub {
     return Intl.message(
-      'من فضلك قم بإنهاء العملية لتأكيد الاشتراك',
+      'Please complete the process to confirm the subscription',
       name: 'please_end_to_sub',
       desc: '',
       args: [],
     );
   }
 
-  /// `تم الاشتراك بنجاح`
+  /// `Subscription successful`
   String get success_sub {
     return Intl.message(
-      'تم الاشتراك بنجاح',
+      'Subscription successful',
       name: 'success_sub',
       desc: '',
       args: [],
     );
   }
 
-  /// `يمكنك إضافة منتج مباشرة من قسم المكملات الغذائية الموجود فى قسم الصحة والتغذية`
+  /// `You can directly add a product from the nutritional supplements section in the Health and Nutrition category`
   String get add_product_note {
     return Intl.message(
-      'يمكنك إضافة منتج مباشرة من قسم المكملات الغذائية الموجود فى قسم الصحة والتغذية',
+      'You can directly add a product from the nutritional supplements section in the Health and Nutrition category',
       name: 'add_product_note',
       desc: '',
       args: [],
     );
   }
 
-  /// `إضافة إلى المتجر`
+  /// `Add to your store`
   String get add_to_your_store {
     return Intl.message(
-      'إضافة إلى المتجر',
+      'Add to your store',
       name: 'add_to_your_store',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يمكن ان يكون السعر يساوي صفر`
+  /// `Price cannot be zero`
   String get price_cant_be_zero {
     return Intl.message(
-      'لا يمكن ان يكون السعر يساوي صفر',
+      'Price cannot be zero',
       name: 'price_cant_be_zero',
       desc: '',
       args: [],
     );
   }
 
-  /// `قبول الطلب`
+  /// `Accept Request`
   String get accept_reqest {
     return Intl.message(
-      'قبول الطلب',
+      'Accept Request',
       name: 'accept_reqest',
       desc: '',
       args: [],
     );
   }
 
-  /// `الرصيد الكلي`
+  /// `Total Balance`
   String get total_profits {
     return Intl.message(
-      'الرصيد الكلي',
+      'Total Balance',
       name: 'total_profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `الرصيد المتاح`
+  /// `Available Balance`
   String get avaliabe_profits {
     return Intl.message(
-      'الرصيد المتاح',
+      'Available Balance',
       name: 'avaliabe_profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `الرصيد المعلق`
+  /// `Pending Balance`
   String get pendding_profits {
     return Intl.message(
-      'الرصيد المعلق',
+      'Pending Balance',
       name: 'pendding_profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `أدخل القيمة التى تريدها`
+  /// `Enter the desired value`
   String get enter_profits_value {
     return Intl.message(
-      'أدخل القيمة التى تريدها',
+      'Enter the desired value',
       name: 'enter_profits_value',
       desc: '',
       args: [],
     );
   }
 
-  /// `أدخل  رقم المحفظة الالكترونية`
+  /// `Enter your e-wallet number`
   String get enter_your_cash_number {
     return Intl.message(
-      'أدخل  رقم المحفظة الالكترونية',
+      'Enter your e-wallet number',
       name: 'enter_your_cash_number',
       desc: '',
       args: [],
     );
   }
 
-  /// `المحفظة الالكترونية`
+  /// `E-Wallet`
   String get cash_number {
     return Intl.message(
-      'المحفظة الالكترونية',
+      'E-Wallet',
       name: 'cash_number',
       desc: '',
       args: [],
     );
   }
 
-  /// `طلبات سحب الارباح`
+  /// `Profit Withdrawal Requests`
   String get your_profit_requests {
     return Intl.message(
-      'طلبات سحب الارباح',
+      'Profit Withdrawal Requests',
       name: 'your_profit_requests',
       desc: '',
       args: [],
     );
   }
 
-  /// `الحالة`
+  /// `Status`
   String get status {
     return Intl.message(
-      'الحالة',
+      'Status',
       name: 'status',
       desc: '',
       args: [],
     );
   }
 
-  /// `قيد المراجعة`
+  /// `Under Review`
   String get waiting_status {
     return Intl.message(
-      'قيد المراجعة',
+      'Under Review',
       name: 'waiting_status',
       desc: '',
       args: [],
     );
   }
 
-  /// `منتهي`
+  /// `Ended`
   String get ended_status {
     return Intl.message(
-      'منتهي',
+      'Ended',
       name: 'ended_status',
       desc: '',
       args: [],
     );
   }
 
-  /// `لا يوجد رصيد كافي`
+  /// `Insufficient balance`
   String get no_enough_profits {
     return Intl.message(
-      'لا يوجد رصيد كافي',
+      'Insufficient balance',
       name: 'no_enough_profits',
       desc: '',
       args: [],
     );
   }
 
-  /// `رقم المحفظة`
+  /// `Wallet Number`
   String get cash_num {
     return Intl.message(
-      'رقم المحفظة',
+      'Wallet Number',
       name: 'cash_num',
       desc: '',
       args: [],
