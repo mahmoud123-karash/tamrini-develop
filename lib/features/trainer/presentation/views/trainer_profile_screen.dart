@@ -50,7 +50,7 @@ class TrainerProfileScreen extends StatelessWidget {
                                 trainerId: trainer.uid,
                                 traineesCount: trainer.traineesCount,
                                 profits: trainer.profits + trainer.price,
-                                price: trainer.profits,
+                                price: trainer.price,
                               ),
                           if (trainer.uid == uid &&
                               userType == UserType.trainer)

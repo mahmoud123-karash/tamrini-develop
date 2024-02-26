@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/profile/data/data_sources/local_data_source/profile_local_data_source.dart';
 import 'package:tamrini/features/profile/data/data_sources/remote_data_source/profile_remote_data_source.dart';
@@ -17,11 +16,9 @@ class ProfileRepoImpl extends ProfileRepo {
     try {
       List<ProfileModel> list = profileLocalDataSource.get();
       if (list.isNotEmpty) {
-        saveTrainerId(list.first.trainerId);
         return right(list.first);
       } else {
         ProfileModel model = await profileRemotedataSource.get();
-        saveTrainerId(model.trainerId);
         return right(model);
       }
     } catch (e) {

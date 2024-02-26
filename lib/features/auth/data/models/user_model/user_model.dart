@@ -5,6 +5,7 @@ class UserModel {
   final String gender;
   final String uid;
   final String role;
+  final String trainerId;
 
   UserModel({
     required this.name,
@@ -13,6 +14,7 @@ class UserModel {
     required this.uid,
     required this.gender,
     required this.role,
+    required this.trainerId,
   });
 
   Map<String, dynamic> toMap() {
@@ -23,6 +25,7 @@ class UserModel {
       'gender': gender,
       'uid': uid,
       'role': role,
+      'trainerId': trainerId,
     };
   }
 
@@ -34,6 +37,7 @@ class UserModel {
       role: map['role'] ?? 'user',
       gender: map['gender'] ?? '',
       uid: map['uid'] ?? '',
+      trainerId: map['trainerId'] ?? '',
     );
   }
 }

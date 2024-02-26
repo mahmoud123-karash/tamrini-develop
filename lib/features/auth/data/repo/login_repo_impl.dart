@@ -23,6 +23,7 @@ class LoginRepoImpl extends LoginRepo {
       if (user.user!.emailVerified) {
         UserModel model = await userRemoteDataSource.get(uid: user.user!.uid);
         saveUserType(model.role);
+        saveTrainerId(model.trainerId);
         return right(user.user!.uid);
       } else {
         await FirebaseAuth.instance.currentUser!.sendEmailVerification();

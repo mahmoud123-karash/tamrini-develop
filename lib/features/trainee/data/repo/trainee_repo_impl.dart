@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -426,6 +427,8 @@ class TraineeRepoImpl extends TraineeRepo {
           .toDate()
           .add(const Duration(days: 30))
           .isBefore(DateTime.now());
+      log(model.dateOfSubscription.toDate().toString());
+      log(isEnd.toString());
       saveisEnd(isEnd);
       return right(model);
     } catch (e) {

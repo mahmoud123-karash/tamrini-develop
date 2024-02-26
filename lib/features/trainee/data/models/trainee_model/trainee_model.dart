@@ -64,6 +64,7 @@ class TraineeModel {
       'dateOfSubscription': dateOfSubscription,
       'supplements': supplements,
       'food': foodJson,
+      'chatId': chatId,
       'followUpList': followUpListJson,
       'courses': coursesJson,
     };

@@ -42,7 +42,7 @@ class PaymentRepo {
       if (operationId != null) {
         return operationId;
       } else {
-        throw Exception('Operation ID is null');
+        throw Exception(jsonDecode(responseBody)['err']['msg']);
       }
     } else {
       return null;

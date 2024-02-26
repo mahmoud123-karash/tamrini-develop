@@ -19,17 +19,16 @@ class ReNewCustomButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return customButton(
       onPressed: () {
-        TrainerSubPaymentScreen(
-          trainerId: trainerId,
-          traineesCount: traineesCount,
-          profits: profits,
-          price: price,
+        navigateTo(
+          context,
+          TrainerSubPaymentScreen(
+            trainerId: trainerId,
+            traineesCount: traineesCount,
+            profits: profits,
+            price: price,
+            isSUb: false,
+          ),
         );
-        // TraineeCubit.get(context).reNewSubUser(
-        //   trainerId: trainerId,
-        //   traineesCount: traineesCount,
-        //   profits: profits,
-        // );
       },
       lable: S.of(context).renew_sub,
     );

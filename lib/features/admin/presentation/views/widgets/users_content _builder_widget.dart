@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_cubit.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_states.dart';
 import 'package:tamrini/features/admin/presentation/views/widgets/users_content_widget.dart';
@@ -40,7 +39,9 @@ class _UsersContentBuilderWidgetState extends State<UsersContentBuilderWidget> {
             message: state.message,
           );
         } else {
-          return loadingWidget();
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
       },
     );

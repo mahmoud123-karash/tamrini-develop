@@ -7,8 +7,8 @@ import 'package:tamrini/features/payment/presentation/manager/payment_cubit/paym
 import 'package:tamrini/features/payment/presentation/manager/payment_cubit/payment_states.dart';
 import 'package:tamrini/features/payment/presentation/manager/status_cubit/status_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
-import 'widgets/payment_content_widget.dart';
 import 'widgets/payment_error_builder_widget.dart';
+import 'widgets/trainer_payment_success_builder_widget.dart';
 
 class TrainerSubPaymentScreen extends StatelessWidget {
   const TrainerSubPaymentScreen({
@@ -17,10 +17,12 @@ class TrainerSubPaymentScreen extends StatelessWidget {
     required this.traineesCount,
     required this.profits,
     required this.price,
+    required this.isSUb,
   }) : super(key: key);
   final String trainerId;
   final int traineesCount;
   final num profits, price;
+  final bool isSUb;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +44,14 @@ class TrainerSubPaymentScreen extends StatelessWidget {
             builder: (context, state) {
               if (state is SucessCreateTransactionIdState) {
                 if (state.id != null) {
-                  return PaymentContentWidget(
-                    transactionId: state.id!,
+                  return TrainerPaymentSucessBuilderWidget(
+                    id: state.id!,
                     amount: amount,
-                    onSuccess: () {},
+                    trainerId: trainerId,
+                    traineesCount: traineesCount,
+                    profits: profits,
+                    price: price,
+                    isSUb: isSUb,
                   );
                 } else {
                   return PaymentErrorBuilderWidget(

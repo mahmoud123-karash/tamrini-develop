@@ -25,6 +25,7 @@ class GoogleSignInUseCase extends UseCase {
       if (result.data() != null) {
         UserModel model = UserModel.fromMap(result.data()!);
         saveUserType(model.role);
+        saveTrainerId(model.trainerId);
         return right(
           UserEntity(
             email: user.user!.email!,

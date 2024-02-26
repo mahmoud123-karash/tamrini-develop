@@ -18,7 +18,8 @@ class _NavBarScreenState extends State<NavBarScreen> {
     String userType = CacheHelper.getData(key: 'usertype') ?? "";
     String uid = CacheHelper.getData(key: 'uid') ?? "";
     String trainerId = CacheHelper.getData(key: 'trainerId') ?? "";
-    if (userType == 'trainer') {
+    log(trainerId);
+    if (userType == UserType.trainer) {
       TraineeCubit.get(context).getData(trainerId: uid);
     }
     if (userType == UserType.admin || userType == UserType.user) {
@@ -35,6 +36,9 @@ class _NavBarScreenState extends State<NavBarScreen> {
           }
         },
       );
+      if (userType == UserType.admin) {
+        ProfitsCubit.get(context).getData();
+      }
       ProfitsCubit.get(context).pList.clear();
       FavoriteCubit.get(context).getData();
       OrderCubit.get(context).getData();
@@ -50,10 +54,8 @@ class _NavBarScreenState extends State<NavBarScreen> {
       onMessageOpenedApp(context: context);
       onMessage(context: context);
       listenNotification();
-      if (userType != UserType.admin && userType != UserType.trainer) {
-        if (trainerId != '') {
-          UserCourseCubit.get(context).getCourse();
-        }
+      if (trainerId != '') {
+        UserCourseCubit.get(context).getCourse();
       }
     }
 

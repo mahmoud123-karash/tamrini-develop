@@ -29,6 +29,7 @@ class RegisterRepoImpl extends RegisterRepo {
       uid: uid,
       gender: gender,
       role: 'user',
+      trainerId: '',
     );
     await FirebaseFirestore.instance.collection('users').doc(uid).set(
           model.toMap(),
