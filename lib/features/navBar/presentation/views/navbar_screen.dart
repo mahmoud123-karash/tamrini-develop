@@ -25,16 +25,17 @@ class _NavBarScreenState extends State<NavBarScreen> {
       PromotionCubit.get(context).getData();
     }
     if (userType != '') {
-      if (userType != UserType.admin || userType != UserType.trainer) {
-        Timer.periodic(
-          const Duration(minutes: 5),
-          (timer) {
+      Timer.periodic(
+        const Duration(minutes: 5),
+        (timer) {
+          if (userType != UserType.admin && userType != UserType.trainer) {
             if (mounted) {
               AdMobCubit.get(context).createInterstitialAd();
             }
-          },
-        );
-      }
+          }
+        },
+      );
+
       FavoriteCubit.get(context).getData();
       OrderCubit.get(context).getData();
       UserOrderCubit.get(context).getData();

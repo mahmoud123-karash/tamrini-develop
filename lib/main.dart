@@ -30,6 +30,7 @@ void main() async {
 
   determinePosition();
   setLocator();
+
   checkInternet();
   requestAppPermissions();
   initializeNotifications();

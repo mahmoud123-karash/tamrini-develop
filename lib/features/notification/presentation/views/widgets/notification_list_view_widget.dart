@@ -34,12 +34,17 @@ class _NotificationListViewWidgetState
         scrollController.position.maxScrollExtent) {
       if (widget.notifications.length > length) {
         length += 10;
-        Future.delayed(const Duration(seconds: 1)).then((value) {
-          if (mounted) {
-            WidgetsBinding.instance
-                .addPostFrameCallback((_) => setState(() {}));
-          }
-        });
+        Future.delayed(const Duration(seconds: 1)).then(
+          (value) {
+            WidgetsBinding.instance.addPostFrameCallback(
+              (_) {
+                if (mounted) {
+                  setState(() {});
+                }
+              },
+            );
+          },
+        );
       }
     }
   }

@@ -22,9 +22,6 @@ class CirclarImageWidget extends StatelessWidget {
             ? const AssetImage(Assets.imagesProfile) as ImageProvider
             : FirebaseImageProvider(
                 FirebaseUrl(image),
-                options: const CacheOptions(
-                  source: Source.cacheServer,
-                ),
               ),
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) {

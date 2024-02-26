@@ -39,10 +39,11 @@ class _AllArticleContentWidgetState extends State<AllArticleContentWidget> {
       if (widget.list.length > length) {
         length += 10;
         Future.delayed(const Duration(seconds: 1)).then((value) {
-          if (mounted) {
-            WidgetsBinding.instance
-                .addPostFrameCallback((_) => setState(() {}));
-          }
+          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+            if (mounted) {
+              setState(() {});
+            }
+          });
         });
       }
     }

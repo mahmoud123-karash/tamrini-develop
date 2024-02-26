@@ -42,11 +42,12 @@ class HomeExerciseItemWidget extends StatelessWidget {
               );
             } else {
               navigateTo(
-                  context,
-                  DetailsWithoutVedioScreen(
-                    isHome: true,
-                    id: model.id!,
-                  ));
+                context,
+                DetailsWithoutVedioScreen(
+                  isHome: true,
+                  id: model.id!,
+                ),
+              );
             }
           }
         },

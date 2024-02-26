@@ -39,12 +39,11 @@ class _SupplementArticlesContentWidgetState
         length += 10;
         Future.delayed(const Duration(seconds: 1)).then(
           (value) {
-            if (mounted) {
-              SchedulerBinding.instance.addPostFrameCallback((_) {
-                WidgetsBinding.instance
-                    .addPostFrameCallback((_) => setState(() {}));
+            SchedulerBinding.instance.addPostFrameCallback((_) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (mounted) setState(() {});
               });
-            }
+            });
           },
         );
       }

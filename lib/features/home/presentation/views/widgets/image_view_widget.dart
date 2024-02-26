@@ -17,9 +17,6 @@ class ImageViewWidget extends StatelessWidget {
             width: width,
             imageProvider: FirebaseImageProvider(
               FirebaseUrl(image),
-              options: const CacheOptions(
-                checkForMetadataChange: false,
-              ),
             ),
           )
         : imageProviderWidget(

@@ -9,9 +9,7 @@ import '../../../data/models/article_model/article_model.dart';
 import 'all_articles_content_widget.dart';
 
 class AllArticlesContentBuilderWidget extends StatelessWidget {
-  const AllArticlesContentBuilderWidget({
-    super.key,
-  });
+  const AllArticlesContentBuilderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
