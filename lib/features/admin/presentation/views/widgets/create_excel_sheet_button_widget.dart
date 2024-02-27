@@ -48,8 +48,7 @@ class _CreateExcelSheetButtonWidgetState
               sheet.getRangeByIndex(i + 2, 5).setText(item.role);
             }
             final List<int> bytes = workbook.saveAsStream();
-            await FileStorage.writeCounter(bytes, "users.xlsx");
-            workbook.dispose();
+            FileStorage.writeCounter(bytes, "users.xlsx");
             showSnackBar(context, S.of(context).success_save_excel_sheet);
           } catch (e) {
             log(e.toString());
