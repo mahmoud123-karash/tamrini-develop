@@ -4,8 +4,10 @@ import 'package:tamrini/core/utils/file_storage.dart';
 import 'package:tamrini/core/utils/improts.dart';
 
 class CreateExcelSheetButtonWidget extends StatefulWidget {
-  const CreateExcelSheetButtonWidget({super.key, required this.list});
+  const CreateExcelSheetButtonWidget(
+      {super.key, required this.list, required this.lable});
   final List<UserModel> list;
+  final String lable;
 
   @override
   State<CreateExcelSheetButtonWidget> createState() =>
@@ -31,7 +33,7 @@ class _CreateExcelSheetButtonWidgetState
       ),
       child: addCustomButton(
         icon: Icons.contact_page_outlined,
-        onPressed: () async {
+        onPressed: () {
           try {
             final xcel.Worksheet sheet = workbook.worksheets[0];
             sheet.getRangeByIndex(1, 1).setText("Name");
@@ -48,7 +50,7 @@ class _CreateExcelSheetButtonWidgetState
               sheet.getRangeByIndex(i + 2, 5).setText(item.role);
             }
             final List<int> bytes = workbook.saveAsStream();
-            FileStorage.writeCounter(bytes, "users.xlsx");
+            FileStorage.writeCounter(bytes, "${widget.lable}.xlsx");
             showSnackBar(context, S.of(context).success_save_excel_sheet);
           } catch (e) {
             log(e.toString());

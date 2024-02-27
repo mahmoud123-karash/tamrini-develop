@@ -8,8 +8,10 @@ import 'package:tamrini/generated/l10n.dart';
 import 'create_excel_sheet_button_widget.dart';
 
 class UsersContentWidget extends StatefulWidget {
-  const UsersContentWidget({super.key, required this.list});
+  const UsersContentWidget(
+      {super.key, required this.list, required this.lable});
   final List<UserModel> list;
+  final String lable;
 
   @override
   State<UsersContentWidget> createState() => _UsersContentWidgetState();
@@ -80,7 +82,10 @@ class _UsersContentWidgetState extends State<UsersContentWidget> {
             ),
           ),
         if (widget.list.isNotEmpty)
-          CreateExcelSheetButtonWidget(list: widget.list),
+          CreateExcelSheetButtonWidget(
+            list: widget.list,
+            lable: widget.lable,
+          ),
       ],
     );
   }

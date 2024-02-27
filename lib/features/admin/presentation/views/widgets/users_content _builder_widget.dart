@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_cubit.dart';
 import 'package:tamrini/features/admin/presentation/manager/user_cubit/users_states.dart';
 import 'package:tamrini/features/admin/presentation/views/widgets/users_content_widget.dart';
@@ -33,6 +34,7 @@ class _UsersContentBuilderWidgetState extends State<UsersContentBuilderWidget> {
           }
           return UsersContentWidget(
             list: state.list,
+            lable: getFileName(userType: widget.userType),
           );
         } else if (state is ErrorGetUsersState) {
           return MessageWidget(
@@ -45,6 +47,20 @@ class _UsersContentBuilderWidgetState extends State<UsersContentBuilderWidget> {
         }
       },
     );
+  }
+}
+
+String getFileName({required String userType}) {
+  if (userType == UserType.trainer) {
+    return 'trainers';
+  } else if (userType == UserType.gymOwner) {
+    return 'gymOwners';
+  } else if (userType == UserType.storeOwner) {
+    return 'storeOwners';
+  } else if (userType == UserType.writer) {
+    return 'writers';
+  } else {
+    return 'users';
   }
 }
 
