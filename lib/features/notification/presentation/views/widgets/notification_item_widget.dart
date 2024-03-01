@@ -96,6 +96,8 @@ class NotificationItemWidget extends StatelessWidget {
   }
 
   void notificationNavigate(BuildContext context) {
+    String trainerId = CacheHelper.getData(key: 'trainerId') ?? '';
+    List<TraineeModel> list = TraineeCubit.get(context).trainees;
     if (model.type == 'notification') {
       String type = CacheHelper.getData(key: 'usertype') ?? '';
       if (model.subType == 'question') {
@@ -136,21 +138,26 @@ class NotificationItemWidget extends StatelessWidget {
         navigateTo(context, TraineeScreen(user: model.user, model: trainee));
       }
       if (model.subType == 'course') {
-        navigateTo(context, const TrainingCourseScreen());
+        if (trainerId == model.user.uid) {
+          navigateTo(context, const TrainingCourseScreen());
+        }
       }
       if (model.subType == 'follow') {
         navigateTo(context, const TrainerSubscribersScreen());
       }
       if (model.subType == 'message') {
-        navigateTo(
-          context,
-          ChatScreen(
-            name: model.user.name,
-            image: model.user.image,
-            chatId: model.uid,
-            recieverUid: model.user.uid,
-          ),
-        );
+        if (trainerId == model.user.uid ||
+            list.any((element) => element.user!.uid == model.user.uid)) {
+          navigateTo(
+            context,
+            ChatScreen(
+              name: model.user.name,
+              image: model.user.image,
+              chatId: model.uid,
+              recieverUid: model.user.uid,
+            ),
+          );
+        }
       }
       if (model.subType == 'request_profits') {
         navigateTo(context, const ProfitsRequestScreen());
