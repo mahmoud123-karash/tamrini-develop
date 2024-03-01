@@ -59,14 +59,14 @@ class _SendMessageWidgetState extends State<SendMessageWidget> {
                           widget.scrollController.jumpTo(
                             widget.scrollController.position.minScrollExtent,
                           );
-                          if (controller.text != '') {
-                            ChatCubit.get(context).sendMessage(
-                              uid: widget.uid,
-                              messageText: controller.text,
-                              recieverUid: widget.recieverUid,
-                              imagepath: '',
-                            );
-                          }
+                        }
+                        if (controller.text != '') {
+                          ChatCubit.get(context).sendMessage(
+                            uid: widget.uid,
+                            messageText: controller.text,
+                            recieverUid: widget.recieverUid,
+                            imagepath: '',
+                          );
                         }
                         controller.clear();
                       }
