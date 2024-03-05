@@ -5,6 +5,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/check_assets_format.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_screen.dart';
 import 'package:tamrini/features/exercise/presentation/views/exercise_details_without_vedio_screen.dart';
@@ -14,6 +15,7 @@ import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_exerc
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_states.dart';
 
+import 'move_exercise_icon_widget.dart';
 import 'remove_exercise_icon_widget.dart';
 
 class ExerciseCardWidget extends StatefulWidget {
@@ -43,8 +45,8 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    String userType = CacheHelper.getData(key: 'usertype');
-    String uid = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
 
     return BlocBuilder<CourseCubit, CourseStates>(
       builder: (context, state) {
@@ -88,7 +90,6 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Stack(
-              alignment: Alignment.topLeft,
               children: [
                 Card(
                   shape: RoundedRectangleBorder(
@@ -183,16 +184,26 @@ class _ExerciseCardWidgetState extends State<ExerciseCardWidget> {
                   ),
                 ),
                 if (!widget.isAll)
-                  if (userType == 'admin')
+                  if (userType == UserType.admin)
+                    Positioned(
+                      right: 1,
+                      child: RemoveExerciseIconWidget(
+                        model: widget.exercise,
+                        id: widget.id,
+                      ),
+                    ),
+                if (!widget.isAll)
+                  if (userType == UserType.writer &&
+                      widget.exercise.writerUid == uid)
                     RemoveExerciseIconWidget(
                       model: widget.exercise,
                       id: widget.id,
                     ),
                 if (!widget.isAll)
-                  if (userType == 'writer' && widget.exercise.writerUid == uid)
-                    RemoveExerciseIconWidget(
-                      model: widget.exercise,
-                      id: widget.id,
+                  if (userType == UserType.admin)
+                    Positioned(
+                      left: 1,
+                      child: MoveExerciseIconWidget(model: widget.exercise),
                     ),
               ],
             ),

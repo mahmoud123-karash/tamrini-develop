@@ -191,6 +191,7 @@ String getEnlish() {
       lang == 'en_I' ||
       lang == 'en_NZ' ||
       lang == 'en_UK' ||
+      lang == 'en' ||
       lang == 'en_A') {
     return 'en';
   } else {

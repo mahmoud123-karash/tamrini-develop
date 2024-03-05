@@ -21,8 +21,10 @@ class CategoryExercisesScreen extends StatefulWidget {
   const CategoryExercisesScreen({
     Key? key,
     this.isCourse = false,
+    this.oldModel,
   }) : super(key: key);
   final bool isCourse;
+  final DataModel? oldModel;
 
   @override
   State<CategoryExercisesScreen> createState() =>
@@ -56,9 +58,17 @@ class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
   }
 
   @override
+  void dispose() {
+    if (bannerAd != null) {
+      bannerAd!.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     CourseCubit.get(context).list.clear();
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     return Scaffold(
       appBar: myAppBar(S.of(context).categoryEx),
       bottomNavigationBar: bannerAd != null
@@ -85,7 +95,7 @@ class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      if (userType == 'admin')
+                      if (userType == UserType.admin)
                         addCustomButton(
                           onPressed: () {
                             navigateTo(context, const NewSectionScreen());
@@ -120,7 +130,10 @@ class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
                         height: 20,
                       ),
                       CategoryGridViewWidget(
-                          models: state.exercises, isCourse: widget.isCourse),
+                        models: state.exercises,
+                        isCourse: widget.isCourse,
+                        oldData: widget.oldModel,
+                      ),
                     ],
                   ),
                 ),

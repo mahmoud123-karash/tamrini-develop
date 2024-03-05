@@ -266,4 +266,58 @@ class ExerciseRepoImpl extends ExerciseRepo {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, List<ExerciseModel>>> moveExercise({
+    required List<ExerciseModel> list,
+    required ExerciseModel oldCategory,
+    required ExerciseModel newCategory,
+    required DataModel oldData,
+  }) async {
+    try {
+      List<DataModel> oldDataList = oldCategory.data ?? [];
+      oldDataList.remove(oldData);
+      ExerciseModel oldModel = ExerciseModel(
+        id: oldCategory.id,
+        image: oldCategory.image,
+        order: oldCategory.order,
+        title: oldCategory.title,
+        data: oldDataList,
+      );
+      await FirebaseFirestore.instance
+          .collection('exercises')
+          .doc('data')
+          .collection('data')
+          .doc(oldCategory.id)
+          .update(
+            oldModel.toJson(),
+          );
+
+      List<DataModel> newDataList = newCategory.data ?? [];
+      newDataList.add(oldData);
+      ExerciseModel newModel = ExerciseModel(
+        id: newCategory.id,
+        image: newCategory.image,
+        order: newCategory.order,
+        title: newCategory.title,
+        data: newDataList,
+      );
+      await FirebaseFirestore.instance
+          .collection('exercises')
+          .doc('data')
+          .collection('data')
+          .doc(newCategory.id)
+          .update(
+            newModel.toJson(),
+          );
+
+      list.remove(newCategory);
+      list.remove(oldCategory);
+      list.add(newModel);
+      list.add(oldModel);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

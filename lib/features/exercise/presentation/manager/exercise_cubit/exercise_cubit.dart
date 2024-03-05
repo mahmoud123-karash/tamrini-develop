@@ -200,4 +200,29 @@ class ExerciseCubit extends Cubit<ExerciseStates> {
       },
     );
   }
+
+  void moveExercise({
+    required String exerciseId,
+    required DataModel oldData,
+    required ExerciseModel newCategory,
+    required String message,
+  }) async {
+    var result = await exerciseRepo.moveExercise(
+      list: exercises,
+      newCategory: newCategory,
+      oldCategory: getExercise(id: exerciseId),
+      oldData: oldData,
+    );
+    result.fold(
+      (message) {
+        log(message);
+        emit(ErrorGetExerciseState(message));
+      },
+      (list) {
+        exercises = list;
+        showToast(message);
+        emit(SucessGetExerciseState(list));
+      },
+    );
+  }
 }

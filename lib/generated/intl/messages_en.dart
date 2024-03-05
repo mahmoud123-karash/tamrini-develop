@@ -389,6 +389,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "mon": MessageLookupByLibrary.simpleMessage("Monday"),
         "money": MessageLookupByLibrary.simpleMessage("Price"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
+        "move_exercise_to_category": MessageLookupByLibrary.simpleMessage(
+            "هل تريد نقل التمرين الي هذه الفئة؟"),
         "my_day": MessageLookupByLibrary.simpleMessage("My day"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "new_comment_question": MessageLookupByLibrary.simpleMessage(
@@ -671,6 +673,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Location has been set"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("Logged Out Successfully"),
+        "success_move_exercise": MessageLookupByLibrary.simpleMessage(
+            "The exercise was transferred successfully."),
         "success_recalulate":
             MessageLookupByLibrary.simpleMessage("Recalculation successful"),
         "success_remove":

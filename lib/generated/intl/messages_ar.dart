@@ -381,6 +381,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "mon": MessageLookupByLibrary.simpleMessage("يوم الإثنين"),
         "money": MessageLookupByLibrary.simpleMessage("السعر"),
         "more": MessageLookupByLibrary.simpleMessage("المزيد"),
+        "move_exercise_to_category": MessageLookupByLibrary.simpleMessage(
+            "هل تريد نقل التمرين الي هذه الفئة؟"),
         "my_day": MessageLookupByLibrary.simpleMessage("يومي"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
         "new_comment_question":
@@ -489,7 +491,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "phoneLenght":
             MessageLookupByLibrary.simpleMessage("الرجاء التأكد من رقم الهاتف"),
-        "pincode": MessageLookupByLibrary.simpleMessage("الرمز السري"),
+        "pincode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
         "please_end_to_sub": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بإنهاء العملية لتأكيد الاشتراك"),
         "please_try_again":
@@ -658,6 +660,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تحديد الموقع"),
         "success_log_out":
             MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج بنجاح"),
+        "success_move_exercise":
+            MessageLookupByLibrary.simpleMessage("تم نقل التمرين بنجاح"),
         "success_recalulate":
             MessageLookupByLibrary.simpleMessage("تمت إعادة الحساب بنجاح"),
         "success_remove": MessageLookupByLibrary.simpleMessage("تم الحذف "),

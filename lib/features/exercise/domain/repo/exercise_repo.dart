@@ -43,4 +43,11 @@ abstract class ExerciseRepo {
     required ExerciseModel exercise,
     required DataModel oldData,
   });
+
+  Future<Either<String, List<ExerciseModel>>> moveExercise({
+    required List<ExerciseModel> list,
+    required ExerciseModel oldCategory,
+    required ExerciseModel newCategory,
+    required DataModel oldData,
+  });
 }

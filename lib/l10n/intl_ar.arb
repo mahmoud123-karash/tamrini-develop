@@ -365,7 +365,7 @@
     "no_ban_titile_store":"تم رفع التقييد الخاص بك",
     "store_banned":"المتاجر المقيدة",
     "gyms_banned":"الصالات الرياضية المقيدة",
-    "pincode":"الرمز السري",
+    "pincode":"الرمز البريدي",
     "area":"الشارع ,المنطقة",
     "house_noum":"رقم المنزل",
     "city":"المدينة",
@@ -539,7 +539,9 @@
     "waiting_status":"قيد المراجعة",
     "ended_status":"منتهي",
     "no_enough_profits":"لا يوجد رصيد كافي",
-    "cash_num":"رقم المحفظة"
+    "cash_num":"رقم المحفظة",
+    "success_move_exercise":"تم نقل التمرين بنجاح",
+    "move_exercise_to_category":"هل تريد نقل التمرين الي هذه الفئة؟"
 
 
 

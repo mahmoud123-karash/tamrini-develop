@@ -1,10 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/assets.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/generated/l10n.dart';
+import 'package:tamrini/core/utils/improts.dart';
 
 import 'widgets/custom_confirm_lang_button_widget.dart';
 import 'widgets/language_container_widget.dart';
@@ -20,7 +15,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   late String lang;
   @override
   void initState() {
-    lang = CacheHelper.getData(key: 'lang') ?? '';
+    lang = CacheHelper.getData(key: 'lang') ?? Platform.localeName;
     super.initState();
   }
 
@@ -55,10 +50,10 @@ class _LanguageScreenState extends State<LanguageScreen> {
           LanguageContainerWidget(
             lable: S.of(context).device_language,
             onTap: () {
-              lang = '';
+              lang = Platform.localeName;
               setState(() {});
             },
-            isSelected: lang == '',
+            isSelected: lang == Platform.localeName,
             image: getEnlish() == 'en' ? Assets.imagesEn : Assets.imagesLang,
           ),
           Expanded(

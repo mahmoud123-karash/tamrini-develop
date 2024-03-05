@@ -540,7 +540,11 @@
     "waiting_status": "Under Review",
     "ended_status": "Ended",
     "no_enough_profits": "Insufficient balance",
-    "cash_num": "Wallet Number"
+    "cash_num": "Wallet Number",
+    "success_move_exercise":"The exercise was transferred successfully.",
+    "move_exercise_to_category":"هل تريد نقل التمرين الي هذه الفئة؟"
+
+
 
 
 

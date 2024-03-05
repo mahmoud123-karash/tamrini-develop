@@ -5469,6 +5469,26 @@ class S {
       args: [],
     );
   }
+
+  /// `The exercise was transferred successfully.`
+  String get success_move_exercise {
+    return Intl.message(
+      'The exercise was transferred successfully.',
+      name: 'success_move_exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `هل تريد نقل التمرين الي هذه الفئة؟`
+  String get move_exercise_to_category {
+    return Intl.message(
+      'هل تريد نقل التمرين الي هذه الفئة؟',
+      name: 'move_exercise_to_category',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
