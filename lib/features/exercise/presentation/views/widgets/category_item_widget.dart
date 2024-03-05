@@ -48,7 +48,7 @@ class CategoryItemWidget extends StatelessWidget {
             dialogType: DialogType.warning,
             animType: AnimType.bottomSlide,
             title: oldData!.title ?? '',
-            desc: S.of(context).move_exercise_to_category,
+            desc: '${S.of(context).move_exercise_to_category}(${model.title})',
             btnCancelOnPress: () {},
             btnOkOnPress: () {
               ExerciseCubit.get(context).moveExercise(

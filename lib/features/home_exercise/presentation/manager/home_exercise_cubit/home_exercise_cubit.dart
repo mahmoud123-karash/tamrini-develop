@@ -193,4 +193,28 @@ class HomeExerciseCubit extends Cubit<HomeExerciseStates> {
       },
     );
   }
+
+  void moveExercise({
+    required String id,
+    required Data oldData,
+    required HomeExerciseModel newCategory,
+    required String message,
+  }) async {
+    var result = await homeExerciseRepo.moveExercise(
+      list: models,
+      newCategory: newCategory,
+      oldCategory: getSection(id),
+      oldData: oldData,
+    );
+    result.fold(
+      (message) {
+        emit(ErrorGetHomeExerciseState(message));
+      },
+      (list) {
+        models = list;
+        showToast(message);
+        emit(SucessGetHomeExerciseState(list));
+      },
+    );
+  }
 }

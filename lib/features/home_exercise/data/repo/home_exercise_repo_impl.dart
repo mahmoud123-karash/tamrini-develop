@@ -256,4 +256,58 @@ class HomeExerciseRepoImpl extends HomeExerciseRepo {
       return left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, List<HomeExerciseModel>>> moveExercise({
+    required List<HomeExerciseModel> list,
+    required HomeExerciseModel oldCategory,
+    required HomeExerciseModel newCategory,
+    required Data oldData,
+  }) async {
+    try {
+      List<Data> oldDataList = oldCategory.data ?? [];
+      oldDataList.remove(oldData);
+      HomeExerciseModel oldModel = HomeExerciseModel(
+        id: oldCategory.id,
+        image: oldCategory.image,
+        order: oldCategory.order,
+        title: oldCategory.title,
+        data: oldDataList,
+      );
+      await FirebaseFirestore.instance
+          .collection('homeExercises')
+          .doc('data')
+          .collection('data')
+          .doc(oldCategory.id)
+          .update(
+            oldModel.toJson(),
+          );
+
+      List<Data> newDataList = newCategory.data ?? [];
+      newDataList.add(oldData);
+      HomeExerciseModel newModel = HomeExerciseModel(
+        id: newCategory.id,
+        image: newCategory.image,
+        order: newCategory.order,
+        title: newCategory.title,
+        data: newDataList,
+      );
+      await FirebaseFirestore.instance
+          .collection('homeExercises')
+          .doc('data')
+          .collection('data')
+          .doc(newCategory.id)
+          .update(
+            newModel.toJson(),
+          );
+
+      list.remove(newCategory);
+      list.remove(oldCategory);
+      list.add(newModel);
+      list.add(oldModel);
+      return right(list);
+    } catch (e) {
+      return left(e.toString());
+    }
+  }
 }

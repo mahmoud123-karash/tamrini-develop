@@ -106,6 +106,7 @@ class _AllHomeExercisesCategoryContentWidget
                   list:
                       searchController.text == '' ? widget.models : searchList,
                   length: length,
+                  id: widget.id,
                 ),
               ),
         if (searchList.isEmpty && searchController.text != '')

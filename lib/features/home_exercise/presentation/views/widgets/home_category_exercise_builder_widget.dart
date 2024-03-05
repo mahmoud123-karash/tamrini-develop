@@ -15,7 +15,10 @@ import 'package:tamrini/generated/l10n.dart';
 import '../../../data/models/home_exercise/exercise_data.dart';
 
 class HomeCategoryExerciseBuilderWidget extends StatelessWidget {
-  const HomeCategoryExerciseBuilderWidget({super.key});
+  const HomeCategoryExerciseBuilderWidget(
+      {super.key, this.oldData,  this.id});
+  final Data? oldData;
+  final String? id;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +72,11 @@ class HomeCategoryExerciseBuilderWidget extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    HomeCategoryGridViewWidget(models: state.list),
+                    HomeCategoryGridViewWidget(
+                      models: state.list,
+                      id: id,
+                      oldData: oldData,
+                    ),
                   ],
                 ),
               ),

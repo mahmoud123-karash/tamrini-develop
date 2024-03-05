@@ -10,12 +10,13 @@ class HomeExerciseListViewWidget extends StatelessWidget {
     required this.length,
     required this.scrollController,
     required this.isAll,
+    required this.id,
   });
   final List<Data> list;
   final int length;
   final bool isAll;
-
   final ScrollController scrollController;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,11 @@ class HomeExerciseListViewWidget extends StatelessWidget {
       controller: scrollController,
       itemBuilder: (context, index) {
         if (index < length) {
-          return HomeExerciseItemWidget(model: list[index], isAll: isAll);
+          return HomeExerciseItemWidget(
+            model: list[index],
+            isAll: isAll,
+            id: id,
+          );
         } else {
           return const Center(
             child: Padding(

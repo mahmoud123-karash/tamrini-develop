@@ -4,12 +4,16 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/admod_id.dart';
 import 'package:tamrini/core/utils/user_type.dart';
+import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/widgets/home_category_exercise_builder_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class HomeCategoryExercisesScreen extends StatefulWidget {
-  const HomeCategoryExercisesScreen({Key? key}) : super(key: key);
+  const HomeCategoryExercisesScreen({Key? key, this.oldData,  this.id})
+      : super(key: key);
+  final Data? oldData;
+  final String? id;
 
   @override
   State<HomeCategoryExercisesScreen> createState() =>
@@ -64,7 +68,10 @@ class _HomeCategoryExercisesScreenState
             },
           );
         },
-        child: const HomeCategoryExerciseBuilderWidget(),
+        child: HomeCategoryExerciseBuilderWidget(
+          id: widget.id,
+          oldData: widget.oldData,
+        ),
       ),
     );
   }

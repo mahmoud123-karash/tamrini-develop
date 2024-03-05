@@ -36,4 +36,11 @@ abstract class HomeExerciseRepo {
     required Data oldData,
     required HomeExerciseModel section,
   });
+
+  Future<Either<String, List<HomeExerciseModel>>> moveExercise({
+    required List<HomeExerciseModel> list,
+    required HomeExerciseModel oldCategory,
+    required HomeExerciseModel newCategory,
+    required Data oldData,
+  });
 }

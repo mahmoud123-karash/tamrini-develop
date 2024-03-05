@@ -10,6 +10,7 @@ import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercis
 import 'package:tamrini/features/home_exercise/presentation/views/home_exercise_details_with_youtub_screen.dart';
 
 import '../home_exercise_details_screen.dart';
+import 'move_home_exercise_widget.dart';
 import 'remove_home_exercise_icon_widget.dart';
 
 class HomeExerciseItemWidget extends StatelessWidget {
@@ -17,9 +18,11 @@ class HomeExerciseItemWidget extends StatelessWidget {
     super.key,
     required this.model,
     required this.isAll,
+    required this.id,
   });
   final Data model;
   final bool isAll;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,6 @@ class HomeExerciseItemWidget extends StatelessWidget {
           }
         },
         child: Stack(
-          alignment: Alignment.topLeft,
           children: [
             Card(
               shape: RoundedRectangleBorder(
@@ -103,7 +105,19 @@ class HomeExerciseItemWidget extends StatelessWidget {
                 ),
               ),
             ),
-            if (!isAll) RemoveWidget(model: model),
+            if (!isAll)
+              Positioned(
+                left: 1,
+                child: RemoveWidget(model: model),
+              ),
+            if (!isAll)
+              Positioned(
+                right: 1,
+                child: MoveHomeExerciseIconWidget(
+                  model: model,
+                  id: id,
+                ),
+              ),
           ],
         ),
       ),
