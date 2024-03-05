@@ -19,10 +19,11 @@ Iterable<Result<dynamic>> getResult(List options, value) {
     shouldNormalize: true,
     sortFn: (a, b) => b.score.compareTo(a.score),
     minMatchCharLength: 5,
+    tokenize: true,
   );
   final fuse = Fuzzy(options, options: fuzzyOptions);
   final results = fuse.search(value);
-  final filteredResults = results.where((result) => result.score < .20);
+  final filteredResults = results.where((result) => result.score < .25);
   return filteredResults;
 }
 
