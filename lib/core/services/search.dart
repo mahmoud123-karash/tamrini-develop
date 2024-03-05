@@ -16,13 +16,13 @@ import '../../features/questions/data/models/question_model/question_model.dart'
 
 Iterable<Result<dynamic>> getResult(List options, value) {
   final fuzzyOptions = FuzzyOptions(
-    threshold: 0.5,
-    tokenize: true,
-    findAllMatches: true,
+    shouldNormalize: true,
+    sortFn: (a, b) => b.score.compareTo(b.score),
+    minMatchCharLength: 5,
   );
   final fuse = Fuzzy(options, options: fuzzyOptions);
   final results = fuse.search(value);
-  final filteredResults = results.where((result) => result.score < .30);
+  final filteredResults = results.where((result) => result.score < .20);
   return filteredResults;
 }
 
