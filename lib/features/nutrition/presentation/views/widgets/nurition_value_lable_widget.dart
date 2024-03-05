@@ -33,10 +33,10 @@ class NutritionValueLableWidget extends StatelessWidget {
         ),
         if (color != null)
           LinearPercentIndicator(
-            width: 50.0,
+            width: 40.0,
             animation: true,
             animationDuration: 900,
-            lineHeight: 14.0,
+            lineHeight: 10.0,
             percent: percent > 1.0 ? 1.0 : percent,
             backgroundColor: Colors.grey,
             progressColor: color,

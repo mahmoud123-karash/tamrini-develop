@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/favourite/data/models/meal_model/meal_model.dart';
@@ -19,9 +18,7 @@ class FavoriteIconWidget extends StatelessWidget {
           List<MealModel> list = state.list;
           bool isFavorite = list.any((element) => element.id == model.id);
           return Align(
-            alignment: Intl.getCurrentLocale() == 'ar'
-                ? Alignment.topLeft
-                : Alignment.topRight,
+            alignment: Alignment.topLeft,
             child: IconButton(
               onPressed: () {
                 if (isFavorite) {

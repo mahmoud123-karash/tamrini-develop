@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/features/chat/data/models/message_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-import 'widgets/chat_list_view_builder_widget.dart';
+import 'widgets/chat_list_view_widget.dart';
 import 'widgets/send_message_widget.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -80,18 +80,18 @@ class _ChatScreenState extends State<ChatScreen> {
 
           return Column(
             children: [
-              messages.isEmpty
-                  ? Expanded(
-                      child: Center(
+              Expanded(
+                child: messages.isEmpty
+                    ? Center(
                         child: Text(
                           S.of(context).no_messages_yet,
                         ),
+                      )
+                    : ChatListViewWidget(
+                        scrollController: scrollController,
+                        messages: messages,
                       ),
-                    )
-                  : ChatListViewBuilderWidget(
-                      scrollController: scrollController,
-                      messages: messages,
-                    ),
+              ),
               SendMessageWidget(
                 uid: widget.chatId,
                 recieverUid: widget.recieverUid,
