@@ -88,3 +88,8 @@ void saveisEnd(value) => CacheHelper.saveData(
       key: 'isEnd',
       value: value,
     );
+
+void saveIndex(value) => CacheHelper.saveData(
+      key: 'index',
+      value: value,
+    );

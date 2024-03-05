@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:tamrini/core/cache/save_data.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 
 import 'image_slide_show_navigation.dart';
 
@@ -7,13 +9,11 @@ class CustomImageSlideShow extends StatefulWidget {
   final List<Widget> children;
   final List<String> assets;
   final int? currentIndex;
-  final void Function(int)? onPageChanged;
   final double? height;
 
   const CustomImageSlideShow(
       {required this.assets,
       required this.children,
-      this.onPageChanged,
       this.height = 200,
       this.currentIndex,
       Key? key})
@@ -29,11 +29,13 @@ class _CustomImageSlideShowState extends State<CustomImageSlideShow> {
 
   @override
   void initState() {
+    int index = CacheHelper.getData(key: 'index') ?? 0;
     super.initState();
-    _currentIndex = widget.currentIndex ?? 0;
+    _currentIndex = index;
   }
 
   void onSliderIconClicked(int index) {
+    saveIndex(index);
     if (index != _currentIndex) {
       setState(
         () {
@@ -62,9 +64,7 @@ class _CustomImageSlideShowState extends State<CustomImageSlideShow> {
             initialPage: _currentIndex,
             height: widget.height!,
             onPageChanged: (value) {
-              if (widget.onPageChanged != null) {
-                widget.onPageChanged!(value);
-              }
+              saveIndex(value);
               setState(() {
                 _currentIndex = value;
               });

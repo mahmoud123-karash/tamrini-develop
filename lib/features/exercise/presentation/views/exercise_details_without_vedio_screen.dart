@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'widgets/exercise_details_body_widget.dart';
@@ -15,6 +16,7 @@ class DetailsWithoutVedioScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CacheHelper.removeData(key: 'index');
     return Scaffold(
       appBar: myAppBar(
         S.of(context).exDetails,
