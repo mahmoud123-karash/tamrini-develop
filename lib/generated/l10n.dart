@@ -5480,20 +5480,20 @@ class S {
     );
   }
 
-  /// `هل تريد نقل التمرين الي هذه الفئة؟`
+  /// `Do you want to move the exercise to this category?`
   String get move_exercise_to_category {
     return Intl.message(
-      'هل تريد نقل التمرين الي هذه الفئة؟',
+      'Do you want to move the exercise to this category?',
       name: 'move_exercise_to_category',
       desc: '',
       args: [],
     );
   }
 
-  /// `يجب تسجيل الدخول أولا لكى تستطيع المتابعة`
+  /// `Please log in first to continue.`
   String get login_first_please {
     return Intl.message(
-      'يجب تسجيل الدخول أولا لكى تستطيع المتابعة',
+      'Please log in first to continue.',
       name: 'login_first_please',
       desc: '',
       args: [],

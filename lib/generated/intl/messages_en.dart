@@ -370,7 +370,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Do you want to log out?"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_first_please": MessageLookupByLibrary.simpleMessage(
-            "يجب تسجيل الدخول أولا لكى تستطيع المتابعة"),
+            "Please log in first to continue."),
         "logout_and_login_again": MessageLookupByLibrary.simpleMessage(
             "Please log out and log in again to access the new features and available promotions."),
         "lowPrice": MessageLookupByLibrary.simpleMessage("Lowest Price"),
@@ -392,7 +392,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "money": MessageLookupByLibrary.simpleMessage("Price"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "move_exercise_to_category": MessageLookupByLibrary.simpleMessage(
-            "هل تريد نقل التمرين الي هذه الفئة؟"),
+            "Do you want to move the exercise to this category?"),
         "my_day": MessageLookupByLibrary.simpleMessage("My day"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "new_comment_question": MessageLookupByLibrary.simpleMessage(

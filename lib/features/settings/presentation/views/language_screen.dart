@@ -1,6 +1,4 @@
-import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/utils/improts.dart';
-
 import 'widgets/custom_confirm_lang_button_widget.dart';
 import 'widgets/language_container_widget.dart';
 
@@ -22,6 +20,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
   @override
   Widget build(BuildContext context) {
     String cachedLang = CacheHelper.getData(key: 'lang') ?? '';
+    String currentLang = Platform.localeName.split('_')[0];
+
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: myAppBar(S.of(context).language),
@@ -50,11 +50,11 @@ class _LanguageScreenState extends State<LanguageScreen> {
           LanguageContainerWidget(
             lable: S.of(context).device_language,
             onTap: () {
-              lang = Platform.localeName;
+              lang = currentLang;
               setState(() {});
             },
-            isSelected: lang == Platform.localeName,
-            image: getEnlish() == 'en' ? Assets.imagesEn : Assets.imagesLang,
+            isSelected: lang == currentLang,
+            image: currentLang != 'ar' ? Assets.imagesEn : Assets.imagesLang,
           ),
           Expanded(
             child: SizedBox(

@@ -19,7 +19,9 @@ class CustomConfirmLangButtonWidget extends StatelessWidget {
           borderSide: BorderSide.none,
         ),
         onPressed: () {
-          ManageCubit.get(context).changeLanguage(language: lang);
+          ManageCubit.get(context).changeLanguage(
+            language: lang,
+          );
         },
         child: Center(
           child: Padding(

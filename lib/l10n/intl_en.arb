@@ -542,9 +542,8 @@
     "no_enough_profits": "Insufficient balance",
     "cash_num": "Wallet Number",
     "success_move_exercise":"The exercise was transferred successfully.",
-    "move_exercise_to_category":"هل تريد نقل التمرين الي هذه الفئة؟",
-    "login_first_please":"يجب تسجيل الدخول أولا لكى تستطيع المتابعة"
-
+    "move_exercise_to_category": "Do you want to move the exercise to this category?",
+    "login_first_please": "Please log in first to continue."
 
 
 

@@ -187,20 +187,6 @@ void clearSubBox() async {
   await box.clear();
 }
 
-String getEnlish() {
-  String lang = Platform.localeName;
-  if (lang == 'en_US' ||
-      lang == 'en_I' ||
-      lang == 'en_NZ' ||
-      lang == 'en_UK' ||
-      lang == 'en' ||
-      lang == 'en_A') {
-    return 'en';
-  } else {
-    return 'ar';
-  }
-}
-
 Future<UserModel> getUser(String uid) async {
   var result =
       await FirebaseFirestore.instance.collection('users').doc(uid).get();
