@@ -19,29 +19,32 @@ class SupplementAriclesListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      controller: scrollController,
-      itemBuilder: (context, index) {
-        if (index < length) {
-          return SupplementArticleItemWidget(
-            model: list[index],
-            categoryId: categoryId,
-            isCourse: isCourse,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: ListView.separated(
+        controller: scrollController,
+        itemBuilder: (context, index) {
+          if (index < length) {
+            return SupplementArticleItemWidget(
+              model: list[index],
+              categoryId: categoryId,
+              isCourse: isCourse,
+            );
+          }
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: CircularProgressIndicator(),
+            ),
           );
-        }
-        return const Center(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: CircularProgressIndicator(),
-          ),
-        );
-      },
-      itemCount: list.length <= length ? list.length : length + 1,
-      separatorBuilder: (BuildContext context, int index) {
-        return SizedBox(
-          height: 5.h,
-        );
-      },
+        },
+        itemCount: list.length <= length ? list.length : length + 1,
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(
+            height: 5.h,
+          );
+        },
+      ),
     );
   }
 }

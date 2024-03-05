@@ -13,26 +13,29 @@ class DietFoodListViewWidget extends StatelessWidget {
   final ScrollController controller;
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      controller: controller,
-      itemBuilder: (context, index) {
-        if (index < length) {
-          return DietFoodItemWidget(
-            model: list[index],
-          );
-        } else {
-          return const Center(
-            child: Padding(
-              padding: EdgeInsets.all(15.0),
-              child: CircularProgressIndicator(),
-            ),
-          );
-        }
-      },
-      separatorBuilder: (context, index) => const SizedBox(
-        height: 20,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: ListView.separated(
+        controller: controller,
+        itemBuilder: (context, index) {
+          if (index < length) {
+            return DietFoodItemWidget(
+              model: list[index],
+            );
+          } else {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
+        separatorBuilder: (context, index) => const SizedBox(
+          height: 20,
+        ),
+        itemCount: list.length <= length ? list.length : length + 1,
       ),
-      itemCount: list.length <= length ? list.length : length + 1,
     );
   }
 }

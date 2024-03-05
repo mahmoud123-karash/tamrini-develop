@@ -18,29 +18,32 @@ class ArticleListViewWidget extends StatelessWidget {
     list.sort((a, b) => b.date!.compareTo(a.date!));
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
-    return ListView.separated(
-      controller: controller,
-      itemCount: list.length <= length ? list.length : length + 1,
-      itemBuilder: (context, index) {
-        if (index < length) {
-          return AtricleItemWidget(
-            width: getWidht,
-            model: list[index],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: ListView.separated(
+        controller: controller,
+        itemCount: list.length <= length ? list.length : length + 1,
+        itemBuilder: (context, index) {
+          if (index < length) {
+            return AtricleItemWidget(
+              width: getWidht,
+              model: list[index],
+            );
+          } else {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const SizedBox(
+            height: 20,
           );
-        } else {
-          return const Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              child: CircularProgressIndicator(),
-            ),
-          );
-        }
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        return const SizedBox(
-          height: 20,
-        );
-      },
+        },
+      ),
     );
   }
 }

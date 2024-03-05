@@ -16,29 +16,32 @@ class GymListViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
-    return ListView.separated(
-      itemCount: list.length > length ? length + 1 : list.length,
-      controller: controller,
-      itemBuilder: (context, index) {
-        if (index < length) {
-          return GymItemWidget(
-            width: getWidht,
-            model: list[index],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: ListView.separated(
+        itemCount: list.length > length ? length + 1 : list.length,
+        controller: controller,
+        itemBuilder: (context, index) {
+          if (index < length) {
+            return GymItemWidget(
+              width: getWidht,
+              model: list[index],
+            );
+          } else {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const SizedBox(
+            height: 20,
           );
-        } else {
-          return const Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              child: CircularProgressIndicator(),
-            ),
-          );
-        }
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        return const SizedBox(
-          height: 20,
-        );
-      },
+        },
+      ),
     );
   }
 }

@@ -18,31 +18,34 @@ class ExerciseListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      controller: scrollController,
-      itemBuilder: (context, index) {
-        if (index < length) {
-          return ExerciseCardWidget(
-            exercise: list[index],
-            isAll: isAll,
-            id: list[index].id ?? '',
-            isCourse: isCourse,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: ListView.separated(
+        controller: scrollController,
+        itemBuilder: (context, index) {
+          if (index < length) {
+            return ExerciseCardWidget(
+              exercise: list[index],
+              isAll: isAll,
+              id: list[index].id ?? '',
+              isCourse: isCourse,
+            );
+          } else {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
+        itemCount: list.length <= length ? list.length : length + 1,
+        separatorBuilder: (BuildContext context, int index) {
+          return const SizedBox(
+            height: 5,
           );
-        } else {
-          return const Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              child: CircularProgressIndicator(),
-            ),
-          );
-        }
-      },
-      itemCount: list.length <= length ? list.length : length + 1,
-      separatorBuilder: (BuildContext context, int index) {
-        return const SizedBox(
-          height: 5,
-        );
-      },
+        },
+      ),
     );
   }
 }
