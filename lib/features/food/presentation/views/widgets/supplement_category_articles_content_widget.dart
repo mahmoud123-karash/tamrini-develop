@@ -4,6 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_data.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
 import 'package:tamrini/features/food/presentation/views/new_supplement_screen.dart';
@@ -65,7 +66,7 @@ class _SupplementArticlesContentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
 
     return Column(
       children: [
@@ -79,7 +80,7 @@ class _SupplementArticlesContentWidgetState
             setState(() {});
           },
         ),
-        if (userType == 'admin' || userType == 'writer')
+        if (userType == UserType.admin || userType == UserType.writer)
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 15,

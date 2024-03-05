@@ -14,7 +14,7 @@ class DietFoodContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
 
     return Padding(
       padding: const EdgeInsets.all(8.0),

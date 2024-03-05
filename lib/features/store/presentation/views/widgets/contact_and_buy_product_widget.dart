@@ -15,7 +15,8 @@ class ContactAndBuyProductWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String usertype = CacheHelper.getData(key: 'usertype');
+    String usertype = CacheHelper.getData(key: 'usertype') ?? '';
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -28,7 +29,11 @@ class ContactAndBuyProductWidget extends StatelessWidget {
           if (usertype != UserType.admin && usertype != UserType.storeOwner)
             CustomBuyNowButtonWidget(
               onPressed: () {
-                navigateTo(context, AddressScreen(model: model));
+                if (uid != '') {
+                  navigateTo(context, AddressScreen(model: model));
+                } else {
+                  showWaringLoginDialog(context);
+                }
               },
               lable: S.of(context).buyNow,
               color: appColor,

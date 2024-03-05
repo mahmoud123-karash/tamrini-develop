@@ -76,8 +76,8 @@ class SubAndEditCustomWidget extends StatelessWidget {
   final GymModel model;
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
-    String uid = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -99,7 +99,7 @@ class SubAndEditCustomWidget extends StatelessWidget {
               : Container(),
         if (model.ownerUid != adminUid && model.isBanned == false)
           SubGymBuilderWidget(model: model),
-        if (userType == 'admin' && model.ownerUid != uid)
+        if (userType == UserType.admin && model.ownerUid != uid)
           BanGymCustomButtonWidget(
             uid: model.id,
             title: model.name,

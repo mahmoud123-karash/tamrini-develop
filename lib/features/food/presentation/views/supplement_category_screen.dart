@@ -22,7 +22,7 @@ class SupplementsCategoryScreen extends StatefulWidget {
 class _SupplementsCategoryScreenState extends State<SupplementsCategoryScreen> {
   @override
   void initState() {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     if (userType != UserType.admin && userType != UserType.trainer) {
       createBannerAd();
     }
@@ -47,7 +47,7 @@ class _SupplementsCategoryScreenState extends State<SupplementsCategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     return Scaffold(
       bottomNavigationBar: bannerAd != null
           ? SizedBox(
@@ -70,7 +70,7 @@ class _SupplementsCategoryScreenState extends State<SupplementsCategoryScreen> {
             const SizedBox(
               height: 5,
             ),
-            if (userType == 'admin')
+            if (userType == UserType.admin)
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,

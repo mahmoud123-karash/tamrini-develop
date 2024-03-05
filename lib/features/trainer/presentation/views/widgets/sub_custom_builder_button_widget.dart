@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_states.dart';
@@ -21,6 +23,8 @@ class SubCustomBuilderButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
+
     return BlocBuilder<TraineeCubit, TraineeStates>(
       builder: (context, state) {
         if (state is LoadingGetTraineesState) {
@@ -31,16 +35,20 @@ class SubCustomBuilderButtonWidget extends StatelessWidget {
         } else {
           return customButton(
             onPressed: () {
-              navigateTo(
-                context,
-                TrainerSubPaymentScreen(
-                  trainerId: trainerId,
-                  traineesCount: traineesCount,
-                  profits: profits,
-                  price: price,
-                  isSUb: true,
-                ),
-              );
+              if (uid != '') {
+                navigateTo(
+                  context,
+                  TrainerSubPaymentScreen(
+                    trainerId: trainerId,
+                    traineesCount: traineesCount,
+                    profits: profits,
+                    price: price,
+                    isSUb: true,
+                  ),
+                );
+              } else {
+                showWaringLoginDialog(context);
+              }
             },
             lable: S.of(context).sub,
           );

@@ -361,6 +361,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "log_out_question":
             MessageLookupByLibrary.simpleMessage("هل تريد تسجيل الخروج ؟"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "login_first_please": MessageLookupByLibrary.simpleMessage(
+            "يجب تسجيل الدخول أولا لكى تستطيع المتابعة"),
         "logout_and_login_again": MessageLookupByLibrary.simpleMessage(
             "يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة."),
         "lowPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرا"),

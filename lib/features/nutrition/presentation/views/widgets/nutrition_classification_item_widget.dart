@@ -21,7 +21,7 @@ class NutritionClassificationItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,

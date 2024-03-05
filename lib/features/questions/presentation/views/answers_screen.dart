@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/answers_details_content_widget.dart';
@@ -21,6 +22,8 @@ class AnswersScreen extends StatefulWidget {
 class _AnswersScreenState extends State<AnswersScreen> {
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
+
     return Scaffold(
       appBar: myAppBar(
         S.of(context).answers,
@@ -66,13 +69,14 @@ class _AnswersScreenState extends State<AnswersScreen> {
                           model: question,
                         ),
                       ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: WriteAnswerWidget(
-                          model: question,
-                          token: widget.model.token,
+                      if (uid != '')
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: WriteAnswerWidget(
+                            model: question,
+                            token: widget.model.token,
+                          ),
                         ),
-                      ),
                     ],
                   );
           } else {

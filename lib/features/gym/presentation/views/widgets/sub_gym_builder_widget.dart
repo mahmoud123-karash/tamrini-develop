@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
 import 'package:tamrini/features/payment/presentation/views/gym_sub_payment_screen.dart';
 import 'package:tamrini/features/subscribtions/data/models/subscription_model/subscription_model.dart';
@@ -31,7 +32,7 @@ class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     return BlocBuilder<SubscriptionCubit, SubscriptionStates>(
       builder: (context, state) {
         if (state is SucessGetUserSubState) {
@@ -43,7 +44,7 @@ class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
                 .toList()
                 .first;
             if (model.endDate.toDate().isBefore(DateTime.now())) {
-              return userType == 'gym owner'
+              return userType == UserType.gymOwner
                   ? Container()
                   : Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -65,7 +66,7 @@ class _SubGymBuilderWidgetState extends State<SubGymBuilderWidget> {
                       ),
                     );
             } else {
-              return userType == 'gym owner'
+              return userType == UserType.gymOwner
                   ? Container()
                   : SizedBox(
                       height: 50,

@@ -28,8 +28,8 @@ class StoreCoverImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
-    String id = CacheHelper.getData(key: 'uid');
-    String userType = CacheHelper.getData(key: 'usertype');
+    String id = CacheHelper.getData(key: 'uid') ?? "";
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         bottomLeft: Radius.circular(30),

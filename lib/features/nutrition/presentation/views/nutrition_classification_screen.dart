@@ -26,7 +26,7 @@ class _NutritionClassificationScreenState
     extends State<NutritionClassificationScreen> {
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     return Scaffold(
       appBar: myAppBar(S.of(context).values_food),
       body: RefreshIndicator(

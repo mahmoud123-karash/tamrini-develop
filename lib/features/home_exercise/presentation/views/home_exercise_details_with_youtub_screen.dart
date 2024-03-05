@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -29,6 +31,7 @@ class _HomeExerciseDetailsWithYoutubScreenState
   bool isPlayerReady = false;
   @override
   void initState() {
+    CacheHelper.removeData(key: 'index');
     videoId = YoutubePlayer.convertUrlToId(widget.vedio)!;
     controller = YoutubePlayerController(
       initialVideoId: videoId,
@@ -57,12 +60,6 @@ class _HomeExerciseDetailsWithYoutubScreenState
   }
 
   @override
-  void deactivate() {
-    controller.pause();
-    super.deactivate();
-  }
-
-  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -78,6 +75,26 @@ class _HomeExerciseDetailsWithYoutubScreenState
         );
       },
       player: YoutubePlayer(
+        onReady: () {
+          isPlayerReady = true;
+          setState(() {});
+        },
+        onEnded: (metaData) {
+          controller.pause();
+          setState(() {});
+        },
+        aspectRatio: 16 / 7,
+        thumbnail: !isPlayerReady
+            ? Center(
+                child: Text(
+                  'Waiting...',
+                  style: TextStyles.style15.copyWith(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+            : const SizedBox(),
         controller: controller,
       ),
       builder: (context, player) => Scaffold(

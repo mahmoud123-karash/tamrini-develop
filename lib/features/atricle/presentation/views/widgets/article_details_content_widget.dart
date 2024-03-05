@@ -17,7 +17,7 @@ class ArticleDetailsContentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final getWidht = mediaQuery.size.width;
-    String uid = CacheHelper.getData(key: 'uid');
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(

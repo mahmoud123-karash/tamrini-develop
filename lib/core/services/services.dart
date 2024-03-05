@@ -1,4 +1,6 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:intl/intl.dart';
+import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/core/utils/improts.dart';
 
 void openUri({required Uri url}) async {
@@ -235,4 +237,22 @@ UserModel getUserFromProfile() {
     phone: model.phone,
   );
   return user;
+}
+
+void showWaringLoginDialog(context) {
+  AwesomeDialog(
+    padding: const EdgeInsets.symmetric(
+      horizontal: 15,
+    ),
+    showCloseIcon: true,
+    titleTextStyle: TextStyles.style17.copyWith(
+      fontWeight: FontWeight.bold,
+      color: appColor,
+    ),
+    context: context,
+    dialogType: DialogType.info,
+    animType: AnimType.bottomSlide,
+    desc: S.of(context).login_first_please,
+    btnOkOnPress: () {},
+  ).show();
 }

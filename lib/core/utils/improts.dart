@@ -164,3 +164,17 @@ export 'package:tamrini/features/trainee/data/data_sources/remote_data_source/tr
 export 'package:tamrini/features/trainer/data/data_sources/remote_data_source/trainer_remote_data_source.dart';
 
 export 'package:tamrini/features/water_reminder/data/data_sources/local_data_source/reminder_local_data_source.dart';
+export 'package:tamrini/core/shared/assets.dart';
+export 'package:tamrini/core/utils/user_type.dart';
+export 'package:tamrini/features/favourite/presentation/views/favorite_screen.dart';
+export 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
+export 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
+export 'package:tamrini/features/navBar/presentation/views/widgets/substrictions_list_tile_widget.dart';
+export 'package:tamrini/features/navBar/presentation/views/widgets/trainer_widget.dart';
+export 'package:tamrini/features/order/presentation/views/orders_screen.dart';
+export 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
+export 'package:tamrini/features/settings/presentation/views/app_settings_screen.dart';
+export 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
+export 'package:tamrini/features/settings/presentation/views/settings_screen.dart';
+export 'package:tamrini/features/water_reminder/presentaion/views/water_reminder_screen.dart';
+export 'package:ionicons/ionicons.dart';

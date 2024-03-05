@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/auth/presentation/views/reset_password_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
@@ -14,6 +16,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
     return Scaffold(
       appBar: myAppBar(S.of(context).settings),
       body: Padding(
@@ -22,7 +25,11 @@ class SettingsScreen extends StatelessWidget {
           children: [
             SettingsListTileWidget(
               onPressed: () {
-                navigateTo(context, const ProfileScreen());
+                if (uid != '') {
+                  navigateTo(context, const ProfileScreen());
+                } else {
+                  showWaringLoginDialog(context);
+                }
               },
               iconData: Ionicons.person,
               lable: S.of(context).profile,
@@ -30,7 +37,11 @@ class SettingsScreen extends StatelessWidget {
             const Divider(),
             SettingsListTileWidget(
               onPressed: () {
-                navigateTo(context, const ResetPassScreen());
+                if (uid != '') {
+                  navigateTo(context, const ResetPassScreen());
+                } else {
+                  showWaringLoginDialog(context);
+                }
               },
               iconData: Ionicons.lock_closed,
               lable: S.of(context).change_pass,
@@ -44,14 +55,6 @@ class SettingsScreen extends StatelessWidget {
               },
               iconData: Icons.language,
               lable: S.of(context).language,
-            ),
-            const Divider(),
-            SettingsListTileWidget(
-              onPressed: () {
-                logOutDialog(context).show();
-              },
-              iconData: Ionicons.log_out_outline,
-              lable: S.of(context).log_out,
             ),
             const Divider(),
           ],

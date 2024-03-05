@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/food/presentation/views/protein_calculator_screen.dart';
@@ -14,6 +15,7 @@ class FoodCategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -39,13 +41,14 @@ class FoodCategoryScreen extends StatelessWidget {
             image: Assets.imagesWhey,
             lable: S.of(context).nuttritions,
           ),
-          CategoryItemWidget(
-            onPressed: () {
-              navigateTo(context, const MyDayScreen());
-            },
-            image: Assets.imagesMyDay,
-            lable: S.of(context).my_day,
-          ),
+          if (uid != '')
+            CategoryItemWidget(
+              onPressed: () {
+                navigateTo(context, const MyDayScreen());
+              },
+              image: Assets.imagesMyDay,
+              lable: S.of(context).my_day,
+            ),
         ],
       ),
     );

@@ -12,8 +12,8 @@ class EditCustomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
-    String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,

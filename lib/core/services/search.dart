@@ -22,7 +22,7 @@ Iterable<Result<dynamic>> getResult(List options, value) {
   );
   final fuse = Fuzzy(options, options: fuzzyOptions);
   final results = fuse.search(value);
-  final filteredResults = results.where((result) => result.score < .35);
+  final filteredResults = results.where((result) => result.score < .25);
   return filteredResults;
 }
 

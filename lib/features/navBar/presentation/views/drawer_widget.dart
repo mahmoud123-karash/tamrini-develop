@@ -1,28 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/shared/assets.dart';
-import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/utils/user_type.dart';
-import 'package:tamrini/features/favourite/presentation/views/favorite_screen.dart';
-import 'package:tamrini/features/my_day/presentation/views/my_day_screen.dart';
-import 'package:tamrini/features/navBar/presentation/views/widgets/gym_owner_list_tile.dart';
-import 'package:tamrini/features/navBar/presentation/views/widgets/substrictions_list_tile_widget.dart';
-import 'package:tamrini/features/navBar/presentation/views/widgets/trainer_widget.dart';
-import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
-import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
-import 'package:tamrini/features/settings/presentation/views/app_settings_screen.dart';
-import 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
-import 'package:tamrini/features/settings/presentation/views/settings_screen.dart';
-import 'package:tamrini/features/water_reminder/presentaion/views/water_reminder_screen.dart';
-import 'package:tamrini/generated/l10n.dart';
-
 import 'widgets/admin_list_tile_widget.dart';
 import 'widgets/drawer_list_tile_widget.dart';
 import 'widgets/store_owner_widget.dart';
 import 'widgets/trainering_course_list_tile_widget.dart';
+import 'package:tamrini/core/utils/improts.dart';
+import 'package:intl/intl.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -30,7 +11,8 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    String usertype = CacheHelper.getData(key: 'usertype');
+    String usertype = CacheHelper.getData(key: 'usertype') ?? '';
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
     return Drawer(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       elevation: 0,
@@ -75,7 +57,11 @@ class MyDrawer extends StatelessWidget {
             ),
             DrawerListTileWidget(
               onPressed: () {
-                navigateTo(context, const ProfileScreen());
+                if (uid != '') {
+                  navigateTo(context, const ProfileScreen());
+                } else {
+                  showWaringLoginDialog(context);
+                }
               },
               icon: Ionicons.person_outline,
               lable: S.of(context).profile,
@@ -91,28 +77,44 @@ class MyDrawer extends StatelessWidget {
             if (usertype != UserType.admin && usertype != UserType.storeOwner)
               DrawerListTileWidget(
                 onPressed: () {
-                  navigateTo(context, const OrdersScreen(isUser: true));
+                  if (uid != '') {
+                    navigateTo(context, const OrdersScreen(isUser: true));
+                  } else {
+                    showWaringLoginDialog(context);
+                  }
                 },
                 icon: Icons.shopping_bag_outlined,
                 lable: S.of(context).buy_orders,
               ),
             DrawerListTileWidget(
               onPressed: () {
-                navigateTo(context, const FavoriteScreen());
+                if (uid != '') {
+                  navigateTo(context, const FavoriteScreen());
+                } else {
+                  showWaringLoginDialog(context);
+                }
               },
               icon: Ionicons.heart_outline,
               lable: S.of(context).favorite_meals,
             ),
             DrawerListTileWidget(
               onPressed: () {
-                navigateTo(context, const MyDayScreen());
+                if (uid != '') {
+                  navigateTo(context, const MyDayScreen());
+                } else {
+                  showWaringLoginDialog(context);
+                }
               },
               icon: Ionicons.calendar_outline,
               lable: S.of(context).my_day,
             ),
             DrawerListTileWidget(
               onPressed: () {
-                navigateTo(context, const WaterReminderScreen());
+                if (uid != '') {
+                  navigateTo(context, const WaterReminderScreen());
+                } else {
+                  showWaringLoginDialog(context);
+                }
               },
               icon: Ionicons.alarm_outline,
               lable: S.of(context).water_alarm,
@@ -140,10 +142,16 @@ class MyDrawer extends StatelessWidget {
             ),
             DrawerListTileWidget(
               onPressed: () {
-                logOutDialog(context).show();
+                if (uid != '') {
+                  logOutDialog(context).show();
+                } else {
+                  navigateToAndFinish(context, const LoginScreen());
+                }
               },
-              icon: Ionicons.log_out_outline,
-              lable: S.of(context).log_out,
+              icon: uid != ''
+                  ? Ionicons.log_out_outline
+                  : Ionicons.log_in_outline,
+              lable: uid != '' ? S.of(context).log_out : S.of(context).login,
             ),
             const SizedBox(
               height: 20,

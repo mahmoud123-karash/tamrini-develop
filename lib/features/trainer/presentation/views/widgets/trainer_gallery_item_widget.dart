@@ -24,8 +24,8 @@ class TrainerGalleryItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
-    String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: GestureDetector(

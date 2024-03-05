@@ -18,14 +18,14 @@ class _NavBarScreenState extends State<NavBarScreen> {
     String userType = CacheHelper.getData(key: 'usertype') ?? "";
     String uid = CacheHelper.getData(key: 'uid') ?? "";
     String trainerId = CacheHelper.getData(key: 'trainerId') ?? "";
-    log(trainerId);
-    if (userType == UserType.trainer) {
-      TraineeCubit.get(context).getData(trainerId: uid);
-    }
-    if (userType == UserType.admin || userType == UserType.user) {
-      PromotionCubit.get(context).getData();
-    }
-    if (userType != '') {
+
+    if (uid != '') {
+      if (userType == UserType.trainer) {
+        TraineeCubit.get(context).getData(trainerId: uid);
+      }
+      if (userType == UserType.admin || userType == UserType.user) {
+        PromotionCubit.get(context).getData();
+      }
       Timer.periodic(
         const Duration(minutes: 5),
         (timer) {
@@ -64,6 +64,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
     return BlocProvider(
       create: (context) => NavBarCubit(),
       child: BlocBuilder<NavBarCubit, NavBarStates>(
@@ -81,7 +82,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
               appBar: myAppBar(
                 cubit.titles(context)[cubit.currentIndex],
                 actions: [
-                  const BadgeNotificationIconWidget(),
+                  if (uid != '') const BadgeNotificationIconWidget(),
                 ],
               ),
               bottomNavigationBar: CurvedNavBarWidget(cubit: cubit),

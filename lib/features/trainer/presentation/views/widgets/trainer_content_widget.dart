@@ -23,8 +23,8 @@ class TrainerContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
-    String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
     String trainerId = CacheHelper.getData(key: 'trainerId') ?? '';
 
     return SingleChildScrollView(

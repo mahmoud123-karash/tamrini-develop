@@ -8,6 +8,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/distripute_assets.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_data.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_states.dart';
@@ -28,8 +29,8 @@ class SupplementArticleItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
-    String uid = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
 
     List<Widget> asstest = [];
     asstest = distributeAssets(
@@ -128,12 +129,12 @@ class SupplementArticleItemWidget extends StatelessWidget {
                       },
                     ),
                   ),
-                if (model.writerUid == uid && userType == 'writer')
+                if (model.writerUid == uid && userType == UserType.writer)
                   RemoveSupplementCustomButtonWidget(
                     model: model,
                     categoryId: categoryId,
                   ),
-                if (userType == 'admin')
+                if (userType == UserType.admin)
                   RemoveSupplementCustomButtonWidget(
                     model: model,
                     categoryId: categoryId,

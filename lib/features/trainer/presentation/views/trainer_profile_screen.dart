@@ -20,8 +20,8 @@ class TrainerProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
-    String userType = CacheHelper.getData(key: 'usertype');
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
 
     return Scaffold(
       appBar: myAppBar(S.of(context).trainer_profile),

@@ -1,5 +1,4 @@
 import 'package:tamrini/core/utils/improts.dart';
-import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/user_builder_widget.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
 import 'package:tamrini/features/food/presentation/views/new_supplement_screen.dart';
@@ -19,8 +18,8 @@ class SupplementArticlesDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
-    String uid = CacheHelper.getData(key: 'uid');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     return Scaffold(
       appBar: myAppBar(S.of(context).supplement_details),
       body: Padding(

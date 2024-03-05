@@ -21,7 +21,7 @@ class StoreItemWidget extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final getHeight = mediaQuery.size.height;
     final getWidht = mediaQuery.size.width;
-    String uid = CacheHelper.getData(key: 'uid');
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: InkWell(

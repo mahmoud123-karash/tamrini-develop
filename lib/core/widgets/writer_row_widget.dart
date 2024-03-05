@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
@@ -23,9 +24,9 @@ class WriterRowWidget extends StatelessWidget {
             String uid = CacheHelper.getData(key: 'uid') ?? '';
             if (model.uid == uid) {
               navigateTo(context, const ProfileScreen());
-            } else if (model.role == 'admin') {
+            } else if (model.role == UserType.admin) {
               showSnackBar(context, S.of(context).admin_hint);
-            } else if (model.role == 'trainer') {
+            } else if (model.role == UserType.trainer) {
               navigateTo(context, TrainerProfileScreen(id: model.uid));
             } else {
               navigateTo(context, UserProfileScreen(model: model));
@@ -44,7 +45,7 @@ class WriterRowWidget extends StatelessWidget {
           name: model.name,
         ),
         const Spacer(),
-        if (model.role == 'admin')
+        if (model.role == UserType.admin)
           const Icon(
             Icons.stars_rounded,
             color: Colors.amber,

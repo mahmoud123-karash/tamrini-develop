@@ -5489,6 +5489,16 @@ class S {
       args: [],
     );
   }
+
+  /// `يجب تسجيل الدخول أولا لكى تستطيع المتابعة`
+  String get login_first_please {
+    return Intl.message(
+      'يجب تسجيل الدخول أولا لكى تستطيع المتابعة',
+      name: 'login_first_please',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
