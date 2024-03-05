@@ -1,20 +1,23 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tamrini/generated/l10n.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:tamrini/core/utils/improts.dart';
 
 class NutritionValueLableWidget extends StatelessWidget {
   const NutritionValueLableWidget(
       {super.key,
       required this.lable,
       required this.value,
-      this.iscalory = false});
+      this.iscalory = false,
+      this.color});
   final String lable;
   final double value;
   final bool? iscalory;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    double percent = value / 100;
     return Row(
       children: [
         Container(
@@ -28,6 +31,16 @@ class NutritionValueLableWidget extends StatelessWidget {
             maxLines: 1,
           ),
         ),
+        if (color != null)
+          LinearPercentIndicator(
+            width: 50.0,
+            animation: true,
+            animationDuration: 900,
+            lineHeight: 14.0,
+            percent: percent > 1.0 ? 1.0 : percent,
+            backgroundColor: Colors.grey,
+            progressColor: color,
+          ),
         const Spacer(),
         Text(
           "${value.toPrecision(3)} ${iscalory! ? S.of(context).calory : S.of(context).g}",

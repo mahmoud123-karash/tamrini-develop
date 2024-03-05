@@ -34,6 +34,7 @@ class NutritionValuesColumWidget extends StatelessWidget {
                 height: height / 30,
               ),
               NutritionValueLableWidget(
+                color: Colors.blue,
                 lable: S.of(context).protien,
                 value: model.proteins * selectedWieght / 50,
               ),
@@ -41,6 +42,7 @@ class NutritionValuesColumWidget extends StatelessWidget {
                 height: height / 22,
               ),
               NutritionValueLableWidget(
+                color: Colors.yellow,
                 lable: S.of(context).fat,
                 value: model.fats * selectedWieght / 50,
               ),
@@ -48,6 +50,7 @@ class NutritionValuesColumWidget extends StatelessWidget {
                 height: height / 22,
               ),
               NutritionValueLableWidget(
+                color: Colors.red,
                 lable: S.of(context).carb,
                 value: model.carbs * selectedWieght / 50,
               ),
