@@ -25,13 +25,11 @@ class SuggestCubit extends Cubit<SuggestStates> {
 
   void suggestExercise({
     required String title,
-    required String url,
     required String imagePath,
   }) async {
     emit(LoadingSuggestState());
     var result = await suggestRepo.suggestExercise(
       title: title,
-      url: url,
       imagePath: imagePath,
     );
     result.fold(

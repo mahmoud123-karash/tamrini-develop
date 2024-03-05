@@ -25,7 +25,6 @@ class SuggestRepoIpml extends SuggestRepo {
   @override
   Future<Either<String, String>> suggestExercise({
     required String title,
-    required String url,
     required String imagePath,
   }) async {
     try {
@@ -39,8 +38,7 @@ class SuggestRepoIpml extends SuggestRepo {
       } else {
         image = '';
       }
-      SuggestModel model =
-          SuggestModel(id: uuid, title: title, url: url, image: image);
+      SuggestModel model = SuggestModel(id: uuid, title: title, image: image);
       await FirebaseFirestore.instance
           .collection('suggested_exercises')
           .doc(uuid)

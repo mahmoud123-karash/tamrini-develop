@@ -13,10 +13,8 @@ class SuggestExerciseContentWidget extends StatelessWidget {
     required this.nameController,
     required this.autovalidateMode,
     required this.formKey,
-    required this.youtubController,
   });
   final TextEditingController nameController;
-  final TextEditingController youtubController;
   final AutovalidateMode autovalidateMode;
   final GlobalKey<FormState> formKey;
 
@@ -42,16 +40,6 @@ class SuggestExerciseContentWidget extends StatelessWidget {
                 addTextField(
                   lable: S.of(context).exercise_name,
                   controller: nameController,
-                  context: context,
-                  autovalidateMode: autovalidateMode,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                addTextField(
-                  lable: S.of(context).youtub_uri,
-                  controller: youtubController,
-                  keyboardType: TextInputType.url,
                   context: context,
                   autovalidateMode: autovalidateMode,
                 ),
