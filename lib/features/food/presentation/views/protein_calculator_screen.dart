@@ -37,7 +37,7 @@ class _ProteinCalculatorScreenState extends State<ProteinCalculatorScreen> {
 
   @override
   void initState() {
-    userType = CacheHelper.getData(key: 'usertype');
+    userType = CacheHelper.getData(key: 'usertype') ?? '';
     super.initState();
     activityController = FixedExtentScrollController();
     purposeController = FixedExtentScrollController();

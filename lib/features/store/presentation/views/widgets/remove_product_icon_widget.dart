@@ -12,7 +12,7 @@ class RemoveProductIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
     return GestureDetector(
       onTap: () {
         AwesomeDialog(

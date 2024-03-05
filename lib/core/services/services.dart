@@ -133,6 +133,7 @@ void logOut(context) async {
   var box2 = Hive.box<MealModel>(favoriteBox);
   await box2.clear();
   clearSubBox();
+  CacheHelper.removeData(key: 'usertype');
   CacheHelper.removeData(key: 'deviceToken');
   CacheHelper.removeData(key: 'trainerId');
   CacheHelper.removeData(key: 'address');

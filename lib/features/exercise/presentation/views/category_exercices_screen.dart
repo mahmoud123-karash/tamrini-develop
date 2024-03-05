@@ -34,7 +34,7 @@ class CategoryExercisesScreen extends StatefulWidget {
 class _CategoryExercisesScreenState extends State<CategoryExercisesScreen> {
   @override
   void initState() {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
     if (userType != UserType.admin && userType != UserType.trainer) {
       createBannerAd();
     }

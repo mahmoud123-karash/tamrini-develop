@@ -33,7 +33,7 @@ class _NutritionCalculatorScreenState extends State<NutritionCalculatorScreen> {
   late String userType;
   @override
   void initState() {
-    userType = CacheHelper.getData(key: 'usertype');
+    userType = CacheHelper.getData(key: 'usertype') ?? '';
     NutritionCubit.get(context).getData(id: widget.model.id);
     super.initState();
   }

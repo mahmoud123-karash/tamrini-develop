@@ -23,7 +23,7 @@ class StoreOwnerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String uid = CacheHelper.getData(key: 'uid');
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     final EdgeInsets systemPadding = MediaQuery.of(context).padding;
     return Scaffold(
       body: BlocBuilder<StoreCubit, StoreStates>(

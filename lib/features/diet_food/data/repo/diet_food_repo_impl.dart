@@ -30,7 +30,7 @@ class DietFoodRepoImpl extends DietFoodRepo {
     required String description,
     required List<String> paths,
   }) async {
-    String uid = CacheHelper.getData(key: 'uid');
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     try {
       List<String> assets = await upload(paths);
       DietFoodModel model = DietFoodModel(

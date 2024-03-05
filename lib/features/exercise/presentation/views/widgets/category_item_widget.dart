@@ -29,8 +29,8 @@ class CategoryItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
-    String exerciseId = CacheHelper.getData(key: 'exerciseId');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
+    String exerciseId = CacheHelper.getData(key: 'exerciseId') ?? '';
 
     return GestureDetector(
       onTap: () {

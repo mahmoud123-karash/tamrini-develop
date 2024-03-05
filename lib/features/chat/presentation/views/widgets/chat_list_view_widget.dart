@@ -18,8 +18,8 @@ class ChatListViewWidget extends StatelessWidget {
           reverse: true,
           controller: scrollController,
           itemBuilder: (context, index) => MessageItemWidget(
-            isSender:
-                CacheHelper.getData(key: 'uid') == messages[index].senderUid,
+            isSender: CacheHelper.getData(key: 'uid') ??
+                "" == messages[index].senderUid,
             message: messages[index].message,
             time: messages[index].time.toDate(),
           ),

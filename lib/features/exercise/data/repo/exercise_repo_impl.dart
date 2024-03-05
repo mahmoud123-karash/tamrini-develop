@@ -124,7 +124,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
     required String imagePath,
   }) async {
     try {
-      String uid = CacheHelper.getData(key: 'uid');
+      String uid = CacheHelper.getData(key: 'uid') ?? "";
       List files = [];
       files.add(File(imagePath));
       List<String> images = await uploadFiles(files: files);
@@ -174,7 +174,7 @@ class ExerciseRepoImpl extends ExerciseRepo {
     required DataModel oldData,
   }) async {
     try {
-      String uid = CacheHelper.getData(key: 'uid');
+      String uid = CacheHelper.getData(key: 'uid') ?? '';
 
       List<DataModel> dataList = exercise.data ?? [];
       late DataModel newData;

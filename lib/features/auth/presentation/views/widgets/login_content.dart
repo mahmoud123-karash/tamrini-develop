@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:tamrini/features/auth/presentation/views/reset_password_screen.dart';
@@ -116,6 +117,7 @@ class _LoginContentState extends State<LoginContent>
                         MessageTextWidget(
                           label: S.of(context).follow,
                           onPressed: () {
+                            saveUserType('');
                             navigateToAndFinish(context, const NavBarScreen());
                           },
                         ),

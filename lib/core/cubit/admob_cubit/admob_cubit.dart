@@ -11,7 +11,7 @@ class AdMobCubit extends Cubit<AdMobStates> {
   AdMobCubit() : super(InitialAdMobState());
   static AdMobCubit get(context) => BlocProvider.of(context);
 
-  String userType = CacheHelper.getData(key: 'usertype');
+  String userType = CacheHelper.getData(key: 'usertype') ?? "";
 
   void createBannerAd() {
     final bannerAd = BannerAd(

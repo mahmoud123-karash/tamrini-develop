@@ -24,7 +24,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
     return BlocBuilder<AdMobCubit, AdMobStates>(
       builder: (context, state) {
         if (state is SucessLoadBannerAdState) {

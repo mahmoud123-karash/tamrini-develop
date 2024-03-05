@@ -20,7 +20,7 @@ class ChatRepoImpl extends ChatRepo {
   }) async {
     try {
       var messageuid = const Uuid().v4();
-      String senderUid = CacheHelper.getData(key: 'uid');
+      String senderUid = CacheHelper.getData(key: 'uid') ?? "";
       MessageModel message = MessageModel(
         message: messageText,
         senderUid: senderUid,

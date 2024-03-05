@@ -13,7 +13,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   late String lang;
   @override
   void initState() {
-    lang = CacheHelper.getData(key: 'lang') ?? Platform.localeName;
+    lang = CacheHelper.getData(key: 'lang') ?? '';
     super.initState();
   }
 

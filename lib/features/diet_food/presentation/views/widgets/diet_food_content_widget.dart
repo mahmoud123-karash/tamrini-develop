@@ -57,7 +57,7 @@ class _DietFoodContentWidgetState extends State<DietFoodContentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
 
     return Column(
       children: [
