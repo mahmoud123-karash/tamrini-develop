@@ -254,7 +254,7 @@ class _MyAppState extends State<MyApp> {
         return BlocBuilder<ManageCubit, ManageStates>(
           builder: (context, state) {
             bool isDark = ManageCubit.get(context).isDark;
-            String lang = ManageCubit.get(context).lang;
+            String lang = ManageCubit.get(context).lang == 'ar' ? 'ar' : 'en';
             return MaterialApp(
               locale: Locale(lang),
               localizationsDelegates: const [
