@@ -17,7 +17,7 @@ import '../../features/questions/data/models/question_model/question_model.dart'
 Iterable<Result<dynamic>> getResult(List options, value) {
   final fuzzyOptions = FuzzyOptions(
     shouldNormalize: true,
-    sortFn: (a, b) => b.score.compareTo(b.score),
+    sortFn: (a, b) => b.score.compareTo(a.score),
     minMatchCharLength: 5,
   );
   final fuse = Fuzzy(options, options: fuzzyOptions);
