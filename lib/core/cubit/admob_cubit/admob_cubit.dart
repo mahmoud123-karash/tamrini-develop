@@ -13,25 +13,6 @@ class AdMobCubit extends Cubit<AdMobStates> {
 
   String userType = CacheHelper.getData(key: 'usertype') ?? "";
 
-  void createBannerAd() {
-    final bannerAd = BannerAd(
-      adUnitId: AdModService.adBannerId,
-      request: const AdRequest(),
-      size: AdSize.banner,
-      listener: BannerAdListener(
-        onAdLoaded: (ad) {
-          emit(SucessLoadBannerAdState(ad as BannerAd));
-        },
-        onAdFailedToLoad: (ad, error) {
-          ad.dispose();
-          log('$error');
-          emit(ErrorLoadBannerAdState(error.toString()));
-        },
-      ),
-    );
-    bannerAd.load();
-  }
-
   void createInterstitialAd() {
     InterstitialAd.load(
       adUnitId: AdModService.adInterstitialId,

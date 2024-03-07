@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/widgets/banner_ad_widget.dart';
+import 'package:tamrini/core/utils/admod_id.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/exercise_data.dart';
 import 'package:tamrini/features/home_exercise/data/models/home_exercise/home_exercise_model.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_cubit.dart';
 import 'package:tamrini/features/home_exercise/presentation/manager/home_exercise_cubit/home_exercise_states.dart';
 import 'package:tamrini/features/home_exercise/presentation/views/widgets/all_home_exercise_category_content_widget.dart';
 
-class AllHomeExerciseCategoryScreen extends StatelessWidget {
+class AllHomeExerciseCategoryScreen extends StatefulWidget {
   const AllHomeExerciseCategoryScreen({
     super.key,
     required this.title,
@@ -22,10 +23,53 @@ class AllHomeExerciseCategoryScreen extends StatelessWidget {
   final List<Data>? list;
 
   @override
+  State<AllHomeExerciseCategoryScreen> createState() =>
+      _AllHomeExerciseCategoryScreenState();
+}
+
+class _AllHomeExerciseCategoryScreenState
+    extends State<AllHomeExerciseCategoryScreen> {
+  @override
+  void initState() {
+    createBannerAd();
+    super.initState();
+  }
+
+  BannerAd? bannerAd;
+  void createBannerAd() {
+    bannerAd = BannerAd(
+      adUnitId: AdModService.adBannerId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {},
+        onAdFailedToLoad: (ad, error) {
+          ad.dispose();
+        },
+      ),
+    );
+    bannerAd!.load();
+  }
+
+  @override
+  void dispose() {
+    if (bannerAd != null) {
+      bannerAd!.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BannerAdWidget(),
-      appBar: myAppBar(title),
+      bottomNavigationBar: bannerAd != null
+          ? SizedBox(
+              width: AdSize.banner.width.toDouble(),
+              height: AdSize.banner.height.toDouble(),
+              child: AdWidget(ad: bannerAd!),
+            )
+          : const SizedBox(),
+      appBar: myAppBar(widget.title),
       body: RefreshIndicator(
         onRefresh: () async {
           await Future.delayed(const Duration(milliseconds: 1500)).then(
@@ -36,12 +80,14 @@ class AllHomeExerciseCategoryScreen extends StatelessWidget {
         },
         child: BlocBuilder<HomeExerciseCubit, HomeExerciseStates>(
           builder: (context, state) {
-            HomeExerciseModel? model =
-                id != '' ? HomeExerciseCubit.get(context).getSection(id) : null;
+            HomeExerciseModel? model = widget.id != ''
+                ? HomeExerciseCubit.get(context).getSection(widget.id)
+                : null;
             return AllHomeExercisesCategoryContentWidget(
-              models: list != null ? list ?? [] : model!.data ?? [],
-              id: id,
-              isAll: isAll,
+              models:
+                  widget.list != null ? widget.list ?? [] : model!.data ?? [],
+              id: widget.id,
+              isAll: widget.isAll,
             );
           },
         ),

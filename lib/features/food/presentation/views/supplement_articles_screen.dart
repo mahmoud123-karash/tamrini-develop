@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tamrini/core/shared/components.dart';
-import 'package:tamrini/core/widgets/banner_ad_widget.dart';
+import 'package:tamrini/core/utils/admod_id.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
@@ -26,9 +27,45 @@ class SupplementArticlesScreen extends StatefulWidget {
 
 class _SupplementArticlesScreenState extends State<SupplementArticlesScreen> {
   @override
+  void initState() {
+    createBannerAd();
+    super.initState();
+  }
+
+  BannerAd? bannerAd;
+  void createBannerAd() {
+    bannerAd = BannerAd(
+      adUnitId: AdModService.adBannerId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {},
+        onAdFailedToLoad: (ad, error) {
+          ad.dispose();
+        },
+      ),
+    );
+    bannerAd!.load();
+  }
+
+  @override
+  void dispose() {
+    if (bannerAd != null) {
+      bannerAd!.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BannerAdWidget(),
+      bottomNavigationBar: bannerAd != null
+          ? SizedBox(
+              width: AdSize.banner.width.toDouble(),
+              height: AdSize.banner.height.toDouble(),
+              child: AdWidget(ad: bannerAd!),
+            )
+          : const SizedBox(),
       appBar: myAppBar(widget.title),
       body: RefreshIndicator(
         onRefresh: () async {
