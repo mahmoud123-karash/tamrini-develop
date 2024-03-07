@@ -44,7 +44,13 @@ void showPickerDialog({
                 children: [
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text(S.of(context).ok),
+                    child: Text(
+                      S.of(context).ok,
+                      style: TextStyles.style15.copyWith(
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: textField,
@@ -94,7 +100,13 @@ void showWeightDialog({
                 children: [
                   TextButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text(S.of(context).ok),
+                    child: Text(
+                      S.of(context).ok,
+                      style: TextStyles.style15.copyWith(
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Center(
@@ -156,6 +168,10 @@ void showCalculatorDialog({
                   onPressed: () => Navigator.of(context).pop(),
                   child: Text(
                     S.of(context).ok,
+                    style: TextStyles.style15.copyWith(
+                      color: Colors.amber,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const Spacer(),

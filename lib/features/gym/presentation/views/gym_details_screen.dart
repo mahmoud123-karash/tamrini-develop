@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
@@ -81,6 +82,21 @@ class SubAndEditCustomWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        if (model.ownerUid == adminUid && model.ownerUid != uid)
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15,
+            ),
+            child: customButton(
+              color: Colors.blue,
+              onPressed: () {
+                openLocation(
+                    lat: model.location.latitude,
+                    long: model.location.longitude);
+              },
+              lable: S.of(context).show,
+            ),
+          ),
         if (userType == UserType.admin || userType == UserType.gymOwner)
           model.ownerUid == uid
               ? Padding(

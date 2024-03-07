@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/features/auth/presentation/manager/reset_cubit/reset_cubit.dart';
 
@@ -22,11 +23,14 @@ class ResetPassScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SafeArea(
+          SafeArea(
             child: Scaffold(
+              appBar: AppBar(
+                backgroundColor: whiteColor.withOpacity(0.1),
+              ),
               resizeToAvoidBottomInset: true,
               backgroundColor: Colors.transparent,
-              body: ResetContentWidget(),
+              body: const ResetContentWidget(),
             ),
           ),
         ],
