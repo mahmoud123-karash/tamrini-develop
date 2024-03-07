@@ -218,6 +218,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("د.ع/شهر"),
         "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "days": MessageLookupByLibrary.simpleMessage("الأيام"),
+        "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+        "delete_account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "delete_account_question":
+            MessageLookupByLibrary.simpleMessage("حذف حسابك ؟"),
         "delivered_message": MessageLookupByLibrary.simpleMessage(
             "تم تسليم طلبك ,أنت وقعت عليه"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
@@ -558,6 +562,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المنتج"),
         "rating_trainer_hint":
             MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المدرب"),
+        "re_auth_account": MessageLookupByLibrary.simpleMessage(
+            "من فضلك قم بتسجيل الدخول,ثم حاةل مرة أخري لتأكيد الحساب"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "received": MessageLookupByLibrary.simpleMessage("مستلم"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),

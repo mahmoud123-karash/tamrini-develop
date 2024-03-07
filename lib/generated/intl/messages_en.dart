@@ -223,6 +223,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("IQD/Month"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "days": MessageLookupByLibrary.simpleMessage("Days"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "delete_account":
+            MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "delete_account_hint": MessageLookupByLibrary.simpleMessage(
+            "If you choose to delete, we will delete your account from our server. \nYour application data will also be deleted and cannot be recovered."),
+        "delete_account_question":
+            MessageLookupByLibrary.simpleMessage("Delete your account?"),
         "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
         "delivered_message": MessageLookupByLibrary.simpleMessage(
             "Your order has been delivered and signed by you"),
@@ -567,6 +574,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please rate the product"),
         "rating_trainer_hint": MessageLookupByLibrary.simpleMessage(
             "Rate this trainer from 1 to 5"),
+        "re_auth_account": MessageLookupByLibrary.simpleMessage(
+            "Please log in again to confirm the account"),
         "recalculate": MessageLookupByLibrary.simpleMessage("Recalculate"),
         "received": MessageLookupByLibrary.simpleMessage("Received"),
         "refuse": MessageLookupByLibrary.simpleMessage("Refuse"),

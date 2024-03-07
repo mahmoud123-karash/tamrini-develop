@@ -208,6 +208,7 @@ UserModel getUserFromProfile() {
   String token = CacheHelper.getData(key: 'deviceToken') ?? '';
   String uid = CacheHelper.getData(key: 'uid') ?? '';
   UserModel user = UserModel(
+    isDeleted: false,
     email: model.email,
     role: type,
     gender: model.gender,

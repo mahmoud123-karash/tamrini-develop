@@ -25,6 +25,7 @@ class AdminRemoteDataSourceImpl extends AdminRemoteDataSource {
       );
       users.add(model);
     }
+    users = users.where((element) => element.isDeleted == false).toList();
     return users;
   }
 }

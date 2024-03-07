@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/profile/presentation/views/widgets/delete_account_dialog.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class CustomEditProfileButtonWidget extends StatelessWidget {
@@ -13,25 +13,31 @@ class CustomEditProfileButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        bottom: 15,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
       ),
-      child: MaterialButton(
-        shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide.none,
-        ),
-        color: appColor,
-        onPressed: onPressed,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            S.of(context).update_profile,
-            style: TextStyles.style17.copyWith(
-              color: whiteColor,
-            ),
+      child: Row(
+        children: [
+          Expanded(
+            child: customButton(
+                onPressed: onPressed, lable: S.of(context).update_profile),
           ),
-        ),
+          const SizedBox(
+            width: 5,
+          ),
+          Expanded(
+            child: customButton(
+                color: Colors.red,
+                onPressed: () {
+                  showDialog(
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (context) => const DeleteAccountDialogWidget(),
+                  );
+                },
+                lable: S.of(context).delete_account),
+          ),
+        ],
       ),
     );
   }

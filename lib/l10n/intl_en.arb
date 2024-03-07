@@ -543,20 +543,12 @@
     "cash_num": "Wallet Number",
     "success_move_exercise":"The exercise was transferred successfully.",
     "move_exercise_to_category": "Do you want to move the exercise to this category?",
-    "login_first_please": "Please log in first to continue."
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "login_first_please": "Please log in first to continue.",
+    "delete_account_hint": "If you choose to delete, we will delete your account from our server. \nYour application data will also be deleted and cannot be recovered.",
+    "delete_account_question": "Delete your account?",
+    "delete": "Delete",
+    "delete_account": "Delete Account",
+    "re_auth_account": "Please log in again to confirm the account"
 
 
 }

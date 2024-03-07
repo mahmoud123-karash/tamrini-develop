@@ -5499,6 +5499,56 @@ class S {
       args: [],
     );
   }
+
+  /// `If you choose to delete, we will delete your account from our server. \nYour application data will also be deleted and cannot be recovered.`
+  String get delete_account_hint {
+    return Intl.message(
+      'If you choose to delete, we will delete your account from our server. \nYour application data will also be deleted and cannot be recovered.',
+      name: 'delete_account_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete your account?`
+  String get delete_account_question {
+    return Intl.message(
+      'Delete your account?',
+      name: 'delete_account_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get delete_account {
+    return Intl.message(
+      'Delete Account',
+      name: 'delete_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please log in again to confirm the account`
+  String get re_auth_account {
+    return Intl.message(
+      'Please log in again to confirm the account',
+      name: 're_auth_account',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tamrini/core/cache/save_data.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_remote_data_source.dart';
 import 'package:tamrini/features/auth/data/models/user_model/user_model.dart';
 import 'package:tamrini/features/auth/domain/repo/login_repo.dart';
@@ -50,5 +52,27 @@ class LoginRepoImpl extends LoginRepo {
         await FirebaseAuth.instance.signInWithCredential(credential);
 
     return user;
+  }
+
+  @override
+  Future<Either<String, String>> deleteAccount() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    try {
+      await firebaseAuth.currentUser!.delete();
+      String uid = CacheHelper.getData(key: 'uid');
+      await FirebaseFirestore.instance.collection('users').doc(uid).update(
+        {
+          'isDeleted': true,
+          "email": '',
+        },
+      );
+      return right('r');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == "requires-recent-login") {
+        return right('re');
+      } else {
+        return left(e.code);
+      }
+    }
   }
 }

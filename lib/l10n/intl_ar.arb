@@ -542,14 +542,13 @@
     "cash_num":"رقم المحفظة",
     "success_move_exercise":"تم نقل التمرين بنجاح",
     "move_exercise_to_category":"هل تريد نقل التمرين الي هذه الفئة؟",
-    "login_first_please":"يجب تسجيل الدخول أولا لكى تستطيع المتابعة"
+    "login_first_please":"يجب تسجيل الدخول أولا لكى تستطيع المتابعة",
+    "delete_account_question":"حذف حسابك ؟",
+    "delete":"حذف",
+    "delete_account":"حذف الحساب",
+    "re_auth_account":"من فضلك قم بتسجيل الدخول,ثم حاةل مرة أخري لتأكيد الحساب"
 
 
-
-
-
-
-   
 
 
 }

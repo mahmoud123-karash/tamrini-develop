@@ -12,6 +12,7 @@ class UserModel {
   final String address;
   final String email;
   final bool isBanned;
+  final bool isDeleted;
   final String gender;
 
   UserModel({
@@ -20,6 +21,7 @@ class UserModel {
     required this.role,
     required this.token,
     required this.uid,
+    required this.isDeleted,
     required this.facebookUri,
     required this.whatsApp,
     required this.isBanned,
@@ -48,6 +50,7 @@ class UserModel {
       gender: map['gender'] ?? '',
       address: address,
       isBanned: map['isBanned'] ?? false,
+      isDeleted: map['isDeleted'] ?? false,
     );
   }
 }
