@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class ZainCashScreen extends StatefulWidget {
   const ZainCashScreen({super.key, required this.trasactionId});
@@ -13,9 +14,19 @@ class ZainCashScreen extends StatefulWidget {
 
 class _ZainCashScreenState extends State<ZainCashScreen> {
   late WebViewController controller;
+
   @override
   void initState() {
-    controller = WebViewController()
+    late final PlatformWebViewControllerCreationParams params;
+    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+      params = WebKitWebViewControllerCreationParams(
+        allowsInlineMediaPlayback: true,
+        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+      );
+    } else {
+      params = const PlatformWebViewControllerCreationParams();
+    }
+    controller = WebViewController.fromPlatformCreationParams(params)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(appColor)
       ..setNavigationDelegate(
@@ -36,6 +47,7 @@ class _ZainCashScreenState extends State<ZainCashScreen> {
         Uri.parse(
             'https://test.zaincash.iq/transaction/pay?id=${widget.trasactionId}'),
       );
+
     super.initState();
   }
 
