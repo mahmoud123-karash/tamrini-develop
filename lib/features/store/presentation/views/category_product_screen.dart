@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/assets.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/admod_id.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/all_container_widget.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
@@ -24,7 +26,10 @@ class CategoryProductScreen extends StatefulWidget {
 class _CategoryProductScreenState extends State<CategoryProductScreen> {
   @override
   void initState() {
-    createBannerAd();
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
+    if (userType != UserType.admin && userType != UserType.trainer) {
+      createBannerAd();
+    }
     super.initState();
   }
 

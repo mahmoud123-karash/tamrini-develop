@@ -58,15 +58,20 @@ class LoginRepoImpl extends LoginRepo {
   Future<Either<String, String>> deleteAccount() async {
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     try {
-      await firebaseAuth.currentUser!.delete();
-      String uid = CacheHelper.getData(key: 'uid');
-      await FirebaseFirestore.instance.collection('users').doc(uid).update(
-        {
-          'isDeleted': true,
-          "email": '',
-        },
-      );
-      return right('r');
+      User? user = firebaseAuth.currentUser;
+      if (user != null) {
+        user.delete();
+        String uid = CacheHelper.getData(key: 'uid') ?? '';
+        await FirebaseFirestore.instance.collection('users').doc(uid).update(
+          {
+            'isDeleted': true,
+            "email": '',
+          },
+        );
+        return right('r');
+      } else {
+        return right('re');
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == "requires-recent-login") {
         return right('re');

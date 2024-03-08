@@ -153,7 +153,7 @@
     "all_privay_saved":"جميع الحقوق محفوظة",
     "admin_hint":"لا تستطيع الوصول لملف الأدمن",
     "user_profile":"الملف الشخصي",
-    "success_update_location":"تم تحديث مواقعك",
+    "success_update_location":"تم تحديث موقعك",
     "profile_hint_social": "لا يوجد",
     "facebooh":"فيسبوك",
     "instgram":"انستجرام",
@@ -546,7 +546,8 @@
     "delete_account_question":"حذف حسابك ؟",
     "delete":"حذف",
     "delete_account":"حذف الحساب",
-    "re_auth_account":"من فضلك قم بتسجيل الدخول,ثم حاةل مرة أخري لتأكيد الحساب"
+    "re_auth_account":"من فضلك قم بتسجيل الدخول,ثم حاول مرة أخري لتأكيد الحساب",
+    "delete_account_hint":"إذا قمت بإختيار حذف، فسوف نقوم بحذف حسابك على خادمنا. \nسيتم أيضًا حذف بيانات تطبيقك ولن تتمكن من استعادتها."
 
 
 

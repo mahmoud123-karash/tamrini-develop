@@ -114,7 +114,7 @@ void initiGetprofile(context) {
 void logOut(context) async {
   GoogleSignIn googleSignIn = GoogleSignIn();
   if (await googleSignIn.isSignedIn()) {
-    googleSignIn.disconnect();
+    await googleSignIn.disconnect();
   }
   await FirebaseAuth.instance.signOut();
   navigateToAndFinish(context, const LoginScreen());

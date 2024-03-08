@@ -220,6 +220,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "days": MessageLookupByLibrary.simpleMessage("الأيام"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "delete_account": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "delete_account_hint": MessageLookupByLibrary.simpleMessage(
+            "إذا قمت بإختيار حذف، فسوف نقوم بحذف حسابك على خادمنا. \nسيتم أيضًا حذف بيانات تطبيقك ولن تتمكن من استعادتها."),
         "delete_account_question":
             MessageLookupByLibrary.simpleMessage("حذف حسابك ؟"),
         "delivered_message": MessageLookupByLibrary.simpleMessage(
@@ -563,7 +565,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rating_trainer_hint":
             MessageLookupByLibrary.simpleMessage("أعطى من 1 إلي 5 لهذا المدرب"),
         "re_auth_account": MessageLookupByLibrary.simpleMessage(
-            "من فضلك قم بتسجيل الدخول,ثم حاةل مرة أخري لتأكيد الحساب"),
+            "من فضلك قم بتسجيل الدخول,ثم حاول مرة أخري لتأكيد الحساب"),
         "recalculate": MessageLookupByLibrary.simpleMessage("إعادة الحساب"),
         "received": MessageLookupByLibrary.simpleMessage("مستلم"),
         "refuse": MessageLookupByLibrary.simpleMessage("رفض"),
@@ -690,7 +692,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "success_update_answer":
             MessageLookupByLibrary.simpleMessage("تم تعديل الإجابة"),
         "success_update_location":
-            MessageLookupByLibrary.simpleMessage("تم تحديث مواقعك"),
+            MessageLookupByLibrary.simpleMessage("تم تحديث موقعك"),
         "success_update_profile":
             MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي"),
         "success_update_reminder":

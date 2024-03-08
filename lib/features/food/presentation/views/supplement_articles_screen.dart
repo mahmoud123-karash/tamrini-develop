@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/admod_id.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/food/data/models/supplement_model/supplement_model.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
@@ -28,7 +30,10 @@ class SupplementArticlesScreen extends StatefulWidget {
 class _SupplementArticlesScreenState extends State<SupplementArticlesScreen> {
   @override
   void initState() {
-    createBannerAd();
+    String userType = CacheHelper.getData(key: 'usertype') ?? "";
+    if (userType != UserType.admin && userType != UserType.trainer) {
+      createBannerAd();
+    }
     super.initState();
   }
 

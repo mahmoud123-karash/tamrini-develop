@@ -7,7 +7,6 @@ import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/auth/data/repo/login_repo_impl.dart';
 import 'package:tamrini/features/auth/presentation/manager/delete_account_cubit/delete_account_cubit.dart';
 import 'package:tamrini/features/auth/presentation/manager/delete_account_cubit/delete_account_states.dart';
-import 'package:tamrini/features/auth/presentation/views/login_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class DeleteAccountDialogWidget extends StatelessWidget {
@@ -48,7 +47,6 @@ class DeleteAccountDialogWidget extends StatelessWidget {
               }
               if (state is SuccessDeleteAccountState) {
                 logOut(context);
-                navigateToAndFinish(context, const LoginScreen());
               }
             },
             builder: (context, state) {
