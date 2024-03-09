@@ -1,5 +1,5 @@
 class ZainCash {
-  static const int msisdn = 964771121131;
+  static const int msisdn = 9647711211318;
 
   static const String secret =
       "\$2y\$10\$pAuCAB9OtkkHGPjff.joz.JjGK88esa77I889HW4OnRueI4yD3x4O";
