@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hive/hive.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/profile/data/models/profile_model/profile_model.dart';
 
 abstract class ProfileRemotedataSource {
@@ -15,12 +14,7 @@ class ProfileRemotedataSourceImpl extends ProfileRemotedataSource {
     String uid = CacheHelper.getData(key: 'uid');
     var result =
         await FirebaseFirestore.instance.collection('users').doc(uid).get();
-    GeoPoint defaultPoint = const GeoPoint(33.312805, 44.361488);
-    GeoPoint location = result.data() == null
-        ? defaultPoint
-        : result.data()!['location'] ?? defaultPoint;
-    String address = await getAddress(location: location);
-    ProfileModel model = ProfileModel.fromMap(result.data()!, address);
+    ProfileModel model = ProfileModel.fromMap(result.data()!);
     var box = Hive.box<ProfileModel>(profileBox);
     box.add(model);
     return model;

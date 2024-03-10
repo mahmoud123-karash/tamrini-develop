@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -104,19 +106,20 @@ Future<double> getDistance({
 }
 
 Future<String> getAddress({required GeoPoint location}) async {
+  String currentAddress = Intl.getCurrentLocale().split('_')[0];
+  log(currentAddress);
   if (!await InternetConnectionChecker().hasConnection) {
-    return Intl.getCurrentLocale() == 'en' ? 'Iraq Baghdad' : 'بغداد العراق';
+    return currentAddress == 'ar' ? 'بغداد العراق' : "Iraq bagbab";
   } else {
     var result = await placemarkFromCoordinates(
       location.latitude,
       location.longitude,
-      localeIdentifier: Intl.getCurrentLocale() == 'ar' ? 'ar' : 'en',
+      localeIdentifier: currentAddress,
     );
     if (result.isNotEmpty) {
       String country = result.first.country ?? '';
       String city = result.first.locality ?? '';
       String subAdministrativeArea = result.first.subAdministrativeArea ?? '';
-
       return '$country $city $subAdministrativeArea';
     } else {
       return '';

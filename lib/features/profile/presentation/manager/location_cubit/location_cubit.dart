@@ -22,9 +22,12 @@ class LocationCubit extends Cubit<LocationStates> {
             location: GeoPoint(location.latitude, location.longitude));
         String uid = CacheHelper.getData(key: 'uid');
 
-        await FirebaseFirestore.instance.collection('users').doc(uid).update({
-          "location": GeoPoint(location.latitude, location.longitude),
-        });
+        await FirebaseFirestore.instance.collection('users').doc(uid).update(
+          {
+            "location": GeoPoint(location.latitude, location.longitude),
+            "address": address,
+          },
+        );
         saveAddress(address);
         emit(LocationChangedSuccessState(address));
       } else {

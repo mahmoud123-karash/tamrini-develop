@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 
 abstract class TraineeRemoteDataSource {
@@ -34,12 +33,7 @@ class TraineeRemoteDataSourceImpl extends TraineeRemoteDataSource {
         .collection('users')
         .doc(askerUid)
         .get();
-    GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
-    GeoPoint location = result.data() == null
-        ? defultLocation
-        : result.data()!['location'] ?? defultLocation;
-    String address = await getAddress(location: location);
-    UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+    UserModel user = UserModel.fromMap(result.data()!, result.id);
     return user;
   }
 

@@ -1,6 +1,4 @@
 import 'dart:developer';
-import 'package:tamrini/core/utils/user_type.dart';
-
 import 'widgets/curved_nav_bar_widget.dart';
 import 'drawer_widget.dart';
 import 'package:tamrini/core/utils/improts.dart';

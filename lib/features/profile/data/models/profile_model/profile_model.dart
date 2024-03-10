@@ -46,7 +46,7 @@ class ProfileModel {
     required this.trainerId,
   });
 
-  factory ProfileModel.fromMap(Map<String, dynamic> map, String address) {
+  factory ProfileModel.fromMap(Map<String, dynamic> map) {
     return ProfileModel(
       name: map['name'] ?? '',
       email: map['email'] ?? '',
@@ -57,7 +57,7 @@ class ProfileModel {
       gender: map['gender'] ?? '',
       instgramUri: map['instgramUri'] ?? '',
       twiterUri: map['twiterUri'] ?? '',
-      address: address,
+      address: map['address'] ?? 'العراق بغداد',
       age: map['age'] ?? 0,
       trainerId: map['trainerId'] ?? '',
       isBanned: map['isBanned'] ?? false,

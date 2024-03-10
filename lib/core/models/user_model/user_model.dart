@@ -33,8 +33,7 @@ class UserModel {
     required this.gender,
   });
 
-  factory UserModel.fromMap(
-      Map<String, dynamic> map, String uid, String address) {
+  factory UserModel.fromMap(Map<String, dynamic> map, String uid) {
     return UserModel(
       name: map['name'] ?? '',
       image: map['image'] ?? '',
@@ -48,7 +47,7 @@ class UserModel {
       email: map['email'] ?? '',
       role: map['role'] ?? 'user',
       gender: map['gender'] ?? '',
-      address: address,
+      address: map['address'] ?? 'العراق بغداد',
       isBanned: map['isBanned'] ?? false,
       isDeleted: map['isDeleted'] ?? false,
     );

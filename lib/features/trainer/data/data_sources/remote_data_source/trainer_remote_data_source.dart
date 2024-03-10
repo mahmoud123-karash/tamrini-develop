@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
-import 'package:tamrini/core/services/location.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/rating_model.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
@@ -63,10 +62,7 @@ class TrainerRemoteDataSourceImpl extends TrainerRemoteDataSource {
       if (result.data() == null) {
         return null;
       } else {
-        GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
-        GeoPoint location = result.data()!['location'] ?? defultLocation;
-        String address = await getAddress(location: location);
-        UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+        UserModel user = UserModel.fromMap(result.data()!, result.id);
         return user;
       }
     } else {

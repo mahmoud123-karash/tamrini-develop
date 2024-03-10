@@ -191,12 +191,10 @@ void clearSubBox() async {
 Future<UserModel> getUser(String uid) async {
   var result =
       await FirebaseFirestore.instance.collection('users').doc(uid).get();
-  GeoPoint defultLocation = const GeoPoint(33.312805, 44.361488);
-  GeoPoint location = result.data() == null
-      ? defultLocation
-      : result.data()!['location'] ?? defultLocation;
-  String address = await getAddress(location: location);
-  UserModel user = UserModel.fromMap(result.data()!, result.id, address);
+  UserModel user = UserModel.fromMap(
+    result.data()!,
+    result.id,
+  );
 
   return user;
 }

@@ -7,6 +7,7 @@ import 'package:tamrini/generated/l10n.dart';
 import 'order_details.dart';
 import 'order_details_text_widget.dart';
 import 'order_product_widget.dart';
+import 'user_info_container_widget.dart';
 
 class OrderDetailsStreamContentWidget extends StatelessWidget {
   const OrderDetailsStreamContentWidget({super.key, required this.order});
@@ -43,6 +44,11 @@ class OrderDetailsStreamContentWidget extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 15,
+            ),
+            OrderDetailsTextWidget(text: S.of(context).user_profile),
+            UserInfoContainerWidget(order: order),
             const SizedBox(
               height: 15,
             ),
