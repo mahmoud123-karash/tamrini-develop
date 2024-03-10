@@ -8,6 +8,7 @@ import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_chat_icon_widget.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/store_name_num_widget.dart';
 
+import 'back_store_icon_widget.dart';
 import 'ban_gym_custom_button_widget.dart';
 
 class StoreCoverImageWidget extends StatelessWidget {
@@ -60,6 +61,11 @@ class StoreCoverImageWidget extends StatelessWidget {
                 isBanned: isBanned,
               ),
             ),
+          const Positioned(
+            top: 0,
+            right: 0,
+            child: BackStoreIconWidget(),
+          ),
           Positioned(
             bottom: 0,
             right: 0,

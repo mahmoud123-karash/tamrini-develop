@@ -12,7 +12,7 @@ class NavBarScreen extends StatefulWidget {
 
 class _NavBarScreenState extends State<NavBarScreen> {
   @override
-  void initState() {
+  void didChangeDependencies() {
     String userType = CacheHelper.getData(key: 'usertype') ?? "";
     String uid = CacheHelper.getData(key: 'uid') ?? "";
     String trainerId = CacheHelper.getData(key: 'trainerId') ?? "";
@@ -56,8 +56,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
         UserCourseCubit.get(context).getCourse();
       }
     }
-
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override

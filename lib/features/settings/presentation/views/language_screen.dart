@@ -21,7 +21,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
   Widget build(BuildContext context) {
     String cachedLang = CacheHelper.getData(key: 'lang') ?? '';
     String currentLang = Platform.localeName.split('_')[0];
-
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: myAppBar(S.of(context).language),
@@ -50,10 +49,10 @@ class _LanguageScreenState extends State<LanguageScreen> {
           LanguageContainerWidget(
             lable: S.of(context).device_language,
             onTap: () {
-              lang = currentLang;
+              lang = '';
               setState(() {});
             },
-            isSelected: lang == currentLang,
+            isSelected: lang == '',
             image: currentLang != 'ar' ? Assets.imagesEn : Assets.imagesLang,
           ),
           Expanded(
