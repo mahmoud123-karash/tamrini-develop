@@ -45,7 +45,7 @@ class ProfitsContentWidget extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          if (availableProfits < 5000)
+          if (availableProfits < 100000)
             Text(
               S.of(context).warning_the_user_profits,
               style: TextStyles.style14.copyWith(
@@ -54,7 +54,7 @@ class ProfitsContentWidget extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-          if (availableProfits >= 5000)
+          if (availableProfits >= 100000)
             RequestProfitsContainerWidget(
               id: id,
               availableProfits: availableProfits,

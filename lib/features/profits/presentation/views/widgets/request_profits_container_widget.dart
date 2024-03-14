@@ -93,7 +93,7 @@ class _RequestProfitsContainerWidgetState
                   if (formKey.currentState!.validate()) {
                     int amout = int.parse(controller.text);
                     formKey.currentState!.save();
-                    if (amout < 5000) {
+                    if (amout < 100000) {
                       showSnackBar(context, S.of(context).request_profits_hint);
                     } else {
                       if (widget.availableProfits < amout) {
