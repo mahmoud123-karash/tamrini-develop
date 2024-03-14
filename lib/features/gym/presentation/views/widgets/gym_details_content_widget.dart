@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tamrini/features/gym/data/models/gym_model/gym_model.dart';
+import 'package:tamrini/features/home/presentation/views/widgets/image_view_widget.dart';
 
 import 'gym_distance_widget.dart';
 import 'gym_name_and_price_widget.dart';
@@ -12,6 +13,7 @@ class GymDetailsContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -24,7 +26,10 @@ class GymDetailsContentWidget extends StatelessWidget {
             height: 10,
           ),
           model.assets.isEmpty
-              ? Container()
+              ? ImageViewWidget(
+                  image: '',
+                  width: width,
+                )
               : GymSlideShowImagesWidget(
                   assets: model.assets,
                   name: model.name,

@@ -31,12 +31,16 @@ class _ProductTypeWidgetState extends State<ProductTypeWidget> {
       itemCount: widget.types.length + 1,
       itemBuilder: (context, index) => RadioListTile(
         title: Text(
-          index == 6 ? S.of(context).other : widget.types[index].title,
+          index == widget.types.length
+              ? S.of(context).other
+              : widget.types[index].title,
           style: TextStyles.style14.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
-        value: index == 6 ? S.of(context).other : widget.types[index].title,
+        value: index == widget.types.length
+            ? S.of(context).other
+            : widget.types[index].title,
         groupValue: groupValue,
         onChanged: (value) {
           groupValue = value ?? "";

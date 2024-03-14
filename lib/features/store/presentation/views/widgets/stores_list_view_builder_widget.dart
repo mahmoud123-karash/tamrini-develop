@@ -15,13 +15,14 @@ class StoresListViewBuilderWidget extends StatelessWidget {
           return StoreListViewWidget(list: state.list);
         } else if (state is ErrorGetStoresState) {
           return Center(
-              child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              state.message,
-              textAlign: TextAlign.center,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                state.message,
+                textAlign: TextAlign.center,
+              ),
             ),
-          ));
+          );
         } else {
           return const Center(
             child: CircularProgressIndicator(),

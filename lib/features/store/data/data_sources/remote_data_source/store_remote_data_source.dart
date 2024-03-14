@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:hive/hive.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 
@@ -13,15 +11,15 @@ class StoreRemoteDataSourceImpl extends StoreRemoteDataSource {
   @override
   Future<List<CategoryModel>> get() async {
     List<CategoryModel> list = [];
-    var result =
-        await FirebaseFirestore.instance.collection('Categories').get();
-
+    var result = await FirebaseFirestore.instance
+        .collection('supplements')
+        .doc('data')
+        .collection('data')
+        .get();
     for (var element in result.docs) {
-      CategoryModel model = CategoryModel.formJson(element.data());
+      CategoryModel model = CategoryModel.formJson(element.data(), element.id);
       list.add(model);
     }
-    var box = Hive.box<CategoryModel>(storeBox);
-    box.addAll(list);
     return list;
   }
 

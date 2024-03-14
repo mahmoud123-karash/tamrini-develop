@@ -16,7 +16,7 @@ class SupplementModel {
   factory SupplementModel.fromJson(Map<String, dynamic> json, String id) {
     final List<dynamic> sJson = json['data'] ?? [];
     List<SupplementData> list = sJson.map((e) {
-      return SupplementData.fromJson(e);
+      return SupplementData.fromJson(e, json['title'] ?? '');
     }).toList();
     return SupplementModel(
       image: json['image'] ?? '',

@@ -10,8 +10,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await Hive.initFlutter();
-  Hive.registerAdapter(CategoryModelAdapter());
-  await Hive.openBox<CategoryModel>(storeBox);
   Hive.registerAdapter(ProfileModelAdapter());
   await Hive.openBox<ProfileModel>(profileBox);
   Hive.registerAdapter(DayModelAdapter());

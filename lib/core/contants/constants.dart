@@ -17,7 +17,6 @@ String appLink = Platform.isIOS
     ? 'https://apps.apple.com/us/app/id1571336937'
     : 'https://play.google.com/store/apps/details?id=com.tamrini1.com';
 
-String storeBox = 'storeBox';
 String profileBox = 'profile_box';
 String dayBox = 'day_box';
 String reminderBox = 'reminderbox';

@@ -202,7 +202,7 @@ class TrainerRepoImpl extends TrainerRepo {
     if (token != '') {
       dioHelper.sendNotification(
         token: token,
-        title: 'مرحبا كوتش',
+        title: 'مرحبا كابتن',
         body: isBanned == false
             ? 'عزيزي المدرب، تم رفع الحظر من قبل المدير'
             : 'عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة',

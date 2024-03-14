@@ -6,6 +6,7 @@ class SupplementData {
   final String title;
   final String id;
   final String writerUid;
+  String? category;
 
   SupplementData({
     required this.images,
@@ -13,15 +14,17 @@ class SupplementData {
     required this.title,
     required this.id,
     required this.writerUid,
+    this.category,
   });
 
-  factory SupplementData.fromJson(Map<String, dynamic> json) {
+  factory SupplementData.fromJson(Map<String, dynamic> json, category) {
     return SupplementData(
       images: List<String>.from(json['images']),
       description: json['description'] ?? '',
       title: json['title'] ?? '',
       id: json['id'] ?? '',
       writerUid: json['writerUid'] ?? adminUid,
+      category: category,
     );
   }
 

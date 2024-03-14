@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:tamrini/core/utils/lists.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
 import 'package:tamrini/features/store/presentation/views/widgets/category_product_item_widget.dart';
@@ -36,9 +34,7 @@ class GategoryGridViewWidget extends StatelessWidget {
               ? CategoryProductItemWidget(
                   model: list[index],
                   list: categoryList,
-                  name: Intl.getCurrentLocale() == 'en'
-                      ? catgoryName[index]
-                      : list[index].title,
+                  name: list[index].title,
                 )
               : Container();
         } else {

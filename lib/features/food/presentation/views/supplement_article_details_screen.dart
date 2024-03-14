@@ -92,7 +92,7 @@ class SupplementArticlesDetailsScreen extends StatelessWidget {
                                             title: model.title,
                                             description: model.description,
                                             id: model.id,
-                                            type: '',
+                                            type: model.category ?? '',
                                             image: model.images.first,
                                             price: 0,
                                             oldPrice: 0,

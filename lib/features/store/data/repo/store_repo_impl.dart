@@ -7,7 +7,6 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/models/notification_model/notification_model.dart';
 import 'package:tamrini/core/services/upload_image.dart';
-import 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 import 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 import 'package:tamrini/features/store/data/models/category_model/category_model.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
@@ -17,17 +16,11 @@ import 'package:uuid/uuid.dart';
 
 class StoreRepoImpl extends StoreRepo {
   final StoreRemoteDataSource storeRemoteDataSource;
-  final StoreLocalDataSource storeLocalDataSource;
   final DioHelper dioHelper;
-  StoreRepoImpl(
-      this.storeRemoteDataSource, this.storeLocalDataSource, this.dioHelper);
+  StoreRepoImpl(this.storeRemoteDataSource, this.dioHelper);
   @override
   Future<Either<String, List<CategoryModel>>> getCategories() async {
     try {
-      List<CategoryModel> cachedList = storeLocalDataSource.get();
-      if (cachedList.isNotEmpty) {
-        return right(cachedList);
-      }
       List<CategoryModel> list = await storeRemoteDataSource.get();
       return right(list);
     } catch (e) {
@@ -323,7 +316,7 @@ class StoreRepoImpl extends StoreRepo {
       isReaden: false,
       subType: 'store',
       senderUid: adminUid,
-      title: isBanned == true ? 'ban_stotre' : 'no_ban_store',
+      title: isBanned == true ? 'ban_store' : 'no_ban_store',
       body: '',
       type: 'notification',
       uid: storeId,

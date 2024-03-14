@@ -155,7 +155,6 @@ export 'package:tamrini/features/profits/data/data_sources/remote_data_source/pr
 export 'package:tamrini/features/profits/data/repo/profits_repo_impl.dart';
 export 'package:tamrini/features/promotion/data/data_source/remote_data_source/promotion_remote_data_source.dart';
 export 'package:tamrini/features/questions/data/data_sources/remote_data_source/remote_question_data_source.dart';
-export 'package:tamrini/features/store/data/data_sources/local_data_source/store_local_data_source.dart';
 export 'package:tamrini/features/store/data/data_sources/remote_data_source/store_remote_data_source.dart';
 export 'package:tamrini/features/subscribtions/data/data_sources/local_data_source/subscribtion_local_data_source.dart';
 export 'package:tamrini/features/subscribtions/data/data_sources/remote_data_source/subscribtion_remote_data_source.dart';

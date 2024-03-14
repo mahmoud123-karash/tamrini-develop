@@ -98,7 +98,7 @@ class _AllGymsContentWidgetState extends State<AllGymsContentWidget> {
             : Expanded(
                 child: Center(
                   child: Text(
-                    S.of(context).noGyms,
+                    S.of(context).no_results,
                   ),
                 ),
               ),

@@ -7,8 +7,7 @@ import 'category_grid_view_builder_widget.dart';
 import 'custom_group_buttons_widget.dart';
 
 class StoreCategoryColumWidget extends StatefulWidget {
-  const StoreCategoryColumWidget(
-      {super.key, required this.list});
+  const StoreCategoryColumWidget({super.key, required this.list});
   final List<ProductModel> list;
 
   @override
@@ -21,6 +20,7 @@ class _StoreCategoryColumWidgetState extends State<StoreCategoryColumWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -36,8 +36,9 @@ class _StoreCategoryColumWidgetState extends State<StoreCategoryColumWidget> {
             isTapped: isTapped,
           ),
           widget.list.isEmpty
-              ? Expanded(
-                  child: Center(
+              ? Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: height / 3.5),
                     child: Text(
                       S.of(context).no_products_yet,
                     ),

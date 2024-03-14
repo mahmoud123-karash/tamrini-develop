@@ -46,6 +46,7 @@ class NewProductContentWidget extends StatelessWidget {
         child: Form(
           key: formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (!isEdit) const AddProductContainerWidget(),
               SectionImageWidget(
@@ -88,7 +89,7 @@ class NewProductContentWidget extends StatelessWidget {
                 autovalidateMode: autovalidateMode,
               ),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               ProductAddTextWidget(text: S.of(context).product_type),
               const ProductTypeListViewBuilderWidget(),

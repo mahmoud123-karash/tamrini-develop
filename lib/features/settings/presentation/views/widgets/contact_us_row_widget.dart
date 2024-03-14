@@ -40,7 +40,7 @@ class ContactusRowWidget extends StatelessWidget {
           color: Colors.blue,
           onPressed: () {
             openUri(
-              url: Uri.parse("https://www.facebook.com/tamrini2"),
+              url: Uri.parse("https://www.facebook.com/tamrini9"),
             );
           },
         ),
@@ -52,7 +52,7 @@ class ContactusRowWidget extends StatelessWidget {
           color: Colors.pink,
           onPressed: () {
             openUri(
-              url: Uri.parse("https://instagram.com/tamrini_"),
+              url: Uri.parse("https://www.instagram.com/tamrini9"),
             );
           },
         ),

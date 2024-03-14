@@ -8,16 +8,17 @@ class StoreNameNumWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Flexible(
-          flex: 1,
+        Container(
+          constraints: BoxConstraints(maxWidth: width / 2),
+          alignment: Alignment.bottomRight,
           child: Text(
             name,
             maxLines: 1,
-            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
               color: Colors.amber,
               fontWeight: FontWeight.bold,

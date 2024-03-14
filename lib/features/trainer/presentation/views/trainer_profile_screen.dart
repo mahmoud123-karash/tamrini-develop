@@ -27,52 +27,58 @@ class TrainerProfileScreen extends StatelessWidget {
       appBar: myAppBar(S.of(context).trainer_profile),
       body: BlocBuilder<TrainersCubit, TrainersStates>(
         builder: (context, state) {
-          TrainerModel? trainer =
-              TrainersCubit.get(context).getTrainer(uid: id);
-          return trainer == null
-              ? Center(
-                  child: Text(S.of(context).no_trainer),
-                )
-              : CustomScrollView(
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: TrainerContentWidget(trainer: trainer),
-                    ),
-                    SliverFillRemaining(
-                      hasScrollBody: false,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          if (trainer.isBanned == false)
-                            if (userType != UserType.admin &&
-                                userType != UserType.trainer)
-                              SubButtonWithTrainerWidget(
-                                trainerId: trainer.uid,
-                                traineesCount: trainer.traineesCount,
-                                profits: trainer.profits + trainer.price,
-                                price: trainer.price,
-                              ),
-                          if (trainer.uid == uid &&
-                              userType == UserType.trainer)
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                              ),
-                              child: customButton(
-                                onPressed: () {
-                                  navigateTo(context,
-                                      EditTrainerScreen(model: trainer));
-                                },
-                                lable: S.of(context).edit,
-                              ),
-                            ),
-                          if (userType == UserType.admin)
-                            BanCustomBuilderWidget(trainer: trainer),
-                        ],
+          if (state is SucessGetTrainersState) {
+            TrainerModel? trainer =
+                TrainersCubit.get(context).getTrainer(uid: id);
+            return trainer == null
+                ? Center(
+                    child: Text(S.of(context).no_trainer),
+                  )
+                : CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: TrainerContentWidget(trainer: trainer),
                       ),
-                    )
-                  ],
-                );
+                      SliverFillRemaining(
+                        hasScrollBody: false,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            if (trainer.isBanned == false)
+                              if (userType != UserType.admin &&
+                                  userType != UserType.trainer)
+                                SubButtonWithTrainerWidget(
+                                  trainerId: trainer.uid,
+                                  traineesCount: trainer.traineesCount,
+                                  profits: trainer.profits + trainer.price,
+                                  price: trainer.price,
+                                ),
+                            if (trainer.uid == uid &&
+                                userType == UserType.trainer)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 15,
+                                ),
+                                child: customButton(
+                                  onPressed: () {
+                                    navigateTo(context,
+                                        EditTrainerScreen(model: trainer));
+                                  },
+                                  lable: S.of(context).edit,
+                                ),
+                              ),
+                            if (userType == UserType.admin)
+                              BanCustomBuilderWidget(trainer: trainer),
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         },
       ),
     );

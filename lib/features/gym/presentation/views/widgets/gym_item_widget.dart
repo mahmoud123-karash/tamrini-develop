@@ -39,7 +39,7 @@ class GymItemWidget extends StatelessWidget {
         child: Stack(
           children: [
             ImageViewWidget(
-              image: model.assets.first,
+              image: model.assets.isEmpty ? '' : model.assets.first,
               width: width,
             ),
             Positioned(

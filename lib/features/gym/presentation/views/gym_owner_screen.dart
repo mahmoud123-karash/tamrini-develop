@@ -28,80 +28,87 @@ class GymOwnerScreen extends StatelessWidget {
       ),
       body: BlocBuilder<GymCubit, GymStates>(
         builder: (context, state) {
-          List<GymModel> list = GymCubit.get(context).getUserGym(uid);
-          GymModel? model = list.isEmpty ? null : list.first;
-          return model == null
-              ? const NoGymMessageWidget()
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (model.isBanned)
-                      BanGymContainerWidget(
-                        message: S.of(context).banned_gym_hint,
-                      ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 10,
-                      ),
-                      child: Text(
-                        model.name,
-                        style: TextStyles.style20Bold.copyWith(color: appColor),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 10,
-                      ),
-                      child: ListTile(
-                        onTap: () {
-                          navigateTo(
-                              context,
-                              ProfitsScreen(
-                                profits: model.profits,
-                                id: model.id,
-                              ));
-                        },
-                        shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: appColor,
-                          ),
+          if (state is SucessGetGymsState) {
+            List<GymModel> list = GymCubit.get(context).getUserGym(uid);
+            GymModel? model = list.isEmpty ? null : list.first;
+            return model == null
+                ? const NoGymMessageWidget()
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (model.isBanned)
+                        BanGymContainerWidget(
+                          message: S.of(context).banned_gym_hint,
                         ),
-                        leading: Icon(
-                          Icons.attach_money_rounded,
-                          color: appColor,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
                         ),
-                        title: Text(
-                          S.of(context).profits,
-                          style: TextStyles.style13.copyWith(
-                            color: appColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          color: appColor,
+                        child: Text(
+                          model.name,
+                          style:
+                              TextStyles.style20Bold.copyWith(color: appColor),
                         ),
                       ),
-                    ),
-                    GymRowInfoWidget(
-                      model: model,
-                    ),
-                    model.assets.isEmpty
-                        ? Container()
-                        : Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: GymSlideShowImagesWidget(
-                              assets: model.assets,
-                              name: model.name,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
+                        ),
+                        child: ListTile(
+                          onTap: () {
+                            navigateTo(
+                                context,
+                                ProfitsScreen(
+                                  profits: model.profits,
+                                  id: model.id,
+                                ));
+                          },
+                          shape: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: appColor,
                             ),
                           ),
-                    const Spacer(),
-                    if (!model.isBanned) EditGymRowWidget(model: model),
-                  ],
-                );
+                          leading: Icon(
+                            Icons.attach_money_rounded,
+                            color: appColor,
+                          ),
+                          title: Text(
+                            S.of(context).profits,
+                            style: TextStyles.style13.copyWith(
+                              color: appColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_outlined,
+                            color: appColor,
+                          ),
+                        ),
+                      ),
+                      GymRowInfoWidget(
+                        model: model,
+                      ),
+                      model.assets.isEmpty
+                          ? Container()
+                          : Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: GymSlideShowImagesWidget(
+                                assets: model.assets,
+                                name: model.name,
+                              ),
+                            ),
+                      const Spacer(),
+                      if (!model.isBanned) EditGymRowWidget(model: model),
+                    ],
+                  );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         },
       ),
     );

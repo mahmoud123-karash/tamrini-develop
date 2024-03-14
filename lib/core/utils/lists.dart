@@ -2,15 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/generated/l10n.dart';
 
-List<String> catgoryName = [
-  "Iso",
-  "Sports Vitamins",
-  "Creatine",
-  "Energy Drinks",
-  "protein",
-  "Mass Gainers",
-];
-
 List<int> qunatities = [
   50,
   100,

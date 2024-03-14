@@ -33,7 +33,7 @@ class CategoryGridViewBuilderWidget extends StatelessWidget {
         } else if (state is ErrorGetCategoriesState) {
           return Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(20),
               child: Text(
                 state.message,
                 textAlign: TextAlign.center,
@@ -42,7 +42,10 @@ class CategoryGridViewBuilderWidget extends StatelessWidget {
           );
         } else {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: CircularProgressIndicator(),
+            ),
           );
         }
       },

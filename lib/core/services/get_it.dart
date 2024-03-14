@@ -36,7 +36,6 @@ void setLocator() {
   getIt.registerSingleton<StoreRepoImpl>(
     StoreRepoImpl(
       StoreRemoteDataSourceImpl(),
-      StoreLocalDataSourceImpl(),
       getIt.get<DioHelper>(),
     ),
   );
