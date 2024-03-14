@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/features/auth/data/data_source/remote_data_source/user_remote_data_source.dart';
@@ -79,5 +82,25 @@ class LoginRepoImpl extends LoginRepo {
         return left(e.code);
       }
     }
+  }
+
+  @override
+  Future<UserCredential> loginWithApple() async {
+    final appleCredential = await SignInWithApple.getAppleIDCredential(
+      scopes: [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+    );
+
+    final AuthCredential appleAuthCredential =
+        OAuthProvider('apple.com').credential(
+      idToken: appleCredential.identityToken,
+      accessToken: Platform.isIOS ? null : appleCredential.authorizationCode,
+    );
+    UserCredential userCredential =
+        await FirebaseAuth.instance.signInWithCredential(appleAuthCredential);
+
+    return userCredential;
   }
 }

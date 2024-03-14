@@ -82,6 +82,7 @@ dependencies:
   photo_view: null
   shared_preferences: ^2.0.15
   shimmer: ^3.0.0
+  sign_in_with_apple: ^6.0.0
   syncfusion_flutter_xlsio: ^24.2.7
   url_launcher: ^6.1.7
   uuid: 3.0.7

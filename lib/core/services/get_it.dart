@@ -1,4 +1,5 @@
 import 'package:tamrini/core/utils/improts.dart';
+import 'package:tamrini/features/auth/domain/use_cases/apple_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
@@ -207,6 +208,14 @@ void setLocator() {
     ProfitsRepoImpl(
       ProfitsRemoteDataSourceImpl(),
       getIt.get<DioHelper>(),
+    ),
+  );
+
+  getIt.registerSingleton(
+    AppleSignInUseCase(
+      LoginRepoImpl(
+        UserRemoteDataSourceImpl(),
+      ),
     ),
   );
 }

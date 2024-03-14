@@ -18,6 +18,7 @@ class BottomText extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: RichText(
+          textAlign: TextAlign.center,
           text: TextSpan(
             style: const TextStyle(
               fontSize: 15,

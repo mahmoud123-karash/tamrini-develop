@@ -8,5 +8,6 @@ abstract class LoginRepo {
   });
 
   Future<UserCredential> loginWithGoogle();
+  Future<UserCredential> loginWithApple();
   Future<Either<String, String>> deleteAccount();
 }

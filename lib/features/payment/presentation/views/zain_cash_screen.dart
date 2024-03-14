@@ -45,7 +45,7 @@ class _ZainCashScreenState extends State<ZainCashScreen> {
       )
       ..loadRequest(
         Uri.parse(
-            'https://test.zaincash.iq/transaction/pay?id=${widget.trasactionId}'),
+            'https://api.zaincash.iq/transaction/pay?id=${widget.trasactionId}'),
       );
 
     super.initState();
