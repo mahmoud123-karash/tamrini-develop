@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/features/order/presentation/views/widgets/input_address_field_widget.dart';
-import 'package:tamrini/features/order/presentation/views/widgets/pincode_house_num_row_widget.dart';
 import 'package:tamrini/features/order/presentation/views/widgets/product_container_widget.dart';
 import 'package:tamrini/features/store/data/models/store_model/product_model.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -12,9 +11,7 @@ class AddressContentWidget extends StatelessWidget {
     required this.autovalidateMode,
     required this.nameController,
     required this.phoneController,
-    required this.houseController,
     required this.areaController,
-    required this.pincodeController,
     required this.cityController,
     required this.amount,
     required this.formKey,
@@ -25,9 +22,7 @@ class AddressContentWidget extends StatelessWidget {
 
   final TextEditingController nameController;
   final TextEditingController phoneController;
-  final TextEditingController houseController;
   final TextEditingController areaController;
-  final TextEditingController pincodeController;
   final TextEditingController cityController;
 
   final int amount;
@@ -64,14 +59,6 @@ class AddressContentWidget extends StatelessWidget {
               controller: phoneController,
               lable: S.of(context).phone,
               textInputType: TextInputType.number,
-              autovalidateMode: autovalidateMode,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            PincodeHoudeNumRowWidget(
-              houseNumController: houseController,
-              pinciodeController: pincodeController,
               autovalidateMode: autovalidateMode,
             ),
             const SizedBox(

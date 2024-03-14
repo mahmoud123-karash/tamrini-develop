@@ -21,9 +21,7 @@ class AddressScreen extends StatefulWidget {
 class _AddressScreenState extends State<AddressScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
-  TextEditingController houseController = TextEditingController();
   TextEditingController areaController = TextEditingController();
-  TextEditingController pincodeController = TextEditingController();
   TextEditingController cityController = TextEditingController();
   var formkey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -32,9 +30,7 @@ class _AddressScreenState extends State<AddressScreen> {
   void dispose() {
     nameController.dispose();
     phoneController.dispose();
-    houseController.dispose();
     areaController.dispose();
-    pincodeController.dispose();
     cityController.dispose();
     super.dispose();
   }
@@ -57,9 +53,7 @@ class _AddressScreenState extends State<AddressScreen> {
                     autovalidateMode: autovalidateMode,
                     nameController: nameController,
                     phoneController: phoneController,
-                    houseController: houseController,
                     areaController: areaController,
-                    pincodeController: pincodeController,
                     cityController: cityController,
                     amount: amount,
                   ),
@@ -91,7 +85,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                 name: nameController.text,
                                 phone: phoneController.text,
                                 address:
-                                    '${cityController.text},${areaController.text},${houseController.text},${pincodeController.text}',
+                                    '${cityController.text},${areaController.text}',
                               ),
                             );
                           } else {
