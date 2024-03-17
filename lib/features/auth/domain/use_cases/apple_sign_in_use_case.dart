@@ -28,8 +28,8 @@ class AppleSignInUseCase extends UseCase {
         saveTrainerId(model.trainerId);
         return right(
           UserEntity(
-            email: user.user!.email!,
-            name: user.user!.displayName!,
+            email: user.user!.email ?? "",
+            name: user.user!.displayName ?? '',
             uid: user.user!.uid,
             isCreated: true,
           ),
@@ -37,8 +37,8 @@ class AppleSignInUseCase extends UseCase {
       } else {
         return right(
           UserEntity(
-            email: user.user!.email!,
-            name: user.user!.displayName!,
+            email: user.user!.email ?? '',
+            name: user.user!.displayName ?? '',
             uid: user.user!.uid,
             isCreated: false,
           ),
