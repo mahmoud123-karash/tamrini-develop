@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:tamrini/core/utils/improts.dart';
+import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
 import 'package:tamrini/features/profits/presentation/views/profits_requests_screen.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 
@@ -114,6 +115,10 @@ void openNotification(RemoteMessage event, BuildContext context) {
     }
     if (event.data['subType'] == 'order') {
       navigateTo(context, OrderDetailsScreen(orderId: event.data['uid']));
+    }
+
+    if (event.data['subType'] == 'new_order') {
+      navigateTo(context, const OrdersScreen(isUser: false));
     }
 
     if (event.data['subType'] == 'promotion') {

@@ -549,7 +549,9 @@
     "delete": "Delete",
     "delete_account": "Delete Account",
     "re_auth_account": "Please log in again to confirm the account",
-    "logo_image":"Logo image"
+    "logo_image":"Logo image",
+    "new_order":"new order waiting"
+
 
 
 

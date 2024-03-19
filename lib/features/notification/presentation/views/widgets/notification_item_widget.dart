@@ -12,6 +12,7 @@ import 'package:tamrini/features/notification/data/models/notification_model/not
 import 'package:tamrini/features/notification/presentation/manager/notification_cubit/notification_cubit.dart';
 import 'package:tamrini/features/notification/presentation/views/widgets/promotion_dialog_widget.dart';
 import 'package:tamrini/features/order/presentation/views/order_details_screen.dart';
+import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
 import 'package:tamrini/features/profits/presentation/views/profits_requests_screen.dart';
@@ -157,6 +158,11 @@ class NotificationItemWidget extends StatelessWidget {
           navigateTo(context, const TrainingCourseScreen());
         }
       }
+
+      if (model.subType == 'new_order') {
+        navigateTo(context, const OrdersScreen(isUser: false));
+      }
+      
       if (model.subType == 'follow') {
         List<TrainerModel> list = TrainersCubit.get(context)
             .trainers

@@ -69,6 +69,9 @@ class NotificationBodyWidget extends StatelessWidget {
       case 'order':
         result = S.of(context).order_delivered;
         break;
+      case 'new_order':
+        result = S.of(context).new_order;
+        break;
       case 'promotion':
         result = S.of(context).new_promtion_request;
         break;

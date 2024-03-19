@@ -399,6 +399,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "new_images": MessageLookupByLibrary.simpleMessage("الصور الجديدة"),
         "new_meal": MessageLookupByLibrary.simpleMessage("إضافة وجبة "),
         "new_message": MessageLookupByLibrary.simpleMessage("رسالة جديدة"),
+        "new_order":
+            MessageLookupByLibrary.simpleMessage("طلب جديد قيد الانتظار"),
         "new_promtion_request":
             MessageLookupByLibrary.simpleMessage("طلب ترقية جديد"),
         "new_trainee_joined":

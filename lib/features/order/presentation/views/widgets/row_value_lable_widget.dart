@@ -9,6 +9,7 @@ class RowValueLableWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Row(
       children: [
         Text(
@@ -19,10 +20,14 @@ class RowValueLableWidget extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        Text(
-          value,
-          style: TextStyles.style14.copyWith(
-            fontWeight: FontWeight.bold,
+        Container(
+          constraints: BoxConstraints(maxWidth: width / 2),
+          child: Text(
+            value,
+            style: TextStyles.style14.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+            maxLines: 1,
           ),
         )
       ],

@@ -61,6 +61,7 @@ class OrederRepoImpl extends OrderRepo {
       await FirebaseFirestore.instance.collection('orders').doc(uuid).set(
             order.toJson(),
           );
+      sendOrderNotification(owneruid: storeId, orderUid: uuid);
       List<OrderModel> list = await orderRemoteDataSource.getUserOrders();
       return right(list);
     } catch (e) {
@@ -75,7 +76,9 @@ class OrederRepoImpl extends OrderRepo {
   }) async {
     try {
       await FirebaseFirestore.instance.collection('orders').doc(orderId).update(
-        {"status": status},
+        {
+          "status": status,
+        },
       );
       List<OrderModel> list = await orderRemoteDataSource.getStoreOrders();
       return right(list);
@@ -154,6 +157,48 @@ class OrederRepoImpl extends OrderRepo {
         data: {
           "type": "notification",
           "subType": "order",
+          "uid": orderUid,
+        },
+      );
+    }
+  }
+
+  Future<void> sendOrderNotification({
+    required String owneruid,
+    required String orderUid,
+  }) async {
+    String uid = CacheHelper.getData(key: 'uid');
+
+    NotificationModel notification = NotificationModel(
+      isReaden: false,
+      subType: 'new_order',
+      senderUid: uid,
+      title: 'new_order',
+      body: '',
+      type: 'notification',
+      uid: orderUid,
+      time: Timestamp.now(),
+    );
+    await FirebaseFirestore.instance
+        .collection('notification')
+        .doc(owneruid)
+        .collection('data')
+        .add(
+          notification.toJson(),
+        );
+    var data = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(owneruid)
+        .get();
+    String token = data['token'] ?? '';
+    if (token != '') {
+      dioHelper.sendNotification(
+        token: token,
+        title: 'طلب جديد',
+        body: 'يوجد طلبات جديدة',
+        data: {
+          "type": "notification",
+          "subType": "new_order",
           "uid": orderUid,
         },
       );

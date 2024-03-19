@@ -5559,6 +5559,16 @@ class S {
       args: [],
     );
   }
+
+  /// `new order waiting`
+  String get new_order {
+    return Intl.message(
+      'new order waiting',
+      name: 'new_order',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
