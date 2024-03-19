@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -26,6 +27,7 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = CacheHelper.getData(key: 'isdark') ?? false;
     return StatefulBuilder(
       builder: (context, setState) {
         return InkWell(
@@ -37,9 +39,9 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
                 inputDecoration: InputDecoration(
                   counterStyle: TextStyles.style14,
                   labelStyle: TextStyles.style14,
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Ionicons.search_outline,
-                    color: Colors.black38,
+                    color: isDark ? whiteColor : Colors.black38,
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -50,7 +52,9 @@ class _CountryPickerWidgetState extends State<CountryPickerWidget> {
                     borderSide: BorderSide.none,
                   ),
                   hintText: S.of(context).country,
-                  hintStyle: TextStyles.style14,
+                  hintStyle: TextStyles.style14.copyWith(
+                    color: isDark ? whiteColor : Colors.black38,
+                  ),
                 ),
               ),
               context: context,

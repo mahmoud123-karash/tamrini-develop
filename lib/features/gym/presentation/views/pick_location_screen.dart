@@ -37,6 +37,7 @@ class _PickLocationScreenState extends State<PickLocationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -60,7 +61,7 @@ class _PickLocationScreenState extends State<PickLocationScreen> {
             },
           ),
           Positioned(
-            bottom: MediaQuery.of(context).size.height / 2,
+            bottom: height / 2,
             right: (MediaQuery.of(context).size.width - 30) / 2,
             child: const Icon(
               Icons.person_pin_circle,
@@ -75,7 +76,7 @@ class _PickLocationScreenState extends State<PickLocationScreen> {
                 CameraUpdate.newCameraPosition(
                   CameraPosition(
                     target: LatLng(position.latitude, position.longitude),
-                    zoom: 17,
+                    zoom: 20,
                   ),
                 ),
               );

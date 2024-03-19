@@ -616,7 +616,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sale": MessageLookupByLibrary.simpleMessage("خصم"),
         "save": MessageLookupByLibrary.simpleMessage("حفظ"),
         "scroll_verticle_to_remove":
-            MessageLookupByLibrary.simpleMessage("اسجب الوجبة أفقيا للحذف"),
+            MessageLookupByLibrary.simpleMessage("اسحب الوجبة أفقيا للحذف"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
         "searchHint":
             MessageLookupByLibrary.simpleMessage("قم بالبحث عن تمرين"),

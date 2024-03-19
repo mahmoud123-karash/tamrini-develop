@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/assets.dart';
@@ -186,27 +187,38 @@ Widget addTextField({
   TextInputType? keyboardType,
   required AutovalidateMode autovalidateMode,
   VoidCallback? onTap,
-}) =>
-    TextFormField(
-      onTap: onTap,
-      maxLines: null,
-      autovalidateMode: autovalidateMode,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return S.of(context).validate;
-        }
-        return null;
-      },
-      controller: controller,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        labelText: lable,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 10,
-        ),
+  bool isCourse = false,
+}) {
+  bool isDark = CacheHelper.getData(key: 'isdark') ?? false;
+  return TextFormField(
+    onTap: onTap,
+    maxLines: null,
+    autovalidateMode: autovalidateMode,
+    validator: (value) {
+      if (value == null || value.isEmpty) {
+        return S.of(context).validate;
+      }
+      return null;
+    },
+    controller: controller,
+    keyboardType: keyboardType,
+    decoration: InputDecoration(
+      labelText: lable,
+      labelStyle: TextStyles.style14.copyWith(
+        color: isCourse
+            ? blackColor
+            : isDark
+                ? whiteColor
+                : blackColor,
+        fontWeight: FontWeight.bold,
       ),
-    );
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 10,
+      ),
+    ),
+  );
+}
 
 Widget addFromGalleryItems({
   required String title,

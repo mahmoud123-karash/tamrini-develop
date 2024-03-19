@@ -29,6 +29,7 @@ class AnswerItemWidgt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String uid = CacheHelper.getData(key: 'uid') ?? "";
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
@@ -36,7 +37,6 @@ class AnswerItemWidgt extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              String uid = CacheHelper.getData(key: 'uid') ?? '';
               if (model.userUid == uid) {
                 navigateTo(context, const ProfileScreen());
               } else {
@@ -68,7 +68,7 @@ class AnswerItemWidgt extends StatelessWidget {
             time: DateFormat('h:mm a', 'en').format(model.date.toDate()),
           ),
           const Spacer(),
-          if (model.userUid == CacheHelper.getData(key: 'uid'))
+          if (model.userUid == uid || question.askerUid == uid)
             InkWell(
               borderRadius: BorderRadius.circular(5),
               onTap: () {

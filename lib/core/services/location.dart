@@ -84,25 +84,23 @@ Future<double> getDistance({
   double distance = 0;
   if (!update && lat != 0) {
     distance = Geolocator.distanceBetween(
-          lat,
-          long,
-          endLatitude,
-          endLongitude,
-        ) /
-        1000;
+      lat,
+      long,
+      endLatitude,
+      endLongitude,
+    );
   } else {
     Position currentPosition = await Geolocator.getCurrentPosition();
     saveLat(currentPosition.latitude);
     saveLong(currentPosition.longitude);
     distance = Geolocator.distanceBetween(
-          currentPosition.latitude,
-          currentPosition.longitude,
-          endLatitude,
-          endLongitude,
-        ) /
-        1000;
+      currentPosition.latitude,
+      currentPosition.longitude,
+      endLatitude,
+      endLongitude,
+    );
   }
-  return distance;
+  return distance / 1000;
 }
 
 Future<String> getAddress({required GeoPoint location}) async {
@@ -130,7 +128,7 @@ Future<String> getAddress({required GeoPoint location}) async {
 setLocation(Prediction suggestion, GoogleMapController controller) async {
   var location = await getPlaceMarkFromId(suggestion.placeId ?? '');
   saveLatMap(location.lat ?? 0.0);
-  saveLatMap(location.lng ?? 0.0);
+  saveLongMap(location.lng ?? 0.0);
   controller.animateCamera(
     CameraUpdate.newCameraPosition(
       CameraPosition(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 
 class AddQuestionTextFieldWidget extends StatelessWidget {
@@ -13,6 +15,7 @@ class AddQuestionTextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = CacheHelper.getData(key: 'isdark') ?? false;
     return Container(
       height: 120,
       decoration: BoxDecoration(
@@ -27,7 +30,9 @@ class AddQuestionTextFieldWidget extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 10),
           hintText: hint,
-          hintStyle: TextStyles.style16Bold,
+          hintStyle: TextStyles.style16Bold.copyWith(
+            color: isDark ? whiteColor : blackColor,
+          ),
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,

@@ -24,6 +24,7 @@ class AddRepAndRepeatRowWidget extends StatelessWidget {
           children: [
             Expanded(
               child: addTextField(
+                isCourse: true,
                 keyboardType: TextInputType.number,
                 lable: S.of(context).num_of_reps,
                 controller: numRController,
@@ -36,6 +37,7 @@ class AddRepAndRepeatRowWidget extends StatelessWidget {
             ),
             Expanded(
               child: addTextField(
+                isCourse: true,
                 keyboardType: TextInputType.number,
                 lable: S.of(context).num_of_repeat,
                 controller: numPController,

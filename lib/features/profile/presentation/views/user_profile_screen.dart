@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/features/gym/presentation/manager/gym_cubit/gym_cubit.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
@@ -17,28 +18,28 @@ class UserProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(S.of(context).user_profile),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: UserProfileContentWidget(model: model),
-          ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: model.role == 'gym owner'
-                ? GymOwnerProfileWidget(
-                    list: GymCubit.get(context).getUserGym(
-                      model.uid,
-                    ),
-                  )
-                : model.role == 'store owner'
-                    ? StoreOwnerProfileWidget(
-                        list: StoreCubit.get(context).getStore(
-                          model.uid,
-                        ),
-                      )
-                    : Container(),
-          )
-        ],
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            UserProfileContentWidget(model: model),
+            const SizedBox(
+              height: 30,
+            ),
+            if (model.role == UserType.gymOwner)
+              GymOwnerProfileWidget(
+                list: GymCubit.get(context).getUserGym(
+                  model.uid,
+                ),
+              ),
+            if (model.role == UserType.storeOwner)
+              StoreOwnerProfileWidget(
+                list: StoreCubit.get(context).getStore(
+                  model.uid,
+                ),
+              )
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
@@ -23,6 +24,7 @@ class _AddQuestionDailogWidgetState extends State<AddQuestionDailogWidget> {
   var formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    bool isDark = CacheHelper.getData(key: 'isdark') ?? false;
     return AlertDialog(
       title: Text(
         S.of(context).add_new_question,
@@ -70,7 +72,13 @@ class _AddQuestionDailogWidgetState extends State<AddQuestionDailogWidget> {
                     setState(() {});
                   }
                 },
-                child: Text(S.of(context).add),
+                child: Text(
+                  S.of(context).add,
+                  style: TextStyles.style13.copyWith(
+                    color: isDark ? whiteColor : blackColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               );
             }
           },
@@ -86,6 +94,10 @@ class _AddQuestionDailogWidgetState extends State<AddQuestionDailogWidget> {
                 },
                 child: Text(
                   S.of(context).cancel,
+                  style: TextStyles.style13.copyWith(
+                    color: isDark ? whiteColor : blackColor,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               );
             }
