@@ -56,21 +56,45 @@ class TrainerRepoImpl extends TrainerRepo {
     required int price,
     required String fromH,
     required String toH,
+    required String logo,
   }) async {
     try {
-      TrainerModel model = TrainerModel(
-        isBanned: trainer.isBanned,
-        description: description,
-        isRequestProfits: trainer.isRequestProfits,
-        uid: trainer.uid,
-        questionsTrainees: trainer.questionsTrainees,
-        profits: trainer.profits,
-        price: price,
-        traineesCount: trainer.traineesCount,
-        gallery: trainer.gallery,
-        fromH: fromH,
-        toH: toH,
-      );
+      late TrainerModel model;
+      if (logo == '') {
+        model = TrainerModel(
+          isBanned: trainer.isBanned,
+          logo: trainer.logo,
+          description: description,
+          isRequestProfits: trainer.isRequestProfits,
+          uid: trainer.uid,
+          questionsTrainees: trainer.questionsTrainees,
+          profits: trainer.profits,
+          price: price,
+          traineesCount: trainer.traineesCount,
+          gallery: trainer.gallery,
+          fromH: fromH,
+          toH: toH,
+        );
+      } else {
+        List files = [];
+        files.add(File(logo));
+        List<String> uris = await uploadFiles(files: files);
+        model = TrainerModel(
+          isBanned: trainer.isBanned,
+          logo: uris.isEmpty ? '' : uris.first,
+          description: description,
+          isRequestProfits: trainer.isRequestProfits,
+          uid: trainer.uid,
+          questionsTrainees: trainer.questionsTrainees,
+          profits: trainer.profits,
+          price: price,
+          traineesCount: trainer.traineesCount,
+          gallery: trainer.gallery,
+          fromH: fromH,
+          toH: toH,
+        );
+      }
+
       await FirebaseFirestore.instance
           .collection('trainers')
           .doc('data')
@@ -107,6 +131,7 @@ class TrainerRepoImpl extends TrainerRepo {
       gallery.add(model);
       TrainerModel newmodel = TrainerModel(
         isBanned: trainer.isBanned,
+        logo: trainer.logo,
         description: trainer.description,
         isRequestProfits: trainer.isRequestProfits,
         uid: trainer.uid,
@@ -147,6 +172,7 @@ class TrainerRepoImpl extends TrainerRepo {
       await deleteOldImages(newImages: [], oldImages: oldImages);
       TrainerModel newmodel = TrainerModel(
         isBanned: trainer.isBanned,
+        logo: trainer.logo,
         isRequestProfits: trainer.isRequestProfits,
         description: trainer.description,
         profits: trainer.profits,
@@ -227,6 +253,7 @@ class TrainerRepoImpl extends TrainerRepo {
         isBanned: trainer.isBanned,
         description: trainer.description,
         isRequestProfits: trainer.isRequestProfits,
+        logo: trainer.logo,
         uid: trainer.uid,
         profits: trainer.profits,
         questionsTrainees: questions,
@@ -264,6 +291,7 @@ class TrainerRepoImpl extends TrainerRepo {
         description: trainer.description,
         uid: trainer.uid,
         isRequestProfits: trainer.isRequestProfits,
+        logo: trainer.logo,
         profits: trainer.profits,
         questionsTrainees: questions,
         price: trainer.price,

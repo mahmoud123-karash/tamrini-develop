@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:tamrini/core/utils/improts.dart';
 import 'package:tamrini/features/profits/presentation/views/profits_requests_screen.dart';
+import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 
 void onMessage({
   required BuildContext context,
@@ -98,6 +99,7 @@ void getintil(context) async {
 
 void openNotification(RemoteMessage event, BuildContext context) {
   if (event.data['type'] == 'notification') {
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     if (event.data['subType'] == 'question') {
       navigateTo(
         context,
@@ -128,7 +130,15 @@ void openNotification(RemoteMessage event, BuildContext context) {
 
     if (event.data['subType'] == 'trainee' ||
         event.data['subType'] == 'renew_trainee') {
-      navigateTo(context, const TrainerSubscribersScreen());
+      List<TrainerModel> list = TrainersCubit.get(context)
+          .trainers
+          .where((element) => element.uid == uid)
+          .toList();
+      TrainerModel? trainer = list.isEmpty ? null : list.first;
+      if (trainer != null) {
+        navigateTo(
+            context, TrainerSubscribersScreen(logo: trainer.description));
+      }
     }
 
     if (event.data['subType'] == 'course') {
@@ -136,7 +146,15 @@ void openNotification(RemoteMessage event, BuildContext context) {
     }
 
     if (event.data['subType'] == 'follow') {
-      navigateTo(context, const TrainerSubscribersScreen());
+      List<TrainerModel> list = TrainersCubit.get(context)
+          .trainers
+          .where((element) => element.uid == uid)
+          .toList();
+      TrainerModel? trainer = list.isEmpty ? null : list.first;
+      if (trainer != null) {
+        navigateTo(
+            context, TrainerSubscribersScreen(logo: trainer.description));
+      }
     }
 
     if (event.data['subType'] == 'message') {

@@ -8,15 +8,21 @@ import 'package:tamrini/features/trainee/presentation/views/course_details_scree
 import 'package:tamrini/generated/l10n.dart';
 
 class CourseItemWidget extends StatelessWidget {
-  const CourseItemWidget({super.key, required this.model});
+  const CourseItemWidget({super.key, required this.model, required this.logo});
   final CourseModel model;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       onTap: () {
-        navigateTo(context, CourseDetailsScreen(model: model));
+        navigateTo(
+            context,
+            CourseDetailsScreen(
+              model: model,
+              logo: logo,
+            ));
       },
       child: Container(
         decoration: BoxDecoration(

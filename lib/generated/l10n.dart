@@ -5070,20 +5070,20 @@ class S {
     );
   }
 
-  /// `You cannot withdraw an amount less than 5,000 dinars`
+  /// `You cannot withdraw an amount less than 1,00000 dinars`
   String get request_profits_hint {
     return Intl.message(
-      'You cannot withdraw an amount less than 5,000 dinars',
+      'You cannot withdraw an amount less than 1,00000 dinars',
       name: 'request_profits_hint',
       desc: '',
       args: [],
     );
   }
 
-  /// `Please note that you can only withdraw your profits when they reach the minimum required amount, which is 5,000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!`
+  /// `Please note that you can only withdraw your profits when they reach the minimum required amount, which is 1,00000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!`
   String get warning_the_user_profits {
     return Intl.message(
-      'Please note that you can only withdraw your profits when they reach the minimum required amount, which is 5,000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!',
+      'Please note that you can only withdraw your profits when they reach the minimum required amount, which is 1,00000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!',
       name: 'warning_the_user_profits',
       desc: '',
       args: [],
@@ -5545,6 +5545,16 @@ class S {
     return Intl.message(
       'Please log in again to confirm the account',
       name: 're_auth_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logo image`
+  String get logo_image {
+    return Intl.message(
+      'Logo image',
+      name: 'logo_image',
       desc: '',
       args: [],
     );

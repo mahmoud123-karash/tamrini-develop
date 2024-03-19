@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class NewDietCourseContentWidget extends StatelessWidget {
@@ -16,6 +17,7 @@ class NewDietCourseContentWidget extends StatelessWidget {
     required this.friDayController,
     required this.autovalidateMode,
     required this.formKey,
+    required this.logo,
   });
   final TextEditingController dietTitleController;
   final TextEditingController dietdurationController;
@@ -28,6 +30,7 @@ class NewDietCourseContentWidget extends StatelessWidget {
   final TextEditingController friDayController;
   final AutovalidateMode autovalidateMode;
   final GlobalKey<FormState> formKey;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,10 @@ class NewDietCourseContentWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Column(
           children: [
+            CirclarImageWidget(image: logo, radius: 50),
+            const SizedBox(
+              height: 15,
+            ),
             addTextField(
               lable: S.of(context).diet_name,
               controller: dietTitleController,

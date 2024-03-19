@@ -548,7 +548,9 @@
     "delete_account_question": "Delete your account?",
     "delete": "Delete",
     "delete_account": "Delete Account",
-    "re_auth_account": "Please log in again to confirm the account"
+    "re_auth_account": "Please log in again to confirm the account",
+    "logo_image":"Logo image"
+
 
 
 }

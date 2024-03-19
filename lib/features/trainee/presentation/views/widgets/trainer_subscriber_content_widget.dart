@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/services/search.dart';
 import 'package:tamrini/core/shared/components.dart';
@@ -10,8 +12,10 @@ class TrainerSubscriberContentWidget extends StatefulWidget {
   const TrainerSubscriberContentWidget({
     super.key,
     required this.list,
+    required this.logo,
   });
   final List<TraineeModel> list;
+  final String logo;
 
   @override
   State<TrainerSubscriberContentWidget> createState() =>
@@ -28,6 +32,7 @@ class _TrainerSubscriberContentWidgetState
 
   @override
   void initState() {
+    log(widget.logo);
     super.initState();
     scrollController.addListener(_loadMoreData);
   }
@@ -74,6 +79,7 @@ class _TrainerSubscriberContentWidgetState
         widget.list.isNotEmpty
             ? Expanded(
                 child: SubscriberListViewWidget(
+                  image: widget.logo,
                   controller: scrollController,
                   list: searchController.text == '' ? widget.list : searchList,
                   length: length,

@@ -13,9 +13,10 @@ import '../diet_course_details_screen.dart';
 
 class DietCourseItemWidget extends StatelessWidget {
   const DietCourseItemWidget(
-      {super.key, required this.model, required this.food});
+      {super.key, required this.model, required this.food, required this.logo});
   final TraineeModel? model;
   final FoodModel food;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,12 @@ class DietCourseItemWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         onTap: () {
-          navigateTo(context, DietCourseDetailsScreen(food: food));
+          navigateTo(
+              context,
+              DietCourseDetailsScreen(
+                food: food,
+                logo: logo,
+              ));
         },
         child: Container(
           decoration: BoxDecoration(

@@ -8,9 +8,11 @@ import '../trainee_screen.dart';
 import 'chat_icon_widget.dart';
 
 class SubscriberItemWidget extends StatelessWidget {
-  const SubscriberItemWidget({super.key, required this.model});
+  const SubscriberItemWidget(
+      {super.key, required this.model, required this.image});
 
   final TraineeModel model;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,13 @@ class SubscriberItemWidget extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         onTap: () {
-          navigateTo(context, TraineeScreen(user: model.user!, model: model));
+          navigateTo(
+              context,
+              TraineeScreen(
+                user: model.user!,
+                model: model,
+                logo: image,
+              ));
         },
         child: Container(
           decoration: BoxDecoration(

@@ -18,9 +18,11 @@ import 'widgets/trainee_list_tile_widget.dart';
 import 'widgets/waring_end_sub_container_widget.dart';
 
 class TraineeScreen extends StatelessWidget {
-  const TraineeScreen({super.key, required this.user, required this.model});
+  const TraineeScreen(
+      {super.key, required this.user, required this.model, required this.logo});
   final UserModel user;
   final TraineeModel model;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +116,12 @@ class TraineeScreen extends StatelessWidget {
               lable: S.of(context).follow_and_data,
               icon: Icons.follow_the_signs_rounded,
               onTap: () {
-                navigateTo(context, FollowScreen(model: model));
+                navigateTo(
+                    context,
+                    FollowScreen(
+                      model: model,
+                      logo: logo,
+                    ));
               },
             ),
             const SizedBox(
@@ -125,7 +132,13 @@ class TraineeScreen extends StatelessWidget {
               icon: Icons.golf_course_outlined,
               onTap: () {
                 if (!isEnd) {
-                  navigateTo(context, CourcesScreen(traineeId: model.uid));
+                  navigateTo(
+                    context,
+                    CourcesScreen(
+                      traineeId: model.uid,
+                      logo: logo,
+                    ),
+                  );
                 }
               },
             ),
@@ -137,7 +150,12 @@ class TraineeScreen extends StatelessWidget {
               icon: Icons.fastfood_outlined,
               onTap: () {
                 if (!isEnd) {
-                  navigateTo(context, DietCourseScreen(traineeId: model.uid));
+                  navigateTo(
+                      context,
+                      DietCourseScreen(
+                        traineeId: model.uid,
+                        logo: logo,
+                      ));
                 }
               },
             ),
@@ -150,7 +168,11 @@ class TraineeScreen extends StatelessWidget {
               onTap: () {
                 if (!isEnd) {
                   navigateTo(
-                      context, TraineeSupplementsScreen(traineeId: model.uid));
+                      context,
+                      TraineeSupplementsScreen(
+                        traineeId: model.uid,
+                        logo: logo,
+                      ));
                 }
               },
             ),

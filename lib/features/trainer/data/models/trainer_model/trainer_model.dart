@@ -5,6 +5,7 @@ class TrainerModel {
   final bool isBanned;
   final bool isRequestProfits;
   final String description;
+  final String logo;
   final int price;
   final int traineesCount;
   final String uid;
@@ -24,6 +25,7 @@ class TrainerModel {
     required this.uid,
     required this.price,
     required this.traineesCount,
+    required this.logo,
     required this.profits,
     required this.questionsTrainees,
     this.user,
@@ -53,6 +55,7 @@ class TrainerModel {
       user: user,
       traineesCount: json['traineesCount'] ?? 0,
       uid: json['uid'] ?? '',
+      logo: json['logo'] ?? '',
       fromH: json['fromH'] ?? '',
       profits: json['profits'] ?? 0,
       toH: json['toH'] ?? '',
@@ -69,6 +72,7 @@ class TrainerModel {
     data['price'] = price;
     data['fromH'] = fromH;
     data['toH'] = toH;
+    data['logo'] = logo;
     data['questionsTrainees'] = questionsTrainees;
     data['profits'] = profits;
     data['traineesCount'] = traineesCount;

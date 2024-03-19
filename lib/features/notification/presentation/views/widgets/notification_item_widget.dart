@@ -23,6 +23,8 @@ import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trai
 import 'package:tamrini/features/trainee/presentation/views/trainee_screen.dart';
 import 'package:tamrini/features/trainee/presentation/views/trainer_subscribers_screen.dart';
 import 'package:tamrini/features/trainee/presentation/views/training_course_screen.dart';
+import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
+import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
 import 'package:tamrini/features/trainer/presentation/views/trainer_profile_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'notification_body_widget.dart';
@@ -98,6 +100,7 @@ class NotificationItemWidget extends StatelessWidget {
 
   void notificationNavigate(BuildContext context) {
     String trainerId = CacheHelper.getData(key: 'trainerId') ?? '';
+    String uid = CacheHelper.getData(key: 'uid') ?? '';
     List<TraineeModel> list = TraineeCubit.get(context).trainees;
     if (model.type == 'notification') {
       String type = CacheHelper.getData(key: 'usertype') ?? '';
@@ -135,9 +138,19 @@ class NotificationItemWidget extends StatelessWidget {
         navigateTo(context, TrainerProfileScreen(id: model.uid));
       }
       if (model.subType == 'trainee' || model.subType == 'renew_trainee') {
-        TraineeModel trainee =
-            TraineeCubit.get(context).getTrainee(id: model.uid);
-        navigateTo(context, TraineeScreen(user: model.user, model: trainee));
+        List<TrainerModel> list = TrainersCubit.get(context)
+            .trainers
+            .where((element) => element.uid == uid)
+            .toList();
+        TrainerModel? trainer = list.isEmpty ? null : list.first;
+        if (trainer != null) {
+          TraineeModel trainee =
+              TraineeCubit.get(context).getTrainee(id: model.uid);
+          navigateTo(
+              context,
+              TraineeScreen(
+                  user: model.user, model: trainee, logo: trainer.logo));
+        }
       }
       if (model.subType == 'course') {
         if (trainerId == model.user.uid) {
@@ -145,7 +158,14 @@ class NotificationItemWidget extends StatelessWidget {
         }
       }
       if (model.subType == 'follow') {
-        navigateTo(context, const TrainerSubscribersScreen());
+        List<TrainerModel> list = TrainersCubit.get(context)
+            .trainers
+            .where((element) => element.uid == uid)
+            .toList();
+        TrainerModel? trainer = list.isEmpty ? null : list.first;
+        if (trainer != null) {
+          navigateTo(context, TrainerSubscribersScreen(logo: trainer.logo));
+        }
       }
       if (model.subType == 'message') {
         if (trainerId == model.user.uid ||

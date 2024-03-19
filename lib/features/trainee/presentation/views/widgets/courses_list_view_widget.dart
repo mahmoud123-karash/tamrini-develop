@@ -4,9 +4,13 @@ import 'package:tamrini/features/trainee/presentation/views/widgets/course_item_
 
 class CoursesListViewWidget extends StatelessWidget {
   const CoursesListViewWidget(
-      {super.key, required this.list, required this.length});
+      {super.key,
+      required this.list,
+      required this.length,
+      required this.logo});
   final List<CourseModel> list;
   final int length;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,10 @@ class CoursesListViewWidget extends StatelessWidget {
       ),
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) => CourseItemWidget(model: list[index]),
+        itemBuilder: (context, index) => CourseItemWidget(
+          model: list[index],
+          logo: logo,
+        ),
         separatorBuilder: (context, index) => const SizedBox(
           height: 15,
         ),

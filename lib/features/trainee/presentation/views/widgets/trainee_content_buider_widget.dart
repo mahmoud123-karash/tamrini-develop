@@ -7,7 +7,8 @@ import 'package:tamrini/features/trainee/presentation/views/widgets/trainer_subs
 import 'package:tamrini/generated/l10n.dart';
 
 class TraineeContentBuilderWidget extends StatelessWidget {
-  const TraineeContentBuilderWidget({super.key});
+  const TraineeContentBuilderWidget({super.key, required this.logo});
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,10 @@ class TraineeContentBuilderWidget extends StatelessWidget {
               ),
             );
           } else {
-            return TrainerSubscriberContentWidget(list: state.list);
+            return TrainerSubscriberContentWidget(
+              list: state.list,
+              logo: logo,
+            );
           }
         } else if (state is ErrorGetTraineesState) {
           return Center(

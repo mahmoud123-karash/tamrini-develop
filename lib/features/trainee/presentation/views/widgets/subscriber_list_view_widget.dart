@@ -9,10 +9,12 @@ class SubscriberListViewWidget extends StatelessWidget {
     required this.list,
     required this.length,
     required this.controller,
+    required this.image,
   });
   final List<TraineeModel> list;
   final int length;
   final ScrollController controller;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -21,6 +23,7 @@ class SubscriberListViewWidget extends StatelessWidget {
         if (index < length) {
           return SubscriberItemWidget(
             model: list[index],
+            image: image,
           );
         } else {
           return const Center(

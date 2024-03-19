@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/lists.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_exercises_model.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -11,8 +12,10 @@ import 'widgets/course_notes_container_widget.dart';
 import 'widgets/day_week_container_widget.dart';
 
 class CourseDetailsScreen extends StatelessWidget {
-  const CourseDetailsScreen({super.key, required this.model});
+  const CourseDetailsScreen(
+      {super.key, required this.model, required this.logo});
   final CourseModel model;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +30,14 @@ class CourseDetailsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Center(
+                child: CirclarImageWidget(
+                  image: logo,
+                  radius: 50,
+                ),
+              ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               CourseNameRowWidget(
                 value: model.title,

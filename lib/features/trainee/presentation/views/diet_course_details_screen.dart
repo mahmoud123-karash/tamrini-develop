@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/lists.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/food_model.dart';
 import 'package:tamrini/features/trainee/presentation/views/widgets/day_data_colum_item_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -8,8 +9,10 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/diet_course_date_and_naem_row_widget.dart';
 
 class DietCourseDetailsScreen extends StatelessWidget {
-  const DietCourseDetailsScreen({super.key, required this.food});
+  const DietCourseDetailsScreen(
+      {super.key, required this.food, required this.logo});
   final FoodModel food;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +50,10 @@ class DietCourseDetailsScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  CirclarImageWidget(image: logo, radius: 50),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   DietCourseDateAndNameRowWidget(
                     title: food.title,
                     createdAt: food.createdAt,

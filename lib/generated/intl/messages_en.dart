@@ -378,6 +378,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_first_please": MessageLookupByLibrary.simpleMessage(
             "Please log in first to continue."),
+        "logo_image": MessageLookupByLibrary.simpleMessage("Logo image"),
         "logout_and_login_again": MessageLookupByLibrary.simpleMessage(
             "Please log out and log in again to access the new features and available promotions."),
         "lowPrice": MessageLookupByLibrary.simpleMessage("Lowest Price"),
@@ -614,7 +615,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "request_profits":
             MessageLookupByLibrary.simpleMessage("Request Profits"),
         "request_profits_hint": MessageLookupByLibrary.simpleMessage(
-            "You cannot withdraw an amount less than 5,000 dinars"),
+            "You cannot withdraw an amount less than 1,00000 dinars"),
         "request_profits_title": MessageLookupByLibrary.simpleMessage(
             "Request New Profit Withdrawal"),
         "request_promotion_done": MessageLookupByLibrary.simpleMessage(
@@ -795,7 +796,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("View Order Details"),
         "waiting_status": MessageLookupByLibrary.simpleMessage("Under Review"),
         "warning_the_user_profits": MessageLookupByLibrary.simpleMessage(
-            "Please note that you can only withdraw your profits when they reach the minimum required amount, which is 5,000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!"),
+            "Please note that you can only withdraw your profits when they reach the minimum required amount, which is 1,00000. Once you achieve this amount, you will be able to easily withdraw your profits. Keep up the good work!"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("Water alarm"),
         "wed": MessageLookupByLibrary.simpleMessage("Wednesday"),
         "weeks": MessageLookupByLibrary.simpleMessage("Weeks"),

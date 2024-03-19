@@ -10,9 +10,13 @@ import 'widgets/trainee_supplemement_content_widght.dart';
 
 class TraineeSupplementsScreen extends StatelessWidget {
   const TraineeSupplementsScreen(
-      {super.key, required this.traineeId, this.supplements});
+      {super.key,
+      required this.traineeId,
+      this.supplements,
+      required this.logo});
   final String traineeId;
   final List<String>? supplements;
+  final String logo;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +30,7 @@ class TraineeSupplementsScreen extends StatelessWidget {
           return TraineeSupplementContentWidget(
             supplements: supplements,
             model: model,
+            logo: logo,
           );
         },
       ),

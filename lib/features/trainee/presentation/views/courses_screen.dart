@@ -9,9 +9,11 @@ import 'package:tamrini/features/trainee/presentation/views/widgets/courses_cont
 import 'package:tamrini/generated/l10n.dart';
 
 class CourcesScreen extends StatefulWidget {
-  const CourcesScreen({super.key, required this.traineeId, this.list});
+  const CourcesScreen(
+      {super.key, required this.traineeId, this.list, required this.logo});
   final String traineeId;
   final List<CourseModel>? list;
+  final String logo;
 
   @override
   State<CourcesScreen> createState() => _CourcesScreenState();
@@ -63,6 +65,7 @@ class _CourcesScreenState extends State<CourcesScreen> {
             courses: courses,
             model: model,
             length: length,
+            logo: widget.logo,
           );
         },
       ),

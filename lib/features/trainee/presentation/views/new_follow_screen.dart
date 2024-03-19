@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/user_course_cubit.dart/user_course_cubit.dart';
@@ -12,9 +13,13 @@ import 'widgets/follow_up_images_widget.dart';
 
 class NewFollowScreen extends StatefulWidget {
   const NewFollowScreen(
-      {super.key, required this.questions, required this.model});
+      {super.key,
+      required this.questions,
+      required this.model,
+      required this.logo});
   final List<String> questions;
   final TraineeModel model;
+  final String logo;
 
   @override
   State<NewFollowScreen> createState() => _NewFollowScreenState();
@@ -55,18 +60,25 @@ class _NewFollowScreenState extends State<NewFollowScreen> {
             child: Form(
               key: formKey,
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 10,
-                ),
-                child: page == 0
-                    ? FollowQuestionListViewWidget(
-                        questions: widget.questions,
-                        controllers: controllers,
-                        autovalidateMode: autovalidateMode,
-                      )
-                    : const FollowUpImagesWidget(),
-              ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 10,
+                  ),
+                  child: Column(
+                    children: [
+                      CirclarImageWidget(image: widget.logo, radius: 50),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      page == 0
+                          ? FollowQuestionListViewWidget(
+                              questions: widget.questions,
+                              controllers: controllers,
+                              autovalidateMode: autovalidateMode,
+                            )
+                          : const FollowUpImagesWidget(),
+                    ],
+                  )),
             ),
           ),
           SliverFillRemaining(

@@ -369,6 +369,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_first_please": MessageLookupByLibrary.simpleMessage(
             "يجب تسجيل الدخول أولا لكى تستطيع المتابعة"),
+        "logo_image": MessageLookupByLibrary.simpleMessage("صورة اللوجو"),
         "logout_and_login_again": MessageLookupByLibrary.simpleMessage(
             "يرجى تسجيل الخروج وتسجيل الدخول مرة أخرى للوصول إلى الميزات الجديدة والعروض الترويجية المتاحة."),
         "lowPrice": MessageLookupByLibrary.simpleMessage("الأقل سعرا"),
@@ -602,7 +603,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "repeat": MessageLookupByLibrary.simpleMessage("تكرار"),
         "request_profits": MessageLookupByLibrary.simpleMessage("طلب سحب"),
         "request_profits_hint": MessageLookupByLibrary.simpleMessage(
-            "لا يمكنك سحب مبلغ اقل من 5 آلف دينار"),
+            "لا يمكنك سحب مبلغ اقل من 100 آلف دينار"),
         "request_profits_title":
             MessageLookupByLibrary.simpleMessage("طلب سحب ارباح جديد"),
         "request_promotion_done":
@@ -770,7 +771,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("معاينة تفاصيل الطلب"),
         "waiting_status": MessageLookupByLibrary.simpleMessage("قيد المراجعة"),
         "warning_the_user_profits": MessageLookupByLibrary.simpleMessage(
-            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 5000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
+            "يرجى ملاحظة أنه يمكنك سحب أرباحك فقط عندما تصل أرباحك إلى الحد الأدنى المطلوب وهو 100000. بمجرد تحقيقك لهذا المبلغ، ستتمكن من سحب أرباحك بكل سهولة. استمر في العمل الجيد!"),
         "water_alarm": MessageLookupByLibrary.simpleMessage("منبه المياه"),
         "wed": MessageLookupByLibrary.simpleMessage("يوم الأربعاء"),
         "weeks": MessageLookupByLibrary.simpleMessage("أسابيع"),

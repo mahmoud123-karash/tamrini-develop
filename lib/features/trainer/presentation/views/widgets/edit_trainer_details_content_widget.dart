@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/features/profile/presentation/views/widgets/edit_profile_image_stack_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/widgets/name_text_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -13,6 +14,7 @@ class EditTrainerDetailsContentWidget extends StatelessWidget {
     required this.toHController,
     required this.autovalidateMode,
     required this.formKey,
+    required this.image,
   });
   final TextEditingController descriptionController;
   final TextEditingController priceController;
@@ -20,6 +22,7 @@ class EditTrainerDetailsContentWidget extends StatelessWidget {
   final TextEditingController toHController;
   final AutovalidateMode autovalidateMode;
   final GlobalKey<FormState> formKey;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +33,13 @@ class EditTrainerDetailsContentWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Center(
+              child: NameTextWidget(text: S.of(context).logo_image),
+            ),
+            EditProfileImageStackWidget(image: image),
+            const SizedBox(
+              height: 30,
+            ),
             addTextField(
               lable: S.of(context).trainer_description,
               controller: descriptionController,

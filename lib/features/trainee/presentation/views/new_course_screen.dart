@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
@@ -11,8 +12,9 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/course_name_duration_colum_widget.dart';
 
 class NewCourseScreen extends StatefulWidget {
-  const NewCourseScreen({super.key, required this.model});
+  const NewCourseScreen({super.key, required this.model, required this.logo});
   final TraineeModel model;
+  final String logo;
 
   @override
   State<NewCourseScreen> createState() => _NewCourseScreenState();
@@ -42,16 +44,26 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: page == 0
-                ? CourseNameDurationColumWidget(
-                    titleController: titleController,
-                    durationController: durationController,
-                    notesController: notesController,
-                    autovalidateMode: autovalidateMode,
-                    formKey: formKey,
-                  )
-                : const DaysCourseWidget(),
-          ),
+              child: Column(
+            children: [
+              const SizedBox(
+                height: 15,
+              ),
+              CirclarImageWidget(image: widget.logo, radius: 50),
+              const SizedBox(
+                height: 15,
+              ),
+              page == 0
+                  ? CourseNameDurationColumWidget(
+                      titleController: titleController,
+                      durationController: durationController,
+                      notesController: notesController,
+                      autovalidateMode: autovalidateMode,
+                      formKey: formKey,
+                    )
+                  : const DaysCourseWidget(),
+            ],
+          )),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Align(

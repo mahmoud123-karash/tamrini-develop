@@ -133,6 +133,7 @@ class PromotionRepoImpl extends PromotionRepo {
       questionsTrainees: [],
       isRequestProfits: false,
       uid: model.userId,
+      logo: '',
       price: 0,
       profits: 0,
       traineesCount: 0,

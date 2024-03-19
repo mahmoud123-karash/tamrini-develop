@@ -8,8 +8,10 @@ import 'widgets/add_diet_course_custom_widget.dart';
 import 'widgets/new_diet_course_content_widget.dart';
 
 class NewDietCourseScreen extends StatefulWidget {
-  const NewDietCourseScreen({super.key, required this.model});
+  const NewDietCourseScreen(
+      {super.key, required this.model, required this.logo});
   final TraineeModel model;
+  final String logo;
 
   @override
   State<NewDietCourseScreen> createState() => _NewDietCourseScreenState();
@@ -49,6 +51,7 @@ class _NewDietCourseScreenState extends State<NewDietCourseScreen> {
         slivers: [
           SliverToBoxAdapter(
             child: NewDietCourseContentWidget(
+              logo: widget.logo,
               dietTitleController: dietTitleController,
               dietdurationController: dietdurationController,
               satDayController: satDayController,

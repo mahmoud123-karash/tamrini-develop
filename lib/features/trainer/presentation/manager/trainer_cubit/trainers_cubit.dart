@@ -44,10 +44,12 @@ class TrainersCubit extends Cubit<TrainersStates> {
     required int price,
     required String fromH,
     required String toH,
+    required String logo,
   }) async {
     emit(LoadingGetTrainersState());
     var result = await trainerRepo.editTrainer(
         trainer: trainer,
+        logo: logo,
         description: description,
         price: price,
         fromH: fromH,

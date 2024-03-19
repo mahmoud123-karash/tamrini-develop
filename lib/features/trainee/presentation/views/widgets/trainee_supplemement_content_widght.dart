@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/user_type.dart';
+import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/food/presentation/views/supplement_category_screen.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/views/widgets/add_supplement_widget.dart';
@@ -10,9 +11,10 @@ import 'package:tamrini/generated/l10n.dart';
 
 class TraineeSupplementContentWidget extends StatefulWidget {
   const TraineeSupplementContentWidget(
-      {super.key, this.model, required this.supplements});
+      {super.key, this.model, required this.supplements, required this.logo});
   final TraineeModel? model;
   final List<String>? supplements;
+  final String logo;
 
   @override
   State<TraineeSupplementContentWidget> createState() =>
@@ -54,7 +56,7 @@ class _TraineeSupplementContentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    String userType = CacheHelper.getData(key: 'usertype');
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
 
     return ListView(
       controller: scrollController,
@@ -73,6 +75,17 @@ class _TraineeSupplementContentWidgetState
               lable: S.of(context).add_new_supplement,
             ),
           ),
+        if (userType != UserType.trainer)
+          const SizedBox(
+            height: 15,
+          ),
+        if (userType != UserType.trainer)
+          Center(
+            child: CirclarImageWidget(image: widget.logo, radius: 50),
+          ),
+        const SizedBox(
+          height: 15,
+        ),
         if (widget.model != null) AddSupplementWidget(model: widget.model!),
         SupplementListViewWidget(
           model: widget.model,

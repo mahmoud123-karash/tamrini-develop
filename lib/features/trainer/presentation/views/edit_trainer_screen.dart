@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 import 'package:tamrini/features/trainer/presentation/manager/trainer_cubit/trainers_cubit.dart';
@@ -34,6 +35,7 @@ class _EditTrainerScreenState extends State<EditTrainerScreen> {
 
   @override
   void initState() {
+    ImageCubit.get(context).clearPaths();
     descriptionController.text = widget.model.description;
     priceController.text = widget.model.price.toString();
     fromHController.text = widget.model.fromH;
@@ -55,6 +57,7 @@ class _EditTrainerScreenState extends State<EditTrainerScreen> {
               fromHController: fromHController,
               toHController: toHController,
               autovalidateMode: autovalidateMode,
+              image: widget.model.logo,
             ),
           ),
           SliverFillRemaining(
@@ -70,8 +73,10 @@ class _EditTrainerScreenState extends State<EditTrainerScreen> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
+                      List<String> paths = ImageCubit.get(context).paths;
                       TrainersCubit.get(context).editTrainer(
                         trainer: widget.model,
+                        logo: paths.isEmpty ? "" : paths.first,
                         description: descriptionController.text,
                         price: int.parse(priceController.text),
                         fromH: fromHController.text,

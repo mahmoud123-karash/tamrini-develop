@@ -10,6 +10,7 @@ abstract class TrainerRepo {
     required int price,
     required String fromH,
     required String toH,
+    required String logo,
   });
   Future<Either<String, List<TrainerModel>>> banTrainer({
     required String trainerId,
