@@ -18,7 +18,6 @@ class DietCourseDateAndNameRowWidget extends StatelessWidget {
           constraints: BoxConstraints(maxWidth: width / 2),
           child: Text(
             title,
-            maxLines: 2,
           ),
         ),
         const Spacer(),

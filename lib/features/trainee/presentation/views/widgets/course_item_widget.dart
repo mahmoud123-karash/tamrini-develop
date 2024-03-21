@@ -8,9 +8,14 @@ import 'package:tamrini/features/trainee/presentation/views/course_details_scree
 import 'package:tamrini/generated/l10n.dart';
 
 class CourseItemWidget extends StatelessWidget {
-  const CourseItemWidget({super.key, required this.model, required this.logo});
+  const CourseItemWidget(
+      {super.key,
+      required this.model,
+      required this.logo,
+      required this.themeColor});
   final CourseModel model;
   final String logo;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,7 @@ class CourseItemWidget extends StatelessWidget {
                   Text(
                     model.title,
                     style: TextStyles.style16Bold.copyWith(
-                      color: appColor,
+                      color: themeColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -57,7 +62,7 @@ class CourseItemWidget extends StatelessWidget {
               Text(
                 '${model.duration} ${S.of(context).weeks}',
                 style: TextStyles.style14.copyWith(
-                  color: appColor,
+                  color: themeColor,
                 ),
               )
             ],

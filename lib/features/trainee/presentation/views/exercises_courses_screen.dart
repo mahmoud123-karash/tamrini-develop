@@ -9,14 +9,19 @@ class ExerciseCoursesScreen extends StatelessWidget {
     super.key,
     required this.dayName,
     required this.list,
+    required this.themeColor,
   });
   final String dayName;
   final List<DataModel> list;
+  final Color themeColor;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: myAppBar(dayName),
+      appBar: themeAppBar(
+        dayName,
+        backgroundColor: themeColor,
+      ),
       body: list.isEmpty
           ? Center(
               child: Text(
@@ -30,6 +35,7 @@ class ExerciseCoursesScreen extends StatelessWidget {
                   model: list[index],
                   width: width,
                   num: 100,
+                  themeColor: themeColor,
                 ),
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 15,

@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 class TrainerIconOptionsWidget extends StatelessWidget {
   const TrainerIconOptionsWidget(
-      {super.key, required this.onTap, required this.icon});
+      {super.key,
+      required this.onTap,
+      required this.icon,
+      required this.themeColor});
   final VoidCallback onTap;
   final IconData icon;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,11 @@ class TrainerIconOptionsWidget extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: CircleAvatar(
-          child: Icon(icon),
+          backgroundColor: themeColor,
+          child: Icon(
+            icon,
+            color: Colors.white,
+          ),
         ),
       ),
     );

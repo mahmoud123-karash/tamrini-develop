@@ -1,4 +1,5 @@
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'core/utils/improts.dart';
 
 void main() async {
@@ -212,9 +213,16 @@ void main() async {
           )..getSubscriptions(),
         ),
         BlocProvider(
-            create: (context) => ProfitsCubit(
-                  getIt.get<ProfitsRepoImpl>(),
-                )..getData()),
+          create: (context) => ProfitsCubit(
+            getIt.get<ProfitsRepoImpl>(),
+          )..getData(),
+        ),
+        BlocProvider(
+          create: (context) => ThemeCubit()
+            ..changeCourseTheme(
+              themeNum: CacheHelper.getData(key: 'courseTheme') ?? 0,
+            ),
+        ),
         BlocProvider(
           create: (context) => ManageCubit()
             ..changeAppTheme(

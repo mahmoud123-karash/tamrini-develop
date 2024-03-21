@@ -93,3 +93,8 @@ void saveIndex(value) => CacheHelper.saveData(
       key: 'index',
       value: value,
     );
+
+void saveCourseTheme(value) => CacheHelper.saveData(
+      key: 'courseTheme',
+      value: value,
+    );

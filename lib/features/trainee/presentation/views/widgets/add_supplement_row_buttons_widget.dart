@@ -5,6 +5,7 @@ import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_states.dart';
 import 'package:tamrini/generated/l10n.dart';
@@ -38,6 +39,7 @@ class AddSupplementRowButtonsWidget extends StatelessWidget {
             },
             builder: (context, state) {
               return customButton(
+                color: ThemeCubit.get(context).themeColor,
                 onPressed: () {
                   TraineeCubit.get(context).addSupplements(
                     model: model,

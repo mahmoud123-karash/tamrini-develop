@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/follow_up_model.dart';
@@ -9,8 +8,10 @@ import '../../../../gym/presentation/views/widgets/gym_slide_show_images_widget.
 import '../follow_details_screen.dart';
 
 class FollowUpItemWidget extends StatelessWidget {
-  const FollowUpItemWidget({super.key, required this.model});
+  const FollowUpItemWidget(
+      {super.key, required this.model, required this.themeColor});
   final FollowUpModel model;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class FollowUpItemWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: appColor.withOpacity(0.2),
+          color: themeColor.withOpacity(0.2),
         ),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
@@ -31,7 +32,7 @@ class FollowUpItemWidget extends StatelessWidget {
               Text(
                 DateFormat('EEE, M/d/y').format(model.createdAt.toDate()),
                 style: TextStyles.style14.copyWith(
-                  color: appColor,
+                  color: themeColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),

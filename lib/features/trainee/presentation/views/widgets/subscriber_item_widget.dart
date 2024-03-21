@@ -54,6 +54,7 @@ class SubscriberItemWidget extends StatelessWidget {
                 ),
                 if (isEnd)
                   ChatIconBadgeWidget(
+                    themeColor: appColor,
                     name: model.user!.name,
                     image: model.user!.image,
                     chatId: model.chatId,

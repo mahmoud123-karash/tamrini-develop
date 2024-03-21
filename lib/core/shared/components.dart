@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ionicons/ionicons.dart';
@@ -55,6 +56,29 @@ AppBar myAppBar(
   List<Widget>? actions,
 }) =>
     AppBar(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(30),
+        ),
+      ),
+      centerTitle: true,
+      title: Text(
+        title,
+      ),
+      actions: actions,
+    );
+
+AppBar themeAppBar(
+  title, {
+  List<Widget>? actions,
+  Color? backgroundColor,
+}) =>
+    AppBar(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: backgroundColor,
+        statusBarBrightness: Brightness.light,
+      ),
+      backgroundColor: backgroundColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(30),
@@ -210,6 +234,54 @@ Widget addTextField({
             : isDark
                 ? whiteColor
                 : blackColor,
+        fontWeight: FontWeight.bold,
+      ),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 10,
+      ),
+    ),
+  );
+}
+
+Widget themeTextField({
+  required String lable,
+  required TextEditingController controller,
+  required BuildContext context,
+  TextInputType? keyboardType,
+  required AutovalidateMode autovalidateMode,
+  VoidCallback? onTap,
+  required Color color,
+}) {
+  bool isDark = CacheHelper.getData(key: 'isdark') ?? false;
+  return TextFormField(
+    onTap: onTap,
+    maxLines: null,
+    autovalidateMode: autovalidateMode,
+    validator: (value) {
+      if (value == null || value.isEmpty) {
+        return S.of(context).validate;
+      }
+      return null;
+    },
+    controller: controller,
+    keyboardType: keyboardType,
+    decoration: InputDecoration(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: color),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: color),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: color),
+      ),
+      labelText: lable,
+      labelStyle: TextStyles.style14.copyWith(
+        color: isDark ? whiteColor : blackColor,
         fontWeight: FontWeight.bold,
       ),
       contentPadding: const EdgeInsets.symmetric(

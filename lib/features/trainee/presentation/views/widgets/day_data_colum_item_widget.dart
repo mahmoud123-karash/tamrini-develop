@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 
 class DayDataColumItemWidget extends StatelessWidget {
   const DayDataColumItemWidget({
@@ -18,7 +19,7 @@ class DayDataColumItemWidget extends StatelessWidget {
         Text(
           '$day:',
           style: TextStyles.style16Bold.copyWith(
-            color: appColor,
+            color: ThemeCubit.get(context).themeColor,
             fontWeight: FontWeight.bold,
           ),
         ),

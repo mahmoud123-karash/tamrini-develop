@@ -14,9 +14,11 @@ class TrainerOptionsRowWidget extends StatelessWidget {
     required this.image,
     required this.chatId,
     required this.recieverUid,
+    required this.themeColor,
   });
   final String trainerId, name, image, chatId, recieverUid;
   final bool isEnd;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class TrainerOptionsRowWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TrainerIconOptionsWidget(
+          themeColor: themeColor,
           onTap: () {
             navigateTo(context, TrainerProfileScreen(id: trainerId));
           },
@@ -31,6 +34,7 @@ class TrainerOptionsRowWidget extends StatelessWidget {
         ),
         if (!isEnd)
           ChatIconBadgeWidget(
+            themeColor: themeColor,
             name: name,
             image: image,
             chatId: chatId,

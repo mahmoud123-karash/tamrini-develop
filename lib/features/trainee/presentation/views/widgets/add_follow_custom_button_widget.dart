@@ -7,9 +7,13 @@ import 'package:tamrini/generated/l10n.dart';
 
 class AddFollowCustomWidget extends StatelessWidget {
   const AddFollowCustomWidget(
-      {super.key, required this.onPressed, required this.lable});
+      {super.key,
+      required this.onPressed,
+      required this.lable,
+      required this.themeColor});
   final VoidCallback onPressed;
   final String lable;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,8 @@ class AddFollowCustomWidget extends StatelessWidget {
         if (state is LoadingGetCourseState) {
           return const CircularProgressIndicator();
         } else {
-          return customButton(onPressed: onPressed, lable: lable);
+          return customButton(
+              onPressed: onPressed, lable: lable, color: themeColor);
         }
       },
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class NewDietCourseContentWidget extends StatelessWidget {
@@ -34,6 +35,7 @@ class NewDietCourseContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color themeColor = ThemeCubit.get(context).themeColor;
     return Form(
       key: formKey,
       child: Padding(
@@ -44,7 +46,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).diet_name,
               controller: dietTitleController,
               context: context,
@@ -53,7 +56,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               keyboardType: TextInputType.number,
               lable: S.of(context).diet_duration,
               controller: dietdurationController,
@@ -63,7 +67,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).sut,
               controller: satDayController,
               context: context,
@@ -72,7 +77,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).sun,
               controller: sunDayController,
               context: context,
@@ -81,7 +87,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).mon,
               controller: monDayController,
               context: context,
@@ -90,7 +97,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).tue,
               controller: tueDayController,
               context: context,
@@ -99,7 +107,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).wed,
               controller: wenDayController,
               context: context,
@@ -108,7 +117,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).thurs,
               controller: thrusDayController,
               context: context,
@@ -117,7 +127,8 @@ class NewDietCourseContentWidget extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: themeColor,
               lable: S.of(context).fri,
               controller: friDayController,
               context: context,

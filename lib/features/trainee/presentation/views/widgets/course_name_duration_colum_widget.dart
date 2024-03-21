@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class CourseNameDurationColumWidget extends StatefulWidget {
@@ -39,7 +39,8 @@ class _CourseNameDurationColumWidgetState
         ),
         child: Column(
           children: [
-            addTextField(
+            themeTextField(
+              color: ThemeCubit.get(context).themeColor,
               lable: S.of(context).course_name,
               controller: widget.titleController,
               context: context,
@@ -48,7 +49,8 @@ class _CourseNameDurationColumWidgetState
             const SizedBox(
               height: 15,
             ),
-            addTextField(
+            themeTextField(
+              color: ThemeCubit.get(context).themeColor,
               keyboardType: TextInputType.number,
               lable: S.of(context).course_duration,
               controller: widget.durationController,
@@ -59,11 +61,12 @@ class _CourseNameDurationColumWidgetState
               height: 15,
             ),
             CheckboxListTile(
+              activeColor: ThemeCubit.get(context).themeColor,
               title: Text(
                 S.of(context).course_notes,
                 style: TextStyles.style14.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: appColor,
+                  color: ThemeCubit.get(context).themeColor,
                 ),
               ),
               value: isNote,
@@ -76,7 +79,8 @@ class _CourseNameDurationColumWidgetState
               height: 15,
             ),
             if (isNote)
-              addTextField(
+              themeTextField(
+                color: ThemeCubit.get(context).themeColor,
                 lable: S.of(context).course_notes,
                 controller: widget.notesController,
                 context: context,

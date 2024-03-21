@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_states.dart';
 import 'package:tamrini/features/trainee/presentation/views/widgets/courses_content_widgt.dart';
 import 'package:tamrini/generated/l10n.dart';
+
+import '../manager/theme_cubit/theme_states.dart';
 
 class CourcesScreen extends StatefulWidget {
   const CourcesScreen(
@@ -53,22 +56,31 @@ class _CourcesScreenState extends State<CourcesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBar(S.of(context).courses),
-      body: BlocBuilder<TraineeCubit, TraineeStates>(
-        builder: (context, state) {
-          TraineeModel? model = widget.list != null
-              ? null
-              : TraineeCubit.get(context).getTrainee(id: widget.traineeId);
-          List<CourseModel> courses = widget.list ?? model!.courses;
-          return CoursesContentWidget(
-            courses: courses,
-            model: model,
-            length: length,
-            logo: widget.logo,
-          );
-        },
-      ),
+    return BlocBuilder<ThemeCubit, ThemeStates>(
+      builder: (context, state) {
+        Color themeColor = ThemeCubit.get(context).themeColor;
+        return Scaffold(
+          appBar: themeAppBar(
+            S.of(context).courses,
+            backgroundColor: themeColor,
+          ),
+          body: BlocBuilder<TraineeCubit, TraineeStates>(
+            builder: (context, state) {
+              TraineeModel? model = widget.list != null
+                  ? null
+                  : TraineeCubit.get(context).getTrainee(id: widget.traineeId);
+              List<CourseModel> courses = widget.list ?? model!.courses;
+              return CoursesContentWidget(
+                themeColor: themeColor,
+                courses: courses,
+                model: model,
+                length: length,
+                logo: widget.logo,
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

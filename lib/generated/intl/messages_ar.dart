@@ -179,6 +179,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("إختر الوجبة"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("اختر الوزن"),
+        "choose_your_theme":
+            MessageLookupByLibrary.simpleMessage("اختر المظهر"),
         "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "claculate_your_calories_before": MessageLookupByLibrary.simpleMessage(
             "من فضلك قم بحساب احتياجك قبل اختيار الوجبات"),

@@ -12,10 +12,12 @@ class DayCourseItemWidget extends StatelessWidget {
     required this.lable,
     required this.num,
     required this.list,
+    required this.themeColor,
   });
   final String lable;
   final int num;
   final List<TraineeExerciseModel> list;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,7 @@ class DayCourseItemWidget extends StatelessWidget {
         exercises.add(model);
       }
     }
-
     var width = MediaQuery.of(context).size.width;
-
     return SizedBox(
       height: list.isEmpty ? 50 : 300,
       child: Column(
@@ -41,6 +41,7 @@ class DayCourseItemWidget extends StatelessWidget {
               itemBuilder: (context, index) => ExerciseItemWidget(
                 model: exercises[index],
                 width: width / 1.5,
+                themeColor: themeColor,
                 num: num,
               ),
               separatorBuilder: (context, index) => const SizedBox(

@@ -8,7 +8,8 @@ import 'package:tamrini/features/trainee/presentation/manager/course_cubit/cours
 import 'day_course_item_widget.dart';
 
 class DaysCourseWidget extends StatefulWidget {
-  const DaysCourseWidget({super.key});
+  const DaysCourseWidget({super.key, required this.themeColor});
+  final Color themeColor;
 
   @override
   State<DaysCourseWidget> createState() => _DaysCourseWidgetState();
@@ -53,6 +54,7 @@ class _DaysCourseWidgetState extends State<DaysCourseWidget> {
             itemCount: daysWeek(context).length,
             itemBuilder: (context, index) {
               return DayCourseItemWidget(
+                themeColor:widget.themeColor,
                 lable: daysWeek(context)[index],
                 num: index,
                 list: list[index],

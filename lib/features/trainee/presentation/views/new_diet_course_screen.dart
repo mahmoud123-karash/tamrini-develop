@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
@@ -46,7 +47,8 @@ class _NewDietCourseScreenState extends State<NewDietCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(S.of(context).add_new_diet_course),
+      appBar: themeAppBar(S.of(context).add_new_diet_course,
+          backgroundColor: ThemeCubit.get(context).themeColor),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

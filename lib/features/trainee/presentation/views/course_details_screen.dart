@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/lists.dart';
@@ -7,6 +8,8 @@ import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_exercises_model.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../manager/theme_cubit/theme_cubit.dart';
+import '../manager/theme_cubit/theme_states.dart';
 import 'widgets/course_name_row_widget.dart';
 import 'widgets/course_notes_container_widget.dart';
 import 'widgets/day_week_container_widget.dart';
@@ -19,73 +22,85 @@ class CourseDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: myAppBar(S.of(context).course_details),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 10,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: CirclarImageWidget(
-                  image: logo,
-                  radius: 50,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CourseNameRowWidget(
-                value: model.title,
-                lable: S.of(context).course_name,
-                icon: Icons.title,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CourseNameRowWidget(
-                value: "${model.duration} ${S.of(context).weeks}",
-                lable: S.of(context).duration_course,
-                icon: Icons.timelapse_outlined,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CourseNameRowWidget(
-                value:
-                    DateFormat('M/d/y', 'en').format(model.createdAt.toDate()),
-                lable: S.of(context).course_date,
-                icon: Icons.calendar_month_outlined,
-              ),
-              if (model.notes != '')
-                const SizedBox(
-                  height: 25,
-                ),
-              if (model.notes != '')
-                CourseNotesContainerWidget(notes: model.notes),
-              const SizedBox(
-                height: 25,
-              ),
-              ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => DayWeekContainerWidget(
-                  lable: daysWeek(context)[index],
-                  list: getList(index, model.dayWeekExercises),
-                ),
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 10,
-                ),
-                itemCount: 7,
-              )
-            ],
+    return BlocBuilder<ThemeCubit, ThemeStates>(
+      builder: (context, state) {
+        Color themeColor = ThemeCubit.get(context).themeColor;
+        return Scaffold(
+          appBar: themeAppBar(
+            S.of(context).course_details,
+            backgroundColor: themeColor,
           ),
-        ),
-      ),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 10,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: CirclarImageWidget(
+                      image: logo,
+                      radius: 50,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CourseNameRowWidget(
+                    themeColor: themeColor,
+                    value: model.title,
+                    lable: S.of(context).course_name,
+                    icon: Icons.title,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CourseNameRowWidget(
+                    themeColor: themeColor,
+                    value: "${model.duration} ${S.of(context).weeks}",
+                    lable: S.of(context).duration_course,
+                    icon: Icons.timelapse_outlined,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CourseNameRowWidget(
+                    themeColor: themeColor,
+                    value: DateFormat('M/d/y', 'en')
+                        .format(model.createdAt.toDate()),
+                    lable: S.of(context).course_date,
+                    icon: Icons.calendar_month_outlined,
+                  ),
+                  if (model.notes != '')
+                    const SizedBox(
+                      height: 25,
+                    ),
+                  if (model.notes != '')
+                    CourseNotesContainerWidget(notes: model.notes),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) => DayWeekContainerWidget(
+                      themeColor: themeColor,
+                      lable: daysWeek(context)[index],
+                      list: getList(index, model.dayWeekExercises),
+                    ),
+                    separatorBuilder: (context, index) => const SizedBox(
+                      height: 10,
+                    ),
+                    itemCount: 7,
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -17,11 +17,13 @@ class CoursesContentWidget extends StatelessWidget {
     required this.model,
     required this.length,
     required this.logo,
+    required this.themeColor,
   });
   final List<CourseModel> courses;
   final TraineeModel? model;
   final int length;
   final String logo;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +36,16 @@ class CoursesContentWidget extends StatelessWidget {
               horizontal: 15,
             ),
             child: addCustomButton(
+              color: themeColor,
               onPressed: () {
                 navigateTo(
-                    context,
-                    NewCourseScreen(
-                      model: model!,
-                      logo: logo,
-                    ));
+                  context,
+                  NewCourseScreen(
+                    model: model!,
+                    logo: logo,
+                    themeColor: themeColor,
+                  ),
+                );
               },
               lable: S.of(context).add_new_course,
             ),
@@ -65,6 +70,7 @@ class CoursesContentWidget extends StatelessWidget {
                   ),
                 )
               : CoursesListViewWidget(
+                  themeColor: themeColor,
                   list: courses,
                   length: length,
                   logo: logo,

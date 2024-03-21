@@ -5,6 +5,7 @@ import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supp
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_states.dart';
 import 'package:tamrini/features/food/presentation/views/widgets/supplement_article_item_widget.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 import 'remove_supplement_icon_widget.dart';
@@ -61,6 +62,9 @@ class SupplementListViewWidget extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         children: [
                           SupplementArticleItemWidget(
+                            themeColor: ThemeCubit.get(context)
+                                .themeColor
+                                .withOpacity(0.5),
                             model: finalList[index],
                             categoryId: '',
                             isCourse: false,
@@ -74,10 +78,12 @@ class SupplementListViewWidget extends StatelessWidget {
                         ],
                       );
                     } else {
-                      return const Center(
+                      return Center(
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CircularProgressIndicator(),
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircularProgressIndicator(
+                            color: ThemeCubit.get(context).themeColor,
+                          ),
                         ),
                       );
                     }

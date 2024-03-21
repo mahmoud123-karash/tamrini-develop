@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_cubit.dart';
 import 'package:tamrini/core/cubit/image_cubit/image_states.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class FollowUpImagesWidget extends StatelessWidget {
-  const FollowUpImagesWidget({super.key});
+  const FollowUpImagesWidget({super.key, required this.themeColor});
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -85,14 +85,14 @@ class FollowUpImagesWidget extends StatelessWidget {
                     child: Text(
                       S.of(context).add_images,
                       style: TextStyles.style16Bold.copyWith(
-                        color: appColor,
+                        color: themeColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Icon(
                     Icons.image,
-                    color: appColor,
+                    color: themeColor,
                   ),
                 ],
               ),

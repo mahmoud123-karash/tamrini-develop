@@ -10,11 +10,17 @@ import 'package:tamrini/features/trainee/presentation/views/widgets/trainee_supp
 import 'package:tamrini/generated/l10n.dart';
 
 class TraineeSupplementContentWidget extends StatefulWidget {
-  const TraineeSupplementContentWidget(
-      {super.key, this.model, required this.supplements, required this.logo});
+  const TraineeSupplementContentWidget({
+    super.key,
+    this.model,
+    required this.supplements,
+    required this.logo,
+    required this.themeColor,
+  });
   final TraineeModel? model;
   final List<String>? supplements;
   final String logo;
+  final Color themeColor;
 
   @override
   State<TraineeSupplementContentWidget> createState() =>
@@ -36,14 +42,16 @@ class _TraineeSupplementContentWidgetState
   void _loadMoreData() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
-      if (widget.supplements!.length > length) {
+      if ((widget.supplements ?? widget.model!.supplements).length > length) {
         length += 10;
-        Future.delayed(const Duration(seconds: 1)).then((value) {
-          if (mounted) {
-            WidgetsBinding.instance
-                .addPostFrameCallback((_) => setState(() {}));
-          }
-        });
+        Future.delayed(const Duration(seconds: 1)).then(
+          (value) {
+            if (mounted) {
+              WidgetsBinding.instance
+                  .addPostFrameCallback((_) => setState(() {}));
+            }
+          },
+        );
       }
     }
   }
@@ -67,6 +75,7 @@ class _TraineeSupplementContentWidgetState
               horizontal: 10,
             ),
             child: addCustomButton(
+              color: widget.themeColor,
               fontSize: 15,
               onPressed: () {
                 navigateTo(

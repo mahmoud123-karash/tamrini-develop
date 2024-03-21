@@ -550,7 +550,9 @@
     "delete_account": "Delete Account",
     "re_auth_account": "Please log in again to confirm the account",
     "logo_image":"Logo image",
-    "new_order":"new order waiting"
+    "new_order":"new order waiting",
+    "choose_your_theme":"Choose your Theme"
+
 
 
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/exercise/data/models/exercise_model/data_model.dart';
@@ -9,10 +8,15 @@ import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_exerc
 import '../exercises_courses_screen.dart';
 
 class DayWeekContainerWidget extends StatelessWidget {
-  const DayWeekContainerWidget(
-      {super.key, required this.lable, required this.list});
+  const DayWeekContainerWidget({
+    super.key,
+    required this.lable,
+    required this.list,
+    required this.themeColor,
+  });
   final String lable;
   final List<TraineeExerciseModel> list;
+  final Color themeColor;
   @override
   Widget build(BuildContext context) {
     List<DataModel> dataList = [];
@@ -26,13 +30,18 @@ class DayWeekContainerWidget extends StatelessWidget {
     return ListTile(
       onTap: () {
         navigateTo(
-            context, ExerciseCoursesScreen(dayName: lable, list: dataList));
+            context,
+            ExerciseCoursesScreen(
+              dayName: lable,
+              list: dataList,
+              themeColor: themeColor,
+            ));
       },
       shape: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide.none,
       ),
-      tileColor: appColor.withOpacity(0.4),
+      tileColor: themeColor.withOpacity(0.4),
       leading: const Icon(Icons.calendar_month_rounded),
       title: Text(
         lable,

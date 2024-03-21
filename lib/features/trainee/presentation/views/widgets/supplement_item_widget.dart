@@ -8,6 +8,7 @@ import 'package:tamrini/features/food/data/models/supplement_model/supplement_da
 import 'package:tamrini/features/food/presentation/manager/supplement_cubit/supplement_cubit.dart';
 import 'package:tamrini/features/food/presentation/views/supplement_article_details_screen.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 
 class SupplementItemWidget extends StatelessWidget {
   const SupplementItemWidget({super.key, required this.supplementId});
@@ -41,6 +42,7 @@ class SupplementItemWidget extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
+            color: ThemeCubit.get(context).themeColor.withOpacity(0.3),
             elevation: 7,
             child: Padding(
               padding: const EdgeInsets.all(8.0),

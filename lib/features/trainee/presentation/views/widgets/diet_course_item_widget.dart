@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/core/utils/user_type.dart';
@@ -13,10 +12,11 @@ import '../diet_course_details_screen.dart';
 
 class DietCourseItemWidget extends StatelessWidget {
   const DietCourseItemWidget(
-      {super.key, required this.model, required this.food, required this.logo});
+      {super.key, required this.model, required this.food, required this.logo, required this.themeColor});
   final TraineeModel? model;
   final FoodModel food;
   final String logo;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +35,12 @@ class DietCourseItemWidget extends StatelessWidget {
               DietCourseDetailsScreen(
                 food: food,
                 logo: logo,
-              ));
+                themeColor:themeColor,
+              ),);
         },
         child: Container(
           decoration: BoxDecoration(
-            color: appColor.withOpacity(0.1),
+            color: themeColor.withOpacity(0.1),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Padding(
@@ -54,7 +55,7 @@ class DietCourseItemWidget extends StatelessWidget {
                       child: Text(
                         food.title,
                         style: TextStyles.style16Bold.copyWith(
-                          color: appColor,
+                          color: themeColor,
                           fontWeight: FontWeight.bold,
                         ),
                         maxLines: 1,

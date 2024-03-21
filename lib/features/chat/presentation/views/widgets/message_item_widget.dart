@@ -65,7 +65,6 @@ class MessageItemWidget extends StatelessWidget {
                   DateFormat('h:m a').format(time),
                   style: TextStyles.style12.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black54,
                   ),
                 ),
                 const SizedBox(

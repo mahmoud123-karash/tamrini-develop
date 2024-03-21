@@ -6,6 +6,8 @@ import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trai
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_states.dart';
 import 'package:tamrini/generated/l10n.dart';
 
+import '../../manager/theme_cubit/theme_cubit.dart';
+
 class CourseCustomButtonBuilderWidget extends StatelessWidget {
   const CourseCustomButtonBuilderWidget(
       {super.key, required this.onPressed, required this.lable});
@@ -20,7 +22,11 @@ class CourseCustomButtonBuilderWidget extends StatelessWidget {
         if (state is LoadingGetTraineesState) {
           return const CircularProgressIndicator();
         } else {
-          return customButton(onPressed: onPressed, lable: lable);
+          return customButton(
+            onPressed: onPressed,
+            lable: lable,
+            color: ThemeCubit.get(context).themeColor,
+          );
         }
       },
       listener: (context, state) {

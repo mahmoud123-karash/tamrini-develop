@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/chat/presentation/views/chat_screen.dart';
 
@@ -10,8 +9,10 @@ class ChatIconBadgeWidget extends StatelessWidget {
     required this.image,
     required this.chatId,
     required this.recieverUid,
+    required this.themeColor,
   });
   final String name, image, chatId, recieverUid;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +29,11 @@ class ChatIconBadgeWidget extends StatelessWidget {
         );
       },
       child: CircleAvatar(
-        backgroundColor: appColor,
-        child: Center(
+        backgroundColor: themeColor,
+        child: const Center(
           child: Icon(
             Icons.chat_outlined,
-            color: whiteColor,
+            color: Colors.white,
           ),
         ),
       ),

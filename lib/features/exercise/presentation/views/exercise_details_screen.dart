@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/generated/l10n.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -98,7 +99,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
       ),
       builder: (context, player) => Scaffold(
         appBar: AppBar(
-          systemOverlayStyle: const SystemUiOverlayStyle(),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: appColor,
+          ),
           title: Text(
             S.of(context).exDetails,
           ),

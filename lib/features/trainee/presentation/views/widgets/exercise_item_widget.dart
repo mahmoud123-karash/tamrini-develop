@@ -11,10 +11,15 @@ import 'package:tamrini/features/trainee/presentation/manager/course_cubit/cours
 
 class ExerciseItemWidget extends StatelessWidget {
   const ExerciseItemWidget(
-      {super.key, required this.model, required this.width, required this.num});
+      {super.key,
+      required this.model,
+      required this.width,
+      required this.num,
+      required this.themeColor});
   final DataModel model;
   final double width;
   final int num;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +65,7 @@ class ExerciseItemWidget extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
+            color: themeColor.withOpacity(0.3),
             elevation: 7,
             child: Padding(
               padding: const EdgeInsets.all(8.0),

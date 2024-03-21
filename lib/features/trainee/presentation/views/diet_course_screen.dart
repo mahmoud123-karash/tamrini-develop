@@ -15,16 +15,24 @@ import 'widgets/diet_course_item_widget.dart';
 
 class DietCourseScreen extends StatelessWidget {
   const DietCourseScreen(
-      {super.key, required this.traineeId, this.list, required this.logo});
+      {super.key,
+      required this.traineeId,
+      this.list,
+      required this.logo,
+      required this.themeColor});
   final String traineeId;
   final List<FoodModel>? list;
   final String logo;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
     String userType = CacheHelper.getData(key: 'usertype') ?? '';
     return Scaffold(
-      appBar: myAppBar(S.of(context).diet),
+      appBar: themeAppBar(
+        S.of(context).diet,
+        backgroundColor: themeColor,
+      ),
       body: BlocBuilder<TraineeCubit, TraineeStates>(
         builder: (context, state) {
           TraineeModel? model = list != null
@@ -38,6 +46,7 @@ class DietCourseScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: addCustomButton(
+                    color: themeColor,
                     fontSize: 15,
                     onPressed: () {
                       navigateTo(
@@ -72,6 +81,7 @@ class DietCourseScreen extends StatelessWidget {
                           model: model,
                           food: food[index],
                           logo: logo,
+                          themeColor: themeColor,
                         ),
                         itemCount: food.length,
                       ),

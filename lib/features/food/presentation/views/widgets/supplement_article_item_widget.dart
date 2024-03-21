@@ -22,10 +22,12 @@ class SupplementArticleItemWidget extends StatelessWidget {
     required this.model,
     required this.categoryId,
     required this.isCourse,
+    this.themeColor,
   });
   final SupplementData model;
   final String categoryId;
   final bool isCourse;
+  final Color? themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,7 @@ class SupplementArticleItemWidget extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
+                  color: themeColor,
                   elevation: 7,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -105,7 +108,9 @@ class SupplementArticleItemWidget extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 15.sm,
                                 fontWeight: FontWeight.normal,
-                                color: Colors.grey.shade500,
+                                color: themeColor != null
+                                    ? whiteColor
+                                    : Colors.grey.shade500,
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),

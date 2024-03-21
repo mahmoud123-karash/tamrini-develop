@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
 import 'package:tamrini/features/exercise/presentation/views/category_exercices_screen.dart';
 import 'package:tamrini/features/trainee/presentation/manager/course_cubit/course_cubit.dart';
+import 'package:tamrini/features/trainee/presentation/manager/theme_cubit/theme_cubit.dart';
 
 class DayNameRowWidget extends StatelessWidget {
   const DayNameRowWidget({super.key, required this.lable, required this.num});
@@ -17,7 +17,7 @@ class DayNameRowWidget extends StatelessWidget {
         Text(
           lable,
           style: TextStyles.style16Bold.copyWith(
-            color: appColor,
+            color: ThemeCubit.get(context).themeColor,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -34,7 +34,7 @@ class DayNameRowWidget extends StatelessWidget {
           },
           icon: Icon(
             Icons.add_box_rounded,
-            color: appColor,
+            color: ThemeCubit.get(context).themeColor,
           ),
         )
       ],

@@ -178,6 +178,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "change_pass": MessageLookupByLibrary.simpleMessage("Change Password"),
         "choose_meal": MessageLookupByLibrary.simpleMessage("Choose a meal"),
         "choose_weight": MessageLookupByLibrary.simpleMessage("Choose weight"),
+        "choose_your_theme":
+            MessageLookupByLibrary.simpleMessage("Choose your Theme"),
         "city": MessageLookupByLibrary.simpleMessage("City"),
         "claculate_your_calories_before": MessageLookupByLibrary.simpleMessage(
             "Please calculate your requirements before selecting meals"),

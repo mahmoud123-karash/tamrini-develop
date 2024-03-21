@@ -3,14 +3,17 @@ import 'package:tamrini/features/trainee/data/models/trainee_model/course_model.
 import 'package:tamrini/features/trainee/presentation/views/widgets/course_item_widget.dart';
 
 class CoursesListViewWidget extends StatelessWidget {
-  const CoursesListViewWidget(
-      {super.key,
-      required this.list,
-      required this.length,
-      required this.logo});
+  const CoursesListViewWidget({
+    super.key,
+    required this.list,
+    required this.length,
+    required this.logo,
+    required this.themeColor,
+  });
   final List<CourseModel> list;
   final int length;
   final String logo;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class CoursesListViewWidget extends StatelessWidget {
         itemBuilder: (context, index) => CourseItemWidget(
           model: list[index],
           logo: logo,
+          themeColor: themeColor,
         ),
         separatorBuilder: (context, index) => const SizedBox(
           height: 15,

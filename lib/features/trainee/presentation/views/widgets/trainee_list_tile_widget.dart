@@ -7,10 +7,12 @@ class TraineeListTileWidget extends StatelessWidget {
       {super.key,
       required this.lable,
       required this.icon,
-      required this.onTap});
+      required this.onTap,
+      required this.color});
   final String lable;
   final IconData icon;
   final VoidCallback onTap;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -29,17 +31,17 @@ class TraineeListTileWidget extends StatelessWidget {
         title: Text(
           lable,
           style: TextStyles.style14.copyWith(
-            color: appColor,
+            color: color,
             fontWeight: FontWeight.bold,
           ),
         ),
         leading: Icon(
           icon,
-          color: appColor,
+          color: color,
         ),
         trailing: Icon(
           Icons.arrow_forward_ios_sharp,
-          color: appColor,
+          color: color,
         ),
       ),
     );

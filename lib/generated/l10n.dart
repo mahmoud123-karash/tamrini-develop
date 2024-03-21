@@ -5569,6 +5569,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Choose your Theme`
+  String get choose_your_theme {
+    return Intl.message(
+      'Choose your Theme',
+      name: 'choose_your_theme',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

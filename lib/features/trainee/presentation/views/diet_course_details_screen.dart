@@ -10,9 +10,13 @@ import 'widgets/diet_course_date_and_naem_row_widget.dart';
 
 class DietCourseDetailsScreen extends StatelessWidget {
   const DietCourseDetailsScreen(
-      {super.key, required this.food, required this.logo});
+      {super.key,
+      required this.food,
+      required this.logo,
+      required this.themeColor});
   final FoodModel food;
   final String logo;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,10 @@ class DietCourseDetailsScreen extends StatelessWidget {
     daysData.add(food.thursData);
     daysData.add(food.friData);
     return Scaffold(
-      appBar: myAppBar(S.of(context).diet_course_details),
+      appBar: themeAppBar(
+        S.of(context).diet_course_details,
+        backgroundColor: themeColor,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(

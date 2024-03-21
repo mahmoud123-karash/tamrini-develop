@@ -19,8 +19,10 @@ import 'package:tamrini/generated/l10n.dart';
 import 'waring_end_sub_container_widget.dart';
 
 class UserCourseContentWidget extends StatelessWidget {
-  const UserCourseContentWidget({super.key, required this.traineeModel});
+  const UserCourseContentWidget(
+      {super.key, required this.traineeModel, required this.themeColor});
   final TraineeModel traineeModel;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class UserCourseContentWidget extends StatelessWidget {
                           message: S.of(context).sub_end_waring_trainee,
                         ),
                       TrainerCourseWidget(
+                        themeColor: themeColor,
                         model: model,
                         isEnd: isEnd,
                         chatId: traineeModel.chatId,
@@ -61,7 +64,7 @@ class UserCourseContentWidget extends StatelessWidget {
                           child: Text(
                             S.of(context).training_course,
                             style: TextStyles.style16Bold.copyWith(
-                              color: Colors.amber,
+                              color: themeColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -71,6 +74,7 @@ class UserCourseContentWidget extends StatelessWidget {
                         height: 15,
                       ),
                       TraineeListTileWidget(
+                        color: themeColor,
                         lable: S.of(context).follow_and_data,
                         icon: Icons.follow_the_signs_rounded,
                         onTap: () {
@@ -90,6 +94,7 @@ class UserCourseContentWidget extends StatelessWidget {
                         height: 15,
                       ),
                       TraineeListTileWidget(
+                        color: themeColor,
                         lable: S.of(context).courses,
                         icon: Icons.golf_course_outlined,
                         onTap: () {
@@ -109,6 +114,7 @@ class UserCourseContentWidget extends StatelessWidget {
                         height: 15,
                       ),
                       TraineeListTileWidget(
+                        color: themeColor,
                         lable: S.of(context).diet,
                         icon: Icons.fastfood_outlined,
                         onTap: () {
@@ -116,6 +122,7 @@ class UserCourseContentWidget extends StatelessWidget {
                             navigateTo(
                               context,
                               DietCourseScreen(
+                                themeColor: themeColor,
                                 logo: model.logo,
                                 traineeId: '',
                                 list: traineeModel.food,
@@ -128,6 +135,7 @@ class UserCourseContentWidget extends StatelessWidget {
                         height: 15,
                       ),
                       TraineeListTileWidget(
+                        color: themeColor,
                         lable: S.of(context).nuttritions,
                         icon: Icons.local_drink_outlined,
                         onTap: () {
@@ -135,6 +143,7 @@ class UserCourseContentWidget extends StatelessWidget {
                             navigateTo(
                               context,
                               TraineeSupplementsScreen(
+                                themeColor: themeColor,
                                 traineeId: '',
                                 supplements: traineeModel.supplements,
                                 logo: model.logo,

@@ -12,10 +12,14 @@ import 'package:tamrini/generated/l10n.dart';
 import 'widgets/course_name_duration_colum_widget.dart';
 
 class NewCourseScreen extends StatefulWidget {
-  const NewCourseScreen({super.key, required this.model, required this.logo});
+  const NewCourseScreen(
+      {super.key,
+      required this.model,
+      required this.logo,
+      required this.themeColor});
   final TraineeModel model;
   final String logo;
-
+  final Color themeColor;
   @override
   State<NewCourseScreen> createState() => _NewCourseScreenState();
 }
@@ -40,30 +44,36 @@ class _NewCourseScreenState extends State<NewCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: myAppBar(S.of(context).add_new_course),
+      appBar: themeAppBar(
+        S.of(context).add_new_course,
+        backgroundColor: widget.themeColor,
+      ),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-              child: Column(
-            children: [
-              const SizedBox(
-                height: 15,
-              ),
-              CirclarImageWidget(image: widget.logo, radius: 50),
-              const SizedBox(
-                height: 15,
-              ),
-              page == 0
-                  ? CourseNameDurationColumWidget(
-                      titleController: titleController,
-                      durationController: durationController,
-                      notesController: notesController,
-                      autovalidateMode: autovalidateMode,
-                      formKey: formKey,
-                    )
-                  : const DaysCourseWidget(),
-            ],
-          )),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 15,
+                ),
+                CirclarImageWidget(image: widget.logo, radius: 50),
+                const SizedBox(
+                  height: 15,
+                ),
+                page == 0
+                    ? CourseNameDurationColumWidget(
+                        titleController: titleController,
+                        durationController: durationController,
+                        notesController: notesController,
+                        autovalidateMode: autovalidateMode,
+                        formKey: formKey,
+                      )
+                    : DaysCourseWidget(
+                        themeColor: widget.themeColor,
+                      ),
+              ],
+            ),
+          ),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Align(
