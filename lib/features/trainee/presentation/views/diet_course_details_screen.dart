@@ -57,7 +57,7 @@ class DietCourseDetailsScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  CirclarImageWidget(image: logo, radius: 50),
+                  if (logo != '') CirclarImageWidget(image: logo, radius: 50),
                   const SizedBox(
                     height: 15,
                   ),

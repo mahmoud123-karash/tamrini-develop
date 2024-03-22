@@ -80,6 +80,7 @@ class _ThemeCourseDialogWidgetState extends State<ThemeCourseDialogWidget> {
                   Expanded(
                     child: customButton(
                       onPressed: () {
+                        Navigator.pop(context);
                         cubit.changeCourseTheme(themeNum: themeNum);
                       },
                       lable: S.of(context).ok,

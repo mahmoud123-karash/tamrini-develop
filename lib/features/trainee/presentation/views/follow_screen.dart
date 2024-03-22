@@ -56,7 +56,7 @@ class FollowScreen extends StatelessWidget {
                     lable: S.of(context).add_new_follow,
                   ),
                 if (userType == UserType.trainer)
-                  CirclarImageWidget(image: logo, radius: 50),
+                  if (logo != '') CirclarImageWidget(image: logo, radius: 50),
                 const SizedBox(
                   height: 15,
                 ),

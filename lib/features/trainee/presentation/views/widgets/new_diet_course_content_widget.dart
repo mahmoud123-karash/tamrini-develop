@@ -42,7 +42,7 @@ class NewDietCourseContentWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Column(
           children: [
-            CirclarImageWidget(image: logo, radius: 50),
+            if (logo != '') CirclarImageWidget(image: logo, radius: 50),
             const SizedBox(
               height: 15,
             ),

@@ -64,7 +64,7 @@ class DietCourseScreen extends StatelessWidget {
                 height: 10,
               ),
               if (userType != UserType.trainer)
-                CirclarImageWidget(image: logo, radius: 50),
+                if (logo != '') CirclarImageWidget(image: logo, radius: 50),
               if (userType != UserType.trainer)
                 const SizedBox(
                   height: 15,

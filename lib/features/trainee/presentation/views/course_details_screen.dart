@@ -39,12 +39,13 @@ class CourseDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(
-                    child: CirclarImageWidget(
-                      image: logo,
-                      radius: 50,
+                  if (logo != '')
+                    Center(
+                      child: CirclarImageWidget(
+                        image: logo,
+                        radius: 50,
+                      ),
                     ),
-                  ),
                   const SizedBox(
                     height: 20,
                   ),

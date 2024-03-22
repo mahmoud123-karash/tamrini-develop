@@ -89,9 +89,10 @@ class _TraineeSupplementContentWidgetState
             height: 15,
           ),
         if (userType != UserType.trainer)
-          Center(
-            child: CirclarImageWidget(image: widget.logo, radius: 50),
-          ),
+          if (widget.logo != '')
+            Center(
+              child: CirclarImageWidget(image: widget.logo, radius: 50),
+            ),
         const SizedBox(
           height: 15,
         ),

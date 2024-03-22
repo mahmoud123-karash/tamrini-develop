@@ -76,7 +76,8 @@ class _NewFollowScreenState extends State<NewFollowScreen> {
                     ),
                     child: Column(
                       children: [
-                        CirclarImageWidget(image: widget.logo, radius: 50),
+                        if (widget.logo != '')
+                          CirclarImageWidget(image: widget.logo, radius: 50),
                         const SizedBox(
                           height: 15,
                         ),
