@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_cubit.dart';
+import 'package:tamrini/features/nav_bar/presentation/manager/navbar_cubit/navbar_cubit.dart';
 
 class CurvedNavBarWidget extends StatelessWidget {
   const CurvedNavBarWidget({super.key, required this.cubit});

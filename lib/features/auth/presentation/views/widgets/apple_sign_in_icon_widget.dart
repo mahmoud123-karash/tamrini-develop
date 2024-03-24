@@ -8,7 +8,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/auth/presentation/manager/apple_cubit/apple_cubit.dart';
 import 'package:tamrini/features/auth/presentation/manager/apple_cubit/apple_states.dart';
 import 'package:tamrini/features/auth/presentation/views/complete_sign_up_screen.dart';
-import 'package:tamrini/features/navBar/presentation/views/navbar_screen.dart';
+import 'package:tamrini/features/nav_bar/presentation/views/navbar_screen.dart';
 
 class SignInWithAppleIconWidget extends StatelessWidget {
   const SignInWithAppleIconWidget({super.key});

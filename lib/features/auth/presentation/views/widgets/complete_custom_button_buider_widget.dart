@@ -5,7 +5,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/auth/presentation/manager/complete_cubit/complete_cubit.dart';
 import 'package:tamrini/features/auth/presentation/manager/complete_cubit/complete_states.dart';
 import 'package:tamrini/features/auth/presentation/views/widgets/custom_button_widget.dart';
-import 'package:tamrini/features/navBar/presentation/views/navbar_screen.dart';
+import 'package:tamrini/features/nav_bar/presentation/views/navbar_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 
 class CompleteCustomBuilderWidget extends StatelessWidget {

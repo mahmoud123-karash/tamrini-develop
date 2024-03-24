@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/categories_screens/exercises_types_screen.dart';
 import 'package:tamrini/features/home/presentation/views/home_screen.dart';
-import 'package:tamrini/features/navBar/presentation/manager/navbar_cubit/navbar_states.dart';
+import 'package:tamrini/features/nav_bar/presentation/manager/navbar_cubit/navbar_states.dart';
 import 'package:tamrini/core/categories_screens/educate_your_self_screen.dart';
 import 'package:tamrini/features/store/presentation/views/stores_screen.dart';
 import 'package:tamrini/generated/l10n.dart';

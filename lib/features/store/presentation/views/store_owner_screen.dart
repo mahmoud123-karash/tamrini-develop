@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/gym/presentation/views/widgets/ban_gym_container_widget.dart';
-import 'package:tamrini/features/navBar/presentation/views/widgets/badge_order_icon_widget.dart';
+import 'package:tamrini/features/nav_bar/presentation/views/widgets/badge_order_icon_widget.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_cubit.dart';
 import 'package:tamrini/features/order/presentation/manager/order_cubit/order_states.dart';
 import 'package:tamrini/features/order/presentation/views/orders_screen.dart';

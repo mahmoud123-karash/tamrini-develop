@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
-import 'package:tamrini/features/navBar/presentation/views/widgets/drawer_list_tile_widget.dart';
+import 'package:tamrini/features/nav_bar/presentation/views/widgets/drawer_list_tile_widget.dart';
 import 'package:tamrini/features/store/data/models/store_model/store_model.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_cubit.dart';
 import 'package:tamrini/features/store/presentation/manager/store_cubit/store_states.dart';

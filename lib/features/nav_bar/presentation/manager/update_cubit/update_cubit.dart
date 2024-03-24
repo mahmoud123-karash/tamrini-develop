@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tamrini/features/navBar/domain/repo/navbar_repo.dart';
-import 'package:tamrini/features/navBar/presentation/manager/update_cubit/update_states.dart';
+import 'package:tamrini/features/nav_bar/domain/repo/navbar_repo.dart';
+import 'package:tamrini/features/nav_bar/presentation/manager/update_cubit/update_states.dart';
 
 class UpdateCubit extends Cubit<UpdateStates> {
   UpdateCubit(this.navBarRepo) : super(InitailUpdateState());

@@ -4,7 +4,7 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/styles/text_styles.dart';
-import 'package:tamrini/features/navBar/presentation/views/widgets/drawer_list_tile_widget.dart';
+import 'package:tamrini/features/nav_bar/presentation/views/widgets/drawer_list_tile_widget.dart';
 import 'package:tamrini/features/trainee/presentation/views/training_course_screen.dart';
 import 'package:tamrini/generated/l10n.dart';
 

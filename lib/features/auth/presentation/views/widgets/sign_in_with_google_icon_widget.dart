@@ -6,7 +6,7 @@ import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/auth/presentation/manager/google_cubit/google_cubit.dart';
 import 'package:tamrini/features/auth/presentation/manager/google_cubit/google_states.dart';
 import 'package:tamrini/features/auth/presentation/views/complete_sign_up_screen.dart';
-import 'package:tamrini/features/navBar/presentation/views/navbar_screen.dart';
+import 'package:tamrini/features/nav_bar/presentation/views/navbar_screen.dart';
 
 class SignInWithGoogleIconWidget extends StatelessWidget {
   const SignInWithGoogleIconWidget({super.key});
