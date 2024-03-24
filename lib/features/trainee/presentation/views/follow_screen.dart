@@ -46,12 +46,13 @@ class FollowScreen extends StatelessWidget {
                     fontSize: 15,
                     onPressed: () {
                       navigateTo(
-                          context,
-                          NewFollowScreen(
-                            logo: logo,
-                            questions: questions ?? [],
-                            model: model,
-                          ));
+                        context,
+                        NewFollowScreen(
+                          logo: logo,
+                          questions: questions ?? [],
+                          model: model,
+                        ),
+                      );
                     },
                     lable: S.of(context).add_new_follow,
                   ),
@@ -60,14 +61,14 @@ class FollowScreen extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                BlocBuilder<UserCourseCubit, UserCourseStates>(
-                  builder: (context, state) {
-                    if (userType == UserType.trainer) {
-                      return FollowUpListViewWidget(
-                        list: model.followUpList,
-                        themeColor: themeColor,
-                      );
-                    } else {
+                if (userType == UserType.trainer)
+                  FollowUpListViewWidget(
+                    list: model.followUpList,
+                    themeColor: themeColor,
+                  ),
+                if (userType != UserType.trainer)
+                  BlocBuilder<UserCourseCubit, UserCourseStates>(
+                    builder: (context, state) {
                       if (state is SuccessGetCourseState) {
                         return FollowUpListViewWidget(
                           list: state.model.followUpList,
@@ -83,9 +84,8 @@ class FollowScreen extends StatelessWidget {
                       } else {
                         return const CircularProgressIndicator();
                       }
-                    }
-                  },
-                ),
+                    },
+                  ),
               ],
             ),
           ),

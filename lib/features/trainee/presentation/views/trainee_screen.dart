@@ -141,11 +141,12 @@ class TraineeScreen extends StatelessWidget {
                   icon: Icons.follow_the_signs_rounded,
                   onTap: () {
                     navigateTo(
-                        context,
-                        FollowScreen(
-                          model: model,
-                          logo: logo,
-                        ));
+                      context,
+                      FollowScreen(
+                        model: model,
+                        logo: logo,
+                      ),
+                    );
                   },
                 ),
                 const SizedBox(
