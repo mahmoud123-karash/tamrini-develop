@@ -1,10 +1,7 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:tamrini/core/contants/constants.dart';
-import 'package:tamrini/core/services/show_dialog.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/data/models/question_model/question_model.dart';
 import 'package:tamrini/features/questions/presentation/manager/answer_cubit/answer_cubit.dart';
@@ -12,8 +9,11 @@ import 'package:tamrini/features/questions/presentation/manager/answer_cubit/ans
 import 'package:tamrini/generated/l10n.dart';
 
 class WriteAnswerWidget extends StatefulWidget {
-  const WriteAnswerWidget(
-      {super.key, required this.model, required this.token});
+  const WriteAnswerWidget({
+    super.key,
+    required this.model,
+    required this.token,
+  });
   final QuestionModel model;
   final String token;
 
@@ -34,15 +34,8 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
   Widget build(BuildContext context) {
     return BlocConsumer<AnswerCubit, AnswerStates>(
       listener: (context, state) {
-        if (state is SucessUpdateAnswerState) {
-          controller.clear();
-          Navigator.pop(context);
-        }
         if (state is ErrorUpdateAnswerState) {
           showSnackBar(context, state.message);
-        }
-        if (state is LoadingAnswerState) {
-          showLoaderDialog(context);
         }
       },
       builder: (context, state) => Container(
@@ -65,6 +58,7 @@ class _WriteAnswerWidgetState extends State<WriteAnswerWidget> {
                         );
                         setState(() {});
                       }
+                      controller.clear();
                     } else {
                       showSnackBar(context, S.of(context).comment_error);
                     }

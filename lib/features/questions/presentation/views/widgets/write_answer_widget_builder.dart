@@ -9,9 +9,11 @@ class WriteAnswerWidgetBuilder extends StatefulWidget {
     super.key,
     required this.model,
     required this.token,
+    required this.scrolController,
   });
   final QuestionModel model;
   final String token;
+  final ScrollController scrolController;
 
   @override
   State<WriteAnswerWidgetBuilder> createState() =>
@@ -30,7 +32,10 @@ class _WriteAnswerWidgetBuilderState extends State<WriteAnswerWidgetBuilder> {
             if (state.model.isBanned) {
               return Container();
             }
-            return WriteAnswerWidget(model: widget.model, token: widget.token);
+            return WriteAnswerWidget(
+              model: widget.model,
+              token: widget.token,
+            );
           } else {
             return Container();
           }

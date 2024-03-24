@@ -20,6 +20,7 @@ class AnswersScreen extends StatefulWidget {
 }
 
 class _AnswersScreenState extends State<AnswersScreen> {
+  ScrollController scrolController = ScrollController();
   @override
   Widget build(BuildContext context) {
     String uid = CacheHelper.getData(key: 'uid') ?? '';
@@ -67,6 +68,7 @@ class _AnswersScreenState extends State<AnswersScreen> {
                         child: AnswersDetailsContentWidget(
                           user: widget.model,
                           model: question,
+                          scrolController: scrolController,
                         ),
                       ),
                       if (uid != '')
@@ -75,6 +77,7 @@ class _AnswersScreenState extends State<AnswersScreen> {
                           child: WriteAnswerWidgetBuilder(
                             model: question,
                             token: widget.model.token,
+                            scrolController: scrolController,
                           ),
                         ),
                     ],

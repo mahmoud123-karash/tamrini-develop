@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_cubit.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_states.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/core/utils/user_type.dart';
@@ -70,26 +73,55 @@ class AnswerItemWidgt extends StatelessWidget {
           ),
           const Spacer(),
           if (model.userUid == uid || question.askerUid == uid)
-            InkWell(
-              borderRadius: BorderRadius.circular(5),
-              onTap: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  context: context,
-                  builder: (context) {
-                    return AnswerOptionsBottomSheetWidget(
+            BlocProvider(
+              create: (context) => UserCubit()..getUser(uid: uid),
+              child: BlocBuilder<UserCubit, UserStates>(
+                builder: (context, state) {
+                  if (state is SucessGetUserState) {
+                    if (state.model.isBanned) {
+                      return Container();
+                    }
+                    return AnswerOptionsWidget(
                       model: model,
                       question: question,
                     );
-                  },
-                );
-              },
-              child: const Icon(
-                Icons.more_vert_sharp,
-                size: 18,
+                  } else {
+                    return Container();
+                  }
+                },
               ),
             )
         ],
+      ),
+    );
+  }
+}
+
+class AnswerOptionsWidget extends StatelessWidget {
+  const AnswerOptionsWidget(
+      {super.key, required this.model, required this.question});
+  final AnswerModel model;
+  final QuestionModel question;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(5),
+      onTap: () {
+        showModalBottomSheet(
+          isScrollControlled: true,
+          context: context,
+          builder: (context) {
+            return AnswerOptionsBottomSheetWidget(
+              model: model,
+              question: question,
+            );
+          },
+        );
+      },
+      child: const Icon(
+        Icons.more_vert_sharp,
+        size: 18,
       ),
     );
   }

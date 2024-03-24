@@ -1,7 +1,8 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_cubit.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_states.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
@@ -28,6 +29,8 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String userType = CacheHelper.getData(key: 'usertype') ?? '';
+    String cachedUid = CacheHelper.getData(key: 'uid') ?? '';
     return Row(
       children: [
         GestureDetector(
@@ -36,7 +39,7 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
             if (model.askerUid == uid) {
               navigateTo(context, const ProfileScreen());
             } else {
-              if (user.role == 'admin') {
+              if (user.role == UserType.admin) {
                 showSnackBar(context, S.of(context).admin_hint);
               } else {
                 if (user.role == UserType.trainer) {
@@ -63,26 +66,65 @@ class QuestionOwnerNameImageTypeWidget extends StatelessWidget {
           role: user.role,
         ),
         const Spacer(),
-        if (user.uid == CacheHelper.getData(key: 'uid') ||
-            CacheHelper.getData(key: 'usertype') == UserType.admin)
-          InkWell(
-            borderRadius: BorderRadius.circular(5),
-            onTap: () {
-              showModalBottomSheet(
-                useRootNavigator: true,
-                context: context,
-                builder: (context) => OptionsBottomSheetWidget(
-                  model: model,
-                  isAdmin:
-                      CacheHelper.getData(key: 'usertype') == UserType.admin,
-                  isDetails: isDetails,
-                  token: user.token,
-                ),
-              );
-            },
-            child: const Icon(Icons.more_vert_sharp),
+        if (user.uid == cachedUid && userType != UserType.admin)
+          BlocProvider(
+            create: (context) => UserCubit()..getUser(uid: cachedUid),
+            child: BlocBuilder<UserCubit, UserStates>(
+              builder: (context, state) {
+                if (state is SucessGetUserState) {
+                  if (state.model.isBanned) {
+                    return Container();
+                  } else {
+                    return QuestionOptionWidget(
+                      user: user,
+                      model: model,
+                      isDetails: isDetails,
+                    );
+                  }
+                } else {
+                  return Container();
+                }
+              },
+            ),
+          ),
+        if (userType == UserType.admin)
+          QuestionOptionWidget(
+            user: user,
+            model: model,
+            isDetails: isDetails,
           ),
       ],
+    );
+  }
+}
+
+class QuestionOptionWidget extends StatelessWidget {
+  const QuestionOptionWidget({
+    super.key,
+    required this.user,
+    required this.model,
+    required this.isDetails,
+  });
+  final UserModel user;
+  final QuestionModel model;
+  final bool isDetails;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(5),
+      onTap: () {
+        showModalBottomSheet(
+          useRootNavigator: true,
+          context: context,
+          builder: (context) => OptionsBottomSheetWidget(
+            model: model,
+            isAdmin: CacheHelper.getData(key: 'usertype') == UserType.admin,
+            isDetails: isDetails,
+            token: user.token,
+          ),
+        );
+      },
+      child: const Icon(Icons.more_vert_sharp),
     );
   }
 }

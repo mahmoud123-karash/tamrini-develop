@@ -11,9 +11,11 @@ class AnswersDetailsContentWidget extends StatefulWidget {
     super.key,
     required this.model,
     required this.user,
+    required this.scrolController,
   });
   final QuestionModel model;
   final UserModel user;
+  final ScrollController scrolController;
 
   @override
   State<AnswersDetailsContentWidget> createState() =>
@@ -22,36 +24,9 @@ class AnswersDetailsContentWidget extends StatefulWidget {
 
 class _AnswersDetailsContentWidgetState
     extends State<AnswersDetailsContentWidget> {
-  ScrollController scrollController = ScrollController();
-
-  int length = 10;
-
-  @override
-  void initState() {
-    super.initState();
-    scrollController.addListener(loadMoreData);
-  }
-
-  void loadMoreData() {
-    if (scrollController.position.pixels ==
-        scrollController.position.maxScrollExtent) {
-      if (widget.model.answers.length > length) {
-        length += 10;
-        WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      controller: scrollController,
       child: Column(
         children: [
           if (widget.model.isBanned)
@@ -71,7 +46,10 @@ class _AnswersDetailsContentWidgetState
             date: widget.model.date,
             model: widget.model,
           ),
-          AnswerslistViewWidget(question: widget.model, length: length),
+          AnswerslistViewWidget(
+            question: widget.model,
+            scrolController: widget.scrolController,
+          ),
         ],
       ),
     );
