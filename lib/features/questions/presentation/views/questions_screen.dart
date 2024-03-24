@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_cubit.dart';
+import 'package:tamrini/core/cubit/user_cubit/user_states.dart';
 import 'package:tamrini/core/services/services.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/presentation/manager/question_cubit/question_cubit.dart';
@@ -26,20 +29,35 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       appBar: myAppBar(
         S.of(context).questtion,
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: appColor,
-        onPressed: () async {
-          if (uid != '') {
-            await showModalBottomSheet(
-              isScrollControlled: true,
-              context: context,
-              builder: (context) => const AddQuestionBottomSheetWidget(),
-            );
-          } else {
-            showWaringLoginDialog(context);
-          }
-        },
-        child: const Icon(Ionicons.add_sharp),
+      floatingActionButton: BlocProvider(
+        create: (context) => UserCubit()..getUser(uid: uid),
+        child: BlocBuilder<UserCubit, UserStates>(
+          builder: (context, state) {
+            if (state is SucessGetUserState) {
+              if (state.model.isBanned) {
+                return Container();
+              }
+              return FloatingActionButton(
+                backgroundColor: appColor,
+                onPressed: () async {
+                  if (uid != '') {
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (context) =>
+                          const AddQuestionBottomSheetWidget(),
+                    );
+                  } else {
+                    showWaringLoginDialog(context);
+                  }
+                },
+                child: const Icon(Ionicons.add_sharp),
+              );
+            } else {
+              return Container();
+            }
+          },
+        ),
       ),
       body: RefreshIndicator(
         onRefresh: () async {

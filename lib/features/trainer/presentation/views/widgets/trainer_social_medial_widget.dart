@@ -22,11 +22,9 @@ class TrainerSocialMediaWidget extends StatelessWidget {
               if (user.whatsApp == '') {
                 showSnackBar(context, S.of(context).tranier_hint_social);
               } else {
-                Uri uri = Uri(
-                  scheme: 'sms',
-                  path: user.whatsApp,
+                openUri(
+                  url: Uri.parse("https://wa.me/${user.whatsApp}"),
                 );
-                openUri(url: uri);
               }
             },
             child: const Icon(

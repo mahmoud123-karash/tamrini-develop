@@ -8,11 +8,27 @@ class UserCubit extends Cubit<UserStates> {
 
   static UserCubit get(context) => BlocProvider.of(context);
 
+  var fireStore = FirebaseFirestore.instance.collection('users');
   void getUser({required String uid}) async {
     emit(LoadingGetUserState());
     try {
-      var result =
-          await FirebaseFirestore.instance.collection('users').doc(uid).get();
+      var result = await fireStore.doc(uid).get();
+      UserModel model = UserModel.fromMap(result.data()!, result.id);
+      if (!isClosed) {
+        emit(SucessGetUserState(model));
+      }
+    } catch (e) {
+      emit(ErrorGetUserState(e.toString()));
+    }
+  }
+
+  void banUser({required String uid, required bool isBanned}) async {
+    emit(LoadingGetUserState());
+    try {
+      fireStore.doc(uid).update({
+        "isBanned": isBanned,
+      });
+      var result = await fireStore.doc(uid).get();
       UserModel model = UserModel.fromMap(result.data()!, result.id);
       if (!isClosed) {
         emit(SucessGetUserState(model));

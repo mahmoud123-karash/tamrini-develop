@@ -5,10 +5,10 @@ import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
 import 'package:tamrini/features/questions/presentation/views/widgets/answers_details_content_widget.dart';
-import 'package:tamrini/features/questions/presentation/views/widgets/write_answer_widget.dart';
 import 'package:tamrini/generated/l10n.dart';
 import '../../data/models/question_model/question_model.dart';
 import 'widgets/message_question_builder_widget.dart';
+import 'widgets/write_answer_widget_builder.dart';
 
 class AnswersScreen extends StatefulWidget {
   const AnswersScreen({super.key, required this.model, required this.uid});
@@ -72,7 +72,7 @@ class _AnswersScreenState extends State<AnswersScreen> {
                       if (uid != '')
                         Align(
                           alignment: Alignment.bottomCenter,
-                          child: WriteAnswerWidget(
+                          child: WriteAnswerWidgetBuilder(
                             model: question,
                             token: widget.model.token,
                           ),

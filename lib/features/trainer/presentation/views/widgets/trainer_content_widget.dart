@@ -68,6 +68,7 @@ class TrainerContentWidget extends StatelessWidget {
             address: trainer.user!.address,
             name: trainer.user!.name,
             image: trainer.user!.image,
+            uid: trainer.user!.uid,
           ),
           const Divider(
             height: 50,

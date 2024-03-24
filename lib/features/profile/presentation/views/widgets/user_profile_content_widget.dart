@@ -26,6 +26,8 @@ class UserProfileContentWidget extends StatelessWidget {
             vertical: 20,
           ),
           child: ProfileImageNameTypeWidget(
+            isProfile: false,
+            uid: model.uid,
             name: model.name,
             image: model.image,
             role: model.role,

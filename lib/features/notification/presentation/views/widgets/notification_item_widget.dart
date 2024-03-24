@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tamrini/core/cache/save_data.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/contants/constants.dart';
 import 'package:tamrini/core/services/services.dart';
@@ -128,7 +127,6 @@ class NotificationItemWidget extends StatelessWidget {
 
       if (model.subType == 'promotion_accept') {
         if (type == UserType.user) {
-          saveUserType(model.body);
           showDialog(
             context: context,
             builder: (context) => PromotionDialogWidget(type: model.body),
@@ -138,6 +136,7 @@ class NotificationItemWidget extends StatelessWidget {
       if (model.subType == UserType.trainer) {
         navigateTo(context, TrainerProfileScreen(id: model.uid));
       }
+
       if (model.subType == 'trainee' || model.subType == 'renew_trainee') {
         List<TrainerModel> list = TrainersCubit.get(context)
             .trainers
@@ -162,7 +161,7 @@ class NotificationItemWidget extends StatelessWidget {
       if (model.subType == 'new_order') {
         navigateTo(context, const OrdersScreen(isUser: false));
       }
-      
+
       if (model.subType == 'follow') {
         List<TrainerModel> list = TrainersCubit.get(context)
             .trainers

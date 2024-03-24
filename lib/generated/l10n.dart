@@ -5579,6 +5579,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Successfully ban this user`
+  String get ban_user_success {
+    return Intl.message(
+      'Successfully ban this user',
+      name: 'ban_user_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successfully unban this user`
+  String get no_ban_user_success {
+    return Intl.message(
+      'Successfully unban this user',
+      name: 'no_ban_user_success',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

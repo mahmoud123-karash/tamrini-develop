@@ -551,7 +551,9 @@
     "re_auth_account": "Please log in again to confirm the account",
     "logo_image":"Logo image",
     "new_order":"new order waiting",
-    "choose_your_theme":"Choose your Theme"
+    "choose_your_theme":"Choose your Theme",
+    "ban_user_success":"Successfully ban this user",
+    "no_ban_user_success":"Successfully unban this user"
 
 
 

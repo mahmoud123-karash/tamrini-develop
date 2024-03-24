@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:tamrini/core/utils/improts.dart';
-import 'package:tamrini/features/order/presentation/views/orders_screen.dart';
 import 'package:tamrini/features/profits/presentation/views/profits_requests_screen.dart';
 import 'package:tamrini/features/trainer/data/models/trainer_model/trainer_model.dart';
 
@@ -21,8 +20,6 @@ void onMessage({
         OrderCubit.get(context).getData();
       }
       if (message.data['subType'] == 'promotion_accept') {
-        log(message.data['promotionType']);
-        saveUserType(message.data['promotionType'] ?? '');
         if (message.data['promotionType'] == UserType.trainer) {
           TrainersCubit.get(context).getData();
         }
@@ -57,26 +54,21 @@ void onMessage({
           StoreCubit.get(context).getData();
         }
       }
-      if (message.data['subType'] != 'message') {
-        AwesomeNotifications().createNotification(
-          content: NotificationContent(
-            id: message.notification.hashCode,
-            channelKey: 'basic_channel',
-            actionType: ActionType.Default,
-            title: message.notification!.title,
-            body: message.notification!.body,
-          ),
-        );
-      }
+
+      AwesomeNotifications().createNotification(
+        content: NotificationContent(
+          id: message.notification.hashCode,
+          channelKey: 'basic_channel',
+          actionType: ActionType.Default,
+          title: message.notification!.title,
+          body: message.notification!.body,
+        ),
+      );
     },
   );
 }
 
 Future<void> onBackgroundMessageHandler(RemoteMessage message) async {
-  if (message.data['subType'] == 'promotion_accept') {
-    await CacheHelper.init();
-    saveUserType(message.data['promotionType'] ?? '');
-  }
   log('onBackgroundMessage');
 }
 

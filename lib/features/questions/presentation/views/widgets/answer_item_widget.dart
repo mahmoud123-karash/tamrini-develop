@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:tamrini/core/cache/shared_preference.dart';
 import 'package:tamrini/core/models/user_model/user_model.dart';
 import 'package:tamrini/core/shared/components.dart';
+import 'package:tamrini/core/utils/user_type.dart';
 import 'package:tamrini/core/widgets/circlar_image_widget.dart';
 import 'package:tamrini/features/profile/presentation/views/profile_screen.dart';
 import 'package:tamrini/features/profile/presentation/views/user_profile_screen.dart';
@@ -40,10 +41,10 @@ class AnswerItemWidgt extends StatelessWidget {
               if (model.userUid == uid) {
                 navigateTo(context, const ProfileScreen());
               } else {
-                if (user.role == 'admin') {
+                if (user.role == UserType.admin) {
                   showSnackBar(context, S.of(context).admin_hint);
                 } else {
-                  if (user.role == 'trainer') {
+                  if (user.role == UserType.trainer) {
                     navigateTo(
                         context, TrainerProfileScreen(id: model.userUid));
                   } else {

@@ -22,6 +22,8 @@ class ProfileContentSliverBoxWidget extends StatelessWidget {
           height: 10,
         ),
         ProfileImageNameTypeWidget(
+          isProfile: true,
+          uid: '',
           name: model.name,
           image: model.image,
           role: CacheHelper.getData(key: 'usertype') ?? '',

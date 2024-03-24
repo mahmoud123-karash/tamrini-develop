@@ -9,8 +9,9 @@ class TrainerNameLoactionImageWidget extends StatelessWidget {
     required this.address,
     required this.name,
     required this.image,
+    required this.uid,
   });
-  final String address, name, image;
+  final String address, name, image, uid;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class TrainerNameLoactionImageWidget extends StatelessWidget {
           NameLocationTrainerWidget(
             name: name,
             address: address,
+            uid: uid,
           )
         ],
       ),
