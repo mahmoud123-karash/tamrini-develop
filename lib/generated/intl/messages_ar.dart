@@ -142,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تقيييد المقال الخاص بك"),
         "ban_title_trainer": MessageLookupByLibrary.simpleMessage(
             "عزيزي المدرب، نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة"),
+        "ban_title_user": MessageLookupByLibrary.simpleMessage(
+            "عزيزي المستخدم نأسف لإبلاغك بأن حسابك قد تم حظره من قبل المدير. إذا كان لديك أي أسئلة أو استفسارات، يرجى التواصل مع فريق الدعم الخاص بنا للحصول على المساعدة اللازمة"),
         "ban_trainer_question":
             MessageLookupByLibrary.simpleMessage("هل تريد حظر هذا المدرب ؟"),
         "ban_user_success":
@@ -435,6 +437,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم رفع التقييد عن المقال الخاص بك"),
         "no_ban_title_trainer": MessageLookupByLibrary.simpleMessage(
             "عزيزي المدرب، تم  رفع الحظر من قبل المدير."),
+        "no_ban_title_user": MessageLookupByLibrary.simpleMessage(
+            "عزيزي المستخدم، تم  رفع الحظر من قبل المدير."),
         "no_ban_trainer_question": MessageLookupByLibrary.simpleMessage(
             "هل تريد رفع الحظر عن هذا المدرب ؟"),
         "no_ban_user_success": MessageLookupByLibrary.simpleMessage(

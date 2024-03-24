@@ -143,6 +143,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your article has been banned"),
         "ban_title_trainer": MessageLookupByLibrary.simpleMessage(
             "Dear trainer, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance."),
+        "ban_title_user": MessageLookupByLibrary.simpleMessage(
+            "Dear user, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance."),
         "ban_trainer_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to ban this trainer ?"),
         "ban_user_success":
@@ -442,6 +444,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "The ban on your article has been lifted"),
         "no_ban_title_trainer": MessageLookupByLibrary.simpleMessage(
             "Dear trainer, your ban has been lifted by the administrator."),
+        "no_ban_title_user": MessageLookupByLibrary.simpleMessage(
+            "Dear user, your ban has been lifted by the administrator."),
         "no_ban_trainer_question": MessageLookupByLibrary.simpleMessage(
             "Do you want to unban this trainer ?"),
         "no_ban_user_success": MessageLookupByLibrary.simpleMessage(

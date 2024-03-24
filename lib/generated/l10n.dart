@@ -4350,6 +4350,26 @@ class S {
     );
   }
 
+  /// `Dear user, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance.`
+  String get ban_title_user {
+    return Intl.message(
+      'Dear user, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance.',
+      name: 'ban_title_user',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dear user, your ban has been lifted by the administrator.`
+  String get no_ban_title_user {
+    return Intl.message(
+      'Dear user, your ban has been lifted by the administrator.',
+      name: 'no_ban_title_user',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `This trainer has been banned !`
   String get ban_hint_admin {
     return Intl.message(

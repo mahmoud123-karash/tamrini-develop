@@ -17,6 +17,7 @@ import 'package:tamrini/features/profile/presentation/views/user_profile_screen.
 import 'package:tamrini/features/profits/presentation/views/profits_requests_screen.dart';
 import 'package:tamrini/features/promotion/presentation/views/promotion_screen.dart';
 import 'package:tamrini/features/questions/presentation/views/answers_screen.dart';
+import 'package:tamrini/features/settings/presentation/views/contact_us_screen.dart';
 import 'package:tamrini/features/store/presentation/views/store_owner_screen.dart';
 import 'package:tamrini/features/trainee/data/models/trainee_model/trainee_model.dart';
 import 'package:tamrini/features/trainee/presentation/manager/trainee_cubit/trainee_cubit.dart';
@@ -133,6 +134,10 @@ class NotificationItemWidget extends StatelessWidget {
           );
         }
       }
+
+      if (model.subType == 'ban_user') {
+        navigateTo(context, const ContactUsScreen());
+      }
       if (model.subType == UserType.trainer) {
         navigateTo(context, TrainerProfileScreen(id: model.uid));
       }
@@ -152,6 +157,7 @@ class NotificationItemWidget extends StatelessWidget {
                   user: model.user, model: trainee, logo: trainer.logo));
         }
       }
+
       if (model.subType == 'course') {
         if (trainerId == model.user.uid) {
           navigateTo(context, const TrainingCourseScreen());

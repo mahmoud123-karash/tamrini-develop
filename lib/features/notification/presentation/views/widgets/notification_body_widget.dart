@@ -84,6 +84,12 @@ class NotificationBodyWidget extends StatelessWidget {
       case 'no_ban_trainer':
         result = S.of(context).no_ban_title_trainer;
         break;
+      case 'ban_user':
+        result = S.of(context).ban_title_user;
+        break;
+      case 'no_ban_user':
+        result = S.of(context).no_ban_title_user;
+        break;
       case 'new_trainee':
         result = S.of(context).new_trainee_joined;
         break;

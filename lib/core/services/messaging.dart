@@ -161,6 +161,10 @@ void openNotification(RemoteMessage event, BuildContext context) {
       navigateTo(context, const ProfitsRequestScreen());
     }
 
+    if (event.data['subType'] == 'ban_user') {
+      navigateTo(context, const NotificationScreen());
+    }
+
     if (event.data['subType'] == 'accept_profits') {
       if (event.data['user_role'] == UserType.trainer) {
         navigateTo(context, TrainerProfileScreen(id: event.data['uid']));

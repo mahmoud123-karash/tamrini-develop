@@ -429,6 +429,8 @@
     "no_ban_trainer_question": "Do you want to unban this trainer ?",
     "ban_title_trainer": "Dear trainer, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance.",
     "no_ban_title_trainer": "Dear trainer, your ban has been lifted by the administrator.",
+    "ban_title_user": "Dear user, we regret to inform you that your account has been banned by the administrator. If you have any questions or concerns, please contact our support team for assistance.",
+    "no_ban_title_user": "Dear user, your ban has been lifted by the administrator.",
     "ban_hint_admin": "This trainer has been banned !",
     "banned_trainers": "Banned Trainers",
     "you_sub_with_trainer": "You are already subscribed to this trainer.",

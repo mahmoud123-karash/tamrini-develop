@@ -2,6 +2,7 @@ import 'package:tamrini/core/utils/improts.dart';
 import 'package:tamrini/features/auth/domain/use_cases/apple_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/domain/use_cases/google_sign_in_use_case.dart';
 import 'package:tamrini/features/auth/domain/use_cases/register_use_case.dart';
+import 'package:tamrini/features/questions/domain/use_cases/ban_user_case.dart';
 import 'package:tamrini/features/questions/domain/use_cases/write_answer_use_case.dart';
 import '../../features/auth/data/repo/login_repo_impl.dart';
 import '../../features/payment/domain/use_cases/create_transaction_id_use_case.dart';
@@ -215,6 +216,12 @@ void setLocator() {
       LoginRepoImpl(
         UserRemoteDataSourceImpl(),
       ),
+    ),
+  );
+
+  getIt.registerSingleton(
+    BanUserUseCase(
+      getIt.get<DioHelper>(),
     ),
   );
 }

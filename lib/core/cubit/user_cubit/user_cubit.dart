@@ -21,20 +21,4 @@ class UserCubit extends Cubit<UserStates> {
       emit(ErrorGetUserState(e.toString()));
     }
   }
-
-  void banUser({required String uid, required bool isBanned}) async {
-    emit(LoadingGetUserState());
-    try {
-      fireStore.doc(uid).update({
-        "isBanned": isBanned,
-      });
-      var result = await fireStore.doc(uid).get();
-      UserModel model = UserModel.fromMap(result.data()!, result.id);
-      if (!isClosed) {
-        emit(SucessGetUserState(model));
-      }
-    } catch (e) {
-      emit(ErrorGetUserState(e.toString()));
-    }
-  }
 }
