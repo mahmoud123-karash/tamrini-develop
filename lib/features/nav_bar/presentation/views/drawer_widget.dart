@@ -66,7 +66,8 @@ class MyDrawer extends StatelessWidget {
               icon: Ionicons.person_outline,
               lable: S.of(context).profile,
             ),
-            if (usertype == UserType.user) const TrainingCourseListTileWidget(),
+            if (usertype != UserType.admin && usertype != UserType.trainer)
+              const TrainingCourseListTileWidget(),
             if (usertype == UserType.trainer) const TrainerWidget(),
             if (usertype == UserType.admin) const AdminListTileWidget(),
             if (usertype == UserType.admin || usertype == UserType.storeOwner)

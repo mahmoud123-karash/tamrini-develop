@@ -55,15 +55,17 @@ void onMessage({
         }
       }
 
-      AwesomeNotifications().createNotification(
-        content: NotificationContent(
-          id: message.notification.hashCode,
-          channelKey: 'basic_channel',
-          actionType: ActionType.Default,
-          title: message.notification!.title,
-          body: message.notification!.body,
-        ),
-      );
+      if (message.data['subType'] != 'message') {
+        AwesomeNotifications().createNotification(
+          content: NotificationContent(
+            id: message.notification.hashCode,
+            channelKey: 'basic_channel',
+            actionType: ActionType.Default,
+            title: message.notification!.title,
+            body: message.notification!.body,
+          ),
+        );
+      }
     },
   );
 }
